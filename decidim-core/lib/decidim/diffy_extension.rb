@@ -10,8 +10,65 @@ module Decidim
       TAGS = (UserInputScrubber.new.tags.to_a - %w(del ins)).freeze
 
       def to_s
-        str = wrap_lines(@diff.map { |line| wrap_line(line) })
+        if @options[:highlight_words]
+          str = wrap_lines(highlighted_words)
+        else
+          str = wrap_lines(@diff.map { |line| wrap_line(line) })
+        end
+
         ActionView::Base.new.sanitize(str, tags: TAGS)
+      end
+
+      def highlighted_words
+        chunks = @diff.each_chunk.
+          reject{|c| c == '\ No newline at end of file'"\n"}
+
+        processed = []
+        lines = chunks.each_with_index.map do |chunk1, index|
+          next if processed.include? index
+          processed << index
+          chunk1 = chunk1
+          chunk2 = chunks[index + 1]
+          if not chunk2
+            next chunk1
+          end
+
+          dir1 = chunk1.each_char.first
+          dir2 = chunk2.each_char.first
+          case [dir1, dir2]
+          when ['-', '+']
+            if chunk1.each_char.take(3).join("") =~ /^(---|\+\+\+|\\\\)/ and
+                chunk2.each_char.take(3).join("") =~ /^(---|\+\+\+|\\\\)/
+              chunk1
+            else
+              line_diff = Diffy::Diff.new(
+                                          split_characters(chunk1),
+                                          split_characters(chunk2),
+                                          Diffy::Diff::ORIGINAL_DEFAULT_OPTIONS
+                                          )
+              hi1 = reconstruct_characters(line_diff, '-')
+              hi2 = reconstruct_characters(line_diff, '+')
+              processed << (index + 1)
+              [hi1, hi2]
+            end
+          else
+            chunk1
+          end
+        end.flatten
+        lines.map{|line| line.each_line.map(&:chomp).to_a if line }.flatten.compact.
+          map{|line|wrap_line(line) }.compact
+      end
+
+      def split_characters(chunk)
+        chunk.gsub(/^./, '').each_line.map do |line|
+          if @options[:ignore_crlf]
+            (line.chomp.split('') + ['\n']).map{|chr| chr }
+          else
+            chars = line.sub(/([\r\n]$)/, '').split('')
+            # add escaped newlines
+            chars << '\n'
+          end
+        end.flatten.join("\n") + "\n"
       end
     end
 
@@ -19,7 +76,7 @@ module Decidim
     # `:unescaped_html` option when calling Diffy::Diff#to_s.
     Diffy::Format.module_eval do
       def unescaped_html
-        UnescapedHtmlFormatter.new(self, options).to_s
+        UnescapedHtmlFormatter.new(self, options.merge(:highlight_words => true)).to_s
       end
     end
 

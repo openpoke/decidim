@@ -28,12 +28,12 @@
     text-decoration: none;
   }
 
-  del strong{
+  .del strong{
     font-weight: normal;
     background: scale-color($color-removal, $lightness: -8%);
   }
 
-  ins strong{
+  .ins strong{
     font-weight: normal;
     background: scale-color($color-addition, $lightness: -8%);
   }

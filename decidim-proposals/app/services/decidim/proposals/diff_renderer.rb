@@ -60,7 +60,7 @@ module Decidim
       # Returns a String with the newline escape sequences normalized.
       def normalize_line_endings(value)
         if value.is_a?(Hash)
-          value.values.map { |subvalue| normalize_line_endings(subvalue) }
+          value.transform_values! { |subvalue| normalize_line_endings(subvalue) }
         else
           Decidim::ContentParsers::NewlineParser.new(value, context: {}).rewrite
         end
