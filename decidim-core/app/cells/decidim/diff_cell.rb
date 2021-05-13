@@ -68,8 +68,9 @@ module Decidim
       locales = { I18n.locale.to_s => true }
 
       locales.merge!(data[:old_value].transform_values(&:present?)) if data[:old_value].is_a?(Hash)
-
       locales.merge!(data[:new_value].transform_values(&:present?)) if data[:new_value].is_a?(Hash)
+
+      locales
     end
 
     # Outputs the diff as HTML with inline highlighting of the character
