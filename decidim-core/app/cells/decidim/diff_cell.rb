@@ -6,6 +6,7 @@ module Decidim
   # This cell renders the diff between `:old_data` and `:new_data`.
   class DiffCell < Decidim::ViewModel
     include Cell::ViewModel::Partial
+    include LanguageChooserHelper
     include LayoutHelper
 
     def attribute(data)
@@ -63,14 +64,22 @@ module Decidim
       diff_renderer.diff.values
     end
 
+    def available_locales_for(data)
+      locales = { I18n.locale.to_s => true }
+
+      locales.merge!(data[:old_value].transform_values(&:present?)) if data[:old_value].is_a?(Hash)
+
+      locales.merge!(data[:new_value].transform_values(&:present?)) if data[:new_value].is_a?(Hash)
+    end
+
     # Outputs the diff as HTML with inline highlighting of the character
     # changes between lines.
     #
     # Returns an HTML-safe string.
-    def output_unified_diff(data, format)
+    def output_unified_diff(data, format, locale)
       Diffy::Diff.new(
-        data[:old_value]["en"].to_s,
-        data[:new_value]["en"].to_s,
+        value_from_locale(data[:old_value], locale).to_s,
+        value_from_locale(data[:new_value], locale).to_s,
         allow_empty_diff: false,
         include_plus_and_minus_in_html: true
       ).to_s(format)
@@ -81,14 +90,20 @@ module Decidim
     # The left side represents deletions while the right side represents insertions.
     #
     # Returns an HTML-safe string.
-    def output_split_diff(data, direction, format)
+    def output_split_diff(data, direction, format, locale)
       Diffy::SplitDiff.new(
-        data[:old_value]["en"].to_s,
-        data[:new_value]["en"].to_s,
+        value_from_locale(data[:old_value], locale).to_s,
+        value_from_locale(data[:new_value], locale).to_s,
         allow_empty_diff: false,
         format: format,
         include_plus_and_minus_in_html: true
       ).send(direction)
+    end
+
+    def value_from_locale(value, locale)
+      return value unless value.is_a? Hash
+
+      value[locale]
     end
 
     # Gives the option to view HTML unescaped for better user experience.

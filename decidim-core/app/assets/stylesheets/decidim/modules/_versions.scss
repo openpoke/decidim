@@ -30,12 +30,12 @@
 
   .del strong{
     font-weight: normal;
-    background: scale-color($color-removal, $lightness: -8%);
+    background: scale-color($color-removal, $lightness: -10%);
   }
 
   .ins strong{
     font-weight: normal;
-    background: scale-color($color-addition, $lightness: -8%);
+    background: scale-color($color-addition, $lightness: -10%);
   }
 
   li{
@@ -54,12 +54,12 @@
     }
 
     &.ins{
-      background: $color-addition;
+      background: scale-color($color-addition, $lightness: 30%, $saturation: 30%);
       color: scale-color($color-addition, $lightness: -75%, $saturation: -75%);
     }
 
     &.del{
-      background: $color-removal;
+      background: scale-color($color-removal, $lightness: 30%, $saturation: 30%);
       color: scale-color($color-removal, $lightness: -75%, $saturation: -75%);
     }
 
