@@ -70,7 +70,7 @@ module Decidim
       def split_characters(chunk)
         chunk.gsub(/^./, "").each_line.map do |line|
           if @options[:ignore_crlf]
-            (line.chomp.split("") + ['\n']).map { |chr| chr }
+            (line.chomp.split("") + ['\n'])
           else
             chars = line.sub(/([\r\n]$)/, "").split("")
             # add escaped newlines
