@@ -106,7 +106,7 @@ module Decidim
 
       # Ensure two consecutive html tags are treated as different lines
       # this also enhances the visualization of the escaped view
-      value.to_s.gsub("><", ">\n<")
+      value.to_s.gsub("</p><", "</p>\n<")
     end
 
     # Gives the option to view HTML unescaped for better user experience.
