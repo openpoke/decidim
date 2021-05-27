@@ -1,16 +1,15 @@
 # frozen_string_literal: true
 
-require "decidim/diffy_extension"
-
 module Decidim
   # This cell renders the diff between `:old_data` and `:new_data`.
   class DiffCell < Decidim::ViewModel
     include Cell::ViewModel::Partial
+    include ::HtmlToPlainText # from the premailer gem
     include LanguageChooserHelper
     include LayoutHelper
 
-    def attribute(data)
-      render locals: { data: data }
+    def attribute(data, format)
+      render locals: { data: data, format: format }
     end
 
     def diff_unified(data, format)
@@ -23,12 +22,6 @@ module Decidim
 
     private
 
-    # Adds a unique ID prefix for the attribute div IDs to avoid duplicate IDs
-    # in the DOM.
-    def attribute_diff_id(id)
-      "#{SecureRandom.uuid}_#{id}"
-    end
-
     # A PaperTrail::Version.
     def current_version
       model
@@ -37,6 +30,11 @@ module Decidim
     # The item associated with the current_version.
     def item
       current_version.item
+    end
+
+    # preview (if associated item allows it)
+    def preview
+      diff_renderer.preview
     end
 
     # DiffRenderer class for the current_version's item; falls back to `BaseDiffRenderer`.
@@ -79,11 +77,11 @@ module Decidim
     # Returns an HTML-safe string.
     def output_unified_diff(data, format, locale)
       Diffy::Diff.new(
-        value_from_locale(data[:old_value], locale).to_s,
-        value_from_locale(data[:new_value], locale).to_s,
+        value_from_locale(data[:old_value], format, locale),
+        value_from_locale(data[:new_value], format, locale),
         allow_empty_diff: false,
         include_plus_and_minus_in_html: true
-      ).to_s(format)
+      ).to_s(:html)
     end
 
     # Outputs the diff as HTML with side-by-side changes between lines.
@@ -93,20 +91,20 @@ module Decidim
     # Returns an HTML-safe string.
     def output_split_diff(data, direction, format, locale)
       Diffy::SplitDiff.new(
-        value_from_locale(data[:old_value], locale).to_s,
-        value_from_locale(data[:new_value], locale).to_s,
+        value_from_locale(data[:old_value], format, locale),
+        value_from_locale(data[:new_value], format, locale),
         allow_empty_diff: false,
-        format: format,
+        format: :html,
         include_plus_and_minus_in_html: true
       ).send(direction)
     end
 
-    def value_from_locale(value, locale)
-      value = value[locale] if value.is_a? Hash
+    def value_from_locale(value, format, locale)
+      text = value.is_a?(Hash) ? value[locale].dup : value.dup
 
-      # Ensure two consecutive html tags are treated as different lines
-      # this also enhances the visualization of the escaped view
-      value.to_s.gsub("</p><", "</p>\n<")
+      return text.to_s if format == :html
+
+      convert_to_text(text, 100)
     end
 
     # Gives the option to view HTML unescaped for better user experience.
