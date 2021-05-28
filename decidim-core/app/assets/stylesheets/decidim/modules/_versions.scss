@@ -1,5 +1,5 @@
-.versions-diff {
-  .versions-selector {
+.versions-diff{
+  .versions-selector{
     border-bottom: $border;
     padding-bottom: $global-margin * .5;
     color: $muted;
@@ -10,6 +10,7 @@
     //Override foundation
     .tabs{
       width: 100%;
+
       @include flexgap(.5rem);
     }
   }
@@ -39,10 +40,10 @@
     }
   }
 
-  .diff-preview {
+  .diff-preview{
     margin: 1em 0;
 
-    .heading3 {
+    .heading3{
       font-size: 1.5em;
       margin-bottom: 1em;
     }
@@ -78,13 +79,15 @@
     text-decoration: none;
   }
 
-  .del strong, .del strong *{
+  .del strong,
+  .del strong *{
     font-weight: normal;
     background: scale-color($color-removal, $lightness: -10%);
     display: inline;
   }
 
-  .ins strong, .ins strong *{
+  .ins strong,
+  .ins strong *{
     font-weight: normal;
     background: scale-color($color-addition, $lightness: -10%);
     display: inline;

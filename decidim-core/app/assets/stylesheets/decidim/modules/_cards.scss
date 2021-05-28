@@ -163,6 +163,7 @@ a .card__title{
   &.card--picture-offset{
     // _author-avatar.scss:58 (.author-data--big .author__avatar img)
     // _author-avatar.scss:133 padding (.author__avatar)
+
     margin-left: calc(#{rem-calc(54)} + .5rem);
   }
 }
