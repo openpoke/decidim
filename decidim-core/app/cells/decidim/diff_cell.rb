@@ -102,7 +102,7 @@ module Decidim
     def value_from_locale(value, format, locale)
       text = value.is_a?(Hash) ? value[locale].dup : value.dup
 
-      return text.to_s if format == :html
+      return text.to_s if format == :html || text.blank?
 
       convert_to_text(text, 100)
     end
