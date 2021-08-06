@@ -429,7 +429,7 @@ pl:
         title: Ostatnia aktywność
         view_all: Pokaż wszystkie
       metrics:
-        name: Dane organizacji
+        name: Partycypacja w liczbach
       stats:
         name: Statystyki organizacji
       sub_hero:
@@ -471,7 +471,7 @@ pl:
           subtitle: Zarejestruj się, aby brać udział w dyskusjach i wspierać propozycje.
           terms: warunki i zasady korzystania
           tos_agreement: Rejestrując się, zgadzasz się na %{link}.
-          tos_title: Warunki korzystania z Serwisu
+          tos_title: Warunki korzystania z Platformy
           username_help: Publiczne imię wyświetlane przy Twoich wpisach. W celu zagwarantowania anonimowości może być dowolna nazwa.
       sessions:
         new:
@@ -591,7 +591,7 @@ pl:
       email_event:
         email_greeting: Witaj %{user_name},
         email_intro: 'Zaktualizowano "%{resource_title}". Możesz zobaczyć zmiany na tej stronie:'
-        email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać obserwować ten zasób klikając w poprzedni link.
+        email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz przestrzeń "%{resource_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie kliknij w przycisk obserwowania.
         email_subject: Aktualizacja %{resource_title}
       gamification:
         badge_earned:
@@ -725,11 +725,11 @@ pl:
         file:
           explanation: 'Wytyczne dotyczące pliku:'
           message_1: Ma być obrazem lub dokumentem.
-          message_2: Jako obrazów używaj najlepiej krajobrazów, serwis docina obraz. Dla plików CSV separatorem kolumn musi być przecinek (",")
+          message_2: Jako obrazów używaj najlepiej krajobrazów, obraz jest docinany automatycznie. Dla plików CSV separatorem kolumn musi być przecinek (",")
         image:
           explanation: 'Wytyczne dotyczące obrazu:'
           message_1: Preferowany obraz krajobrazu, który nie zawiera żadnego tekstu.
-          message_2: Serwis docina obraz.
+          message_2: Obraz jest docinany automatycznie.
       file_validation:
         allowed_file_extensions: 'Dozwolone rozszerzenia plików: %{extensions}'
         max_file_size: 'Maksymalny rozmiar pliku: %{megabytes}MB'
@@ -904,35 +904,35 @@ pl:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
           intro: "%{manager} rozpoczął/rozpoczęła nową konwersację w imieniu %{group}. Kliknij tutaj, aby ją zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          outro: Miłego korzystania z platformy!
           subject: "%{manager} rozpoczął/rozpoczęła nową konwersację jako %{group}"
         comanagers_new_message:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
           intro: "%{manager} opublikował(a) nowe wiadomości w konwersacji w imieniu %{group}. Kliknij tutaj, aby je zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          outro: Miłego korzystania z platformy!
           subject: "%{manager} wysłał(a) nowe wiadomości jako %{group}"
         new_conversation:
           greeting: Cześć, %{recipient}!
           intro: "%{sender} rozpoczął/rozpoczęła z tobą nową rozmowę. Kliknij tutaj, aby zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          outro: Miłego korzystania z platformy!
           subject: "%{sender} rozpoczął/rozpoczęła z Tobą rozmowę"
         new_group_conversation:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
           intro: "%{sender} rozpoczął/rozpoczęła nową konwersację z grupą %{group}. Kliknij tutaj, aby ją zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          outro: Miłego korzystania z platformy!
           subject: "%{sender} rozpoczął/rozpoczęła konwersację z %{group}"
         new_group_message:
           admin_in_group: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem w %{group}.
           greeting: Cześć, %{recipient}!
           intro: "%{sender} opublikował(a) nowe wiadomości w konwersacji z grupą %{group}. Kliknij tutaj, aby je zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          outro: Miłego korzystania z platformy!
           subject: "%{group} ma nowe wiadomości od %{sender}"
         new_message:
           greeting: Cześć, %{recipient}!
           intro: "%{sender} opublikował(a) nowe wiadomości w twojej rozmowie. Kliknij tutaj, aby je zobaczyć:"
-          outro: Miłego korzystania z decidim!
+          outro: Miłego korzystania z platformy!
           subject: Masz nowe wiadomości od %{sender}
       conversations:
         add_conversation_users:
@@ -1131,8 +1131,8 @@ pl:
           modal_title: Czy rzeczywiście odmawiasz zaakceptowania zaktualizowanego regulaminu?
         required_review:
           alert: Zaktualizowaliśmy nasze Warunki korzystania z usługi, zapoznaj się z nimi.
-          body: Poświęć chwilę, aby przejrzeć aktualizacje naszych Warunków korzystania z Serwisu. W przeciwnym razie nie będziesz mógł korzystać z platformy.
-          title: 'Wymagane: sprawdź aktualizacje naszych warunków korzystania z serwisu'
+          body: Poświęć chwilę, aby przejrzeć aktualizacje naszych Warunków korzystania z Platformy. W przeciwnym razie nie będziesz mógł korzystać z platformy.
+          title: 'Wymagane: sprawdź aktualizacje naszych warunków korzystania z platformy'
     participatory_space_private_users:
       not_allowed: Nie możesz wyświetlać tych treści
     profile:
@@ -1538,7 +1538,7 @@ pl:
       public: Twoje informacje publiczne.
   errors:
     messages:
-      already_confirmed: zostało już potwierdzone, spróbuj się zalogować
+      already_confirmed: zostało już potwierdzone
       confirmation_period_expired: musi być potwierdzone w ciągu %{period}, proszę poprosić o nowy
       content_type_allowlist_error: typ pliku jest nieprawidłowy
       cycle_detected: zakres podrzędny nie może być jednocześnie zakresem nadrzędnym
@@ -1560,6 +1560,12 @@ pl:
       too_short: jest za krótki (poniżej 15 znaków)
   forms:
     correct_errors: Wystąpiły błędy w formularzu, popraw je, aby kontynuować.
+    length_validator:
+      minimum:
+        one: Co najmniej %{count} znak
+        few: Co najmniej %{count} znaki
+        many: Co najmniej %{count} znaków
+        other: Co najmniej %{count} znaków
     required: Wymagane
     required_explanation: "* Wymagane pola są oznaczone gwiazdką"
   invisible_captcha:
@@ -1653,7 +1659,7 @@ pl:
     twitter: Twitter
     vkontakte: Vkontakte
     wechat: WeChat
-    wechat_footer: Otwórz program WeChat, kliknij przycisk "Odkryj", a następnie kliknij menu "Zeskanuj kod QR Code".
+    wechat_footer: Otwórz program WeChat, kliknij przycisk "Odkryj", a następnie kliknij menu "Skan kodu QR".
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
