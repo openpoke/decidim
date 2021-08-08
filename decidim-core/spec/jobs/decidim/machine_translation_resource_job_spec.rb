@@ -60,6 +60,38 @@ module Decidim
       end
     end
 
+    describe "when default locale is not filled" do
+      # Example: commenting a proposal after changing locales
+      let(:current_locale) { "es" }
+      let(:comment) { create(:comment, body: body, commentable: commentable) }
+      let(:body) { { current_locale => "Nuevo comentario" } }
+      let(:commentable) { create(:proposal, component: component) }
+      let(:component) { create(:proposal_component, organization: organization) }
+
+      before do
+        clear_enqueued_jobs
+      end
+
+      it "enqueus the machine translation fields job" do
+        Decidim::MachineTranslationResourceJob.perform_now(
+          comment,
+          comment.translatable_previous_changes,
+          current_locale
+        )
+        expect(Decidim::MachineTranslationFieldsJob)
+          .to have_been_enqueued
+          .on_queue("default")
+          .exactly(1).times
+          .with(
+            comment,
+            "body",
+            body[current_locale],
+            "en",
+            current_locale
+          )
+      end
+    end
+
     describe "if default locale isn't changed but locale changed is set to empty" do
       before do
         updated_title = { en: "New Title", es: "" }

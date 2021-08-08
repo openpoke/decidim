@@ -40,7 +40,8 @@ module Decidim
             field,
             resource_field_value(
               previous_changes,
-              field
+              field,
+              source_locale
             ),
             target_locale,
             source_locale
@@ -72,10 +73,10 @@ module Decidim
       @locales_to_be_translated.present?
     end
 
-    def resource_field_value(previous_changes, field)
+    def resource_field_value(previous_changes, field, source_locale)
       values = previous_changes[field]
       new_value = values.last
-      return new_value[default_locale(@resource)] if new_value.is_a?(Hash)
+      return new_value[source_locale] if new_value.is_a?(Hash)
 
       new_value
     end
