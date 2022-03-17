@@ -65,9 +65,15 @@ module Decidim
     def available_locales_for(data)
       locales = { I18n.locale.to_s => true }
 
-      locales.merge!(data[:old_value].transform_values(&:present?)) if data[:old_value].is_a?(Hash)
-      locales.merge!(data[:new_value].transform_values(&:present?)) if data[:new_value].is_a?(Hash)
+      locales.merge! valid_locale_keys(data[:old_value]) if data[:old_value].is_a?(Hash)
+      locales.merge! valid_locale_keys(data[:new_value]) if data[:new_value].is_a?(Hash)
 
+      locales.filter { |k| I18n.locale_available?(k) }
+    end
+
+    def valid_locale_keys(input)
+      locales = input.transform_values(&:present?)
+      locales.merge!(input["machine_translations"].transform_values(&:present?)) if input["machine_translations"].is_a?(Hash)
       locales
     end
 
@@ -100,11 +106,17 @@ module Decidim
     end
 
     def value_from_locale(value, format, locale)
-      text = value.is_a?(Hash) ? value[locale].dup : value.dup
+      text = value.is_a?(Hash) ? find_locale_value(value, locale).dup : value.dup
 
       return text.to_s if format == :html || text.blank?
 
       convert_to_text(text, 100)
+    end
+
+    def find_locale_value(input, locale)
+      return input[locale] if input.has_key?(locale)
+
+      input.dig("machine_translations", locale)
     end
 
     # Gives the option to view HTML unescaped for better user experience.
