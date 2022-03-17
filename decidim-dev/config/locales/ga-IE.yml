@@ -1,1 +1,26 @@
 ga:
+  activemodel:
+    attributes:
+      dummy_resource:
+        decidim_scope_id: Scóip
+        field: Mo réimse
+        title: Teideal
+  decidim:
+    components:
+      dummy:
+        settings:
+          global:
+            test: Teist
+    dummy:
+      admin:
+        exports:
+          dummies: Dummies
+    gamification:
+      badges:
+        test:
+          name: Scrúduithe
+    pages:
+      home:
+        statistics:
+          bar: Bar
+          foo: Foo

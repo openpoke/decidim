@@ -11,7 +11,7 @@ fr:
         document_number: Numéro de document
         email: Courriel
         name: Nom
-        nickname: Nom d'utilisateur
+        nickname: Pseudonyme
         phone: Téléphone
       report:
         details: Commentaires supplémentaires
@@ -19,7 +19,7 @@ fr:
         about: A propos de moi
         email: Votre email
         name: Votre nom
-        nickname: Surnom
+        nickname: Pseudonyme
         password: Mot de passe
         password_confirmation: Confirmez votre mot de passe
         personal_url: Site internet personnel
@@ -41,7 +41,7 @@ fr:
       decidim/user:
         current_password: Mot de passe actuel
         email: Email
-        name: Surnom
+        name: Pseudonyme
         password: Mot de passe
         password_confirmation: Confirmation du mot de passe
         remember_me: Retenir le mot de passe
@@ -1335,7 +1335,7 @@ fr:
     version:
       show:
         back_to_resource: Revenir en arrière
-        changes_at_title: Changements à%{title}"
+        changes_at_title: Changements sur "%{title}"
         number_of_versions: Versions
         show_all_versions: Afficher toutes les versions
         version_author: Auteur de la version
@@ -1353,14 +1353,14 @@ fr:
     versions_list:
       show:
         back_to_resource: Revenir en arrière
-        changes_at_title: Changements à%{title}"
+        changes_at_title: Changements sur "%{title}"
         number_of_versions: Versions
         title: Versions
     versions_list_item:
       show:
         version_index: Version %{index}
     welcome_notification:
-      default_body: <p>Bonjour {{name}}, merci d'avoir rejoins {{organization}} et bienvenue!</p><ul><li>Si vous souhaitez avoir une idée rapide de ce que vous pouvez faire ici, consultez la section <a href="{{help_url}}">Aide</a> .</li><li>Une fois que vous l'avez lu, vous recevrez votre premier badge. Voici une <a href="{{badges_url}}">liste de tous les badges</a> vous pouvez obtenir vous participez à {{organization}}</li><li>En somme, rejoignez d'autres personnes, partagez avec eux l'expérience d'être engagés et participer à {{organization}}. Faites des propositions, des commentaires, lancez des débats, réfléchissez à la manière de contribuer au bien commun, fournissez des arguments pour convaincre, écoutez et lisez pour être convaincu, exprimez vos idées de manière concrète et directe, répondez avec patience et décision, défendez vos idées un esprit ouvert pour collaborer et rejoindre les idées des autres.</li></ul>
+      default_body: <p>Bonjour {{name}}, merci d'avoir rejoint {{organization}} et bienvenue!</p><ul><li>Si vous souhaitez avoir une idée rapide de ce que vous pouvez faire ici, consultez la section <a href="{{help_url}}">Aide</a> .</li><li>En somme, rejoignez d'autres personnes, partagez avec eux l'expérience d'être engagés et participer à {{organization}}. Faites des propositions, des commentaires, lancez des débats, réfléchissez à la manière de contribuer au bien commun, fournissez des arguments pour convaincre, écoutez et lisez pour être convaincu, exprimez vos idées de manière concrète et directe, répondez avec patience et décision, défendez vos idées dans un esprit ouvert pour collaborer et enrichir les idées des autres.</li></ul>
       default_subject: Merci d'avoir rejoint {{organization}}!
     wizard_step_form:
       wizard_aside:
@@ -1535,6 +1535,10 @@ fr:
       too_short: est trop court (moins de 15 caractères)
   forms:
     correct_errors: Il y a des erreurs dans le formulaire, veuillez les corriger pour continuer.
+    length_validator:
+      minimum:
+        one: Au moins %{count} caractère
+        other: Au moins %{count} caractères
     required: Champ obligatoire
     required_explanation: "* Les champs obligatoires sont marqués d'un astérisque"
   invisible_captcha:
