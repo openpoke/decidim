@@ -83,8 +83,8 @@ module Decidim
     # Returns an HTML-safe string.
     def output_unified_diff(data, format, locale)
       Diffy::Diff.new(
-        value_from_locale(data[:old_value], format, locale),
-        value_from_locale(data[:new_value], format, locale),
+        old_new_values(data, format, locale)[0],
+        old_new_values(data, format, locale)[1],
         allow_empty_diff: false,
         include_plus_and_minus_in_html: true
       ).to_s(:html)
@@ -97,26 +97,32 @@ module Decidim
     # Returns an HTML-safe string.
     def output_split_diff(data, direction, format, locale)
       Diffy::SplitDiff.new(
-        value_from_locale(data[:old_value], format, locale),
-        value_from_locale(data[:new_value], format, locale),
+        old_new_values(data, format, locale)[0],
+        old_new_values(data, format, locale)[1],
         allow_empty_diff: false,
         format: :html,
         include_plus_and_minus_in_html: true
       ).send(direction)
     end
 
-    def value_from_locale(value, format, locale)
-      text = value.is_a?(Hash) ? find_locale_value(value, locale).dup : value.dup
+    def old_new_values(data, format, locale)
+      original_translations = data[:old_value].filter { |key, value| value.present? && key != "machine_translations" }
+      [
+        value_from_locale(data[:old_value], format, locale),
+        value_from_locale(data[:new_value], format, locale, original_translations)
+      ]
+    end
+
+    def value_from_locale(value, format, locale, skip_machine_keys = {})
+      text = value.is_a?(Hash) ? find_locale_value(value, locale, skip_machine_keys).dup : value.dup
 
       return text.to_s if format == :html || text.blank?
 
       convert_to_text(text, 100)
     end
 
-    def find_locale_value(input, locale)
-      return input[locale] if input.has_key?(locale)
-
-      input.dig("machine_translations", locale)
+    def find_locale_value(input, locale, skip_machine_keys = {})
+      input[locale].presence || skip_machine_keys[locale].presence || input.dig("machine_translations", locale)
     end
 
     # Gives the option to view HTML unescaped for better user experience.

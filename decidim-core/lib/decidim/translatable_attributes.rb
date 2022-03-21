@@ -79,7 +79,6 @@ module Decidim
         given_organization ||= try(:current_organization)
         given_organization ||= try(:organization)
         organization_locale = given_organization.try(:default_locale)
-
         attribute[I18n.locale.to_s].presence ||
           machine_translation_value(attribute, given_organization) ||
           attribute[organization_locale].presence ||
