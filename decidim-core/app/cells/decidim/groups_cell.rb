@@ -5,6 +5,7 @@ module Decidim
   class GroupsCell < Decidim::ViewModel
     include Decidim::CellsPaginateHelper
     include Decidim::ApplicationHelper
+    include Decidim::LayoutHelper
     include Decidim::Core::Engine.routes.url_helpers
     include Decidim::CardHelper
 
