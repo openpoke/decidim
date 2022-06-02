@@ -9,7 +9,7 @@ module Decidim
     # collection - a collection of elements that need to be paginated
     # paginate_params - a Hash with options to delegate to the pagination helper.
     def decidim_paginate(collection, paginate_params = {})
-      paginate collection, theme: "decidim", params: paginate_params
+      paginate collection, window: 2, outer_window: 1, theme: "decidim", params: paginate_params
     end
   end
 end
