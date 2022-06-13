@@ -1,0 +1,8 @@
+<div class="grow grid grid-cols-12">
+  <aside class="col-span-3 bg-background-3 p-12">
+    <h1 class="h1 pr-4 inline border-b-4 border-tertiary"><%= title ||= '' %></h1>
+  </aside>
+  <main class="col-span-9">
+    <%= yield %>
+  </main>
+</div>
