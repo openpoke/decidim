@@ -8,6 +8,8 @@ module Decidim
       include ProposalPresenterHelper
       include SanitizeHelper
 
+      delegate :organization, to: :proposal, prefix: :current
+
       def preview
         title = content_tag(:h3, render_proposal_title(proposal), class: "heading3")
         body = content_tag(:div, render_proposal_body(proposal), class: "body")
