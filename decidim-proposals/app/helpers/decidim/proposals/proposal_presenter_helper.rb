@@ -3,6 +3,8 @@
 module Decidim
   module Proposals
     module ProposalPresenterHelper
+      include Decidim::ApplicationHelper
+
       def not_from_collaborative_draft(proposal)
         proposal.linked_resources(:proposals, "created_from_collaborative_draft").empty?
       end

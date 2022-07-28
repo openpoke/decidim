@@ -106,7 +106,7 @@ module Decidim
     end
 
     def old_new_values(data, format, locale)
-      original_translations = data[:old_value].filter { |key, value| value.present? && key != "machine_translations" }
+      original_translations = data[:old_value].try(:filter) { |key, value| value.present? && key != "machine_translations" }
       [
         value_from_locale(data[:old_value], format, locale),
         value_from_locale(data[:new_value], format, locale, original_translations)
@@ -117,9 +117,9 @@ module Decidim
       text = value.is_a?(Hash) ? find_locale_value(value, locale, skip_machine_keys).dup : value.dup
 
       text = text.first if text.is_a?(Array)
-      return text.to_s if format == :html || text.blank?
+      # return text.to_s if format == :html || text.blank?
 
-      convert_to_text(text, 100)
+      convert_to_text(text.to_s, 100)
     end
 
     def find_locale_value(input, locale, skip_machine_keys = {})
