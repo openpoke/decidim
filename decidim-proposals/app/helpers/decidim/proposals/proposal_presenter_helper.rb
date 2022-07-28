@@ -19,6 +19,10 @@ module Decidim
           (@proposal.official? || @proposal.official_meeting?) && not_from_participatory_text(@proposal)
       end
 
+      def render_proposal_title(proposal)
+        Decidim::Proposals::ProposalPresenter.new(proposal).title(links: true, html_escape: true)
+      end
+
       # If the content is safe, HTML tags are sanitized, otherwise, they are stripped.
       def render_proposal_body(proposal)
         Decidim::ContentProcessor.render(render_sanitized_content(proposal, :body), "div")
