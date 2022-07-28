@@ -116,6 +116,7 @@ module Decidim
     def value_from_locale(value, format, locale, skip_machine_keys = {})
       text = value.is_a?(Hash) ? find_locale_value(value, locale, skip_machine_keys).dup : value.dup
 
+      text = text.first if text.is_a?(Array)
       return text.to_s if format == :html || text.blank?
 
       convert_to_text(text, 100)
