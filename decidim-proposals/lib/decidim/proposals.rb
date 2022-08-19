@@ -45,6 +45,11 @@ module Decidim
     config_accessor :process_group_highlighted_proposals_limit do
       3
     end
+
+    # Public Setting that defines after how many days a proposal is overdue
+    config_accessor :process_group_highlighted_proposals_overdue do
+      7
+    end
   end
 
   module ContentParsers
