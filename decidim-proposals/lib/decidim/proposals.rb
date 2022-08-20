@@ -47,7 +47,7 @@ module Decidim
     end
 
     # Public Setting that defines after how many days a proposal is overdue
-    config_accessor :process_group_highlighted_proposals_overdue do
+    config_accessor :unanswered_proposals_overdue do
       7
     end
   end

@@ -138,6 +138,11 @@ module Decidim
                           end
           icon_link_to(icon, proposal_path(proposal), tooltip, class: "icon--small action-icon--show-proposal")
         end
+
+        def overdue?(proposal)
+          grace_period = Decidim::Proposals.config.unanswered_proposals_overdue.to_i
+          (Time.zone.today - grace_period.days).to_date > proposal.published_at && !proposal.answered?
+        end
       end
     end
   end
