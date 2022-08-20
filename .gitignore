@@ -34,6 +34,3 @@ tmp
 decidim-packs
 
 temporary_changelog.md
-
-Gemfile.lock
-.yarn
