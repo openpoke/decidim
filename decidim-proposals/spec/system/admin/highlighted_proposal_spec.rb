@@ -9,17 +9,18 @@ describe "Highlighted proposal", type: :system do
   let!(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
   let!(:proposals) do
     [
-      create(:proposal, :not_answered, id: 1, created_at: 9.days.ago, published_at: 9.days.ago, component:
+      create(:proposal, :not_answered, created_at: 10.days.ago, published_at: 10.days.ago, component:
         proposal_component),
-      create(:proposal, :not_answered, id: 2, created_at: 5.days.ago, published_at: 5.days.ago, component:
-        proposal_component),
-      create(:proposal, :with_answer, id: 3, created_at: 9.days.ago, published_at: 9.days.ago, component:
+      create(:proposal, :with_answer, created_at: 10.days.ago, published_at: 10.days.ago, component:
         proposal_component)
     ]
   end
 
+  let(:days_overdue) { 17 }
+
   before do
     switch_to_host(organization.host)
+    allow(Decidim::Proposals.config).to receive(:unanswered_proposals_overdue).and_return days_overdue
     login_as admin, scope: :user
     visit decidim_admin.root_path
     click_link "Processes"
@@ -35,21 +36,28 @@ describe "Highlighted proposal", type: :system do
     end
   end
 
-  context "when proposal with overdue and not answered" do
-    it "columns have the class admin-highlighted" do
-      expect(page).to have_css("tr.admin-highlighted", count: 1)
+  context "when overdue days is larger" do
+    let(:days_overdue) { 12 }
+
+    it "no proposals has overdue" do
+      expect(page).not_to have_css("tr.admin-highlighted")
     end
   end
 
-  context "when proposal without overdue and not answered" do
-    it "columns don't have the class admin-highlighted" do
+  context "when overdue days is shorter" do
+    let(:days_overdue) { 3 }
+
+    it "all unanswered proposals are highlighted" do
+      expect(page).to have_css("tr.admin-highlighted", count: 1)
       expect(page).not_to have_css("tr.admin-highlighted", count: 2)
     end
   end
 
-  context "when proposal with overdue but answered" do
-    it "columns don't have the class admin-highlighted" do
-      expect(page).not_to have_css("tr.admin-highlighted", count: 3)
+  context "when overdue days is zero" do
+    let(:days_overdue) { 0 }
+
+    it "proposals are not highlighted" do
+      expect(page).not_to have_css("tr.admin-highlighted")
     end
   end
 end

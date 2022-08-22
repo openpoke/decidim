@@ -141,7 +141,8 @@ module Decidim
 
         def overdue?(proposal)
           grace_period = Decidim::Proposals.config.unanswered_proposals_overdue.to_i
-          (Time.zone.today - grace_period.days).to_date > proposal.published_at && !proposal.answered?
+          !grace_period.zero? &&
+            (Time.now.utc - grace_period.days).to_date > proposal.published_at && !proposal.answered?
         end
       end
     end
