@@ -16,8 +16,6 @@ describe "Highlighted proposal", type: :system do
     ]
   end
 
-  let(:days_overdue) { 17 }
-
   before do
     switch_to_host(organization.host)
     allow(Decidim::Proposals.config).to receive(:unanswered_proposals_overdue).and_return days_overdue
