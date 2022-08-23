@@ -17,7 +17,8 @@ module Decidim
         remove_avatar: nil,
         personal_url: "https://example.org",
         about: "This is a description of me",
-        locale: "es"
+        locale: "es",
+        time_zone: "UTC"
       }
     end
 
@@ -32,7 +33,8 @@ module Decidim
         remove_avatar: data[:remove_avatar],
         personal_url: data[:personal_url],
         about: data[:about],
-        locale: data[:locale]
+        locale: data[:locale],
+        time_zone: data[:time_zone]
       ).with_context(current_organization: user.organization, current_user: user)
     end
 
@@ -75,6 +77,11 @@ module Decidim
       it "updates the language preference" do
         expect { command.call }.to broadcast(:ok)
         expect(user.reload.locale).to eq("es")
+      end
+
+      it "updates the time zone" do
+        expect { command.call }.to broadcast(:ok)
+        expect(user.reload.time_zone).to eq("UTC")
       end
 
       describe "updating the email" do
