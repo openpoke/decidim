@@ -25,6 +25,8 @@
           ) %>
       <p class="help-text"><%= t(".available_locales_helper") %></p>
 
+      <%= f.time_zone_select :time_zone %>
+
       <% if @account.errors[:password].any? || @account.errors[:password_confirmation].any? %>
         <%= render partial: "password_fields", locals: { form: f } %>
       <% else %>
