@@ -23,8 +23,8 @@
             ) %>
         <% if proposals_overdue? proposal %>
           <div class="help-text-overdue text-alert">
-            <%= distance_of_time_in_words(Time.current, last_day_to_answer(proposal)) %>
             overdue
+            <%= distance_of_time_in_words(Time.current, last_day_to_answer(proposal)) %>
           </div>
         <% elsif grace_period? proposal %>
           <div class="help-text-overdue text-warning">
