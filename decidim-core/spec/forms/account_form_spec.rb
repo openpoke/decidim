@@ -162,7 +162,7 @@ module Decidim
         let(:time_zone) { "" }
 
         it "is invalid" do
-          expect(subject).not_to be_valid
+          expect(subject).to be_valid
         end
       end
 

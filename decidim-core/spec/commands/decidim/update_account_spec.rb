@@ -18,7 +18,7 @@ module Decidim
         personal_url: "https://example.org",
         about: "This is a description of me",
         locale: "es",
-        time_zone: "UTC"
+        time_zone: timezone
       }
     end
 
@@ -48,6 +48,14 @@ module Decidim
         old_name = user.name
         expect { command.call }.to broadcast(:invalid)
         expect(user.reload.name).to eq(old_name)
+      end
+
+      context "when timezone is invalid" do
+        let(:timezone) { "giberish" }
+
+        it "returns invalid" do
+          expect { command.call }.to broadcast(:invalid)
+        end
       end
     end
 
@@ -79,9 +87,22 @@ module Decidim
         expect(user.reload.locale).to eq("es")
       end
 
-      it "updates the time zone" do
-        expect { command.call }.to broadcast(:ok)
-        expect(user.reload.time_zone).to eq("UTC")
+      context "when timezone is defined" do
+        let(:timezone) { "UTC" }
+
+        it "updates the time zone" do
+          expect { command.call }.to broadcast(:ok)
+          expect(user.reload.time_zone).to eq("UTC")
+        end
+      end
+
+      context "when timezone is not defined" do
+        let(:timezone) { "" }
+
+        it "updates the time zone" do
+          expect { command.call }.to broadcast(:ok)
+          expect(user.reload.time_zone).to eq("")
+        end
       end
 
       describe "updating the email" do
