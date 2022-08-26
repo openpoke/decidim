@@ -123,7 +123,7 @@ module Decidim
     end
 
     def find_locale_value(input, locale, skip_machine_keys = {})
-      input[locale].presence || skip_machine_keys[locale].presence || input.dig("machine_translations", locale)
+      input.dig(locale).presence || skip_machine_keys[locale].presence || input.dig("machine_translations", locale)
     end
 
     # Gives the option to view HTML unescaped for better user experience.
