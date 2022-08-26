@@ -29,8 +29,7 @@ module Decidim
     validates :password, password: { name: :name, email: :email, username: :nickname }, if: -> { password.present? }
     validates :password_confirmation, presence: true, if: :password_present
     validates :avatar, passthru: { to: Decidim::User }
-    validates :time_zone, presence: true
-    validates :time_zone, time_zone: true
+    validates :time_zone, presence: true, time_zone: true
 
     validate :unique_email
     validate :unique_nickname
