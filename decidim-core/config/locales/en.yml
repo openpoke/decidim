@@ -99,17 +99,17 @@ en:
         one: right now
         other: less than %{count} sec.
       x_days:
-        one: 1 day ago
-        other: "%{count} days ago"
+        one: 1 day
+        other: "%{count} days"
       x_hours:
-        one: 1 hour ago
-        other: "%{count} hours ago"
+        one: 1 hour
+        other: "%{count} hours"
       x_minutes:
-        one: 1 min. ago
-        other: "%{count} min. ago"
+        one: 1 min.
+        other: "%{count} min."
       x_seconds:
-        one: 1 sec. ago
-        other: "%{count} sec. ago"
+        one: 1 sec.
+        other: "%{count} sec."
         zero: right now
   decidim:
     accessibility:
