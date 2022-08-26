@@ -135,6 +135,7 @@ en:
         success: Your account was successfully deleted.
       show:
         available_locales_helper: Choose the language you want to use to browse and receive notifications in Decidim
+        time_zone_helper: Use your personal time zone to display dates in your local time when you are logged in
         change_password: Change password
         update_account: Update account
       update:
