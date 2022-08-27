@@ -10,9 +10,9 @@
   <td>
     <div class="table__title-block">
       <span class="table__title-icon">
-        <% if proposals_overdue? proposal %>
+        <% if unanswered_proposals_overdue?(proposal) || evaluating_proposals_overdue?(proposal) %>
           <%= icon "timer", class: "text-alert" %>
-        <% elsif grace_period? proposal %>
+        <% elsif grace_period_unanswered?(proposal) || grace_period_evaluating?(proposal) %>
           <%= icon "datetime", class: "text-warning" %>
         <% end %>
       </span>
@@ -21,14 +21,24 @@
               decidim_html_escape(present(proposal).title).html_safe,
               proposal_path(proposal)
             ) %>
-        <% if proposals_overdue? proposal %>
+        <% if unanswered_proposals_overdue?(proposal) %>
           <div class="help-text-overdue text-alert">
+            <%= time_ago_in_words(last_day_to_answer(proposal)).gsub("ago", "") %>
             overdue
-            <%= distance_of_time_in_words(Time.current, last_day_to_answer(proposal)) %>
           </div>
-        <% elsif grace_period? proposal %>
+        <% elsif evaluating_proposals_overdue?(proposal) %>
+          <div class="help-text-overdue text-alert">
+            <%= time_ago_in_words(last_day_to_evaluate(proposal)).gsub("ago", "")  %>
+            overdue
+          </div>
+        <% elsif grace_period_unanswered?(proposal) %>
           <div class="help-text-overdue text-warning">
-            <%= distance_of_time_in_words(Time.current, last_day_to_answer(proposal)) %>
+            <%= time_ago_in_words(last_day_to_answer(proposal)).gsub("ago", "")  %>
+            to answer
+          </div>
+        <% elsif grace_period_evaluating?(proposal) %>
+          <div class="help-text-overdue text-warning">
+            <%= distance_of_time_in_words(last_day_to_evaluate(proposal), Time.current).gsub("ago", "") %>
             to answer
           </div>
         <% end %>

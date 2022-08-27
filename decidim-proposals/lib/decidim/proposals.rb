@@ -51,6 +51,10 @@ module Decidim
     config_accessor :unanswered_proposals_overdue do
       7
     end
+
+    config_accessor :evaluating_proposals_overdue do
+      3
+    end
   end
 
   module ContentParsers
