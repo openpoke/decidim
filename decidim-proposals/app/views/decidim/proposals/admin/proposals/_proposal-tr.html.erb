@@ -28,12 +28,12 @@
           </div>
         <% elsif evaluating_proposals_overdue?(proposal) %>
           <div class="help-text-overdue text-alert">
-            <%= time_ago_in_words(last_day_to_evaluate(proposal)).gsub("ago", "")  %>
+            <%= time_ago_in_words(last_day_to_evaluate(proposal)).gsub("ago", "") %>
             overdue
           </div>
         <% elsif grace_period_unanswered?(proposal) %>
           <div class="help-text-overdue text-warning">
-            <%= time_ago_in_words(last_day_to_answer(proposal)).gsub("ago", "")  %>
+            <%= time_ago_in_words(last_day_to_answer(proposal)).gsub("ago", "") %>
             to answer
           </div>
         <% elsif grace_period_evaluating?(proposal) %>
