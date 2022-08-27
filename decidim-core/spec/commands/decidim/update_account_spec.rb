@@ -6,6 +6,7 @@ module Decidim
   describe UpdateAccount do
     let(:command) { described_class.new(user, form) }
     let(:user) { create(:user, :confirmed) }
+    let(:time_zone) { "UTC" }
     let(:data) do
       {
         name: user.name,
@@ -18,7 +19,7 @@ module Decidim
         personal_url: "https://example.org",
         about: "This is a description of me",
         locale: "es",
-        time_zone: timezone
+        time_zone: time_zone
       }
     end
 
@@ -51,7 +52,7 @@ module Decidim
       end
 
       context "when timezone is invalid" do
-        let(:timezone) { "giberish" }
+        let(:time_zone) { "giberish" }
 
         it "returns invalid" do
           expect { command.call }.to broadcast(:invalid)
@@ -88,8 +89,6 @@ module Decidim
       end
 
       context "when timezone is defined" do
-        let(:timezone) { "UTC" }
-
         it "updates the time zone" do
           expect { command.call }.to broadcast(:ok)
           expect(user.reload.time_zone).to eq("UTC")
@@ -97,7 +96,7 @@ module Decidim
       end
 
       context "when timezone is not defined" do
-        let(:timezone) { "" }
+        let(:time_zone) { "" }
 
         it "updates the time zone" do
           expect { command.call }.to broadcast(:ok)
