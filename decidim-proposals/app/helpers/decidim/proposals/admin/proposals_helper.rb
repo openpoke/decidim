@@ -150,7 +150,7 @@ module Decidim
         def evaluating_proposals_overdue?(proposal)
           grace_period = Decidim::Proposals.config.evaluating_proposals_overdue.to_i
           !grace_period.zero? &&
-            (Time.current - grace_period.days).to_date > last_day_to_answer(proposal) && proposal.evaluating?
+            (Time.current - grace_period.days).to_date > proposal.answered_at && proposal.evaluating?
         end
 
         def grace_period_unanswered?(proposal)
@@ -168,7 +168,7 @@ module Decidim
 
         def last_day_to_evaluate(proposal)
           grace_period = Decidim::Proposals.config.evaluating_proposals_overdue.to_i
-          (last_day_to_answer(proposal) + grace_period.days).to_date
+          (proposal.answered_at + grace_period.days).to_date
         end
       end
     end
