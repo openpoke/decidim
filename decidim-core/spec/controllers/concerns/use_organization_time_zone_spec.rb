@@ -96,11 +96,30 @@ module Decidim
       it "controller uses London" do
         expect(controller.organization_time_zone).to eq("London")
       end
+
+      it "Time uses UTC zone within the controller scope" do
+        controller.use_organization_time_zone do
+          expect(Time.zone.name).to eq("London")
+        end
+      end
+
+      it "Time uses Rails timezone outside the controller scope" do
+        expect(Time.zone.name).to eq("UTC")
+      end
     end
 
     context "when user's time zone in not present" do
       let(:time_zone) { utc_time_zone }
       let(:user_time_zone) { "" }
+
+      it "controller uses time zone of organization" do
+        expect(controller.organization_time_zone).to eq(utc_time_zone)
+      end
+    end
+
+    context "when user is not present" do
+      let(:time_zone) { utc_time_zone }
+      let(:user) { nil }
 
       it "controller uses time zone of organization" do
         expect(controller.organization_time_zone).to eq(utc_time_zone)
