@@ -47,6 +47,7 @@ module Decidim
     validates :tos_agreement, acceptance: true, allow_nil: false, on: :create
     validates :tos_agreement, acceptance: true, if: :user_invited?
     validates :email, :nickname, uniqueness: { scope: :organization }, unless: -> { deleted? || managed? || nickname.blank? }
+    validates :time_zone, time_zone: true, if: -> { time_zone.present? }
 
     validate :all_roles_are_valid
 

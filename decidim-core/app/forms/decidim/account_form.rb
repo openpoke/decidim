@@ -18,6 +18,7 @@ module Decidim
     attribute :remove_avatar, Boolean, default: false
     attribute :personal_url
     attribute :about
+    attribute :time_zone
 
     validates :name, presence: true
     validates :email, presence: true, 'valid_email_2/email': { disposable: true }
@@ -28,6 +29,7 @@ module Decidim
     validates :password, password: { name: :name, email: :email, username: :nickname }, if: -> { password.present? }
     validates :password_confirmation, presence: true, if: :password_present
     validates :avatar, passthru: { to: Decidim::User }
+    validates :time_zone, time_zone: true, if: -> { time_zone.present? }
 
     validate :unique_email
     validate :unique_nickname

@@ -6,6 +6,7 @@ module Decidim
   describe UpdateAccount do
     let(:command) { described_class.new(user, form) }
     let(:user) { create(:user, :confirmed) }
+    let(:time_zone) { "UTC" }
     let(:data) do
       {
         name: user.name,
@@ -17,7 +18,8 @@ module Decidim
         remove_avatar: nil,
         personal_url: "https://example.org",
         about: "This is a description of me",
-        locale: "es"
+        locale: "es",
+        time_zone: time_zone
       }
     end
 
@@ -32,7 +34,8 @@ module Decidim
         remove_avatar: data[:remove_avatar],
         personal_url: data[:personal_url],
         about: data[:about],
-        locale: data[:locale]
+        locale: data[:locale],
+        time_zone: data[:time_zone]
       ).with_context(current_organization: user.organization, current_user: user)
     end
 
@@ -46,6 +49,14 @@ module Decidim
         old_name = user.name
         expect { command.call }.to broadcast(:invalid)
         expect(user.reload.name).to eq(old_name)
+      end
+
+      context "when timezone is invalid" do
+        let(:time_zone) { "giberish" }
+
+        it "returns invalid" do
+          expect { command.call }.to broadcast(:invalid)
+        end
       end
     end
 
@@ -75,6 +86,22 @@ module Decidim
       it "updates the language preference" do
         expect { command.call }.to broadcast(:ok)
         expect(user.reload.locale).to eq("es")
+      end
+
+      context "when timezone is defined" do
+        it "updates the time zone" do
+          expect { command.call }.to broadcast(:ok)
+          expect(user.reload.time_zone).to eq("UTC")
+        end
+      end
+
+      context "when timezone is not defined" do
+        let(:time_zone) { "" }
+
+        it "updates the time zone" do
+          expect { command.call }.to broadcast(:ok)
+          expect(user.reload.time_zone).to eq("")
+        end
       end
 
       describe "updating the email" do
