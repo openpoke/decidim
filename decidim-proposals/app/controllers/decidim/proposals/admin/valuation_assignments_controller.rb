@@ -13,6 +13,10 @@ module Decidim
             on(:ok) do |_proposal|
               flash[:notice] = I18n.t("valuation_assignments.create.success", scope: "decidim.proposals.admin")
               redirect_to EngineRouter.admin_proxy(current_component).root_path
+
+              Decidim::Proposals::Admin::ProposalsValuatorMailer.notify_proposals_valuator(
+                @form.valuator_user, current_user, @form.proposals, _proposal
+              ).deliver_now
             end
 
             on(:invalid) do

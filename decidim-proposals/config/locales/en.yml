@@ -550,6 +550,13 @@ en:
             select_a_proposal: Please select a proposal
             select_a_scope: Please select a scope
             success: 'Proposals successfully updated to the %{subject_name} scope: %{proposals}.'
+        proposals_valuator_mailer:
+          notify_proposals_valuator:
+            greeting: Hi %{name}
+            subject: A proposal evaluator has been assigned
+            email_body: You've been assigned by %{admin_name} as a valuator for the proposals listed below. This means you've been trusted to give them feedback and a proper response in the next coming days.
+            gratitude: Thanks for your help!
+            proposal_url: Proposal %{num}
         proposals_imports:
           create:
             invalid: There was a problem importing the proposals
