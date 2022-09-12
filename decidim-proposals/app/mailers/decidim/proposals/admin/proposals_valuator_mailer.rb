@@ -13,8 +13,6 @@ module Decidim
         helper Decidim::TranslationsHelper
         helper Decidim::ApplicationHelper
 
-
-
         def notify_proposals_valuator(user, admin, proposals, proposal)
           @valuator_user = user
           @admin = admin
@@ -27,12 +25,6 @@ module Decidim
                  from: "#{admin.name}, #{admin.email}",
                  subject: t(".subject")
           end
-        end
-
-        private
-
-        def proposal_url_link(proposal)
-          Decidim::ResourceLocatorPresenter.new(proposal).url
         end
       end
     end
