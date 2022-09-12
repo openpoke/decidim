@@ -4,7 +4,7 @@
 
 <p class="email-instructions">
   <% @proposals.each do |proposal| %>
-    <%= sanitize link_to(t(".proposal_url", num: (@proposals.index(proposal) + 1).to_s),
+    <%= sanitize link_to(translated_attribute(proposal.title),
                          Decidim::ResourceLocatorPresenter.new(proposal).url), tags: ["a"], attributes: ["href"] %><br>
   <% end %>
 </p>

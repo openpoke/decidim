@@ -23,6 +23,7 @@ module Decidim
           return broadcast(:invalid) unless form.valid?
 
           assign_proposals
+          send_email
           broadcast(:ok)
         rescue ActiveRecord::RecordInvalid
           broadcast(:invalid)
@@ -54,6 +55,12 @@ module Decidim
             proposal: proposal,
             valuator_role: form.valuator_role
           )
+        end
+
+        def send_email
+          Decidim::Proposals::Admin::ProposalsValuatorMailer.notify_proposals_valuator(
+            @form.valuator_user, current_user, @form.proposals, @proposal
+          ).deliver_later
         end
       end
     end
