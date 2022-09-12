@@ -14,9 +14,12 @@ module Decidim::Proposals::Admin
     let(:proposal) { create(:proposal, component: proposals_component) }
     let(:proposals) { create_list(:proposal, 3, component: proposals_component) }
 
+    def proposal_url(proposal)
+      Decidim::ResourceLocatorPresenter.new(proposal).url
+    end
+
     context "when valuator assigned" do
       let(:mail) { described_class.notify_proposals_valuator(user, admin, proposals, proposal) }
-      let(:proposal_url) { Decidim::ResourceLocatorPresenter.new(proposal).url }
 
       it "set subject email" do
         expect(mail.subject).to eq("A proposal evaluator has been assigned")
@@ -38,9 +41,13 @@ module Decidim::Proposals::Admin
         expect(email_body(mail)).to include("Mark")
       end
 
-      # it "body email has proposal links" do
-      #   expect(email_body(mail)).to have_link(proposal.title["en"], href: proposal_url)
-      # end
+      it "body email has proposal links" do
+        body = email_body(mail)
+        expect(body).to have_link(href: proposal_url(proposal))
+        expect(body).to have_link(href: proposal_url(proposals.first))
+        expect(body).to have_link(href: proposal_url(proposals.second))
+        expect(body).to have_link(href: proposal_url(proposals.third))
+      end
     end
   end
 end
