@@ -113,5 +113,20 @@ describe "Valuator manages proposals", type: :system do
       end
       expect(page).to have_content("successfully")
     end
+
+    it "have assign button" do
+      expect(page).to have_content("Assign")
+    end
+
+    it "stay in the same url after assignment evaluator" do
+      within "#js-form-assign-proposal-to-valuator" do
+        find("#valuator_role_id").click
+        find("option", text: another_user.name).click
+      end
+
+      click_button "Assign"
+
+      expect(current_url).to end_with(current_path)
+    end
   end
 end
