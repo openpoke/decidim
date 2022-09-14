@@ -67,16 +67,12 @@ module Decidim
 
       def send_hide_email_to_author
         Decidim::Admin::HiddenResourceMailer.notify_mail(
-          @reportable, authors_email_of_resource, authors_name_of_resource, report_reasons
+          @reportable, resource_authors, report_reasons
         ).deliver_later
       end
 
-      def authors_email_of_resource
-        @reportable.authors.pluck(:email).uniq
-      end
-
-      def authors_name_of_resource
-        @reportable.authors.pluck(:name)
+      def resource_authors
+        @reportable.try(:authors) || [@reportable.try(:author)]
       end
 
       def report_reasons

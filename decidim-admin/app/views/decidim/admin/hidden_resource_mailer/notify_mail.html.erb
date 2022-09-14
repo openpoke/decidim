@@ -1,6 +1,6 @@
 <p class="email-greeting"><%= t ".hello" %></p>
 
-<p class="email-instructions"><%= t ".body_1", reason: h(@reason.join(", ")) %>
+<p class="email-instructions">
   <span><%= t ".body_1", reason: h(@reason.join(", ")) %>: </span>
   <span><strong><%= translated_attribute(@resource.title) %></strong></span>
 </p>
