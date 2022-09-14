@@ -147,4 +147,26 @@ describe "Admin manages proposals valuators", type: :system do
       expect(page).to have_no_selector("#valuators")
     end
   end
+
+  context "when assigning valuators to proposal from the proposal show page" do
+    let(:unassigned_proposal) { proposal }
+
+    before do
+      visit current_path
+
+      find("a", text: translated(proposal.title)).click
+    end
+
+    it "stay in the same url and add valuator user to list after assignment evaluator" do
+      within "#js-form-assign-proposal-to-valuator" do
+        find("#valuator_role_id").click
+        find("option", text: valuator.name).click
+      end
+
+      click_button "Assign"
+
+      expect(current_url).to end_with(current_path)
+      expect(page).to have_selector(".red-icon")
+    end
+  end
 end
