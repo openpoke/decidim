@@ -68,7 +68,7 @@ module Decidim
               next if table_name.blank?
 
               {
-                name: manifest.model_class_name.constantize.table_name.singularize,
+                name: table_name.singularize,
                 class_name: manifest.model_class_name
               }
             end
