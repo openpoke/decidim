@@ -58,7 +58,7 @@ module Decidim
         end
 
         def send_email
-          Decidim::Proposals::Admin::NotifyProposalsValuatorJob.perform_now(form.valuator_role.user, form.current_user, form.proposals, @proposal)
+          ProposalsValuatorMailer.notify_proposals_valuator(form.valuator_role.user, form.current_user, form.proposals).deliver_later
         end
       end
     end

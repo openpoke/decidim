@@ -13,11 +13,10 @@ module Decidim
         helper Decidim::TranslationsHelper
         helper Decidim::ApplicationHelper
 
-        def notify_proposals_valuator(user, admin, proposals, proposal)
+        def notify_proposals_valuator(user, admin, proposals)
           @valuator_user = user
           @admin = admin
           @proposals = proposals
-          @proposal = proposal
           @organization = user.organization
 
           with_user(user) do

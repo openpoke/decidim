@@ -40,9 +40,11 @@ describe "Admin manages proposals valuators", type: :system do
 
     context "when submitting the form" do
       before do
-        within "#js-form-assign-proposals-to-valuator" do
-          select valuator.name, from: :valuator_role_id
-          page.find("button#js-submit-assign-proposals-to-valuator").click
+        perform_enqueued_jobs do
+          within "#js-form-assign-proposals-to-valuator" do
+            select valuator.name, from: :valuator_role_id
+            page.find("button#js-submit-assign-proposals-to-valuator").click
+          end
         end
       end
 
@@ -55,8 +57,6 @@ describe "Admin manages proposals valuators", type: :system do
       end
 
       it "sends notification with email" do
-        Decidim::Proposals::Admin::ProposalsValuatorMailer.notify_proposals_valuator(valuator, admin, reportables, proposal).deliver_now
-
         expect(last_email.subject).to include("A proposal evaluator has been assigned")
         expect(last_email.from).to eq([Decidim::Organization.first.smtp_settings["from"]])
         expect(last_email.to).to eq([valuator.email])

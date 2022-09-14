@@ -11,7 +11,6 @@ module Decidim::Proposals::Admin
     let(:proposals_component) { create(:component, manifest_name: "proposals", participatory_space: participatory_process) }
     let(:user) { create(:user, organization: organization, name: "Tamilla", email: "valuator@example.org") }
     let(:admin) { create(:user, :admin, organization: organization, name: "Mark") }
-    let(:proposal) { create(:proposal, component: proposals_component) }
     let(:proposals) { create_list(:proposal, 3, component: proposals_component) }
 
     def proposal_url(proposal)
@@ -19,7 +18,7 @@ module Decidim::Proposals::Admin
     end
 
     context "when valuator assigned" do
-      let(:mail) { described_class.notify_proposals_valuator(user, admin, proposals, proposal) }
+      let(:mail) { described_class.notify_proposals_valuator(user, admin, proposals) }
 
       it "set subject email" do
         expect(mail.subject).to eq("A proposal evaluator has been assigned")
@@ -43,7 +42,6 @@ module Decidim::Proposals::Admin
 
       it "body email has proposal links" do
         body = email_body(mail)
-        expect(body).to have_link(href: proposal_url(proposal))
         expect(body).to have_link(href: proposal_url(proposals.first))
         expect(body).to have_link(href: proposal_url(proposals.second))
         expect(body).to have_link(href: proposal_url(proposals.third))
