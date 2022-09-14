@@ -14,15 +14,16 @@ module Decidim
       helper Decidim::TranslationsHelper
       helper Decidim::ApplicationHelper
 
-      def notify_mail(resource, author, reason)
-        @author = author
-        @organization = author.organization
+      def notify_mail(resource, authors_email, authors_name, reason)
+        @authors_email = authors_email
+        @authors_name = authors_name
+        @organization = resource.organization
         @resource = resource
         @reason = reason
-        mail(to: author.email, subject: I18n.t(
-          "decidim.admin.hidden_resource_mailer.notify_mail.subject",
-          organization_name: @organization.name
-        ))
+
+        mail(to: "#{authors_email.join(',')}",
+             subject: I18n.t("decidim.admin.hidden_resource_mailer.notify_mail.subject",
+                             organization_name: @organization.name))
       end
     end
   end

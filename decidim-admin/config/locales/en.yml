@@ -353,7 +353,7 @@ en:
       hidden_resource_mailer:
         notify_mail:
           subject: Your proposal has been hidden
-          hello: Hello %{user_name}
+          hello: Hello!
           body_1: An administrator removed your proposal because it has been reported as %{reason}
           body_2: If you feel that has been a mistake please contact the administrators of
       exports:

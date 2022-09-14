@@ -1,7 +1,9 @@
-<p class="email-greeting"><%= t ".hello", user_name: h(@author.name) %></p>
+<p class="email-greeting"><%= t ".hello" %></p>
 
-<p class="email-instructions"><%= t ".body_1", reason: h(@reason.join(", ")) %>: </p>
-<strong><%= translated_attribute(@resource.title) %></strong><br><br>
+<p class="email-instructions"><%= t ".body_1", reason: h(@reason.join(", ")) %>
+  <span><%= t ".body_1", reason: h(@reason.join(", ")) %>: </span>
+  <span><strong><%= translated_attribute(@resource.title) %></strong></span>
+</p>
 
 <p class="email-instructions">
   <span><%= t ".body_2" %></span>
