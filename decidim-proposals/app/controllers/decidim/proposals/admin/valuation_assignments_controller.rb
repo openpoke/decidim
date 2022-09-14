@@ -12,7 +12,7 @@ module Decidim
           Admin::AssignProposalsToValuator.call(@form) do
             on(:ok) do |_proposal|
               flash[:notice] = I18n.t("valuation_assignments.create.success", scope: "decidim.proposals.admin")
-              redirect_to evaluate_from_single_proposal_url || evaluate_from_proposals_list_url
+              redirect_to after_add_evaluator_url
             end
 
             on(:invalid) do
@@ -53,16 +53,10 @@ module Decidim
           true
         end
 
-        def evaluate_from_single_proposal_url
-          return if request.referer.present? && request.referer.include?(:proposal_id.to_s)
+        def after_add_evaluator_url
+          return request.referer if request.referer.present? && request.referer.include?(:proposal_id.to_s)
 
           request.referer
-        end
-
-        def evaluate_from_proposals_list_url
-          return unless request.referer.present? && request.referer.include?(:proposal_id.to_s)
-
-          EngineRouter.admin_proxy(current_component).root_path
         end
       end
     end
