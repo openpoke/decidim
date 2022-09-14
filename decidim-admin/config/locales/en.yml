@@ -350,6 +350,12 @@ en:
         update:
           error: Failed to update domain whitelist
           success: Domain whitelist updated successfully
+      hidden_resource_mailer:
+        notify_mail:
+          subject: Your proposal has been hidden
+          hello: Hello %{user_name}
+          body_1: An administrator removed your proposal because it has been reported as %{reason}
+          body_2: If you feel that has been a mistake please contact the administrators of
       exports:
         export_as: "%{name} as %{export_format}"
         formats:
