@@ -63,7 +63,7 @@ module Decidim::Admin
         clear_enqueued_jobs
         command.call
         expect(ActionMailer::MailDeliveryJob).to have_been_enqueued.on_queue("mailers")
-        queued_user, _, queued_options = ActiveJob::Arguments.deserialize(ActiveJob::Base.queue_adapter.enqueued_jobs.first[:args]).last[:args]
+        queued_user, _, _queued_options = ActiveJob::Arguments.deserialize(ActiveJob::Base.queue_adapter.enqueued_jobs.first[:args]).last[:args]
         expect(queued_user).to eq(current_user)
       end
     end
