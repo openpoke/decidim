@@ -12,7 +12,7 @@ module Decidim
           Admin::AssignProposalsToValuator.call(@form) do
             on(:ok) do |_proposal|
               flash[:notice] = I18n.t("valuation_assignments.create.success", scope: "decidim.proposals.admin")
-              redirect_to EngineRouter.admin_proxy(current_component).root_path
+              redirect_to after_add_evaluator_url
             end
 
             on(:invalid) do
@@ -51,6 +51,12 @@ module Decidim
 
         def skip_manage_component_permission
           true
+        end
+
+        def after_add_evaluator_url
+          return request.referer if request.referer.present? && request.referer.gsub(:proposal_id.to_s)
+
+          EngineRouter.admin_proxy(current_component).root_path
         end
       end
     end

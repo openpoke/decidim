@@ -113,5 +113,9 @@ describe "Valuator manages proposals", type: :system do
       end
       expect(page).to have_content("successfully")
     end
+
+    it "don't have assign button" do
+      expect(page).not_to have_selector("button#js-submit-assign-proposal-to-valuator")
+    end
   end
 end
