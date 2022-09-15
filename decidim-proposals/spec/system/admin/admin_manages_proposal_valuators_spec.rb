@@ -167,6 +167,7 @@ describe "Admin manages proposals valuators", type: :system do
 
       expect(current_url).to end_with(current_path)
       expect(page).to have_selector(".red-icon")
+      expect(page).to have_content(valuator.name)
     end
   end
 end

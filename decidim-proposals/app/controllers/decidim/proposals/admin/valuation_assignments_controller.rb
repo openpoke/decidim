@@ -54,9 +54,9 @@ module Decidim
         end
 
         def after_add_evaluator_url
-          return request.referer if request.referer.present? && request.referer.include?(:proposal_id.to_s)
+          return request.referer if request.referer.present? && request.referer.gsub(:proposal_id.to_s)
 
-          request.referer
+          EngineRouter.admin_proxy(current_component).root_path
         end
       end
     end
