@@ -52,9 +52,18 @@ module Decidim::Admin
 
     context "when the resource is already hidden" do
       let(:moderation) { create(:moderation, reportable: reportable, report_count: 1, hidden_at: Time.current) }
+      let(:authors) { reportable.try(:authors) || [reportable.try(:author)] }
+      let(:reasons) { reportable.moderation.reports.pluck(:reason).uniq }
 
       it "broadcasts invalid" do
         expect { command.call }.to broadcast(:invalid)
+      end
+
+      it "sends email to author" do
+        Decidim::Admin::HiddenResourceMailer.notify_mail(reportable, authors, reasons).deliver_now
+
+        expect(last_email.subject).to eq(I18n.t("decidim.admin.hidden_resource_mailer.notify_mail.subject"))
+        expect(last_email.to).to eq(authors.pluck(:email).uniq)
       end
     end
 
