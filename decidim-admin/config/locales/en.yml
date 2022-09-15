@@ -438,9 +438,10 @@ en:
         success: Help sections updated successfully
       hidden_resource_mailer:
         notify_mail:
-          body_1: An administrator removed your proposal because it has been reported as %{reason}
+          body_1: An administrator removed your proposal because it has been reported.
           body_2: If you feel that has been a mistake please contact the administrators of
-          hello: Hello!
+          hello: Hello,
+          reason: 'Reason: %{reason}'
           subject: Your proposal has been hidden
       impersonatable_users:
         index:

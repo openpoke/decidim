@@ -60,10 +60,11 @@ module Decidim::Admin
       end
 
       it "sends email to author" do
-        Decidim::Admin::HiddenResourceMailer.notify_mail(reportable, authors, reasons).deliver_now
-
-        expect(last_email.subject).to eq(I18n.t("decidim.admin.hidden_resource_mailer.notify_mail.subject"))
-        expect(last_email.to).to eq(authors.pluck(:email).uniq)
+        clear_enqueued_jobs
+        command.call
+        expect(ActionMailer::MailDeliveryJob).to have_been_enqueued.on_queue("mailers")
+        queued_user, _, queued_options = ActiveJob::Arguments.deserialize(ActiveJob::Base.queue_adapter.enqueued_jobs.first[:args]).last[:args]
+        expect(queued_user).to eq(current_user)
       end
     end
 

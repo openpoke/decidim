@@ -21,8 +21,7 @@ module Decidim
         @reason = reason
 
         mail(to: resource_authors.pluck(:email).uniq,
-             subject: I18n.t("decidim.admin.hidden_resource_mailer.notify_mail.subject",
-                             organization_name: @organization.name))
+             subject: I18n.t("decidim.admin.hidden_resource_mailer.notify_mail.subject"))
       end
     end
   end
