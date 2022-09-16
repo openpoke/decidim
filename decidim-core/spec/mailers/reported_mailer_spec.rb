@@ -32,7 +32,7 @@ module Decidim
         end
 
         it "includes link to admin this resource" do
-          expect(email_body(mail)).to have_link(href: EngineRouter.admin_proxy(reportable.component).proposal_url(reportable))
+          expect(email_body(mail)).to have_link(href: Decidim::ResourceLocatorPresenter.new(reportable).admin_url)
         end
 
         it "includes the report's reason" do

@@ -70,6 +70,16 @@ module Decidim
       admin_route_proxy.send("edit_#{member_route_name}_path", target, options)
     end
 
+    def admin_url(options = {})
+      admin_member_route("url", options.merge(host: root_resource.organization.host))
+    end
+
+    def admin_member_route(route_type, options)
+      options.merge!(options_for_polymorphic)
+
+      admin_route_proxy.send("#{member_route_name}_#{route_type}", target, options)
+    end
+
     private
 
     def polymorphic?
