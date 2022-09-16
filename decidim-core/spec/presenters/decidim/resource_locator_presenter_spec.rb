@@ -52,6 +52,12 @@ module Decidim
 
         it { is_expected.to start_with("/admin/participatory_processes/my-process/edit") }
       end
+
+      describe "#admin_url" do
+        subject { described_class.new(resource).admin_url }
+
+        it { is_expected.to eq("http://1.lvh.me/admin/participatory_processes/my-process/components/1/manage/dummy_resources/1") }
+      end
     end
 
     context "with a polymorphic resource" do
@@ -104,6 +110,12 @@ module Decidim
 
         it { is_expected.to start_with("/admin/participatory_processes/my-process/components/1/manage/dummy_resources/1/nested_dummy_resources/1/edit") }
       end
+
+      describe "#admin_url" do
+        subject { described_class.new([resource, nested_resource]).admin_url }
+
+        it { is_expected.to eq("http://1.lvh.me/admin/participatory_processes/my-process/components/1/manage/dummy_resources/1/nested_dummy_resources/1") }
+      end
     end
 
     context "with a participatory_space" do
@@ -117,6 +129,12 @@ module Decidim
         subject { described_class.new(participatory_process).path }
 
         it { is_expected.to start_with("/processes/my-process") }
+      end
+
+      describe "#admin_url" do
+        subject { described_class.new(participatory_process).admin_url }
+
+        it { is_expected.to start_with("http://1.lvh.me/admin/participatory_processes/my-process") }
       end
     end
   end
