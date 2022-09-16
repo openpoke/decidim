@@ -31,6 +31,10 @@ module Decidim
           expect(email_body(mail)).to match(moderation.participatory_space.title["en"])
         end
 
+        it "includes link to admin this resource" do
+          expect(email_body(mail)).to have_link(href: EngineRouter.admin_proxy(reportable.component).proposal_url(reportable))
+        end
+
         it "includes the report's reason" do
           expect(email_body(mail)).to match(I18n.t(report.reason, scope: "decidim.shared.flag_modal"))
         end
