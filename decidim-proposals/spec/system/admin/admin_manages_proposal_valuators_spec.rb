@@ -12,6 +12,7 @@ describe "Admin manages proposals valuators", type: :system do
   end
   let!(:valuator) { create :user, organization: organization }
   let!(:valuator_role) { create :participatory_process_user_role, role: :valuator, user: valuator, participatory_process: participatory_process }
+  let!(:admin) { create(:user, :admin, organization: organization) }
 
   include Decidim::ComponentPathHelper
 
@@ -39,9 +40,11 @@ describe "Admin manages proposals valuators", type: :system do
 
     context "when submitting the form" do
       before do
-        within "#js-form-assign-proposals-to-valuator" do
-          select valuator.name, from: :valuator_role_id
-          page.find("button#js-submit-assign-proposals-to-valuator").click
+        perform_enqueued_jobs do
+          within "#js-form-assign-proposals-to-valuator" do
+            select valuator.name, from: :valuator_role_id
+            page.find("button#js-submit-assign-proposals-to-valuator").click
+          end
         end
       end
 
@@ -51,6 +54,12 @@ describe "Admin manages proposals valuators", type: :system do
         within find("tr", text: translated(proposal.title)) do
           expect(page).to have_selector("td.valuators-count", text: 1)
         end
+      end
+
+      it "sends notification with email" do
+        expect(last_email.subject).to include("A proposal evaluator has been assigned")
+        expect(last_email.from).to eq([Decidim::Organization.first.smtp_settings["from"]])
+        expect(last_email.to).to eq([valuator.email])
       end
     end
   end
@@ -145,6 +154,29 @@ describe "Admin manages proposals valuators", type: :system do
       expect(page).to have_content("Valuator unassigned from proposals successfully")
 
       expect(page).to have_no_selector("#valuators")
+    end
+  end
+
+  context "when assigning valuators to proposal from the proposal show page" do
+    let(:unassigned_proposal) { proposal }
+
+    before do
+      visit current_path
+
+      find("a", text: translated(proposal.title)).click
+    end
+
+    it "stay in the same url and add valuator user to list after assignment evaluator" do
+      within "#js-form-assign-proposal-to-valuator" do
+        find("#valuator_role_id").click
+        find("option", text: valuator.name).click
+      end
+
+      click_button "Assign"
+
+      expect(current_url).to end_with(current_path)
+      expect(page).to have_selector(".red-icon")
+      expect(page).to have_content(valuator.name)
     end
   end
 end
