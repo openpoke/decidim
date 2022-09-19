@@ -30,6 +30,8 @@ module Decidim
     # When not explicitly set, it will use the model name.
     attribute :route_name, String
 
+    attribute :admin_route_name, String
+
     # The template to use to render the collection of the resource.
     attribute :template, String
 
@@ -97,6 +99,13 @@ module Decidim
     #
     # Returns a String.
     def route_name
+      super || model_class_name.demodulize.underscore
+    end
+
+    # The name of the named Rails route to create the url to the admin resource.
+    #
+    # Returns a String.
+    def admin_route_name
       super || model_class_name.demodulize.underscore
     end
   end

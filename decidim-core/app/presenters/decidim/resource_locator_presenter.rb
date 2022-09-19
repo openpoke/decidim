@@ -168,8 +168,21 @@ module Decidim
 
     def admin_member_route(route_type, options)
       options.merge!(options_for_polymorphic)
+      admin_route_proxy.send("#{admin_member_route_name}_#{route_type}", target, options)
+    end
 
-      admin_route_proxy.send("#{member_route_name}_#{route_type}", target, options)
+    def admin_member_route_name
+      if polymorphic?
+        admin_polymorphic_member_route_name
+      else
+        manifest_for(target).admin_route_name
+      end
+    end
+
+    def admin_polymorphic_member_route_name
+      return unless polymorphic?
+
+      resource.map { |record| manifest_for(record).admin_route_name }.join("_")
     end
   end
 end
