@@ -12,6 +12,7 @@ describe "Admin manages proposals valuators", type: :system do
   end
   let!(:valuator) { create :user, organization: organization }
   let!(:valuator_role) { create :participatory_process_user_role, role: :valuator, user: valuator, participatory_process: participatory_process }
+  let!(:admin) { create(:user, :admin, organization: organization) }
 
   include Decidim::ComponentPathHelper
 
@@ -39,9 +40,11 @@ describe "Admin manages proposals valuators", type: :system do
 
     context "when submitting the form" do
       before do
-        within "#js-form-assign-proposals-to-valuator" do
-          select valuator.name, from: :valuator_role_id
-          page.find("button#js-submit-assign-proposals-to-valuator").click
+        perform_enqueued_jobs do
+          within "#js-form-assign-proposals-to-valuator" do
+            select valuator.name, from: :valuator_role_id
+            page.find("button#js-submit-assign-proposals-to-valuator").click
+          end
         end
       end
 
@@ -51,6 +54,12 @@ describe "Admin manages proposals valuators", type: :system do
         within find("tr", text: translated(proposal.title)) do
           expect(page).to have_selector("td.valuators-count", text: 1)
         end
+      end
+
+      it "sends notification with email" do
+        expect(last_email.subject).to include("A proposal evaluator has been assigned")
+        expect(last_email.from).to eq([Decidim::Organization.first.smtp_settings["from"]])
+        expect(last_email.to).to eq([valuator.email])
       end
     end
   end
