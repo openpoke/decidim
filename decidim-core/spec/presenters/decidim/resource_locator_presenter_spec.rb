@@ -56,7 +56,15 @@ module Decidim
       describe "#admin_url" do
         subject { described_class.new(resource).admin_url }
 
-        it { is_expected.to eq("http://1.lvh.me/admin/participatory_processes/my-process/components/1/manage/dummy_resources/1") }
+        it { is_expected.to be_nil }
+
+        context "when admin_route_name is defined" do
+          before do
+            allow(resource.resource_manifest).to receive(:admin_route_name).and_return("dummy_resource")
+          end
+
+          it { is_expected.to eq("http://1.lvh.me/admin/participatory_processes/my-process/components/1/manage/dummy_resources/1") }
+        end
       end
     end
 
@@ -114,7 +122,16 @@ module Decidim
       describe "#admin_url" do
         subject { described_class.new([resource, nested_resource]).admin_url }
 
-        it { is_expected.to eq("http://1.lvh.me/admin/participatory_processes/my-process/components/1/manage/dummy_resources/1/nested_dummy_resources/1") }
+        it { is_expected.to be_nil }
+
+        context "when admin_route_name is defined" do
+          before do
+            allow(resource.resource_manifest).to receive(:admin_route_name).and_return("dummy_resource")
+            allow(nested_resource.resource_manifest).to receive(:admin_route_name).and_return("nested_dummy_resource")
+          end
+
+          it { is_expected.to eq("http://1.lvh.me/admin/participatory_processes/my-process/components/1/manage/dummy_resources/1/nested_dummy_resources/1") }
+        end
       end
     end
 
@@ -134,7 +151,15 @@ module Decidim
       describe "#admin_url" do
         subject { described_class.new(participatory_process).admin_url }
 
-        it { is_expected.to start_with("http://1.lvh.me/admin/participatory_processes/my-process") }
+        it { is_expected.to be_nil }
+
+        context "when admin_route_name is defined" do
+          before do
+            allow(participatory_process.resource_manifest).to receive(:admin_route_name).and_return("participatory_process")
+          end
+
+          it { is_expected.to start_with("http://1.lvh.me/admin/participatory_processes/my-process") }
+        end
       end
     end
   end
