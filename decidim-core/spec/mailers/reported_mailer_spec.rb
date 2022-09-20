@@ -38,8 +38,9 @@ module Decidim
         context "when the reported content is a resource without a admin url " do
           let(:meetings_component) { create :component, manifest_name: "meetings" }
           let(:meeting) { create :meeting, component: meetings_component }
+          let(:moderation) { create(:moderation, reportable: meeting, participatory_space: meetings_component.participatory_space, report_count: 1) }
 
-          it " doesn't have the admin url" do
+          it "doesn't have the admin url" do
             expect(email_body(mail)).not_to have_link(href: Decidim::ResourceLocatorPresenter.new(meeting).admin_url)
           end
         end
