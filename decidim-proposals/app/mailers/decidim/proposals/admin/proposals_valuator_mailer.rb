@@ -21,7 +21,6 @@ module Decidim
 
           with_user(user) do
             mail to: "#{user.name} <#{user.email}>",
-                 from: "#{admin.name}, #{admin.email}",
                  subject: t(".subject")
           end
         end
