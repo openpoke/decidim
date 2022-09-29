@@ -31,6 +31,20 @@ module Decidim
           expect(email_body(mail)).to match(moderation.participatory_space.title["en"])
         end
 
+        it "includes link to admin this resource" do
+          expect(email_body(mail)).to have_link(href: Decidim::ResourceLocatorPresenter.new(reportable).admin_url)
+        end
+
+        context "when the reported content is a resource without a admin url " do
+          let(:meetings_component) { create :component, manifest_name: "meetings" }
+          let(:meeting) { create :meeting, component: meetings_component }
+          let(:moderation) { create(:moderation, reportable: meeting, participatory_space: meetings_component.participatory_space, report_count: 1) }
+
+          it "doesn't have the admin url" do
+            expect(email_body(mail)).not_to have_link(href: Decidim::ResourceLocatorPresenter.new(meeting).admin_url)
+          end
+        end
+
         it "includes the report's reason" do
           expect(email_body(mail)).to match(I18n.t(report.reason, scope: "decidim.shared.flag_modal"))
         end

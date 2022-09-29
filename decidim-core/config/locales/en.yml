@@ -1223,6 +1223,7 @@ en:
         report_html: <p>The following <a href="%{url}">content</a> has been hidden automatically.</p>
         subject: A resource has been hidden automatically
       report:
+        admin_resource: Admin this resource
         authors: Authors
         content: Reported content
         content_original_language: Content original language

@@ -52,9 +52,19 @@ module Decidim::Admin
 
     context "when the resource is already hidden" do
       let(:moderation) { create(:moderation, reportable: reportable, report_count: 1, hidden_at: Time.current) }
+      let(:authors) { reportable.try(:authors) || [reportable.try(:author)] }
+      let(:reasons) { reportable.moderation.reports.pluck(:reason).uniq }
 
       it "broadcasts invalid" do
         expect { command.call }.to broadcast(:invalid)
+      end
+
+      it "sends email to author" do
+        clear_enqueued_jobs
+        command.call
+        expect(ActionMailer::MailDeliveryJob).to have_been_enqueued.on_queue("mailers")
+        queued_user, _, _queued_options = ActiveJob::Arguments.deserialize(ActiveJob::Base.queue_adapter.enqueued_jobs.first[:args]).last[:args]
+        expect(queued_user).to eq(current_user)
       end
     end
 
