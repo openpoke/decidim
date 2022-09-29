@@ -706,7 +706,7 @@ ja:
     filters:
       linked_classes:
         all: すべて
-        collaborative_draft: 共同ドラフト（下書き）
+        collaborative_draft: 共同草案
         dummy_resource: ダミーリソース
         meeting: ミーティング
         project: プロジェクト
@@ -1665,7 +1665,7 @@ ja:
         see_more: もっと見る
   locale:
     name: 日本語
-    name_with_error: 英語 (エラー!)
+    name_with_error: 日本語 (エラー!)
   password_validator:
     blacklisted: ブラックリストに登録済み
     domain_included_in_password: このドメイン名に似ています

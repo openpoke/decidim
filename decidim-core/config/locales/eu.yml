@@ -953,8 +953,8 @@ eu:
           ok: Ados
         index:
           ago: orain dela
-          close: Itxi leihoa
-          from: Nondik
+          close: Itxi modal
+          from: Nork
           groups: Nire taldeak
           last_message: Azken mezua
           new_conversation: Elkarrizketa berria
@@ -972,7 +972,7 @@ eu:
           title: Elkarrizketa honekin %{usernames}
         start:
           send: Bidali
-          title: Hasi elkarrizketa bat
+          title: Hasi elkarrizketa
         update:
           error: Mezua ez da bidali akats batengatik
     metrics:
@@ -1622,7 +1622,7 @@ eu:
         see_more: Ikusi gehiago
   locale:
     name: Euskera
-    name_with_error: Ingelesa (akatsa!)
+    name_with_error: Euskera (akatsa!)
   password_validator:
     domain_included_in_password: domeinu izen honen antzekoa da
     email_included_in_password: zure posta elektronikoaren antzekoa da
