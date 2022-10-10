@@ -11,7 +11,8 @@ $(() => {
           local_element = $(element);
           let $locale = local_element.siblings('input[type=hidden]').attr('id').replace('proposal_answer_answer_', '');
           let editor = Quill.find(element);
-          editor.setText(data.template[$locale]);
+          let delta = editor.clipboard.convert(data.template[$locale]);
+          editor.setContents(delta, 'silent');
         });
       });
     });

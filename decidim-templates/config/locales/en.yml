@@ -46,9 +46,9 @@ en:
           form:
             answer_template: Answer template
             hint: "<strong>Hint:</strong> You can use theese variables anywhere on the answer template that will be replaced when using the template"
-            hint1: <strong>"%{organization}"</strong> will be replaced by the organization's name
-            hint2: <strong>"%{name}"</strong> will be replaced by the author's name
-            hint3: <strong>"%{admin}"</strong> will be replaced by the admin's name (the one answering the proposal)
+            hint1: <strong>%{organization}</strong> will be replaced by the organization's name
+            hint2: <strong>%{name}</strong> will be replaced by the author's name
+            hint3: <strong>%{admin}</strong> will be replaced by the admin's name (the one answering the proposal)
             save: Save
             template_title: Template information
           index:

@@ -142,16 +142,17 @@ module Decidim
         end
 
         def avaliablity_options
-          @avaliablity_options = { "organizations-#{current_organization.id}" => t("global_scope", scope: "decidim.templates.admin.proposal_answer_templates.index") }
+          @avaliablity_options = {}
           Decidim::Component.includes(:participatory_space).where(manifest_name: :proposals)
                             .select { |a| a.participatory_space.decidim_organization_id == current_organization.id }.each do |component|
             @avaliablity_options["components-#{component.id}"] = formated_name(component)
           end
-          @avaliablity_options
+          global_scope = { "organizations-#{current_organization.id}" => t("global_scope", scope: "decidim.templates.admin.proposal_answer_templates.index") }
+          @avaliablity_options = global_scope.merge(Hash[@avaliablity_options.sort_by{ |_, val| val } ])
         end
 
         def formated_name(component)
-          "#{translated_attribute(component.name)} ( #{translated_attribute(component.participatory_space.title)} )"
+          "#{t(component.participatory_space.class.name.underscore, scope: 'activerecord.models', count: 1)}: #{translated_attribute(component.participatory_space.title)} "
         end
 
         def template
