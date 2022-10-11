@@ -6,7 +6,7 @@ module Decidim
       class CreateProposalAnswerTemplate < Rectify::Command
         # Initializes the command.
         #
-        # form - The source for this QuestionnaireTemplate.
+        # form - The source for this ProposalAnswerTemplate.
         def initialize(form)
           @form = form
         end

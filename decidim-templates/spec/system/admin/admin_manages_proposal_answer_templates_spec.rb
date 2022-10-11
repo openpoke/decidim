@@ -27,14 +27,14 @@ describe "Admin manages proposal answer templates", type: :system do
     end
   end
 
-  describe "creating a questionnaire_template" do
+  describe "creating a proposal_answer_template" do
     before do
       within ".layout-content" do
         click_link("New")
       end
     end
 
-    it "creates a new template with a questionnaire as templatable" do
+    it "creates a new template with a Organization as templatable" do
       within ".new_proposal_answer_template" do
         fill_in_i18n(
           :proposal_answer_template_name,
@@ -43,7 +43,7 @@ describe "Admin manages proposal answer templates", type: :system do
           es: "Mi plantilla",
           ca: "La meva plantilla"
         )
-        fill_in_i18n(
+        fill_in_i18n_editor(
           :proposal_answer_template_description,
           "#proposal_answer_template-description-tabs",
           en: "Description",

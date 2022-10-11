@@ -17,7 +17,6 @@ module Decidim
         def edit
           enforce_permission_to :update, :template, template: template
           @form = form(ProposalAnswerTemplateForm).from_model(template)
-          # @preview_form = form(Decidim::Forms::QuestionnaireForm).from_model(template.templatable)
         end
 
         def create
@@ -51,7 +50,6 @@ module Decidim
 
         def fetch
           enforce_permission_to :read, :template, template: template
-          # enforce_permission_to :create, :proposal_answer, proposal: proposal
 
           response_object = {
             state: template.field_values["internal_state"],
@@ -148,11 +146,11 @@ module Decidim
             @avaliablity_options["components-#{component.id}"] = formated_name(component)
           end
           global_scope = { "organizations-#{current_organization.id}" => t("global_scope", scope: "decidim.templates.admin.proposal_answer_templates.index") }
-          @avaliablity_options = global_scope.merge(Hash[@avaliablity_options.sort_by{ |_, val| val } ])
+          @avaliablity_options = global_scope.merge(Hash[@avaliablity_options.sort_by { |_, val| val }])
         end
 
         def formated_name(component)
-          "#{t(component.participatory_space.class.name.underscore, scope: 'activerecord.models', count: 1)}: #{translated_attribute(component.participatory_space.title)} "
+          "#{t(component.participatory_space.class.name.underscore, scope: "activerecord.models", count: 1)}: #{translated_attribute(component.participatory_space.title)} "
         end
 
         def template

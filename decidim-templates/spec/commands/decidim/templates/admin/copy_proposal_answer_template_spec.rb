@@ -23,11 +23,11 @@ module Decidim
             events = described_class.call(template)
             # events => { :ok => copied_template }
             expect(events).to have_key(:ok)
-            events[:ok].template
+            events[:ok]
           end
 
           it "applies template attributes to the questionnaire" do
-            expect(destination_template.title).to eq(template.title)
+            expect(destination_template.name).to eq(template.name)
             expect(destination_template.description).to eq(template.description)
             expect(destination_template.field_values).to eq(template.field_values)
             expect(destination_template.templatable).to eq(template.templatable)
