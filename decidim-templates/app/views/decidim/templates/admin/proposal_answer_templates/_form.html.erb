@@ -10,9 +10,9 @@
     </div>
 
     <div class="row column">
-      <%= form.translated :editor, :description, rows: 15, label: t('.answer_template') %>
+      <%= form.translated :editor, :description, rows: 15, label: t(".answer_template") %>
 
-      <%= t('.hint').html_safe %>
+      <%= t(".hint").html_safe %>
       <ul>
         <li><%= t(".hint1").html_safe %></li>
         <li><%= t(".hint2").html_safe %></li>
@@ -25,7 +25,7 @@
       <%= form.collection_radio_buttons :internal_state,
                                      Decidim::Proposals::Proposal::POSSIBLE_STATES - %w(withdrawn),
                                      :to_s,
-                                     ->(mode) { t(mode, scope: 'decidim.proposals.admin.proposal_answers.form') } %>
+                                     ->(mode) { t(mode, scope: "decidim.proposals.admin.proposal_answers.form") } %>
     </div>
 
     <div class="row column">

@@ -24,7 +24,7 @@
           <% @templates.each do |template| %>
             <tr data-proposal_answer-id="<%= template.id %>">
               <td><%= link_to_if allowed_to?(:update, :template, template: template) , translated_attribute(template.name), edit_proposal_answer_template_path(template) %></td>
-              <td> <%= t(template.field_values.dig("internal_state"), scope: 'decidim.proposals.admin.proposal_answers.form') %></td>
+              <td> <%= t(template.field_values.dig("internal_state"), scope: "decidim.proposals.admin.proposal_answers.form") %></td>
               <td><%= availability_option_as_text(template) %></td>
               <td><%= l template.created_at, format: :long %></td>
               <td class="table-list__actions">

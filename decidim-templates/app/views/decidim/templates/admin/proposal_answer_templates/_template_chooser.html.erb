@@ -8,7 +8,7 @@
     <%= javascript_pack_tag "decidim_templates_admin" %>
 
     <select id="proposal_answer_template_chooser" data-locale="en" data-proposal="<%= proposal.id %>" data-url="<%= decidim_admin_templates.fetch_proposal_answer_templates_url %>">
-      <option value=""><%= t('.select_template') %></option>
+      <option value=""><%= t(".select_template") %></option>
       <% templates.each do |template| %>
         <option value="<%= template.id %>"><%= translated_attribute(template.name) %></option>
       <% end %>
