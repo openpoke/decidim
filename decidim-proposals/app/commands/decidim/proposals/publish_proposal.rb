@@ -23,6 +23,7 @@ module Decidim
         return broadcast(:invalid) unless @proposal.authored_by?(@current_user)
 
         transaction do
+          byebug
           publish_proposal
           increment_scores
           send_notification
@@ -89,6 +90,8 @@ module Decidim
       end
 
       def send_notification_to_admins
+        return if admins_followers.empty?
+
         Decidim::EventsManager.publish(
           event: "decidim.events.proposals.proposal_published",
           event_class: Decidim::Proposals::PublishProposalEvent,

@@ -302,7 +302,7 @@ en:
         proposal_published_for_admin:
           admin_panel: admin panel
           notification_title: The proposal <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title} by %{author}. Check it out of the %{admin_url}
-          notification_title_official: The official proposal <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}. Check it out of the admin_panel
+          notification_title_official: The official proposal <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}. Check it out of the %{admin_url}
         proposal_published_for_space:
           email_intro: The proposal "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can stop receiving notifications following the previous link.
