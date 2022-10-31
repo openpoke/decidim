@@ -48,7 +48,11 @@ module Decidim
       def i18n_scope
         return super unless participatory_space_event?
 
-        "decidim.events.proposals.proposal_published_for_space"
+        @i18n_scope ||= if extra[:type].to_s == "admin"
+                          "decidim.events.proposals.proposal_published_for_admin"
+                        else
+                          "decidim.events.proposals.proposal_published_for_space"
+                        end
       end
 
       def participatory_space_event?

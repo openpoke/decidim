@@ -27,6 +27,7 @@ module Decidim
           increment_scores
           send_notification
           send_notification_to_participatory_space
+          send_notification_to_admins
         end
 
         broadcast(:ok, @proposal)
@@ -80,11 +81,28 @@ module Decidim
           event: "decidim.events.proposals.proposal_published",
           event_class: Decidim::Proposals::PublishProposalEvent,
           resource: @proposal,
-          followers: @proposal.participatory_space.followers - coauthors_followers,
+          followers: @proposal.participatory_space.followers - coauthors_followers - admins_followers,
           extra: {
             participatory_space: true
           }
         )
+      end
+
+      def send_notification_to_admins
+        Decidim::EventsManager.publish(
+          event: "decidim.events.proposals.proposal_published",
+          event_class: Decidim::Proposals::PublishProposalEvent,
+          resource: @proposal,
+          followers: admins_followers,
+          extra: {
+            type: "admin",
+            participatory_space: true
+          }
+        )
+      end
+
+      def admins_followers
+        @proposal.participatory_space.followers.where(admin: true)
       end
 
       def coauthors_followers
