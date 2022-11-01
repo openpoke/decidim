@@ -104,7 +104,7 @@ module Decidim
       end
 
       def admins_followers
-        @proposal.participatory_space.followers.where(admin: true)
+        @proposal.followers.where(admin: true).uniq
       end
 
       def coauthors_followers
