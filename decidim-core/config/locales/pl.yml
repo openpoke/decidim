@@ -807,18 +807,6 @@ pl:
           how: Jak ją zdobyć
           page_description: Odznaki są wyrazem uznania dla działań użytkowników i ich rozwoju na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki. Oto lista odznak i kilka sposobów na ich zdobycie.
           title: Odznaki
-        invitations:
-          conditions:
-            - Użyj linku "zaproś znajomych" na swojej stronie użytkownika, aby zaprosić znajomych
-            - Dostosuj, jeśli chcesz, wiadomość, którą wysyłasz
-            - Możesz awansować na wyższy poziom, wysyłając zaproszenia i gdy zostaną one przyjęte.
-          description: Ta odznaka jest przyznawana, gdy zapraszasz ludzi i gdy oni poświęcą trochę czasu, aby zarejestrować się w %{organization_name} i zostać użytkownikami. Dziękujemy za udostępnienie %{organization_name} innym osobom i pomoc w rozbudowywaniu społeczności!
-          description_another: Ten użytkownik zaprosił %{score} osób.
-          description_own: Zaprosiłeś %{score} osób.
-          name: Zaproszenia
-          next_level_in: Zaproś %{score} kolejnych użytkowników, aby przejść do następnego poziomu!
-          unearned_another: Ten użytkownik jeszcze nikogo nie zaprosił.
-          unearned_own: Jeszcze nikogo nie zaproszono.
       description: Odznaki są wyrazem uznania dla działań użytkowników i ich rozwoju na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki.
       level: Poziom %{level}
       reached_top: Osiągnąłeś najwyższy poziom tej odznaki.
@@ -1031,7 +1019,7 @@ pl:
           title: Konwersacja z %{usernames}
         start:
           send: Wyślij
-          title: Zacznij konwersację
+          title: Rozpocznij konwersację
         update:
           error: Wiadomość nie została wysłana z powodu błędu
     metrics:
@@ -1547,15 +1535,6 @@ pl:
       updated_not_active: Twoje hasło zostało zmienione.
     registrations:
       destroyed: Twoje konto zostało pomyślnie zawieszone. Mamy nadzieję zobaczyć Cię ponownie wkrótce.
-      edit:
-        are_you_sure: Jesteś pewny?
-        cancel_my_account: Zawieś moje konto
-        currently_waiting_confirmation_for_email: 'Obecnie oczekujące potwierdzenie dla: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: pozostaw puste, jeśli nie chcesz tego zmieniać
-        title: Edytuj %{resource}
-        unhappy: Niezadowolony?
-        update: Aktualizuj
-        we_need_your_current_password_to_confirm_your_changes: potrzebujemy Twojego obecnego hasła, aby potwierdzić Twoje zmiany
       new:
         sign_up: Zarejestruj się
       signed_up: Witamy! Zarejestrowałeś się pomyślnie.
@@ -1614,7 +1593,6 @@ pl:
         other: 'Podczas przetwarzania Twojego żądania wystąpiły błędy:'
       too_many_marks: używa zbyt wielu kolejnych znaków interpunkcyjnych (np.! i?)
       too_much_caps: używa zbyt dużej liczby wielkich liter (ponad 25% tekstu)
-      too_short: jest za krótkie
   forms:
     correct_errors: Wystąpiły błędy w formularzu, popraw je, aby kontynuować.
     length_validator:

@@ -11,6 +11,14 @@ module Decidim
 
       routes do
         ## Routes for Questionnaire Templates
+        resources :proposal_answer_templates do
+          member do
+            post :copy
+          end
+          collection do
+            get :fetch
+          end
+        end
         resources :questionnaire_templates do
           member do
             post :copy
@@ -53,7 +61,8 @@ module Decidim
                         decidim_admin_templates.questionnaire_templates_path,
                         icon_name: "document",
                         position: 12,
-                        active: :inclusive
+                        active: :inclusive,
+                        if: allowed_to?(:read, :templates)
         end
       end
 
