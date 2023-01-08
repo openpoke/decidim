@@ -21,7 +21,7 @@ module Decidim::Proposals::Admin
       let(:mail) { described_class.notify_proposals_valuator(user, admin, proposals) }
 
       it "set subject email" do
-        expect(mail.subject).to eq("A proposal evaluator has been assigned")
+        expect(mail.subject).to eq("New proposals assigned to you for evaluation")
       end
 
       it "set email from" do

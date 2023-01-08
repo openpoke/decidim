@@ -57,7 +57,7 @@ describe "Admin manages proposals valuators", type: :system do
       end
 
       it "sends notification with email" do
-        expect(last_email.subject).to include("A proposal evaluator has been assigned")
+        expect(last_email.subject).to include("New proposals assigned to you for evaluation")
         expect(last_email.from).to eq([Decidim::Organization.first.smtp_settings["from"]])
         expect(last_email.to).to eq([valuator.email])
       end
