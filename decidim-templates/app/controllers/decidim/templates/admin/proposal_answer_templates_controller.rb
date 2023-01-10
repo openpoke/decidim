@@ -25,9 +25,9 @@ module Decidim
           @form = form(ProposalAnswerTemplateForm).from_params(params)
 
           CreateProposalAnswerTemplate.call(@form) do
-            on(:ok) do |template|
+            on(:ok) do |_template|
               flash[:notice] = I18n.t("templates.create.success", scope: "decidim.admin")
-              redirect_to edit_proposal_answer_template_path(template)
+              redirect_to proposal_answer_templates_path
             end
 
             on(:invalid) do
@@ -67,9 +67,9 @@ module Decidim
           enforce_permission_to :update, :template, template: template
           @form = form(ProposalAnswerTemplateForm).from_params(params)
           UpdateProposalAnswerTemplate.call(template, @form, current_user) do
-            on(:ok) do |questionnaire_template|
+            on(:ok) do |_questionnaire_template|
               flash[:notice] = I18n.t("templates.update.success", scope: "decidim.admin")
-              redirect_to edit_proposal_answer_template_path(questionnaire_template)
+              redirect_to proposal_answer_templates_path
             end
 
             on(:invalid) do |template|
@@ -141,7 +141,7 @@ module Decidim
 
         def avaliablity_options
           @avaliablity_options = {}
-          Decidim::Component.includes(:participatory_space).where(manifest_name: :proposals)
+          Decidim::Component.includes(:participatory_space).where(manifest_name: accepted_components)
                             .select { |a| a.participatory_space.decidim_organization_id == current_organization.id }.each do |component|
             @avaliablity_options["components-#{component.id}"] = formated_name(component)
           end
@@ -150,7 +150,12 @@ module Decidim
         end
 
         def formated_name(component)
-          "#{t(component.participatory_space.class.name.underscore, scope: "activerecord.models", count: 1)}: #{translated_attribute(component.participatory_space.title)} "
+          space_type = t(component.participatory_space.class.name.underscore, scope: "activerecord.models", count: 1)
+          "#{space_type}: #{translated_attribute(component.participatory_space.title)} > #{translated_attribute(component.name)}"
+        end
+
+        def accepted_components
+          [:proposals]
         end
 
         def template
