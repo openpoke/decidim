@@ -25,6 +25,7 @@ en:
         destroy:
           success: Template deleted successfully
         empty: There are no templates yet.
+        missing_resource: "(missing resource)"
         update:
           error: There was a problem upadting this template.
           success: Template updated successfully

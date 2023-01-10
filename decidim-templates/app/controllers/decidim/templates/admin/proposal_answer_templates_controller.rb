@@ -131,8 +131,10 @@ module Decidim
         end
 
         def availability_option_as_text(template)
+          return unless template.templatable_type
+
           key = "#{template.templatable_type.demodulize.tableize}-#{template.templatable_id}"
-          avaliablity_options.fetch(key)
+          avaliablity_options[key].presence || t("templates.missing_resource", scope: "decidim.admin")
         end
 
         def availability_options_for_select

@@ -25,6 +25,17 @@ describe "Admin manages proposal answer templates", type: :system do
         expect(page).to have_i18n_content("Global (available everywhere)")
       end
     end
+
+    context "when a template is scoped to an invalid resource" do
+      let!(:template) { create(:template, :proposal_answer, organization: organization, templatable: create(:dummy_resource)) }
+
+      it "shows a table info about the invalid resource" do
+        within ".questionnaire-templates" do
+          expect(page).to have_i18n_content(template.name)
+          expect(page).to have_i18n_content("(missing resource)")
+        end
+      end
+    end
   end
 
   describe "creating a proposal_answer_template" do
