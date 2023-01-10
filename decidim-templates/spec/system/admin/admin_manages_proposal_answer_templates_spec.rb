@@ -22,72 +22,106 @@ describe "Admin manages proposal answer templates", type: :system do
     it "shows a table with the templates info" do
       within ".questionnaire-templates" do
         expect(page).to have_i18n_content(template.name)
-        expect(page).to have_i18n_content("Global scope")
+        expect(page).to have_i18n_content("Global (available everywhere)")
+      end
+    end
+
+    context "when a template is scoped to an invalid resource" do
+      let!(:template) { create(:template, :proposal_answer, organization: organization, templatable: create(:dummy_resource)) }
+
+      it "shows a table info about the invalid resource" do
+        within ".questionnaire-templates" do
+          expect(page).to have_i18n_content(template.name)
+          expect(page).to have_i18n_content("(missing resource)")
+        end
       end
     end
   end
 
   describe "creating a proposal_answer_template" do
+    let(:participatory_process) { create :participatory_process, title: { en: "A participatory process" }, organization: organization }
+    let!(:proposals_component) { create :component, manifest_name: :proposals, name: { en: "A component" }, participatory_space: participatory_process }
+
     before do
       within ".layout-content" do
         click_link("New")
       end
     end
 
-    it "creates a new template with a Organization as templatable" do
-      within ".new_proposal_answer_template" do
-        fill_in_i18n(
-          :proposal_answer_template_name,
-          "#proposal_answer_template-name-tabs",
-          en: "My template",
-          es: "Mi plantilla",
-          ca: "La meva plantilla"
-        )
-        fill_in_i18n_editor(
-          :proposal_answer_template_description,
-          "#proposal_answer_template-description-tabs",
-          en: "Description",
-          es: "Descripción",
-          ca: "Descripció"
-        )
+    shared_examples "creates a new template with scopes" do |scope_name|
+      it "creates a new template" do
+        within ".new_proposal_answer_template" do
+          fill_in_i18n(
+            :proposal_answer_template_name,
+            "#proposal_answer_template-name-tabs",
+            en: "My template",
+            es: "Mi plantilla",
+            ca: "La meva plantilla"
+          )
+          fill_in_i18n_editor(
+            :proposal_answer_template_description,
+            "#proposal_answer_template-description-tabs",
+            en: "Description",
+            es: "Descripción",
+            ca: "Descripció"
+          )
 
-        choose "Not answered"
+          choose "Not answered"
+          select scope_name, from: :proposal_answer_template_scope_for_availability
 
-        page.find("*[type=submit]").click
+          page.find("*[type=submit]").click
+        end
+
+        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_current_path decidim_admin_templates.proposal_answer_templates_path
+        within ".questionnaire-templates" do
+          expect(page).to have_i18n_content(scope_name)
+          expect(page).to have_content("My template")
+        end
       end
-
-      expect(page).to have_admin_callout("successfully")
     end
+
+    it_behaves_like "creates a new template with scopes", "Global (available everywhere)"
+    it_behaves_like "creates a new template with scopes", "Participatory process: A participatory process > A component"
   end
 
   describe "updating a template" do
     let!(:template) { create(:template, :proposal_answer, organization: organization) }
+    let(:participatory_process) { create :participatory_process, title: { en: "A participatory process" }, organization: organization }
+    let!(:proposals_component) { create :component, manifest_name: :proposals, name: { en: "A component" }, participatory_space: participatory_process }
 
     before do
       visit decidim_admin_templates.proposal_answer_templates_path
       click_link translated(template.name)
     end
 
-    it "updates a template" do
-      fill_in_i18n(
-        :proposal_answer_template_name,
-        "#proposal_answer_template-name-tabs",
-        en: "My new name",
-        es: "Mi nuevo nombre",
-        ca: "El meu nou nom"
-      )
+    shared_examples "updates a template with scopes" do |scope_name|
+      it "updates a template" do
+        fill_in_i18n(
+          :proposal_answer_template_name,
+          "#proposal_answer_template-name-tabs",
+          en: "My new name",
+          es: "Mi nuevo nombre",
+          ca: "El meu nou nom"
+        )
 
-      within ".edit_proposal_answer_template" do
-        page.find("*[type=submit]").click
-      end
+        select scope_name, from: :proposal_answer_template_scope_for_availability
 
-      expect(page).to have_admin_callout("successfully")
+        within ".edit_proposal_answer_template" do
+          page.find("*[type=submit]").click
+        end
 
-      within ".container" do
-        expect(page).to have_current_path decidim_admin_templates.edit_proposal_answer_template_path(template)
-        expect(page.find("#proposal_answer_template_name_en").value).to eq("My new name")
+        expect(page).to have_admin_callout("successfully")
+        expect(page).to have_current_path decidim_admin_templates.proposal_answer_templates_path
+        within ".questionnaire-templates" do
+          expect(page).to have_i18n_content(scope_name)
+          expect(page).to have_content("My new name")
+        end
       end
     end
+
+    it_behaves_like "updates a template with scopes", "Global (available everywhere)"
+    it_behaves_like "updates a template with scopes", "Participatory process: A participatory process > A component"
   end
 
   describe "updating a template with invalid values" do

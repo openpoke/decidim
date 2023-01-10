@@ -38,8 +38,8 @@ module Decidim
           when "organizations"
             @form.current_organization
           when "components"
-            component = Decidim::Component.where(manifest_name: :proposals).find(resource.last)
-            component.participatory_space.decidim_organization_id == @form.current_organization.id ? component : nil
+            component = Decidim::Component.find_by(id: resource.last)
+            component&.participatory_space&.decidim_organization_id == @form.current_organization.id ? component : nil
           end
         end
       end
