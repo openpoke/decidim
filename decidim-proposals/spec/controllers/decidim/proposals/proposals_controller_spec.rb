@@ -78,6 +78,49 @@ module Decidim
             end
           end
         end
+
+        context "when XHR request" do
+          include_context "with controller rendering the view" do
+            before do
+              controller.view_context_class.class_eval do
+                def proposals_path(_options)
+                  "/"
+                end
+
+                def proposal_path(_options)
+                  "/"
+                end
+              end
+            end
+
+            let(:component) { create(:proposal_component, :with_geocoding_enabled) }
+            let!(:proposal) { create(:proposal, :accepted, component: component, address: "Peny Lane 1") }
+            let(:params) do
+              {
+                participatory_process_slug: component.participatory_space.slug,
+                component_id: component.id,
+                filter: {
+                  state: [state]
+                }
+              }
+            end
+            let(:state) { "accepted" }
+
+            it "has all accepted proposals" do
+              get :index, xhr: true, params: params
+              expect(response.body).to have_content('address\\":\\"Peny Lane 1\\"')
+            end
+
+            context "when filtering" do
+              let(:state) { "rejected" }
+
+              it "does not have accepted proposals" do
+                get :index, xhr: true, params: params
+                expect(response.body).not_to have_content('address\\":\\"Peny Lane 1\\"')
+              end
+            end
+          end
+        end
       end
 
       describe "GET new" do

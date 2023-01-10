@@ -185,7 +185,7 @@ en:
           error: There's been an error while accepting the admin terms of use.
           success: Great! You've accepted the admin terms of use.
         actions:
-          accept: I agree with the following terms
+          accept: I agree with the terms
           are_you_sure: Are you sure you want to refuse the admin terms of use?
           refuse: Refuse the admin terms
           title: Agree to the terms and conditions of use
@@ -436,6 +436,13 @@ en:
         form:
           save: Save
         success: Help sections updated successfully
+      hidden_resource_mailer:
+        notify_mail:
+          body_1: An administrator removed your proposal because it has been reported.
+          body_2: If you feel that has been a mistake please contact the administrators of
+          hello: Hello,
+          reason: 'Reason: %{reason}'
+          subject: Your proposal has been hidden
       impersonatable_users:
         index:
           filter:
@@ -1040,6 +1047,7 @@ en:
         moderation:
           fields:
             created_at: Creation date
+            deleted_resource: Deleted resource
             hidden_at: Hidden at
             participatory_space: Participatory space
             report_count: Count

@@ -66,7 +66,9 @@ describe "Valuator manages proposals", type: :system do
 
   context "when in the proposal page" do
     before do
-      click_link translated(assigned_proposal.title)
+      within find("tr", text: translated(assigned_proposal.title)) do
+        click_link "Answer proposal"
+      end
     end
 
     it "can only unassign themselves" do
@@ -112,6 +114,10 @@ describe "Valuator manages proposals", type: :system do
         click_button "Answer"
       end
       expect(page).to have_content("successfully")
+    end
+
+    it "don't have assign button" do
+      expect(page).not_to have_selector("button#js-submit-assign-proposal-to-valuator")
     end
   end
 end
