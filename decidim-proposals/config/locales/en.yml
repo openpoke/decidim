@@ -544,6 +544,7 @@ en:
             endorsements_count: Endorsements count
             endorsements_ranking: Ranking by endorsements
             endorsers: Endorsers
+            geolocated_at: Geolocated at
             link: Link
             n_more_endorsers:
               one: and 1 more

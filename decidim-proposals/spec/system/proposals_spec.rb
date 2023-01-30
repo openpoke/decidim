@@ -144,6 +144,40 @@ describe "Proposals", type: :system do
       end
     end
 
+    context "when it is a proposal with geocoding data" do
+      let!(:proposal) { create(:proposal, component: component, address: address, latitude: latitude, longitude: longitude) }
+
+      it "does not show the address" do
+        visit_component
+        click_link proposal_title
+        expect(page).not_to have_css(".card__content.address")
+        expect(page).not_to have_css(".address__info")
+        expect(page).not_to have_css(".address__map")
+        expect(page).not_to have_content(address)
+      end
+
+      context "when component has geocoding enabled" do
+        let!(:component) do
+          create(:proposal_component,
+                 manifest: manifest,
+                 participatory_space: participatory_process,
+                 settings: {
+                   geocoding_enabled: true
+                 })
+        end
+
+        it "shows the address" do
+          visit_component
+          click_link proposal_title
+          within ".card__content.address" do
+            expect(page).to have_css(".address__info")
+            expect(page).to have_css(".address__map")
+            expect(page).to have_content(address)
+          end
+        end
+      end
+    end
+
     context "when it is an official meeting proposal" do
       include_context "with rich text editor content"
       let!(:proposal) { create(:proposal, :official_meeting, body: content, component: component) }

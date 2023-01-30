@@ -90,6 +90,38 @@ describe "Admin views proposal details from admin", type: :system do
     end
   end
 
+  context "when it is a proposal with geocoding data" do
+    let!(:proposal) { create(:proposal, component: component, address: address, latitude: latitude, longitude: longitude) }
+
+    it "does not show the address" do
+      go_to_admin_proposal_page(proposal)
+      expect(page).not_to have_css(".address")
+      expect(page).not_to have_css(".address__info")
+      expect(page).not_to have_css(".address__map")
+      expect(page).not_to have_content(address)
+    end
+
+    context "when component has geocoding enabled" do
+      let!(:component) do
+        create(:proposal_component,
+               manifest: manifest,
+               participatory_space: participatory_process,
+               settings: {
+                 geocoding_enabled: true
+               })
+      end
+
+      it "shows the address" do
+        go_to_admin_proposal_page(proposal)
+        within ".address" do
+          expect(page).to have_css(".address__info")
+          expect(page).to have_css(".address__map")
+          expect(page).to have_content(address)
+        end
+      end
+    end
+  end
+
   describe "with supports" do
     before do
       create_list :proposal_vote, 2, proposal: proposal
