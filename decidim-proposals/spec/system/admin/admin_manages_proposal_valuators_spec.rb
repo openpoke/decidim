@@ -60,6 +60,8 @@ describe "Admin manages proposals valuators", type: :system do
         expect(last_email.subject).to include("New proposals assigned to you for evaluation")
         expect(last_email.from).to eq([Decidim::Organization.first.smtp_settings["from"]])
         expect(last_email.to).to eq([valuator.email])
+        expect(last_email.body.encoded).to include("You've been assigned as a valuator")
+        expect(last_email.body.encoded).to include(Decidim::ResourceLocatorPresenter.new(proposal).admin_url)
       end
     end
   end
