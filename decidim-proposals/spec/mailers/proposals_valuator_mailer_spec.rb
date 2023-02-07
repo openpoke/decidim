@@ -36,15 +36,14 @@ module Decidim::Proposals::Admin
         expect(email_body(mail)).to include("Tamilla")
       end
 
-      it "body email has admin name" do
-        expect(email_body(mail)).to include("Mark")
-      end
-
       it "body email has proposal links" do
         body = email_body(mail)
         expect(body).to have_link(href: proposal_url(proposals.first))
         expect(body).to have_link(href: proposal_url(proposals.second))
         expect(body).to have_link(href: proposal_url(proposals.third))
+        expect(body).to have_link(href: Decidim::ResourceLocatorPresenter.new(proposals.first).admin_url)
+        expect(body).to have_link(href: Decidim::ResourceLocatorPresenter.new(proposals.second).admin_url)
+        expect(body).to have_link(href: Decidim::ResourceLocatorPresenter.new(proposals.third).admin_url)
       end
     end
   end
