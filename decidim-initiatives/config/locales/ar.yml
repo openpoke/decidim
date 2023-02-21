@@ -40,13 +40,6 @@ ar:
         name: اكمل الاسم
   activerecord:
     models:
-      decidim/initiative:
-        zero: بعض المبادرات
-        one: بالمبادرة
-        two: بعض المبادرات
-        few: بعض المبادرات
-        many: بعض المبادرات
-        other: بعض المبادرات
       decidim/initiative_comittee:
         zero: Comittees
         one: إحداث الهيئة
@@ -300,6 +293,8 @@ ar:
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{author_nickname}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
           email_subject: المبادرة التي أقرتها %{author_nickname}
           notification_title: تمت الموافقة على مبادرة <a href="%{resource_path}">%{resource_title}</a> من قبل <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      form:
+        delete_attachment: حذف
       index:
         title: المبادرات
       initiative_signatures:
