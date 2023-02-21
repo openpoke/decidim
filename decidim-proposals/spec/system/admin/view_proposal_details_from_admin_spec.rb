@@ -113,9 +113,8 @@ describe "Admin views proposal details from admin", type: :system do
 
       it "shows the address" do
         go_to_admin_proposal_page(proposal)
-        within ".address" do
-          expect(page).to have_css(".address__info")
-          expect(page).to have_css(".address__map")
+        within ".address__info" do
+          expect(page).to have_css(".address__details")
           expect(page).to have_content(address)
         end
       end
