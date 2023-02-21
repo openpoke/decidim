@@ -41,7 +41,14 @@
     <% if component_settings.geocoding_enabled? %>
       <div class="row column">
         <strong><%= t ".geolocated_at" %>:</strong>
-        <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: proposal } %>
+        <div class="address__info">
+          <div class="address__icon">
+            <%= icon "proposals", role: "img", "aria-hidden": true, width: 40, height: 70 %>
+          </div>
+          <div class="address__details">
+            <%= render partial: "decidim/shared/address_details", locals: { geolocalizable: proposal } %>
+          </div>
+        </div>
       </div>
     <% end %>
 
