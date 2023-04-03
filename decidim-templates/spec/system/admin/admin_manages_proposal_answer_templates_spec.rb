@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/proposals/test/factories"
 
 describe "Admin manages proposal answer templates", type: :system do
   let!(:organization) { create :organization }
-  let!(:user) { create :user, :confirmed, organization: organization }
+  let!(:user) { create :user, :admin, :confirmed, organization: organization }
 
   before do
     switch_to_host(organization.host)
@@ -180,6 +181,37 @@ describe "Admin manages proposal answer templates", type: :system do
 
       expect(page).to have_admin_callout("successfully")
       expect(page).to have_no_i18n_content(template.name)
+    end
+  end
+
+  describe "using a proposal_answer_template" do
+    let(:participatory_process) { create :participatory_process, title: { en: "A participatory process" }, organization: organization }
+    let!(:component) { create :component, manifest_name: :proposals, name: { en: "A component" }, participatory_space: participatory_process }
+
+    let(:description) { "Some meaningful answer" }
+    let(:values) do
+      { internal_state: "rejected" }
+    end
+    let!(:template) { create(:template, :proposal_answer, description: { en: description }, field_values: values, organization: organization, templatable: component) }
+    let!(:proposal) { create(:proposal, component: component) }
+
+    before do
+      visit Decidim::EngineRouter.admin_proxy(component).root_path
+      find("a", class: "action-icon--show-proposal").click
+    end
+
+    it "uses the template" do
+      within ".edit_proposal_answer" do
+        select template.name["en"], from: :proposal_answer_template_chooser
+        expect(page).to have_content(description)
+        click_button "Answer"
+      end
+
+      expect(page).to have_admin_callout("Proposal successfully answered")
+
+      within find("tr", text: proposal.title["en"]) do
+        expect(page).to have_content("Rejected")
+      end
     end
   end
 end
