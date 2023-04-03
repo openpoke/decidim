@@ -29,18 +29,20 @@ module Decidim
         read_admin_dashboard_action?
         apply_newsletter_permissions_for_admin!
 
-        allow! if permission_action.subject == :global_moderation
+        apply_global_moderations_permission_for_admin!
 
         if user.admin? && admin_terms_accepted?
           allow! if read_admin_log_action?
+          allow! if read_user_statistics_action?
           allow! if read_metrics_action?
           allow! if static_page_action?
+          allow! if templates_action?
           allow! if organization_action?
           allow! if user_action?
+          allow! if admin_user_action?
 
           allow! if permission_action.subject == :category
           allow! if permission_action.subject == :component
-          allow! if permission_action.subject == :admin_user
           allow! if permission_action.subject == :attachment
           allow! if permission_action.subject == :editor_image
           allow! if permission_action.subject == :attachment_collection
@@ -76,6 +78,23 @@ module Decidim
         toggle_allow(user.admin? || space_allows_admin_access_to_current_action?)
       end
 
+      def apply_global_moderations_permission_for_admin!
+        return unless admin_terms_accepted?
+        return unless permission_action.subject == :global_moderation
+        return allow! if user.admin?
+
+        return allow! if Decidim.participatory_space_manifests.flat_map.any? do |manifest|
+          Decidim
+                         .find_participatory_space_manifest(manifest.name)
+                         .participatory_spaces
+                         .call(user.organization)&.any? do |space|
+            space.respond_to?(:user_roles) && space.user_roles(:admin).where(user: user).or(space.user_roles(:moderator).where(user: user)).any?
+          end
+        end
+
+        disallow!
+      end
+
       def apply_newsletter_permissions_for_admin!
         return unless admin_terms_accepted?
         return unless permission_action.subject == :newsletter
@@ -99,6 +118,11 @@ module Decidim
             space.admins.exists?(id: user.id)
           end
         end
+      end
+
+      def read_user_statistics_action?
+        permission_action.subject == :users_statistics &&
+          permission_action.action == :read
       end
 
       def read_metrics_action?
@@ -128,6 +152,11 @@ module Decidim
         end
       end
 
+      def templates_action?
+        permission_action.subject == :templates &&
+          permission_action.action == :read
+      end
+
       def organization_action?
         return unless permission_action.subject == :organization
         return unless permission_action.action == :update
@@ -139,6 +168,7 @@ module Decidim
         return unless permission_action.subject == :managed_user
         return user_manager_permissions if user_manager?
         return unless user&.admin?
+        return unless user&.admin_terms_accepted?
 
         case permission_action.action
         when :create
@@ -170,6 +200,19 @@ module Decidim
         end
       end
 
+      def admin_user_action?
+        return unless permission_action.subject == :admin_user
+
+        target_user = context.fetch(:user, nil)
+
+        case permission_action.action
+        when :destroy, :block
+          target_user != user
+        else
+          true
+        end
+      end
+
       def organization
         @organization ||= context.fetch(:organization, nil) || context.fetch(:current_organization, nil)
       end
@@ -183,7 +226,7 @@ module Decidim
 
       def space_allows_admin_access_to_current_action?(require_admin_terms_accepted: false)
         Decidim.participatory_space_manifests.any? do |manifest|
-          next if manifest.name != :initiatives && require_admin_terms_accepted && !admin_terms_accepted?
+          next if require_admin_terms_accepted && !admin_terms_accepted?
 
           new_permission_action = Decidim::PermissionAction.new(
             action: permission_action.action,

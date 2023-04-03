@@ -312,6 +312,8 @@ sk:
           explanation_html: Aby ste mohli vykonať túto akciu, musíte byť autorizovaní, pred tým musíte potvrdiť svoj email <strong>%{email} </strong>.
           request_confirmation_instructions: Požiadajte o pokyny pre potvrdenie
           title: Potvrdiť svoj email
+      show:
+        close_modal: Zatvoriť okno
     collapsible_list:
       hidden_elements_count:
         one: a %{count} ďalších
@@ -654,18 +656,6 @@ sk:
           how: Ako ho môžete získať
           page_description: Odznaky sú uznaním aktivity účastníkov a ich pokroku na platforme. Keď začnete objavovať platformu, zúčastňovať sa na nej a pracovať na nej, získate rôzne odznaky. Tu je zoznam odznakov a spôsoby, ako ich môžete získať.
           title: Odznaky
-        invitations:
-          conditions:
-            - Použite odkaz "pozvať priateľov" na Vašej osobnej stránke pre pozvanie priateľov.
-            - Upravte, ak chcete, správu, ktorú posielate.
-            - Na ďalšiu úroveň sa dostanete rozosielaním a prijatím pozvánok.
-          description: Tento odznak obdržíte, ak ste pozvali pár ľudí, ktorí strávili čas registráciou v %{organization_name} a stali sa účastníkmi. Ďakujeme, že ste ostatným ukázali %{organization_name} a pomohli rozšíriť komunitu!
-          description_another: Tento účastník pozval %{score} ľudí.
-          description_own: Pozvali ste %{score} ľudí.
-          name: Pozvánky
-          next_level_in: Pozvite o %{score} ľudí viac pre dosiahnutie ďalšej úrovne!
-          unearned_another: Tento účastník zatiaľ nikoho nepozval.
-          unearned_own: Zatial ste nikoho nepozvali.
       description: Odznaky sú uznanie akciou účastníkov a pokrok v platforme. Akonáhle začnete objavovať, zúčastniť sa a spolupracovať v platforme, získate rôzne odznaky.
       level: Úroveň%{level}
       reached_top: Dosiahli ste najvyššej úrovne tohto odznaku.
@@ -767,6 +757,9 @@ sk:
       index:
         last_activity: Posledná aktivita
         resource_type: Typ
+    links:
+      warning:
+        close_modal: Zatvoriť okno
     log:
       base_presenter:
         create: "%{user_name} vytvořeno %{resource_name}"
@@ -821,15 +814,12 @@ sk:
           no_conversations: Nemáte zatím žádné konverzace
           title: Konverzace
         reply:
-          placeholder: Vaša odpoveď...
           send: Poslat
-          title: Odpověď
         show:
           chat_with: Konverzácia s
           title: Konverzace s číslem %{usernames}
         start:
           send: Poslat
-          title: Spusťte konverzaci
     metrics:
       followers:
         description: Počet účastníkov, ktorí sledujú tento participatívny priestor
@@ -846,7 +836,6 @@ sk:
     newsletter_mailer:
       newsletter:
         note: Tento e-mail jste obdrželi, protože jste odběrateli bulletinů na %{organization_name}. Můžete změnit nastavení na <a href="%{link}">oznámení straně</a>.
-        see_on_website: Nelze vidět tento e-mail správně? Zobrazte jej na webu <a href="%{link}" target="_blank"></a>.
         unsubscribe: Chcete-li odhlásit přijímání tento typ e-mailů, <a href="%{link}" target="_blank" class="unsubscribe">Odhlásit</a>.
     newsletter_templates:
       basic_only_text:
@@ -958,15 +947,12 @@ sk:
           legend: Souhlasíte s podmínkami používání
         refuse:
           modal_body: Ak odmietnete, nebudete môcť používať platformu, môžete <a href="%{data_portability_path}"> sťahovať dáta </a> a / alebo <a href="%{delete_path}"> zmazať svoj účet </a>.
-          modal_btn_continue: Prijmite termíny a pokračujte
           modal_btn_exit: Neskôr to preskúmam
-          modal_button: Odmietnite podmienky
-          modal_close: Zatvoriť modálne
+          modal_close: Zatvoriť okno
           modal_title: Naozaj odmietate aktualizované zmluvné podmienky?
         required_review:
           alert: Aktualizovali sme Zmluvné podmienky, prečítajte si ich.
           body: Venujte prosím prosím pozornosť aktualizácii našich zmluvných podmienok. V opačnom prípade nebudete môcť platformu používať.
-          title: 'Vyžaduje: Skontrolujte aktualizácie našich zmluvných podmienok'
     participatory_space_private_users:
       not_allowed: Nemáte povolenie na zobrazenie tohto obsahu
     profile:
@@ -1091,9 +1077,6 @@ sk:
         share_link: Zdieľať odkaz
     statistics:
       comments_count: Komentáre
-    user_activity:
-      index:
-        no_activities_warning: Tento účastník zatiaľ nemá žiadnu aktivitu.
     user_contact_disabled: Tento účastník nepovoľuje posielanie priamych správ.
     user_conversations:
       update:
@@ -1219,15 +1202,6 @@ sk:
       updated_not_active: Vaše heslo bolo úspešne zmenené.
     registrations:
       destroyed: Zbohom! Váš účet bol úspešne zrušený. Dúfame, že vás čoskoro uvidíme.
-      edit:
-        are_you_sure: Ste si istí?
-        cancel_my_account: Zrušiť môj účet
-        currently_waiting_confirmation_for_email: 'Aktuálne čaká potvrdenie o:%{email}'
-        leave_blank_if_you_don_t_want_to_change_it: ponechajte prázdne, ak nechcete zmeniť
-        title: Upraviť%{resource}
-        unhappy: Nespokojný?
-        update: Aktualizácia
-        we_need_your_current_password_to_confirm_your_changes: pre potvrdenie zmien potrebujeme vaše aktuálne heslo
       new:
         sign_up: Prihlásiť sa
       signed_up: Vitajte! Úspešne ste sa zaregistrovali.
@@ -1286,7 +1260,6 @@ sk:
         other: 'Pri spracovaní vašej požiadavky došlo k nejakým chybám:'
       too_many_marks: používa príliš veľa po sebe idúcich interpunkčných znamienok (napr.! a?)
       too_much_caps: používa príliš veľa veľkých písmen (viac ako 25% textu)
-      too_short: je príliš krátka (pod 15 znakov)
   forms:
     required: Povinný
   invisible_captcha:

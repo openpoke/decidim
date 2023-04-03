@@ -741,18 +741,6 @@ lb:
           how: Wéi kanns de der et verdéngen
           page_description: Ofzeechen sinn Unerkennungen fir d'Aktiounen an d'Fortschrëtter vun Teilnehmer op der Plattform. Wann se op der Plattform entdecken, matmaachen an interagéieren, verdéngen se verschidden Ofzeechen. Hei ass eng Lëscht vun den Ofzeechen an e puer Méiglechkeeten, wéi een sech déi verdéngen kann.
           title: Ofzeechen
-        invitations:
-          conditions:
-            - Benotz den "Frënn alueden" -Link op denger Profil-Säit, fir Frënn anzelueden
-            - Du kanns, wann s'de dat wëlls, d'Noriicht déi s'de schécke wëlls upassen
-            - Du verbessers dech andeem s'de Aluedungen erausschécks an registréieren léiss.
-          description: Dëst Ofzeechen kritt een, wann een e puer Persounen agelueden huet déi sech d'Zäit geholl hunn sech bei %{organization_name} ze registréieren. Merci, dass du hëllefs d'%{organization_name} bekannt ze maachen an dozou bäidréis d'Communautéit ze vergréisseren!
-          description_another: Dësen Teilnehmer huet %{score} Teilnehmer agelueden.
-          description_own: Du hues %{score} Teilnehmer agelueden.
-          name: Aluedungen
-          next_level_in: Lued %{score} méi Teilnehmer an, fir op den nächsten Level ze kommen!
-          unearned_another: Dësen Teilnehmer huet nach keen agelueden.
-          unearned_own: Du hues nach keen Teilnehmer agelueden.
       description: Ofzeechen sinn Unerkennungen fir d'Aktiounen an d'Fortschrëtter vun Teilnehmer op der Plattform. Wann se op der Plattform entdecken, matmaachen an interagéieren, verdéngen se verschidden Ofzeechen.
       level: Level %{level}
       reached_top: Du hues den héchsten Level bei dësem Ofzeechen erreecht.
@@ -990,7 +978,6 @@ lb:
     newsletter_mailer:
       newsletter:
         note: Du hues dës email kritt, well s'du den Newsletter vun %{organization_name} abonnéiert hues. Du kanns d'Astellungen op denger <a href="%{link}">Benachrichtigungen Seite</a> änneren.
-        see_on_website: Dës Email gëtt dir net richteg ugewisen? Klick w. e. g. hei dran <a href="%{link}" target="_blank">website</a>.
         unsubscribe: Fir dës Zort Email ofzebestellen, <a href="%{link}" target="_blank" class="unsubscribe">Abbestellen</a>.
     newsletter_templates:
       basic_only_text:
@@ -1101,19 +1088,15 @@ lb:
           error: Et gouf e Problem beim Unhuelen vun den Konditiounen vum Benotzen.
           success: Wonnerbar! Du hues d'Konditiounen vum Benotzen akzeptéiert.
         form:
-          agreement: Ech sinn mat dësen Konditiounen averstane
           legend: Akzeptéier d'Konditiounen vum Benotzen
         refuse:
           modal_body: Wann s'du refuséiers, wàert et dir net méiglech sinn dës Plattform ze benotzen, du kanns <a href="%{data_portability_path}">lDaten eroflueden</a> an / oder <a href="%{delete_path}">Konto läschen</a>.
-          modal_btn_continue: Konditiounen akzeptéieren an weiderfueren
           modal_btn_exit: Ech iwwerpréiwen dat méi spéit
-          modal_button: Konditiounen net unhuelen
           modal_close: Modal zou maachen
           modal_title: Bass du wierklech wëlles d'Konditiounen vum Benotzen net unzehuelen?
         required_review:
           alert: Mir hunn eis Konditiounen vum Benotzen aktualiséiert, iwwerpréif se w. e. g.
           body: Huel dir e Moment Zäit fir d' Konditiounen vum Benotzen ze iwwerpréiwen. Soss kanns du d'Plattform net benotzen.
-          title: 'Erfuerderlech: Iwwerpréif Aktualiséierungen vun eisen Konditiounen vum Benotzen'
     participatory_space_private_users:
       not_allowed: Dir ass et net erlaabt dësen Inhalt ze gesinn
     profile:
@@ -1298,9 +1281,6 @@ lb:
       help_text: "<strong>Warnung:</strong> Inhalt kéint automatesch iwwersetzt sinn an net 100% korrekt sinn."
       show_original: Originaltext weisen
       show_translated: Automatesch iwwersaten Text uweisen
-    user_activity:
-      index:
-        no_activities_warning: Dësen Benotzer huet bis elo nach keng Aktivitéit.
     user_contact_disabled: Dësen Teilnehmer refuséiert direkt Noriichten.
     user_conversations:
       create:
@@ -1487,15 +1467,6 @@ lb:
       updated_not_active: Däin Passwuert ass geännert.
     registrations:
       destroyed: Däin Kont gouf zou gemaach. Mir hoffen dech geschwënn erëm ze gesinn.
-      edit:
-        are_you_sure: Bass du sécher?
-        cancel_my_account: Kont erstellen ofbriechen
-        currently_waiting_confirmation_for_email: 'Op Bestätegung waarden fir: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: net ausfëllen wann s'de keng Ännerung wëlls
-        title: Änneren %{resource}
-        unhappy: Net zefridden?
-        update: Aktualiséierung
-        we_need_your_current_password_to_confirm_your_changes: mir brauchen en aktuellt Passwuert fir deng Ännerungen ze bestätegen
       new:
         sign_up: Registréieren
       signed_up: Wëllkomm, du bass elo registréiert.
@@ -1550,7 +1521,6 @@ lb:
         other: 'Bei denger Ufro sin e puer Feeler opgetrueden:'
       too_many_marks: benotzt ze vill Sazzeechen (zB! und?)
       too_much_caps: benotzt ze vill Groussbuschtawen (über 25% des Textes)
-      too_short: ze kuerz (ënner 15 Zeechen)
   forms:
     correct_errors: Et sinn Feeler um Formular, w. e. g. virum weiderfueren verbesseren.
     length_validator:

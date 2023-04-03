@@ -28,7 +28,6 @@
         show_statistics: Vis statistikk
         sign_date: Underskriftsdato
         signature: Underskrift
-        signature_name: signaturnavn
         slogan: Slagord
         slug: URL slug
         start_date: Startdato
@@ -37,13 +36,11 @@
         date: Dato
         link: Lenke
         title: Tittel
-        weight: Vekt
       conference_partner:
         link: Lenke
         logo: Logo
         name: Navn
         partner_type: Type partner
-        weight: Vekt
       conference_registration_invite:
         email: E-post
         name: Navn
@@ -53,7 +50,6 @@
         description: Beskrivelse
         price: Pris
         title: Tittel
-        weight: Vekt
       conference_speaker:
         affiliation: Tilknytning
         avatar: Profilbilde
@@ -131,8 +127,6 @@
         edit:
           title: Oppdater konferanse administrator.
           update: Oppdater
-        index:
-          conference_admins_title: konferanse administratorer
         new:
           create: Opprett
           title: Ny konferanse administrator.
@@ -377,7 +371,7 @@
         invite_join_conference_mailer:
           invite:
             decline: Avvis invitasjon '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} har invitert deg til å delta et foredrag på %{application}. Du kan avvise eller godta gjennom lenkene nedenfor."
+            invited_existing_user_to_join_a_conference: "%{invited_by} har invitert deg til å delta et foredrag på %{application}. Du kan avvise eller godta gjennom lenkene nedenfor."
             registration: Påmelding til '%{conference_title}'
         partners:
           index:
@@ -409,7 +403,7 @@
       conference_program:
         program_meeting:
           content: Innhold
-          location: Plassering
+          location: Sted
           speakers: Talere
           streaming: Strømming
         show:

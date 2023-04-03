@@ -37,13 +37,13 @@ ja:
         date: 日付
         link: リンク
         title: タイトル
-        weight: 重みづけ
+        weight: 並び順の位置
       conference_partner:
         link: リンク
         logo: ロゴ
         name: 名前
         partner_type: パートナータイプ
-        weight: 重みづけ
+        weight: 並び順の位置
       conference_registration_invite:
         email: Eメールアドレス
         name: 名前
@@ -53,7 +53,7 @@ ja:
         description: 説明
         price: 価格
         title: タイトル
-        weight: 重みづけ
+        weight: 並び順の位置
       conference_speaker:
         affiliation: 所属
         avatar: アバター
@@ -309,6 +309,7 @@ ja:
           update: "%{user_name} が %{space_name} カンファレンスのパートナー %{resource_name} を更新しました"
         registration_type:
           create: "%{user_name} が %{resource_name} カンファレンスで %{space_name} の登録タイプを作成しました"
+          delete: "%{user_name} が %{space_name} カンファレンスから %{resource_name} 登録タイプを削除しました"
           publish: "%{user_name} が %{resource_name} カンファレンスで %{space_name} 登録タイプを公開しました"
           unpublish: "%{user_name} が %{resource_name} カンファレンス内の %{space_name} 登録タイプを非公開にしました"
           update: "%{user_name} が %{resource_name} カンファレンスの %{space_name} 登録タイプを更新しました"
@@ -375,7 +376,8 @@ ja:
         invite_join_conference_mailer:
           invite:
             decline: 招待を拒否する '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} が %{application}であなたをカンファレンスに招待しました。以下のリンクから拒否または承認できます。"
+            invited_existing_user_to_join_a_conference: "%{invited_by} が %{application}であなたをカンファレンスに招待しました。以下のリンクから拒否または承認できます。"
+            invited_user_to_join_a_conference: "%{invited_by} があなたを %{application} のカンファレンスに招待しました。以下のリンクから受付ができます。"
             registration: '''%{conference_title} '' の登録'
         partners:
           index:
@@ -426,9 +428,11 @@ ja:
         create:
           invalid: このカンファレンスに参加するのに問題がありました。
           success: カンファレンスに参加しました。
+          unauthorized: カンファレンスに登録する前にサインインする必要があります。
         decline_invitation:
           invalid: 招待を辞退するのに問題があった。
           success: 招待を拒否しました。
+          unauthorized: 招待を辞退する前にサインインする必要があります。
         destroy:
           invalid: このカンファレンスから退会するのに問題がありました。
           success: カンファレンスから退会しました。

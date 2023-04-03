@@ -14,17 +14,24 @@ ja:
         description: 説明
         file: ファイル
         title: 添付ファイルまたは画像名
+        weight: 並び順の位置
       attachment_collection:
         description: 説明
         name: 名前
+        weight: 並び順の位置
       category:
         description: 説明
         name: 名前
         parent_id: 親
+        weight: 並び順の位置
       component:
         name: 名前
         published_at: 公開日時
         weight: 順番の位置
+      external_domain:
+        value: 値
+      help_section:
+        content: 内容
       id: ID
       import:
         user_group_id: インポートを作成
@@ -92,6 +99,9 @@ ja:
         welcome_notification_body: ウェルカム通知本文
         welcome_notification_subject: ウェルカム通知の件名
         youtube_handler: YouTube ハンドラー
+      participatory_space_private_user:
+        email: Eメールアドレス
+        name: 名前
       scope:
         code: コード
         name: 名前
@@ -113,6 +123,7 @@ ja:
         show_in_footer: フッターに表示
         slug: URL スラグ
         title: タイトル
+        topic_id: トピック
         weight: 順番の位置
       static_page_topic:
         description: 説明
@@ -184,14 +195,11 @@ ja:
           error: 管理者向け利用規約に同意中にエラーが発生しました。
           success: ありがとうございます、管理者向け利用規約に同意しました。
         actions:
-          accept: 次の規約に同意します
           are_you_sure: 管理者向け利用規約を削除してもよろしいですか？
-          refuse: 同意しない
           title: 利用規約に同意する
         required_review:
           alert: '必須：管理者向け利用規約を確認してください'
           callout: 管理者向け利用規約を確認してください。そうでなければ、プラットフォームを管理することはできません。
-          cta: 今すぐレビューしましょう。
         title: 管理者向け利用規約
       area_types:
         create:
@@ -327,7 +335,7 @@ ja:
       conflicts:
         attempts: 試行回数
         'false': 'いいえ'
-        managed_user_name: 管理ユーザー
+        managed_user_name: 管理対象ユーザー
         solved: 解決済み
         title: 確認の競合
         transfer:
@@ -444,7 +452,7 @@ ja:
           filter_by: フィルター
           impersonate: なりすまし
           impersonate_new_managed_user: 新規参加者の管理
-          managed: 管理
+          managed: 管理対象
           name: 名前
           needs_authorization_warning: この組織に対して少なくとも1つの承認が有効になっている必要があります。
           not_managed: 非管理対象
@@ -742,7 +750,7 @@ ja:
           not_officialized: 公式化されていない
           officialize: 公式化
           officialized: 公式化済み
-          reofficialize: Reofficize
+          reofficialize: 再公式化
           reports: 報告
           show_email: メールアドレスを表示
           status: ステータス
@@ -1018,7 +1026,7 @@ ja:
         hide: 非表示
         not_hidden: 表示
         title: アクション
-        unhide: Unhide
+        unhide: 非表示解除
         unreport: 報告解除
       admin:
         reportable:
@@ -1035,13 +1043,14 @@ ja:
         moderation:
           fields:
             created_at: 作成日
+            deleted_resource: 削除されたリソース
             hidden_at: '非表示:'
             participatory_space: 参加型スペース
             report_count: カウント
             reportable_id: ID
             reportable_type: 種別
             reported_content_url: 報告されたコンテンツ URL
-            reports: レポート
+            reports: 報告
             visit_url: URL を参照
         report:
           fields:

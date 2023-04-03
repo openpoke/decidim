@@ -18,6 +18,8 @@ de:
         title: Titel
       initiatives_committee_member:
         user: Ausschussmitglied
+      initiatives_settings:
+        initiatives_order: Reihenfolge
       initiatives_type:
         area_enabled: Die Auswahl des Bereichs von Initiativen für Autoren freigeben
         attachments_enabled: Anhänge freigeben
@@ -55,7 +57,7 @@ de:
   activerecord:
     models:
       decidim/initiative:
-        one: Initativ
+        one: Initiative
         other: Initiativen
       decidim/initiative_comittee:
         one: Komitee

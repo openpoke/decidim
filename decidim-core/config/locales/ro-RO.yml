@@ -40,6 +40,9 @@ ro:
       decidim/promote_to_admin: Promovat ca administrator
       decidim/removed_from_group: Eliminat din grup
       decidim/resource_endorsed_event: Resursă susținută
+      decidim/resource_hidden_event: Resursă ascunsă
+      decidim/user_group_created_event: Grup de utilizatori creat
+      decidim/welcome_notification_event: Mesaj de întâmpinare
   activerecord:
     attributes:
       decidim/user:
@@ -770,18 +773,6 @@ ro:
           how: Cum poți să o câștigi
           page_description: Insignele sunt recunoașterea acțiunilor participanților și progresele înregistrate în cadrul platformei. Pe măsură ce începi să descoperi, să participi și să interacționezi în platformă, vei câștiga diferite insigne. Aici este lista de insigne și câteva modalități prin care le poți câștiga.
           title: Insigne
-        invitations:
-          conditions:
-            - Folosește link-ul "invită prieteni" de pe pagina ta de utilizator pentru a-ți invita prietenii
-            - Personalizează, dacă dorești, mesajul pe care îl trimiți
-            - Vei crește în nivel trimițând invitații și primindu-le înregistrate.
-          description: Această insignă este acordată atunci când ai invitat câțiva oameni și aceștia au petrecut puțin timp să se înregistreze în %{organization_name} și să devină participanți. Îți mulțumim că ai făcut %{organization_name} cunoscută și altora existența comunității și ai ajutat la extinderea ei!
-          description_another: Acest participant a invitat %{score} persoane.
-          description_own: Ai invitat %{score} persoane.
-          name: Invitații
-          next_level_in: Invită încă %{score} persoane să ajungă la următorul nivel!
-          unearned_another: Acest participant nu a invitat încă pe nimeni.
-          unearned_own: Nu ai invitat încă pe nimeni.
       description: Insignele sunt recunoașterea acțiunilor participanților și progresele înregistrate în cadrul platformei. Pe măsură ce începi să descoperi, să participi și să interacționezi în platformă, vei câștiga diferite insigne.
       level: Nivelul %{level}
       reached_top: Ai atins nivelul maxim pentru această insignă.
@@ -889,7 +880,7 @@ ro:
         body_1: Ești pe cale de a vizita un link extern și am dori să fii precaut în ceea ce privește conținutul de pe site-ul extern.
         body_2: Te rugăm să verifici link-ul pe care urmează să îl vizitezi și să te asiguri că îl este un site sigur înainte de a continua.
         cancel: Anulare
-        close_modal: Închidere
+        close_modal: Închide fereastra
         proceed: Continuă
         title: Deschide link-ul extern
     log:
@@ -1021,7 +1012,6 @@ ro:
     newsletter_mailer:
       newsletter:
         note: Ați primit acest e-mail deoarece sunteți abonat la buletinele informative de pe %{organization_name}. Puteți modifica setările de pe pagina <a href="%{link}">de notificări</a>.
-        see_on_website: Nu se poate vedea corect acest e-mail? Vizualizați-l pe <a href="%{link}" target="_blank">site-ul</a>.
         unsubscribe: Pentru a renunța la primirea acestui tip de e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Dezabonați-vă</a>.
     newsletter_templates:
       basic_only_text:
@@ -1138,19 +1128,15 @@ ro:
           error: A apărut o problemă la acceptarea termenilor şi a condiţiilor.
           success: Minunat! Ați acceptat termenii și condițiile.
         form:
-          agreement: Sunt de acord cu acești termeni și condiţii
           legend: Sunt de acord cu termenii și condițiile de utilizare
         refuse:
           modal_body: Dacă refuzați, nu veți putea utiliza platforma, puteți <a href="%{data_portability_path}">descărca datele</a> și/sau <a href="%{delete_path}">șterge contul dvs</a>.
-          modal_btn_continue: Acceptați termenii și continuați
           modal_btn_exit: O voi revizui mai târziu
-          modal_button: Refuza termenii
           modal_close: Închide fereastra
           modal_title: Chiar refuzați termenii și condițiile actualizate?
         required_review:
           alert: Am actualizat termenii și condițiile noastre de utilizare, te rugăm să le revizuiești.
           body: Vă rugăm să treceți un moment pentru a revizui actualizările Termenilor și Condițiilor noastre. Altfel, nu veți putea utiliza platforma.
-          title: 'Necesar: Revizuiește actualizările termenilor noștri de serviciu'
     participatory_space_private_users:
       not_allowed: Nu aveţi permisiunea să vizualizaţi acest conţinut
     profile:
@@ -1338,7 +1324,7 @@ ro:
       show_translated: Arată textul tradus automat
     user_activity:
       index:
-        no_activities_warning: Acest participant nu a avut încă nicio activitate.
+        no_activities_warning: Acest participant nu are nicio activitate încă.
     user_contact_disabled: Acest participant nu acceptă mesaje directe.
     user_conversations:
       create:
@@ -1526,15 +1512,6 @@ ro:
       updated_not_active: Parola dvs. a fost schimbată cu succes.
     registrations:
       destroyed: Contul tău a fost anulat cu succes. Sperăm să te revedem în curând.
-      edit:
-        are_you_sure: Sigur dorești asta?
-        cancel_my_account: Anulează contul meu
-        currently_waiting_confirmation_for_email: 'În prezent se așteaptă confirmarea pentru: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: lasă necompletat dacă nu vrei să-l schimbi
-        title: Editează %{resource}
-        unhappy: Nefericit?
-        update: Actualizare
-        we_need_your_current_password_to_confirm_your_changes: avem nevoie de parola curentă pentru a confirma modificările
       new:
         sign_up: Înscrie-te
       signed_up: Bine ați venit! V-ați înregistrat cu succes.
@@ -1591,7 +1568,6 @@ ro:
         other: 'Au existat mai multe erori la procesarea cererii dvs.:'
       too_many_marks: folosește prea multe semne consecutive de punctuație (de ex. ! și ?)
       too_much_caps: utilizează prea multe majuscule (peste 25% din text)
-      too_short: este prea scurt (sub 15 caractere)
   forms:
     correct_errors: Există erori în formular, vă rugăm să le corectaţi pentru a continua.
     length_validator:

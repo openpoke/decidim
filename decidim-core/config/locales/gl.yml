@@ -282,6 +282,8 @@ gl:
           explanation_html: Para realizar esta acción necesitas estar autorizado, antes de facer isto necesitas confirmar o teu correo <strong>%{email}</strong>.
           request_confirmation_instructions: Solicitar instrucións de confirmación
           title: Confirma o teu correo electrónico
+      show:
+        close_modal: Pechar modal
     collapsible_list:
       hidden_elements_count:
         one: e %{count} máis
@@ -597,18 +599,6 @@ gl:
           how: Como podes gañalo
           page_description: As insignias son recoñecementos ás accións participantes e ao progreso na plataforma. Ao comezar a descubrir, participar e interactuar na plataforma, gañará distintas insignias. Aquí está a lista de emblemas e algunhas formas de gaña-los.
           title: Insignias
-        invitations:
-          conditions:
-            - Utiliza a ligazón "invitar amigos" na túa páxina de usuario para invitar aos teus amigos
-            - Personaliza, se queres, a mensaxe que estás enviando
-            - Subirás ao enviar invitacións e obtelos rexistrados.
-          description: Este distintivo concedeuse cando convidou a algunhas persoas e pasaron un pouco de tempo para inscribirse en %{organization_name} e converterse en participantes. Grazas por facer %{organization_name} a coñecer aos outros e axudando a ampliar a comunidade!
-          description_another: Este usuario invitou a %{score} usuarios.
-          description_own: Invitaches %{score} usuarios.
-          name: Invitacións
-          next_level_in: Invita %{score} usuarios máis para chegar ao seguinte nivel!
-          unearned_another: Este usuario aínda non invitou ningún usuario.
-          unearned_own: Aínda non invitaches usuarios.
       description: As insignias son recoñecementos ás accións participantes e ao progreso na plataforma. Ao comezar a descubrir, participar e interactuar na plataforma, gañará distintas insignias.
       level: Nivel %{level}
       reached_top: Alcanzou o nivel superior desta placa.
@@ -767,13 +757,11 @@ gl:
           to: Para
         reply:
           send: Enviar
-          title: Responder
         show:
           deleted_accounts: Non podes manter unha conversa con contas eliminadas.
           title: Conversa con %{usernames}
         start:
           send: Enviar
-          title: Comezar unha conversa
     metrics:
       followers:
         description: Número de usuarios que seguen este espazo de participación
@@ -790,7 +778,6 @@ gl:
     newsletter_mailer:
       newsletter:
         note: Recibiches este correo electrónico porque estás subscrito a boletíns en %{organization_name}. Podes cambiar a configuración nas túas <a href="%{link}"> notificacións páxina</a>.
-        see_on_website: Non se pode ver este correo electrónico correctamente? Vénseo no <a href="%{link}" target="_blank"> sitio web</a>.
         unsubscribe: Para desactivar a recepción deste tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">Subscribe</a>.
     newsletters:
       unsubscribe:
@@ -887,15 +874,12 @@ gl:
           legend: Concorda cos termos e condicións de uso
         refuse:
           modal_body: Rexeitar, non será capaz de utilizar a plataforma, pode <a href="%{data_portability_path}">Descargar seus datos</a> e / ou <a href="%{delete_path}">eliminar a súa conta</a>.
-          modal_btn_continue: Aceptar termos e continuar
           modal_btn_exit: Vou revisalo máis tarde
-          modal_button: Rexeitar os termos
           modal_close: Pechar modal
           modal_title: '¿Realmente rexeita os Termos e condicións actualizados?'
         required_review:
           alert: Actualizamos as nosas Condicións de servizo, por favor revíselas.
           body: Leve un momento para revisar as actualizacións das nosas Condicións de servizo. Se non, non poderás usar a plataforma.
-          title: 'Requirido: repasa as actualizacións dos nosos termos de servizo'
     participatory_space_private_users:
       not_allowed: Non tes permiso para ver este contido
     profile:
@@ -1028,9 +1012,6 @@ gl:
       pages_count: Páxinas
       participants_count: Participantes
       users_count: Participantes
-    user_activity:
-      index:
-        no_activities_warning: Este usuario aínda non tivo ningunha actividade.
     user_conversations:
       show:
         back: Amosar todas as conversas
@@ -1154,15 +1135,6 @@ gl:
       updated_not_active: O seu contrasinal modificouse con éxito.
     registrations:
       destroyed: Adeus! Cancelouse correctamente a túa conta. Esperamos volver a ver de novo.
-      edit:
-        are_you_sure: Estás seguro?
-        cancel_my_account: Cancelar a miña conta
-        currently_waiting_confirmation_for_email: 'Actualmente está a espera de confirmación para: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: Deixar en branco se non o quere cambiar
-        title: Editar %{resource}
-        unhappy: Infeliz
-        update: Actualización
-        we_need_your_current_password_to_confirm_your_changes: necesitamos o seu contrasinal actual para confirmar os seus cambios
       new:
         sign_up: Rexistrarse
       signed_up: Benvido! Rexistráches con éxito.
@@ -1212,7 +1184,6 @@ gl:
       not_locked: Non estaba bloqueado
       too_many_marks: está a usar demasiadas marcas de puntuación consecutivas (por exemplo, e?)
       too_much_caps: está a usar letras maiúsculas (máis do 25% do texto)
-      too_short: é demasiado curto (menos de 15 caracteres)
   forms:
     length_validator:
       minimum:

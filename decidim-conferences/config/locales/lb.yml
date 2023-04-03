@@ -28,7 +28,6 @@ lb:
         show_statistics: Zeige Statistiken
         sign_date: Datum der Unterschrift
         signature: Unterschrift
-        signature_name: Signaturname
         slogan: Slogan
         slug: URL-Block
         start_date: Startdatum
@@ -56,8 +55,6 @@ lb:
         edit:
           title: Aktualisieren Sie den Konferenzbenutzer.
           update: Aktualisieren
-        index:
-          conference_admins_title: Konferenzbenutzer
         new:
           create: Erstellen
           title: Neuer Konferenzbenutzer
@@ -297,7 +294,7 @@ lb:
         invite_join_conference_mailer:
           invite:
             decline: Einladung '%{conference_title}' ablehnen
-            invited_you_to_join_a_conference: "%{invited_by} hat Sie eingeladen, an einer Konferenz um %{application}teilzunehmen. Sie können dies über die unten stehenden Links ablehnen oder akzeptieren."
+            invited_existing_user_to_join_a_conference: "%{invited_by} hat Sie eingeladen, an einer Konferenz um %{application}teilzunehmen. Sie können dies über die unten stehenden Links ablehnen oder akzeptieren."
             registration: Registrierung für '%{conference_title}'
         partners:
           index:
@@ -329,7 +326,7 @@ lb:
       conference_program:
         program_meeting:
           content: Inhalt
-          location: Ort
+          location: Standort
           speakers: Lautsprecher
           streaming: Streaming
         show:

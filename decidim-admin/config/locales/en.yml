@@ -15,17 +15,24 @@ en:
         description: Description
         file: File
         title: Attachment or image name
+        weight: Order position
       attachment_collection:
         description: Description
         name: Name
+        weight: Order position
       category:
         description: Description
         name: Name
         parent_id: Parent
+        weight: Order position
       component:
         name: Name
         published_at: Published at
         weight: Order position
+      external_domain:
+        value: Value
+      help_section:
+        content: Content
       id: ID
       import:
         user_group_id: Create imports as
@@ -93,6 +100,9 @@ en:
         welcome_notification_body: Welcome notification body
         welcome_notification_subject: Welcome notification subject
         youtube_handler: YouTube handler
+      participatory_space_private_user:
+        email: Email
+        name: Name
       scope:
         code: Code
         name: Name
@@ -114,6 +124,7 @@ en:
         show_in_footer: Show in the footer
         slug: URL slug
         title: Title
+        topic_id: Topic
         weight: Order position
       static_page_topic:
         description: Description
@@ -185,7 +196,7 @@ en:
           error: There's been an error while accepting the admin terms of use.
           success: Great! You've accepted the admin terms of use.
         actions:
-          accept: I agree with the following terms
+          accept: I agree with the terms
           are_you_sure: Are you sure you want to refuse the admin terms of use?
           refuse: Refuse the admin terms
           title: Agree to the terms and conditions of use
@@ -633,7 +644,7 @@ en:
           nickname: Nickname
           reason: Reason
           reports: Reports count
-          title: Listing reported users
+          title: Reported participants
         report:
           reasons:
             does_not_belong: Does not belong
@@ -644,7 +655,7 @@ en:
           unblocked: Not Blocked
       moderations:
         index:
-          title: Moderations
+          title: Reported content
         report:
           reasons:
             does_not_belong: Does not belong
@@ -1040,6 +1051,7 @@ en:
         moderation:
           fields:
             created_at: Creation date
+            deleted_resource: Deleted resource
             hidden_at: Hidden at
             participatory_space: Participatory space
             report_count: Count
