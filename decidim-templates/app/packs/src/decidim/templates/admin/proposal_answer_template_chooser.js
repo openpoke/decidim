@@ -14,7 +14,7 @@ $(() => {
         let $locale = localElement.siblings("input[type=hidden]").attr("id").replace("proposal_answer_answer_", "");
         let editor = Quill.find(element);
         let delta = editor.clipboard.convert(data.template[$locale]);
-        editor.setContents(delta, "silent");
+        editor.setContents(delta);
       });
     });
   });

@@ -190,7 +190,7 @@ describe "Admin manages proposal answer templates", type: :system do
 
     let(:description) { "Some meaningful answer" }
     let(:values) do
-      { internal_state: "evaluating" }
+      { internal_state: "rejected" }
     end
     let!(:template) { create(:template, :proposal_answer, description: { en: description }, field_values: values, organization: organization, templatable: component) }
     let!(:proposal) { create(:proposal, component: component) }
@@ -210,7 +210,7 @@ describe "Admin manages proposal answer templates", type: :system do
       expect(page).to have_admin_callout("Proposal successfully answered")
 
       within find("tr", text: proposal.title["en"]) do
-        expect(page).to have_content("Evaluating")
+        expect(page).to have_content("Rejected")
       end
     end
   end
