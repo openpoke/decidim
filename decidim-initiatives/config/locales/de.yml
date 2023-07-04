@@ -18,6 +18,8 @@ de:
         title: Titel
       initiatives_committee_member:
         user: Ausschussmitglied
+      initiatives_settings:
+        initiatives_order: Reihenfolge
       initiatives_type:
         area_enabled: Die Auswahl des Bereichs von Initiativen für Autoren freigeben
         attachments_enabled: Anhänge freigeben
@@ -55,7 +57,7 @@ de:
   activerecord:
     models:
       decidim/initiative:
-        one: Initativ
+        one: Initiative
         other: Initiativen
       decidim/initiative_comittee:
         one: Komitee
@@ -327,7 +329,6 @@ de:
           back: Zurück
           continue: Fortsetzen
           fill_data_help: "<ul> <li>Inhalt Ihrer Initiative überprüfen. Ist Ihr Titel leicht verständlich? Ist das Ziel Ihrer Initiative klar?</li> <li>Sie müssen die Art der Unterschrift wählen. Persönlich, online oder eine Kombination aus beidem</li> <li>Was ist die geografische Reichweite der Initiative? Stadt, Bezirk?</li> </ul>"
-          initiative_type: Art der Initiative
           more_information: "(Weitere Informationen)"
           select_area: Wählen Sie einen Bereich aus
           select_scope: Wählen Sie einen Bereich aus

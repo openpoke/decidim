@@ -184,14 +184,11 @@ pl:
           error: Wystąpił błąd podczas akceptowania warunków użytkowania dla administratorów.
           success: Świetnie! Zaakceptowano warunki użytkowania dla administratorów.
         actions:
-          accept: Zgadzam się z warunkami użytkowania
           are_you_sure: Czy na pewno nie wyrażasz zgody na warunki użytkowania dla administratorów?
-          refuse: Nie akceptuję warunków dla administratorów
           title: Akceptuję warunki użytkowania
         required_review:
           alert: 'Wymagane: Zapoznaj się z warunkami użytkowania dla administratorów'
           callout: Poświęć chwilę, aby zapoznać się z Warunkami użytkowania dla administratorów. W przeciwnym razie nie uzyskasz dostępu do administrowania platformą.
-          cta: Zapoznaj się teraz.
         title: Warunki użytkowania dla administratorów
       area_types:
         create:
@@ -639,7 +636,6 @@ pl:
           nickname: Pseudonim
           reason: Powód
           reports: Liczba zgłoszeń
-          title: Lista zgłoszonych użytkowników
         report:
           reasons:
             does_not_belong: Nie należy
@@ -649,8 +645,6 @@ pl:
           blocked: Zablokowany
           unblocked: Niezablokowany
       moderations:
-        index:
-          title: Moderacje
         report:
           reasons:
             does_not_belong: Nie należy
@@ -1046,6 +1040,7 @@ pl:
         moderation:
           fields:
             created_at: Data utworzenia
+            deleted_resource: Usunięty zasób
             hidden_at: Ukryto
             participatory_space: Przestrzeń partycypacyjna
             report_count: Liczba

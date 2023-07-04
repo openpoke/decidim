@@ -398,8 +398,21 @@ ja:
           proposals: 提案
         imports:
           help:
-            answers: 'インポートドキュメントは、id、状態 (受け入れられた、評価、拒否された)、answer/en (および組織で使える他の言語) の列を含む必要があります。'
-            proposals: 'ファイルには、カラム名「title/en」と「body/en」(または、あなたが好む別のロケール、例: 「title/ja」と「body/ja」) が必要です。また、カラム名「scope/id」と「category/id」にも対応しています。'
+            answers: |
+              インポートドキュメントには、CSVやExcelファイルの場合は以下のカラム名、JSONファイルの場合はキー名が含まれている必要があります:
+              <ul>
+              <li><b>id:</b> 回答する提案のID</li>
+              <li><b>state:</b> "accepted", "evaluating", "rejected"のうちのどれか</li>
+              <li><b>answer/en:</b> 英語での回答。これはプラットフォームの言語設定に依存します。</li>
+              </ul>
+            proposals: |
+              CSVファイルやExcelファイルの場合は以下のカラム名、JSONファイルの場合はキー名が必要です:
+              <ul>
+              <li><b>title/en:</b> 英語でのタイトル。これはプラットフォームの言語設定に依存します。</li>
+              <li><b>body/en:</b> 英語での本文。これはプラットフォームの言語設定に依存します。</li>
+              <li><b>scope/id:</b> スコープのID</li>
+              <li><b>category/id:</b> カテゴリーのID</li>
+              </ul>
           label:
             answers: ファイルから回答をインポート
             proposals: ファイルから提案をインポート
@@ -628,7 +641,7 @@ ja:
           drafts_count:
             other: "%{count} 件の共同草案"
         create:
-          error: 共同草案の作成中に問題が発生しました
+          error: 共同草案の作成中に問題が発生しました.
           success: 共同草案を作成しました。
         edit:
           attachment_legend: "(オプション) 添付ファイルを追加"
@@ -657,10 +670,10 @@ ja:
         new_collaborative_draft_button:
           new_collaborative_draft: 新しい共同草案を作成
         orders:
-          label: '草案の依頼:'
-          most_contributed: 最も貢献したもの
+          label: '草案の並び順:'
+          most_contributed: 貢献の多い順
           random: ランダム
-          recent: 最近のもの
+          recent: 新しい順
         requests:
           accepted_request:
             error: コラボレーターとして受け入れることができませんでした。後でもう一度お試しください。
@@ -707,7 +720,7 @@ ja:
           proposals: 提案
       create:
         error: 提案を保存する際に問題がありました。
-        success: 提案は正常に作成されました。ドラフトとして保存されました。
+        success: 提案は正常に作成されました。草案として保存されました。
       destroy_draft:
         error: 共同草案を削除する際に問題が発生しました。
         success: 提案の下書きは正常に削除されました。
@@ -775,7 +788,7 @@ ja:
           discard: この下書きを破棄する
           discard_confirmation: この提案の下書きを破棄してもよろしいですか？
           send: プレビュー
-          title: 提案ドラフトを編集
+          title: 提案の草案を編集
         filters:
           activity: 参加したもの
           all: すべて
@@ -809,14 +822,14 @@ ja:
           send: 続ける
           title: 提案を作成
         orders:
-          label: '提案の順序：'
-          most_commented: コメントが多い順
-          most_endorsed: 最もオススメされた
-          most_followed: 最もフォローされている
-          most_voted: サポートされている順
+          label: '提案の並び順：'
+          most_commented: コメントの多い順
+          most_endorsed: オススメの多い順
+          most_followed: フォローの多い順
+          most_voted: サポートの多い順
           random: ランダム
-          recent: 最近のもの
-          with_more_authors: より多くの著者と一緒に
+          recent: 新しい順
+          with_more_authors: 起案者の多い順
         participatory_texts:
           index:
             document_index: ドキュメントのインデックス
@@ -927,7 +940,7 @@ ja:
         success: 提案が正常に更新されました。
       update_draft:
         error: 共同草案を保存する際に問題が発生しました。
-        success: 提案ドラフトが正常に更新されました。
+        success: 提案の草案が正常に更新されました。
       versions:
         collaborative_drafts:
           back_to_resource: 共同草案に戻る

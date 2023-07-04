@@ -26,11 +26,6 @@ ru:
         name: Полное имя
   activerecord:
     models:
-      decidim/initiative:
-        one: Почин
-        few: Почина
-        many: Починов
-        other: Починов
       decidim/initiative_comittee:
         one: Рабочая группа
         few: Рабочих группы
@@ -183,7 +178,6 @@ ru:
         fill_data:
           back: Вернуться
           continue: Продолжить
-          initiative_type: Вид почина
           more_information: "(Дополнительные сведения)"
           select_scope: Выбрать охват
         finish:

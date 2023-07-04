@@ -29,6 +29,7 @@ fr-CA:
         password_confirmation: Confirmez votre mot de passe
         personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
+        tos_agreement: Conditions générales d'utilisation
     models:
       decidim/attachment_created_event: Document lié
       decidim/component_published_event: Fonctionnalité active
@@ -92,24 +93,26 @@ fr-CA:
         other: environ %{count} mois
       half_a_minute: une demi-minute
       less_than_x_minutes:
-        one: moins d’une minute.
-        other: moins de %{count} min.
+        one: moins d'une minute
+        other: moins de %{count} minutes
       less_than_x_seconds:
-        one: à l’instant
-        other: moins de %{count} sec.
+        one: moins d'une seconde
+        other: moins de %{count} secondes
       x_days:
-        one: Hier
-        other: "Il y a %{count} jours"
+        one: 1 jour
+        other: "%{count} jours"
       x_hours:
-        one: Il y a 1 heure
-        other: "Il y a %{count} heures"
+        one: 1 heure
+        other: "%{count} heures"
       x_minutes:
-        one: Il y a 1 min
-        other: "Il y a %{count} min"
+        one: 1 minute
+        other: "%{count} minutes"
+      x_months:
+        one: 1 mois
+        other: "%{count} mois"
       x_seconds:
-        one: Il y a 1 seconde
-        other: "Il y a %{count} secondes"
-        zero: à l’instant
+        one: 1 seconde
+        other: "%{count} secondes"
   decidim:
     accessibility:
       external_link: Lien externe
@@ -195,7 +198,9 @@ fr-CA:
         unblock: "%{user_name} a débloqué l'utilisateur %{resource_name}"
         unofficialize: "%{user_name} a retiré l'officialisation de l'utilisateur %{resource_name}"
       user_group:
+        block: "%{user_name} a bloqué le groupe d'utilisateurs %{resource_name}"
         reject: "%{user_name} a rejeté la vérification du groupe d'utilisateurs %{resource_name}"
+        unblock: "%{user_name} a débloqué le groupe d'utilisateurs %{resource_name}"
         verify: "%{user_name} a vérifié le groupe d'utilisateurs %{resource_name}"
         verify_via_csv: "%{user_name} vérifié le groupe %{resource_name} utilisateur via un fichier CSV"
       user_moderation:
@@ -372,7 +377,7 @@ fr-CA:
           request_confirmation_instructions: Demander des instructions de confirmation
           title: confirmez votre email
       show:
-        close_modal: Fermer la fenêtre modale
+        close_modal: Fermer la fenêtre
     block_user_mailer:
       notify:
         body_1: Votre compte a été bloqué.
@@ -786,18 +791,6 @@ fr-CA:
           how: Comment l'obtenir
           page_description: Les badges sont une reconnaissance des actions des participants et des progrès de la plate-forme. Lorsque vous commencerez à découvrir, à participer et à interagir avec la plateforme, vous obtiendrez différents badges. Voici la liste des badges et des moyens de les gagner.
           title: Insignes
-        invitations:
-          conditions:
-            - Utilisez le lien "inviter des amis" sur votre page utilisateur pour inviter vos amis.
-            - Personnalisez, si vous le souhaitez, le message que vous envoyez
-            - Vous augmenterez votre niveau en envoyant des invitations et en les faisant enregistrer.
-          description: Ce badge est attribué lorsque vous avez invité des personnes qui ont passé un peu de temps à s’inscrire à %{organization_name} et devenir des participants. Merci de faire connaître %{organization_name} aux autres et d’aider à élargir la communauté!
-          description_another: Cet utilisateur a invité %{score} utilisateurs.
-          description_own: Vous avez invité %{score} utilisateurs.
-          name: Invitations
-          next_level_in: Invitez %{score} utilisateurs supplémentaires à atteindre le niveau suivant !
-          unearned_another: Cet utilisateur n'a encore invité aucun utilisateur.
-          unearned_own: Vous n'avez encore invité aucun utilisateur.
       description: Les badges sont une reconnaissance des actions des participants et des progrès dans la plateforme. Au fur et à mesure que vous commencez à découvrir, à participer et à interagir sur la plateforme, vous gagnez différents badges.
       level: Niveau %{level}
       reached_top: Vous avez atteint le plus haut niveau pour ce badge.
@@ -905,7 +898,7 @@ fr-CA:
         body_1: Vous êtes sur le point de visiter un lien externe et nous aimerions que vous soyez prudent quant au contenu du site externe.
         body_2: Veuillez vérifier le lien que vous êtes sur le point de visiter et assurez-vous de le reconnaître comme un site sûr avant de poursuivre.
         cancel: Annuler
-        close_modal: Fermer la fenêtre de dialogue
+        close_modal: Fermer la fenêtre
         proceed: Continuer
         title: Ouvrir le lien externe
     log:
@@ -914,8 +907,10 @@ fr-CA:
         create_with_space: "%{user_name} a créé %{resource_name} dans %{space_name}"
         delete: "%{user_name} a supprimé %{resource_name}"
         delete_with_space: "%{user_name} a supprimé %{resource_name} dans %{space_name}"
+        publish_with_space: "%{user_name} a publié %{resource_name} dans %{space_name}"
         unknown_action: "%{user_name} a effectué une action sur %{resource_name}"
         unknown_action_with_space: "%{user_name} a effectué une action sur %{resource_name} dans %{space_name}"
+        unpublish_with_space: "%{user_name} a dépublié %{resource_name} de %{space_name}"
         update: "%{user_name} a mis à jour %{resource_name}"
         update_with_space: "%{user_name} a mis à jour %{resource_name} dans %{space_name}"
       value_types:
@@ -1156,7 +1151,7 @@ fr-CA:
           error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation.
           success: Génial ! Vous avez accepté les conditions d'utilisations.
         form:
-          agreement: J'accepte ces conditions d'utilisation
+          agreement: J'accepte les conditions d'utilisation
           legend: Accepter les conditions d'utilisation
         refuse:
           modal_body: Si vous refusez, vous ne pourrez pas utiliser la plateforme. Vous pouvez <a href="%{data_portability_path}">télécharger vos données</a> et / ou <a href="%{delete_path}">supprimer votre compte</a>.
@@ -1168,7 +1163,7 @@ fr-CA:
         required_review:
           alert: Nous avons mis à jour nos conditions d'utilisation, veuillez les consulter.
           body: Veuillez prendre un moment pour examiner nos conditions d'utilisation mises à jour. Sinon, vous ne pourrez pas utiliser la plateforme.
-          title: 'Obligatoire : consultez les conditions d''utilisation mises à jour'
+          title: 'Requis : veuillez consulter la mise à jour des conditions d''utilisation.'
     participatory_space_private_users:
       not_allowed: Vous n'êtes pas autorisé à voir ce contenu
     profile:
@@ -1355,7 +1350,7 @@ fr-CA:
       show_translated: Afficher le texte automatiquement traduit
     user_activity:
       index:
-        no_activities_warning: Cet utilisateur n'a pas encore eu d'activité.
+        no_activities_warning: Cet utilisateur n'a pas encore d'activité.
     user_contact_disabled: Cet utilisateur n'accepte pas les messages directs.
     user_conversations:
       create:
@@ -1543,15 +1538,6 @@ fr-CA:
       updated_not_active: Votre mot de passe a été changé avec succès.
     registrations:
       destroyed: Au revoir! Votre compte a été annulé avec succès. Nous espérons te revoir bientôt.
-      edit:
-        are_you_sure: Êtes-vous sûr?
-        cancel_my_account: Supprimer mon compte
-        currently_waiting_confirmation_for_email: 'En attente de confirmation pour: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: laisser vide si vous ne voulez pas le changer
-        title: Modifier %{resource}
-        unhappy: Pas satisfait ?
-        update: Mettre à jour
-        we_need_your_current_password_to_confirm_your_changes: nous avons besoin de votre mot de passe actuel pour confirmer vos modifications
       new:
         sign_up: S'inscrire
       signed_up: Bienvenue! Vous vous êtes inscrit avec succès.
@@ -1606,7 +1592,7 @@ fr-CA:
         other: 'Plusieurs erreurs sont survenues pendant le traitement de votre requête.'
       too_many_marks: utilise trop de signes de ponctuation consécutifs (par exemple! et?)
       too_much_caps: utilise trop de lettres majuscules (plus de 25% du texte)
-      too_short: est trop court (moins de 15 caractères)
+      too_short: est trop court (le minimum est de %{count} caractères)
   forms:
     correct_errors: Il y a des erreurs dans le formulaire, veuillez les corriger pour continuer.
     length_validator:
@@ -1679,8 +1665,8 @@ fr-CA:
       widget:
         see_more: Voir plus
   locale:
-    name: Français
-    name_with_error: Français (erreur !)
+    name: Français canadien
+    name_with_error: Français canadien (erreur !)
   password_validator:
     blacklisted: sur liste noire
     domain_included_in_password: est trop similaire au nom de domaine de cette plateforme

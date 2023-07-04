@@ -2,6 +2,7 @@ eu:
   activemodel:
     attributes:
       initiative:
+        area_id: Arloa
         decidim_user_group_id: Egilea
         description: deskribapena
         offline_votes: Aurrez aurreko sinadurak
@@ -32,6 +33,7 @@ eu:
         online_signature_enabled: Sinadura elektronikoa gaituta dago
         only_global_scope_enabled: Eremu globaleko ekimenak soilik sortzeko aukera ematea
         promoting_committee_enabled: Batzorde sustatzailea gaitzea
+        signature_type: Sinadura mota
         title: Izenburua
         undo_online_signatures_enabled: Gaitu erabiltzaileek beren sinadurak desegin ditzaten
         validate_sms_code_on_votes: Gehitu SMS kodea baliozkotzeko urratsa sinadura prozesura
@@ -54,9 +56,6 @@ eu:
               title: Izenburua ezin da hutsik egon
   activerecord:
     models:
-      decidim/initiative:
-        one: Ekimena
-        other: Initatives
       decidim/initiative_comittee:
         one: Batzordea
         other: Comittees
@@ -327,7 +326,6 @@ eu:
           back: Back
           continue: Jarraitu
           fill_data_help: "<ul> <li>Berrikusi zure ekimenaren edukia. Zure izenburua ulertzen erraza da? Zure ekimenaren helburua argi dago?</li> <li>Sinadura mota aukeratu behar duzu.</li> <li>aurrez aurre, linean edo biak konbinatuta. Zein da ekimenaren eremu geografikoa? </li> </ul>"
-          initiative_type: Ekimen mota
           more_information: "(Informazio gehiago)"
           select_area: Hautatu eremu bat
           select_scope: Aukeratu esparrua
@@ -457,7 +455,7 @@ eu:
           author: Egilea
           myself: Nire ekimenak
           scope: Eremua
-          search: Search
+          search: Bilatu
           state: Estatu
           type: Mota
         filters_small_view:

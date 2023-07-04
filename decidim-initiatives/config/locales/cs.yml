@@ -2,8 +2,13 @@ cs:
   activemodel:
     attributes:
       initiative:
+        answer: Odpověď
+        answer_url: URL odpovědi
+        area_id: Oblast
+        decidim_scope_id: Oblast působnosti
         decidim_user_group_id: Autor
         description: Popis
+        hashtag: Hashtag
         offline_votes: Osobní fyzické podpisy
         offline_votes_for_scope: Podepsané osoby pro %{scope_name}
         scope_id: Rozsah
@@ -16,8 +21,11 @@ cs:
           online: OnLine
         state: Stav
         title: Titul
+        type_id: Typ
       initiatives_committee_member:
         user: Člen výboru
+      initiatives_settings:
+        initiatives_order: Pořadí
       initiatives_type:
         area_enabled: Povolit autorům vybrat tematickou oblast pro jejich iniciativu
         attachments_enabled: Povolit přílohy
@@ -32,9 +40,13 @@ cs:
         online_signature_enabled: Online podpis povolen
         only_global_scope_enabled: Umožnit pouze vytvoření iniciativ globálního rozsahu
         promoting_committee_enabled: Povolit podporu výboru
+        signature_type: Typ podpisu
         title: Titul
         undo_online_signatures_enabled: Povolit účastníkům vrátit zpět své online podpisy
         validate_sms_code_on_votes: Přidejte krok ověření SMS kódu do procesu podpisu
+      initiatives_type_scope:
+        decidim_scopes_id: Oblasti působnosti
+        supports_required: Potřebné podpory
       initiatives_vote:
         date_of_birth: Datum narození
         document_number: Číslo dokumentu
@@ -58,7 +70,7 @@ cs:
         one: Iniciativa
         few: Iniciativy
         many: Iniciativ
-        other: Iniciativy
+        other: Iniciativ
       decidim/initiative_comittee:
         one: Výbor
         few: Výbory
@@ -334,8 +346,8 @@ cs:
         fill_data:
           back: Zpět
           continue: Pokračovat
+          decidim_user_group_id_help: Po vytvoření není možné změnit autoritu iniciativy
           fill_data_help: "<ul> <li>Přečtěte si obsah vaší iniciativy. Je váš název snadno srozumitelný? Je cíl vaší iniciativy jasný?</li> <li>Musíte zvolit typ podpisu. Osobní, on-line nebo kombinace obou</li> <li>Jaká je geografická oblast působnosti?</li> </ul>"
-          initiative_type: Typ iniciativy
           more_information: "(Více informací)"
           select_area: Vybrat oblast
           select_scope: Zvolte rozsah
@@ -416,6 +428,7 @@ cs:
         delete_attachment: Smazat
       index:
         title: Iniciativy
+        uninitialized: Iniciativy ještě nejsou nakonfigurovány správcem
       initiative_signatures:
         fill_personal_data:
           continue: Pokračovat

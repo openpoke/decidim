@@ -54,11 +54,6 @@ pl:
               title: Tytuł nie może być pusty
   activerecord:
     models:
-      decidim/initiative:
-        one: Inicjatywa
-        few: Inicjatywy
-        many: Inicjatyw
-        other: Inicjatyw
       decidim/initiative_comittee:
         one: Komitet
         few: Komitety
@@ -334,7 +329,6 @@ pl:
           back: Wróć
           continue: Dalej
           fill_data_help: "<ul> <li>Sprawdź treść swojej inicjatywy. Czy tytuł jest łatwy do zrozumienia? Czy cel inicjatywy jest jasny?</li> <li>Musisz wybrać rodzaj podpisu. Na piśmie, online lub połączenie obu</li> <li>Jaki jest zasięg geograficzny inicjatywy?</li> </ul>"
-          initiative_type: Typ inicjatywy
           more_information: "(Więcej informacji)"
           select_area: Wybierz kategorię
           select_scope: Wybierz zakres

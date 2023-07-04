@@ -11,6 +11,16 @@ eu:
         end_time: Bozketaren amaiera-data
         start_time: Bozketaren hasiera-data
         title: Izenburua
+      monitoring_committee_member:
+        email: Helbide elektronikoa
+        name: Izena
+      polling_officer:
+        email: Helbide elektronikoa
+        name: Izena
+      polling_station:
+        address: Helbidea
+        location: Kokapena
+        title: Izenburua
       question:
         max_selections: Gehieneko aukera kopurua
         min_selections: Aurreko bat ere ez
@@ -99,7 +109,6 @@ eu:
           label: Baliozkotuta
           values:
             'false': Baliozkotuta
-            'true': Baliozkotu gabe
     components:
       elections:
         actions:
@@ -181,6 +190,9 @@ eu:
         exports:
           elections: Bozketak
           feedback_form_answers: Erantzunen feedbacka
+        mailers:
+          trustee_mailer:
+            body: "< p>Kaixo %{user_name}, </p><p> %{resource_name}-an sartu zaituzte, konfiantzazko gisa.< p>"
         menu:
           trustees: Bermatzaileak
         models:
@@ -222,6 +234,8 @@ eu:
         steps:
           create_election:
             errors:
+              census_codes_generated: Erroldarako sarbide kodeak ez dira sortu.
+              census_frozen: Erroldarako sarbide kodeak ez dira esportatu.
               max_selections: Galderek ez dute <strong>balio zuzenik </strong> galdera kopururako
               minimum_answers: Galderek gutxienez eduki behar dituzte <strong> bi erantzun </strong>.
               minimum_questions: <strong>aukerak gutxienez </strong> galdera bat eduki behar du.
@@ -234,6 +248,8 @@ eu:
               'false': ez du <strong>gako publikorik</strong>
               'true': badu <strong> gako publiko bat </strong>
             requirements:
+              census_codes_generated: Sortu dira erroldarako sarbide kodeak.
+              census_frozen: Erroldarako sarbide kodeak esportatu dira eta errolda izoztu da.
               max_selections: Erantzun guztiek balio zuzena dute honetarako <strong>erantzun gehien</strong>.
               minimum_answers: Galdera bakoitzak badu <strong>gutxienez 2 erantzun</strong>.
               minimum_questions: Aukerak badu <strong>gutxienez galdera 1</strong>.
@@ -535,7 +551,7 @@ eu:
         menu:
           trustee_zone: Bermatzailearen gunea
         no_bulletin_board:
-          body: Iragarki Taula bat behar da, atal honetarako konfiguratua. Jarri harremanetan administratzailearekin xehetasun gehiago izateko.
+          body: Atal honetarako iragarki-taula konfiguratu bat behar da. Deitu administratzaileari xehetasun gehiago izateko.
           title: Sentitzen dugu, Iragarki Taula oraindik ez dago konfiguratuta.
         trustees:
           show:
@@ -661,7 +677,7 @@ eu:
           back: Atzera
           continue: Hurrengoa
       warnings:
-        no_elections_warning: Ez dago bilaketa-irizpidearekin bat datorren topaketarik, edo ez dago ezein topaketarik programaturik.
+        no_elections_warning: Ez dago beren bilaketa-irizpideekin bat datorren hauteskunderik, edo ez dago hauteskunde programaturik.
         no_scheduled_elections_warning: Orain ez dago bozketa programaturik, baina aurrekoak ikus ditzakezu.
     events:
       elections:

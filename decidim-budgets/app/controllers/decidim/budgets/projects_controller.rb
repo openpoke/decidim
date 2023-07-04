@@ -28,8 +28,8 @@ module Decidim
       def projects
         return @projects if @projects
 
-        @projects = search.results.page(params[:page]).per(current_component.settings.projects_per_page)
-        @projects = reorder(@projects)
+        @projects = reorder(search.results)
+        @projects = @projects.page(params[:page]).per(current_component.settings.projects_per_page)
       end
 
       def project
@@ -50,7 +50,11 @@ module Decidim
       end
 
       def default_filter_status_params
-        voting_finished? ? %w(selected) : %w(all)
+        show_selected_budgets? ? %w(selected) : %w(all)
+      end
+
+      def show_selected_budgets?
+        voting_finished? && budget.projects.selected.any?
       end
 
       def context_params

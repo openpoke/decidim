@@ -22,12 +22,6 @@ sk:
         slogan: Slogan
         slug: URL krátky odkaz
         title: Názov
-      conference_media_link:
-        weight: Váha
-      conference_partner:
-        weight: Váha
-      conference_registration_type:
-        weight: Váha
       conference_speaker:
         full_name: Meno a priezvisko
       conference_user_role:
@@ -105,8 +99,6 @@ sk:
         edit:
           title: Aktualizovať administrátora konferencie.
           update: Aktualizovať
-        index:
-          conference_admins_title: administrátori konferencie
         new:
           create: Vytvoriť
           title: Nový administrátor konferencie.
@@ -348,7 +340,7 @@ sk:
         invite_join_conference_mailer:
           invite:
             decline: Odmietnuť pozvánku na "%{conference_title}"
-            invited_you_to_join_a_conference: "%{invited_by} Vás pozval na účasť na konferencii na %{application}. Účasť môžete potvrdiť alebo odmietnuť kliknutím na odkaz nižšie."
+            invited_existing_user_to_join_a_conference: "%{invited_by} Vás pozval na účasť na konferencii na %{application}. Účasť môžete potvrdiť alebo odmietnuť kliknutím na odkaz nižšie."
             registration: Registrácia na konferenciu "%{conference_title}"
         partners:
           index:
@@ -380,7 +372,6 @@ sk:
       conference_program:
         program_meeting:
           content: Obsah
-          location: Miesto
           speakers: Rečníci
           streaming: Streamovanie
         show:

@@ -17,6 +17,8 @@ de:
         title: Titel
       voting:
         end_time: Abstimmung endet
+        promoted: Hervorgehoben
+        scope_id: Themenbereich
         start_time: Abstimmung beginnt
     errors:
       models:
@@ -102,7 +104,6 @@ de:
           label: Überprüft
           values:
             'false': Überprüft
-            'true': Nicht überprüft
     components:
       elections:
         actions:

@@ -173,6 +173,8 @@ uk:
           invalid_field: "Для поля %{field} значення %{value} неприпустиме."
           ok: Гаразд
           title: Недостатньо прав через відсутність підтвердження особи
+      show:
+        close_modal: Закрити віконце
     collapsible_list:
       see_less: "(читати менше)"
       see_more: "(читати далі)"
@@ -343,6 +345,9 @@ uk:
       errors:
         error: У цьому полі є помилка.
       remove_this_file: Видалити цей файл
+    links:
+      warning:
+        close_modal: Закрити віконце
     log:
       base_presenter:
         create: "%{user_name} створив %{resource_name}"
@@ -391,7 +396,6 @@ uk:
     newsletter_mailer:
       newsletter:
         note: Ви отримали цього електронного листа, оскільки ви підписалися на новини щодо %{organization_name}. Ви можете змінити свої налаштування на <a href="%{link}">сторінці сповіщень</a>.
-        see_on_website: Не вдається до пуття переглянути це повідомлення? Перегляньте його на сайті <a href="%{link}" target="_blank"></a>.
         unsubscribe: Щоб відмовитися від отримання таких повідомлень, клацніть на <a href="%{link}" target="_blank" class="unsubscribe">Відмовитися</a>.
     newsletters:
       unsubscribe:
@@ -459,15 +463,12 @@ uk:
           legend: Погодитися з умовами участі
         refuse:
           modal_body: Якщо ви відмовитеся, ви не зможете використовувати майданчик, ви можете <a href="%{data_portability_path}">завантажити свої дані</a> і / або <a href="%{delete_path}">видалити свій обліковий запис</a>.
-          modal_btn_continue: Прийняти умови та продовжити
           modal_btn_exit: Я перегляну це пізніше
-          modal_button: Відмовитися від умов участі
           modal_close: Закрити віконце
           modal_title: Ви дійсно відмовляєтеся від оновлених "Умов участі"?
         required_review:
           alert: Ми оновили наші "Умови участі", будь ласка, перегляньте їх.
           body: Будь ласка, знайдіть хвилинку, щоб переглянути оновлення до наших "Умов участі". В іншому випадку ви не зможете використовувати наш майданчик.
-          title: 'Обов''язково: перегляньте оновлення до наших "Умов участі"'
     participatory_space_private_users:
       not_allowed: У вас нема прав на перегляд цього вмісту
     profile:
@@ -634,6 +635,7 @@ uk:
         see_more: Читати далі
   locale:
     name: Українська
+    name_with_error: Українська (помилка!)
   password_validator:
     domain_included_in_password: занадто схожий на це доменне ім'я
     email_included_in_password: занадто схожий на вашу електронну пошту

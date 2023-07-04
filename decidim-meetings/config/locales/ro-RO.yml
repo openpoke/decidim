@@ -1,10 +1,6 @@
 ro:
   activemodel:
     attributes:
-      agenda:
-        description: Descriere
-        duration: Durată
-        title: Titlu
       close_meeting:
         attendees_count: Număr de participanți
         attending_organizations: Lista organizaţiilor care au participat
@@ -22,8 +18,9 @@ ro:
         decidim_scope_id: Domeniu de interes
         decidim_user_group_id: Grup de utilizatori
         description: Descriere
-        end_time: Ora de încheiere
+        end_time: Data sfarsit
         id: ID
+        iframe_embed_type: Tip încorporare iframe
         location: Locaţie
         location_hints: Sugestii de localizare
         online_meeting_url: URL-ul întâlnirii online
@@ -33,15 +30,32 @@ ro:
         registration_email_custom_content: Conținut personalizat de e-mail de înregistrare
         registration_form_enabled: Formular de înregistrare activat
         registration_terms: Termeni de înregistrare
+        registration_type: Tipul de înscriere
         registration_url: URL înregistrare
         registrations_enabled: Înregistrări activate
-        show_embedded_iframe: Arată iframe încorporat pentru acest URL
-        start_time: Ora de începere
+        reserved_slots: Locuri disponibile pentru acest eveniment
+        start_time: Data inceput
         title: Titlu
         transparent: Transparentă
         type_of_meeting: Tip
+      meeting_agenda:
+        title: Titlu
+        visible: Vizibil
+      meeting_agenda_items:
+        description: Descriere
+        duration: Durată
+        title: Titlu
+      meeting_registration_invite:
+        email: E-mail
+        name: Nume
+      validate_registration_code:
+        code: Cod
     errors:
       models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Această adresă URL nu poate fi încorporată în ședință sau în pagina de evenimente live
         meeting_agenda:
           attributes:
             base:
@@ -99,6 +113,7 @@ ro:
           type_eq:
             label: Tip de întâlnire
             values:
+              hybrid: Hibrid
               in_person: În persoană
               online: Online
       meeting_copies:
@@ -180,6 +195,9 @@ ro:
           email_outro: Ai primit această notificare deoarece te-ai înregistrate pentru întâlnirea „%{resource_title}”. O puteți anula de la link-ul anterior.
           email_subject: Întâlnirea „%{resource_title}” va începe în mai puțin de 48 de ore.
           notification_title: Ședința <a href="%{resource_path}">%{resource_title}</a> va începe în mai puțin de 48 de ore.
+    forms:
+      meetings:
+        attendees_count_help_text: Nu uitați să includeți numărul total de participanți la întâlnire, fie că este vorba de persoane fizice, online sau hibride.
     gamification:
       badges:
         attended_meetings:
@@ -278,9 +296,6 @@ ro:
           edit:
             close: Închide
             title: Închide ședința
-        meeting_copies:
-          form:
-            select_a_meeting_type: Te rugăm să selectezi un tip de ședință
         meetings:
           close:
             invalid: A apărut o problemă la închiderea acestei întâlniri
@@ -309,6 +324,8 @@ ro:
             registration_url_help: 'Link: permite participanților să acceseze serviciul extern pe care îl utilizezi pentru înregistrare'
             select_a_meeting_type: Te rugăm să selectezi un tip de ședință
             select_a_registration_type: Te rugăm să selectezi un tip de înregistrare
+            select_an_iframe_access_level: Vă rugăm să selectați un nivel de acces iframe
+            show_embedded_iframe_help: Doar câteva servicii permit încorporarea în întâlniri sau evenimente live (YouTube, Twitch și Jitsi)
           index:
             title: Întâlniri
           new:
@@ -406,6 +423,7 @@ ro:
         registered: Participanții înregistrați la acest eveniment
       iframe_embed_type:
         embed_in_meeting_page: Incorporează în pagina de şedinţe
+        none: Niciunul
         open_in_live_event_page: Deschide în pagina de evenimente live (cu sondaje opționale)
         open_in_new_tab: Deschideți în filă nouă
       last_activity:
@@ -471,6 +489,7 @@ ro:
           type: Tip
           type_values:
             all: Toate
+            hybrid: Hibrid
             in_person: În persoană
             online: Online
         filters_small_view:
@@ -490,6 +509,7 @@ ro:
           select_a_category: Te rugăm să selectezi o categorie
           select_a_meeting_type: Te rugăm să selectezi un tip de ședință
           select_a_registration_type: Te rugăm să selectezi un tip de înregistrare
+          show_embedded_iframe_help: Doar câteva servicii permit încorporarea în întâlniri sau evenimente live (YouTube, Twitch și Jitsi)
         index:
           click_here: Vezi toate întâlnirile
           new_meeting: Întâlnire nouă
@@ -572,6 +592,7 @@ ro:
             empty_questions: Pe parcursul acestei întâlniri, vor fi trimise câteva întrebări și vei putea răspunde la acestea. Acestea vor fi afișate aici.
           index_admin:
             admin_dashboard: Panou de administrare
+            edit: Editează în panoul de administrare
             question: Întrebare
             received_answer: răspuns primit
             received_answers: răspunsuri primite
@@ -610,6 +631,7 @@ ro:
           invalid: A existat o problemă la părăsirea acestei reuniuni.
           success: Ai părăsit şedinţa cu succes.
       type_of_meeting:
+        hybrid: Hibrid
         in_person: În persoană
         online: Online
       types:

@@ -84,21 +84,6 @@ nl:
         one: ongeveer 1 maand
         other: ongeveer %{count} maanden
       half_a_minute: een halve minuut
-      less_than_x_minutes:
-        one: minder dan een minuut
-        other: minder dan %{count} minuten
-      less_than_x_seconds:
-        one: nu meteen
-        other: minder dan %{count} seconden
-      x_days:
-        one: 1 dag geleden
-        other: "%{count} dagen geleden"
-      x_hours:
-        one: 1 uur geleden
-        other: "%{count} uren geleden"
-      x_minutes:
-        one: 1 minuut geleden
-        other: "%{count} minuten geleden"
   decidim:
     accessibility:
       external_link: Externe link
@@ -754,18 +739,6 @@ nl:
           how: Hoe kun je het verdienen?
           page_description: Badges zijn erkenningen voor acties van deelnemers en voortgang op het platform. Naarmate je begint met ontdekken, deelnemen en communiceren op het platform, verdien je verschillende badges. Hier is de lijst met badges en enkele manieren waarop u ze kunt verdienen.
           title: Badges
-        invitations:
-          conditions:
-            - Gebruik de link "Vrienden uitnodigen" op uw gebruikerspagina om uw vrienden uit te nodigen
-            - Pas het bericht aan dat u stuurt, als u wilt
-            - Je komt op een niveau door uitnodigingen te versturen en ze te laten registreren.
-          description: Deze badge wordt toegekend als je enkele mensen hebt uitgenodigd en ze hebben een beetje tijd besteed om in %{organization_name} te registreren en deelnemers te worden. Dank u om %{organization_name} bekend te maken bij anderen en om de community te helpen uit te breiden!
-          description_another: Deze deelnemer heeft %{score} personen uitgenodigd.
-          description_own: Je hebt %{score} mensen uitgenodigd.
-          name: Uitnodigingen
-          next_level_in: Nodig nog %{score} mensen uit om het volgende niveau te bereiken!
-          unearned_another: Deze deelnemer heeft nog niemand uitgenodigd.
-          unearned_own: Je hebt nog niemand uitgenodigd.
       description: Badges zijn erkenningen voor acties van deelnemers en voortgang op het platform. Naarmate je begint met ontdekken, deelnemen en communiceren op het platform, verdien je verschillende badges.
       level: Niveau %{level}
       reached_top: U hebt het hoogste niveau bereikt voor deze badge.
@@ -1004,7 +977,6 @@ nl:
     newsletter_mailer:
       newsletter:
         note: U ontvangt deze e-mail omdat u bent geabonneerd op nieuwsbrieven van %{organization_name}. U kunt uw instellingen op uw <a href="%{link}">notificatiepagina</a> veranderen.
-        see_on_website: Wordt deze e-mail niet correct worden weergegeven? Bekijk hem via deze link <a href="%{link}" target="_blank">website</a>.
         unsubscribe: Om je uit te schrijven, <a href="%{link}" target="_blank" class="unsubscribe">Uitschrijven</a>.
     newsletter_templates:
       basic_only_text:
@@ -1121,19 +1093,15 @@ nl:
           error: Er is een fout opgetreden bij het accepteren van de algemene voorwaarden.
           success: Geweldig! U hebt de algemene voorwaarden geaccepteerd.
         form:
-          agreement: Ik ga akkoord met deze voorwaarden
           legend: Ga akkoord met de gebruiksvoorwaarden
         refuse:
           modal_body: Als u weigert, kunt u het platform niet gebruiken, kunt u <a href="%{data_portability_path}">uw gegevens downloaden</a> en / of <a href="%{delete_path}">uw account verwijderen</a>.
-          modal_btn_continue: Voorwaarden accepteren en doorgaan
           modal_btn_exit: Ik zal het later bekijken
-          modal_button: Weigeren de voorwaarden
-          modal_close: Modal sluiten
+          modal_close: Sluit venster
           modal_title: Weig je de bijgewerkte Algemene voorwaarden echt af?
         required_review:
           alert: We hebben onze Servicevoorwaarden bijgewerkt. Bekijk ze alstublieft.
           body: Neem even de tijd om updates van onze Servicevoorwaarden door te nemen. Anders kunt u het platform niet gebruiken.
-          title: 'Vereist: bekijk updates van onze servicevoorwaarden'
     participatory_space_private_users:
       not_allowed: Je hebt geen toestemming om deze inhoud te bekijken
     profile:
@@ -1304,9 +1272,6 @@ nl:
     tags:
       filter_results_for_category: 'Resultaten filteren voor categorie: %{resource}'
       filter_results_for_scope: 'Filter resultaten voor bereik: %{resource}'
-    user_activity:
-      index:
-        no_activities_warning: Deze deelnemer heeft nog geen activiteit gehad.
     user_contact_disabled: Deze gebruiker accepteert geen directe berichten.
     user_conversations:
       create:
@@ -1486,15 +1451,6 @@ nl:
       updated_not_active: Je wachtwoord is met succes veranderd.
     registrations:
       destroyed: Uw account is succesvol geannuleerd. We hopen je snel weer te zien.
-      edit:
-        are_you_sure: Weet je het zeker?
-        cancel_my_account: Annuleer mijn account
-        currently_waiting_confirmation_for_email: 'Momenteel wachtende bevestiging voor: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: laat leeg als je het niet wilt wijzigen
-        title: Bewerk %{resource}
-        unhappy: Ongelukkig?
-        update: Bijwerken
-        we_need_your_current_password_to_confirm_your_changes: we hebben je huidige wachtwoord nodig om je wijzigingen te bevestigen
       new:
         sign_up: Aanmelden
       signed_up: Welkom! Je hebt je succesvol aangemeld.
@@ -1549,7 +1505,6 @@ nl:
         other: 'Er zijn fouten opgetreden bij de verwerking van je aanvraag:'
       too_many_marks: gebruikt te veel opeenvolgende leestekens (bijvoorbeeld ! en?)
       too_much_caps: gebruikt te veel hoofdletters (meer dan 25% van de tekst)
-      too_short: is te kort (minder dan 15 tekens)
   forms:
     correct_errors: Er zijn fouten in het formulier, corrigeer ze om door te gaan.
     length_validator:

@@ -14,17 +14,24 @@ ca:
         description: Descripció
         file: Arxiu
         title: Nom de l'adjunt o imatge
+        weight: Ordre de posició
       attachment_collection:
         description: Descripció
         name: Nom
+        weight: Ordre de posició
       category:
         description: Descripció
         name: Nom
         parent_id: Pare
+        weight: Ordre de posició
       component:
         name: Nom
         published_at: Publicat el
         weight: Ordre de posició
+      external_domain:
+        value: Valor
+      help_section:
+        content: Contingut
       id: ID
       import:
         user_group_id: Importar com
@@ -77,7 +84,7 @@ ca:
         organization_admin_name: Nom de l'administradora de l'organització
         organization_locales: Idiomes de l'organització
         primary_color: Primària
-        reference_prefix: prefix de referència
+        reference_prefix: Prefix de referència
         rich_text_editor_in_public_views: Habilitar l'editor de text enriquit
         secondary_color: Secundari
         secondary_hosts: Hosts secundaris
@@ -92,6 +99,9 @@ ca:
         welcome_notification_body: Cos de la notificació de benvinguda
         welcome_notification_subject: Assumpte de la notificació de benvinguda
         youtube_handler: Nom d'usuària de YouTube
+      participatory_space_private_user:
+        email: Correu electrònic
+        name: Nom
       scope:
         code: Codi
         name: Nom
@@ -113,6 +123,7 @@ ca:
         show_in_footer: Mostra al peu de pàgina
         slug: Nom curt d'URL
         title: Títol
+        topic_id: Assumpte
         weight: Ordre de posició
       static_page_topic:
         description: Descripció
@@ -184,14 +195,14 @@ ca:
           error: S'ha produït un error en acceptar els Termes i Condicions dell panell d'administració.
           success: Genial! Has acceptat els Termes i Condicions del panell d'administració.
         actions:
-          accept: Estic d'acord amb els termes següents
+          accept: Estic d'acord amb les condicions
           are_you_sure: Segur que vols rebutjar els termes i condicions del panell d'administració?
-          refuse: Rebutjar els termes
+          refuse: Rebutjar les condicions del servei d'administració
           title: Accepto els Termes i Condicions d'Administració
         required_review:
           alert: 'Requerit: Revisa els nostres Termes i Condicions del panell d''administració'
           callout: Si us plau dedica un moment a revisar l'actualització dels nostres termes i condicions del panell d'administració. En cas contrari, no podràs utilitzar la plataforma.
-          cta: Revisa-les ara.
+          cta: Revisar-les ara.
         title: Termes i Condicions del panell d'administració
       area_types:
         create:
@@ -632,7 +643,7 @@ ca:
           nickname: Àlies
           reason: Raó
           reports: Número de denúncies
-          title: Llistant usuàries reportades
+          title: Participants reportades
         report:
           reasons:
             does_not_belong: No pertany
@@ -643,7 +654,7 @@ ca:
           unblocked: No bloquejat
       moderations:
         index:
-          title: Moderacions
+          title: Contingut reportat
         report:
           reasons:
             does_not_belong: No pertany
@@ -704,7 +715,7 @@ ca:
         select_recipients_to_deliver:
           all_spaces: Totes
           all_users_help: Envia el butlletí a tots els usuaris confimats.
-          confirm_deliver: Estàs segura que vols enviar aquest butlletí? Aquesta acció no es pot desfer.
+          confirm_deliver: Segur que vols enviar aquest butlletí? Aquesta acció no es pot desfer.
           deliver: Enviar butlletí
           followers_help: Envia el butlletí a tots els usuaris confirmats que segueixin qualsevol dels espais participatius seleccionats a la llista.
           none: Cap
@@ -816,7 +827,7 @@ ca:
           inactive_content_blocks: Blocs de contingut inactiu
       organization_homepage_content_blocks:
         edit:
-          update: Actualitza
+          update: Actualitzar
       participatory_space_private_users:
         create:
           error: S'ha produït un error en afegir una participant privada a aquest espai de participació.
@@ -829,7 +840,7 @@ ca:
           title: Participant de l'espai participatiu privat
         new:
           create: Crear
-          title: Nova participant de l'espai de participació privat.
+          title: Nova participant de l'espai privat.
       participatory_space_private_users_csv_imports:
         create:
           invalid: S'ha produït un error en llegir el fitxer CSV.
@@ -1039,13 +1050,14 @@ ca:
         moderation:
           fields:
             created_at: Data de creació
+            deleted_resource: Recurs eliminat
             hidden_at: Data d'ocultació
             participatory_space: Espai de participació
             report_count: Recompte
             reportable_id: ID
             reportable_type: Tipus
             reported_content_url: URL contingut del contingut reportat
-            reports: Denúncies
+            reports: Informes
             visit_url: Visiteu l'URL
         report:
           fields:

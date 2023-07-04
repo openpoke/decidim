@@ -656,18 +656,6 @@ zh-CN:
           how: 你如何赚钱
           page_description: 徽章是对参与者行动和平台进展的承认。 当您开始发现、参与和互动平台时，您将获得不同的徽章。 这里是徽章列表和您可以赚取它们的某些方式。
           title: 徽章
-        invitations:
-          conditions:
-            - 使用您用户页面上的“邀请好友”链接来邀请您的朋友
-            - 自定义，如果您想要，您正在发送的消息
-            - 您将通过发送邀请和注册来提高等级。
-          description: 当您已经邀请了一些人并且他们花了一些时间在 %{organization_name} 注册并成为参与者时，这个徽章将被授予。 感谢您向其他人宣传了 %{organization_name} 并帮助扩展社区！
-          description_another: 此参与者已邀请了 %{score} 人。
-          description_own: 您已邀请了 %{score} 人。
-          name: 邀请
-          next_level_in: 邀请更多 %{score} 人到达下一个关卡！
-          unearned_another: 此参与者尚未邀请任何人。
-          unearned_own: 你还没有邀请任何人。
       description: 徽章是对参与者行动和平台进展的承认。 当您开始发现、参与和互动平台时，您将获得不同的徽章。
       level: 等级 %{level}
       reached_top: 你已经达到了这个徽章的顶级了。
@@ -769,6 +757,9 @@ zh-CN:
       index:
         last_activity: 上次活动
         resource_type: 类型
+    links:
+      warning:
+        close_modal: 关闭模式
     log:
       base_presenter:
         create: "%{user_name} 创建了 %{resource_name}"
@@ -893,7 +884,6 @@ zh-CN:
     newsletter_mailer:
       newsletter:
         note: 您收到这封邮件是因为您订阅了 %{organization_name}的新闻通讯。您可以在您的 <a href="%{link}">通知页面</a> 更改您的设置。
-        see_on_website: 找不到正确的电子邮件？在 <a href="%{link}" target="_blank">网站</a> 上查看。
         unsubscribe: 选择不接收这种类型的电子邮件， <a href="%{link}" target="_blank" class="unsubscribe">取消订阅</a>。
     newsletter_templates:
       basic_only_text:
@@ -1002,19 +992,15 @@ zh-CN:
           error: 接受条款和条件时出现问题。
           success: 太棒了！您已接受条款和条件。
         form:
-          agreement: 我同意这些条款
           legend: 同意使用条款
         refuse:
           modal_body: 如果您拒绝，您将无法使用平台，您可以 <a href="%{data_portability_path}">下载您的数据</a> 和/或 <a href="%{delete_path}">删除您的帐户</a>。
-          modal_btn_continue: 接受并继续
           modal_btn_exit: 我稍后再查看
-          modal_button: 拒绝条款
           modal_close: 关闭模式
           modal_title: 您真的拒绝更新的条款和条件吗？
         required_review:
           alert: 我们已更新我们的服务条款，请查看。
           body: 请花一点时间来审查我们服务条款的更新。否则您将无法使用该平台。
-          title: '需要：审查我们服务条款的更新'
     participatory_space_private_users:
       not_allowed: 您无权查看此内容
     profile:
@@ -1170,9 +1156,6 @@ zh-CN:
       help_text: "<strong>警告：</strong> 内容可能会被自动翻译而不是100%的准确性。"
       show_original: 显示原始文本
       show_translated: 显示自动翻译的文本
-    user_activity:
-      index:
-        no_activities_warning: 此参与者尚未有任何活动。
     user_contact_disabled: 此参与者不接受私信。
     user_conversations:
       create:
@@ -1350,15 +1333,6 @@ zh-CN:
       updated_not_active: 您的密码已成功更改。
     registrations:
       destroyed: 您的帐户已成功取消。我们希望很快再见到您。
-      edit:
-        are_you_sure: 您确定吗？
-        cancel_my_account: 取消我的帐户
-        currently_waiting_confirmation_for_email: '正在等待确认: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: 如果您不想更改它，请留空
-        title: 编辑 %{resource}
-        unhappy: 不愉快？
-        update: 更新
-        we_need_your_current_password_to_confirm_your_changes: 我们需要您当前的密码来确认您的更改
       new:
         sign_up: 注册
       signed_up: 欢迎！您已成功注册。
@@ -1411,7 +1385,6 @@ zh-CN:
         other: '处理您的请求时发生多个错误：'
       too_many_marks: 正在使用太多连续标点符号(例如! 和 ?)
       too_much_caps: 正在使用太多大写字母(超过25%文本)
-      too_short: 太短(低于15个字符)
   forms:
     correct_errors: 表单上有错误，请更正以继续。
     required: 必填字段

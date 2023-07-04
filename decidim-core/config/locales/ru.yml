@@ -227,6 +227,8 @@ ru:
           title: Не подтвердили свою личность
         unconfirmed:
           title: Подтвердите вашу электронную почту
+      show:
+        close_modal: Закрыть окошко
     collapsible_list:
       hidden_elements_count:
         one: и еще %{count}
@@ -431,8 +433,6 @@ ru:
         index:
           how: Как вы можете его получить
           title: Значки
-        invitations:
-          name: Приглашения
       level: Уровень %{level}
     group_admins:
       actions:
@@ -468,6 +468,9 @@ ru:
       all: Все виды активности
       index:
         last_activity: Последняя активность
+    links:
+      warning:
+        close_modal: Закрыть окошко
     log:
       base_presenter:
         create: "%{user_name} добавил %{resource_name}"
@@ -517,7 +520,6 @@ ru:
     newsletter_mailer:
       newsletter:
         note: Вы получили это электронное письмо, потому что подписались на новостные рассылки %{organization_name}. Вы можете изменить свои настройки на своей <a href="%{link}">странице уведомлений</a>.
-        see_on_website: Не удается толком прочитать это письмо? Прочитайте его на <a href="%{link}" target="_blank">сайте</a>.
         unsubscribe: Чтобы отказаться от получения таких сообщений, кликните <a href="%{link}" target="_blank" class="unsubscribe">Отменить подписку</a>.
     newsletters:
       unsubscribe:
@@ -585,15 +587,12 @@ ru:
           legend: Согласиться с условиями участия
         refuse:
           modal_body: Если вы откажетесь, вы не сможете использовать площадку, вы можете <a href="%{data_portability_path}">загрузить свои данные</a> и / или <a href="%{delete_path}">удалить свою учетную запись</a>.
-          modal_btn_continue: Принять условия и продолжить
           modal_btn_exit: Я просмотрю это позже
-          modal_button: Отказаться от условий участия
           modal_close: Закрыть окошко
           modal_title: Вы действительно отказываетесь от обновленных "Условий участия"?
         required_review:
           alert: Мы обновили наши "Условия участия", пожалуйста, просмотрите их.
           body: Пожалуйста, найдите минутку, чтобы ознакомиться с обновлениями наших "Условий участия". В противном случае вы не сможете использовать площадку.
-          title: 'Обязательно: просмотрите обновления наших условий участия'
     participatory_space_private_users:
       not_allowed: У вас нет прав на просмотр этого содержимого
     profile:
@@ -760,8 +759,6 @@ ru:
       edit:
         new_password: Пароль
     registrations:
-      edit:
-        are_you_sure: Вы уверены?
       new:
         sign_up: Зарегистрироваться
       signed_up: Добро пожаловать! Вы успешно зарегистрировались.
@@ -841,6 +838,7 @@ ru:
         see_more: Читать подробнее
   locale:
     name: Русский
+    name_with_error: Русский (ошибка!)
   password_validator:
     domain_included_in_password: слишком похож на это доменное имя
     email_included_in_password: слишком похож на ваш адрес электронной почты

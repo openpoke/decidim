@@ -397,8 +397,6 @@ id:
             state: Negara
             users_count: Jumlah pengguna
       moderations:
-        index:
-          title: Moderasi
         report:
           reasons:
             does_not_belong: Bukan milik
@@ -502,6 +500,9 @@ id:
         new:
           create: Membuat
           title: Pengguna Pribadi Ruang Partisipatif Baru.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: Ada kesalahan saat membaca file CSV.
       resource_permissions:
         edit:
           submit: Menyerahkan
@@ -658,10 +659,10 @@ id:
       models:
         moderation:
           fields:
+            created_at: Tanggal pembuatan
             hidden_at: Tersembunyi di
             report_count: Menghitung
             reported_content_url: URL konten yang dilaporkan
-            reports: Laporan
             visit_url: Kunjungi URL
   errors:
     messages:

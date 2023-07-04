@@ -28,7 +28,6 @@ eu:
         show_statistics: Erakutsi estatistikak
         sign_date: Sinatze-data
         signature: Sinadura
-        signature_name: sinaduraren izena
         slogan: Leloa
         slug: URL laburra
         start_date: Hasiera-data
@@ -37,13 +36,11 @@ eu:
         date: Data
         link: Lotura
         title: Izenburua
-        weight: Pisua
       conference_partner:
         link: Lotura
         logo: Logoa
         name: Izena
         partner_type: Lankidetza mota
-        weight: Pisua
       conference_registration_invite:
         email: Helbide elektronikoa
         name: Izena
@@ -53,7 +50,6 @@ eu:
         description: Deskribapena
         price: Prezioa
         title: Izenburua
-        weight: Pisua
       conference_speaker:
         affiliation: Kidetza
         avatar: Avatarra
@@ -131,8 +127,6 @@ eu:
         edit:
           title: Eguneratu konferentzia erabiltzaileak.
           update: eguneratzearen
-        index:
-          conference_admins_title: konferentzia erabiltzaileak
         new:
           create: Sortu
           title: Konferentzia erabiltzaile berria.
@@ -347,7 +341,7 @@ eu:
             filter_by: Iragazi arabera
             invite_attendee: Gonbidatu parte-hartzailea
             invites: Gonbidapenak
-            search: Search
+            search: Bilatu
           new:
             explanation: Erabiltzaileari hitzaldi batean parte hartzeko gonbidapena egongo da. Posta elektronikoa ez bada erregistratuta, erakundera gonbidatuko dute.
             invite: gonbidatu
@@ -362,7 +356,7 @@ eu:
             select_user: Aukeratu erabiltzailea
             user_type: Erabiltzaile mota
           index:
-            search: Search
+            search: Bilatu
         conferences:
           form:
             available_slots_help: Utzi 0 mugak mugagabea badaude.
@@ -377,7 +371,7 @@ eu:
         invite_join_conference_mailer:
           invite:
             decline: Baztertu gonbidapena '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} gonbidatu zaitu hitzaldi batean %{application}. Beheko esteken bidez baztertu edo onartu dezakezu."
+            invited_existing_user_to_join_a_conference: "%{invited_by} gonbidatu zaitu hitzaldi batean %{application}. Beheko esteken bidez baztertu edo onartu dezakezu."
             registration: '''%{conference_title}'' izen-ematea'
         partners:
           index:
@@ -409,7 +403,7 @@ eu:
       conference_program:
         program_meeting:
           content: Edukia
-          location: Kokalekua
+          location: Kokapena
           speakers: Hizlariak
           streaming: Streaming
         show:

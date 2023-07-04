@@ -103,35 +103,6 @@ lt:
         many: apie %{count} mėnesiai
         other: apie %{count} mėnesiai
       half_a_minute: pusė minutės
-      less_than_x_minutes:
-        one: mažiau nei minutė.
-        few: mažiau nei %{count} minutės.
-        many: mažiau nei %{count} minutės.
-        other: mažiau nei %{count} minutės.
-      less_than_x_seconds:
-        one: dabar
-        few: mažiau nei %{count} sek.
-        many: mažiau nei %{count} sek.
-        other: mažiau nei %{count} sek.
-      x_days:
-        one: prieš 1 dieną
-        few: "prieš %{count} dienas"
-        many: "prieš %{count} dienas"
-        other: "prieš %{count} dienas"
-      x_hours:
-        one: prieš vieną valandą
-        few: "prieš %{count} valandas"
-        many: "prieš %{count} valandų"
-        other: "prieš %{count} valandas"
-      x_minutes:
-        one: prieš 1 min.
-        few: "prieš %{count} min."
-        many: "prieš %{count} min."
-        other: "prieš %{count} min."
-      x_seconds:
-        one: prieš 1 sekundę
-        other: "prieš %{count} sekundes"
-        zero: dabar
   decidim:
     accessibility:
       external_link: Išorinė nuoroda
@@ -819,18 +790,6 @@ lt:
           how: Kaip jį užsitarnauti
           page_description: Ženkleliai – tai dalyvių veiklumo platformoje pripažinimas. Susipažindami su platforma, joje dalyvaudami ir bendraudami, pelnysite įvairių ženklelių. Štai ženklelių sąrašas ir keletas būdų, kaip juos pelnyti.
           title: Ženkleliai
-        invitations:
-          conditions:
-            - Norėdami pakviesti savo draugus prisijugti pasinaudokite "pakviesti draugus" nuoroda savo naudotojo puslapyje
-            - Jeigu norite, siunčiamą žinutę galite patinkinti
-            - Savo lygį pakelsite siųsdami kvietimus ir juos registruodami.
-          description: Šis ženklelis suteikiamas, kai pakviečiate žmonių, jie užsiregistruoja %{organization_name} ir tampa dalyviais. Dėkojame, kad supažindinate kitus su %{organization_name} ir padedate plėsti bendruomenę!
-          description_another: Šis dalyvis pakvietė %{score} žmones (-ių).
-          description_own: Jūs pakvietėte %{score} žmones (-ių).
-          name: Pakvietimai
-          next_level_in: Pakvieskite dar %{score} sekėjų ir pasieksite kitą lygį!
-          unearned_another: Šis dalyvis dar nieko nepakvietė.
-          unearned_own: Jūs dar nieko nepakvietėte.
       description: Ženkleliai – tai dalyvių veiksmų ir veiklos platformoje pripažinimas. Susipažindami su platforma, joje dalyvaudami ir bendraudami, pelnysite įvairių ženklelių.
       level: '%{level} lygis'
       reached_top: Pasiekėte aukščiausią šio ženklelio lygį.
@@ -1070,7 +1029,6 @@ lt:
     newsletter_mailer:
       newsletter:
         note: Šį el. laišką gavote, nes užsiprenumeravote %{organization_name} naujienlaiškius. Galite pakeisti nuostatas savo <a href="%{link}">pranešimų puslapyje</a>.
-        see_on_website: Negalite teisingai matyti šio el. laiško? Peržiūrėkite jį <a href="%{link}" target="_blank">interneto svetainėje</a>.
         unsubscribe: Jei nenorite gauti tokio tipo el. laiško, <a href="%{link}" target="_blank" class="unsubscribe">Atsisakykite prenumeratos</a>.
     newsletter_templates:
       basic_only_text:
@@ -1189,19 +1147,15 @@ lt:
           error: Sutinkant su sąlygomis iškilo problema.
           success: Puiku! Jūs sutikote su sąlygomis.
         form:
-          agreement: Aš sutinku su šiomis sąlygomis
           legend: Sutikti su naudojimosi nuostatomis ir sąlygomis
         refuse:
           modal_body: Jeigu nesutiksite, negalėsite naudotis platforma, <a href="%{data_portability_path}">pasisiųsti savo duomenų</a> ir (arba) <a href="%{delete_path}">pašalinti savo paskyros</a>.
-          modal_btn_continue: Sutikti su sąlygomis ir tęsti
           modal_btn_exit: Peržiūrėsiu vėliau
-          modal_button: Nesutikti su sąlygomis
           modal_close: Uždaryti modalinį langą
           modal_title: Ar iš tikrųjų nesutinkate su atnaujintomis naudojimo sąlygomis?
         required_review:
           alert: Mes atnaujinome naudojimo sąlygas, kviečiame jas peržiūrėti.
           body: Kviečiame peržiūrėti naujimo sąlygu atnaujinimus. Kitu atveju negalėsite naudotis platforma.
-          title: 'Būtina: Peržiūrėkite naudojimo sąlygų atnaujinimus'
     participatory_space_private_users:
       not_allowed: Jūs negalite peržiūrėti šio turinio
     profile:
@@ -1388,9 +1342,6 @@ lt:
       help_text: "<strong>Dėmesio:</strong> Turinys gali būti išverstas automatiškai, bet nebus visiškai tikslus."
       show_original: Rodyti teksto originalą
       show_translated: Rodyti automatiškai išverstą tekstą
-    user_activity:
-      index:
-        no_activities_warning: Šis dalyvis dar nesiėmė jokios veiklos.
     user_contact_disabled: Šis dalyvis nepriima tiesioginių žinučių.
     user_conversations:
       create:
@@ -1578,15 +1529,6 @@ lt:
       updated_not_active: Jūsų slaptažodis pakeistas.
     registrations:
       destroyed: Jūsų sąskaita buvo sėkmingai panaikinta. Mes tikimės netrukus Jus vėl pamatyti.
-      edit:
-        are_you_sure: Ar esate tikri?
-        cancel_my_account: Panaikinti mano paskyrą
-        currently_waiting_confirmation_for_email: 'Dabar laukiama patvirtinimo dėl: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: jei nenorite jo keisti, palikite tuščią
-        title: Redaguoti %{resource}
-        unhappy: Nepatenkinti?
-        update: Atnaujinti
-        we_need_your_current_password_to_confirm_your_changes: kad galėtume patvirtinti jūsų pakeitimus, mums reikia jūsų dabartinio slaptažodžio
       new:
         sign_up: Užsiregistruoti
       signed_up: Sveiki atvykę! Jūs sėkmingai užsiregistravote.
@@ -1645,7 +1587,6 @@ lt:
         other: 'Vykdant jūsų prašymus įvyko klaida:'
       too_many_marks: naudojama per daug skyrybos ženklų iš eilės (pvz., ! ir ?)
       too_much_caps: naudojama per daug didžiųjų raidžių (daugiau kaip 25 proc. teksto)
-      too_short: per trumpas (mažiau nei 15 ženklų)
   forms:
     correct_errors: Formoje yra klaidų, ištaisykite jas ir tęskite.
     length_validator:

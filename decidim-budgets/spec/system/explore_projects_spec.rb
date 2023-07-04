@@ -13,6 +13,18 @@ describe "Explore projects", :slow, type: :system do
   let!(:project) { projects.first }
   let(:categories) { create_list(:category, 3, participatory_space: component.participatory_space) }
 
+  describe "show" do
+    let(:description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
+    let(:project) { create(:project, budget: budget, description: description) }
+
+    before do
+      visit_budget
+      click_link translated(project.title)
+    end
+
+    it_behaves_like "has embedded video in description", :description
+  end
+
   describe "index" do
     it "shows all resources for the given component" do
       visit_budget
@@ -38,6 +50,27 @@ describe "Explore projects", :slow, type: :system do
           expect(page).to have_css(".budget-list__item", count: 1)
           expect(page).to have_content(translated(project.title))
         end
+      end
+
+      it "updates the current URL with the text filter" do
+        create(:project, budget: budget, title: { en: "Foobar project" })
+        create(:project, budget: budget, title: { en: "Another project" })
+        visit_budget
+
+        within "form.new_filter" do
+          fill_in("filter[search_text]", with: "foobar")
+          click_button "Search"
+        end
+
+        within ".category_id_check_boxes_tree_filter" do
+          uncheck "All"
+        end
+
+        expect(page).not_to have_content("Another project")
+        expect(page).to have_content("Foobar project")
+
+        filter_params = CGI.parse(URI.parse(current_url).query)
+        expect(filter_params["filter[search_text]"]).to eq(["foobar"])
       end
 
       it "allows filtering by scope" do
@@ -118,11 +151,43 @@ describe "Explore projects", :slow, type: :system do
           visit_budget
 
           within ".status_check_boxes_tree_filter" do
-            uncheck "Selected"
+            expect(all("input[type=checkbox]")[0]).to be_checked
+            expect(all("input[type=checkbox]")[2]).not_to be_checked
           end
 
           within "#projects" do
             expect(page).to have_css(".budget-list__item", count: 1)
+            expect(page).to have_content(translated(project.title))
+          end
+
+          within ".status_check_boxes_tree_filter" do
+            uncheck "Selected"
+          end
+
+          within "#projects" do
+            expect(page).to have_css(".budget-list__item", count: 5)
+            expect(page).to have_content(translated(project.title))
+          end
+
+          within ".status_check_boxes_tree_filter" do
+            check "Not selected"
+          end
+
+          within "#projects" do
+            expect(page).to have_css(".budget-list__item", count: 4)
+            expect(page).not_to have_content(translated(project.title))
+          end
+        end
+
+        it "does not filter selected by default" do
+          visit_budget
+          within ".status_check_boxes_tree_filter" do
+            expect(all("input[type=checkbox]")[0]).not_to be_checked
+            expect(all("input[type=checkbox]")[1]).not_to be_checked
+          end
+
+          within "#projects" do
+            expect(page).to have_css(".budget-list__item", count: 5)
             expect(page).to have_content(translated(project.title))
           end
         end

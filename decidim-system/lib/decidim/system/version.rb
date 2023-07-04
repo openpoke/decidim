@@ -4,7 +4,7 @@ module Decidim
   # This holds the decidim-system version.
   module System
     def self.version
-      "0.26.3"
+      "0.26.7"
     end
   end
 end

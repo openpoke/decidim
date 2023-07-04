@@ -132,11 +132,9 @@ sr:
           error: Greška u postupku prihvatanja uslova korišćenja za administratore.
           success: Odlično! Prihvatili ste uslove korišćenja za administratore.
         actions:
-          refuse: Ne prihvatam uslove korišćenja za administratore
           title: Prihvatam propisane načine i uslove korišćenja
         required_review:
           alert: 'Obavezno: Pročitajte naše uslove korišćenja za administratore'
-          cta: Proučite uslove sada.
         title: Uslovi korišćenja za administratore
       area_types:
         create:
@@ -436,8 +434,6 @@ sr:
             state: Država
             users_count: Broj učesnika
       moderations:
-        index:
-          title: Moderacije
         report:
           reasons:
             does_not_belong: Ne pripada
@@ -556,6 +552,9 @@ sr:
           images:
             preview: Pregled
           omnipresent_banner_appearance_title: Izmeni sveprisutni baner
+      organization_homepage_content_blocks:
+        edit:
+          update: Ažuriraj
       shared:
         gallery:
           add_images: Dodaj slike
@@ -571,3 +570,8 @@ sr:
           last_month: Poslednji mesec
           last_week: Poslednje nedelje
           no_users_count_statistics_yet: Još nema statistike o broju korisnika
+    moderations:
+      models:
+        moderation:
+          fields:
+            created_at: Datum kreiranja

@@ -744,18 +744,6 @@ pt:
           how: Como pode ganhar
           page_description: Distintivos são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, ganhará distintivos diferentes. Aqui está a lista de distintivos e algumas maneiras de ganhá-los.
           title: Distintivos
-        invitations:
-          conditions:
-            - Use a hiperligação "convidar amigos" na sua página de utilizador para convidar os seus amigos
-            - Personalize, se quiser, a mensagem que está a enviar
-            - Subirá de nível ao enviar convites e obtendo registos.
-          description: Este distintivo é concedido quando convidou algumas pessoas e elas despenderam um pouco de tempo para se inscrever em %{organization_name} e se tornarem participantes. Obrigado por dar a conhecer %{organization_name} aos outros e ajudar a expandir a comunidade!
-          description_another: Este participante convidou %{score} utilizadores.
-          description_own: Convidou %{score} utilizadores.
-          name: Convites
-          next_level_in: Convide mais %{score} utilizadores para alcançar o próximo nível!
-          unearned_another: Este participante ainda não convidou alguém.
-          unearned_own: Ainda não convidou alguém.
       description: Distintivos são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, ganhará distintivos diferentes.
       level: Nível %{level}
       reached_top: Atingiu o nível superior para este distintivo.
@@ -993,7 +981,6 @@ pt:
     newsletter_mailer:
       newsletter:
         note: Recebeu este e-mail porque está inscrito em boletins informativos de %{organization_name}. Pode alterar as suas configurações na sua <a href="%{link}">página de notificações</a>.
-        see_on_website: Não consegue ver este e-mail corretamente? Visualize-o no <a href="%{link}" target="_blank">website</a>.
         unsubscribe: Para optar por não receber este tipo de e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Cancele a subscrição</a>.
     newsletter_templates:
       basic_only_text:
@@ -1104,19 +1091,15 @@ pt:
           error: Ocorreu um problema ao aceitar os termos e condições.
           success: Ótimo! Aceitou os termos e condições.
         form:
-          agreement: Concordo com estes termos
           legend: Concordo com os termos e condições de uso
         refuse:
           modal_body: Se recusar, não será capaz de utilizar a plataforma, pode <a href="%{data_portability_path}">transferir os seus dados</a> e / ou <a href="%{delete_path}">eliminar a sua conta</a>.
-          modal_btn_continue: Aceitar os termos e continuar
           modal_btn_exit: Irei revê-los mais tarde
-          modal_button: Recusar os termos
           modal_close: Fechar modal
           modal_title: Recusa realmente os Termos e Condições atualizados?
         required_review:
           alert: Atualizámos os nossos Termos de Serviço, por favor reveja-os.
           body: Por favor, dedique um momento para rever as atualizações dos nossos Termos de Serviços. Caso contrário, não poderá utilizar a plataforma.
-          title: 'Obrigatório: reveja as atualizações dos nossos termos de serviço'
     participatory_space_private_users:
       not_allowed: Não tem permissão para visualizar este conteúdo
     profile:
@@ -1301,9 +1284,6 @@ pt:
       help_text: "<strong>Aviso:</strong> O conteúdo pode ser traduzido automaticamente e não ser 100% fidedigno."
       show_original: Mostrar texto original
       show_translated: Mostrar texto traduzido automaticamente
-    user_activity:
-      index:
-        no_activities_warning: Este participante ainda não possui nenhuma atividade.
     user_contact_disabled: Este participante não aceita mensagens diretas.
     user_conversations:
       create:
@@ -1490,15 +1470,6 @@ pt:
       updated_not_active: A sua palavra-passe foi modificada corretamente.
     registrations:
       destroyed: A sua conta foi cancelada corretamente. Esperamos vê-lo(a) novamente em breve.
-      edit:
-        are_you_sure: Tem a certeza?
-        cancel_my_account: Cancelar a minha conta
-        currently_waiting_confirmation_for_email: 'Atualmente à espera de confirmação para: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: deixe em branco se não quiser modificá-lo
-        title: Editar %{resource}
-        unhappy: Infeliz?
-        update: Atualizar
-        we_need_your_current_password_to_confirm_your_changes: precisamos da sua palavra-passe atual para confirmar as suas alterações
       new:
         sign_up: Inscrever-se
       signed_up: Bem-vindo(a)! Inscreveu-se corretamente.
@@ -1553,7 +1524,6 @@ pt:
         other: 'Ocorreram diversos erros ao processar o seu pedido:'
       too_many_marks: está a usar muitos sinais de pontuação consecutivos (por exemplo, ! e ?)
       too_much_caps: está a usar muitas letras maiúsculas (acima de 25% do texto)
-      too_short: é muito curto (abaixo de 15 caracteres)
   forms:
     correct_errors: Existem erros no formulário, por favor corrija-os para continuar.
     length_validator:

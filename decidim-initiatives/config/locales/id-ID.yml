@@ -39,8 +39,6 @@ id:
         name: Nama lengkap
   activerecord:
     models:
-      decidim/initiative:
-        other: Initatives
       decidim/initiative_comittee:
         other: Komite-komite
       decidim/initiative_vote:
@@ -238,7 +236,6 @@ id:
         fill_data:
           back: Kembali
           continue: Terus
-          initiative_type: Jenis inisiatif
           more_information: "(Informasi lebih lanjut)"
           select_scope: Pilih cakupan
         finish:

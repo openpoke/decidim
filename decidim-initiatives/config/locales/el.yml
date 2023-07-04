@@ -51,9 +51,6 @@ el:
               title: Ο τίτλος δεν πρέπει να είναι κενός
   activerecord:
     models:
-      decidim/initiative:
-        one: Πρωτοβουλία
-        other: Πρωτοβουλίες
       decidim/initiative_comittee:
         one: Επιτροπή
         other: Επιτροπές
@@ -284,7 +281,6 @@ el:
         fill_data:
           back: Πίσω
           continue: Συνέχεια
-          initiative_type: Τύπος πρωτοβουλίας
           more_information: "(Περισσότερες πληροφορίες)"
           select_area: Επιλέξτε τομέα
           select_scope: Επιλέξτε πεδίο εφαρμογής

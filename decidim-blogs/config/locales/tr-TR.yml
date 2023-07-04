@@ -1,5 +1,11 @@
 tr:
   activemodel:
+    attributes:
+      post:
+        body: Vücut
+        decidim_author_id: Yazar
+        published_at: Yayın zamanı
+        title: Başlik / Unvani 
     models:
       decidim/blogs/create_post_event: Yeni blog yazısı
   activerecord:
@@ -17,8 +23,6 @@ tr:
         title: Eylemler
       admin:
         models:
-          components:
-            body: Vücut
           post:
             name: posta
         posts:
@@ -46,7 +50,6 @@ tr:
             author: Yazar
             body: Vücut
             created_at: Adresinde düzenlendi
-            title: Başlık
       posts:
         show:
           back: Listeye geri dön

@@ -76,12 +76,6 @@ it:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
-  datetime:
-    distance_in_words:
-      x_seconds:
-        one: 1 secondo fa
-        other: "%{count} secondi fa"
-        zero: adesso
   decidim:
     accessibility:
       external_link: Collegamento esterno
@@ -756,18 +750,6 @@ it:
           how: Come puoi guadagnarlo
           page_description: I badge sono riconoscimenti delle azioni dei partecipanti e dei progressi nella piattaforma. Quando inizi a scoprire, partecipare e interagire nella piattaforma, guadagnerai badge diversi. Ecco la lista dei badge e alcuni modi per guadagnarli.
           title: Badge
-        invitations:
-          conditions:
-            - Usa il link "invita amici" nella tua pagina utente per invitare i tuoi amici
-            - Personalizza, se vuoi, il messaggio che stai inviando
-            - Aumenterai di livello inviando inviti e registrandoli.
-          description: Questo badge è concesso quando hai invitato alcune persone e hanno trascorso un po 'di tempo per registrarsi in %{organization_name} e diventare partecipanti. Grazie per aver reso %{organization_name} conoscere agli altri e contribuendo ad ampliare la comunità!
-          description_another: Questo utente ha invitato %{score} utenti.
-          description_own: Hai invitato %{score} utenti.
-          name: inviti
-          next_level_in: Invita altri %{score} utenti a raggiungere il livello successivo!
-          unearned_another: Questo utente non ha ancora invitato alcun utente.
-          unearned_own: Non hai ancora invitato nessun utente.
       description: I badge sono riconoscimenti delle azioni dei partecipanti e dei progressi nella piattaforma. Quando inizi a scoprire, partecipare e interagire nella piattaforma, guadagnerai badge diversi.
       level: Livello %{level}
       reached_top: Hai raggiunto il livello più alto per questo badge.
@@ -875,7 +857,7 @@ it:
         body_1: Stai per visitare un collegamento esterno e vorremmo che tu sia cauto riguardo al contenuto del sito esterno.
         body_2: Per favore controlla il link che stai per visitare e assicurati di riconoscerlo come un sito sicuro prima di procedere.
         cancel: Annulla
-        close_modal: Chiudi finestra
+        close_modal: Chiudi modalità
         proceed: Procedi
         title: Apri collegamento esterno
     log:
@@ -1006,7 +988,6 @@ it:
     newsletter_mailer:
       newsletter:
         note: Hai ricevuto questa email perché ti sei iscritto alla newsletter su %{organization_name}. Puoi modificare le impostazioni sulla tua <a href="%{link}">pagina di notifiche</a>.
-        see_on_website: Non riesci a vedere questa email correttamente? Visualizzala su <a href="%{link}" target="_blank">website</a>.
         unsubscribe: Per disattivare la ricezione di questo tipo di email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
     newsletter_templates:
       basic_only_text:
@@ -1120,19 +1101,15 @@ it:
           error: Si è verificato un errore durante l'accettazione dei termini e delle condizioni.
           success: Grande! Hai accettato i termini e le condizioni.
         form:
-          agreement: Accetto le condizioni
           legend: Accetta i termini e le condizioni d'uso
         refuse:
           modal_body: Se rifiuti, non sarai in grado di utilizzare la piattaforma, puoi <a href="%{data_portability_path}">scaricare i tuoi dati</a> e / o <a href="%{delete_path}">cancellare il tuo account</a>.
-          modal_btn_continue: Accetta i termini e continua
           modal_btn_exit: Lo esaminerò più tardi
-          modal_button: Rifiuta i termini
-          modal_close: Chiudi modale
+          modal_close: Chiudi modalità
           modal_title: Rifiutate davvero i Termini e condizioni aggiornati?
         required_review:
           alert: Abbiamo aggiornato i nostri Termini di servizio, per favore controllali.
           body: Si prega di prendere un momento per rivedere gli aggiornamenti ai nostri Termini di servizio. Altrimenti non sarai in grado di utilizzare la piattaforma.
-          title: 'Obbligatorio: controlla gli aggiornamenti dei nostri termini di servizio'
     participatory_space_private_users:
       not_allowed: Non sei autorizzato a visualizzare questo contenuto
     profile:
@@ -1317,9 +1294,6 @@ it:
       help_text: "<strong>Attenzione:</strong> Il contenuto potrebbe essere tradotto automaticamente e non essere accurato al 100%."
       show_original: Mostra testo originale
       show_translated: Mostra testo tradotto automaticamente
-    user_activity:
-      index:
-        no_activities_warning: Questo utente non ha ancora avuto alcuna attività.
     user_contact_disabled: Questo partecipante non accetta messaggi diretti.
     user_conversations:
       create:
@@ -1506,15 +1480,6 @@ it:
       updated_not_active: La tua password è stata cambiata con successo.
     registrations:
       destroyed: Ciao! Il tuo account è stato cancellato con successo. Speriamo di rivederti presto.
-      edit:
-        are_you_sure: Sei sicuro?
-        cancel_my_account: Cancellare il mio account
-        currently_waiting_confirmation_for_email: 'Conferma in attesa per: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: lasciare vuoto se non si desidera modificarlo
-        title: Modifica %{resource}
-        unhappy: Infelice?
-        update: Aggiornare
-        we_need_your_current_password_to_confirm_your_changes: abbiamo bisogno della tua password corrente per confermare le tue modifiche
       new:
         sign_up: Iscriviti
       signed_up: Benvenuto! Ti sei registrato con successo.
@@ -1569,7 +1534,6 @@ it:
         other: 'Ci sono stati molteplici errori durante l''elaborazione della tua richiesta:'
       too_many_marks: sta usando troppi segni di punteggiatura consecutivi (ad esempio! e?)
       too_much_caps: usa troppe lettere maiuscole (oltre il 25% del testo)
-      too_short: è troppo corto (meno di 15 caratteri)
   forms:
     correct_errors: Ci sono errori nel modulo, correggerli per continuare.
     length_validator:

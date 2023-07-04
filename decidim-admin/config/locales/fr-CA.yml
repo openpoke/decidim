@@ -14,17 +14,24 @@ fr-CA:
         description: Description
         file: Fichier
         title: Nom de la pièce jointe ou de l'image
+        weight: Rang d'affichage
       attachment_collection:
         description: Description
         name: Titre
+        weight: Rang d'affichage
       category:
         description: Description
         name: Titre
         parent_id: Parent
+        weight: Rang d'affichage
       component:
         name: Titre
         published_at: Publiée à
         weight: Rang
+      external_domain:
+        value: Valeur
+      help_section:
+        content: Contenu
       id: ID
       import:
         user_group_id: Créer des imports en tant que
@@ -92,6 +99,9 @@ fr-CA:
         welcome_notification_body: Corps du mail de bienvenue
         welcome_notification_subject: Objet du mail de bienvenue
         youtube_handler: Gestionnaire YouTube
+      participatory_space_private_user:
+        email: Email
+        name: Nom
       scope:
         code: Code
         name: Titre
@@ -113,6 +123,7 @@ fr-CA:
         show_in_footer: Montrer dans le pied de page
         slug: Identifiant
         title: Titre
+        topic_id: Sujet
         weight: Rang
       static_page_topic:
         description: La description
@@ -184,14 +195,14 @@ fr-CA:
           error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation administrateur.
           success: Super! Vous avez accepté les conditions d'utilisation administrateur.
         actions:
-          accept: J'accepte les conditions d'utilisation suivantes
+          accept: J'accepte les conditions d'utilisation
           are_you_sure: Êtes-vous sûr de vouloir refuser les conditions d'utilisation de l'administrateur?
           refuse: Refuser les conditions d'utilisation administrateur
           title: Accepter les conditions d'utilisation
         required_review:
           alert: 'Obligatoire: Consultez nos conditions d''utilisation administrateur'
           callout: Veuillez prendre un moment pour consulter les conditions d'utilisation de l'administration. Sinon, vous ne pourrez pas gérer la plateforme.
-          cta: Consulter les maintenant.
+          cta: Consultez les maintenant.
         title: Conditions d'utilisation administrateur
       area_types:
         create:
@@ -632,7 +643,7 @@ fr-CA:
           nickname: Pseudonyme
           reason: Raison du signalement
           reports: Nombre de signalements
-          title: Liste des utilisateurs signalés
+          title: Participants signalés
         report:
           reasons:
             does_not_belong: N'appartient pas
@@ -643,7 +654,7 @@ fr-CA:
           unblocked: Non bloqué
       moderations:
         index:
-          title: Modérations
+          title: Contenu signalé
         report:
           reasons:
             does_not_belong: N'appartient pas
@@ -832,7 +843,7 @@ fr-CA:
           title: Nouvel utilisateur privé de l'espace participatif.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Il y a eu un problème de lecture du fichier CSV.
+          invalid: Une erreur s'est produite lors de la lecture du fichier CSV.
           success: Fichier CSV a été transféré avec succès, nous envoyons un courriel d'invitation aux participants. Cela peut prendre un certain temps.
         new:
           explanation: 'Téléchargez votre fichier CSV. Il doit avoir deux colonnes avec dans la première colonne les emails, et dans la deuxième colonne les noms (email, nom) des utilisateurs que vous souhaitez ajouter à l''espace participatif, sans en-tête. Évitez les caractères spéciaux comme `<>?%&^*#@()[]=+:;"{}\|` dans les noms des utilisateurs.'
@@ -1039,13 +1050,14 @@ fr-CA:
         moderation:
           fields:
             created_at: Date de création
+            deleted_resource: Ressource supprimée
             hidden_at: Masqué le
             participatory_space: Espace participatif
             report_count: Compteur
             reportable_id: ID
             reportable_type: Type
             reported_content_url: URL
-            reports: Motif
+            reports: Signalements
             visit_url: Visitez l'URL
         report:
           fields:

@@ -103,35 +103,6 @@ pl:
         many: około %{count} mies.
         other: około %{count} mies.
       half_a_minute: pół minuty
-      less_than_x_minutes:
-        one: mniej niż min.
-        few: mniej niż %{count} min.
-        many: mniej niż %{count} min.
-        other: mniej niż %{count} min.
-      less_than_x_seconds:
-        one: teraz
-        few: mniej niż %{count} min.
-        many: mniej niż %{count} min.
-        other: mniej niż %{count} min.
-      x_days:
-        one: 1 dzień temu
-        few: "%{count} dni temu"
-        many: "%{count} dni temu"
-        other: "%{count} dni temu"
-      x_hours:
-        one: 1 godzinę temu
-        few: "%{count} godzin temu"
-        many: "%{count} godzin temu"
-        other: "%{count} godzin temu"
-      x_minutes:
-        one: 1 min. temu
-        few: "%{count} min. temu"
-        many: "%{count} min. temu"
-        other: "%{count} min. temu"
-      x_seconds:
-        one: 1 sekundę temu
-        other: "%{count} sekund temu"
-        zero: właśnie teraz
   decidim:
     accessibility:
       external_link: Link zewnętrzny
@@ -763,7 +734,7 @@ pl:
       create:
         button: Obserwuj
         error: Wystąpił błąd podczas próby obserwowania tego zasobu.
-        participatory_space: Obserwujesz <span class="show-for-sr">%{resource_name}</span>
+        participatory_space: Obserwuj <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Przestań obserwować
         error: Nastąpił błąd podczas cofania obserwowania tego zasobu.
@@ -807,18 +778,6 @@ pl:
           how: Jak ją zdobyć
           page_description: Odznaki są wyrazem uznania dla działań użytkowników i ich rozwoju na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki. Oto lista odznak i kilka sposobów na ich zdobycie.
           title: Odznaki
-        invitations:
-          conditions:
-            - Użyj linku "zaproś znajomych" na swojej stronie użytkownika, aby zaprosić znajomych
-            - Dostosuj, jeśli chcesz, wiadomość, którą wysyłasz
-            - Możesz awansować na wyższy poziom, wysyłając zaproszenia i gdy zostaną one przyjęte.
-          description: Ta odznaka jest przyznawana, gdy zapraszasz ludzi i gdy oni poświęcą trochę czasu, aby zarejestrować się w %{organization_name} i zostać użytkownikami. Dziękujemy za udostępnienie %{organization_name} innym osobom i pomoc w rozbudowywaniu społeczności!
-          description_another: Ten użytkownik zaprosił %{score} osób.
-          description_own: Zaprosiłeś %{score} osób.
-          name: Zaproszenia
-          next_level_in: Zaproś %{score} kolejnych użytkowników, aby przejść do następnego poziomu!
-          unearned_another: Ten użytkownik jeszcze nikogo nie zaprosił.
-          unearned_own: Jeszcze nikogo nie zaproszono.
       description: Odznaki są wyrazem uznania dla działań użytkowników i ich rozwoju na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki.
       level: Poziom %{level}
       reached_top: Osiągnąłeś najwyższy poziom tej odznaki.
@@ -1052,7 +1011,6 @@ pl:
     newsletter_mailer:
       newsletter:
         note: Otrzymujesz ten e-mail, ponieważ subskrybujesz newslettery %{organization_name}. Możesz zmienić swoje ustawienia na <a href="%{link}">stronie powiadomień</a>.
-        see_on_website: Nie widzisz tego e-maila poprawnie? Wyświetl go w <a href="%{link}" target="_blank">przeglądarce</a>.
         unsubscribe: Aby zrezygnować z otrzymywania tego typu wiadomości e-mail, <a href="%{link}" target="_blank" class="unsubscribe">cofnij subskrypcję</a>.
     newsletter_templates:
       basic_only_text:
@@ -1163,19 +1121,15 @@ pl:
           error: Wystąpił błąd podczas akceptowania warunków.
           success: Wspaniale! Zaakceptowałeś warunki i zasady.
         form:
-          agreement: Akceptuję Regulamin
           legend: Zgadzam się z warunkami użytkowania
         refuse:
           modal_body: Jeśli odmówisz, nie będziesz mógł korzystać z platformy, możesz <a href="%{data_portability_path}">pobrać swoje dane</a> i/lub <a href="%{delete_path}">usunąć konto</a>.
-          modal_btn_continue: Zaakceptuj warunki i kontynuuj
           modal_btn_exit: Sprawdzę to później
-          modal_button: Odrzuć warunki
           modal_close: Zamknij okno
           modal_title: Czy rzeczywiście odmawiasz zaakceptowania zaktualizowanego regulaminu?
         required_review:
           alert: Zaktualizowaliśmy nasze Warunki korzystania z usługi, zapoznaj się z nimi.
           body: Poświęć chwilę, aby przejrzeć aktualizacje naszych Warunków korzystania z Platformy. W przeciwnym razie nie będziesz mógł korzystać z platformy.
-          title: 'Wymagane: sprawdź aktualizacje naszych warunków korzystania z platformy'
     participatory_space_private_users:
       not_allowed: Nie możesz wyświetlać tych treści
     profile:
@@ -1358,9 +1312,6 @@ pl:
       help_text: "<strong>Uwaga:</strong> Zawartość może być tłumaczeniem automatycznym i może nie być w 100% dokładna."
       show_original: Pokaż oryginalny tekst
       show_translated: Pokaż automatyczne tłumaczenie
-    user_activity:
-      index:
-        no_activities_warning: Ten użytkownik nie ma jeszcze żadnej aktywności.
     user_contact_disabled: Ten użytkownik nie przyjmuje bezpośrednich wiadomości.
     user_conversations:
       create:
@@ -1547,15 +1498,6 @@ pl:
       updated_not_active: Twoje hasło zostało zmienione.
     registrations:
       destroyed: Twoje konto zostało pomyślnie zawieszone. Mamy nadzieję zobaczyć Cię ponownie wkrótce.
-      edit:
-        are_you_sure: Jesteś pewny?
-        cancel_my_account: Zawieś moje konto
-        currently_waiting_confirmation_for_email: 'Obecnie oczekujące potwierdzenie dla: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: pozostaw puste, jeśli nie chcesz tego zmieniać
-        title: Edytuj %{resource}
-        unhappy: Niezadowolony?
-        update: Aktualizuj
-        we_need_your_current_password_to_confirm_your_changes: potrzebujemy Twojego obecnego hasła, aby potwierdzić Twoje zmiany
       new:
         sign_up: Zarejestruj się
       signed_up: Witamy! Zarejestrowałeś się pomyślnie.
@@ -1614,7 +1556,6 @@ pl:
         other: 'Podczas przetwarzania Twojego żądania wystąpiły błędy:'
       too_many_marks: używa zbyt wielu kolejnych znaków interpunkcyjnych (np.! i?)
       too_much_caps: używa zbyt dużej liczby wielkich liter (ponad 25% tekstu)
-      too_short: jest za krótkie
   forms:
     correct_errors: Wystąpiły błędy w formularzu, popraw je, aby kontynuować.
     length_validator:
@@ -1695,6 +1636,7 @@ pl:
     email_included_in_password: jest zbyt podobne do twojego adresu e-mail
     fallback: nie jest poprawne
     name_included_in_password: jest zbyt podobne do twojego imienia
+    nickname_included_in_password: jest zbyt podobne do twojego nicka
     not_enough_unique_characters: nie ma wystarczającej liczby unikalnych znaków
     password_not_allowed: nie jest dozwolone
     password_too_common: jest zbyt powszechne
