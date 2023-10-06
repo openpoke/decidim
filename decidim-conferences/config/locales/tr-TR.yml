@@ -280,9 +280,6 @@ tr:
         title: Hoparlörler
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL sümükleri, bu konferansa işaret eden URL’leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
         conference_invites:
           create:
             error: Kullanıcıyı konferansa katılmaya davet ederken bir sorun oluştu.
@@ -324,7 +321,6 @@ tr:
             registrations_count:
               one: 1 kayıt oldu.
               other: '%{count} kayıt var.'
-            slug_help: 'URL sümükleri, bu konferansa işaret eden URL’leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
         diplomas:
           edit:
             save: Kayıt etmek
@@ -453,7 +449,7 @@ tr:
         home:
           highlighted_conferences:
             active_conferences: Aktif konferanslar
-            see_all_conferences: Tüm konferanslara bak
+            see_all_conferences: Tüm Konferanslar
       photo:
         image:
           attributes:

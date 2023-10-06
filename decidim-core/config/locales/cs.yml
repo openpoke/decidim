@@ -2,7 +2,7 @@ cs:
   activemodel:
     attributes:
       account:
-        delete_reason: Důvod odstranění účtu
+        delete_reason: Důvod odstranění vašeho účtu
       common:
         created_at: Vytvořeno v
       conversation:
@@ -32,7 +32,7 @@ cs:
         tos_agreement: Smluvní podmínky užití
     models:
       decidim/attachment_created_event: Příloha
-      decidim/component_published_event: Aktivní součást
+      decidim/component_published_event: Aktivní komponenty
       decidim/demoted_membership: Již není správcem skupiny
       decidim/gamification/badge_earned_event: Získaný odznak
       decidim/gamification/level_up_event: Vy jste vyrovnali
@@ -124,6 +124,21 @@ cs:
         few: "%{count} hodiny"
         many: "%{count} hodin"
         other: "%{count} hodin"
+      x_minutes:
+        one: 1 minuta
+        few: "%{count} minuty"
+        many: "%{count} minut"
+        other: "%{count} minut"
+      x_months:
+        one: 1 měsíc
+        few: "%{count} měsíce"
+        many: "%{count} měsíců"
+        other: "%{count} měsíců"
+      x_seconds:
+        one: 1 sekunda
+        few: "%{count} sekundy"
+        many: "%{count} sekund"
+        other: "%{count} sekund"
   decidim:
     accessibility:
       external_link: Externí odkaz
@@ -518,7 +533,7 @@ cs:
           newsletter_title: Povolení kontaktu
           nickname_help: Váš alias v %{organization}. Může obsahovat pouze písmena, číslice, '-' a '_'.
           password_help: "%{minimun_characters} je minimum znaků, nesmí být příliš běžné (např. 123456) a musí být jiné než vaše přezdívka a váš e-mail."
-          sign_in: Přihlásit se
+          sign_in: Přihlásit
           sign_up: Zaregistrovat se
           sign_up_as:
             legend: Zaregistrovat se jako
@@ -1283,7 +1298,7 @@ cs:
           future: Budoucí
           past: Minulé
       filters_small_view:
-        close_modal: Zavřít modální
+        close_modal: Zavřít okno
         filter: Filtr
         filter_by: Filtrovat podle
         unfold: Rozvinout
@@ -1413,7 +1428,7 @@ cs:
         back: Zobrazit všechny konverzace
         deleted_accounts: Nemůžete mít konverzaci s odstraněnými účty.
         not_allowed: Tento uživatel již nepřijímá žádné přímé zprávy.
-        title: Konverzace s %{usernames}
+        title: Konverzace s číslem %{usernames}
       update:
         error: Zpráva nebyla odeslána. Zkuste to později
     user_interests:
@@ -1452,7 +1467,7 @@ cs:
         version: Verze %{number}
     versions_list:
       show:
-        back_to_resource: Vrátit se zpět
+        back_to_resource: Jít zpět
         changes_at_title: Změny v "%{title}"
         number_of_versions: Verze
         title: Verze
@@ -1581,7 +1596,7 @@ cs:
     sessions:
       already_signed_out: Bylo úspěšně odhlášeno.
       new:
-        sign_in: Přihlásit se
+        sign_in: Přihlásit
       signed_in: Úspěšně jste se přihlásili.
       signed_out: Odhlášení proběhlo úspěšně.
     shared:
@@ -1590,7 +1605,7 @@ cs:
         didn_t_receive_confirmation_instructions: Nedostali jste pokyny k potvrzení?
         didn_t_receive_unlock_instructions: Nezískali jste pokyny k odemknutí?
         forgot_your_password: Zapomněli jste heslo?
-        sign_in: Přihlásit se
+        sign_in: Přihlásit
         sign_in_with_provider: Přihlásit se přes %{provider}
         sign_up: Zaregistrovat se
       minimum_password_length:
@@ -1629,6 +1644,7 @@ cs:
       too_many_marks: používá příliš mnoho po sobě jdoucích interpunkčních znamének (např.! a?)
       too_much_caps: používá příliš mnoho velkých písmen (více než 25% textu)
       too_short: je příliš krátká (pod %{count} znaků)
+      url_format: Tato adresa URL je v nesprávném formátu
   forms:
     correct_errors: Na formuláři jsou chyby, opravte je a pokračujte.
     length_validator:

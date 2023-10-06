@@ -291,7 +291,7 @@ cs:
             select_an_area: Vyberte oblast
             select_an_assembly_type: Vyberte typ shromáždění
             select_parent_assembly: Vybrat nadřazené shromáždění
-            slug_help: 'URL slimy se používají k vygenerování adres URL, které odkazují na tuto sestavu. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+            slug_help: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
             social_handlers: Sociální
             title: Obecná informace
             visbility: Viditelnost
@@ -305,11 +305,11 @@ cs:
             title: Titul
         assembly_copies:
           form:
-            slug_help: 'URL slug se používají k vygenerování adres URL, které odkazují na toto shromáždění. Přijme pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+            slug_help: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         assembly_imports:
           form:
             document_legend: Přidat dokument
-            slug_help: 'URL slug se používá k generování URL, které odkazují na toto shromáždění. přijímá pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+            slug_help: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         assembly_members:
           form:
             existing_user: Existující účastník
@@ -373,7 +373,7 @@ cs:
           highlighted_assemblies:
             active_assemblies: Aktivní shromáždění
             assemblies_button_title: Odkaz na stránku Shromáždění zobrazující všechna shromáždění
-            see_all_assemblies: Zobrazit všechny shromáždění
+            see_all_assemblies: Zobrazit všechna shromáždění
         user_profile:
           member_of:
             member_of: Člen
@@ -381,21 +381,21 @@ cs:
         area: Oblast
         assembly_type: Typ shromáždění
         children: Shromáždění
-        closing_date: Uzávěrka
+        closing_date: Datum ukončení
         composition: Složení
         created_by: Vytvořil
         creation_date: Datum vytvoření
-        developer_group: Skupina propagátorů
+        developer_group: Skupina promotérů
         duration: Doba trvání
-        included_at: Zahrnuto v
+        included_at: Zahrnuty v
         indefinite_duration: Neurčité
-        internal_organisation: Interní organizace
+        internal_organisation: Vnitřní organizace
         is_transparent:
           'false': neprůhledný
           'true': transparentní
         local_area: Oblast působnosti organizace
         participatory_scope: Co se rozhodlo
-        participatory_structure: Jak se o tom rozhoduje
+        participatory_structure: Jak se to rozhoduje
         private_space: Toto je soukromé shromáždění
         purpose_of_action: Účel akce
         read_less: Číst méně

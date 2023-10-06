@@ -162,7 +162,7 @@ es:
       participatory_process_copies:
         new:
           copy: Copiar
-          select: Seleccione los datos que deseas duplicar
+          select: Selecciona los datos que deseas duplicar
           title: Duplicar proceso participativo
       participatory_process_group_landing_page:
         edit:
@@ -375,7 +375,7 @@ es:
         participatory_process_imports:
           form:
             document_legend: Añadir un documento
-            slug_help: 'Los slugs de URL se utilizan para generar las URLs que apuntan a este proceso. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         participatory_process_steps:
           form:
             cta_path_help: 'Utiliza rutas parciales, no URL completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. Si no ese establece ninguna ruta, el botón no se mostrará. Ejemplo: %{url}'
@@ -390,7 +390,7 @@ es:
             other: Otro
             related_processes: Procesos relacionados
             scope_type_max_depth_help: Restringe la profundidad del filtro de ámbito; se mostrará el filtro desde el ámbito general hasta el seleccionado.
-            select_an_area: Seleccione una área
+            select_an_area: Selecciona una área
             select_process_group: Selecciona un grupo de procesos
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             title: Información general
@@ -491,6 +491,6 @@ es:
           more_info: Más información
       process_header_steps:
         step: Fase %{current} de %{total}
-        view_steps: Ver las fases
+        view_steps: Fases del proceso
       process_navigation:
         process_menu_item: El proceso

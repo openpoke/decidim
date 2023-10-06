@@ -86,6 +86,20 @@ zh-TW:
       about_x_months:
         other: "one\n大約 1 月\n\nOther\n大約 %{count} 月"
       half_a_minute: 半分鐘
+      less_than_x_minutes:
+        other: 少於 %{count} 分鐘
+      less_than_x_seconds:
+        other: "< 1秒\n< %{count} 秒"
+      x_days:
+        other: "1天\n%{count} 天"
+      x_hours:
+        other: "{count} 小時"
+      x_minutes:
+        other: "%{count} 分鐘"
+      x_months:
+        other: "%{count} 個月"
+      x_seconds:
+        other: "%{count} 秒"
   decidim:
     accessibility:
       external_link: 外部鏈接
@@ -465,7 +479,6 @@ zh-TW:
           newsletter_title: 聯絡人權限
           nickname_help: 在 %{organization} 中的別名。只能包含字母、數字、'-' 和 '_'。
           password_help: "最少 %{minimun_characters} 個字符，不能太常見（例如 123456），且必須與您的暱稱和電子郵件不同。"
-          sign_in: 登入
           sign_up: 註冊登記
           sign_up_as:
             legend: 註冊登記為
@@ -1333,8 +1346,8 @@ zh-TW:
         conversations_info: 對話是私密的，沒有其他人可以看到。可以與平台上註冊的任何參與者或群組開始對話。
         from: 來自
         last_message: 最後訊息
-        modal_title: 新對話
-        new_conversation: 新對話
+        modal_title: 新的對話
+        new_conversation: 新的對話
         next: 下一個
         no_conversations_warning: 目前還沒有任何對話。
         no_results: 無結果
@@ -1516,8 +1529,6 @@ zh-TW:
       updated: 您的帳號已成功升級。
     sessions:
       already_signed_out: 已成功登出。
-      new:
-        sign_in: 登入
       signed_in: 已成功登入。
       signed_out: 已成功登出。
     shared:
@@ -1526,7 +1537,6 @@ zh-TW:
         didn_t_receive_confirmation_instructions: 沒有收到確認的說明嗎？
         didn_t_receive_unlock_instructions: 沒有收到解鎖說明？
         forgot_your_password: 忘記密碼了嗎？
-        sign_in: 登入
         sign_in_with_provider: 用%{provider} 登錄
         sign_up: 註冊登記
       minimum_password_length:

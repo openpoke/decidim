@@ -11,15 +11,22 @@ de:
         decidim_area_id: Bereich
         description: Beschreibung
         developer_group: Promoter-Gruppe
+        document: Dokument
         domain: Domäne
         end_date: Enddatum
         hashtag: Hashtag
         hero_image: Hauptbild
+        import_attachments: Anhänge importieren
+        import_categories: Kategorien importieren
+        import_components: Komponenten importieren
+        import_steps: Schritte importieren
         local_area: Organisationsbereich
         meta_scope: Bereichs-Metadaten
         participatory_process_group_id: Prozessgruppe
+        participatory_process_type_id: Prozesstyp
         participatory_scope: Was wird entschieden?
         participatory_structure: Wie wird es entschieden?
+        private_space: Privater Prozess
         promoted: Hervorgehoben
         published_at: Veröffentlicht unter
         related_process_ids: Ähnliche Beteiligungsprozesse
@@ -330,9 +337,9 @@ de:
         metadata:
           developer_group: Unterstützt von
           name: Metadaten
-          participatory_scope: Was wird entschieden
-          participatory_structure: Wie wird es entschieden
-          target: Wer nimmt teil
+          participatory_scope: Was wird entschieden?
+          participatory_structure: Wie wird es entschieden?
+          target: Wer nimmt teil?
         participatory_processes:
           name: Beteiligungsprozesse
         stats:
@@ -359,7 +366,7 @@ de:
             json: JSON
         participatory_process_copies:
           form:
-            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadaten
@@ -368,10 +375,10 @@ de:
         participatory_process_imports:
           form:
             document_legend: Dokument hinzufügen
-            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Verwenden Sie hier Teilpfade, nicht vollständige URLs. Akzeptiert Buchstaben, Zahlen, Bindestriche und Schrägstriche und muss mit einem Buchstaben beginnen. Wenn nicht eingestellt, wird die Schaltfläche nicht angezeigt. Beispiel: %{url}'
+            cta_path_help: 'Verwenden Sie hier Teilpfade, nicht die vollständige URL. Buchstaben, Zahlen, Bindestriche und Schrägstriche sind erlaubt; an der ersten Stelle ist ein Buchstabe erforderlich. Wenn nicht eingestellt, wird die Schaltfläche nicht angezeigt. Beispiel: %{url}'
             cta_text_help: Wenn nicht eingestellt, wird die Schaltfläche nicht angezeigt.
         participatory_processes:
           form:
@@ -385,7 +392,7 @@ de:
             scope_type_max_depth_help: Beschränken Sie die Bereichs-Filtertiefe; der Filter zeigt nur Ergebnisse von Allgemein bis zum ausgewählten Bereichstyp an.
             select_an_area: Wählen Sie einen Bereich aus
             select_process_group: Wählen Sie eine Prozessgruppe aus
-            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             title: Allgemeine Information
             visbility: Sichtweite
       content_blocks:
@@ -398,13 +405,13 @@ de:
       pages:
         home:
           highlighted_processes:
-            active_processes: Aktive Beteiligungsprozesse
+            active_processes: Aktive Prozesse
             active_step: Aktiver Schritt
             more_information: Mehr Informationen
             participate: Sich beteiligen
             participate_in: Am Prozess %{resource_name} teilnehmen
             processes_button_title: Link zur Prozess-Seite die alle Prozesse anzeigt
-            see_all_processes: Alle Beteiligungsprozesses anzeigen
+            see_all_processes: Alle Prozesse anzeigen
       participatory_process_steps:
         index:
           back_to_process: Zurück zur Prozessseite
@@ -443,12 +450,12 @@ de:
         dates: Daten
         developer_group: Promoter-Gruppe
         end_date: Enddatum
-        local_area: Organisationsbereich
+        local_area: Gebiet der Organisation
         participatory_scope: Was wird entschieden?
-        participatory_structure: Wie wird es entschieden
+        participatory_structure: Wie wird es entschieden?
         private_space: Dies ist ein privater Prozess
         related_processes: Ähnliche Beteiligungsprozesse
-        scope: Umfang
+        scope: Themenbereich
         start_date: Startdatum
         target: Wer nimmt teil?
         unspecified: Keine Angabe
@@ -476,7 +483,7 @@ de:
           take_part_in: Beteiligen Sie sich am Prozess %{resource_name}
         promoted_process:
           active_step: 'Aktueller Schritt:'
-          more_info: Mehr Informationen
+          more_info: Mehr Info
           more_info_about: Weitere Informationen zum Prozess %{resource_name}
           take_part: Teilnehmen
           take_part_in: Beteiligen Sie sich am Prozess %{resource_name}
@@ -484,6 +491,6 @@ de:
           more_info: Mehr Info
       process_header_steps:
         step: Schritt %{current} von %{total}
-        view_steps: Schritte anzeigen
+        view_steps: Prozessschritte
       process_navigation:
         process_menu_item: Der Prozess

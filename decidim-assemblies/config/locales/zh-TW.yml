@@ -85,11 +85,11 @@ zh-TW:
   activerecord:
     models:
       decidim/assembly:
-        other: 大會
+        other: "One\n集會\n\nOther\n集會"
       decidim/assembly_member:
-        other: 大會成員
+        other: "One\n集會成員\nOther\n集會成員"
       decidim/assembly_user_role:
-        other: 大會使用者角色
+        other: "One\n集會使用者角色\nOther\n集會使用者角色"
   decidim:
     admin:
       actions:
@@ -282,7 +282,6 @@ zh-TW:
             select_an_area: 選擇一個地區
             select_an_assembly_type: 選擇一個大會類型
             select_parent_assembly: 選擇父組件
-            slug_help: 'URL slug 用於生成指向該組件的 URL。 只接受字母、數字和破折號，並且必須以字母開頭。 示例：%{url}'
             social_handlers: 社群
             title: 基本資訊
             visbility: 可見度
@@ -294,13 +293,9 @@ zh-TW:
         assemblies_types:
           form:
             title: 標題
-        assembly_copies:
-          form:
-            slug_help: 'URL slug 用於生成指向該組件的 URL。 只接受字母、數字和破折號，並且必須以字母開頭。 示例：%{url}'
         assembly_imports:
           form:
             document_legend: 添加文檔
-            slug_help: 'URL slug 用於生成指向該組件的 URL。 只接受字母、數字和破折號，並且必須以字母開頭。 示例：%{url}'
         assembly_members:
           form:
             existing_user: 現有參與者
@@ -362,9 +357,7 @@ zh-TW:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: 活耀大會
             assemblies_button_title: 鏈接到顯示所有大會的大會頁面
-            see_all_assemblies: 查看所有大會
         user_profile:
           member_of:
             member_of: 的成員
@@ -379,7 +372,6 @@ zh-TW:
         developer_group: 促銷團隊
         duration: 持續時間
         included_at: 包含於
-        indefinite_duration: 不確定
         internal_organisation: 內部組織
         is_transparent:
           'false': 不透明

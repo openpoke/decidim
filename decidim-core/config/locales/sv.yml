@@ -88,6 +88,21 @@ sv:
         one: ungefär 1 månad
         other: ungefär %{count} månader
       half_a_minute: en halv minut
+      x_days:
+        one: 1 dag
+        other: "%{count} dagar"
+      x_hours:
+        one: 1 timme
+        other: "%{count} minuter"
+      x_minutes:
+        one: 1 minut
+        other: "%{count} minuter"
+      x_months:
+        one: 1 månad
+        other: "%{count} månader"
+      x_seconds:
+        one: 1 sekund
+        other: "%{count} sekunder"
   decidim:
     accessibility:
       external_link: Extern länk
@@ -471,7 +486,6 @@ sv:
           newsletter_title: Kontakttillstånd
           nickname_help: Ditt alias i %{organization}. Kan bara innehålla bokstäver, siffror, '-' och '_'.
           password_help: "Minst %{minimun_characters} tecken, får inte vara för vanligt (som 123456) och måste vara skilt från ditt användarnamn och din e-postadress."
-          sign_in: Logga in
           sign_up: Registrera dig
           sign_up_as:
             legend: Registrera dig som
@@ -1099,7 +1113,7 @@ sv:
           participate: Delta
           welcome: Välkommen till %{organization}!
         metrics:
-          headline: Deltagande i siffror
+          headline: Metrik
         statistics:
           headline: Aktuellt läge för %{organization}
         sub_hero:
@@ -1217,10 +1231,10 @@ sv:
           future: Framtida
           past: Tidigare
       filters_small_view:
-        close_modal: Stäng fönster
+        close_modal: Stäng modal
         filter: Filtrera
         filter_by: Filtrera efter
-        unfold: Vik ut
+        unfold: Veckla ut
       results:
         results:
           one: "%{count} resultat"
@@ -1237,7 +1251,7 @@ sv:
         ok: Ok
         title: Bekräfta
       embed_modal:
-        close_window: Stäng fönstret
+        close_window: Stäng fönster
         embed: Klistra in den här koden på din sida
         embed_link: Bädda in
       extended_navigation_bar:
@@ -1319,14 +1333,14 @@ sv:
         existing_error: Meddelandet kunde inte skapas. Konversationen finns redan, försök igen nu.
         success: Samtalet startades framgångsrikt!
       index:
-        add_max_users: 'Lägg till användare till konversation: max 9 användare'
+        add_max_users: 'Lägg till användare i samtalet: högst 9'
         add_users_placeholder: Sök...
         close: Stäng
         conversations_info: Konversationer är privata. Ingen annan kan se dem. En konversation kan startas med någon deltagare eller grupp som är registrerad på plattformen.
         from: Från
         last_message: Senaste meddelande
-        modal_title: Ny konversation
-        new_conversation: Ny konversation
+        modal_title: Nytt samtal
+        new_conversation: Nytt samtal
         next: Nästa
         no_conversations_warning: Det finns inga konversationer än.
         no_results: Inga resultat
@@ -1342,7 +1356,7 @@ sv:
         back: Visa alla samtal
         deleted_accounts: Du kan inte meddela raderade konton.
         not_allowed: Den här användaren accepterar inte fler direkta meddelanden.
-        title: Konversation med %{usernames}
+        title: Samtal med %{usernames}
       update:
         error: Meddelandet skickades inte. Försök igen senare
     user_interests:
@@ -1509,8 +1523,6 @@ sv:
       updated: Ditt konto har uppdaterats.
     sessions:
       already_signed_out: Du har loggats ut.
-      new:
-        sign_in: Logga in
       signed_in: Inloggningen är klar.
       signed_out: Du är utloggad.
     shared:
@@ -1519,7 +1531,6 @@ sv:
         didn_t_receive_confirmation_instructions: Fick du inte anvisningar om bekräftelse?
         didn_t_receive_unlock_instructions: Fick du inte anvisningar om att låsa upp?
         forgot_your_password: Glömt ditt lösenord?
-        sign_in: Logga in
         sign_in_with_provider: Logga in med %{provider}
         sign_up: Registrera dig
       minimum_password_length:

@@ -332,8 +332,7 @@ zh-TW:
         html_3:
           name: 第三個 HTML 區塊
         metadata:
-          developer_group: 推廣者：
-          name: Metadata
+          name: 元數據
           participatory_scope: 決定了什麼
           participatory_structure: 如何決定
           target: 誰參加
@@ -360,9 +359,6 @@ zh-TW:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help: 'URL slugs用於生成指向此程序的URL。僅接受字母、數字和破折號，必須以字母開頭。例如：%{url}'
         participatory_process_groups:
           form:
             metadata: 元數據
@@ -371,10 +367,8 @@ zh-TW:
         participatory_process_imports:
           form:
             document_legend: 添加文檔
-            slug_help: 'URL slugs用於生成指向此程序的URL。僅接受字母、數字和破折號，必須以字母開頭。例如：%{url}'
         participatory_process_steps:
           form:
-            cta_path_help: '在這裡使用部分路徑，而不是完整的 URL。只接受字母、數字、破折號和斜線，並且必須以字母開頭。如果未設置，按鈕將不會顯示。例如：%{url}'
             cta_text_help: 如果未設置，按鈕將不會顯示。
         participatory_processes:
           form:
@@ -388,7 +382,6 @@ zh-TW:
             scope_type_max_depth_help: 限制範圍過濾器深度；過濾器將會從一般範圍到所選範圍層級進行顯示。
             select_an_area: 選擇一個地區
             select_process_group: 選擇一個程序群組
-            slug_help: 'URL slugs用於生成指向此程序的URL。僅接受字母、數字和破折號，必須以字母開頭。例如：%{url}'
             title: 基本資訊
             visbility: 可見度
       content_blocks:
@@ -401,13 +394,11 @@ zh-TW:
       pages:
         home:
           highlighted_processes:
-            active_processes: 運行中的程序
             active_step: 進行中的階段
             more_information: 更多資訊
             participate: 參與
             participate_in: 參與程序 %{resource_name}
             processes_button_title: 鏈接到顯示所有程序的程序頁面
-            see_all_processes: 檢視所有程序
       participatory_process_steps:
         index:
           back_to_process: 返回程序頁
@@ -442,7 +433,6 @@ zh-TW:
         dates: 日期
         developer_group: 促銷團隊
         end_date: 結束日期
-        local_area: 組織區域
         participatory_scope: 決定了什麼
         participatory_structure: 如何決定
         private_space: 這是不公開程序。

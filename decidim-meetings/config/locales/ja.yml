@@ -56,6 +56,8 @@ ja:
           attributes:
             iframe_embed_type:
               not_embeddable: このURLはミーティングまたはライブイベントページに埋め込むことができません
+            online_meeting_url:
+              url_format: 有効な URL でなければなりません
         meeting_agenda:
           attributes:
             base:
@@ -399,7 +401,7 @@ ja:
       content_blocks:
         upcoming_meetings:
           name: これからのミーティング
-          upcoming_meetings: これからのミーティング
+          upcoming_meetings: 今後のミーティング
           view_all_meetings: すべて表示
       directory:
         meetings:

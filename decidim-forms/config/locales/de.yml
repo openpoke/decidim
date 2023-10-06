@@ -142,6 +142,8 @@ de:
         single_option: Einzelne Option
         sorting: Sortierung
         title_and_description: Titel und Beschreibung
+      questionnaire_answer_presenter:
+        download_attachment: Anhang herunterladen
       questionnaires:
         answer:
           invalid: Bei der Beantwortung des Fragebogens sind Fehler aufgetreten.
@@ -172,7 +174,7 @@ de:
           tos_agreement: Mit der Teilnahme stimmen Sie den Nutzungsbedingungen zu
       step_navigation:
         show:
-          are_you_sure: Diese Aktion kann nicht rückgängig gemacht werden und Sie können Ihre Antworten nicht bearbeiten. Bist du sicher?
+          are_you_sure: Diese Aktion kann nicht rückgängig gemacht werden und Sie können Ihre Antworten nicht bearbeiten. Sind Sie sicher?
           back: Zurück
           continue: Weiter
           submit: einreichen

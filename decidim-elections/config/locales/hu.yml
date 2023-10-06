@@ -18,6 +18,7 @@ hu:
       voting:
         end_time: Szavazás vége
         promoted: Támogatott
+        scope_id: Hatókör
         start_time: Szavazás kezdete
     errors:
       models:
@@ -152,8 +153,12 @@ hu:
           trustee:
             name: Felügyelő
         proposals_imports:
+          create:
+            invalid: Hiba történt a javaslatok válaszokba történő importálása során
+            success: "%{number} javaslat sikeresen importálva a válaszokba"
           new:
             create: Válaszjavaslatok importálása
+            no_components: Ezen a részvételi téren nincsenek más javaslati komponensek, amelyek a javaslatokat kérdésekbe importálják.
             select_component: Kérjük, válassz egy komponenst
             title: Javaslatok importálása
         questions:
@@ -212,11 +217,17 @@ hu:
             verify_here: Itt ellenőrizheted szavazatod.
             will_verify: A választás megkezdését követően ellenőrizheted szavazatod.
       votes:
+        confirm:
+          answer: Válasz
+        modal:
+          proposal_header: 'Javaslatok:'
         onboarding_modal:
           title: Kezdő a Decidim -ben?
         verify:
           form:
             back: Vissza a Decidim -be
+        voting_step:
+          continue: Következő
     events:
       elections:
         election_published:
@@ -230,9 +241,15 @@ hu:
           votings_submenu:
             monitoring_committee: Ellenőrző Bizottság
         votings:
+          actions:
+            publish: Közzétesz
+            unpublish: Közzététel visszavonása
           form:
             census_contact_information_help: Ez a kapcsolatfelvételi információ azoknak a résztvevőknek szól, akik a népszámlálással kapcsolatos problémákat szeretnének jelenteni. Ez lehet e-mail cím, kapcsolatfelvételi űrlap egy másik oldalon, kérdőív a látogatók számára, stb.
       polling_officer_zone:
+        closures:
+          sign:
+            confirm: Ok, folytassuk
         in_person_votes:
           complete_voting:
             questions_title: 'A következő kérdésekben jogosult szavazni:'
@@ -253,3 +270,6 @@ hu:
             access_link: e-mailen keresztül.
         login:
           start_voting: Szavazás kezdete
+      votings_m:
+        footer_button_text:
+          vote: Szavazás

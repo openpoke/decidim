@@ -328,11 +328,10 @@ nl:
         html_3:
           name: Derde HTML blok
         metadata:
-          developer_group: Aanbevolen door
           name: Metadata
-          participatory_scope: Wat wordt beslist
-          participatory_structure: Hoe wordt er beslist
-          target: Wie neemt deel
+          participatory_scope: Wat is besloten
+          participatory_structure: Hoe wordt er besloten
+          target: Wie doet mee
         stats:
           name: Activiteit
         title:
@@ -355,9 +354,6 @@ nl:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadata
@@ -366,10 +362,8 @@ nl:
         participatory_process_imports:
           form:
             document_legend: Document toevoegen
-            slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Gebruik hier gedeeltelijke paden, geen volledige URL''s. Accepteert letters, cijfers, streepjes en schuine strepen en moet beginnen met een letter. Als dit niet is ingesteld, wordt de knop niet weergegeven. Voorbeeld: %{url}'
             cta_text_help: Als dit niet is ingesteld, wordt de knop niet weergegeven.
         participatory_processes:
           form:
@@ -383,7 +377,6 @@ nl:
             scope_type_max_depth_help: Beperk de scope filter diepte; de filter zal uit het algemeen worden weergegeven tot het geselecteerde scope type.
             select_an_area: Selecteer een onderwerp
             select_process_group: Selecteer een procesgroep
-            slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
             title: Algemene informatie
             visbility: Zichtbaarheid
       content_blocks:
@@ -396,13 +389,11 @@ nl:
       pages:
         home:
           highlighted_processes:
-            active_processes: Actieve thema's
             active_step: Actieve stap
             more_information: Meer informatie
             participate: Deelnemen
             participate_in: Deelnemen aan proces %{resource_name}
             processes_button_title: Link naar de pagina Processen waarop alle processen worden weergegeven
-            see_all_processes: Bekijk alle thema's
       participatory_process_steps:
         index:
           back_to_process: Terug naar de procespagina
@@ -439,14 +430,13 @@ nl:
         dates: Datums
         developer_group: Organisator
         end_date: Einddatum
-        local_area: Organisatiegebied
         participatory_scope: Wat is besloten
         participatory_structure: Hoe wordt er besloten
         private_space: Dit is een privéthema
         related_processes: Verwante thema's
         scope: Scope
         start_date: Startdatum
-        target: Wie neemt deel
+        target: Wie doet mee
         unspecified: Niet gespecificeerd
     statistics:
       processes_count: Inspraakprocessen
@@ -480,6 +470,6 @@ nl:
           more_info: Meer informatie
       process_header_steps:
         step: Stap %{current} van %{total}
-        view_steps: Bekijk stappen
+        view_steps: Stappen van het proces
       process_navigation:
         process_menu_item: Het thema

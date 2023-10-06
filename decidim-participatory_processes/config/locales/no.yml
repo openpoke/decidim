@@ -328,11 +328,10 @@
         html_3:
           name: Tredje HTML-blokk
         metadata:
-          developer_group: Promotert av
           name: Metadata
-          participatory_scope: Hva er bestemt
-          participatory_structure: Hvordan blir det bestemt
-          target: Hvem deltar
+          participatory_scope: Medvirkningen gjelder
+          participatory_structure: Hvordan det blir gjort
+          target: Hvem som deltar
         participatory_processes:
           name: Deltakende prosesser
         stats:
@@ -357,9 +356,6 @@
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne prosessen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadata
@@ -368,10 +364,8 @@
         participatory_process_imports:
           form:
             document_legend: Legg til et dokumentet
-            slug_help: 'URL-navn brukes til å generere nettadressene som peker på denne prosessen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Bruk delte baner, ikke fullstendige nettadresser her. Godtar bokstaver, tall, streker og skråstreker, og må starte med en bokstav. Hvis den ikke er satt, vises ikke knappen. Eksempel: %{url}'
             cta_text_help: Hvis ikke angitt, vil ikke knappen vises.
         participatory_processes:
           form:
@@ -385,7 +379,6 @@
             scope_type_max_depth_help: Begrens temaets filternivå; Filteret viser fra generelt til valgt tematype.
             select_an_area: Velg et Område
             select_process_group: Velg en prosessgruppe
-            slug_help: 'URL-navn brukes til å generere nettadressene som peker på denne prosessen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
             title: Generell informasjon
             visbility: Synlighet
       content_blocks:
@@ -398,13 +391,11 @@
       pages:
         home:
           highlighted_processes:
-            active_processes: Aktive prosesser
             active_step: Aktiv medvirkningsfase
             more_information: Mer informasjon
             participate: Delta
             participate_in: Delta i prosess %{resource_name}
             processes_button_title: Lenke til prosessiden som viser alle prosesser
-            see_all_processes: Se alle prosesser
       participatory_process_steps:
         index:
           back_to_process: Tilbake til prosesssiden
@@ -441,16 +432,15 @@
         area: Område
         belongs_to_group: Denne prosessen tilhører
         dates: Datoer
-        developer_group: Prosessen styres av
+        developer_group: Promotørgruppe
         end_date: Sluttdato
-        local_area: Organisasjonsområde
         participatory_scope: Medvirkningen gjelder
-        participatory_structure: Hvordan det blir gjennomført
+        participatory_structure: Hvordan det blir gjort
         private_space: Dette er en lukket prosess
         related_processes: Relaterte prosesser
         scope: Tema
         start_date: Startdato
-        target: Hvem kan delta
+        target: Hvem som deltar
         unspecified: Ikke spesifisert
     statistics:
       processes_count: Prosesser
@@ -484,6 +474,6 @@
           more_info: Mer info
       process_header_steps:
         step: Fase %{current} av %{total}
-        view_steps: Vis faser
+        view_steps: Medvirkningsfaser
       process_navigation:
         process_menu_item: Prosessen

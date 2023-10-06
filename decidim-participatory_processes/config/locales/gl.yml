@@ -310,10 +310,9 @@ gl:
         html_3:
           name: Terceiro bloque HTML
         metadata:
-          developer_group: Promovido por
           name: Metadatos
-          participatory_scope: Que se decide
-          participatory_structure: Como é decidido
+          participatory_scope: O que se decide
+          participatory_structure: Como se decide
           target: Quen participa
         participatory_processes:
           name: Procesos participativos
@@ -339,9 +338,6 @@ gl:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este proceso. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadatos
@@ -352,7 +348,6 @@ gl:
             document_legend: Engadir un documento
         participatory_process_steps:
           form:
-            cta_path_help: 'Use aquí rutas parciais, non URL completo. Acepta letras, números, guións e barras, e debe comezar cunha letra. Se non está establecido, non se mostrará o botón. Exemplo: %{url}'
             cta_text_help: Se non está establecido, non se mostrará o botón.
         participatory_processes:
           form:
@@ -365,7 +360,6 @@ gl:
             related_processes: Procesos relacionados
             select_an_area: Seleccione unha área
             select_process_group: Seleccione un grupo de procesos
-            slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este proceso. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
             title: Información xeral
             visbility: Visibilidade
       content_blocks:
@@ -378,13 +372,11 @@ gl:
       pages:
         home:
           highlighted_processes:
-            active_processes: Procesos activos
             active_step: Paso activo
             more_information: Máis información
             participate: Participar
             participate_in: Participar no proceso %{resource_name}
             processes_button_title: Ligazón á páxina de Procesos que amosa todas as procesos
-            see_all_processes: Ver todos os procesos
       participatory_process_steps:
         index:
           back_to_process: Volver á páxina do proceso
@@ -423,7 +415,6 @@ gl:
         dates: Datas
         developer_group: Grupo promotor
         end_date: Data de finalización
-        local_area: Área de organización
         participatory_scope: O que se decide
         participatory_structure: Como se decide
         private_space: Este é un proceso privado
@@ -464,6 +455,6 @@ gl:
           more_info: Máis información
       process_header_steps:
         step: Paso %{current} de %{total}
-        view_steps: Ver pasos
+        view_steps: Pasos do proceso
       process_navigation:
         process_menu_item: O proceso

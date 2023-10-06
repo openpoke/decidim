@@ -14,7 +14,7 @@ ja:
         scope_id: スコープ
         signature_end_date: 署名の収集期間の終了
         signature_start_date: 署名の収集期間の開始
-        signature_type: 署名のコレクションタイプ
+        signature_type: 署名の収集種別
         signature_type_values:
           any: ハイブリッド
           offline: 対面
@@ -552,7 +552,7 @@ ja:
         more_information: ここでは、イニシアチブの作成プロセスについての詳細情報があります。
         progress_report_body_for: '%{title} が必要な署名の %{percentage}%に達しました。'
         progress_report_for: 'イニシアチブの概要: %{title}'
-        promotal_committee_help: 少なくとも %{member_count} 人をプロモーター委員会に招待する必要があります。推進委員会に招待するには、次のリンクを進めてください。
+        promotal_committee_help: 少なくとも %{member_count} 人を推進委員会に招待する必要があります。推進委員会に招待するには、次のリンクを進めてください。
         status_change_body_for: 'イニシアチブ %{title} がステータスを %{state}に変更しました'
         status_change_for: イニシアチブ %{title} のステータスが変更されました
       last_activity:
@@ -560,8 +560,8 @@ ja:
       pages:
         home:
           highlighted_initiatives:
-            active_initiatives: 積極的なイニシアチブ
-            see_all_initiatives: すべてのイニシアチブを見る
+            active_initiatives: 活動中のイニシアチブ
+            see_all_initiatives: すべてのイニシアチブを表示
       show:
         badge_name:
           accepted: 十分な署名

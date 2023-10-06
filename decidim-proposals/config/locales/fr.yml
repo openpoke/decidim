@@ -117,7 +117,7 @@ fr:
           state_null:
             label: État
             values:
-              'true': Non répondu
+              'true': En attente de réponse
           valuator_role_ids_has:
             label: Assigné à l'évaluateur
         search_placeholder:
@@ -412,8 +412,8 @@ fr:
             proposals: |
               Le fichier doit avoir les noms de colonnes suivants en cas de fichiers CSV ou Excel ou noms de clés suivants en cas de fichiers JSON :
               <ul>
-              <li><b>title/en:</b> Titre en langue anglaise. Cela dépendra de la configuration de la langue de votre plateforme.</li>
-              <li><b>corps/en:</b> Corps en langue anglaise. Cela dépendra de la configuration de la langue de votre plateforme.</li>
+              <li><b>title/fr:</b> Titre de la proposition. Cela dépendra de la configuration de la langue de votre plateforme.</li>
+              <li><b>body/fr:</b> Corps de la proposition. Cela dépendra de la configuration de la langue de votre plateforme.</li>
               <li><b>scope/id :</b> ID du périmêtre d'application</li>
               <li><b>category/id :</b> ID de la catégorie</li>
               </ul>
@@ -740,7 +740,7 @@ fr:
         collaborative_draft:
           fields:
             authors: Auteurs
-            comments: commentaires
+            comments: Commentaires
             contributions: Contributions
         proposal:
           fields:
@@ -764,7 +764,7 @@ fr:
         buttons:
           amend: Modifier
           comment: Commentaire
-          comments: commentaires
+          comments: Commentaires
       proposal_votes:
         create:
           error: Des erreurs se sont produites lors du soutien de la proposition.
@@ -813,10 +813,10 @@ fr:
           type: Type
           voted: Ne montrer que les propositions pour lesquelles j'ai voté
         filters_small_view:
-          close_modal: Fermer la fenêtre de dialogue
-          filter: Filtrer
+          close_modal: Fermer la fenêtre
+          filter: Filtre
           filter_by: Filtrer par
-          unfold: Voir plus
+          unfold: Se dérouler
         index:
           click_here: Voir toutes les propositions
           collaborative_drafts_list: Accéder aux brouillons collaboratifs
@@ -843,7 +843,7 @@ fr:
           with_more_authors: Avec le plus d'auteurs
         participatory_texts:
           index:
-            document_index: Index de document
+            document_index: Index du document
           view_index:
             see_index: Voir index
         placeholder:

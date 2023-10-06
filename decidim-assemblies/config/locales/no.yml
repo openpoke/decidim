@@ -277,7 +277,6 @@
             select_an_area: Velg et Område
             select_an_assembly_type: Velg en forsamlingstype
             select_parent_assembly: Velg foreldre-forsamling
-            slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne forsamlingen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
             social_handlers: Sosial
             title: Generell Informasjon
             visbility: Synlighet
@@ -289,13 +288,9 @@
         assemblies_types:
           form:
             title: Tittel
-        assembly_copies:
-          form:
-            slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne forsamlingen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         assembly_imports:
           form:
             document_legend: Legg til et dokument
-            slug_help: 'URL-slugs brukes til å generere URL-er som peker til denne forsamlingen. Aksepterer kun bokstaver, tall og bindestreker og må starte med en bokstav. Eksempel: %{url}'
         assembly_members:
           form:
             existing_user: Eksisterende deltaker
@@ -354,9 +349,7 @@
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktive forsamlinger
             assemblies_button_title: Lenke til forsamlingssiden som viser alle forsamlinger
-            see_all_assemblies: Se alle forsamlingene
         user_profile:
           member_of:
             member_of: Medlem av
@@ -368,15 +361,14 @@
         composition: Sammensetning
         created_by: Opprettet av
         creation_date: Dato opprettet
-        developer_group: Promotør gruppe
+        developer_group: Prosessen styres av
         duration: Varighet
         included_at: Inkludert på
-        indefinite_duration: Ubestemt
         internal_organisation: Intern organisasjon
         is_transparent:
           'false': opaque
           'true': privat
-        local_area: Organisasjonsområdet
+        local_area: Organisasjonsområde
         participatory_scope: Hva er bestemt
         participatory_structure: Hvordan blir det bestemt
         private_space: Dette er en privat forsamling

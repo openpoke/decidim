@@ -196,6 +196,10 @@ pl:
         exports:
           elections: Wybory
           feedback_form_answers: Odpowiedzi zebrane z formularza
+        mailers:
+          trustee_mailer:
+            body: "<p>Cześć, %{user_name},</p><p>Dodano cię jako mąż zaufania do %{resource_name}.</p>"
+            subject: Dodano cię jako mąż zaufania do %{resource_name}
         menu:
           trustees: Mężowie (osoby) zaufania
         models:
@@ -218,6 +222,7 @@ pl:
             title: Importuj propozycje
         questions:
           create:
+            election_started: Wybory już się rozpoczęły
             invalid: Wystąpił błąd podczas tworzenia pytania
             success: Pytanie zostało pomyślnie utworzone
           destroy:
@@ -605,7 +610,7 @@ pl:
           header: Oddawanie głosu...
           text: Twoja karta do głosowania jest składana do urny wyborczej.
         confirm:
-          answer: Odpowiedz
+          answer: Odpowiedź
           answer_number: odpowiedz %{number}
           confirm: Potwierdź
           edit: edytuj
@@ -637,7 +642,7 @@ pl:
           ballot_decision: Oddaj głos, albo sprawdź poprawność szyfrowania Twojego głosu
           casting: Oddawanie głosu
           confirm: Potwierdź swój głos
-          confirmed: Głos potwierdzony
+          confirmed: Oddanie głosu potwierdzone
           encrypting: Szyfrowanie głosu
           failed: Oddanie głosu nie powiodło się
         messages:
@@ -765,28 +770,8 @@ pl:
           highlighted_votings:
             max_results: Maksymalna ilość elementów do wyświetlenia
           landing_page:
-            attachments_and_folders:
-              name: Załączniki i foldery do głosowania
             description:
               name: Opis głosowania
-            elections:
-              name: Wybory
-            header:
-              name: Nagłówek głosowania
-            html_block_1:
-              name: Pierwszy blok html głosowania
-            html_block_2:
-              name: Drugi blok html głosowania
-            html_block_3:
-              name: Trzeci blok html głosowania
-            metrics:
-              name: Metryka głosowania
-            polling_stations:
-              name: Lokale wyborcze
-            stats:
-              name: Statystyki głosowania
-            timeline:
-              name: Oś czasu głosowania
         index:
           not_published: Nie opublikowano
           published: Opublikowano
@@ -975,8 +960,8 @@ pl:
             confirm_destroy: Jesteś pewny?
             destroy: Usuń
             new_voting: Nowa przestrzeń do głosowania
-            publish: Publikuj
-            unpublish: Cofnij publikowanie
+            publish: Opublikuj
+            unpublish: Cofnij publikację
           create:
             invalid: Podczas tworzenia głosowania wystąpił błąd
             success: Utworzono głosowanie
@@ -986,12 +971,12 @@ pl:
             update: Aktualizuj
           form:
             select_a_voting_type: Wybierz typ głosowania
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego procesu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
             title: Tytuł
             voting_type:
               hybrid: Hybrydowe
               in_person: Osobiste
               online: Online
+            voting_type_label: Typ głosowania
           new:
             create: Utwórz
             title: Nowe głosowanie
@@ -1023,6 +1008,7 @@ pl:
               button: Eksportuj kody dostępu do głosowania
               callout: Możesz teraz przejść do eksportu kodów dostępu. Można to zrobić tylko raz. Po uruchomieniu eksportu, otrzymasz e-mail z instrukcjami na adres <strong>%{email}</strong>
               confirm: Możesz wyeksportować kody dostępu tylko raz. Upewnij się, że masz dostęp do konta e-mail <strong>%{email}</strong>.
+              file_not_exist: Ten plik nie istnieje
               launch_error: Wystąpił problem z uruchomieniem eksportu kodów dostępu
               launch_success: Eksport kodów dostępu został uruchomiony. Wkrótce otrzymasz e-mail na adres %{email}
             exporting_access_codes:
@@ -1087,8 +1073,6 @@ pl:
       pages:
         home:
           highlighted_votings:
-            active_votings: Aktywne głosowania
-            see_all_votings: Zobacz wszystkie głosowania
             votings_button_title: Link do strony Głosowań wyświetla wszystkie głosowania
       polling_officer_zone:
         closures:
@@ -1246,6 +1230,8 @@ pl:
         check_census:
           check_status: Sprawdź status
           description: Tutaj masz możliwość sprawdzenia danych umieszczonych na liście wyborców, aby wiedzieć, czy masz prawo uczestniczyć w tym głosowaniu. Powinieneś mieć już kod dostępu, ale jeśli go zgubiłeś, możesz ponownie o ten kod poprosić, gdy Twoje dane są poprawne.
+          error:
+            info: 'Spróbuj ponownie. Jeśli uważasz, że dane w systemie są nieprawidłowe, możesz je zgłosić tutaj: %{census_contact_information}'
           form_title: 'Wypełnij formularz, aby sprawdzić Twoje dane na liście wyborców:'
           invalid: Wystąpił błąd przy sprawdzaniu listy wyborców.
           success:
@@ -1311,7 +1297,7 @@ pl:
           invalid: Wystąpił błąd podczas wysyłania kodu dostępu
           success: Twój kod dostępu został wysłany pomyślnie
         show:
-          dates: Daty
+          dates: Data
       votings_m:
         badge_name:
           finished: Zakończone
@@ -1320,7 +1306,7 @@ pl:
         footer_button_text:
           participate: Dołącz
           view: Zobacz
-          vote: Głosuj
+          vote: Głosowanie
         unspecified: Nie określono
         voting_type:
           hybrid: Hybrydowe

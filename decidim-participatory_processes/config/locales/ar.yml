@@ -287,6 +287,9 @@ ar:
       content_blocks:
         metadata:
           name: البيانات الوصفية
+          participatory_scope: ما الذي تقرر
+          participatory_structure: كيف تقرر ذلك
+          target: من يشارك
         stats:
           name: نشاط
       show:
@@ -300,15 +303,11 @@ ar:
         content_blocks:
           highlighted_processes:
             max_results: أقصى قدر من العناصر لإظهارها
-        participatory_process_copies:
-          form:
-            slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذه العملية. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
         participatory_process_imports:
           form:
             document_legend: إضافة وثيقة
         participatory_process_steps:
           form:
-            cta_path_help: 'استخدم المسارات الجزئية ، وليس عناوين URL الكاملة هنا. يقبل الحروف والأرقام والشرطات والمائلة ، ويجب أن يبدأ بحرف. إذا لم يتم تعيينه ، فلن يظهر الزر. مثال: %{url}'
             cta_text_help: إذا لم يتم تعيينه ، فلن يظهر الزر.
         participatory_processes:
           form:
@@ -321,7 +320,6 @@ ar:
             related_processes: العمليات ذات الصلة
             select_an_area: اختر منطقة
             select_process_group: حدد مجموعة عملية
-            slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذه العملية. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
             title: معلومات عامة
             visbility: رؤية
       content_blocks:
@@ -334,11 +332,9 @@ ar:
       pages:
         home:
           highlighted_processes:
-            active_processes: عمليات نشطة
             active_step: المرحلة النشطة
             more_information: معلومات اكثر
             participate: مشاركة
-            see_all_processes: رؤية جميع العمليات
       participatory_processes:
         filters:
           counters:
@@ -386,7 +382,6 @@ ar:
         area: منطقة
         developer_group: مجموعة المروجين
         end_date: تاريخ الانتهاء
-        local_area: منطقة التنظيم
         participatory_scope: ما الذي تقرر
         participatory_structure: كيف تقرر ذلك
         private_space: هذه عملية خاصة
@@ -416,8 +411,10 @@ ar:
           active_step: 'المرحلة الحالية:'
           more_info: مزيد من المعلومات
           take_part: خذ جزء
+        promoted_process_group:
+          more_info: مزيد من المعلومات
       process_header_steps:
         step: المرحلة %{current} من %{total}
-        view_steps: عرض المراحل
+        view_steps: مراحل العملية
       process_navigation:
         process_menu_item: المسار

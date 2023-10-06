@@ -143,7 +143,6 @@ is-IS:
         new:
           already_have_an_account?: Ertu þegar með reikning?
           newsletter: Fáðu einstaka fréttabréf með viðeigandi upplýsingum
-          sign_in: Skrá inn
           sign_up: Skráðu þig
           sign_up_as:
             legend: Skráðu þig sem
@@ -319,7 +318,7 @@ is-IS:
       scopes: Scopes
     shared:
       embed_modal:
-        close_window: Lokaðu glugga
+        close_window: Loka glugga
         embed: Vinsamlegast lítið þennan kóða á síðunni þinni
         embed_link: Fella inn
       flag_modal:
@@ -341,10 +340,12 @@ is-IS:
       results_per_page:
         label: 'Niðurstöður á síðu:'
       share_modal:
-        close_window: Lokaðu glugga
+        close_window: Loka glugga
         share: Deila
         share_link: Deila tengil
     user_conversations:
+      index:
+        close: Loka
       update:
         error: Skilaboð ekki send. Reyndu aftur seinna
   devise:

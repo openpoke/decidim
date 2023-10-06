@@ -651,7 +651,7 @@ fr-CA:
           header: Vote en cours...
           text: Votre bulletin a bien été pris en compte.
         confirm:
-          answer: Répondre
+          answer: Réponse
           answer_number: répondre à %{number}
           confirm: Valider
           edit: éditer
@@ -820,7 +820,7 @@ fr-CA:
             elections:
               name: Élections
             header:
-              name: Header du vote
+              name: En-tête de vote
             html_block_1:
               name: Bloc HTML 1 du Vote
             html_block_2:
@@ -1041,7 +1041,7 @@ fr-CA:
             promoted: Mis en avant
             select_a_voting_type: Veuillez sélectionner un type de vote
             slug: Slug
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui renvoient vers cette élection. Ils ne contiennent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers ce vote. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
             title: Titre
             voting_type:
               hybrid: Hybride
@@ -1220,7 +1220,7 @@ fr-CA:
           sign:
             cancel: Annuler
             check_box: J'ai passé en revue ce certificat, il est identique à celui de fermeture des élections physiques
-            close_modal: Clore
+            close_modal: Fermer
             confirm: Ok, continuer
             error: Une erreur est survenue, veuillez réessayer.
             heading: Recomptage des voix - Signer la fermeture

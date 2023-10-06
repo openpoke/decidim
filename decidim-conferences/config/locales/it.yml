@@ -319,9 +319,6 @@ it:
         title: Relatori
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa conferenza. Accetta solo lettere, numeri e trattini e deve iniziare con una lettera. Esempio: %{url}'
         conference_invites:
           create:
             error: Si è verificato un problema durante l'invito dell'utente a partecipare alla conferenza.
@@ -363,7 +360,6 @@ it:
             registrations_count:
               one: C'è stata 1 registrazione.
               other: Ci sono state %{count} iscrizioni.
-            slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa conferenza. Accetta solo lettere, numeri e trattini e deve iniziare con una lettera. Esempio: %{url}'
         diplomas:
           edit:
             save: Salva
@@ -494,7 +490,6 @@ it:
           highlighted_conferences:
             active_conferences: Conferenze attive
             conferences_button_title: Link alla pagina Conferenze in cui sono visualizzate tutte le conferenze
-            see_all_conferences: Vedi tutte le conferenze
       photo:
         image:
           attributes:
@@ -596,7 +591,7 @@ it:
             one: "%{count} conferenza"
             other: "%{count} conferenze"
         promoted_conference:
-          more_info: Maggiori informazioni
+          more_info: Ulteriori informazioni
           take_part: Partecipa
       conferences_nav:
         conference_menu_item: Informazioni
