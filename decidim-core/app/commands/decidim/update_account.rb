@@ -38,6 +38,7 @@ module Decidim
       @user.email = @form.email
       @user.personal_url = @form.personal_url
       @user.about = @form.about
+      @user.time_zone = @form.time_zone
     end
 
     def update_avatar
