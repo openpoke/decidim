@@ -113,7 +113,7 @@ module Decidim
       ]
     end
 
-    def value_from_locale(value, format, locale, skip_machine_keys = {})
+    def value_from_locale(value, _format, locale, skip_machine_keys = {})
       text = value.is_a?(Hash) ? find_locale_value(value, locale, skip_machine_keys) : value
 
       text = text.first if text.is_a?(Array)
@@ -123,7 +123,7 @@ module Decidim
     end
 
     def find_locale_value(input, locale, skip_machine_keys = {})
-      input.dig(locale).presence || skip_machine_keys[locale].presence || input.dig("machine_translations", locale)
+      input[locale].presence || skip_machine_keys[locale].presence || input.dig("machine_translations", locale)
     end
 
     # Gives the option to view HTML unescaped for better user experience.

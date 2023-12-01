@@ -1897,10 +1897,6 @@ en:
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
-    tabs:
-      text: Text diff
-      source: Source diff
-      preview: Preview
     directions:
       left: Deletions
       right: Additions
@@ -1912,6 +1908,10 @@ en:
       option_split: Side-by-side
       option_unescaped: Unescaped
       option_unified: Unified
+    tabs:
+      preview: Preview
+      source: Source diff
+      text: Text diff
   views:
     pagination:
       first: "&laquo; First"
