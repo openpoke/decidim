@@ -29,7 +29,7 @@ fi:
         show_statistics: Näytä tilastot
         sign_date: Allekirjoituksen päivämäärä
         signature: Allekirjoitus
-        signature_name: allekirjoituksen nimi
+        signature_name: Allekirjoituksen nimi
         slogan: Iskulause
         slug: URL-tunniste
         start_date: Alkamispäivä
@@ -38,13 +38,13 @@ fi:
         date: Päivämäärä
         link: Linkki
         title: Otsikko
-        weight: Painoarvo
+        weight: Järjestysnumero
       conference_partner:
         link: Linkki
         logo: Logo
         name: Nimi
         partner_type: Kumppanin tyyppi
-        weight: Painoarvo
+        weight: Järjestysnumero
       conference_registration_invite:
         email: Sähköposti
         name: Nimi
@@ -54,7 +54,7 @@ fi:
         description: Kuvaus
         price: Hinta
         title: Otsikko
-        weight: Painoarvo
+        weight: Järjestysnumero
       conference_speaker:
         affiliation: Jäsenyys
         avatar: Avatar
@@ -63,7 +63,7 @@ fi:
         personal_url: Henkilökohtainen URL-osoite
         position: Asema
         short_bio: Lyhyt henkilökuvaus
-        twitter_handle: Twitter-käyttäjänimi
+        twitter_handle: X käsittelijä
         user_id: Käyttäjä
       conference_user_role:
         email: Sähköposti
@@ -103,7 +103,7 @@ fi:
           success: Konferenssin julkaisu onnistui.
         destroy:
           error: Konferenssin julkaisun lopettaminen epäonnistui.
-          success: Konferenssin julkaisun peruminen onnistui.
+          success: Konferenssin julkaisun lopettaminen onnistui.
       conference_registration:
         confirm:
           error: Konferenssin ilmoittautumisen vahvistaminen epäonnistui.
@@ -135,7 +135,7 @@ fi:
           title: Päivitä konferenssin hallintakäyttäjä.
           update: Päivitä
         index:
-          conference_admins_title: konferenssin hallintakäyttäjät
+          conference_admins_title: Konferenssin ylläpitäjät
         new:
           create: Luo
           title: Uusi konferenssin hallintakäyttäjä.
@@ -221,7 +221,7 @@ fi:
             role: Rooli
           name: Konferenssin hallintakäyttäjä
           roles:
-            admin: Hallinnointikäyttäjä
+            admin: Hallintakäyttäjä
             collaborator: Työryhmän jäsen
             moderator: Moderoija
             valuator: Arvioija
@@ -270,7 +270,7 @@ fi:
           success: Ilmoittautumistyypin julkaisu onnistui.
         destroy:
           error: Ilmoittautumistyypin julkaisun lopettaminen epäonnistui.
-          success: Ilmoittamistyypin julkaisun peruminen onnistui.
+          success: Ilmoittamistyypin julkaisun lopettaminen onnistui.
       registration_types:
         create:
           error: Ilmoittautumistyyppin lisääminen tälle konferenssille epäonnistui.
@@ -313,6 +313,7 @@ fi:
           update: "%{user_name} päivitti yhteistyökumppania %{resource_name} konferenssissa %{space_name}"
         registration_type:
           create: "%{user_name} loi ilmoittautumistyypin %{resource_name} konferenssiin %{space_name}"
+          delete: "%{user_name} poisti ilmoittautumistyypin %{resource_name} konferenssista %{space_name}"
           publish: "%{user_name} julkaisi ilmoittautumistyypin %{resource_name} konferenssissa %{space_name}"
           unpublish: "%{user_name} lopetti ilmoittautumistyypin %{resource_name} julkaisun konferenssissa %{space_name}"
           update: "%{user_name} päivitti ilmoittautumistyyppiä %{resource_name} konferenssissa %{space_name}"
@@ -380,7 +381,8 @@ fi:
         invite_join_conference_mailer:
           invite:
             decline: Hylkää kutsu "%{conference_title}"
-            invited_you_to_join_a_conference: "%{invited_by} on kutsunut sinut konferenssiin palvelussa %{application}. Voit hylätä tai hyväksyä kutsun alla olevien linkkien avulla."
+            invited_existing_user_to_join_a_conference: "%{invited_by} on kutsunut sinut konferenssiin palvelussa %{application}. Voit hylätä tai hyväksyä kutsun alla olevien linkkien avulla."
+            invited_user_to_join_a_conference: "%{invited_by} on kutsunut sinut osallistumaan konferenssiin palvelussa %{application}. Voit hyväksyä kutsun alla esitetyn linkin kautta."
             registration: Ilmoittautuminen konferenssiin "%{conference_title}"
         partners:
           index:
@@ -421,24 +423,26 @@ fi:
       conference_registration_mailer:
         confirmation:
           confirmed_html: Ilmoittautumisesi konferenssiin <a href="%{url}">%{title}</a> on vahvistettu.
-          details_1: 'Olet ilmoittautunut konferenssiin ilmoittautumistyypillä %{registration_type}. Hinta on %{price} ja voit osallistua seuraaviin tapahtumiin:'
+          details_1: 'Olet ilmoittautunut konferenssiin ilmoittautumistyypillä %{registration_type}. Hinta on %{price} ja voit osallistua seuraaviin tilaisuuksiin:'
           details_2: Konferenssin tiedot löytyvät liitetiedostosta.
         pending_validation:
           confirmation_pending: Saat vahvistuksen pian
-          details: 'Olet ilmoittautunut tyypillä %{registration_type}, jonka hinta on %{price}. Voit osallistua seuraaviin tapahtumiin:'
+          details: 'Olet ilmoittautunut tyypillä %{registration_type}, jonka hinta on %{price}. Voit osallistua seuraaviin tilaisuuksiin:'
           pending_html: Ilmoittautumisesi konferenssiin <a href="%{url}">%{title}</a> odottaa vahvistusta.
       conference_registrations:
         create:
           invalid: Konferenssiin ilmoittautuminen epäonnistui.
           success: Ilmoittautuminen konferenssiin onnistui.
+          unauthorized: Sinun täytyy kirjautua sisään hyväksyäksesi konferenssikutsun.
         decline_invitation:
           invalid: Kutsun hylkääminen epäonnistui.
           success: Kutsun hylkääminen onnistui.
+          unauthorized: Sinun täytyy kirjautua sisään hylätäksesi konferenssikutsun.
         destroy:
           invalid: Konferenssista poistuminen epäonnistui.
           success: Konferenssista poistuminen onnistui.
       conference_speaker:
-        go_to_twitter: Siirry Twitteriin
+        go_to_twitter: Siirry X-palveluun
         more_info: lisätietoja
         personal_website: Henkilökohtainen verkkosivusto
         show:
@@ -459,7 +463,7 @@ fi:
         show:
           login_as: Olet kirjautunut sisään henkilönä %{name} <%{email}>
           make_conference_registration: 'Ilmoittaudu konferenssiin:'
-          register: Rekisteröidy
+          register: Ilmoittaudu
       content_blocks:
         highlighted_conferences:
           name: Tärkeimmät konferenssit
@@ -503,7 +507,7 @@ fi:
           highlighted_conferences:
             active_conferences: Aktiiviset konferenssit
             conferences_button_title: Linkki Konferenssit-sivulle, jossa näkyvät kaikki konferenssit
-            see_all_conferences: Katso kaikki konferenssit
+            see_all_conferences: Näytä kaikki konferenssit
       photo:
         image:
           attributes:
@@ -568,8 +572,8 @@ fi:
     help:
       participatory_spaces:
         conferences:
-          contextual: "<p><strong>Konferenssi</strong> on useiden tapahtumien sarja, mihin kutsutaan puhujia ja jolle määritetään useita tietotyyppejä, jotka ovat tyypillisä suurille kongresseille tai sosiaalisille tapahtumille (ilmoittautumiset, kannatusorganisaatioiden tai rahoittajien listat, jne.).</p><p>Esimerkkejä: Konferenssi voidaan järjestää organisaatiolle ja sen jäsenille tai se voi olla jonkin osallistumisprosessin yksi osa tai kuulemisen jälkeinen tapahtuma.</p>\n"
-          page: "<p><strong>Konferenssi</strong> on useiden tapahtumien sarja, mihin kutsutaan puhujia ja jolle määritetään useita tietotyyppejä, jotka ovat tyypillisä suurille kongresseille tai sosiaalisille tapahtumille (ilmoittautumiset, kannatusorganisaatioiden tai rahoittajien listat, jne.).</p><p>Esimerkkejä: Konferenssi voidaan järjestää organisaatiolle ja sen jäsenille tai se voi olla jonkin osallistumisprosessin yksi osa tai kuulemisen jälkeinen tapahtuma.</p>\n"
+          contextual: "<p><strong>Konferenssi</strong> on useiden tapahtumien sarja, mihin kutsutaan puhujia ja jolle määritetään useita tietotyyppejä, jotka ovat tyypillisiä suurille kongresseille tai sosiaalisille tapahtumille (ilmoittautumiset, kannatusorganisaatioiden tai rahoittajien listat, jne.).</p><p>Esimerkkejä: Konferenssi voidaan järjestää organisaatiolle ja sen jäsenille tai se voi olla jonkin osallistumisprosessin yksi osa tai kuulemisen jälkeinen tapahtuma.</p>\n"
+          page: "<p><strong>Konferenssi</strong> on useiden tapahtumien sarja, mihin kutsutaan puhujia ja jolle määritetään useita tietotyyppejä, jotka ovat tyypillisiä suurille kongresseille tai sosiaalisille tapahtumille (ilmoittautumiset, kannatusorganisaatioiden tai rahoittajien listat, jne.).</p><p>Esimerkkejä: Konferenssi voidaan järjestää organisaatiolle ja sen jäsenille tai se voi olla jonkin osallistumisprosessin yksi osa tai kuulemisen jälkeinen tapahtuma.</p>\n"
           title: Mitä konferenssit ovat?
     log:
       value_types:

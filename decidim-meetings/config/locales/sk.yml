@@ -2,10 +2,6 @@
 sk:
   activemodel:
     attributes:
-      agenda:
-        description: Popis
-        duration: Čas trvania
-        title: Názov
       close_meeting:
         attendees_count: Počet účastníkov
         attending_organizations: Zoznam organizácií, ktoré sa zúčastnili
@@ -19,7 +15,6 @@ sk:
         decidim_category_id: Kategória
         decidim_scope_id: Rozsah
         description: Popis
-        end_time: Čas ukončenia
         location: Umiestnenie
         location_hints: Tipy pre umiestnenie
         organizer_id: Organizátor
@@ -27,7 +22,6 @@ sk:
         registration_form_enabled: Registračný formulár je povolený
         registration_terms: Podmienky registrácie
         registrations_enabled: Registrácia povolené
-        start_time: Čas začatia
         title: Názov
         transparent: Transparentné
     errors:
@@ -156,7 +150,6 @@ sk:
         confirm_destroy: Naozaj chcete túto schôdzku vymazať?
         destroy: Odstrániť
         edit: Upraviť
-        new: Nové stretnutie
         preview: Náhľad
         registrations: Registrácia
         title: Akcia
@@ -297,6 +290,9 @@ sk:
           value_types:
             organizer_presenter:
               not_found: 'Organizátor nebol nájdený v databáze (ID:%{id})'
+      application_helper:
+        filter_scope_values:
+          all: Všetko
       calendar_modal:
         calendar_url: URL kalendára
         close_window: Zatvorte okno
@@ -304,6 +300,7 @@ sk:
       conference_venues: Konferenčné priestory
       content_blocks:
         upcoming_meetings:
+          upcoming_meetings: Nadchádzajúce schôdzky
           view_all_meetings: Zobraziť všetko
       directory:
         meetings:
@@ -325,6 +322,7 @@ sk:
         filters:
           category: Kategória
           date: dátum
+          scope: Rozsah
           search: Vyhľadávanie
         filters_small_view:
           close_modal: Zatvoriť modálne
@@ -342,8 +340,9 @@ sk:
         show:
           attendees: Počet účastníkov
           back: Späť na zoznam
+          close_meeting: Zatvorte schôdzku
           contributions: Počet príspevkov
-          join: Pripojte sa k stretnutie
+          date: dátum
           meeting_minutes: Zápisnica z porady
           no_slots_available: Žiadne sloty nie sú k dispozícii
           organizations: Účastnícke organizácie
@@ -407,7 +406,7 @@ sk:
         see_all: Zobraziť všetky (%{count})
         upcoming_meetings: Nadchádzajúce schôdzky
       upcoming_meeting_for_card:
-        upcoming_meeting: Nadchádzajúce schôdzka
+        upcoming_meeting: Nadchádzajúce stretnutie
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Súvisiace výsledky:'

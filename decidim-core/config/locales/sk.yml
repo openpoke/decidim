@@ -401,7 +401,6 @@ sk:
           already_have_an_account?: Už máte účet?
           newsletter: Dostávajte príležitostný spravodajca s relevantnými informáciami
           newsletter_title: Povolenie kontaktu
-          sign_in: Prihlásiť sa
           sign_up: Zaregistrovať sa
           sign_up_as:
             legend: Zaregistrovať sa ako
@@ -420,7 +419,6 @@ sk:
         newsletter_modal:
           buttons:
             check: Skontrolujte a pokračujte
-            close_modal: Zatvoriť okno
           notice: |-
             | - <P> Hej, ste si istí, že nechcete dostávať newsletter? <br> Označte zaškrtávacie políčko nižšie. <br> Pre nás je veľmi dôležité, aby ste obdržali príležitostné e-maily aby ste dostali dôležitá oznámenia, môžete to vždy zmeniť v nastavenia oznámenia. </ p> <P> Ak nezaškrtnete zaškrtávacie políčko, môže vám chýbať relevantné informácie o nových možnostiach účasti v rámci platformy. <br> Ak sa chcete aj naďalej vyhýbať prijímanie informačných spravodajcov, dokonale rozumieme vášmu rozhodnutiu. </ p> <P> Ďakujeme, že ste si to prečítali! </ P>
           title: Upozornenie na bulletin
@@ -447,8 +445,6 @@ sk:
       show:
         download_data: Stiahnuť dáta
         request_data: Vyžiadať dáta
-    endorsable:
-      endorsements: Potvrdenie
     endorsement_buttons_cell:
       already_endorsed: Podporené
       endorse: Podporiť
@@ -631,6 +627,10 @@ sk:
           password: Heslo je príliš krátke.
           password_confirmation: Potvrdenie hesla sa musí zhodovať s vaším heslom.
         error: V tomto poli je chyba.
+      upload:
+        labels:
+          cancel: Zrušiť
+          save: Uložiť
     gamification:
       all_badges_link: Zobraziť všetky dostupné odznaky.
       badges:
@@ -649,18 +649,6 @@ sk:
           how: Ako ho môžete získať
           page_description: Odznaky sú uznaním aktivity účastníkov a ich pokroku na platforme. Keď začnete objavovať platformu, zúčastňovať sa na nej a pracovať na nej, získate rôzne odznaky. Tu je zoznam odznakov a spôsoby, ako ich môžete získať.
           title: Odznaky
-        invitations:
-          conditions:
-            - Použite odkaz "pozvať priateľov" na Vašej osobnej stránke pre pozvanie priateľov.
-            - Upravte, ak chcete, správu, ktorú posielate.
-            - Na ďalšiu úroveň sa dostanete rozosielaním a prijatím pozvánok.
-          description: Tento odznak obdržíte, ak ste pozvali pár ľudí, ktorí strávili čas registráciou v %{organization_name} a stali sa účastníkmi. Ďakujeme, že ste ostatným ukázali %{organization_name} a pomohli rozšíriť komunitu!
-          description_another: Tento účastník pozval %{score} ľudí.
-          description_own: Pozvali ste %{score} ľudí.
-          name: Pozvánky
-          next_level_in: Pozvite o %{score} ľudí viac pre dosiahnutie ďalšej úrovne!
-          unearned_another: Tento účastník zatiaľ nikoho nepozval.
-          unearned_own: Zatial ste nikoho nepozvali.
       description: Odznaky sú uznanie akciou účastníkov a pokrok v platforme. Akonáhle začnete objavovať, zúčastniť sa a spolupracovať v platforme, získate rôzne odznaky.
       level: Úroveň%{level}
       reached_top: Dosiahli ste najvyššej úrovne tohto odznaku.
@@ -809,21 +797,17 @@ sk:
         create:
           error: Konverzace se nespustí. Zkuste to později znovu
         index:
-          close: Zatvoriť okno
           new_conversation: Nová konverzácia
           next: Nasledujúce
           no_conversations: Nemáte zatím žádné konverzace
           title: Konverzace
         reply:
-          placeholder: Vaša odpoveď...
           send: Poslat
-          title: Odpověď
         show:
           chat_with: Konverzácia s
           title: Konverzace s číslem %{usernames}
         start:
           send: Poslat
-          title: Spusťte konverzaci
     metrics:
       followers:
         description: Počet účastníkov, ktorí sledujú tento participatívny priestor
@@ -840,7 +824,6 @@ sk:
     newsletter_mailer:
       newsletter:
         note: Tento e-mail jste obdrželi, protože jste odběrateli bulletinů na %{organization_name}. Můžete změnit nastavení na <a href="%{link}">oznámení straně</a>.
-        see_on_website: Nelze vidět tento e-mail správně? Zobrazte jej na webu <a href="%{link}" target="_blank"></a>.
         unsubscribe: Chcete-li odhlásit přijímání tento typ e-mailů, <a href="%{link}" target="_blank" class="unsubscribe">Odhlásit</a>.
     newsletter_templates:
       basic_only_text:
@@ -920,14 +903,13 @@ sk:
           proposals: Návrhy
           proposals_explanation: Urobiť návrhy, podporiť existujúce a podporovať zmeny, ktoré chcete vidieť.
         footer_sub_hero:
-          footer_sub_hero_body: vybudujte otvorenejšia, transparentnejšia a spolupracujúca spoločnosť. <br /> Prihláste sa, zúčastnite sa a rozhodnite sa.
           footer_sub_hero_headline: Vitajte na%{organization} participatívnej platforme.
           register: Registrovať
         hero:
           participate: zúčastniť sa
           welcome: Vitajte na%{organization}!
         metrics:
-          headline: Metrika
+          headline: Metriky
         statistics:
           headline: Aktuálny stav %{organization}
         sub_hero:
@@ -949,15 +931,11 @@ sk:
         form:
           legend: Souhlasíte s podmínkami používání
         refuse:
-          modal_btn_continue: Prijmite termíny a pokračujte
           modal_btn_exit: Neskôr to preskúmam
-          modal_button: Odmietnite podmienky
-          modal_close: Zatvoriť modálne
           modal_title: Naozaj odmietate aktualizované zmluvné podmienky?
         required_review:
           alert: Aktualizovali sme Zmluvné podmienky, prečítajte si ich.
           body: Venujte prosím prosím pozornosť aktualizácii našich zmluvných podmienok. V opačnom prípade nebudete môcť platformu používať.
-          title: 'Vyžaduje: Skontrolujte aktualizácie našich zmluvných podmienok'
     participatory_space_private_users:
       not_allowed: Nemáte povolenie na zobrazenie tohto obsahu
     profile:
@@ -1029,7 +1007,6 @@ sk:
           future: Budúcnosť
           past: Uplynulé
       filters_small_view:
-        close_modal: Zatvoriť modálne
         filter: Filter
         filter_by: Filtrovať podľa
         unfold: Rozbaliť
@@ -1042,7 +1019,7 @@ sk:
         view_all: Zobrazit všechny (%{count})
     shared:
       embed_modal:
-        close_window: Zátvor okno
+        close_window: Zavrieť okno
         embed: Vložte tento kód na svoju stránku
         embed_link: Vložiť
       extended_navigation_bar:
@@ -1077,16 +1054,23 @@ sk:
         label: 'Výsledky na stránku:'
         title: Vyberte počet výsledkov na stránku
       share_modal:
-        close_window: Zátvor okno
+        close_window: Zavrieť okno
         share: Zdieľať
         share_link: Zdieľať odkaz
     statistics:
       comments_count: Komentáre
-    user_activity:
-      index:
-        no_activities_warning: Tento účastník zatiaľ nemá žiadnu aktivitu.
     user_contact_disabled: Tento účastník nepovoľuje posielanie priamych správ.
     user_conversations:
+      index:
+        add_max_users: 'Pridajte účastníkov do konverzácie: nanajvýš 9 účastníkov'
+        add_users_placeholder: Hľadať...
+        close: Zavrieť
+        modal_title: Nová konverzácia
+        new_conversation: Nová konverzácia
+        next: Nasledujúce
+        no_results: Žiadne výsledky
+      show:
+        title: Konverzace s číslem %{usernames}
       update:
         error: Zpráva nebyla odeslána. Zkuste to později znovu
     user_interests:
@@ -1208,15 +1192,6 @@ sk:
       updated_not_active: Vaše heslo bolo úspešne zmenené.
     registrations:
       destroyed: Zbohom! Váš účet bol úspešne zrušený. Dúfame, že vás čoskoro uvidíme.
-      edit:
-        are_you_sure: Ste si istí?
-        cancel_my_account: Zrušiť môj účet
-        currently_waiting_confirmation_for_email: 'Aktuálne čaká potvrdenie o:%{email}'
-        leave_blank_if_you_don_t_want_to_change_it: ponechajte prázdne, ak nechcete zmeniť
-        title: Upraviť%{resource}
-        unhappy: Nespokojný?
-        update: Aktualizácia
-        we_need_your_current_password_to_confirm_your_changes: pre potvrdenie zmien potrebujeme vaše aktuálne heslo
       new:
         sign_up: Prihlásiť sa
       signed_up: Vitajte! Úspešne ste sa zaregistrovali.
@@ -1227,8 +1202,6 @@ sk:
       updated: Účet bol úspešne aktualizovaný.
     sessions:
       already_signed_out: Bolo úspešne odhlási.
-      new:
-        sign_in: Prihlásiť sa
       signed_in: Úspešne ste sa prihlásili.
       signed_out: Odhlásenie prebehlo úspešne.
     shared:
@@ -1237,7 +1210,6 @@ sk:
         didn_t_receive_confirmation_instructions: Nedostali ste pokyny na potvrdenie?
         didn_t_receive_unlock_instructions: Nezískali ste pokyny k odomknutiu?
         forgot_your_password: Zabudli ste heslo?
-        sign_in: Prihlásiť sa
         sign_in_with_provider: Prihlásiť sa cez%{provider}
         sign_up: Prihlásiť sa
       minimum_password_length:
@@ -1275,7 +1247,6 @@ sk:
         other: 'Pri spracovaní vašej požiadavky došlo k nejakým chybám:'
       too_many_marks: používa príliš veľa po sebe idúcich interpunkčných znamienok (napr.! a?)
       too_much_caps: používa príliš veľa veľkých písmen (viac ako 25% textu)
-      too_short: je príliš krátka (pod 15 znakov)
   forms:
     required: Povinný
   invisible_captcha:
@@ -1283,6 +1254,10 @@ sk:
     timestamp_error_message: Prepáčte, bolo to príliš rýchle! Znovu odošlite.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Typ
       edit_link:
         edit: Upraviť
       footer:
@@ -1318,7 +1293,8 @@ sk:
       widget:
         see_more: Vidieť viac
   locale:
-    name: Čeština
+    name: Slovenčina
+    name_with_error: Slovenčina (chyba!)
   password_validator:
     domain_included_in_password: je príliš podobné tomuto názvu domény
     email_included_in_password: je príliš podobný e-mailu

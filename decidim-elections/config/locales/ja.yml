@@ -7,15 +7,32 @@ ja:
         image: 画像
         proposals: 関連する提案
         title: タイトル
+      ballot_style:
+        code: コード
       election:
         description: 説明
         end_time: 投票が終了します：
         start_time: 投票開始
         title: タイトル
+      monitoring_committee_member:
+        email: Eメールアドレス
+        name: 名前
+      polling_officer:
+        email: Eメールアドレス
+        name: 名前
+      polling_station:
+        address: 住所
+        location: 場所
+        location_hints: 位置情報のヒント
+        polling_station_managers: マネージャー
+        polling_station_president_id: 投票責任者
+        title: タイトル
       question:
         max_selections: 選択範囲の最大数
         min_selections: 上記のどれでもない
         title: タイトル
+      trustees_participatory_space:
+        user_id: 参加者
       voting:
         banner_image: バナー画像
         census_contact_information: センサスの連絡先情報
@@ -23,11 +40,11 @@ ja:
         end_time: 投票終了
         introductory_image: 導入画像
         promoted: プロモート
-        scope: スコープ
+        scope_id: スコープ
         show_check_census: '「センサスの確認」ページを表示'
         start_time: 投票開始
         title: タイトル
-        voting_type: 投票タイプ
+        voting_type: 投票方式
     errors:
       models:
         answer:
@@ -92,7 +109,7 @@ ja:
           label: ロール
           values:
             manager: マネージャー
-            president: 投票管理者
+            president: 投票責任者
             unassigned: 未割り当て
         search_placeholder:
           name_or_email_or_nickname_or_presided_station_title_or_managed_station_title_cont: '%{collection} を名前/メールアドレス/ニックネーム/投票所で検索します。'
@@ -180,9 +197,9 @@ ja:
             create: 選挙を作成
             title: 新しい選挙
           publish:
-            success: 選挙は正常に公開されました。
+            success: 選挙を公開しました。
           unpublish:
-            success: 選挙は正常に非公開になりました。
+            success: 選挙を非公開にしました。
           update:
             invalid: 選挙の更新中に問題が発生しました
             success: 選挙が正常に更新されました
@@ -235,11 +252,17 @@ ja:
             success: 問題が正常に更新されました
         steps:
           create_election:
+            census: センサス
             errors:
+              census_codes_generated: センサスのアクセスコードは生成されませんでした。
+              census_frozen: センサスのアクセスコードはエクスポートされませんでした。
+              census_uploaded: この選挙にアップロードされたセンサスはありません。
+              component_published: 選挙コンポーネントは <strong>未公開です</strong>。
               max_selections: 質問が <strong>回答の数に対して正しく</strong>ありません
               minimum_answers: 質問には <strong>少なくとも2つの回答</strong>が必要です
               minimum_questions: 選挙には <strong>少なくとも1つの質問</strong>が必要です。
               published: 選挙はが <strong>公開されていません</strong> 。
+              time_before: 開始時刻は選挙が始まる <strong> %{hours} 時間以内</strong> になります。
               trustees_number: 参加スペースには <strong>少なくとも %{number} 人の公開鍵を持つ受託者</strong>が必要です。
             invalid: この選挙の設定中に問題が発生しました
             no_trustees: この参加スペースに設定された受託者はいません
@@ -248,6 +271,10 @@ ja:
               'false': <strong>公開鍵</strong>がありません
               'true': <strong>公開鍵</strong>があります
             requirements:
+              census_codes_generated: センサスのアクセスコードが生成されます。
+              census_frozen: センサスのアクセスコードはエクスポートされ、センサスは凍結されます。
+              census_uploaded: センサスがアップロードされました。
+              component_published: 選挙コンポーネントは <strong>公開済みです</strong>.
               max_selections: すべての質問は正しい <strong>回答の最大値</strong> を持っています。
               minimum_answers: 各質問には <strong>少なくとも2つの回答</strong>を持ちます。
               minimum_questions: 選挙には <strong>少なくとも1つの質問</strong>があります。
@@ -360,6 +387,13 @@ ja:
           update: "%{user_name} が %{space_name} の選挙 %{resource_name} を更新しました"
         trustee:
           create: "%{user_name} がユーザー %{trustee_user} を受託者に割り当てました"
+      connection:
+        failed:
+          modal:
+            close: 閉じる
+            communication_lost: 投票サーバー (掲示板) との通信が切れているようです。<br>インターネット接続が切れているか、接続先のサーバーが混雑している可能性があります。<br>この問題が続くようでしたら、時間をおいて再度お試しいただくか、サポートまでお問い合わせください。
+            generic_error: 不明なエラーが発生しました。 お使いのブラウザがサポートされていないか、サポートされていない「シークレット」または「プライベート」モードを使用している可能性があります。
+            title: 問題が発生しました
       election_m:
         badge_name:
           finished: 完了
@@ -384,7 +418,7 @@ ja:
           chained_hash: このメッセージの連鎖的ハッシュ
           complete: 完了
           creation_description:
-            complete: 選挙は作成され、掲示板に正常に設定されています。
+            complete: 選挙は作成され、掲示板に設定されています。
             not_created: 選挙はまだ作成されていません。
           creation_title: 選挙が作成されました
           description: これは各ステップの状態、例えば選挙が行われた時、集計が完了した時、選曲が終わった時などを確認できる選挙ログです。
@@ -472,7 +506,7 @@ ja:
         answer:
           invalid: フィードバックの送信中に問題が発生しました。
           spam_detected: フォームに回答する際に問題が発生しました。もう一度お試しください。
-          success: フィードバックは正常に送信されました
+          success: フィードバックを送信しました
       models:
         answer:
           fields:
@@ -550,7 +584,7 @@ ja:
               task: タスク
             process_warning: 処理が開始された後は、処理が終了するまでこのページを閉じないでください。 すべての受託者が接続し完了するまで、しばらくかかることがあります。
             start: 開始
-            start_icon: アイコンは、選挙キーの生成を開始するためのスタートボタンを示します
+            start_icon: アイコンは、選挙キーの生成を開始するための開始ボタンを示します
             status:
               completed: 完了
               pending: 保留
@@ -600,7 +634,7 @@ ja:
             not_supported_browser_title: ブラウザをアップグレードして受託者として行動する
             trustee_role_description: あなたは、このプラットフォームで行われる選挙のいくつかで受託者を務めることになっています。
           update:
-            success: 公開識別キーが正常に保存されました。
+            success: 公開識別キーを保存しました。
       votes:
         ballot_decision:
           audit: "(監査投票)"
@@ -779,7 +813,7 @@ ja:
             elections:
               name: 投票する選挙
             header:
-              name: 投票のヘッダー
+              name: 投票ヘッダー
             html_block_1:
               name: 投票htmlブロック1
             html_block_2:
@@ -787,9 +821,9 @@ ja:
             html_block_3:
               name: 投票htmlブロック3
             metrics:
-              name: 投票メトリクス
+              name: 投票メトリック
             polling_stations:
-              name: 投票ステーション
+              name: 投票所
             stats:
               name: 投票の統計
             timeline:
@@ -842,7 +876,7 @@ ja:
             fields:
               address: 住所
               polling_station_managers: マネージャー
-              polling_station_president: 投票管理者
+              polling_station_president: 投票責任者
               title: タイトル
             name: 投票所
           voting:
@@ -967,7 +1001,7 @@ ja:
             location_hints_help: '場所のヒント: 追加情報。例：投票所がある建物のフロア。'
             polling_station_managers_help: '投票所管理者: 投票所の管理を行う担当者。担当者がすでに投票委員として作成されていること、および他の投票所に割り当てられていないことを確認してください'
             polling_station_president_help: '投票所責任者:投票所の代表を務める担当者。 投票委員がすでに投票所に設置されていること、および他の投票所に割り当てられていないことを確認してください'
-            select_president: 投票所の投票管理者として投票委員を選択してください
+            select_president: 投票所の投票責任者として投票委員を選択してください
           index:
             title: 投票所
           new:
@@ -984,7 +1018,7 @@ ja:
             destroy: 削除
             new_voting: 新しい投票スペース
             publish: 公開
-            unpublish: 非公開にする
+            unpublish: 公開しない
           create:
             invalid: 投票の作成中に問題が発生しました
             success: 投票が正常に作成されました
@@ -1001,7 +1035,7 @@ ja:
             select_a_voting_type: 投票方式を選択してください
             show_check_census_help: 公開投票メニューに「投票できますか?」リンクを表示するかどうか
             slug: スラグ
-            slug_help: 'URLスラグは、この投票を指すURLを生成するために使用されます。 使用できるのはアルファベット、数字、ダッシュのみで、アルファベットから始める必要があります。例: %{url}'
+            slug_help: 'URLスラグは、この投票を指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
             title: タイトル
             voting_type:
               hybrid: ハイブリッド
@@ -1048,7 +1082,7 @@ ja:
               invalid: センサスのアップロード中にエラーが発生しました。後でもう一度お試しください。
               invalid_csv_header: CSVヘッダーが見つからないか正しくありません。手順をよくお読みください。
             creating_data:
-              info_message: "<strong>しばらくお待ち下さい</strong>, ファイル %{file} の %{raw_count} 行中 %{processed_count} 行目を処理しています."
+              info_message: "<strong>しばらくお待ち下さい</strong>, ファイル %{file} の %{raw_count} 行中 %{processed_count} 行目を処理しています (数分かかる場合もあります)."
             delete:
               button: センサスデータをすべて削除する
               confirm: センサスデータをすべて削除します。元に戻すことはできません。続行してもよろしいですか？
@@ -1063,9 +1097,12 @@ ja:
               launch_error: アクセスコードのエクスポートの起動に問題があります
               launch_success: アクセスコードのエクスポートが開始されました。まもなく %{email} にメールが届きます。
             exporting_access_codes:
-              info_message: "<strong>しばらくお待ちください</strong>, エクスポートの準備が完了しています, 間もなく %{email} で受け取れるようになります"
+              info_message: "<strong>しばらくお待ち下さい</strong>, エクスポートを準備しており, 間もなく %{email} に送信されます (数分かかる場合があります)"
             freeze:
               callout: センサスは凍結しており、変更することはできません。
+              help_html: |
+                センサスデータのアップロード、コードの生成、およびエクスポートが正常に行われました。<br> <strong>これで選挙を開始する準備が整いました。</strong><br>
+                エクスポートされた個人のコード付きの CSV を使用して、独自の方法でセンサスに沿って配布するか、「投票できる」タブを有効にして、誰でも自分のセンサスデータでこのコードを取得できるようにします。
             generate_access_codes:
               button: 投票アクセスコードを生成する
               callout: アクセスコードの生成に進めることができるようになりました。 アクセスコードを生成すると、センサスを変更することができなくなります。
@@ -1074,8 +1111,9 @@ ja:
               info_message_warn: '%{data_count} レコードが作成されましたが、アップロードされたファイル %{file} は %{raw_count} 行だったため、データが失われていないことを確認してください。'
               launch_error: アクセスコードの生成中に問題が発生しました
               launch_success: コードの生成が開始されました
+              start_over: 現在のセンサスを削除し、有効な行からなる適切なCSVファイルでやり直してください。
             generating_access_codes:
-              info_message: "<strong>しばらくお待ちください</strong>, 投票アクセスコードの生成中です..."
+              info_message: "<strong>しばらくお待ちください</strong>, 投票アクセスコードを生成しています (数分かかることがあります)。"
             new:
               file_help:
                 explanation: 'ファイルのガイダンス:'
@@ -1127,7 +1165,7 @@ ja:
       pages:
         home:
           highlighted_votings:
-            active_votings: アクティブな投票
+            active_votings: 有効な投票
             see_all_votings: すべての投票を表示
             votings_button_title: すべての投票を表示する投票ページへのリンク
       polling_officer_zone:
@@ -1140,7 +1178,7 @@ ja:
             heading: 投票の再集計 - 証明書をアップロード
             info_text: 選挙閉鎖証明の写真をアップロードしてください
             submit: 証明書をアップロードする
-            success: 証明書が正常にアップロードされました。
+            success: 証明書をアップロードしました。
           create:
             error: 閉鎖の作成中にエラーが発生しました。後でもう一度お試しください。
             success: 閉鎖を作成しました。
@@ -1238,7 +1276,7 @@ ja:
           polling_officer_zone: 投票委員ゾーン
         polling_officers:
           index:
-            polling_officer_role_description: あなたは、このプラットフォームで行われるいくつかの選挙で、投票所の責任者(長またはマネージャー) として行動するように割り当てられています。
+            polling_officer_role_description: あなたは、このプラットフォームで行われるいくつかの選挙で、投票所の責任者(またはマネージャー) として行動するように割り当てられています。
             polling_station:
               address: 住所
               count_votes: 投票数の集計

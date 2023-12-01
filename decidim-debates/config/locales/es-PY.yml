@@ -11,6 +11,7 @@ es-PY:
         end_time: Fecha de fin
         information_updates: Actualizaciones de información
         instructions: Instrucciones para participar
+        scope_id: Ámbito
         start_time: Fecha de inicio
         title: Título
         user_group_id: Crear debate como
@@ -105,6 +106,9 @@ es-PY:
           success: Debate creado con éxito.
         debate:
           participate: Participar
+        debates:
+          empty: Aún no hay ningún debate.
+          empty_filters: No hay ningún debate con este criterio.
         edit:
           back: Atrás
           save: Guardar cambios

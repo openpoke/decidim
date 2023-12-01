@@ -387,7 +387,6 @@ bg:
           already_have_an_account?: Вече имате профил?
           newsletter: Получавайте извънреден бюлетин с подходяща информация
           newsletter_title: Разрешение за контакт с Вас
-          sign_in: Вход
           sign_up: Регистрация
           sign_up_as:
             legend: Регистрация като
@@ -406,7 +405,6 @@ bg:
         newsletter_modal:
           buttons:
             check: Маркирай и продължи
-            close_modal: Затвори прозорчето
           notice: |-
             <p>Наистина ли не желаете да получавате писма с новини за дейностите в платформата?<br> Още веднъж преценете, дали да не поставите отметка по-долу.<br> Важно е понякога да получавате актуална информация. Винаги можете да се откажете от страницата с настройки.</p> <p>Когато това поле не е маркирано, може да пропуснете възможности за съвместна работа.<br> Ако все пак не желаете да Ви информираме за общите ни дела, уважаваме Вашето решение.</p> <p>Благодарим Ви, че прочетохте това!</p>
           title: Известия за новости
@@ -433,8 +431,6 @@ bg:
       show:
         download_data: Изтегляне на данни
         request_data: Заяви данни
-    endorsable:
-      endorsements: Одобрявания
     endorsement_buttons_cell:
       already_endorsed: Одобрен
       endorse: Одобрявам
@@ -625,6 +621,10 @@ bg:
           password: Паролата е твърде къса.
           password_confirmation: Паролата и потвърждението на паролата трябва да съвпадат.
         error: В това поле има грешка.
+      upload:
+        labels:
+          cancel: Отказ
+          save: Запази
     gamification:
       all_badges_link: Виж всички достъпни значки.
       badges:
@@ -643,18 +643,6 @@ bg:
           how: Как може да я заслужите
           page_description: Значките са признания за действия на участниците и напредък в платформата. Когато започнете да откривате, участвате и взаимодействате в платформата, ще заслужите различни значки. Ето списъка със значки и някои начини, по които можете да ги заслужите.
           title: Значки
-        invitations:
-          conditions:
-            - Използвайте връзката "покани приятели" на своята страница, за да поканите приятелите си
-            - Персонализирайте, ако жеаете, съобщението, което изпращате
-            - Ще се повишите нивото си, като изпращате покани и те бъдат регистрирани.
-          description: Тази значка се предоставя, когато поканите някои хора и те отделят малко време да се регистрират в %{organization_name} и станат участници. Благодарим ви, че разказвате за %{organization_name} и така помогнете за разширяването на общността!
-          description_another: Този участник покани %{score} човека.
-          description_own: Вие поканихте %{score} човека.
-          name: Покани
-          next_level_in: Поканете още %{score} за да достигнете следващо ниво!
-          unearned_another: Този участник все още не е поканил никой.
-          unearned_own: Не сте поканил(а) никого все ще.
       description: Значките са признания за действия на участниците и напредък в платформата. Когато започнете да откривате, участвате и взаимодействате в платформата, ще спечелите различни значки.
       level: Ниво %{level}
       reached_top: Достигнахте максималното ниво на значката.
@@ -828,7 +816,6 @@ bg:
           error: Разговора не започна. Опитайте по-късно
         index:
           ago: преди
-          close: Затвори прозорчето
           from: Oт
           groups: Моите Групи
           last_message: Последно съобщение
@@ -845,7 +832,7 @@ bg:
           title: Разговор с %{usernames}
         start:
           send: Изпрати
-          title: Започнете разговор
+          title: Започни разговор
     metrics:
       followers:
         description: Брой участници, които следват това пространство
@@ -862,7 +849,6 @@ bg:
     newsletter_mailer:
       newsletter:
         note: Получихте това писмо, защото сте абонирани за бюлетини на %{organization_name}. Можете да промените вашите настройки на <a href="%{link}">страницата "известия"</a>.
-        see_on_website: Не виждате това писмо правилно? Вижте го на <a href="%{link}" target="_blank">сайта</a>.
         unsubscribe: За да се откажете от получаването на такъв тип писма <a href="%{link}" target="_blank" class="unsubscribe">Отпишете се</a>.
     newsletter_templates:
       basic_only_text:
@@ -942,7 +928,6 @@ bg:
           proposals: Предложения
           proposals_explanation: Правете предложения, подкрепяйте съществуващите и обявете промените, които искате да видите.
         footer_sub_hero:
-          footer_sub_hero_body: Нека изградим по-отворено, прозрачно и задружно общество.<br /> Присъединете се, участвайте и решавайте.
           footer_sub_hero_headline: Добре дошли в платформата за сътрудничество %{organization}!
           register: Регистрация
         hero:
@@ -971,15 +956,11 @@ bg:
         form:
           legend: Съгласявам се с общите условия за ползване
         refuse:
-          modal_btn_continue: Приемам условията и продължавам
           modal_btn_exit: Ще ги прегледам по-късно
-          modal_button: Отказвам условията
-          modal_close: Затвори прозорчето
           modal_title: Наистина ли отказвате обновените Общи условия?
         required_review:
           alert: Обновихме нашите Общи условия, моля прегледайте ги.
           body: Моля, отделете време за да прегледате обновените Общи условия. В противен случай не може да използвате платформата.
-          title: 'Задължително: Прегледайте обновените Общи условия'
     participatory_space_private_users:
       not_allowed: Нямате права да преглеждате това съдържание
     profile:
@@ -1052,7 +1033,6 @@ bg:
           future: Бъдещи
           past: Минали
       filters_small_view:
-        close_modal: Затвори прозорчето
         filter: Филтър
         filter_by: Филтър по
         unfold: Разгъване
@@ -1103,9 +1083,6 @@ bg:
         share_link: Сподели връзка
     statistics:
       comments_count: Коментари
-    user_activity:
-      index:
-        no_activities_warning: Този участник все още не е имал активност.
     user_contact_disabled: Този участник не приема директни съобщения.
     user_conversations:
       create:
@@ -1280,15 +1257,6 @@ bg:
       updated_not_active: Паролата Ви беше променена успешно.
     registrations:
       destroyed: Вашият акаунт беше успешно отказан. Надяваме се скоро да се видим отново.
-      edit:
-        are_you_sure: Сигурни ли сте?
-        cancel_my_account: Откажи профила ми
-        currently_waiting_confirmation_for_email: 'В момента се чака потвърждение за: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: оставете празно, ако не желаете промяна
-        title: Редактирай %{resource}
-        unhappy: Недоволни?
-        update: Обновяване
-        we_need_your_current_password_to_confirm_your_changes: имаме нужда от текущата Ви парола, за да потвърдим Вашите промени
       new:
         sign_up: Регистрация
       signed_up: Добре дошли! Регистрирахте се успешно.
@@ -1299,8 +1267,6 @@ bg:
       updated: Профилът Ви беше обновен успешно.
     sessions:
       already_signed_out: Излязохте успешно.
-      new:
-        sign_in: Вход
       signed_in: Влязохте успешно.
       signed_out: Излязохте успешно.
     shared:
@@ -1309,7 +1275,6 @@ bg:
         didn_t_receive_confirmation_instructions: Не получихте инструкции за потвърждение?
         didn_t_receive_unlock_instructions: Не получихте инструкции за отключване?
         forgot_your_password: Забравили сте паролата си?
-        sign_in: Вход
         sign_in_with_provider: Влез със %{provider}
         sign_up: Регистрация
       minimum_password_length:
@@ -1343,7 +1308,6 @@ bg:
         other: 'При обработката на заявката Ви имаше няколко грешки:'
       too_many_marks: използва твърде много последователни препинателни знаци (напр. ! и ?)
       too_much_caps: използва твърде много главни букви (над 25% от текста)
-      too_short: е твърде къс (под 15 знака)
   forms:
     required: Задължително
   invisible_captcha:
@@ -1351,6 +1315,10 @@ bg:
     timestamp_error_message: Извинете, това беше твърде бързо! Моля, изпратете отново.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Тип
       edit_link:
         edit: Редактирай
       footer:
@@ -1386,7 +1354,7 @@ bg:
       widget:
         see_more: Виж още
   locale:
-    name: Английски
+    name: български език
   password_validator:
     domain_included_in_password: е твърде подобно на името на домейна
     email_included_in_password: е твърде подобно на Вашата ел. поща

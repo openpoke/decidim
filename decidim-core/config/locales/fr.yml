@@ -30,6 +30,7 @@ fr:
         password_confirmation: Confirmez votre mot de passe
         personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
+        tos_agreement: Conditions générales d'utilisation
     models:
       decidim/attachment_created_event: Document lié
       decidim/component_published_event: Fonctionnalité active
@@ -74,6 +75,7 @@ fr:
     'true': 'Oui'
   carrierwave:
     errors:
+      file_cannot_be_processed: Le fichier n'a pas pu être traité
       file_resolution_too_large: La résolution du fichier est trop grande
       file_size_too_large: Le fichier est trop volumineux
       not_inside_organization: Le fichier n'est relié à aucune organisation
@@ -94,23 +96,26 @@ fr:
         other: environ %{count} mois
       half_a_minute: 30 secondes
       less_than_x_minutes:
-        one: moins d’une minute.
-        other: moins de %{count} min.
+        one: moins d'une minute
+        other: moins de %{count} minutes
       less_than_x_seconds:
-        one: à l’instant
-        other: moins de %{count} sec.
+        one: moins d'une seconde
+        other: moins de %{count} secondes
       x_days:
-        one: Hier
-        other: "Il y a %{count} jours"
+        one: 1 jour
+        other: "%{count} jours"
       x_hours:
-        one: Il y a 1 heure
-        other: "Il y a %{count} heures"
+        one: 1 heure
+        other: "%{count} heures"
       x_minutes:
-        one: Il y a 1 min
-        other: "Il y a %{count} min"
+        one: 1 minute
+        other: "%{count} minutes"
+      x_months:
+        one: 1 mois
+        other: "%{count} mois"
       x_seconds:
-        one: Il y a 1 seconde
-        other: "Il y a %{count} secondes"
+        one: 1 seconde
+        other: "%{count} secondes"
   decidim:
     accessibility:
       external_link: Lien externe
@@ -159,13 +164,13 @@ fr:
         notification: Les administrateurs doivent changer leur mot de passe tous les %{days} jours.
     admin_log:
       area:
-        create: "%{user_name} a créé la zone d'application %{resource_name}"
-        delete: "%{user_name} a supprimé la zone d'application %{resource_name}"
-        update: "%{user_name} a mis à jour la zone d'application %{resource_name}"
+        create: "%{user_name} a créé le périmètre d'assemblée %{resource_name}"
+        delete: "%{user_name} a supprimé le périmètre d'assemblée %{resource_name}"
+        update: "%{user_name} a mis à jour le périmètre d'assemblée %{resource_name}"
       area_type:
-        create: "%{user_name} a créé le type de zone d'application %{resource_name}"
-        delete: "%{user_name} a supprimé le type de zone d'application %{resource_name}"
-        update: "%{user_name} a mis à jour le type de zone d'application %{resource_name}"
+        create: "%{user_name} a créé le type de périmètre d'assemblée %{resource_name}"
+        delete: "%{user_name} a supprimé le type de périmètre d'assemblée %{resource_name}"
+        update: "%{user_name} a mis à jour le type de périmètre d'assemblée %{resource_name}"
       attachment:
         create: "%{user_name} a créé le document %{resource_name}"
         delete: "%{user_name} a supprimé le document %{resource_name}"
@@ -174,11 +179,19 @@ fr:
         create: "%{user_name} a créé le fichier %{resource_name}"
         delete: "%{user_name} a supprimé le fichier %{resource_name}"
         update: "%{user_name} a mis à jour le fichier %{resource_name}"
+      category:
+        create: "%{user_name} a ajouté la catégorie %{resource_name} à l'espace %{space_name}"
+        delete: "%{user_name} a supprimé la catégorie %{resource_name} sur l'espace %{space_name}"
+        update: "%{user_name} a mis à jour la catégorie %{resource_name} dans l'espace %{space_name}"
       component:
         create: "%{user_name} a ajouté la fonctionnalité %{resource_name} à l'espace %{space_name}"
         delete: "%{user_name} a supprimé la fonctionnalité %{resource_name} de l'espace %{space_name}"
+        export_component: "%{user_name} a exporté le %{resource_name} %{component_name} dans %{space_name} en tant que %{format_name}"
         publish: "%{user_name} a publié la fonctionnalité %{resource_name} dans l'espace %{space_name}"
         unpublish: "%{user_name} a dépublié la fonctionnalité %{resource_name} de l'espace %{space_name}"
+        update_permissions_with_space: "%{user_name} a mis à jour les permissions de %{resource_name} dans %{space_name}"
+      contextual_help_section:
+        update: "%{user_name} a mis à jour la section d'aide %{resource_name}"
       helpers:
         answers: réponses
         comments: commentaires
@@ -200,6 +213,7 @@ fr:
         update: "%{user_name} a mis à jour l'application OAuth %{resource_name}"
       organization:
         update: "%{user_name} a mis à jour les paramètres de l'organisation"
+        update_external_domain: "%{user_name} a mis à jour les domaines externes de l'organisation"
       participatory_space_private_user:
         create: "%{user_name} invité %{resource_name} pour être un utilisateur privé"
         create_via_csv: "%{user_name} a invité %{resource_name} via CSV à être un utilisateur privé"
@@ -230,7 +244,9 @@ fr:
         unblock: "%{user_name} a débloqué l'utilisateur %{resource_name}"
         unofficialize: "%{user_name} a retiré l'officialisation de l'utilisateur %{resource_name}"
       user_group:
+        block: "%{user_name} a bloqué le groupe d'utilisateurs %{resource_name}"
         reject: "%{user_name} a rejeté la vérification du groupe d'utilisateurs %{resource_name}"
+        unblock: "%{user_name} a débloqué le groupe d'utilisateurs %{resource_name}"
         verify: "%{user_name} a vérifié le groupe d'utilisateurs %{resource_name}"
         verify_via_csv: "%{user_name} vérifié le groupe %{resource_name} utilisateur via un fichier CSV"
       user_moderation:
@@ -341,6 +357,7 @@ fr:
       endorsements:
         one: soutien
         other: soutiens
+      official_author: Officiel
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Obtenir une vérification en saisissant un numéro de passeport commençant par "A"
@@ -517,12 +534,14 @@ fr:
           subtitle: Remplissez le formulaire suivant pour créer votre compte
           username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       registrations:
+        create:
+          error: Il y a eu un problème pour créer votre compte.
         new:
           already_have_an_account?: Vous avez déjà un compte ?
           newsletter: Recevoir une newsletter sur l'actualité de la plateforme
           newsletter_title: Autorisation de contact
           nickname_help: Cet identifiant est public et unique sur %{organization} ; il permet aux autres utilisateurs de vous suivre, de vous contacter ou de vous mentionner dans leurs commentaires. Il s’affichera précédé d’un « @ » ; il ne doit pas contenir d’espace ni de caractère spécial.
-          sign_in: S'identifier
+          sign_in: Se connecter
           sign_up: Créer un compte
           sign_up_as:
             legend: Créer un compte en tant que
@@ -543,7 +562,7 @@ fr:
         newsletter_modal:
           buttons:
             check: Oui, je souhaite m'inscrire à la newsletter
-            close_modal: Fermer la fenêtre
+            close_modal: Fermer la fenêtre de dialogue
             uncheck: Garder décoché
           notice: |-
             La newsletter vous permet de suivre tous les événements importants sur la plateforme (lancement de nouvelles concertations, annonce des résultats, etc.). Souhaitez-vous vous y inscrire ?
@@ -808,6 +827,8 @@ fr:
         allowed_file_extensions: 'Extensions de fichier autorisées : %{extensions}'
         max_file_dimension: 'Dimensions de fichier maximales : %{resolution} pixels'
         max_file_size: 'Taille maximale du fichier : %{megabytes}Mo'
+      files:
+        extension_allowlist: 'Formats acceptés : %{extensions}'
       upload:
         labels:
           add_attachment: Ajouter une pièce jointe
@@ -846,18 +867,6 @@ fr:
           how: Comment l'obtenir
           page_description: Les badges sont une reconnaissance des actions des participants et des progrès de la plate-forme. Lorsque vous commencerez à découvrir, à participer et à interagir avec la plateforme, vous obtiendrez différents badges. Voici la liste des badges et des moyens de les gagner.
           title: Insignes
-        invitations:
-          conditions:
-            - Utilisez le lien "inviter des amis" sur votre page utilisateur pour inviter vos amis.
-            - Personnalisez, si vous le souhaitez, le message que vous envoyez
-            - Vous augmenterez votre niveau en envoyant des invitations et en les faisant enregistrer.
-          description: Ce badge est attribué lorsque vous avez invité des personnes qui ont passé un peu de temps à s’inscrire à %{organization_name} et devenir des participants. Merci de faire connaître %{organization_name} aux autres et d’aider à élargir la communauté!
-          description_another: Cet utilisateur a invité %{score} utilisateurs.
-          description_own: Vous avez invité %{score} utilisateurs.
-          name: Invitations
-          next_level_in: Invitez %{score} utilisateurs supplémentaires à atteindre le niveau suivant !
-          unearned_another: Cet utilisateur n'a encore invité aucun utilisateur.
-          unearned_own: Vous n'avez encore invité aucun utilisateur.
       description: Les badges sont une reconnaissance des actions des participants et des progrès dans la plateforme. Au fur et à mesure que vous commencez à découvrir, à participer et à interagir sur la plateforme, vous gagnez différents badges.
       level: Niveau %{level}
       reached_top: Vous avez atteint le plus haut niveau pour ce badge.
@@ -975,8 +984,10 @@ fr:
         create_with_space: "%{user_name} a créé %{resource_name} dans %{space_name}"
         delete: "%{user_name} a supprimé %{resource_name}"
         delete_with_space: "%{user_name} a supprimé %{resource_name} dans %{space_name}"
+        publish_with_space: "%{user_name} a publié %{resource_name} dans %{space_name}"
         unknown_action: "%{user_name} a effectué une action sur %{resource_name}"
         unknown_action_with_space: "%{user_name} a effectué une action sur %{resource_name} dans %{space_name}"
+        unpublish_with_space: "%{user_name} a dépublié %{resource_name} de %{space_name}"
         update: "%{user_name} a mis à jour %{resource_name}"
         update_permissions_with_space: "%{user_name} a mis à jour les permissions de %{resource_name} dans %{space_name}"
         update_with_space: "%{user_name} a mis à jour %{resource_name} dans %{space_name}"
@@ -1057,7 +1068,7 @@ fr:
           ok: Ok
         index:
           ago: il y a
-          close: Fermer la fenêtre
+          close: Fermer la fenêtre de dialogue
           from: De
           groups: Mes groupes
           last_message: Dernier message
@@ -1078,7 +1089,7 @@ fr:
           title: Conversation avec %{usernames}
         start:
           send: Envoyer
-          title: Commencer une conversation
+          title: Démarrer une conversation
         update:
           error: 'Erreur : votre message n''a pas pu être envoyé'
     metrics:
@@ -1242,19 +1253,19 @@ fr:
           error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation.
           success: Génial ! Vous avez accepté les conditions d'utilisations.
         form:
-          agreement: J'accepte ces conditions d'utilisation
+          agreement: J'accepte les conditions d'utilisation
           legend: Accepter les conditions d'utilisation
         refuse:
           modal_body: Si vous refusez, vous ne pourrez pas utiliser la plateforme. Vous pouvez <a href="%{download_your_data_path}">télécharger vos données</a> ainsi que <a href="%{delete_path}">supprimer votre compte</a>.
           modal_btn_continue: Accepter les conditions et continuer
           modal_btn_exit: Je l'examinerai plus tard
           modal_button: Refuser les conditions d'utilisation
-          modal_close: Fermer la fenêtre
+          modal_close: Fermer la fenêtre de dialogue
           modal_title: Refusez-vous vraiment les conditions d'utilisation mises à jour ?
         required_review:
           alert: Nous avons mis à jour nos conditions d'utilisation, veuillez les consulter.
           body: Veuillez prendre un moment pour examiner nos conditions d'utilisation mises à jour. Sinon, vous ne pourrez pas utiliser la plateforme.
-          title: 'Obligatoire : consultez les conditions d''utilisation mises à jour'
+          title: 'Requis : veuillez consulter la mise à jour des conditions d''utilisation.'
     participatory_space_private_users:
       not_allowed: Vous n'êtes pas autorisé à voir ce contenu
     passwords:
@@ -1331,7 +1342,7 @@ fr:
         currently_selected: Secteur actuellement sélectionné
         title: Sélectionnez %{field}
       prompt: Sélectionnez un périmètre d'application
-      scopes: Périmètre d'application
+      scopes: Secteurs
       scopes_picker_input:
         select_scope: 'Sélectionnez un secteur (actuellement: %{current})'
     search:
@@ -1351,7 +1362,7 @@ fr:
         close_modal: Fermer la fenêtre de dialogue
         filter: Filtrer
         filter_by: Filtrer par
-        unfold: Voir plus
+        unfold: Afficher
       results:
         results:
           one: "%{count} résultat"
@@ -1409,8 +1420,8 @@ fr:
         remove_recipient: Supprimer le destinataire %{name}
       participatory_space_filters:
         filters:
-          areas: Zones d'application
-          select_an_area: Sélectionnez une zone d'application
+          areas: Périmètres d'assemblée
+          select_an_area: Sélectionnez un périmètre d'assemblée
       public_participation:
         public_participation: Afficher ma présence publiquement
       reference:
@@ -1447,7 +1458,7 @@ fr:
       show_translated: Afficher le texte automatiquement traduit
     user_activity:
       index:
-        no_activities_warning: Cet utilisateur n'a pas encore eu d'activité.
+        no_activities_warning: Cet utilisateur n'a pas encore d'activité.
     user_contact_disabled: Cet utilisateur n'accepte pas les messages directs.
     user_conversations:
       create:
@@ -1456,7 +1467,7 @@ fr:
         success: La conversation a commencé avec succès !
       index:
         add_max_users: 'Ajouter des utilisateurs à la conversation: 9 utilisateurs max'
-        add_users_placeholder: Rechercher...
+        add_users_placeholder: Chercher...
         close: Fermer
         conversations_info: Les conversations sont privées. Personne d'autre ne peut les voir. Une conversation peut être lancée avec n'importe quel participant ou groupe enregistré sur la plateforme.
         from: De
@@ -1637,15 +1648,6 @@ fr:
       updated_not_active: Votre mot de passe a été changé avec succès.
     registrations:
       destroyed: Au revoir! Votre compte a été annulé avec succès. Nous espérons te revoir bientôt.
-      edit:
-        are_you_sure: Êtes-vous sûr?
-        cancel_my_account: Supprimer mon compte
-        currently_waiting_confirmation_for_email: 'En attente de confirmation pour: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: laisser vide si vous ne voulez pas le changer
-        title: Modifier %{resource}
-        unhappy: Pas satisfait ? 
-        update: Mettre à jour
-        we_need_your_current_password_to_confirm_your_changes: nous avons besoin de votre mot de passe actuel pour confirmer vos modifications
       new:
         sign_up: Créer un compte
       signed_up: Bienvenue! Votre compte a été créé avec succès.
@@ -1657,7 +1659,7 @@ fr:
     sessions:
       already_signed_out: Déconnecté(e) avec succès.
       new:
-        sign_in: S'identifier
+        sign_in: Se connecter
       signed_in: Connexion réussie.
       signed_out: Déconnecté(e) avec succès.
     shared:
@@ -1666,7 +1668,7 @@ fr:
         didn_t_receive_confirmation_instructions: Vous n'avez pas reçu d'instructions de confirmation?
         didn_t_receive_unlock_instructions: Si la plateforme vous indique que votre compte est bloqué, cliquez ici pour recevoir les instructions de déblocage
         forgot_your_password: Mot de passe oublié?
-        sign_in: S'identifier
+        sign_in: Se connecter
         sign_in_with_provider: S'identifier avec %{provider}
         sign_up: Créer un compte
       minimum_password_length:
@@ -1683,10 +1685,11 @@ fr:
       public: Votre information publique
   errors:
     messages:
+      allowed_file_content_types: 'seuls les fichiers avec les extensions suivantes sont autorisés : %{types}'
       already_confirmed: était déjà confirmé, s'il vous plaît essayez de vous connecter
       confirmation_period_expired: doit être confirmé dans les %{period}, s'il vous plaît demander un nouveau
       content_type_allowlist_error: le type de fichier n'est pas valide
-      cycle_detected: un périmètre d'application ne peut pas être du même niveau que ses descendants
+      cycle_detected: un périmètre d'assemblée parent ne peut pas être du même niveau que ses descendants
       expired: a expiré, s'il vous plaît demander un nouveau
       file_size_is_less_than_or_equal_to: la taille du fichier doit être inférieure ou égale à %{count}
       invalid_time_zone: n'est pas un fuseau horaire valide
@@ -1700,7 +1703,8 @@ fr:
         other: 'Plusieurs erreurs sont survenues pendant le traitement de votre requête.'
       too_many_marks: utilise trop de signes de ponctuation consécutifs (par exemple! et?)
       too_much_caps: utilise trop de lettres majuscules (plus de 25% du texte)
-      too_short: est trop court (moins de 15 caractères)
+      too_short: est trop court (le minimum est de %{count} caractères)
+      url_format: Le format de cette URL est incorrect
   forms:
     correct_errors: Il y a des erreurs dans le formulaire, veuillez les corriger pour continuer.
     length_validator:
@@ -1714,52 +1718,60 @@ fr:
     timestamp_error_message: Désolé, c'était trop rapide ! Veuillez le renvoyer.
   layouts:
     decidim:
-      cookie_consent:
-        cookie_details:
+      data_consent:
+        details:
           columns:
             description: Description
             name: Nom
             service: Service
             type: Type
-          cookies:
+          items:
             _session_id:
+              description: Permet aux sites Web de se souvenir de l'utilisateur au sein d'un même site lorsqu'il navigue d'une page à l'autre.
               service: Ce site web
             decidim-consent:
               description: Stocke des informations sur les cookies autorisés par l'utilisateur sur ce site web.
               service: Ce site web
+            pwaInstallPromptSeen:
+              description: Stocke l'état si la notification d'installation de l'application web progressive (PWA) a déjà été vue par l'utilisateur.
+              service: Ce site web
           types:
             cookie: Cookie
+            local_storage: Sauvegarde Locale
         dialog:
           accept_all: Tout accepter
-          accept_only_essential: Accepter seulement l'essentiel
-          cookie_settings: Paramètres
-          description: Nous utilisons des cookies sur notre site Web pour améliorer la performance et le contenu du site. Les cookies nous permettent de fournir une expérience utilisateur plus individuelle et les canaux de médias sociaux.
+          accept_only_essential: Accepter seulement les cookies essentiels
+          description: Nous utilisons des cookies sur notre site Web pour améliorer la performance et les contenus du site. Les cookies nous permettent de fournir une expérience utilisateur et un contenu plus personnalisés à partir de nos canaux de médias sociaux.
+          settings: Paramètres
           title: Informations sur les cookies utilisés sur le site web
         modal:
           accept_all: Tout accepter
-          accept_only_essential: Accepter seulement l'essentiel
+          accept_only_essential: Accepter seulement les cookies essentiels
           analytics:
+            description: Ces cookies sont utilisés pour mesurer et analyser le public du site afin de l'améliorer.
             title: Analyses et statistiques
+          description: Nous utilisons des cookies pour assurer les fonctionnalités de base du site Web et pour améliorer votre expérience en ligne. Vous pouvez configurer et accepter l'utilisation des cookies et modifier vos options de consentement à tout moment.
           essential:
+            description: Ces cookies permettent le fonctionnement essentiel du site Web et aident à sécuriser ses utilisateurs. Ils sont automatiquement enregistrés dans le navigateur et ne peuvent pas être désactivés.
             title: Essentiels
           marketing:
-            description: Ces cookies recueillent des informations sur la façon dont vous utilisez le site Web, sur les pages que vous avez visitées et sur les liens sur lesquels vous avez cliqués.
+            description: Ces cookies recueillent des informations sur la façon dont vous utilisez le site Web et peuvent être utilisés pour vous offrir un marketing plus personnalisé sur les différents sites Web que vous utilisez.
             title: Marketing
           preferences:
-            description: Ces cookies permettent au site Web de se souvenir des choix que vous avez faits par le passé
+            description: Ces cookies permettent au site Web de se souvenir des choix que vous avez faits par le passé sur ce site pour offrir une expérience plus personnalisée aux utilisateurs du site.
             title: Préférences
           save_settings: Enregistrer les paramètres
           title: Paramètres des cookies
           toggle: Activer/désactiver %{consent_category}
         warning:
-          all_cookies: tous les cookies
-          change_cookie_settings: Modifier les paramètres des cookies
-          need_cookies: Vous devez activer %{cookies} pour voir ce contenu.
+          all_categories: tous les cookies
+          change_settings: Modifier les paramètres des cookies
+          consent_required: Vous devez activer %{categories} pour voir ce contenu.
       edit_link:
         edit: Modifier
       footer:
         cc_by_license: Licence Creative Commons
-        cookie_settings: Paramètres des cookies
+        data_consent_settings: Paramètres des cookies
         decidim_logo: Decidim.org (ouverture dans une nouvelle fenêtre)
         download_open_data: Télécharger les fichiers Open Data
         made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
@@ -1785,7 +1797,7 @@ fr:
         facebook: "%{organization} sur Facebook"
         github: "%{organization} sur GitHub"
         instagram: "%{organization} sur Instagram"
-        twitter: "%{organization} sur Twitter"
+        x: "%{organization} sur X"
         youtube: "%{organization} sur YouTube"
       timeout_modal:
         body: Vous avez été inactif pendant %{minutes} minutes. Si vous continuez à être inactif, vous serez automatiquement déconnecté de la plateforme pour des raisons de sécurité.
@@ -1793,7 +1805,7 @@ fr:
         sign_out: Se déconnecter
         title: Voulez-vous poursuivre votre session ?
       upload_modal:
-        close_modal: Fermer la fenêtre
+        close_modal: Fermer la fenêtre de dialogue
       user_menu:
         account: 'Compte utilisateur: %{name}'
         admin_dashboard: Tableau de bord des administrateurs
@@ -1816,7 +1828,7 @@ fr:
         see_more: Voir plus
   locale:
     name: Français
-    name_with_error: Anglais (erreur !)
+    name_with_error: Français (erreur !)
   password_validator:
     blacklisted: sur liste noire
     domain_included_in_password: est trop similaire au nom de domaine de cette plateforme
@@ -1852,6 +1864,7 @@ fr:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:

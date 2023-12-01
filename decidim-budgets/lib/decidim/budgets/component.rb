@@ -89,7 +89,7 @@ Decidim.register_component(:budgets) do |component|
     settings.attribute :vote_selected_projects_minimum, type: :integer, default: 0
     settings.attribute :vote_selected_projects_maximum, type: :integer, default: 1
     settings.attribute :comments_enabled, type: :boolean, default: true
-    settings.attribute :comments_max_length, type: :integer, required: false
+    settings.attribute :comments_max_length, type: :integer, required: true
     settings.attribute :geocoding_enabled, type: :boolean, default: false
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :announcement, type: :text, translated: true, editor: true
@@ -124,7 +124,7 @@ Decidim.register_component(:budgets) do |component|
       settings: {
         landing_page_content: landing_page_content,
         more_information_modal: Decidim::Faker::Localized.paragraph(sentence_count: 4),
-        workflow: %w(one random all).sample
+        workflow: Decidim::Budgets.workflows.keys.sample
       }
     )
 

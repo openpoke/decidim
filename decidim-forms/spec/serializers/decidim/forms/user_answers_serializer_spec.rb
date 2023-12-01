@@ -114,7 +114,7 @@ module Decidim
 
           it "the creation of the answer" do
             key = I18n.t(:created_at, scope: "decidim.forms.user_answers_serializer")
-            expect(serialized[key]).to eq an_answer.created_at.to_s(:db)
+            expect(serialized[key]).to be_within(1.second).of an_answer.created_at
           end
 
           it "the IP hash of the user" do
@@ -144,6 +144,78 @@ module Decidim
 
           it "includes conditional question as empty" do
             expect(serialized).to include("5. #{translated(conditional_question.body, locale: I18n.locale)}" => "")
+          end
+        end
+
+        context "when time zone is UTC" do
+          let(:time_zone) { "UTC" }
+          let(:created_at) { Time.new(2000, 1, 2, 3, 4, 5, 0) }
+
+          before do
+            questionable.organization.update!(time_zone: time_zone)
+            answers.first.update!(created_at: created_at)
+          end
+
+          it "Time uses UTC time zone in exported data" do
+            key = I18n.t(:created_at, scope: "decidim.forms.user_answers_serializer")
+            expect(serialized[key].to_s).to include "UTC"
+          end
+        end
+
+        context "when time zone is non-UTC" do
+          let(:time_zone) { "Hawaii" }
+          let(:created_at) { Time.new(2000, 1, 2, 3, 4, 5, 0) }
+
+          before do
+            questionable.organization.update!(time_zone: time_zone)
+            answers.first.update!(created_at: created_at)
+          end
+
+          it "Time uses UTC time zone in exported data" do
+            key = I18n.t(:created_at, scope: "decidim.forms.user_answers_serializer")
+            expect(serialized[key].to_s).to include "UTC"
+          end
+        end
+
+        context "when the questionnaire body is very long" do
+          let!(:questionnaire) { create(:questionnaire, questionnaire_for: questionable, description: questionnaire_description) }
+          let(:questionnaire_description) do
+            Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+              Decidim::Faker::Localized.localized { "a" * 1_000_000 }
+            end
+          end
+          let!(:users) { create_list(:user, 100, organization: questionable.organization) }
+
+          before do
+            users.each do |user|
+              questions.each do |question|
+                create(:answer, questionnaire: questionnaire, question: question, user: user)
+              end
+            end
+          end
+
+          it "does not load the questionnaire description to memory every time when iterating an answer" do
+            # NOTE:
+            # For this test it is important to fetch the single user "answer
+            # sets" to an array and store them there because this is the same
+            # way the answers are loaded e.g. in the survey component export
+            # functionality. The export had previously a memory leak because the
+            # questionnaire is fetched individually for each "answer set" and if
+            # it has a very long description, it caused the description to be
+            # stored multiple times within the array (for each "answer set"
+            # separately) causing a out of memory errors when there is a large
+            # amount of answers.
+            all_answers = Decidim::Forms::QuestionnaireUserAnswers.for(questionnaire)
+
+            initial_memory = memory_usage
+            all_answers.each do |answer_set|
+              described_class.new(answer_set).serialize
+            end
+            expect(memory_usage - initial_memory).to be < 10_000
+          end
+
+          def memory_usage
+            `ps -o rss #{Process.pid}`.lines.last.to_i
           end
         end
       end

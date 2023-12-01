@@ -27,12 +27,12 @@ describe "Invite process administrator", type: :system do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_current_path "/admin/"
+      expect(page).to have_current_path "/admin/admin_terms/show"
       expect(page).to have_content("Dashboard")
 
       visit decidim_admin.admin_terms_show_path
 
-      find_button("I agree with the following terms").click
+      find_button("I agree with the terms").click
 
       click_link "Processes"
 

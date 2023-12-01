@@ -52,7 +52,6 @@ gl:
         subtitle: Subtítulo
         target: Quen participa
         title: Título
-        twitter: Twitter
         weight: Orde de posición
         youtube: YouTube
       assembly_member:
@@ -272,21 +271,17 @@ gl:
             select_an_area: Seleccione unha área
             select_an_assembly_type: Seleccione un tipo de conxunto
             select_parent_assembly: Seleccione o conxunto primario
-            slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este conxunto. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
             social_handlers: Social
             title: Información xeral
             visbility: Visibilidade
         assemblies_settings:
           edit:
-            update: Actualizar
+            update: Actualización
           form:
             title: Axustes das xuntanzas
         assemblies_types:
           form:
             title: Título
-        assembly_copies:
-          form:
-            slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este conxunto. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
         assembly_imports:
           form:
             document_legend: Engadir un documento
@@ -303,8 +298,6 @@ gl:
           index:
             filter:
               all: Todo
-              ceased: Cesado
-              not_ceased: Non cesou
             filter_by: Filtrar por
             search: Busca
         content_blocks:
@@ -351,9 +344,7 @@ gl:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Asembleas activas
             assemblies_button_title: Ligazón á páxina de Xuntanzas que amosa todas as xuntanzas
-            see_all_assemblies: Ver todos os conxuntos
         user_profile:
           member_of:
             member_of: Membro de
@@ -364,11 +355,10 @@ gl:
         closing_date: Data de peche
         composition: Composición
         created_by: Creado por
-        creation_date: Data creada
+        creation_date: Data de creación
         developer_group: Grupo promotor
         duration: Duración
         included_at: Incluído en
-        indefinite_duration: Indefinido
         internal_organisation: Organización interna
         is_transparent:
           'false': opaco

@@ -2,10 +2,6 @@
 gl:
   activemodel:
     attributes:
-      agenda:
-        description: Descrición
-        duration: Duración
-        title: Título
       close_meeting:
         attendees_count: Número de asistentes
         attending_organizations: Listaxe de organizacións que asistiron
@@ -22,7 +18,6 @@ gl:
         decidim_category_id: Categoría
         decidim_scope_id: Alcance
         description: Descrición
-        end_time: Hora de finalización
         location: Localización
         location_hints: Consellos de localización
         organizer_id: Organizador
@@ -31,7 +26,6 @@ gl:
         registration_form_enabled: Formulario de rexistro habilitado
         registration_terms: Termos de rexistro
         registrations_enabled: Rexistros habilitados
-        start_time: Hora de inicio
         title: Título
         transparent: Transparente
     errors:
@@ -166,7 +160,6 @@ gl:
         confirm_destroy: Estás seguro de que queres eliminar esta reunión?
         destroy: Eliminar
         edit: Editar
-        new: Nova reunión
         preview: Vista previa
         registrations: Rexistros
         title: Accións
@@ -236,9 +229,6 @@ gl:
           edit:
             close: Pechar
             title: Pechar reunión
-        meeting_copies:
-          form:
-            select_a_meeting_type: Por favor, selecciona un tipo de xuntanza
         meetings:
           close:
             invalid: Produciuse un problema ao pechar esta reunión
@@ -311,7 +301,7 @@ gl:
         filter_meeting_space_values:
           all: Todas
         filter_scope_values:
-          all: Todas
+          all: Todo
       calendar_modal:
         calendar_url: URL do calendario
         close_window: Pechar ventá
@@ -320,7 +310,7 @@ gl:
       content_blocks:
         upcoming_meetings:
           name: Vindeiras xuntanzas
-          upcoming_meetings: Vindeiras xuntanzas
+          upcoming_meetings: Próximas reunións
           view_all_meetings: Ver todo
       directory:
         meetings:
@@ -361,6 +351,7 @@ gl:
           date: Data
           origin_values:
             participants: Participantes
+          scope: Alcance
           search: Busca
         filters_small_view:
           close_modal: Pechar modal
@@ -384,10 +375,10 @@ gl:
           confirm: Confirmar
         show:
           attendees: Os asistentes contan
+          close_meeting: Pechar reunión
           contributions: Contribucións contar
-          edit_close_meeting: Editar o informe da xuntanza
+          date: Data
           going: Inscribícheste nesta xuntaza
-          join: Únete a reunión
           leave: Cancelar a túa inscrición
           leave_confirmation: Estás certo/a de querer cancelar a túa inscrición nesta xuntanza?
           meeting_minutes: Minutos de reunión

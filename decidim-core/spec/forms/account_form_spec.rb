@@ -15,8 +15,7 @@ module Decidim
         remove_avatar: remove_avatar,
         personal_url: personal_url,
         about: about,
-        locale: "es",
-        time_zone: time_zone
+        locale: "es"
       ).with_context(
         current_organization: organization,
         current_user: user
@@ -35,7 +34,6 @@ module Decidim
     let(:remove_avatar) { false }
     let(:personal_url) { "http://example.org" }
     let(:about) { "This is a description about me" }
-    let(:time_zone) { "UTC" }
 
     context "with correct data" do
       it "is valid" do
@@ -48,6 +46,24 @@ module Decidim
 
       it "is invalid" do
         expect(subject).not_to be_valid
+      end
+    end
+
+    describe "name" do
+      context "with an empty name" do
+        let(:name) { "" }
+
+        it "is invalid" do
+          expect(subject).not_to be_valid
+        end
+      end
+
+      context "with invalid characters" do
+        let(:name) { "foo@bar" }
+
+        it "is invalid" do
+          expect(subject).not_to be_valid
+        end
       end
     end
 
@@ -139,6 +155,19 @@ module Decidim
       end
     end
 
+    describe "password_confirmation_message" do
+      context "when the password confirmaiton does not match" do
+        let(:password_confirmation) { "aaaabbbbcccc" }
+
+        it { is_expected.not_to be_valid }
+
+        it "adds the correct error" do
+          subject.valid?
+          expect(subject.errors[:password_confirmation]).to include('"Confirm your password" does not match Password')
+        end
+      end
+    end
+
     describe "personal_url" do
       context "when it doesn't start with http" do
         let(:personal_url) { "example.org" }
@@ -150,24 +179,6 @@ module Decidim
 
       context "when it's not a valid URL" do
         let(:personal_url) { "foobar, aa" }
-
-        it "is invalid" do
-          expect(subject).not_to be_valid
-        end
-      end
-    end
-
-    describe "time_zone" do
-      context "when an empty time_zone" do
-        let(:time_zone) { "" }
-
-        it "is invalid" do
-          expect(subject).to be_valid
-        end
-      end
-
-      context "when time_zone has more 255 chars" do
-        let(:time_zone) { [*("A".."Z")].sample(256).join }
 
         it "is invalid" do
           expect(subject).not_to be_valid

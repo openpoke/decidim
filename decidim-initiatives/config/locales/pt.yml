@@ -55,9 +55,6 @@ pt:
               title: O título não deve estar vazio
   activerecord:
     models:
-      decidim/initiative:
-        one: Iniciativa
-        other: Iniciativas
       decidim/initiative_comittee:
         one: Comité
         other: Comités
@@ -328,7 +325,6 @@ pt:
           back: Retroceder
           continue: Continuar
           fill_data_help: "<ul><li>Reveja o conteúdo da sua iniciativa. O título é fácil de entender? O objectivo da sua iniciativa é claro?</li> <li>Tem que escolher o tipo de assinatura. Presencialmente, on-line, ou uma combinação de ambos</li> <li>Qual é o âmbito geográfico da sua iniciativa?</li> </ul>"
-          initiative_type: Tipo de iniciativa
           more_information: "(Mais informações)"
           select_area: Selecionar uma área
           select_scope: Selecione um âmbito
@@ -549,11 +545,6 @@ pt:
         status_change_for: A iniciativa %{title} mudou o seu estado
       last_activity:
         new_initiative: Nova iniciativa
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Iniciativas ativas
-            see_all_initiatives: Ver todas as iniciativas
       show:
         badge_name:
           accepted: Assinaturas suficientes

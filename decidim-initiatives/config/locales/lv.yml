@@ -52,10 +52,6 @@ lv:
               title: Virsrakstam nevajadzētu būt tukšam
   activerecord:
     models:
-      decidim/initiative:
-        zero: Iniciatīvas
-        one: Iniciatīva
-        other: Iniciatīvas
       decidim/initiative_comittee:
         zero: Komitejas
         one: Komiteja
@@ -286,7 +282,6 @@ lv:
         fill_data:
           back: Atpakaļ
           continue: Turpināt
-          initiative_type: Iniciatīvas veids
           more_information: "(Papildu informācija)"
           select_area: Izvēlieties jomu
           select_scope: Izvēlēties darbības tvērumu
@@ -327,6 +322,9 @@ lv:
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{author_nickname}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
           email_subject: Iniciatīvu atbalstīja %{author_nickname}
           notification_title: <a href="%{resource_path}">%{resource_title}</a> iniciatīvu atbalstīja <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      form:
+        add_attachments: Dokumenti
+        delete_attachment: Dzēst
       index:
         title: Iniciatīvas
       initiative_signatures:
@@ -364,6 +362,9 @@ lv:
             zero: un vēl %{count} personas
             one: un vēl 1 persona
             other: un vēl %{count} personas
+        committee_members:
+          confirm_revoke: Vai esat pārliecināts?
+          revoke: Atsaukt
         count:
           title:
             zero: "%{count} iniciatīvas"
@@ -430,11 +431,6 @@ lv:
         status_change_for: Iniciatīvas %{title} statuss ir mainīts
       last_activity:
         new_initiative: Jauna iniciatīva
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Aktīvās iniciatīvas
-            see_all_initiatives: Skatīt visas iniciatīvas
       show:
         badge_name:
           accepted: Pietiekami daudz parakstu

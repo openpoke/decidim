@@ -52,7 +52,6 @@ it:
         subtitle: Sottotitolo
         target: A chi è destinato il processo
         title: Titolo
-        twitter: Twitter
         weight: Ordine di posizionamento
         youtube: Youtube
       assembly_member:
@@ -271,7 +270,6 @@ it:
             select_an_area: Seleziona un'Area
             select_an_assembly_type: Seleziona un tipo di assemblea
             select_parent_assembly: Seleziona l'assemblea madre
-            slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa assemblea. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
             social_handlers: Social networks
             title: Informazioni generali
             visbility: Visibilità
@@ -283,13 +281,9 @@ it:
         assemblies_types:
           form:
             title: Titolo
-        assembly_copies:
-          form:
-            slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa assemblea. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
         assembly_imports:
           form:
             document_legend: Aggiungere un documento
-            slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa assemblea. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
         assembly_members:
           form:
             existing_user: Utente esistente
@@ -303,8 +297,6 @@ it:
           index:
             filter:
               all: Tutti
-              ceased: Cessato
-              not_ceased: Non è cessato
             filter_by: Filtra per
             search: Ricerca
         content_blocks:
@@ -351,9 +343,7 @@ it:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Assemblee attive
             assemblies_button_title: Link alla pagina delle Assemblee che le elenca tutte
-            see_all_assemblies: Vedi tutte le assemblee
         user_profile:
           member_of:
             member_of: Membro di
@@ -363,12 +353,11 @@ it:
         children: Assemblee
         closing_date: Data di chiusura
         composition: Composizione
-        created_by: Creata da
+        created_by: Creato da
         creation_date: Data di creazione
         developer_group: Promotore
         duration: Durata
-        included_at: Inclusa in
-        indefinite_duration: Indefinito
+        included_at: Fino a
         internal_organisation: Organizzazione interna
         is_transparent:
           'false': opaco
@@ -383,7 +372,7 @@ it:
         related_participatory_processes: Processi partecipativi correlati
         scope: Ambito
         social_networks: Social Networks
-        target: Chi partecipa
+        target: A chi è destinato il processo
     assembly_members:
       assembly_member:
         designated_on: Designato su
@@ -444,7 +433,7 @@ it:
             one: "%{count} assemblee"
             other: "%{count} assemblee"
         promoted_assembly:
-          more_info: Maggiori informazioni
+          more_info: Ulteriori informazioni
           take_part: Partecipa
       assembly_navigation:
         assembly_member_menu_item: Utenti

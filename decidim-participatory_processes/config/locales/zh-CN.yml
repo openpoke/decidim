@@ -92,7 +92,6 @@ zh-CN:
           attachments: 附件
           categories: 类别管理
           components: 组件
-          info: 信息
           moderations: 版面
           private_users: 私人参与者
           process_admins: 进程管理员
@@ -134,6 +133,9 @@ zh-CN:
           copy: 复制
           select: 选择要重复的数据
           title: 重复的参与进程
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: 更新
       participatory_process_groups:
         destroy:
           error: 销毁参与性进程小组时出错。
@@ -189,6 +191,9 @@ zh-CN:
         update:
           error: 在更新这一阶段的参与进程时遇到了问题。
           success: 参与阶段更新成功。
+      participatory_process_types:
+        form:
+          title: 标题
       participatory_process_user_roles:
         create:
           error: 在这个参与进程中增加参与者时遇到了问题。
@@ -291,6 +296,11 @@ zh-CN:
         related_assemblies: 相关的会议
     participatory_process_groups:
       content_blocks:
+        metadata:
+          name: 元数据
+          participatory_scope: 决定的内容
+          participatory_structure: 如何决定
+          target: 谁参与
         stats:
           name: 统计
       show:
@@ -304,16 +314,14 @@ zh-CN:
         content_blocks:
           highlighted_processes:
             max_results: 显示元素的最大数量
-        participatory_process_copies:
+        participatory_process_groups:
           form:
-            slug_help: 'URL slugs 用于生成指向此进程的URL。 只接受字母、数字和破折号，必须以字母开头。例如: %{url}'
+            title: 一般信息
         participatory_process_imports:
           form:
             document_legend: 添加文档
-            slug_help: 'URL slugs 用于生成指向此进程的URL。 只接受字母、数字和破折号，必须以字母开头。例如: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: '在这里使用部分路径，不是完整的 URL。接受字母、数字、破折号和斜线，并且必须以字母开头。 如果未设置，按钮将不会显示。例如： %{url}'
             cta_text_help: 如果未设置，按钮将不会显示。
         participatory_processes:
           form:
@@ -327,7 +335,6 @@ zh-CN:
             scope_type_max_depth_help: 限制范围过滤器深度; 过滤器将从一般到所选范围类型显示。
             select_an_area: 选择区域
             select_process_group: 选择一个流程组
-            slug_help: 'URL slugs 用于生成指向此进程的URL。 只接受字母、数字和破折号，必须以字母开头。例如: %{url}'
             title: 一般信息
             visbility: 可见性
       content_blocks:
@@ -340,12 +347,10 @@ zh-CN:
       pages:
         home:
           highlighted_processes:
-            active_processes: 活动进程
             active_step: 活动阶段
             more_information: 更多信息
             participate: 参与
             participate_in: 参与进程 %{resource_name}
-            see_all_processes: 查看所有进程
       participatory_process_steps:
         index:
           back_to_process: 返回进程页面
@@ -377,7 +382,6 @@ zh-CN:
         dates: 日期
         developer_group: 促销者组
         end_date: 结束日期
-        local_area: 组织区域
         participatory_scope: 决定的内容
         participatory_structure: 如何决定
         private_space: 这是一个私密进程
@@ -412,6 +416,8 @@ zh-CN:
           more_info_about: 更多关于进程 %{resource_name} 的信息
           take_part: 参与
           take_part_in: 参与进程 %{resource_name}
+        promoted_process_group:
+          more_info: 更多信息
       process_header_steps:
         step: '%{current} 的 %{total} 阶段'
         view_steps: 流程阶段

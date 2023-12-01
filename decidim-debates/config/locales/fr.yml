@@ -11,6 +11,7 @@ fr:
         end_time: Prend fin à
         information_updates: Informations mises à jour
         instructions: Instructions pour participer
+        scope_id: Secteur
         start_time: Commence à
         title: Titre
         user_group_id: Créer un débat en tant que
@@ -109,6 +110,9 @@ fr:
           success: Débat créé avec succès.
         debate:
           participate: Participer
+        debates:
+          empty: Il n'y a aucun débat pour l'instant.
+          empty_filters: Il n'y a aucun débat avec ces critères.
         edit:
           back: Retour
           save: Enregistrer les modifications

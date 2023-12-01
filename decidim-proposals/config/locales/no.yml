@@ -109,7 +109,7 @@
               validating: Teknisk validering
               withdrawn: Tilbakekalt
           state_null:
-            label: Tilstand
+            label: Delstat
             values:
               'true': Ikke besvart
         search_placeholder:
@@ -280,7 +280,6 @@
           affected_user:
             email_intro: 'Forslaget ditt "%{resource_title}" er blitt avvist. Du kan lese svaret på denne siden:'
             email_outro: Du har mottatt denne varslingen fordi du er en forfatter av "%{resource_title}".
-            email_subject: Forslaget ditt har blitt avvist
             notification_title: Forslaget ditt <a href="%{resource_path}">%{resource_title}</a> har blitt avvist.
           follower:
             email_intro: 'Forslaget "%{resource_title}" er blitt avvist. Du kan lese svaret på denne siden:'
@@ -510,6 +509,7 @@
             no_components: Det er ingen andre forslags komponetner i dette deltaker området å importere forslagene fra.
             select_component: Velg en komponent
             select_states: Sjekk statusen til forslagene som skal importeres
+            title: Importer forslag
         proposals_merges:
           create:
             success: Slo sammen forslagene til et nytt ett.
@@ -573,7 +573,6 @@
             one: "%{count} samarbeids utkast"
             other: "%{count} samarbeids utkaster"
         create:
-          error: Det oppsto et problem med å lage disse samarbeidsutkastene
           success: Samarbeids utkast opprettet.
         edit:
           attachment_legend: "(Valgfritt) Legg til et vedlegg"
@@ -647,6 +646,9 @@
           info: Du oppretter et <strong>samarbeids utkast</strong>.
         wizard_header:
           title: Opprett ditt samarbeids utkast
+      content_blocks:
+        highlighted_proposals:
+          proposals: Forslag
       create:
         error: Det oppstod et problem med å lagre forslaget.
         success: Forslag opprettet. Lagret som et utkast.
@@ -748,8 +750,6 @@
           recent: Nylig
           with_more_authors: Med flere forfattere
         participatory_texts:
-          index:
-            document_index: Dokument indeks
           view_index:
             see_index: Se index
         placeholder:

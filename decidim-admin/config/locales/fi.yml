@@ -15,17 +15,24 @@ fi:
         description: Kuvaus
         file: Tiedosto
         title: Liitetiedoston tai kuvan nimi
+        weight: Järjestysnumero
       attachment_collection:
         description: Kuvaus
         name: Nimi
+        weight: Järjestysnumero
       category:
         description: Kuvaus
         name: Nimi
         parent_id: Yläaihepiiri
+        weight: Järjestysnumero
       component:
         name: Nimi
         published_at: Julkaistu osoitteessa
         weight: Järjestysnumero
+      external_domain:
+        value: Arvo
+      help_section:
+        content: Sisältö
       id: ID
       import:
         user_group_id: Tuo käyttäjänä
@@ -34,7 +41,7 @@ fi:
         subject: Otsikko
       organization:
         admin_terms_of_use_body: Hallintakäyttäjien käyttöehtojen sisältöteksti
-        alert_color: Ilmoitus
+        alert_color: Virhe
         available_authorizations: Käytettävissä olevat tunnistautumistavat
         badges_enabled: Ota kunniamerkit käyttöön
         comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
@@ -86,13 +93,16 @@ fi:
         success_color: Onnistuminen
         time_zone: Aikavyöhyke
         tos_version: Käyttöehtojen versio
-        twitter_handler: Twitter-käsittelijä
+        twitter_handler: X käsittelijä
         user_groups_enabled: Ota käyttäjäryhmät käyttöön
         users_registration_mode: Käyttäjien rekisteröintitila
         warning_color: Varoitus
         welcome_notification_body: Tervetuloilmoituksen runko
         welcome_notification_subject: Tervetuloilmoituksen otsikko
         youtube_handler: YouTube-käsittelijä
+      participatory_space_private_user:
+        email: Sähköpostiosoite
+        name: Nimi
       scope:
         code: Koodi
         name: Nimi
@@ -114,6 +124,7 @@ fi:
         show_in_footer: Näytä alatunnisteessa
         slug: URL-tunniste
         title: Otsikko
+        topic_id: Aihe
         weight: Järjestysnumero
       static_page_topic:
         description: Kuvaus
@@ -134,6 +145,14 @@ fi:
               allowed_file_content_types: Virheellinen kuvatiedosto
             official_img_header:
               allowed_file_content_types: Virheellinen kuvatiedosto
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Virheellinen tuontitiedosto, lue ohjeet huolellisesti ja varmista, että tiedosto on UTF-8 muodossa.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Virheellinen tuontitiedosto, lue ohjeet huolellisesti ja varmista, että tiedosto on UTF-8 muodossa.
       new_import:
         attributes:
           file:
@@ -185,7 +204,7 @@ fi:
           error: Hallintakäyttäjän ehtojen hyväksyminen epäonnistui.
           success: Hienoa! Olet hyväksynyt hallintakäyttäjän ehdot.
         actions:
-          accept: Hyväksyn seuraavat ehdot
+          accept: Hyväksyn ehdot
           are_you_sure: Oletko varma, että haluat kieltäytyä hyväksymästä hallintakäyttäjien käyttöehtoja?
           refuse: Kieltäydy hyväksymästä hallintakäyttäjän ehtoja
           title: Hyväksy käyttöehdot
@@ -323,7 +342,7 @@ fi:
           success: Komponentin julkaisu onnistui.
         title: Komponentit
         unpublish:
-          success: Komponentin julkaisun peruminen onnistui.
+          success: Komponentin julkaisun lopettaminen onnistui.
         update:
           error: Komponentin päivitys epäonnistui.
           success: Komponentin päivitys onnistui.
@@ -635,7 +654,7 @@ fi:
           nickname: Nimimerkki
           reason: Syy
           reports: Ilmoitusten määrä
-          title: Ilmoitettujen käyttäjien lista
+          title: Ilmoitetut osallistujat
         report:
           reasons:
             does_not_belong: Ei kuulu
@@ -646,7 +665,7 @@ fi:
           unblocked: Ei estetty
       moderations:
         index:
-          title: Moderoinnit
+          title: Ilmoitettu sisältö
         report:
           reasons:
             does_not_belong: Ei kuulu
@@ -780,7 +799,7 @@ fi:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Joissain tekstikentissä osallistujat voivat syöttää tiettyjä HTML-elementtejä rikkaan tekstieditorin kautta.
           social_handlers: Sosiaalinen media
-          twitter: Twitter
+          twitter: X
           url: URL
           youtube: YouTube
         update:
@@ -815,8 +834,8 @@ fi:
           title: Sallittujen ulkoisten verkkotunnusten lista
       organization_homepage:
         edit:
-          active_content_blocks: Aktiiviset sisältöblokit
-          inactive_content_blocks: Ei-aktiiviset sisältöblokit
+          active_content_blocks: Aktiiviset sisältölohkot
+          inactive_content_blocks: Käytöstä poistetut sisältölohkot
       organization_homepage_content_blocks:
         edit:
           update: Päivitä
@@ -835,7 +854,7 @@ fi:
           title: Uusi osallistumistilan yksityinen käyttäjä.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: CSV-tiedostossa on ongelma.
+          invalid: CSV-tiedoston käsittely epäonnistui.
           success: CSV-tiedosto ladattu onnistuneesti. Lähetämme kutsusähköpostin osallistujille. Tämä voi kestää hetken.
         new:
           destroy:
@@ -876,7 +895,7 @@ fi:
           update: Päivitä
         new:
           create: Luo teematyyppi
-          title: Uusi teema
+          title: Uusi teematyyppi
         update:
           error: Teematyyppin päivitys epäonnistui.
           success: Teematyypin päivitys onnistui
@@ -906,7 +925,7 @@ fi:
           success: Tunnisteen poistaminen onnistui.
         share_tokens:
           empty: Aktiivisia tunnisteita ei ole tällä hetkellä
-          help: Näitä tunnisteita käytetään jaettaessa tätä kohdetta muille käyttäjille. Ne piilotetaan, kun kohde julkaistaan. Klikkaa tunnisteen jakoikonia vieraillaksesi jaettavassa URL-osoitteessa.
+          help: Näitä tunnisteita käytetään jaettaessa tätä julkaisematonta kohdetta muille käyttäjille. Ne piilotetaan, kun kohde julkaistaan. Klikkaa tunnisteen jakoikonia vieraillaksesi jaettavassa URL-osoitteessa.
           title: Jakotunnisteet
       shared:
         gallery:
@@ -963,9 +982,12 @@ fi:
         areas: Alueet
         authorization_workflows: Vahvistustavat
         dashboard: Hallintapaneeli
+        edit_external_domains: Sallittujen ulkoisten verkkotunnusten lista
+        edit_organization_appearance: Muokkaa kotisivun ulkoasua
         impersonatable_users: Hallittavat käyttäjät
         impersonations: Käyttäjien hallinta
         metrics: Tilastomittarit
+        pages: Sivut
         panel: Hallintakäyttäjä
         participants: Käyttäjät
         scope_types: Teematyypit
@@ -1002,7 +1024,7 @@ fi:
           success: Käyttäjän kutsuminen onnistui.
         destroy:
           error: Hallintakäyttäjän poisto epäonnistui.
-          success: Käyttäjä ei ole enää hallinnointikäyttäjä.
+          success: Käyttäjä ei ole enää hallintakäyttäjä.
         form:
           email: Sähköposti
           name: Nimi
@@ -1056,14 +1078,15 @@ fi:
       models:
         moderation:
           fields:
-            created_at: Luonnin ajankohta
+            created_at: Luontipäivämäärä
+            deleted_resource: Poistettu tietue
             hidden_at: Piilotuksen ajankohta
             participatory_space: Osallistumistila
             report_count: Määrä
             reportable_id: ID
             reportable_type: Tyyppi
             reported_content_url: Raportoidun sisällön URL
-            reports: Raportit
+            reports: Ilmoitukset
             visit_url: Vieraile URL-osoitteessa
         report:
           fields:
@@ -1083,4 +1106,4 @@ fi:
         settings:
           title: Asetukset
         users:
-          title: Käyttäjät
+          title: Osallistujat

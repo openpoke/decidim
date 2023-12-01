@@ -43,7 +43,6 @@ gl:
           label: Validado
           values:
             'false': Validado
-            'true': Sen validar
     components:
       elections:
         actions:
@@ -83,8 +82,6 @@ gl:
         models:
           answer:
             name: Resposta
-          election:
-            name: Elección
           question:
             name: Pregunta
           trustee:
@@ -174,7 +171,6 @@ gl:
           all: Todas
           date: Data
           finished: Finalizada
-          search: Procurar
           upcoming: Vindeiras
         filters_small_view:
           close_modal: Pechar modal
@@ -250,6 +246,8 @@ gl:
           back: Comezar o proceso de voto de novo
           ballot_hash: 'O identificador da túa papeleta é:'
           description: Aquí tes as opcións para emitir a túa papeleta e que sexa contada de xeito válido ou, alternativamente, podes auditar o correcto cifrado da túa papeleta. Por razóns de seguranza, a auditoría danará a túa papeleta, o que significa, que terás de reiniciar o proceso de votación para emitir o teu voto.
+        confirm:
+          answer: Resposta
         confirmed:
           experience: Como valoras a túa experiencia?
           feedback: Dános a túa opinión
@@ -262,7 +260,6 @@ gl:
           try_again: Tentar de novo
         header:
           ballot_decision: Enviar ou auditar o teu voto
-          confirm: Confirma o teu voto
           confirmed: Voto confirmado
           encrypting: Cifrando o voto
         messages:
@@ -394,7 +391,12 @@ gl:
             how_to_title: Como verificar a validez dunha elección
             not_available: Aínda non dispoñíbel
             title: Eleccións
+        polling_officers:
+          polling_officers_picker:
+            close: Pechar
         votings:
+          actions:
+            publish: Publicar
           form:
             select_a_voting_type: Por favor, selecciona un tipo de votación
             voting_type:
@@ -406,8 +408,6 @@ gl:
           census:
             create:
               invalid_csv_header: Faltan as cabeceiras CSV ou non son correctas - por favor, le as instrucións con cuidado
-            creating_data:
-              info_message: "<strong>Agarda</strong>, procesadas %{processed_count} de %{raw_count} filas do ficheiro %{file}."
             delete:
               button: Eliminar todos os datos do censo
             destroy:
@@ -418,8 +418,6 @@ gl:
               confirm: Só podes exportar os códigos de acceso unha vez. Asegúrate de ter acceso á conta de correo <strong>%{email}</strong>.
               launch_error: Produciuse un problema ao iniciar a exportación dos códigos de acceso
               launch_success: Iniciada a exportación dos códigos de acceso. Nun intre recibirás un correo en %{email}
-            exporting_access_codes:
-              info_message: "<strong>Agarda</strong>, a exportación esta a ser preparada, a recibirás nun intre en %{email}"
             freeze:
               callout: O censo está conxelado e non pode ser modificado.
             generate_access_codes:
@@ -430,8 +428,6 @@ gl:
               info_message_warn: Por favor, verifica que non se perderan datos, xa que se teñen creado %{data_count} rexistros e o ficheiro subido %{file} ten %{raw_count} filas.
               launch_error: Produciuse un problema ao iniciar a xeración dos códigos de acceso
               launch_success: Xeración dos códigos iniciada.
-            generating_access_codes:
-              info_message: "<strong>Agarda</strong>, os códigos de acceso para votar están a ser xerados..."
             new:
               file_help:
                 explanation: 'Instrucións para o ficheiro:'
@@ -454,8 +450,6 @@ gl:
           datum_not_found: Non hai ningún votante con estes datos.
       content_blocks:
         landing_page:
-          description:
-            title: Sobre esta votación
           metrics:
             heading: Métricas
           polling_stations:
@@ -601,7 +595,6 @@ gl:
         elections_log:
           bb_status: Estado da elección
           description: O rexistro da elección amosarache toda a información importante sobre cada votación. Por exemplo, o estado da cerimonia de chaves, o reconto ou se os resultados xa están publicados. Fai clic na elección da que desexas a información do rexistro.
-          election_log: Rexistro da elección
           title: Rexistro da elección
         filters:
           date: Data
@@ -618,6 +611,12 @@ gl:
         send_access_code:
           invalid: Produciuse un problema ao enviar o codigo de acceso
           success: O código de acceso foi enviado con éxito
+        show:
+          dates: Datas
+      votings_m:
+        footer_button_text:
+          view: Ver
+          vote: Votar
   layouts:
     decidim:
       voting_navigation:

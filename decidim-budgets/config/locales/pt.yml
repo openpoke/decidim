@@ -135,6 +135,7 @@ pt:
             total_budget: Orçamento total
         project:
           fields:
+            scope: Âmbito
             title: Título
       order_summary_mailer:
         order_summary:
@@ -184,6 +185,8 @@ pt:
           projects_count:
             one: 1 projeto
             other: "%{count} projetos"
+        exit_modal:
+          close_modal: Fechar o modal
         filters:
           category: Categoria
           scope: Âmbito
@@ -194,7 +197,7 @@ pt:
             not_selected: Não seleccionado
             selected: Seleccionado
         filters_small_view:
-          close_modal: Fechar modal
+          close_modal: Fechar o modal
           filter: Filtrar
           filter_by: Filtrar por
           unfold: Desdobrar
@@ -221,7 +224,6 @@ pt:
           votes:
             one: Votações
             other: Votações
-          you_voted: Votou isto
         project_budget_button:
           add: Adicionar à sua votação
           add_descriptive: Adicionar projeto %{resource_name} à sua votação

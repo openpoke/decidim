@@ -46,7 +46,7 @@ fi:
         participatory_text:
           attributes:
             document:
-              allowed_file_content_types: 'Virheellinen asiakirjan tyyppi. Hyväksytyt tiedostomuodot ovat: %{types}'
+              allowed_file_content_types: 'Virheellinen tiedostomuoto. Ainoastaan seuraavat tiedostomuodot on sallittu: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -214,6 +214,7 @@ fi:
             endorsements_enabled: Suositukset käytössä
             proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
             publish_answers_immediately: Julkaise ehdotusten vastaukset heti
+            publish_answers_immediately_help_html: 'Huomioithan, että jos vastaat mihin tahansa ehdotukseen ilman tätä asetusta, sinun on julkaistava vastaukset manuaalisesti valitsemalla vastaukset sisältävät ehdotukset ja käyttämällä julkaisutoimintoa. Lisätietoja, miten tämä toimii, löytyy <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">dokumentaation osiosta ehdotuksiin vastaaminen</a>.'
             suggested_hashtags: Käyttäjille ehdotettavat aihetunnisteet (hashtag) uusille ehdotuksille
             votes_blocked: Kannatukset estetty
             votes_enabled: Kannatukset käytössä
@@ -303,6 +304,7 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Uusi ehdotus "%{resource_title}" lisätty kohteeseen %{participatory_space_title}
           notification_title: '%{author} on lisännyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a> kohteeseen %{participatory_space_title}'
+          notification_title_official: Virallinen ehdotus <a href="%{resource_path}">%{resource_title}</a> on lisätty kohteeseen %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Ehdotuksesi "%{resource_title}" on hylätty. Voit lukea vastauksen täältä:'
@@ -315,10 +317,10 @@ fi:
             email_subject: Seuraamasi ehdotus on hylätty
             notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on hylätty.
         proposal_update_category:
-          email_intro: 'Hallinnointikäyttäjä on päivittänyt ehdotuksesi aihepiiriin "%{resource_title}", tarkista se tältä sivulta:'
+          email_intro: 'Hallintakäyttäjä on päivittänyt ehdotuksesi aihepiiriin "%{resource_title}", tarkista se tältä sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen tekijä.
           email_subject: Ehdotuksen %{resource_title} aihepiiri on päivitetty
-          notification_title: Hallinnointikäyttäjä on päivittänyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a> aihepiirin.
+          notification_title: Hallintakäyttäjä on päivittänyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a> aihepiirin.
         proposal_update_scope:
           email_intro: 'Hallintakäyttäjä on päivittänyt ehdotuksesi "%{resource_title}" teeman, tarkista se tältä sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen tekijä.
@@ -401,8 +403,20 @@ fi:
           proposals: Ehdotukset
         imports:
           help:
-            answers: 'Tuontitiedostossa on oltava sarakenimet id, state tilalle (accepted, evaluating, rejected), answer/fi vastaukselle (sekä muihin kieliin viittaavat sarakenimet, kuten answer/en).'
-            proposals: Tuontitiedostossa on oltava sarakenimet title/fi otsikolle ja body/fi kuvaustekstille (sekä muihin kieliin viittaavat sarakenimet, kuten title/en ja body/en). Tuettuja sarakkeita ovat myös scope/id (teemalle) ja category/id (aihepiirille).
+            answers: |
+              CSV- tai Excel-tuontitiedostossa on oltava seuraavat sarakenimet ja JSON-tuontitiedostossa vastaavat avainten nimet:
+              <ul>
+              <li><b>id:</b> Vastattavan ehdotuksen ID-tunniste</li>
+              <li><b>state:</b> Jokin vaihtoehdoista "accepted", "evaluating", tai "rejected"</li>
+              <li><b>answer/fi:</b> Vastaus suomeksi. Tämän sarakkeen nimi riippuu alustalle määritetyistä kielistä.</li>
+              </ul>
+            proposals: |
+              CSV- tai Excel-tiedostossa on oltava seuraavat sarakenimet ja JSON-tiedostossa vastaavat avainten nimet:
+              <ul><li><b>title/fi:</b> Otsikko suomeksi. Tämän sarakkeen nimi riippuu alustalle määritetyistä kielistä.</li>
+              <li><b>body/fi:</b> Kuvaus suomeksi. Tämän sarakkeen nimi riippuu alustalle määritetyistä kielistä.</li>
+              <li><b>scope/id:</b> Teeman ID-tunniste</li>
+              <li><b>category/id:</b> Aihepiirin ID-tunniste</li>
+              </ul>
           label:
             answers: Tuo vastaukset tiedostosta
             proposals: Tuo ehdotuksia tiedostosta
@@ -635,7 +649,7 @@ fi:
             one: "%{count} yhteistyöluonnos"
             other: "%{count} yhteistyöluonnosta"
         create:
-          error: Yhteistyöluonnoksen luonti epäonnistui
+          error: Yhteistyöluonnoksen luominen epäonnistui.
           success: Yhteistyöluonnoksen luonti onnistui.
         edit:
           attachment_legend: "(Valinnainen) Lisää liite"
@@ -801,9 +815,9 @@ fi:
           type: Tyyppi
           voted: Kannatettu
         filters_small_view:
-          close_modal: Sulje ikkuna
-          filter: Suodata
-          filter_by: Suodata
+          close_modal: Sulje modaalinen
+          filter: Rajaa
+          filter_by: Rajaa hakua
           unfold: Avaa
         index:
           click_here: Näytä kaikki ehdotukset
@@ -831,7 +845,7 @@ fi:
           with_more_authors: Eniten laatijoita
         participatory_texts:
           index:
-            document_index: Asiakirjan hakemisto
+            document_index: Asiakirjan sisällys
           view_index:
             see_index: Näytä hakemisto
         placeholder:
@@ -910,7 +924,7 @@ fi:
           vote_limit:
             description: Voit kannattaa enintään %{limit} ehdotusta.
             left: Jäljellä
-            votes: Kannatusta
+            votes: Kannatukset
         wizard_aside:
           back: Takaisin
           back_from_step_1: Takaisin ehdotuksiin
@@ -957,9 +971,9 @@ fi:
       copied_from_component:
         proposal_proposal: Liittyvät ehdotukset
       included_projects:
-        project_result: 'Ehdotus sisältyy seuraaviin suunnitelmiin:'
+        project_result: 'Ehdotus sisältyy seuraaviin hankkeisiin:'
       included_proposals:
-        proposal_project: 'Ehdotus sisältyy seuraaviin suunnitelmiin:'
+        proposal_project: 'Ehdotus sisältyy seuraaviin hankkeisiin:'
         proposal_result: 'Ehdotus sisältyy seuraaviin tuloksiin:'
     statistics:
       proposals_accepted: Hyväksyttyä ehdotusta

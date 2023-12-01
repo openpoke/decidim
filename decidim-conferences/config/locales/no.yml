@@ -29,7 +29,6 @@
         show_statistics: Vis statistikk
         sign_date: Underskriftsdato
         signature: Underskrift
-        signature_name: signaturnavn
         slogan: Slagord
         slug: URL slug
         start_date: Startdato
@@ -38,13 +37,11 @@
         date: Dato
         link: Lenke
         title: Tittel
-        weight: Vekt
       conference_partner:
         link: Lenke
         logo: Logo
         name: Navn
         partner_type: Type partner
-        weight: Vekt
       conference_registration_invite:
         email: E-post
         name: Navn
@@ -54,14 +51,12 @@
         description: Beskrivelse
         price: Pris
         title: Tittel
-        weight: Vekt
       conference_speaker:
         affiliation: Tilknytning
         avatar: Profilbilde
         conference_meeting_ids: Relaterte møter
         full_name: Fullt navn
         position: Stilling
-        twitter_handle: Brukernavn Twitter
         user_id: Bruker
       conference_user_role:
         email: Epost
@@ -132,8 +127,6 @@
         edit:
           title: Oppdater konferanse administrator.
           update: Oppdater
-        index:
-          conference_admins_title: konferanse administratorer
         new:
           create: Opprett
           title: Ny konferanse administrator.
@@ -326,9 +319,6 @@
         title: Talere
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne konferansen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         conference_invites:
           create:
             error: Det oppstod et problem med å invitere deltakeren til å delta på konferansen.
@@ -370,7 +360,6 @@
             registrations_count:
               one: Det har vært 1 registrering.
               other: Det har vært %{count} registreringer.
-            slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne konferansen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         diplomas:
           edit:
             save: Lagre
@@ -378,7 +367,7 @@
         invite_join_conference_mailer:
           invite:
             decline: Avvis invitasjon '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} har invitert deg til å delta et foredrag på %{application}. Du kan avvise eller godta gjennom lenkene nedenfor."
+            invited_existing_user_to_join_a_conference: "%{invited_by} har invitert deg til å delta et foredrag på %{application}. Du kan avvise eller godta gjennom lenkene nedenfor."
             registration: Påmelding til '%{conference_title}'
         partners:
           index:
@@ -410,7 +399,7 @@
       conference_program:
         program_meeting:
           content: Innhold
-          location: Plassering
+          location: Sted
           speakers: Talere
           streaming: Strømming
         show:
@@ -436,7 +425,6 @@
           invalid: Det oppstod et problem med å forlate denne konferansen.
           success: Du har forlatt konferansen.
       conference_speaker:
-        go_to_twitter: Gå til Twitter
         more_info: mer info
         personal_website: Personlig nettside
         show:
@@ -501,7 +489,6 @@
           highlighted_conferences:
             active_conferences: Aktive konferanser
             conferences_button_title: Lenke til konferansesiden som viser alle konferansene
-            see_all_conferences: Se alle konferanser
       photo:
         image:
           attributes:

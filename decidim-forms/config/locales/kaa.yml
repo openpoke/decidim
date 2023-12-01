@@ -1,0 +1,8 @@
+---
+kaa:
+  decidim:
+    forms:
+      admin:
+        questionnaires:
+          edit:
+            save: Saqlaw

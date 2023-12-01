@@ -105,36 +105,6 @@ pl:
         many: około %{count} mies.
         other: około %{count} mies.
       half_a_minute: pół minuty
-      less_than_x_minutes:
-        one: mniej niż min.
-        few: mniej niż %{count} min.
-        many: mniej niż %{count} min.
-        other: mniej niż %{count} min.
-      less_than_x_seconds:
-        one: teraz
-        few: mniej niż %{count} min.
-        many: mniej niż %{count} min.
-        other: mniej niż %{count} min.
-      x_days:
-        one: 1 dzień temu
-        few: "%{count} dni temu"
-        many: "%{count} dni temu"
-        other: "%{count} dni temu"
-      x_hours:
-        one: 1 godzinę temu
-        few: "%{count} godzin temu"
-        many: "%{count} godzin temu"
-        other: "%{count} godzin temu"
-      x_minutes:
-        one: 1 min. temu
-        few: "%{count} min. temu"
-        many: "%{count} min. temu"
-        other: "%{count} min. temu"
-      x_seconds:
-        one: 1 sek. temu
-        few: "%{count} sek. temu"
-        many: "%{count} sek. temu"
-        other: "%{count} sek. temu"
   decidim:
     accessibility:
       external_link: Link zewnętrzny
@@ -464,6 +434,7 @@ pl:
           debate: Debata
           initiative: Inicjatywa
           meeting: Spotkanie
+          order: Głosy w budżecie
           post: Wpis
           proposal: Propozycja
           question: Pytanie
@@ -554,7 +525,6 @@ pl:
           newsletter: Chcę otrzymywać okazjonalne newslettery z istotnymi informacjami
           newsletter_title: Zgoda na subskrybcję
           nickname_help: Twój pseudonim w %{organization}. Może zawierać tylko litery, cyfry, '-' i '_'.
-          sign_in: Zaloguj się
           sign_up: Zarejestruj się
           sign_up_as:
             legend: Zarejestruj się jako
@@ -609,6 +579,10 @@ pl:
         download_data: Pobierz dane
         download_data_description: Plik zawierający wszystkie informacje związane z Twoim kontem zostanie wysłany do <strong>%{user_email}</strong>. E-mail będzie zawierał plik .zip i hasło, aby go otworzyć.<br/><br/>Aby rozpakować plik, będziesz potrzebował <a href="https://www.7-zip.org/">7-Zip</a> (Windows) lub <a href="https://www.keka.io/">Keka</a> (MacOS). Jeśli używasz systemu Linux, w większości przypadków program będziesz miał zainstalowany domyślnie. Jeśli nie, możesz użyć programów <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> lub <a href="https://peazip.github.io">PeaZip</a>.
         request_data: Poproś o dane
+    editor_images:
+      create:
+        error: Błąd podczas przesyłania obrazu
+        success: Obraz przesłany pomyślnie
     endorsable:
       endorsements: Rekomendacje
       endorsements_count: Liczba rekomendacji
@@ -805,7 +779,7 @@ pl:
       create:
         button: Obserwuj
         error: Wystąpił błąd podczas próby obserwowania tego zasobu.
-        participatory_space: Obserwujesz <span class="show-for-sr">%{resource_name}</span>
+        participatory_space: Obserwuj <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Przestań obserwować
         error: Nastąpił błąd podczas cofania obserwowania tego zasobu.
@@ -828,6 +802,10 @@ pl:
       file_validation:
         allowed_file_extensions: 'Dozwolone rozszerzenia plików: %{extensions}'
         max_file_size: 'Maksymalny rozmiar pliku: %{megabytes}MB'
+      upload:
+        labels:
+          cancel: Anuluj
+          save: Zapisz
     gamification:
       all_badges_link: Zobacz wszystkie dostępne odznaki.
       badges:
@@ -846,18 +824,6 @@ pl:
           how: Jak ją zdobyć
           page_description: Odznaki są wyrazem uznania dla działań użytkowników i ich rozwoju na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki. Oto lista odznak i kilka sposobów na ich zdobycie.
           title: Odznaki
-        invitations:
-          conditions:
-            - Użyj linku "zaproś znajomych" na swojej stronie użytkownika, aby zaprosić znajomych
-            - Dostosuj, jeśli chcesz, wiadomość, którą wysyłasz
-            - Możesz awansować na wyższy poziom, wysyłając zaproszenia i gdy zostaną one przyjęte.
-          description: Ta odznaka jest przyznawana, gdy zapraszasz ludzi i gdy oni poświęcą trochę czasu, aby zarejestrować się w %{organization_name} i zostać użytkownikami. Dziękujemy za udostępnienie %{organization_name} innym osobom i pomoc w rozbudowywaniu społeczności!
-          description_another: Ten użytkownik zaprosił %{score} osób.
-          description_own: Zaprosiłeś %{score} osób.
-          name: Zaproszenia
-          next_level_in: Zaproś %{score} kolejnych użytkowników, aby przejść do następnego poziomu!
-          unearned_another: Ten użytkownik jeszcze nikogo nie zaprosił.
-          unearned_own: Jeszcze nikogo nie zaproszono.
       description: Odznaki są wyrazem uznania dla działań użytkowników i ich rozwoju na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki.
       level: Poziom %{level}
       reached_top: Osiągnąłeś najwyższy poziom tej odznaki.
@@ -1058,6 +1024,7 @@ pl:
           next: Dalej
           no_conversations: Nie masz jeszcze żadnych konwersacji
           title: Konwersacje
+          to: Do
         reply:
           placeholder: Twoja odpowiedź...
           send: Wyślij
@@ -1065,11 +1032,12 @@ pl:
         show:
           back: Powrót do wszystkich konwersacji
           chat_with: Konwersacja z
+          deleted_accounts: Nie można prowadzić rozmowy z usuniętymi kontami.
           not_allowed: Ten użytkownik nie przyjmuje wiadomości prywatnych.
           title: Konwersacja z %{usernames}
         start:
           send: Wyślij
-          title: Zacznij konwersację
+          title: Rozpocznij konwersację
         update:
           error: Wiadomość nie została wysłana z powodu błędu
     metrics:
@@ -1090,7 +1058,7 @@ pl:
     newsletter_mailer:
       newsletter:
         note: Otrzymujesz ten e-mail, ponieważ subskrybujesz newslettery %{organization_name}. Możesz zmienić swoje ustawienia na <a href="%{link}">stronie powiadomień</a>.
-        see_on_website: Nie widzisz tego e-maila poprawnie? Wyświetl go w <a href="%{link}" target="_blank">przeglądarce</a>.
+        see_on_website: Nie widzisz tego e-maila poprawnie? Zobacz go na stronie <a href="%{link}" target="_blank" class="see-on-website"></a>.
         unsubscribe: Aby zrezygnować z otrzymywania tego typu wiadomości e-mail, <a href="%{link}" target="_blank" class="unsubscribe">cofnij subskrypcję</a>.
     newsletter_templates:
       basic_only_text:
@@ -1175,7 +1143,6 @@ pl:
           proposals: Propozycje
           proposals_explanation: Zgłaszaj nowe propozycje, wspieraj te już zgłoszone oraz wspieraj te zmiany, które chcesz zobaczyć.
         footer_sub_hero:
-          footer_sub_hero_body: Zbudujmy społeczeństwo bardziej otwarte, przejrzyste i współpracujące.<br /> Dołącz, uczestnicz i decyduj.
           footer_sub_hero_headline: Witamy na %{organization} platformie partycypacyjnej.
           register: Zarejestruj się
         hero:
@@ -1202,18 +1169,14 @@ pl:
           error: Wystąpił błąd podczas akceptowania warunków.
           success: Wspaniale! Zaakceptowałeś warunki i zasady.
         form:
-          agreement: Akceptuję Regulamin
           legend: Zgadzam się z warunkami użytkowania
         refuse:
-          modal_btn_continue: Zaakceptuj warunki i kontynuuj
           modal_btn_exit: Sprawdzę to później
-          modal_button: Odrzuć warunki
           modal_close: Zamknij okno
           modal_title: Czy rzeczywiście odmawiasz zaakceptowania zaktualizowanego regulaminu?
         required_review:
           alert: Zaktualizowaliśmy nasze Warunki korzystania z usługi, zapoznaj się z nimi.
           body: Poświęć chwilę, aby przejrzeć aktualizacje naszych Warunków korzystania z Platformy. W przeciwnym razie nie będziesz mógł korzystać z platformy.
-          title: 'Wymagane: sprawdź aktualizacje naszych warunków korzystania z platformy'
     participatory_space_private_users:
       not_allowed: Nie możesz wyświetlać tych treści
     profile:
@@ -1398,7 +1361,7 @@ pl:
       show_translated: Pokaż automatyczne tłumaczenie
     user_activity:
       index:
-        no_activities_warning: Ten użytkownik nie ma jeszcze żadnej aktywności.
+        no_activities_warning: Ten uczestnik nie ma jeszcze żadnej aktywności.
     user_contact_disabled: Ten użytkownik nie przyjmuje bezpośrednich wiadomości.
     user_conversations:
       create:
@@ -1427,6 +1390,7 @@ pl:
         title_reply: Odpowiedz
       show:
         back: Pokaż wszystkie rozmowy
+        deleted_accounts: Nie można prowadzić rozmowy z usuniętymi kontami.
         not_allowed: Ten użytkownik nie przyjmuje więcej bezpośrednich wiadomości.
         title: Konwersacja z %{usernames}
       update:
@@ -1583,15 +1547,6 @@ pl:
       updated_not_active: Twoje hasło zostało zmienione.
     registrations:
       destroyed: Twoje konto zostało pomyślnie zawieszone. Mamy nadzieję zobaczyć Cię ponownie wkrótce.
-      edit:
-        are_you_sure: Jesteś pewny?
-        cancel_my_account: Zawieś moje konto
-        currently_waiting_confirmation_for_email: 'Obecnie oczekujące potwierdzenie dla: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: pozostaw puste, jeśli nie chcesz tego zmieniać
-        title: Edytuj %{resource}
-        unhappy: Niezadowolony?
-        update: Aktualizuj
-        we_need_your_current_password_to_confirm_your_changes: potrzebujemy Twojego obecnego hasła, aby potwierdzić Twoje zmiany
       new:
         sign_up: Zarejestruj się
       signed_up: Witamy! Zarejestrowałeś się pomyślnie.
@@ -1602,8 +1557,6 @@ pl:
       updated: Twoje konto zostało pomyślnie zaktualizowane.
     sessions:
       already_signed_out: Wylogowano pomyślnie.
-      new:
-        sign_in: Zaloguj się
       signed_in: Zalogowano pomyślnie.
       signed_out: Wylogowano pomyślnie.
     shared:
@@ -1612,7 +1565,6 @@ pl:
         didn_t_receive_confirmation_instructions: Nie otrzymałeś(aś) instrukcji potwierdzenia?
         didn_t_receive_unlock_instructions: Nie otrzymałeś(aś) instrukcji odblokowania?
         forgot_your_password: Nie pamiętasz hasła?
-        sign_in: Zaloguj się
         sign_in_with_provider: Zaloguj się, używając %{provider}
         sign_up: Zarejestruj się
       minimum_password_length:
@@ -1650,7 +1602,6 @@ pl:
         other: 'Podczas przetwarzania Twojego żądania wystąpiły błędy:'
       too_many_marks: używa zbyt wielu kolejnych znaków interpunkcyjnych (np.! i?)
       too_much_caps: używa zbyt dużej liczby wielkich liter (ponad 25% tekstu)
-      too_short: jest za krótkie
   forms:
     correct_errors: Wystąpiły błędy w formularzu, popraw je, aby kontynuować.
     length_validator:
@@ -1666,6 +1617,10 @@ pl:
     timestamp_error_message: Przepraszam, to było za szybkie! Proszę przesłać ponownie.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Typ
       edit_link:
         edit: Edytuj
       footer:
@@ -1693,13 +1648,14 @@ pl:
         facebook: "%{organization} na Facebooku"
         github: "%{organization} na GitHubie"
         instagram: "%{organization} na Instagramie"
-        twitter: "%{organization} na Twitterze"
         youtube: "%{organization} na YouTube"
       timeout_modal:
         body: Byłeś nieaktywny przez %{minutes} min. Jeśli pozostaniesz nieaktywny, zostaniesz automatycznie wylogowany ze względów bezpieczeństwa.
         continue_session: Kontynuuj sesję
         sign_out: Wyloguj się
         title: Czy chcesz kontynuować sesję?
+      upload_modal:
+        close_modal: Zamknij okno
       user_menu:
         account: 'Konto użytkownika: %{name}'
         admin_dashboard: Panel administracyjny
@@ -1723,12 +1679,15 @@ pl:
     name: Polski
     name_with_error: Polski (błąd!)
   password_validator:
+    blacklisted: jest na liście blokowania
     domain_included_in_password: jest zbyt podobne do tej nazwy domeny
     email_included_in_password: jest zbyt podobne do twojego adresu e-mail
     fallback: nie jest poprawne
     name_included_in_password: jest zbyt podobne do twojego imienia
+    nickname_included_in_password: jest zbyt podobne do twojego nicka
     not_enough_unique_characters: nie ma wystarczającej liczby unikalnych znaków
     password_not_allowed: nie jest dozwolone
+    password_repeated: nie można ustawić ponownie starego hasła
     password_too_common: jest zbyt powszechne
     password_too_long: jest zbyt długie
     password_too_short: jest za krótkie
@@ -1779,6 +1738,7 @@ pl:
     dropdown:
       choose_diff_view_html: 'Tryb widoku HTML:'
       choose_diff_view_mode: 'Porównaj tryb widoku:'
+      choose_diff_view_mode_menu: Wybierz tryb porównywania
       option_escaped: Cytowany
       option_split: Obok siebie
       option_unescaped: Niecytowany

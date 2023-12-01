@@ -8,13 +8,15 @@ describe "Participatory Processes", type: :system do
   let(:show_metrics) { true }
   let(:show_statistics) { true }
   let(:hashtag) { true }
+  let(:base_description) { { en: "Description", ca: "Descripció", es: "Descripción" } }
+  let(:short_description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
   let(:base_process) do
     create(
       :participatory_process,
       :active,
       organization: organization,
-      description: { en: "Description", ca: "Descripció", es: "Descripción" },
-      short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" },
+      description: base_description,
+      short_description: short_description,
       show_metrics: show_metrics,
       show_statistics: show_statistics
     )
@@ -482,6 +484,9 @@ describe "Participatory Processes", type: :system do
             expect(page).to have_no_content(translated(private_assembly.title))
           end
         end
+
+        it_behaves_like "has embedded video in description", :base_description
+        it_behaves_like "has embedded video in description", :short_description
       end
     end
   end

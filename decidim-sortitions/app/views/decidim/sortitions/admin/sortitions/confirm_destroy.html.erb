@@ -1,3 +1,4 @@
+<% add_decidim_page_title(t(".title")) %>
 <h2 class="process-title-summary"><%= t ".title" %></h2>
 
 <%= decidim_form_for(@form, html: { class: "form confirm_destroy_sortition" }, method: :delete) do |form| %>
@@ -9,7 +10,7 @@
     <div class="card-section">
       <div class="row">
         <div class="columns xlarge-12">
-          <%= form.translated :editor, :cancel_reason, toolbar: :full, lines: 10 %>
+          <%= form.translated :editor, :cancel_reason, lines: 10, toolbar: :content %>
         </div>
       </div>
     </div>

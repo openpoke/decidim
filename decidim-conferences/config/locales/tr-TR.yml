@@ -23,12 +23,6 @@ tr:
         slogan: Slogan
         slug: URL özel bilgisi
         title: Başlık
-      conference_media_link:
-        weight: Ağırlık
-      conference_partner:
-        weight: Ağırlık
-      conference_registration_type:
-        weight: Ağırlık
       conference_speaker:
         full_name: Ad Soyad
       conference_user_role:
@@ -100,8 +94,6 @@ tr:
         edit:
           title: Konferans yöneticisi güncelle.
           update: Güncelle
-        index:
-          conference_admins_title: konferans yöneticileri
         new:
           create: Oluştur
           title: Yeni konferans yöneticisi
@@ -289,9 +281,6 @@ tr:
         title: Hoparlörler
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL sümükleri, bu konferansa işaret eden URL’leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
         conference_invites:
           create:
             error: Kullanıcıyı konferansa katılmaya davet ederken bir sorun oluştu.
@@ -333,7 +322,6 @@ tr:
             registrations_count:
               one: 1 kayıt oldu.
               other: '%{count} kayıt var.'
-            slug_help: 'URL sümükleri, bu konferansa işaret eden URL’leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
         diplomas:
           edit:
             save: Kayıt etmek
@@ -341,7 +329,7 @@ tr:
         invite_join_conference_mailer:
           invite:
             decline: '''%{conference_title}'' davetiyesini reddet'
-            invited_you_to_join_a_conference: "%{invited_by} sizi %{application}bir konferansa katılmaya davet etti. Aşağıdaki bağlantılardan reddedebilir veya kabul edebilirsiniz."
+            invited_existing_user_to_join_a_conference: "%{invited_by} sizi %{application}bir konferansa katılmaya davet etti. Aşağıdaki bağlantılardan reddedebilir veya kabul edebilirsiniz."
             registration: '''%{conference_title}'' için kayıt'
         partners:
           index:
@@ -373,8 +361,7 @@ tr:
       conference_program:
         program_meeting:
           content: içerik
-          location: yer
-          speakers: Hoparlörler
+          speakers: Konuşmacılar
           streaming: Yayın Akışı
         show:
           day: Gün
@@ -399,7 +386,7 @@ tr:
           invalid: Bu konferansı terk etmekle ilgili bir sorun oluştu.
           success: Konferansı başarıyla terk ettiniz.
       conference_speaker:
-        go_to_twitter: Twitter'a git
+        go_to_twitter: x'e git
         more_info: Daha fazla bilgi
         personal_website: Kişisel web sitesi
         show:
@@ -412,7 +399,7 @@ tr:
           go_to_twitter: Twitter'a git
       conference_speakers:
         index:
-          speakers: Hoparlörler
+          speakers: Konuşmacılar
       conferences:
         partners:
           collaborators: Ortaklar
@@ -463,7 +450,7 @@ tr:
         home:
           highlighted_conferences:
             active_conferences: Aktif konferanslar
-            see_all_conferences: Tüm konferanslara bak
+            see_all_conferences: Tüm Konferanslar
       photo:
         image:
           attributes:

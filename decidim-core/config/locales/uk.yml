@@ -221,7 +221,6 @@ uk:
           already_have_an_account?: Вже маєте обліковий запис?
           newsletter: Отримувати іноді розсилання зі свіжими новинами
           newsletter_title: Дозвіл на зв'язок
-          sign_in: Увійти
           sign_up: Зареєструватися
           sign_up_as:
             legend: Зареєструватися як
@@ -238,7 +237,6 @@ uk:
         newsletter_modal:
           buttons:
             check: Поставити галочку та продовжити
-            close_modal: Закрити віконце
           notice: |-
             <p>Привіт, ви впевнені, що не хочете отримувати розсилання новин?<br> Будь ласка, ще раз розгляньте можливість поставити нижче галочку щодо розсилання.<br> Для нас дуже важливо, щоб ви могли іноді отримувати електронні листи з важливими оголошеннями. Ви завжди можете змінити це на сторінці налаштувань сповіщень.</p> <p>Якщо ви не поставите цю галочку, ви можете прогледіти доречні відомості щодо свіжих можливостей участі в роботі майданчика.<br> Якщо ви все ж бажаєте уникнути розсилань, ми прекрасно розуміємо таке ваше рішення.</p> <p>Дякуємо, що прочитали це!</p>
           title: Сповіщення про новини
@@ -265,8 +263,6 @@ uk:
       show:
         download_data: Завантажити дані
         request_data: Подати запит на дані
-    endorsable:
-      endorsements: Проявів підтримки
     errors:
       internal_server_error:
         title: При з'єднанні з нашим сервером сталася помилка
@@ -339,6 +335,9 @@ uk:
       default_image: Зображення за замовчуванням
       errors:
         error: У цьому полі є помилка.
+      upload:
+        labels:
+          save: Зберегти
     log:
       base_presenter:
         create: "%{user_name} створив %{resource_name}"
@@ -378,17 +377,14 @@ uk:
         create:
           error: Бесіда не розпочата. Спробуйте ще раз пізніше
         index:
-          close: Закрити віконце
           no_conversations: У вас ще немає бесід
         reply:
-          title: Відповісти
+          send: Надіслати
         start:
           send: Надіслати
-          title: Почати бесіду
     newsletter_mailer:
       newsletter:
         note: Ви отримали цього електронного листа, оскільки ви підписалися на новини щодо %{organization_name}. Ви можете змінити свої налаштування на <a href="%{link}">сторінці сповіщень</a>.
-        see_on_website: Не вдається до пуття переглянути це повідомлення? Перегляньте його на сайті <a href="%{link}" target="_blank"></a>.
         unsubscribe: Щоб відмовитися від отримання таких повідомлень, клацніть на <a href="%{link}" target="_blank" class="unsubscribe">Відмовитися</a>.
     newsletters:
       unsubscribe:
@@ -437,7 +433,6 @@ uk:
           proposals: Пропозиції
           proposals_explanation: Вносьте нові пропозиції, підтримуйте існуючі та сприяйте змінам, які ви хочете бачити.
         footer_sub_hero:
-          footer_sub_hero_body: Створімо більш відкрите, прозоре та співпрацююче суспільство.<br /> Долучайтесь, беріть участь та приймайте рішення.
           footer_sub_hero_headline: Ласкаво просимо до майданчику співучасті %{organization}!
           register: Зареєструватися
         hero:
@@ -454,15 +449,11 @@ uk:
         form:
           legend: Погодитися з умовами участі
         refuse:
-          modal_btn_continue: Прийняти умови та продовжити
           modal_btn_exit: Я перегляну це пізніше
-          modal_button: Відмовитися від умов участі
-          modal_close: Закрити віконце
           modal_title: Ви дійсно відмовляєтеся від оновлених "Умов участі"?
         required_review:
           alert: Ми оновили наші "Умови участі", будь ласка, перегляньте їх.
           body: Будь ласка, знайдіть хвилинку, щоб переглянути оновлення до наших "Умов участі". В іншому випадку ви не зможете використовувати наш майданчик.
-          title: 'Обов''язково: перегляньте оновлення до наших "Умов участі"'
     participatory_space_private_users:
       not_allowed: У вас нема прав на перегляд цього вмісту
     profile:
@@ -502,10 +493,8 @@ uk:
       term_input_placeholder: Шукати
     searches:
       filters_small_view:
-        close_modal: Закрити віконце
         filter: Відібрати
         filter_by: 'Відібрати за ознакою:'
-        unfold: Розгорнути
     shared:
       embed_modal:
         close_window: Закрити вікно
@@ -536,6 +525,8 @@ uk:
     statistics:
       comments_count: Коментарів
     user_conversations:
+      index:
+        close: Закрити
       update:
         error: Повідомлення не надіслано. Спробуйте ще раз пізніше
     version_author:
@@ -624,6 +615,7 @@ uk:
         see_more: Читати далі
   locale:
     name: Українська
+    name_with_error: Українська (помилка!)
   password_validator:
     domain_included_in_password: занадто схожий на це доменне ім'я
     email_included_in_password: занадто схожий на вашу електронну пошту

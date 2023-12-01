@@ -91,7 +91,6 @@ uk:
           attachments: Вкладені файли
           categories: Категорії
           components: Складові
-          info: Відомості
           moderations: Дії з модерації
           private_users: Приватні учасники
           process_admins: Учасники руху
@@ -132,6 +131,9 @@ uk:
           copy: Скопіювати
           select: Оберіть відомості, копію яких ви хотіли б створити
           title: Створити копію руху співучасті
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Оновити
       participatory_process_groups:
         destroy:
           success: Сукупність рухів співучасті успішно видалено.
@@ -178,6 +180,9 @@ uk:
         update:
           error: При спробі оновити цей крок руху співучасті сталася помилка.
           success: Крок руху співучасті успішно оновлено.
+      participatory_process_types:
+        form:
+          title: Назва
       participatory_process_user_roles:
         create:
           error: При спробі додати учасника в цей рух співучасті сталася помилка.
@@ -256,6 +261,10 @@ uk:
       processes: Рухи
     participatory_process_groups:
       content_blocks:
+        metadata:
+          participatory_scope: Що вирішується
+          participatory_structure: Як це вирішується
+          target: Хто бере участь
         stats:
           name: Діяльність
       show:
@@ -266,14 +275,13 @@ uk:
         title: Кроки руху співучасті
     participatory_processes:
       admin:
-        participatory_process_copies:
+        participatory_process_groups:
           form:
-            slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на цей рух. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
+            title: Загальні відомості
         participatory_processes:
           form:
             announcement_help: Текст, який ви введете тут, буде показано учаснику трохи нижче опису руху.
             related_processes: Супутні рухи
-            slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на цей рух. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
             title: Загальні відомості
       content_blocks:
         highlighted_processes:
@@ -283,11 +291,9 @@ uk:
       pages:
         home:
           highlighted_processes:
-            active_processes: Діючі рухи
             active_step: Діючий крок
             more_information: Додаткові відомості
             participate: Взяти участь
-            see_all_processes: Переглянути всі рухи
       participatory_processes:
         filters:
           counters:
@@ -326,7 +332,6 @@ uk:
       show:
         developer_group: Робочий гурт з просування
         end_date: Дата закінчення
-        local_area: Дільниця організації
         participatory_scope: Що вирішується
         participatory_structure: Як це вирішується
         private_space: Це приватний рух
@@ -353,10 +358,9 @@ uk:
           take_part: Взяти участь
         promoted_process:
           active_step: 'Поточний крок:'
-          more_info: Додаткові відомості
           take_part: Взяти участь
       process_header_steps:
         step: '%{current}-й крок з %{total} кроків'
-        view_steps: Переглянути кроки
+        view_steps: Кроки руху
       process_navigation:
         process_menu_item: Рух

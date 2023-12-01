@@ -2,10 +2,6 @@
 es:
   activemodel:
     attributes:
-      agenda:
-        description: Descripción
-        duration: Duración
-        title: Título
       close_meeting:
         attendees_count: Número de asistentes
         attending_organizations: Lista de organizaciones que han participado
@@ -23,8 +19,9 @@ es:
         decidim_scope_id: Ámbito
         decidim_user_group_id: Grupo
         description: Descripción
-        end_time: Hora de finalización
+        end_time: Día y hora de finalización
         id: ID
+        iframe_embed_type: Visualización de la sala de videoconferencia
         location: Ubicación
         location_hints: Detalles de ubicación
         online_meeting_url: URL del encuentro online
@@ -34,19 +31,34 @@ es:
         registration_email_custom_content: Contenido personalizado del email de inscripción
         registration_form_enabled: Formulario de inscripción habilitado
         registration_terms: Términos y condiciones de inscripción
+        registration_type: Tipo de inscripción
         registration_url: URL de inscripción
         registrations_enabled: Inscripciones abiertas
-        show_embedded_iframe: Mostrar iframe incrustado para esta URL
-        start_time: Hora de inicio
+        reserved_slots: Plazas reservadas para este encuentro
+        start_time: Día y hora de inicio
         title: Título
         transparent: Transparente
         type_of_meeting: Tipo
+      meeting_agenda:
+        title: Título
+        visible: Visible
+      meeting_agenda_items:
+        description: Descripción
+        duration: Duración
+        title: Título
+      meeting_registration_invite:
+        email: Correo electrónico
+        name: Nombre
+      validate_registration_code:
+        code: Código
     errors:
       models:
         meeting:
           attributes:
             iframe_embed_type:
               not_embeddable: Esta URL no puede ser incrustada en la página de encuentro o evento en directo
+            online_meeting_url:
+              url_format: Debe ser una URL válida
         meeting_agenda:
           attributes:
             base:
@@ -283,9 +295,6 @@ es:
           edit:
             close: Cerrar
             title: Cerrar encuentro
-        meeting_copies:
-          form:
-            select_a_meeting_type: Por favor, selecciona un tipo de encuentro
         meetings:
           close:
             invalid: Se ha producido un error al cerrar este encuentro
@@ -312,7 +321,7 @@ es:
             select_a_meeting_type: Por favor, selecciona un tipo de encuentro
             select_a_registration_type: Por favor, seleccione un tipo de inscripción
             select_an_iframe_access_level: Por favor, seleccione un nivel de acceso iframe
-            show_embedded_iframe_help: 'Solo unos pocos servicios permiten ser incrustados en encuentros o eventos en vivo desde los siguientes dominios: %{domains}'
+            show_embedded_iframe_help: 'Solo unos pocos servicios permiten ser incrustados en encuentros o eventos en directo desde los siguientes dominios: %{domains}'
           index:
             title: Encuentros
           new:
@@ -391,7 +400,10 @@ es:
         filter_meeting_space_values:
           all: Todos
         filter_scope_values:
-          all: Todos
+          all: Todas
+      calendar:
+        meeting_to_event:
+          read_more: Leer más sobre este encuentro
       calendar_modal:
         calendar_url: URL del calendario
         close_window: Cerrar ventana
@@ -511,7 +523,7 @@ es:
           select_a_meeting_type: Por favor, selecciona un tipo de encuentro
           select_a_registration_type: Por favor, selecciona un tipo de inscripción
           select_an_iframe_access_level: Por favor, selecciona un nivel de acceso iframe
-          show_embedded_iframe_help: 'Solo unos pocos servicios permiten ser incrustados en encuentros o eventos en vivo desde los siguientes dominios: %{domains}'
+          show_embedded_iframe_help: 'Solo unos pocos servicios permiten ser incrustados en encuentros o eventos en directo desde los siguientes dominios: %{domains}'
         index:
           click_here: Ver todos los encuentros
           new_meeting: Nuevo encuentro
@@ -536,8 +548,8 @@ es:
           close_meeting: Cerrar encuentro
           contributions: Número de aportaciones
           date: Fecha
-          edit_close_meeting: Editar informe del encuentro
-          edit_meeting: Editar el encuentro
+          edit_close_meeting: Editar el informe del encuentro
+          edit_meeting: Editar encuentro
           going: Te has inscrito en este encuentro
           join: Unirse al encuentro
           leave: Cancela tu inscripción
@@ -655,7 +667,7 @@ es:
         see_all: Ver todos los encuentros (%{count})
         upcoming_meetings: Próximos encuentros
       upcoming_meeting_for_card:
-        upcoming_meeting: Próxima reunion
+        upcoming_meeting: Próximo encuentro
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Resultados relacionados:'

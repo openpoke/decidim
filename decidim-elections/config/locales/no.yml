@@ -100,7 +100,6 @@
           label: Godkjent
           values:
             'false': Godkjent
-            'true': Ikke godkjent
     components:
       elections:
         actions:
@@ -416,7 +415,6 @@
           active: Aktiv
           all: Alt
           finished: Fullført
-          search: Søk
           upcoming: Kommende
         filters_small_view:
           close_modal: Lukk dialogboks
@@ -462,6 +460,7 @@
               tally:
                 cast: Opptelling ferdig
                 share: Opptellingsandel
+            start_icon: Ikon som indikerer en startknapp for å starte generering av valgnøklene
             title: Opptelling for %{election}
           update:
             error: Valgstatusen ble ikke oppdatert.
@@ -544,16 +543,34 @@
           email_intro: 'Valget %{resource_title} er nå aktivt for %{participatory_space_title}. Du kan se det fra denne siden:'
     votings:
       admin:
-        landing_page:
-          content_blocks:
-            edit:
-              update: Oppdater
         menu:
           votings_submenu:
             monitoring_committee: Kontrollgruppe
+        polling_officers:
+          polling_officers_picker:
+            close: Lukk
+        votings:
+          actions:
+            publish: Publiser
+            unpublish: Avpubliser
+      polling_officer_zone:
+        closures:
+          new:
+            modal_ballots_count_error:
+              close_modal: Lukk
+          sign:
+            close_modal: Lukk
       votings:
+        elections_log:
+          election_log: Valglogg
         login:
           start_voting: Start avstemning
+        show:
+          dates: Datoer
+      votings_m:
+        footer_button_text:
+          view: Vis
+          vote: Stem
   layouts:
     decidim:
       election_votes_header:

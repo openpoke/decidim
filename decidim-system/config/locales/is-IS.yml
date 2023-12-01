@@ -17,6 +17,8 @@ is:
         new:
           create: Búa til
           title: Nýr admin
+        show:
+          edit: Breyta
       default_pages:
         placeholders:
           content: Vinsamlegast bættu við mikilvægu efni á %{page} truflanir síðunni á stjórnborðinu.
@@ -39,14 +41,12 @@ is:
           fields:
             created_at: Búið til á
             name: Nafn
-          name: Skipulag
       organizations:
         edit:
           secondary_hosts_hint: Sláðu inn hvert þeirra í nýjum línu
         index:
           title: Stofnanir
         new:
-          secondary_hosts_hint: Sláðu inn hvert þeirra í nýjum línu
           title: Ný samtök
       shared:
         notices:

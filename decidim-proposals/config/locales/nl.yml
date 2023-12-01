@@ -93,6 +93,10 @@ nl:
     admin:
       filters:
         proposals:
+          state_null:
+            label: Staat
+            values:
+              'true': Nog niet beantwoord
           valuator_role_ids_has:
             label: Toegewezen aan beoordelaar
         search_placeholder:
@@ -268,7 +272,6 @@ nl:
           affected_user:
             email_intro: 'Uw voorstel "%{resource_title}" is afgewezen. U kunt het antwoord op deze pagina lezen:'
             email_outro: U hebt deze melding ontvangen omdat u een auteur bent van "%{resource_title}".
-            email_subject: Uw voorstel is afgewezen
             notification_title: Uw voorstel <a href="%{resource_path}">%{resource_title}</a> is afgewezen.
           follower:
             email_intro: 'Het voorstel "%{resource_title}" is afgewezen. Je kan de reden hier lezen:'
@@ -361,9 +364,6 @@ nl:
           proposal_comments: Reacties
           proposals: Voorstellen
         imports:
-          help:
-            answers: 'Het importdocument moet de volgende kolommen bevatten: id, status (geaccepteerd, evalueren, afgewezen), antwoord/nl (en andere talen ingeschakeld voor de organisatie).'
-            proposals: Het bestand moet kolomnamen title/nl en body/nl bevatten (of een andere locale die jij verkiest, bijv. title/fr en body/fr). Ook scope/id en category/id kolommen worden ondersteund.
           label:
             answers: Importeer antwoorden vanuit een bestand
             proposals: Importeer voorstellen vanuit een bestand
@@ -376,7 +376,7 @@ nl:
               other: voorstellen
           title:
             answers: Importeer antwoorden op voorstellen
-            proposals: Importeer voorstellen
+            proposals: Voorstellen importeren
         models:
           proposal:
             name: Voorstel
@@ -500,7 +500,7 @@ nl:
             votes_ranking: Rangschikking door ondersteuning
           update_category:
             invalid: 'Deze voorstellen hadden al de %{subject_name} categorie: %{proposals}.'
-            select_a_category: Gelieve een categorie te selecteren
+            select_a_category: Selecteer een categorie
             select_a_proposal: Selecteer een voorstel
             success: 'Voorstellen zijn succesvol bijgewerkt naar de %{subject_name} categorie: %{proposals}.'
           update_scope:
@@ -517,6 +517,7 @@ nl:
             no_components: Er zijn geen andere componenten van het voorstel in deze participatieruimte om de voorstellen in te voeren.
             select_component: Selecteer een onderdeel
             select_states: Controleer de status van de voorstellen om te importeren
+            title: Voorstellen importeren
         proposals_merges:
           create:
             invalid: 'Er is een probleem opgetreden bij het samenvoegen van de geselecteerde voorstellen omdat:'
@@ -594,7 +595,6 @@ nl:
             one: "%{count} gezamenlijk ontwerp"
             other: "%{count} gezamenlijke ontwerpen"
         create:
-          error: Er is een probleem opgetreden bij het maken van dit gezamenlijk ontwerp
           success: Gezamenlijk ontwerp met succes gemaakt.
         edit:
           attachment_legend: "(Optioneel) Voeg een bijlage toe"
@@ -709,7 +709,7 @@ nl:
         buttons:
           amend: Wijzigen
           comment: Commentaar
-          comments: Commentaren
+          comments: Reacties
       proposal_votes:
         create:
           error: Er zijn fouten geweest bij het stemmen van het voorstel.
@@ -754,10 +754,10 @@ nl:
           type: Type
           voted: Gestemd
         filters_small_view:
-          close_modal: Dialoogvenster sluiten
+          close_modal: Sluit venster
           filter: Filter
           filter_by: Filteren op
-          unfold: Uitvouwen
+          unfold: Ontvouwen
         index:
           click_here: Bekijk alle voorstellen
           collaborative_drafts_list: Toegang tot samenwerkende concepten
@@ -782,8 +782,6 @@ nl:
           recent: Meest recent
           with_more_authors: Met meer auteurs
         participatory_texts:
-          index:
-            document_index: Documentindex
           view_index:
             see_index: Zie index
         preview:
@@ -860,7 +858,7 @@ nl:
           vote_limit:
             description: U kunt tot %{limit} voorstellen stemmen.
             left: Resterend
-            votes: Stemmen
+            votes: stemmen
         wizard_aside:
           back: Terug
           back_from_step_1: Terug naar voorstellen

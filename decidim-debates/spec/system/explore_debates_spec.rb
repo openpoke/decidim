@@ -36,6 +36,35 @@ describe "Explore debates", type: :system do
       end
     end
 
+    context "when there are no debates" do
+      let(:debates) { nil }
+
+      it "shows an empty page with a message" do
+        visit_component
+
+        within "#debates" do
+          expect(page).to have_content "There are no debates yet"
+        end
+      end
+
+      context "when filtering by scope" do
+        let!(:category2) { create(:category, participatory_space: participatory_space) }
+
+        it "shows an empty page with a message" do
+          visit_component
+
+          within ".with_any_category_check_boxes_tree_filter" do
+            uncheck "All"
+            check category2.name[I18n.locale.to_s]
+          end
+
+          within "#debates" do
+            expect(page).to have_content("There are no debates with this criteria")
+          end
+        end
+      end
+    end
+
     context "when there are a lot of debates" do
       let!(:debates) do
         create_list(:debate, Decidim::Paginable::OPTIONS.first + 5, component: component, skip_injection: true)
@@ -108,6 +137,25 @@ describe "Explore debates", type: :system do
     end
 
     context "when filtering" do
+      context "when filtering by text" do
+        it "updates the current URL" do
+          create(:debate, component: component, title: { en: "Foobar debate" })
+          create(:debate, component: component, title: { en: "Another debate" })
+          visit_component
+
+          within "form.new_filter" do
+            fill_in("filter[search_text_cont]", with: "foobar")
+            click_button "Search"
+          end
+
+          expect(page).not_to have_content("Another debate")
+          expect(page).to have_content("Foobar debate")
+
+          filter_params = CGI.parse(URI.parse(page.current_url).query)
+          expect(filter_params["filter[search_text_cont]"]).to eq(["foobar"])
+        end
+      end
+
       context "when filtering by origin" do
         context "with 'official' origin" do
           let!(:debates) { create_list(:debate, 2, component: component, skip_injection: true) }

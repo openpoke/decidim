@@ -2,10 +2,6 @@
 ru:
   activemodel:
     attributes:
-      agenda:
-        description: Описание
-        duration: Длительность
-        title: Заголовок
       close_meeting:
         attendees_count: Количество участников
         attending_organizations: Список принявших участие организаций
@@ -19,7 +15,6 @@ ru:
         decidim_category_id: Категория
         decidim_scope_id: Охват
         description: Описание
-        end_time: Время окончания
         location: Место
         location_hints: Как добраться
         organizer_id: Организация
@@ -27,7 +22,6 @@ ru:
         registration_form_enabled: Регистрационная форма включена
         registration_terms: Условия регистрации
         registrations_enabled: Регистрация включена
-        start_time: Время начала
         title: Название
         transparent: Прозрачная
     errors:
@@ -154,7 +148,6 @@ ru:
         confirm_destroy: Вы действительно хотите удалить эту встречу?
         destroy: Удалить
         edit: Редактировать
-        new: Новая встреча
         preview: Предпросмотр
         registrations: Регистрации
         title: Действия
@@ -286,10 +279,16 @@ ru:
           value_types:
             organizer_presenter:
               not_found: 'Организатор не найден в базе данных (ID: %{id})'
+      application_helper:
+        filter_scope_values:
+          all: Все
       calendar_modal:
         calendar_url: Ссылка на календарь
         close_window: Закрыть окно
         export_calendar: Экспорт календаря
+      content_blocks:
+        upcoming_meetings:
+          upcoming_meetings: Предстоящие встречи
       directory:
         meetings:
           index:
@@ -309,6 +308,7 @@ ru:
         filters:
           category: Категория
           date: Дата
+          scope: Охват
           search: Поиск
         filters_small_view:
           close_modal: Закрыть окошко
@@ -325,8 +325,9 @@ ru:
           confirm: Подтвердить
         show:
           attendees: Количество участников
+          close_meeting: Закрыть встречу
           contributions: Количество внесенных предложений
-          join: Присоединиться к встрече
+          date: Дата
           meeting_minutes: Протокол встречи
           no_slots_available: Не осталось мест
           organizations: Участвующие организации

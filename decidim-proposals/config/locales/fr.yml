@@ -46,7 +46,7 @@ fr:
         participatory_text:
           attributes:
             document:
-              allowed_file_content_types: 'Type de document invalide. Les formats acceptés sont: %{types}'
+              allowed_file_content_types: 'Type de document invalide. Seuls les fichiers avec les extensions suivantes sont autorisés : %{types}'
         proposal:
           attributes:
             add_documents:
@@ -118,7 +118,7 @@ fr:
           state_null:
             label: État
             values:
-              'true': Non répondu
+              'true': En attente de réponse
           valuator_role_ids_has:
             label: Assigné à l'évaluateur
         search_placeholder:
@@ -141,7 +141,7 @@ fr:
             amendments_wizard_help_text: Texte d'aide de l'assistant
             announcement: Annonce
             attachments_allowed: Autoriser les pièces jointes
-            can_accumulate_supports_beyond_threshold: Peut accumuler des supports au-delà du seuil
+            can_accumulate_supports_beyond_threshold: Peut accumuler des votes au-delà du seuil
             collaborative_drafts_enabled: Brouillons collaboratifs activés
             comments_enabled: Activer le module de commentaire
             comments_max_length: Longueur maximum (en caractères) des commentaires (laisser 0 pour la valeur par défaut)
@@ -198,6 +198,7 @@ fr:
             automatic_hashtags: Hashtags ajoutés à toutes les propositions
             comments_blocked: Bloquer la création de nouveaux commentaires
             creation_enabled: Les participants peuvent créer des propositions
+            creation_enabled_readonly: Ce paramètre est désactivé lorsque vous activez la fonctionnalité Textes participatifs. Pour télécharger des propositions sous forme de texte participatif, cliquez sur le bouton Textes participatifs et suivez les instructions.
             default_sort_order: Tri des propositions par défaut
             default_sort_order_help: L'option par défaut signifie que si les votes sont activés, les propositions seront affichées par ordre aléatoire, et si les votes sont bloqués, alors elles seront triées par nombre de votes.
             default_sort_order_options:
@@ -213,6 +214,7 @@ fr:
             endorsements_enabled: Activer le module de soutiens
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             publish_answers_immediately: Publier immédiatement les réponses à la proposition
+            publish_answers_immediately_help_html: 'N''oubliez pas que si vous répondez à une proposition sans cette option, vous devrez la publier manuellement en les sélectionnant et en utilisant l''action de publication. Pour plus d''informations sur comment cela fonctionne, voir la page de documentation de <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">propositions</a>.'
             suggested_hashtags: Hashtags suggérés aux utilisateurs pour de nouvelles propositions
             votes_blocked: Bloquer les votes
             votes_enabled: Activer le module de vote simple
@@ -302,6 +304,7 @@ fr:
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Nouvelle proposition "%{resource_title}" ajoutée à %{participatory_space_title}
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title} par %{author}
+          notification_title_official: La proposition officielle <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Votre proposition "%{resource_title}" a été rejetée. Vous pouvez lire la réponse sur cette page:'
@@ -324,7 +327,7 @@ fr:
           email_subject: La portée de la proposition %{resource_title} a été mise à jour
           notification_title: La portée de la proposition <a href="%{resource_path}">%{resource_title}</a> a été mise à jour par un administrateur.
         voting_enabled:
-          email_intro: 'Vous pouvez soutenir les propositions de %{participatory_space_title} ! Participez ici :'
+          email_intro: 'Vous pouvez voter pour les propositions de %{participatory_space_title} ! Participez ici :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Vous pouvez désormais voter les propositions dans %{participatory_space_title}
           notification_title: Vous pouvez maintenant commencer <a href="%{resource_path}">à voter pour les propositions</a> de <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -344,14 +347,14 @@ fr:
         proposal_votes:
           conditions:
             - Parcourir et passer du temps à lire les propositions d'autres personnes
-            - Soutenez les propositions que vous aimez ou trouvez intéressantes
-          description: Ce badge est attribué lorsque vous soutenez les propositions d'autres personnes.
-          description_another: Cet utilisateur a soutenu %{score} propositions.
-          description_own: Vous avez soutenu %{score} propositions.
-          name: Soutiens de proposition
-          next_level_in: Soutenir %{score} propositions supplémentaires pour atteindre le niveau supérieur!
+            - Votez pour les propositions que vous aimez ou trouvez intéressantes
+          description: Ce badge est attribué lorsque vous votez pour les propositions d'autres personnes.
+          description_another: Cet utilisateur a voté pour %{score} propositions.
+          description_own: Vous avez voté pour %{score} propositions.
+          name: Votes de proposition
+          next_level_in: Votez pour %{score} proposition(s) supplémentaire(s) pour atteindre le niveau supérieur !
           unearned_another: Cet utilisateur n'a soutenu aucun proposition pour le moment.
-          unearned_own: Vous n'avez soutenu aucune proposition pour le moment.
+          unearned_own: Vous n'avez voté pour aucune proposition pour le moment.
         proposals:
           conditions:
             - Choisissez l'espace de participation qui vous intéresse avec la soumission des propositions activée
@@ -400,8 +403,21 @@ fr:
           proposals: Propositions
         imports:
           help:
-            answers: 'Le document d''import doit contenir les colonnes suivantes : id, state (accepted, evaluating, rejected), answer/fr (et les autres langues activées pour l''organisation le cas échéant).'
-            proposals: Le fichier doit comprendre les colonnes title/fr et body/fr (ou une autre locale de votre choix, par ex. title/de et body/de). Les colonnes scope/id et category/id sont également prises en charge.
+            answers: |
+              Le document d'importation doit contenir les noms de colonnes suivants en cas de fichiers CSV ou Excel ou noms de clés suivants dans le cas de fichiers JSON :
+              <ul>
+              <li><b>id:</b> ID de la proposition à laquelle on répond</li>
+              <li><b>state:</b>"accepted", "evaluating", ou "rejected"</li>
+              <li><b>answer/en:</b> Réponse en langue anglaise. Cela dépendra de la configuration de langue de votre plateforme.</li>
+              </ul>
+            proposals: |
+              Le fichier doit avoir les noms de colonnes suivants en cas de fichiers CSV ou Excel ou noms de clés suivants en cas de fichiers JSON :
+              <ul>
+              <li><b>title/fr:</b> Titre de la proposition. Cela dépendra de la configuration de la langue de votre plateforme.</li>
+              <li><b>body/fr:</b> Corps de la proposition. Cela dépendra de la configuration de la langue de votre plateforme.</li>
+              <li><b>scope/id :</b> ID du périmêtre d'application</li>
+              <li><b>category/id :</b> ID de la catégorie</li>
+              </ul>
           label:
             answers: Importer des réponses depuis un fichier
             proposals: Importer des propositions depuis un fichier
@@ -634,7 +650,7 @@ fr:
             one: "%{count} brouillon collaboratif"
             other: "%{count} brouillons collaboratifs"
         create:
-          error: Il y a eu un problème lors de la création de ces brouillons collaboratifs
+          error: Il y a eu un problème lors de la création de ce brouillon collaboratif.
           success: Brouillon collaboratif créé avec succès.
         edit:
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
@@ -727,7 +743,7 @@ fr:
         collaborative_draft:
           fields:
             authors: Auteurs
-            comments: commentaires
+            comments: Commentaires
             contributions: Contributions
         proposal:
           fields:
@@ -751,10 +767,10 @@ fr:
         buttons:
           amend: Modifier
           comment: Commentaire
-          comments: commentaires
+          comments: Commentaires
       proposal_votes:
         create:
-          error: Des erreurs se sont produites lors du soutien de la proposition.
+          error: Des erreurs se sont produites lors du vote pour la proposition.
       proposals:
         compare:
           continue: Continuer
@@ -800,10 +816,10 @@ fr:
           type: Type
           voted: Ne montrer que les propositions pour lesquelles j'ai voté
         filters_small_view:
-          close_modal: Fermer la fenêtre de dialogue
-          filter: Filtrer
+          close_modal: Fermer la fenêtre
+          filter: Filtre
           filter_by: Filtrer par
-          unfold: Voir plus
+          unfold: Se dérouler
         index:
           click_here: Voir toutes les propositions
           collaborative_drafts_list: Accéder aux brouillons collaboratifs
@@ -830,7 +846,7 @@ fr:
           with_more_authors: Avec le plus d'auteurs
         participatory_texts:
           index:
-            document_index: Index de document
+            document_index: Index du document
           view_index:
             see_index: Voir index
         placeholder:
@@ -900,12 +916,12 @@ fr:
           minimum_votes_per_user:
             description: Vous devez répartir un minimum de %{votes} voix entre différentes propositions.
             given_enough_votes: Vous avez donné suffisamment de soutien.
-            supports_remaining: Vous devez voter %{remaining_votes} proposition supplémentaire pour que vos votes soient pris en compte.
+            supports_remaining: Vous devez voter pour %{remaining_votes} proposition(s) supplémentaire(s) pour que vos votes soient pris en compte.
           proposal_limit:
             description: Vous pouvez créer jusqu'à %{limit} propositions.
           threshold_per_proposal:
             description: Pour être acceptées, les propositions doivent atteindre %{limit} votes
-          title: 'Les soutiens sont soumis aux règles suivantes :'
+          title: 'La participation est soumise aux règles suivantes :'
           vote_limit:
             description: Vous pouvez voter pour %{limit} propositions au maximum.
             left: Restant

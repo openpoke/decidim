@@ -23,12 +23,6 @@ lv:
         slogan: Sauklis
         slug: URL sadaļas adrese (slug)
         title: Nosaukums
-      conference_media_link:
-        weight: Svarīgums
-      conference_partner:
-        weight: Svarīgums
-      conference_registration_type:
-        weight: Svarīgums
       conference_speaker:
         full_name: Vārds, uzvārds
       conference_user_role:
@@ -103,8 +97,6 @@ lv:
         edit:
           title: Atjaunināt konferences administratoru.
           update: Atjaunināt
-        index:
-          conference_admins_title: konferences administratori
         new:
           create: Izveidot
           title: Jauns konferences administrators.
@@ -292,9 +284,6 @@ lv:
         title: Runātāji
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL sadaļas adrese (slug) tiek izmantota, lai ģenerētu URL, kas ved uz šo konferenci. Tajā var būt tikai burti, cipari un defises, un tai jāsākas ar burtu. Piemērs: %{url}'
         conference_invites:
           create:
             error: Uzaicinot dalībnieku pievienoties konferencei, radās problēma.
@@ -337,7 +326,6 @@ lv:
               zero: Ir notikušas %{count} reģistrācijas.
               one: Ir notikusi viena reģistrācija.
               other: Ir notikušas %{count} reģistrācijas.
-            slug_help: 'URL sadaļas adrese (slug) tiek izmantota, lai ģenerētu URL, kas ved uz šo konferenci. Tajā var būt tikai burti, cipari un defises, un tai jāsākas ar burtu. Piemērs: %{url}'
         diplomas:
           edit:
             save: Saglabāt
@@ -345,7 +333,7 @@ lv:
         invite_join_conference_mailer:
           invite:
             decline: Noraidīt ielūgumu '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} jūs aicina piedalīties konferencē %{application}. Jūs varat pieņemt vai noraidīt ielūgumu, izmantojot vienu no turpmāk esošajām saitēm."
+            invited_existing_user_to_join_a_conference: "%{invited_by} jūs aicina piedalīties konferencē %{application}. Jūs varat pieņemt vai noraidīt ielūgumu, izmantojot vienu no turpmāk esošajām saitēm."
             registration: Reģistrācija dalībai '%{conference_title}'
         partners:
           index:
@@ -377,7 +365,6 @@ lv:
       conference_program:
         program_meeting:
           content: Saturs
-          location: Atrašanās vieta
           speakers: Runātāji
           streaming: Straumēšana
         show:
@@ -403,7 +390,6 @@ lv:
           invalid: Pametot šo konferenci, radās problēma.
           success: Jūs esat veiksmīgi pametis konferenci.
       conference_speaker:
-        go_to_twitter: Dodieties uz Twitter
         more_info: sīkāka informācija
         personal_website: Personīgā tīmekļvietne
         show:
@@ -466,7 +452,6 @@ lv:
         home:
           highlighted_conferences:
             active_conferences: Aktīvās konferences
-            see_all_conferences: Skatīt visas konferences
       photo:
         image:
           attributes:

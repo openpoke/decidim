@@ -38,13 +38,13 @@ ja:
         date: 日付
         link: リンク
         title: タイトル
-        weight: 重みづけ
+        weight: 並び順の位置
       conference_partner:
         link: リンク
         logo: ロゴ
         name: 名前
         partner_type: パートナータイプ
-        weight: 重みづけ
+        weight: 並び順の位置
       conference_registration_invite:
         email: Eメールアドレス
         name: 名前
@@ -54,7 +54,7 @@ ja:
         description: 説明
         price: 価格
         title: タイトル
-        weight: 重みづけ
+        weight: 並び順の位置
       conference_speaker:
         affiliation: 所属
         avatar: アバター
@@ -63,7 +63,7 @@ ja:
         personal_url: 個人URL
         position: 位置
         short_bio: 略歴
-        twitter_handle: Twitterアカウント
+        twitter_handle: Xハンドル
         user_id: ユーザー
       conference_user_role:
         email: Eメールアドレス
@@ -310,6 +310,7 @@ ja:
           update: "%{user_name} が %{space_name} カンファレンスのパートナー %{resource_name} を更新しました"
         registration_type:
           create: "%{user_name} が %{resource_name} カンファレンスで %{space_name} の登録タイプを作成しました"
+          delete: "%{user_name} が %{space_name} カンファレンスから %{resource_name} 登録タイプを削除しました"
           publish: "%{user_name} が %{resource_name} カンファレンスで %{space_name} 登録タイプを公開しました"
           unpublish: "%{user_name} が %{resource_name} カンファレンス内の %{space_name} 登録タイプを非公開にしました"
           update: "%{user_name} が %{resource_name} カンファレンスの %{space_name} 登録タイプを更新しました"
@@ -327,7 +328,7 @@ ja:
       admin:
         conference_copies:
           form:
-            slug_help: 'URLスラグは、このカンファレンスをポイントするURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            slug_help: 'URLスラグは、このカンファレンスへのURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         conference_invites:
           create:
             error: 参加者をカンファレンスに招待する際に問題が発生しました。
@@ -368,7 +369,7 @@ ja:
             available_slots_help: 無制限のスロットがある場合は0のままにしてください。
             registrations_count:
               other: '%{count} 件の登録がありました。'
-            slug_help: 'URLスラグは、このカンファレンスをポイントするURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            slug_help: 'URLスラグは、このカンファレンスへのURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         diplomas:
           edit:
             save: 保存
@@ -376,7 +377,8 @@ ja:
         invite_join_conference_mailer:
           invite:
             decline: 招待を拒否する '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} が %{application}であなたをカンファレンスに招待しました。以下のリンクから拒否または承認できます。"
+            invited_existing_user_to_join_a_conference: "%{invited_by} が %{application}であなたをカンファレンスに招待しました。以下のリンクから拒否または承認できます。"
+            invited_user_to_join_a_conference: "%{invited_by} があなたを %{application} のカンファレンスに招待しました。以下のリンクから受付ができます。"
             registration: '''%{conference_title} '' の登録'
         partners:
           index:
@@ -427,14 +429,16 @@ ja:
         create:
           invalid: このカンファレンスに参加するのに問題がありました。
           success: カンファレンスに参加しました。
+          unauthorized: カンファレンスに登録する前にサインインする必要があります。
         decline_invitation:
           invalid: 招待を辞退するのに問題があった。
           success: 招待を拒否しました。
+          unauthorized: 招待を辞退する前にサインインする必要があります。
         destroy:
           invalid: このカンファレンスから退会するのに問題がありました。
           success: カンファレンスから退会しました。
       conference_speaker:
-        go_to_twitter: Twitter に移動
+        go_to_twitter: X に移動
         more_info: 詳細情報
         personal_website: 個人のウェブサイト
         show:

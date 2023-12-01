@@ -15,17 +15,24 @@ cs:
         description: Popis
         file: Soubor
         title: Název přílohy nebo obrázku
+        weight: Pozice v řazení
       attachment_collection:
         description: Popis
         name: Název
+        weight: Pozice v řazení
       category:
         description: Popis
         name: Název
         parent_id: Nadřazená
+        weight: Pozice v řazení
       component:
         name: Název
         published_at: Publikováno v
         weight: Pozice v řazení
+      external_domain:
+        value: Hodnota
+      help_section:
+        content: Obsah
       id: ID
       import:
         user_group_id: Vytvořit importy jako
@@ -86,13 +93,16 @@ cs:
         success_color: Úspěch
         time_zone: Časové pásmo
         tos_version: Verze podmínek služby
-        twitter_handler: Twitter handler
+        twitter_handler: X handler
         user_groups_enabled: Povolit skupiny
         users_registration_mode: Režim registrace uživatelů
         warning_color: Varování
         welcome_notification_body: Tělo uvítacího oznámení
         welcome_notification_subject: Předmět uvítacího oznámení
         youtube_handler: YouTube handler
+      participatory_space_private_user:
+        email: E-mail
+        name: Název
       scope:
         code: Kód
         name: Název
@@ -114,6 +124,7 @@ cs:
         show_in_footer: Zobrazit v zápatí
         slug: URL slug
         title: Titul
+        topic_id: Téma
         weight: Pozice v řazení
       static_page_topic:
         description: Popis
@@ -134,6 +145,14 @@ cs:
               allowed_file_content_types: Neplatný soubor s obrázkem
             official_img_header:
               allowed_file_content_types: Neplatný soubor s obrázkem
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Chybný importní soubor, přečtěte si pozorně pokyny a ujistěte se, že soubor je kódovaný UTF-8.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Chybný importní soubor, přečtěte si pozorně pokyny a ujistěte se, že soubor je kódovaný UTF-8.
       new_import:
         attributes:
           file:
@@ -185,8 +204,8 @@ cs:
           error: Při přijímání správcovských podmínek použití došlo k chybě.
           success: Skvělé! Přijali jste administrátorské podmínky použití.
         actions:
-          accept: Souhlasím s následujícími podmínkami
-          are_you_sure: Oravdu chcete odmítnout podmínky používání správce?
+          accept: Souhlasím s podmínkami
+          are_you_sure: Opravdu chcete odmítnout Podmínky použití pro správce?
           refuse: Odmítnout administrátorské podmínky
           title: Souhlasit s podmínkami používání
         required_review:
@@ -214,7 +233,7 @@ cs:
           error: Při vytváření nové oblasti došlo k chybě.
           success: Oblast byla úspěšně vytvořena.
         destroy:
-          has_spaces: Tato oblast má závislé prostory. Před smazáním se prosím ujistěte, že žádný účatnický prostor neodkazuje na tuto oblast.
+          has_spaces: Tato oblast má závislé prostory. Před smazáním se prosím ujistěte, že žádný účastnický prostor neodkazuje na tuto oblast.
           success: Oblast úspěšně zničena
         edit:
           title: Upravit oblast
@@ -507,9 +526,9 @@ cs:
         example_error: Nelze vytvořit příklad pro daný typ
         new:
           accepted_mime_types:
-            csv: csv
-            json: json
-            xlsx: xlsx
+            csv: CSV
+            json: JSON
+            xlsx: Excel (.xlsx)
           actions:
             back: Zpět
           download_example: Stáhnout příklad
@@ -594,11 +613,11 @@ cs:
           name: Participační prostor soukromého účastníka
         scope:
           fields:
-            name: název
+            name: Název
             scope_type: Typ oblasti působnosti
         scope_type:
           fields:
-            name: název
+            name: Název
             plural: Množné číslo
         share_token:
           fields:
@@ -617,7 +636,7 @@ cs:
             created_at: Datum vzniku
             email: E-mail
             last_sign_in_at: Datum posledního přihlášení
-            name: název
+            name: Název
             role: Role
             roles:
               admin: Správce
@@ -628,7 +647,7 @@ cs:
             actions: Akce
             created_at: Vytvořeno v
             document_number: Číslo dokumentu
-            name: název
+            name: Název
             phone: Telefon
             state: Stav
             users_count: Počet účastníků
@@ -643,7 +662,7 @@ cs:
           nickname: Přezdívka
           reason: Důvod
           reports: Počet zpráv
-          title: Seznam nahlášených uživatelů
+          title: Nahlášení účastníci
         report:
           reasons:
             does_not_belong: Nepatří
@@ -654,7 +673,7 @@ cs:
           unblocked: Neblokováno
       moderations:
         index:
-          title: Moderování
+          title: Nahlášený obsah
         report:
           reasons:
             does_not_belong: Nepatří
@@ -744,15 +763,15 @@ cs:
           error: Při blokování uživatele došlo k chybě
           success: Uživatel byl úspěšně zablokován
         create:
-          success: Uživatel úspěšně oficializován
+          success: Účastník úspěšně oficiálně zaregistrován
         destroy:
-          success: Uživatel úspěšně zbaven oficializace
+          success: Uživatel úspěšně zbaven oficiální registrace
         index:
           actions: Akce
           badge: Odznak
           block: Zablokovat uživatele
           created_at: Vytvořeno na
-          name: název
+          name: Název
           nickname: Přezdívka
           not_officialized: Neověřeno
           officialize: Ověřit
@@ -786,9 +805,9 @@ cs:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
-          rich_text_editor_in_public_views_help: V některých textových oblastech budou účastníci moci vložit některé HTML tagy pomocí textového editoru.
+          rich_text_editor_in_public_views_help: V některých textových polích budou účastníci moci vložit některé HTML tagy pomocí textového editoru.
           social_handlers: Sociální
-          twitter: Twitter
+          twitter: X
           url: URL
           youtube: Youtube
         update:
@@ -802,7 +821,7 @@ cs:
             colors_title: Organizační barvy
             colors_warning_html: Varování! Změna těchto barev může narušit kontrasty přístupnosti. Můžete zkontrolovat kontrast výběru s <a href="%{link}">kontrolou kontrastu WebAIM Contrast Checker</a> nebo jinými podobnými nástroji.
             header_snippets_help: Toto pole použijte k přidání věcí do hlavičky HTML. Nejběžnějším používáním je integrace služeb třetích stran, které vyžadují nějaký extra JavaScript nebo CSS. Můžete také použít k přidání dalších metaznaček do HTML. Všimněte si, že to bude vykresleno pouze na veřejných stránkách, nikoliv v sekci admin.
-          cta_button_path_help: 'Můžete přepsat, kde se na domovské stránce odkazuje tlačítko Výzvy k akci. Použijte zde částečné cesty, ne úplné adresy URL. Přijme písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Tlačítko Výzvy k akci se na domovské stránce zobrazí mezi uvítacím textem a popisem. Příklad: %{url}'
+          cta_button_path_help: 'Místo, kam tlačítko Výzva k akci na domovské stránce vede, lze přepsat. V tomto případě použijte částečnou cestu, nikoliv kompletní URL. Lze použít písmena, číslice, pomlčky a lomítka a musí se začínat písmenem. Tlačítko Výzva k akci je na domovské stránce umístěno mezi uvítacím textem a popisem. Příklad: %{url}'
           cta_button_text_help: Text tlačítka výzvy k akci můžete na domovské stránce přepsat pro každý dostupný jazyk ve vaší organizaci. Pokud není nastaveno, bude použita výchozí hodnota. Tlačítko Výzvy k akci se na domovské stránce zobrazí mezi uvítacím textem a popisem.
           homepage_appearance_title: Upravit vzhled stránky
           homepage_highlighted_content_banner_title: Zvýrazněný obsahový banner
@@ -823,7 +842,7 @@ cs:
           title: Seznam externích povolených domén
       organization_homepage:
         edit:
-          active_content_blocks: Bloky aktivního obsahu
+          active_content_blocks: Aktivní bloky obsahu
           inactive_content_blocks: Neaktivní bloky obsahu
       organization_homepage_content_blocks:
         edit:
@@ -853,7 +872,7 @@ cs:
             explanation: Máte %{count} soukromých účastníků.
             title: Odstranit soukromé účastníky
           explanation: 'Nahrajte soubor CSV. Musí mít dva sloupce s e-mailem v prvním sloupci souboru a jméno v posledním sloupci souboru (e-mail, jméno) uživatelů, které chcete přidat do participačního prostoru, bez záhlaví. Vyhněte se používání neplatných znaků jako `<>?%&^*#@()[]=+:;"{}\|` v uživatelském jméně.'
-          title: Nahrajte Váš CSV soubor
+          title: Nahrát soubor CSV
           upload: Nahrát
       reminders:
         create:
@@ -953,7 +972,7 @@ cs:
           update: Aktualizace
         form:
           none: Žádný
-          slug_help: 'Zde použijte částečné cesty, nikoli úplné adresy URL. Jsou povolena písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Příklad: %{url}'
+          slug_help: 'Použijte v tomto případě částečnou cestu, nikoliv kompletní URL. Lze použít písmena, číslice, pomlčky a lomítka a musí se začínat písmenem. Příklad: %{url}'
         index:
           last_notable_change: Poslední významná změna
         new:
@@ -973,9 +992,12 @@ cs:
         areas: Oblasti
         authorization_workflows: Metody ověření
         dashboard: Ovládací panel
+        edit_external_domains: Seznam externích povolených domén
+        edit_organization_appearance: Upravit vzhled domovské stránky
         impersonatable_users: Spravovatelní účastníci
         impersonations: Správa účastníků
         metrics: Metriky
+        pages: Stránky
         panel: Admin
         participants: Uživatelé
         scope_types: Typy oblastí působnosti
@@ -997,7 +1019,7 @@ cs:
       user_groups:
         index:
           state:
-            pending: čekající
+            pending: Čekající
             rejected: Odmítnuto
             verified: Ověřeno
           verify_via_csv: Ověřit pomocí CSV
@@ -1066,14 +1088,15 @@ cs:
       models:
         moderation:
           fields:
-            created_at: Datum vytvoření
+            created_at: Datum vzniku
+            deleted_resource: Smazaný dokument
             hidden_at: Skryté u
             participatory_space: Participativní prostor
             report_count: Spočítat
             reportable_id: ID
             reportable_type: Typ
             reported_content_url: Oznámená adresa URL obsahu
-            reports: Zprávy
+            reports: Hlášení
             visit_url: Navštívit URL
         report:
           fields:

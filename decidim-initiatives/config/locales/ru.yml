@@ -27,11 +27,6 @@ ru:
         name: Полное имя
   activerecord:
     models:
-      decidim/initiative:
-        one: Почин
-        few: Почина
-        many: Починов
-        other: Починов
       decidim/initiative_comittee:
         one: Рабочая группа
         few: Рабочих группы
@@ -184,7 +179,6 @@ ru:
         fill_data:
           back: Вернуться
           continue: Продолжить
-          initiative_type: Вид почина
           more_information: "(Дополнительные сведения)"
           select_scope: Выбрать охват
         finish:
@@ -222,6 +216,8 @@ ru:
           email_outro: Вы получили это уведомление, потому что вы следите за «%{author_nickname}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: Инициатива поддержана %{author_nickname}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> поддержал почин <a href="%{resource_path}">%{resource_title}</a>.
+      form:
+        delete_attachment: Удалить
       index:
         title: Почины
       initiative_votes:
@@ -236,6 +232,9 @@ ru:
             few: и еще %{count} людей
             many: и еще %{count} человек
             other: и еще %{count} человек
+        committee_members:
+          confirm_revoke: Вы уверены?
+          revoke: Отозвать
         count:
           title:
             one: "%{count} почин"
@@ -293,11 +292,8 @@ ru:
         promotal_committee_help: Помните, что вы должны пригласить не менее %{member_count} человек в рабочую группу по продвижению. Перешлите им следующую ссылку, чтобы пригласить их в рабочую группу по продвижению
         status_change_body_for: 'Состояние почина %{title} изменилось на: %{state}'
         status_change_for: Состояние почина %{title} изменилось
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Действующие почины
-            see_all_initiatives: Просмотреть все инициативы
+      last_activity:
+        new_initiative: Добавить почин
       states:
         accepted: Принятые
         expired: Истекшие
@@ -306,6 +302,7 @@ ru:
   layouts:
     decidim:
       initiative_creation_header:
+        back: Вернуться
         fill_data: Создать
         finish: Закончить
         previous_form: Начать
@@ -314,6 +311,8 @@ ru:
         show_similar_initiatives: Сравнить
       initiative_header:
         initiative_menu_item: Почин
+      initiative_signature_creation_header:
+        back: Вернуться
       initiatives:
         initiative:
           check: Проверьте это

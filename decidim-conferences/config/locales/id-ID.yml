@@ -23,12 +23,6 @@ id:
         slogan: Slogan
         slug: Siput URL
         title: Judul
-      conference_media_link:
-        weight: Berat
-      conference_partner:
-        weight: Berat
-      conference_registration_type:
-        weight: Berat
       conference_speaker:
         full_name: Nama lengkap
       conference_user_role:
@@ -97,8 +91,6 @@ id:
         edit:
           title: Perbarui pengguna konferensi.
           update: Memperbarui
-        index:
-          conference_admins_title: pengguna konferensi
         new:
           create: Membuat
           title: Pengguna konferensi baru.
@@ -285,9 +277,6 @@ id:
         title: Pembicara
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'Siput URL digunakan untuk menghasilkan URL yang mengarah ke konferensi ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
         conference_invites:
           create:
             error: Ada masalah saat mengundang pengguna untuk bergabung dengan konferensi.
@@ -328,7 +317,6 @@ id:
             available_slots_help: Biarkan hingga 0 jika Anda memiliki slot tidak terbatas.
             registrations_count:
               other: Ada %{count} pendaftaran.
-            slug_help: 'Siput URL digunakan untuk menghasilkan URL yang mengarah ke konferensi ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
         diplomas:
           edit:
             save: Menyimpan
@@ -336,7 +324,7 @@ id:
         invite_join_conference_mailer:
           invite:
             decline: Tolak undangan '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} telah mengundang Anda untuk bergabung dalam konferensi di %{application}. Anda dapat menolak atau menerimanya melalui tautan di bawah ini."
+            invited_existing_user_to_join_a_conference: "%{invited_by} telah mengundang Anda untuk bergabung dalam konferensi di %{application}. Anda dapat menolak atau menerimanya melalui tautan di bawah ini."
             registration: Registrasi untuk '%{conference_title}'
         partners:
           index:
@@ -368,7 +356,6 @@ id:
       conference_program:
         program_meeting:
           content: Konten
-          location: Lokasi
           speakers: Pembicara
           streaming: Streaming
         show:
@@ -394,7 +381,6 @@ id:
           invalid: Ada masalah saat meninggalkan konferensi ini.
           success: Anda telah meninggalkan konferensi dengan sukses.
       conference_speaker:
-        go_to_twitter: Pergi ke Twitter
         more_info: Info lebih lanjut
         personal_website: Situs web pribadi
         show:
@@ -457,7 +443,6 @@ id:
         home:
           highlighted_conferences:
             active_conferences: Konferensi aktif
-            see_all_conferences: Lihat semua konferensi
       photo:
         show:
           close_modal: Tutup modal

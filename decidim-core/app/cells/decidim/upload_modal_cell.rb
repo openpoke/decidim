@@ -5,6 +5,7 @@ module Decidim
   class UploadModalCell < Decidim::ViewModel
     include Cell::ViewModel::Partial
     include ERB::Util
+    include Decidim::SanitizeHelper
 
     alias form model
 
@@ -29,7 +30,7 @@ module Decidim
     end
 
     def label
-      options[:label]
+      form.send(:custom_label, attribute, options[:label], { required: required?, for: nil })
     end
 
     def button_label
@@ -72,8 +73,17 @@ module Decidim
       options[:multiple] || false
     end
 
+    # @deprecated Please use `required?` instead.
+    #
+    # NOTE: When this is removed, also the `optional` option should be removed.
     def optional
-      options[:optional]
+      !required?
+    end
+
+    def required?
+      return !options[:optional] if options.has_key?(:optional)
+
+      options[:required] == true
     end
 
     # By default Foundation adds form errors next to input, but since input is in the modal
@@ -81,15 +91,24 @@ module Decidim
     # This should only be necessary when file is required by the form.
     def input_validation_field
       object_name = form.object.present? ? "#{form.object.model_name.param_key}[#{add_attribute}_validation]" : "#{add_attribute}_validation"
-      input = check_box_tag object_name, 1, attachments.present?, class: "hide", label: false, required: !optional
+      input = check_box_tag object_name, 1, attachments.present?, class: "hide", label: false, required: required?
       message = form.send(:abide_error_element, add_attribute) + form.send(:error_and_help_text, add_attribute)
       input + message
     end
 
     def explanation
-      return I18n.t("explanation", scope: options[:help_i18n_scope], attribute: attribute) if options[:help_i18n_scope].present?
+      i18n_options = {
+        scope: options[:help_i18n_scope].presence || "decidim.forms.upload_help",
+        attribute: attribute_translation
+      }
 
-      I18n.t("explanation", scope: "decidim.forms.upload_help", attribute: attribute)
+      I18n.t("explanation", **i18n_options)
+    end
+
+    def attribute_translation
+      I18n.t(attribute, scope: [:activemodel, :attributes, resource_class.constantize.model_name.param_key].join("."))
+    rescue NameError
+      I18n.t(attribute, scope: "activemodel.attributes")
     end
 
     def add_attribute
@@ -133,23 +152,19 @@ module Decidim
     def title_for(attachment)
       return unless has_title?
 
-      translated_attribute(attachment.title)
+      decidim_html_escape(decidim_sanitize(translated_attribute(attachment.title)))
     end
 
     def truncated_file_name_for(attachment, max_length = 31)
-      filename = file_name_for(attachment)
-      return filename if filename.length <= max_length
+      filename = determine_filename(attachment)
+      return decidim_html_escape(filename).html_safe if filename.length <= max_length
 
       name = File.basename(filename, File.extname(filename))
-      name.truncate(max_length, omission: "...#{name.last((max_length / 2) - 3)}#{File.extname(filename)}")
+      decidim_html_escape(name.truncate(max_length, omission: "...#{name.last((max_length / 2) - 3)}#{File.extname(filename)}")).html_safe
     end
 
     def file_name_for(attachment)
-      filename = determine_filename(attachment)
-
-      return "(#{filename})" if has_title?
-
-      filename
+      decidim_html_escape(determine_filename(attachment)).html_safe
     end
 
     def determine_filename(attachment)
@@ -188,6 +203,10 @@ module Decidim
 
     def direct_upload_url
       Rails.application.class.routes.url_helpers.rails_direct_uploads_path
+    end
+
+    def upload_validations_url
+      Decidim::Core::Engine.routes.url_helpers.upload_validations_path
     end
 
     def form_object_class

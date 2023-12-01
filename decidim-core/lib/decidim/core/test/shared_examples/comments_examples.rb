@@ -416,6 +416,42 @@ shared_examples "comments" do
         )
       end
 
+      context "when user can hide replies on a thread" do
+        let(:thread) { comments.first }
+        let(:new_reply_body) { "Hey, I just jumped inside the thread!" }
+        let!(:new_reply) { create(:comment, commentable: thread, root_commentable: commentable, body: new_reply_body) }
+
+        it "displays the hide button" do
+          visit current_path
+          within "#comment_#{thread.id}" do
+            expect(page).to have_content("Hide replies")
+            expect(page).to have_content(new_reply_body)
+          end
+        end
+
+        it "displays the show button" do
+          visit current_path
+          within "#comment_#{thread.id}" do
+            click_button "Hide replies"
+            expect(page).to have_content("Show reply")
+            expect(page).not_to have_content(new_reply_body)
+          end
+        end
+
+        context "when are more replies" do
+          let!(:new_replies) { create_list(:comment, 2, commentable: thread, root_commentable: commentable, body: new_reply_body) }
+
+          it "displays the show button" do
+            visit current_path
+            within "#comment_#{thread.id}" do
+              click_button "Hide replies"
+              expect(page).to have_content("Show 3 replies")
+              expect(page).not_to have_content(new_reply_body)
+            end
+          end
+        end
+      end
+
       context "when inside a thread reply form" do
         let(:thread) { comments.first }
         let(:new_reply_body) { "Hey, I just jumped inside the thread!" }
@@ -761,7 +797,7 @@ shared_examples "comments" do
 
         it "replaces the mention with a link to the user's profile" do
           expect(page).to have_comment_from(user, "A valid user mention: @#{mentioned_user.nickname}", wait: 20)
-          expect(page).to have_link "@#{mentioned_user.nickname}", href: "http://#{mentioned_user.organization.host}/profiles/#{mentioned_user.nickname}"
+          expect(page).to have_link "@#{mentioned_user.nickname}", href: "http://#{mentioned_user.organization.host}:#{Capybara.server_port}/profiles/#{mentioned_user.nickname}"
         end
       end
 
@@ -800,6 +836,30 @@ shared_examples "comments" do
       it "replaces the hashtag with a link to the hashtag search" do
         expect(page).to have_comment_from(user, "A comment with a hashtag #decidim", wait: 20)
         expect(page).to have_link "#decidim", href: "/search?term=%23decidim"
+      end
+    end
+
+    describe "export_serializer" do
+      let(:comment) { comments.first }
+
+      it "returns the serializer for the comment" do
+        expect(comment.class.export_serializer).to eq(Decidim::Comments::CommentSerializer)
+      end
+
+      context "with instance" do
+        subject { comment.class.export_serializer.new(comment).serialize }
+
+        it { is_expected.to have_key(:id) }
+        it { is_expected.to have_key(:created_at) }
+        it { is_expected.to have_key(:body) }
+        it { is_expected.to have_key(:locale) }
+        it { is_expected.to have_key(:author) }
+        it { is_expected.to have_key(:alignment) }
+        it { is_expected.to have_key(:depth) }
+        it { is_expected.to have_key(:user_group) }
+        it { is_expected.to have_key(:commentable_id) }
+        it { is_expected.to have_key(:commentable_type) }
+        it { is_expected.to have_key(:root_commentable_url) }
       end
     end
   end

@@ -21,6 +21,9 @@ fi-pl:
         scope_id: Teema
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Budjetti
+        other: Budjetit
       decidim/budgets/project:
         one: Suunnitelma
         other: Suunnitelmat
@@ -48,6 +51,7 @@ fi-pl:
         import: Tuo ehdotuksia suunnitelmiin
         new: Uusi %{name}
         preview: Esikatsele
+        send_voting_reminders: Lähetä äänestysmuistutukset
         title: Toiminnot
       admin:
         budgets:
@@ -93,8 +97,8 @@ fi-pl:
             cancel: Peruuta
             change_category: Vaihda aihepiiri
             change_scope: Vaihda teema
-            change_selected: Vaihda valittu-tilaa
-            deselect_implementation: Ei toteutukseen
+            change_selected: Muuta tilaa
+            deselect_implementation: Ei valittu toteutukseen
             finished_orders: Valmiit äänet
             pending_orders: Odottavat äänet
             select_for_implementation: Valittu toteutukseen
@@ -119,10 +123,14 @@ fi-pl:
             select_a_scope: Valitse teema
             success: 'Seuraavien projektien teeman päivitys onnistui %{subject_name}: %{projects}.'
           update_selected:
-            invalid: 'Nämä projektit oli jo merkitty toteutettaviksi: %{projects}.'
+            invalid:
+              selected: 'Nämä hankkeet oli jo valittu toteutukseen: %{projects}.'
+              unselected: 'Näitä hankkeita ei oltu valittu toteutukseen: %{projects}.'
             select_a_project: Valitse projekti
-            select_a_selection: Valitse toteutuksen tila
-            success: 'Toteutuksen tilan päivitys onnistui projekteille: %{projects}.'
+            select_a_selection: Valitse tila
+            success:
+              selected: 'Näiden hankkeiden valinta toteutukseen onnistui: %{projects}.'
+              unselected: 'Näiden hankkeiden toteutukseen valinnan poistaminen onnistui: %{projects}.'
         proposals_imports:
           create:
             invalid: Ehdotusten tuomisessa suunnitelmiin esiintyi ongelmia
@@ -231,7 +239,7 @@ fi-pl:
           rules:
             title: Budjetoinnin säännöt
           title: Voit päättää budjetin
-          total_budget: Käytettävissä oleva budjetti
+          total_budget: Kokonaisbudjetti
           total_projects: Käytettävissä olevat äänet
           vote_threshold_percent_rule:
             description: Mille suunnitelmille budjetin rahaa tulisi jakaa? Varaa vähintään %{minimum_budget} suunnitelmille, jotka haluat toteutettavan ja äänestä mieltymystesi mukaisesti määrittääksesi budjetin.
@@ -261,7 +269,7 @@ fi-pl:
           filter_by: Suodata
           unfold: Avaa
         index:
-          view_project: Näytä projekti
+          view_project: Näytä hanke
         order_progress:
           vote: Äänestä
         order_selected_projects:

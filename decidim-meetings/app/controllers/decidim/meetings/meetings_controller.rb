@@ -6,6 +6,7 @@ module Decidim
     class MeetingsController < Decidim::Meetings::ApplicationController
       include FilterResource
       include Filterable
+      include ComponentFilterable
       include Flaggable
       include Withdrawable
       include FormFactory
@@ -109,7 +110,8 @@ module Decidim
       end
 
       def meetings
-        @meetings ||= paginate(search.result.order(start_time: :desc))
+        is_past_meetings = params.dig("filter", "with_any_date")&.include?("past")
+        @meetings ||= paginate(search.result.order(start_time: is_past_meetings ? :desc : :asc))
       end
 
       def registration
@@ -127,20 +129,6 @@ module Decidim
 
       def meeting_form
         form(Decidim::Meetings::MeetingForm)
-      end
-
-      def default_filter_params
-        {
-          search_text_cont: "",
-          with_any_date: %w(upcoming),
-          activity: "all",
-          with_availability: "",
-          with_any_scope: default_filter_scope_params,
-          with_any_category: default_filter_category_params,
-          with_any_state: nil,
-          with_any_origin: default_filter_origin_params,
-          with_any_type: default_filter_type_params
-        }
       end
     end
   end

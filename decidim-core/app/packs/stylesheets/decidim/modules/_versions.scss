@@ -1,55 +1,3 @@
-.versions-diff{
-  .versions-selector{
-    border-bottom: $border;
-    padding-bottom: $global-margin * .5;
-    color: $muted;
-    font-size: rem-calc(19);
-    display: flex;
-    align-items: center;
-
-    //Override foundation
-    .tabs{
-      width: 100%;
-
-      @include flexgap(.5rem);
-    }
-  }
-
-  //Override foundation
-  .tabs,
-  .tabs-content{
-    background: transparent;
-  }
-
-  //Override foundation
-  .tabs-title{
-    > a{
-      padding: 0;
-
-      &:hover{
-        background: transparent;
-      }
-    }
-
-    > a[aria-selected='true']{
-      background: transparent;
-    }
-
-    &:not(.is-active) .button{
-      opacity: .4;
-    }
-  }
-
-  .diff-preview{
-    margin: 1em 0;
-
-    .heading3{
-      font-size: 1.5em;
-      margin-bottom: 1em;
-    }
-  }
-}
-
 .diff-direction-label{
   display: block;
   font-size: 85%;
@@ -65,6 +13,7 @@
     padding: 0;
     width: 100%;
     background: transparent;
+    min-height: 2.7rem;
   }
 
   del,
@@ -79,23 +28,19 @@
     text-decoration: none;
   }
 
-  .del strong,
-  .del strong *{
+  del strong{
     font-weight: normal;
-    background: scale-color($color-removal, $lightness: -10%);
-    display: inline;
+    background: scale-color($color-removal, $lightness: -8%);
   }
 
-  .ins strong,
-  .ins strong *{
+  ins strong{
     font-weight: normal;
-    background: scale-color($color-addition, $lightness: -10%);
-    display: inline;
+    background: scale-color($color-addition, $lightness: -8%);
   }
 
   li{
     position: relative;
-    padding: .1rem 1rem .1rem 1.5rem;
+    padding: .5rem 1rem .5rem 1.5rem;
     margin: 0;
 
     &.ins,
@@ -103,18 +48,18 @@
       .symbol{
         position: absolute;
         left: .5rem;
-        top: .1rem;
+        top: .5rem;
         width: 1rem;
       }
     }
 
     &.ins{
-      background: scale-color($color-addition, $lightness: 30%, $saturation: 30%);
+      background: $color-addition;
       color: scale-color($color-addition, $lightness: -75%, $saturation: -75%);
     }
 
     &.del{
-      background: scale-color($color-removal, $lightness: 30%, $saturation: 30%);
+      background: $color-removal;
       color: scale-color($color-removal, $lightness: -75%, $saturation: -75%);
     }
 

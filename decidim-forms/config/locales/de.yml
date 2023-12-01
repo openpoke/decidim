@@ -122,13 +122,17 @@ de:
           update:
             invalid: Beim Speichern des Fragebogens sind Fehler aufgetreten.
             success: Formular erfolgreich gespeichert.
+      admin_log:
+        questionnaire:
+          update: "%{user_name} hat die Umfrage %{resource_name} aktualisiert"
       errors:
         answer:
           body: Körper kann nicht leer sein
-      files:
-        extension_allowlist: 'Gültige Formate:'
       images:
         dimensions: "%{width} x %{height} px"
+        processors:
+          resize_and_pad: Dieses Bild wird skaliert und an %{dimensions} angepasst.
+          resize_to_fit: Dieses Bild wird auf %{dimensions} skaliert.
       question_types:
         files: Dateien
         long_answer: Lange Antwort
@@ -139,6 +143,8 @@ de:
         single_option: Einzelne Option
         sorting: Sortierung
         title_and_description: Titel und Beschreibung
+      questionnaire_answer_presenter:
+        download_attachment: Anhang herunterladen
       questionnaires:
         answer:
           invalid: Bei der Beantwortung des Fragebogens sind Fehler aufgetreten.
@@ -169,7 +175,7 @@ de:
           tos_agreement: Mit der Teilnahme stimmen Sie den Nutzungsbedingungen zu
       step_navigation:
         show:
-          are_you_sure: Diese Aktion kann nicht rückgängig gemacht werden und Sie können Ihre Antworten nicht bearbeiten. Bist du sicher?
+          are_you_sure: Diese Aktion kann nicht rückgängig gemacht werden und Sie können Ihre Antworten nicht bearbeiten. Sind Sie sicher?
           back: Zurück
           continue: Weiter
           submit: einreichen

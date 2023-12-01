@@ -7,14 +7,15 @@ sv:
         description: Beskrivning
         title: Titel
         total_budget: Total budget
-        weight: Vikt
+        weight: Ordning
       project:
         budget_amount: Belopp
         decidim_category_id: Kategori
         decidim_scope_id: Omfång
         description: Beskrivning
         proposal_ids: Relaterade förslag
-        selected: Valda för genomförande
+        proposals: Förslag
+        selected: Valt för genomförande
         title: Titel
       proposals_import:
         scope_id: Omfång
@@ -90,13 +91,13 @@ sv:
           index:
             actions: Åtgärder
             cancel: Avbryt
-            deselect_implementation: Avmarkera
+            change_category: Ändra kategori
             finished_orders: Avslutade omröstningar
             pending_orders: Pågående omröstningar
-            select_for_implementation: Välj
             selected: Valda
             title: Projekt
             update: Uppdatera
+            update_scope_button: Uppdatera omfång
           new:
             create: Skapa
             title: Nytt projekt
@@ -150,6 +151,8 @@ sv:
         show: Visa projekt
         vote: Rösta
         voted_on: Du har röstat på %{links}
+      last_activity:
+        new_vote_at_html: "<span>Ny omröstning på %{link}</span>"
       limit_announcement:
         cant_vote: Du kan inte rösta på denna budget. <a href="%{landing_path}">Pröva en annan budget</a>.
         limit_reached: Du har aktiva röster i %{links}. För att rösta måste du <a href="%{landing_path}">ta bort din röst och börja om</a>.
@@ -180,10 +183,13 @@ sv:
           title: Bekräfta röst
         budget_excess:
           budget_excess:
+            description: Detta projekt överstiger den maximala budgeten och kan inte tilläggas. Du måste först ta bort ett projekt innan du lägger till ett nytt.
             title: Maximal budget överskriden
           close: Stäng
+          description: Detta projekt överstiger den maximala budgeten och kan inte tilläggas. Du måste först ta bort ett projekt innan du lägger till ett nytt.
           ok: OK
           projects_excess:
+            description: Du har valt för många projekt. Du måste först ta bort ett projekt innan du lägger till ett nytt.
             title: Maximalt antal projekt överskridet
         budget_summary:
           are_you_sure: Vill du dra tillbaka din röst?
@@ -229,10 +235,12 @@ sv:
             not_selected: Inte vald
             selected: Valda
         filters_small_view:
-          close_modal: Stäng fönstret
+          close_modal: Stäng fönster
           filter: Filtrera
           filter_by: Filtrera efter
           unfold: Veckla ut
+        index:
+          view_project: Visa projektet
         order_progress:
           vote: Rösta
         order_selected_projects:
@@ -256,7 +264,6 @@ sv:
           votes:
             one: röst
             other: röster
-          you_voted: Det här är din röst
         project_budget_button:
           add: Lägg till i din röst
           add_descriptive: Lägg till projekt %{resource_name} till din röst

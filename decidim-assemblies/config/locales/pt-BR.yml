@@ -1,10 +1,13 @@
 ---
-pt:
+pt-BR:
   activemodel:
     attributes:
       assemblies_setting:
         enable_organization_chart: Habilitar gráfico de organização
+      assemblies_type:
+        title: Título
       assembly:
+        announcement: Avisos
         area_id: Área
         assembly_type: Tipo de assembleia
         assembly_type_other: Tipo de montagem outro
@@ -23,12 +26,16 @@ pt:
         decidim_scope_id: Âmbito
         description: Descrição
         developer_group: Grupo promotor
+        document: Documento
         domain: Domínio
         duration: Duração
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Imagem inicial
+        import_attachments: Importar anexos
+        import_categories: Importar categorias
+        import_components: Importar componentes
         included_at: Incluído em
         instagram: Instagram
         internal_organisation: Organização interna
@@ -52,7 +59,6 @@ pt:
         subtitle: Subtítulo
         target: Quem participa
         title: Título
-        twitter: Twitter
         weight: Posição do pedido
         youtube: YouTube
       assembly_member:
@@ -62,8 +68,10 @@ pt:
         designation_date: Data de designação
         full_name: Nome completo
         gender: Gênero
+        non_user_avatar: Avatar
         position: Posição
         user_id: Usuário ou grupo
+        weight: Posição do pedido
       assembly_user_role:
         email: E-mail
         name: Nome
@@ -176,6 +184,9 @@ pt:
         update:
           error: Ocorreu um erro ao atualizar um usuário para esta montagem.
           success: Usuário atualizado com sucesso para esta montagem.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Tipo de assembleia
       menu:
         assemblies: Assembleias
         assemblies_settings: Configurações
@@ -267,7 +278,6 @@ pt:
             select_an_area: Selecione uma área
             select_an_assembly_type: Selecione um tipo de assembleia
             select_parent_assembly: Selecione a montagem pai
-            slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
             social_handlers: Social
             title: Informação geral
             visbility: Visibilidade
@@ -279,13 +289,9 @@ pt:
         assemblies_types:
           form:
             title: Título
-        assembly_copies:
-          form:
-            slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembleia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
         assembly_imports:
           form:
             document_legend: Adicionar um documento
-            slug_help: 'Os slugs de URL são usados para gerar os URLs que apontam para este assembleia. Aceita apenas letras, números e traços, e deve começar com uma letra. Exemplo: %{url}'
         assembly_members:
           form:
             existing_user: Usuário existente
@@ -296,8 +302,6 @@ pt:
           index:
             filter:
               all: Todos
-              ceased: Cessou
-              not_ceased: Não cessou
             filter_by: Filtrar por
             search: Procurar
         content_blocks:
@@ -306,6 +310,9 @@ pt:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: Sobre este assembly
       assembly_members:
         index:
           members: Membros
@@ -341,9 +348,9 @@ pt:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Conjuntos ativos
+            active_assemblies: Assembleias ativas
             assemblies_button_title: Link para a página de Assembleias exibindo todos as assembleias
-            see_all_assemblies: Veja todas as assembleias
+            see_all_assemblies: Ver todas as assembleias 
         user_profile:
           member_of:
             member_of: Membro de
@@ -358,12 +365,11 @@ pt:
         developer_group: Grupo promotor
         duration: Duração
         included_at: Incluído em
-        indefinite_duration: Indeterminado
         internal_organisation: Organização interna
         is_transparent:
           'false': opaco
           'true': transparente
-        local_area: Área de organização
+        local_area: Área da organização
         participatory_scope: O que é decidido
         participatory_structure: Como é decidido
         private_space: Esta é uma assembleia privada
@@ -373,7 +379,8 @@ pt:
         related_participatory_processes: Processos participativos relacionados
         scope: Âmbito
         social_networks: Redes sociais
-        target: Quem pode participar
+        social_networks_title: Visite assembleia em
+        target: Quem participa
     assembly_members:
       assembly_member:
         designated_on: Designado em
@@ -383,6 +390,7 @@ pt:
       assemblies:
         create_assembly_member:
           email_intro: Um administrador da assembleia<a href="%{resource_url}">%{resource_name}</a> adicionou você como um de seus membros.
+          email_outro: Você recebeu esta notificação porque foi convidado para um assembleia. Verifique a <a href="%{resource_url}">página de assembleia</a> para contribuir!
           email_subject: Você foi convidado para ser um membro da assembleia %{resource_name}!
           notification_title: Você foi registrado como um membro da Assembleia <a href="%{resource_path}">%{resource_name}</a>. Verifique a <a href="%{resource_path}">página do assembleia</a> para contribuir!
       assembly:

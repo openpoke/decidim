@@ -15,17 +15,24 @@ ja:
         description: 説明
         file: ファイル
         title: 添付ファイルまたは画像名
+        weight: 並び順の位置
       attachment_collection:
         description: 説明
         name: 名前
+        weight: 並び順の位置
       category:
         description: 説明
         name: 名前
         parent_id: 親
+        weight: 並び順の位置
       component:
         name: 名前
         published_at: 公開日時
         weight: 順番の位置
+      external_domain:
+        value: 値
+      help_section:
+        content: 内容
       id: ID
       import:
         user_group_id: インポートを作成
@@ -77,7 +84,7 @@ ja:
         organization_admin_email: 組織管理者メールアドレス
         organization_admin_name: 組織管理者名
         organization_locales: 組織のロケール
-        primary_color: プライマリ（プライマリ）
+        primary_color: プライマリ
         reference_prefix: 参照の接頭辞：
         rich_text_editor_in_public_views: 参加者にリッチテキストエディタを有効にする
         secondary_color: セカンダリ
@@ -86,13 +93,16 @@ ja:
         success_color: 成功
         time_zone: タイムゾーン
         tos_version: 利用規約のバージョン
-        twitter_handler: Twitter ハンドラー
+        twitter_handler: X ハンドラー
         user_groups_enabled: グループを有効にする
         users_registration_mode: ユーザー登録モード
         warning_color: 警告
         welcome_notification_body: ウェルカム通知本文
         welcome_notification_subject: ウェルカム通知の件名
         youtube_handler: YouTube ハンドラー
+      participatory_space_private_user:
+        email: Eメールアドレス
+        name: 名前
       scope:
         code: コード
         name: 名前
@@ -114,6 +124,7 @@ ja:
         show_in_footer: フッターに表示
         slug: URL スラグ
         title: タイトル
+        topic_id: トピック
         weight: 順番の位置
       static_page_topic:
         description: 説明
@@ -134,6 +145,14 @@ ja:
               allowed_file_content_types: 無効な画像ファイル
             official_img_header:
               allowed_file_content_types: 無効な画像ファイル
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: インポートファイルの形式が正しくありません。手順を見直して、ファイルがUTF-8でエンコードされていることを確認してください。
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: インポートファイルの形式が正しくありません。手順を見直して、ファイルがUTF-8でエンコードされていることを確認してください。
       new_import:
         attributes:
           file:
@@ -185,14 +204,14 @@ ja:
           error: 管理者向け利用規約に同意中にエラーが発生しました。
           success: ありがとうございます、管理者向け利用規約に同意しました。
         actions:
-          accept: 次の規約に同意します
+          accept: 利用規約に同意する
           are_you_sure: 管理者向け利用規約を削除してもよろしいですか？
-          refuse: 同意しない
+          refuse: 管理者規約を拒否する
           title: 利用規約に同意する
         required_review:
           alert: '必須：管理者向け利用規約を確認してください'
           callout: 管理者向け利用規約を確認してください。そうでなければ、プラットフォームを管理することはできません。
-          cta: 今すぐレビューしましょう。
+          cta: 今すぐ確認する
         title: 管理者向け利用規約
       area_types:
         create:
@@ -330,7 +349,7 @@ ja:
       conflicts:
         attempts: 試行回数
         'false': 'いいえ'
-        managed_user_name: 管理ユーザー
+        managed_user_name: 管理対象ユーザー
         solved: 解決済み
         title: 確認の競合
         transfer:
@@ -447,7 +466,7 @@ ja:
           filter_by: フィルター
           impersonate: なりすまし
           impersonate_new_managed_user: 新規参加者の管理
-          managed: 管理
+          managed: 管理対象
           name: 名前
           needs_authorization_warning: この組織に対して少なくとも1つの承認が有効になっている必要があります。
           not_managed: 非管理対象
@@ -631,7 +650,7 @@ ja:
           nickname: ニックネーム
           reason: 理由
           reports: レポート数
-          title: 報告されたユーザー一覧
+          title: 報告された参加者
         report:
           reasons:
             does_not_belong: 所属していない
@@ -642,7 +661,7 @@ ja:
           unblocked: 未ブロック
       moderations:
         index:
-          title: モデレーション
+          title: 報告されたコンテンツ
         report:
           reasons:
             does_not_belong: 属していません
@@ -714,8 +733,8 @@ ja:
           select_spaces: ニュースレターをセグメント化するスペースを選択
           select_users: ニュースレターを送信したいユーザーを選択してください
           send_to_all_users: すべてのユーザーに送信
-          send_to_followers: フォロワーに送る
-          send_to_participants: 参加者に送る
+          send_to_followers: フォロワーに送信
+          send_to_participants: 参加者に送信
           title: 配信する宛先を選択
           warning: "<strong>注意:</strong> このニュースレターは、通知設定で <em>ニュースレターを受信したい</em> ユーザーにのみ送信されます。"
         send:
@@ -745,7 +764,7 @@ ja:
           not_officialized: 公式化されていない
           officialize: 公式化
           officialized: 公式化済み
-          reofficialize: Reofficize
+          reofficialize: 再公式化
           reports: 報告
           show_email: メールアドレスを表示
           status: ステータス
@@ -776,7 +795,7 @@ ja:
           instagram: Instagram
           rich_text_editor_in_public_views_help: 一部のテキストエリアでは、参加者はリッチテキストエディタを使用してHTMLタグを挿入することができます。
           social_handlers: ソーシャル
-          twitter: Twitter
+          twitter: X
           url: URL
           youtube: YouTube
         update:
@@ -790,7 +809,7 @@ ja:
             colors_title: 組織の色
             colors_warning_html: '警告: これらの色を変更すると、アクセシビリティのコントラストが壊れる可能性があります。 <a href="%{link}">WebAIM Contrast Checker</a> または他の同様のツールで、選択したコントラストを確認できます。'
             header_snippets_help: HTML head 内にコードを追加するには、このフィールドを使用します。 最も一般的な用途は、追加の JavaScript や CSS を必要とするサードパーティのサービスを統合することです。 また、HTML にメタタグを追加するためにも使用できます。 これは公開ページでのみ表示され、管理用セクションでは表示されないことに注意してください。
-          cta_button_path_help: 'ホームページへのリンクの「通話先アクション」ボタンの場所を上書きすることができます。完全なURLではなく、部分的なパスを使用してください。 文字、数字、ダッシュ、スラッシュを使用でき、文字で始まる必要があります。 Call To Actionボタンは、ウェルカムテキストと説明の間のホームページに表示されます。例: %{url}'
+          cta_button_path_help: 'ホームページにあるCall to Actionボタンのリンク先を上書きすることができます。完全なURLではなく、相対パスを使用してください。 英字、数字、ハイフン、スラッシュを使用でき、英字で始まる必要があります。 Call To Actionボタンは、ホームページ内のウェルカムテキストと説明の間に表示されます。例: %{url}'
           cta_button_text_help: 組織の利用可能な言語ごとにホームページの [Call To Action] ボタンのテキストを上書きできます。 設定されていない場合は、デフォルト値が使用されます。 Call To Actionボタンは、ウェルカムテキストと説明の間のホームページに表示されます。
           homepage_appearance_title: ホームページの外観を編集
           homepage_highlighted_content_banner_title: ハイライトされたコンテンツバナー
@@ -938,7 +957,7 @@ ja:
           update: 更新
         form:
           none: なし
-          slug_help: 'ここでは完全な URL ではなく、部分パスを使用してください。文字、数字、ダッシュ、スラッシュを受け入れ、文字で始める必要があります。例: %{url}'
+          slug_help: 'ここでは完全な URL ではなく、相対パスを使用してください。英字、数字、ハイフン、スラッシュを受け入れ、英字で始まる必要があります。例: %{url}'
         index:
           last_notable_change: 前回の注目すべき変更
         new:
@@ -958,9 +977,12 @@ ja:
         areas: エリア
         authorization_workflows: 確認方法
         dashboard: ダッシュボード
+        edit_external_domains: 外部ドメインのホワイトリスト
+        edit_organization_appearance: ホームページの外観を編集
         impersonatable_users: 管理可能な参加者
         impersonations: 参加者管理
         metrics: 指標
+        pages: ページ
         panel: 管理者
         participants: 参加者
         scope_types: スコープ種別
@@ -1008,9 +1030,9 @@ ja:
       users_statistics:
         users_count:
           admins: 管理者
-          last_day: 過去24時間
-          last_month: 過去1ヶ月間
-          last_week: 過去1週間
+          last_day: 直近24時間
+          last_month: 直近1ヶ月間
+          last_week: 直近1週間
           no_users_count_statistics_yet: まだユーザー数の統計がありません
           participants: 参加者
       view_public_page: 公開ページを表示
@@ -1035,7 +1057,7 @@ ja:
         hide: 非表示
         not_hidden: 表示
         title: アクション
-        unhide: Unhide
+        unhide: 非表示解除
         unreport: 報告解除
       admin:
         reportable:
@@ -1052,13 +1074,14 @@ ja:
         moderation:
           fields:
             created_at: 作成日
+            deleted_resource: 削除されたリソース
             hidden_at: '非表示:'
             participatory_space: 参加型スペース
             report_count: カウント
             reportable_id: ID
             reportable_type: 種別
             reported_content_url: 報告されたコンテンツ URL
-            reports: レポート
+            reports: 報告
             visit_url: URL を参照
         report:
           fields:

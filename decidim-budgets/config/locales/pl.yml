@@ -76,6 +76,7 @@ pl:
             title: Edytuj projekt
             update: Aktualizuj
           index:
+            change_selected: Zmień wybrany status
             finished_orders: Ukończone głosowania
             pending_orders: Głosowania oczekujące
             selected: Wybrano
@@ -86,6 +87,8 @@ pl:
           update:
             invalid: Wystąpił błąd podczas aktualizowania tego projektu
             success: Zaktualizowano projekt
+          update_selected:
+            select_a_selection: Wybierz status implementacji
         proposals_imports:
           create:
             invalid: Wystąpił błąd podczas importowania propozycji do projektów
@@ -113,6 +116,7 @@ pl:
         more_information: Więcej informacji
       budget_list_item:
         voting_finished: Głosowałeś w tym budżecie
+        voting_started: Zaczęto głosowanie w ramach tego budżetu
       budgets_list:
         cancel_order:
           more_than_one: usuń swój głos na %{name} i zacznij od nowa
@@ -135,6 +139,7 @@ pl:
             total_budget: Całkowity budżet
         project:
           fields:
+            scope: Zakres
             title: Tytuł
       order_summary_mailer:
         order_summary:
@@ -151,8 +156,10 @@ pl:
           title: Potwierdź głosowanie
         budget_excess:
           budget_excess:
+            description: Ten projekt przekracza maksymalny budżet i nie można go dodać. Jeśli chcesz, możesz usunąć wybrany projekt, aby móc zagłosować ponownie zgodnie ze swoimi preferencjami.
             title: Przekroczono maksymalny budżet
           close: Zamknij
+          description: Ten projekt przekracza maksymalny budżet i nie można go dodać. Jeśli chcesz, możesz usunąć wybrany projekt, aby móc zagłosować ponownie zgodnie ze swoimi preferencjami.
           ok: ok
           projects_excess:
             title: Maksymalna liczba projektów została przekroczona
@@ -186,6 +193,8 @@ pl:
             few: "%{count} projekty"
             many: "%{count} projektów"
             other: "%{count} projektów"
+        exit_modal:
+          close_modal: Zamknij okno
         filters:
           category: Kategoria
           scope: Zakres
@@ -201,7 +210,7 @@ pl:
           filter_by: Filtruj według
           unfold: Rozwiń
         order_progress:
-          vote: Głosuj
+          vote: Wspieranie
         order_selected_projects:
           remove: Usuń
           selected_projects:
@@ -227,7 +236,6 @@ pl:
             few: głosów
             many: głosów
             other: głosów
-          you_voted: Zagłosowałeś na
         project_budget_button:
           add: Dodaj do swojego głosu
           add_descriptive: Dodaj projekt %{resource_name} do swojego głosu

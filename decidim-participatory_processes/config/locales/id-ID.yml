@@ -89,7 +89,6 @@ id:
           attachments: Lampiran
           categories: Kategori
           components: Komponen
-          info: Info
           moderations: Moderasi
           private_users: Pengguna Pribadi
           process_admins: Memproses pengguna
@@ -130,6 +129,9 @@ id:
           copy: Salinan
           select: Pilih data mana yang ingin Anda gandakan
           title: Proses partisipatif duplikat
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Memperbarui
       participatory_process_groups:
         destroy:
           success: Kelompok proses partisipatif berhasil dihapus.
@@ -176,6 +178,9 @@ id:
         update:
           error: Ada kesalahan saat memperbarui langkah proses partisipatif ini.
           success: Langkah proses partisipatif berhasil diperbarui.
+      participatory_process_types:
+        form:
+          title: Judul
       participatory_process_user_roles:
         create:
           error: Terjadi kesalahan saat menambahkan pengguna untuk proses partisipatif ini.
@@ -265,6 +270,11 @@ id:
         title: Proses partisipatif
     participatory_process_groups:
       content_blocks:
+        metadata:
+          name: Metadata
+          participatory_scope: Apa yang diputuskan
+          participatory_structure: Bagaimana cara memutuskannya
+          target: Yang berpartisipasi
         stats:
           name: Aktivitas
       show:
@@ -278,12 +288,11 @@ id:
         content_blocks:
           highlighted_processes:
             max_results: Jumlah maksimum elemen untuk ditampilkan
-        participatory_process_copies:
+        participatory_process_groups:
           form:
-            slug_help: 'Slug URL digunakan untuk menghasilkan URL yang mengarah ke proses ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
+            title: Informasi Umum
         participatory_process_steps:
           form:
-            cta_path_help: 'Gunakan jalur parsial, bukan URL lengkap di sini. Menerima surat, angka, tanda pisah dan garis miring, dan harus dimulai dengan huruf. Jika tidak disetel, tombol tidak akan ditampilkan. Contoh: %{url}'
             cta_text_help: Jika tidak disetel, tombol tidak akan ditampilkan.
         participatory_processes:
           form:
@@ -296,7 +305,6 @@ id:
             related_processes: Proses terkait
             select_an_area: Pilih suatu Area
             select_process_group: Pilih grup proses
-            slug_help: 'Slug URL digunakan untuk menghasilkan URL yang mengarah ke proses ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
             title: Informasi Umum
             visbility: Visibilitas
       content_blocks:
@@ -309,11 +317,9 @@ id:
       pages:
         home:
           highlighted_processes:
-            active_processes: Proses aktif
             active_step: Langkah aktif
             more_information: Informasi lebih lanjut
             participate: Ikut
-            see_all_processes: Lihat semua proses
       participatory_processes:
         filters:
           counters:
@@ -341,7 +347,6 @@ id:
         area: Daerah
         developer_group: Grup promotor
         end_date: Tanggal akhir
-        local_area: Wilayah Organisasi
         participatory_scope: Apa yang diputuskan
         participatory_structure: Bagaimana cara memutuskannya
         private_space: Ini adalah proses pribadi
@@ -371,8 +376,10 @@ id:
           active_step: 'Langkah saat ini:'
           more_info: Info lebih lanjut
           take_part: Ambil bagian
+        promoted_process_group:
+          more_info: Info lebih lanjut
       process_header_steps:
         step: Langkah %{current} dari %{total}
-        view_steps: Lihat langkah
+        view_steps: Langkah-langkah proses
       process_navigation:
         process_menu_item: Proses

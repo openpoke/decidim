@@ -37,6 +37,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
       port: ENV.fetch("SMTP_PORT", nil) || ENV.fetch("DECIDIM_SMTP_PORT", "25")
     },
     host: ENV.fetch("DECIDIM_HOST", "localhost"),
+    secondary_hosts: ENV.fetch("DECIDIM_HOST", "localhost") == "localhost" ? ["0.0.0.0", "127.0.0.1"] : nil,
     external_domain_whitelist: ["decidim.org", "github.com"],
     description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
       Decidim::Faker::Localized.sentence(word_count: 15)
@@ -125,7 +126,8 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
     tos_agreement: true,
     personal_url: Faker::Internet.url,
     about: Faker::Lorem.paragraph(sentence_count: 2),
-    accepted_tos_version: organization.tos_version,
+    accepted_tos_version: organization.tos_version + 1.hour,
+    password_updated_at: Time.current,
     admin_terms_accepted_at: Time.current
   }
   admin_hash.merge!(password: "decidim123456789", password_confirmation: "decidim123456789") if admin.encrypted_password.blank?
@@ -143,7 +145,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
       tos_agreement: true,
       personal_url: Faker::Internet.url,
       about: Faker::Lorem.paragraph(sentence_count: 2),
-      accepted_tos_version: organization.tos_version
+      accepted_tos_version: organization.tos_version + 1.hour
     )
   end
 
@@ -162,7 +164,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
     tos_agreement: true,
     personal_url: Faker::Internet.url,
     about: Faker::Lorem.paragraph(sentence_count: 2),
-    accepted_tos_version: organization.tos_version
+    accepted_tos_version: organization.tos_version + 1.hour
   )
 
   locked_user.lock_access!

@@ -73,7 +73,8 @@ module Decidim
           area: area,
           signature_type: form.signature_type,
           signature_end_date: signature_end_date,
-          state: "created"
+          state: "created",
+          hashtag: form.hashtag
         )
       end
 
@@ -105,7 +106,7 @@ module Decidim
             participatory_space: initiative
           )
 
-          initialize_pages(component) if component_name == :pages
+          initialize_pages(component) if component_name.in? ["pages", :pages]
         end
       end
 

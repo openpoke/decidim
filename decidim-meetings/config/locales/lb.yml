@@ -2,10 +2,6 @@
 lb:
   activemodel:
     attributes:
-      agenda:
-        description: Beschreibung
-        duration: Dauer
-        title: Titel
       close_meeting:
         attendees_count: Anzahl der Teilnehmer
         attending_organizations: Liste der Organisationen, die teilgenommen haben
@@ -23,7 +19,6 @@ lb:
         decidim_scope_id: Ëmfang
         decidim_user_group_id: Benutzergruppe
         description: Beschreiwung
-        end_time: Endzeit
         id: ID
         location: Standuert
         location_hints: Standorthinweise
@@ -36,7 +31,6 @@ lb:
         registration_terms: Registrierungsbedingungen
         registration_url: Registrierungs-URL
         registrations_enabled: Registrierungen aktiviert
-        start_time: Startzeit
         title: Titel
         transparent: Transparent
         type_of_meeting: Zort
@@ -157,6 +151,8 @@ lb:
         registration_code_validated:
           email_intro: Ihr Registrierungscode "%{registration_code}" für die Sitzung "%{resource_title}" wurde bestätigt.
     meetings:
+      actions:
+        new: Nei Versammlung
       admin:
         agenda:
           edit:
@@ -295,6 +291,9 @@ lb:
           delete: "%{user_name} hat die Sitzung %{resource_name} aus %{space_name} gelöscht"
           export_registrations: "%{user_name} hat die Anmeldungen der Sitzung %{resource_name} in %{space_name} exportiert"
           update: "%{user_name} hat die Sitzung %{resource_name} in %{space_name} aktualisiert"
+      application_helper:
+        filter_scope_values:
+          all: Alle
       calendar_modal:
         calendar_url: Kalender-URL
         close_window: Fenster schließen
@@ -332,6 +331,10 @@ lb:
       meetings:
         calendar_modal:
           add_to_calendar: An de Kalenner androen
+        filters:
+          scope: Ëmfang
+        filters_small_view:
+          filter_by: Filtern nach
         form:
           select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
         index:
@@ -351,12 +354,10 @@ lb:
         show:
           attendees: Teilnehmer zählen
           back: Zurück zur Liste
-          close_meeting: Meeting beenden
+          close_meeting: Sitzung beenden
           contributions: Beiträge zählen
-          date: Datum
-          edit_meeting: Versammlung bearbeiten
+          edit_meeting: Meeting bearbeiten
           going: Sie haben sich für diese Sitzung angemeldet
-          join: Tritt dem Treffen bei
           leave: Registrierung stornieren
           leave_confirmation: Sind Sie sicher dass Sie Ihre Registrierung für diese Sitzung stornieren möchten?
           meeting_minutes: Sitzungsprotokolle
@@ -391,6 +392,9 @@ lb:
             official_meeting: Offizielle Besprechung
             start_time: Ufanksdatum
             title: Titel
+    participatory_spaces:
+      upcoming_meeting_for_card:
+        upcoming_meeting: Kommende Sitzung
     resource_links:
       proposals_from_meeting:
         meeting_proposal: 'Ähnliche Vorschläge:'

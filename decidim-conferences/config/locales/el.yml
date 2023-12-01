@@ -29,7 +29,7 @@ el:
         show_statistics: Εμφάνιση στατιστικών
         sign_date: Ημερομηνία υπογραφής
         signature: Υπογραφή
-        signature_name: όνομα υπογραφής
+        signature_name: Όνομα υπογραφής
         slogan: Σύνθημα
         slug: Slug διεύθυνσης URL
         start_date: Ημερομηνία έναρξης
@@ -38,14 +38,15 @@ el:
         date: Ημερομηνία
         link: Σύνδεσμος
         title: Τίτλος
-        weight: Βάρος
+        weight: Θέση κατάταξης
       conference_partner:
         link: Σύνδεσμος
         logo: Λογότυπο
         name: Όνομα
         partner_type: Τύπος εταίρου
-        weight: Βάρος
+        weight: Θέση κατάταξης
       conference_registration_invite:
+        email: Email
         name: Όνομα
         registration_type_id: Τύπος εγγραφής
         user_id: Χρήστης
@@ -53,14 +54,15 @@ el:
         description: Περιγραφή
         price: Τιμή
         title: Τίτλος
-        weight: Βάρος
+        weight: Θέση κατάταξης
       conference_speaker:
         affiliation: Δεσμός
         avatar: Εικόνα Χρήστη
         conference_meeting_ids: Σχετικές συναντήσεις
         full_name: Ονοματεπώνυμο
+        personal_url: Προσωπικό URL
         position: Θέση
-        twitter_handle: Ψευδώνυμο Twitter
+        short_bio: Σύντομο βιογραφικό
         user_id: Χρήστης
       conference_user_role:
         email: Email
@@ -132,7 +134,7 @@ el:
           title: Ενημέρωση διαχειριστή διάσκεψης.
           update: Ενημέρωση
         index:
-          conference_admins_title: διαχειριστές διάσκεψης
+          conference_admins_title: Διαχειριστές διάσκεψης
         new:
           create: Δημιουργία
           title: Νέος διαχειριστής διάσκεψης.
@@ -310,6 +312,7 @@ el:
           update: "Ο χρήστης %{user_name} ενημέρωσε τον εταίρο %{resource_name} στη διάσκεψη %{space_name}"
         registration_type:
           create: "Ο χρήστης %{user_name} δημιούργησε τον τύπο εγγραφής %{resource_name} στη διάσκεψη %{space_name}"
+          delete: "Ο χρήστης %{user_name} αφαίρεσε τον τύπο εγγραφής %{resource_name} από τη διάσκεψη %{space_name}"
           publish: "Ο χρήστης %{user_name} δημοσίευσε τον τύπο εγγραφής %{resource_name} στη διάσκεψη %{space_name}"
           unpublish: "Ο χρήστης %{user_name} κατάργησε τη δημοσίευση του τύπου εγγραφής %{resource_name} στη διάσκεψη %{space_name}"
           update: "Ο χρήστης %{user_name} ενημέρωσε τον τύπο εγγραφής %{resource_name} στη διάσκεψη %{space_name}"
@@ -325,9 +328,6 @@ el:
         title: Ομιλητές
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'Τα slug διεύθυνσης URL χρησιμοποιούνται για τη δημιουργία διευθύνσεων URL που οδηγούν σε αυτήν τη διάσκεψη. Δέχεται μόνο γράμματα, αριθμούς και παύλες, και πρέπει να ξεκινά με γράμμα. Παράδειγμα: διεύθυνση %{url}'
         conference_invites:
           create:
             error: Υπήρξε ένα πρόβλημα κατά την πρόσκληση του συμμετέχοντα στη διάσκεψη.
@@ -369,7 +369,6 @@ el:
             registrations_count:
               one: Πραγματοποιήθηκε 1 εγγραφή.
               other: Πραγματοποιήθηκαν %{count} εγγραφές.
-            slug_help: 'Τα slug διεύθυνσης URL χρησιμοποιούνται για τη δημιουργία διευθύνσεων URL που οδηγούν σε αυτήν τη διάσκεψη. Δέχεται μόνο γράμματα, αριθμούς και παύλες, και πρέπει να ξεκινά με γράμμα. Παράδειγμα: διεύθυνση %{url}'
         diplomas:
           edit:
             save: Αποθήκευση
@@ -377,7 +376,8 @@ el:
         invite_join_conference_mailer:
           invite:
             decline: Απόρριψη πρόσκλησης «%{conference_title}»
-            invited_you_to_join_a_conference: "Ο χρήστης %{invited_by} σάς προσκάλεσε να συμμετάσχετε σε μια διάσκεψη στην εφαρμογή %{application}. Μπορείτε να την απορρίψετε ή να την αποδεχτείτε μέσω των παρακάτω συνδέσμων."
+            invited_existing_user_to_join_a_conference: "Ο χρήστης %{invited_by} σάς προσκάλεσε να συμμετάσχετε σε μια διάσκεψη στην εφαρμογή %{application}. Μπορείτε να την απορρίψετε ή να την αποδεχτείτε μέσω των παρακάτω συνδέσμων."
+            invited_user_to_join_a_conference: "Ο/Η %{invited_by} σας προσκάλεσε να συμμετάσχετε σε μια διάσκεψη στο %{application}. Μπορείτε να την αποδεχτείτε μέσω του παρακάτω συνδέσμου."
             registration: Εγγραφή για τη διάσκεψη «%{conference_title}»
         partners:
           index:
@@ -428,14 +428,15 @@ el:
         create:
           invalid: Υπήρξε ένα πρόβλημα κατά τη συμμετοχή σε αυτήν τη διάσκεψη.
           success: Συμμετείχατε στη διάσκεψη με επιτυχία.
+          unauthorized: Πρέπει να συνδεθείτε πριν εγγραφείτε στη διάσκεψη.
         decline_invitation:
           invalid: Υπήρξε ένα πρόβλημα κατά την απόρριψη της πρόσκλησης.
           success: Απορρίψατε την πρόσκληση με επιτυχία.
+          unauthorized: Θα πρέπει να συνδεθείτε πριν απορρίψετε την πρόσκληση.
         destroy:
           invalid: Υπήρξε ένα πρόβλημα κατά την αποχώρηση από αυτήν τη διάσκεψη.
           success: Αποχωρήσατε από τη διάσκεψη με επιτυχία.
       conference_speaker:
-        go_to_twitter: Μετάβαση στο Twitter
         more_info: περισσότερες πληροφορίες
         personal_website: Προσωπικός ιστότοπος
         show:
@@ -500,7 +501,6 @@ el:
           highlighted_conferences:
             active_conferences: Ενεργές διασκέψεις
             conferences_button_title: Σύνδεσμος προς τη σελίδα Διασκέψεων που εμφανίζει όλες τις διασκέψεις
-            see_all_conferences: Δείτε όλες τις διασκέψεις
       photo:
         image:
           attributes:

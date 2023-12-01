@@ -8,10 +8,10 @@ pl:
         selected_choices: Wybrane opcje
       question:
         max_choices: Maksymalna liczba opcji do wyboru
-        question_type: Typ
+        question_type: Typ odpowiedzi
       questionnaire_question:
-        mandatory: Obowiązkowy
-        max_characters: Limit znaków (zostaw 0 jeśli nie chcesz ustawiać limitu)
+        mandatory: Odpowiedź wymagana
+        max_characters: Limit znaków (zostaw 0, jeśli nie chcesz ustawiać limitu)
     errors:
       models:
         answer:
@@ -38,7 +38,7 @@ pl:
             show: Pokaż odpowiedzi
           answer_option:
             answer_option: Opcja odpowiedzi
-            free_text: Dowolny tekst
+            free_text: Możliwość wpisania dowolnego tekstu
             remove: Usuń
             statement: Komunikat
           answers:
@@ -80,6 +80,7 @@ pl:
           form:
             add_question: Dodaj pytanie
             add_separator: Dodaj separator
+            add_title_and_description: Dodaj tytuł i opis
             already_answered_warning: Niektórzy użytkownicy już odpowiedzieli na pytania tego formularza, więc nie można modyfikować jego pytań.
             collapse: Zwiń wszystkie pytania
             expand: Rozwiń wszystkie pytania
@@ -109,14 +110,21 @@ pl:
             remove: Usuń
             separator: Separator
             up: W górę
+          title_and_description:
+            collapse: Zwiń
+            description: Opis
+            down: W dół
+            expand: Rozwiń
+            remove: Usuń
+            title: Tytuł
+            title_and_description: Tytuł i opis
+            up: W górę
           update:
             invalid: Podczas zapisywania formularza wystąpił błąd.
             success: Formularz został zapisany.
       errors:
         answer:
           body: Treść nie może być pusta
-      files:
-        extension_allowlist: 'Dozwolone formaty:'
       images:
         dimensions: "%{width} × %{height} px"
       question_types:
@@ -128,6 +136,9 @@ pl:
         short_answer: Krótka odpowiedź
         single_option: Jedna opcja
         sorting: Sortowanie
+        title_and_description: Tytuł i opis
+      questionnaire_answer_presenter:
+        download_attachment: Pobierz załącznik
       questionnaires:
         answer:
           invalid: Podczas wypełniania formularza wystąpiły błędy.

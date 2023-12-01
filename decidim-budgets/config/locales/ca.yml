@@ -21,6 +21,9 @@ ca:
         scope_id: Àmbit
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Pressupost
+        other: Pressupostos
       decidim/budgets/project:
         one: Projecte
         other: Projectes
@@ -41,13 +44,14 @@ ca:
       actions:
         attachment_collections: Carpetes
         attachments: Adjunts
-        confirm_destroy: Estàs segura que vols eliminar aquest projecte?
+        confirm_destroy: Segur que vols eliminar aquest projecte?
         destroy: Esborrar
         edit: Editar
         edit_projects: Gestionar projectes
         import: Importa propostes a projectes
         new: Nou %{name}
         preview: Previsualitzar
+        send_voting_reminders: Enviar recordatoris de votació
         title: Accions
       admin:
         budgets:
@@ -93,11 +97,11 @@ ca:
             cancel: Cancel·lar
             change_category: Canviar categoria
             change_scope: Canviar àmbit
-            change_selected: Canviar la selecció
-            deselect_implementation: Deseleccionar
+            change_selected: Canviar l'estat seleccionat
+            deselect_implementation: No s'ha seleccionat per implementar
             finished_orders: Vots finalitzats
             pending_orders: Vots en procés
-            select_for_implementation: Seleccionar
+            select_for_implementation: Seleccionat per implementar
             selected: Seleccionat
             title: Projectes
             update: Actualitzar
@@ -119,10 +123,14 @@ ca:
             select_a_scope: Si us plau, selecciona un àmbit
             success: 'Els projectes s''han actualitzat correctament a l''àmbit %{subject_name}: %{projects}.'
           update_selected:
-            invalid: 'Aquests projectes ja estaven seleccionats: %{projects}.'
+            invalid:
+              selected: 'Aquests projectes ja han estat seleccionats per a ser implementats: %{projects}.'
+              unselected: 'Aquests projectes han estat deseleccionats de ser implementats: %{projects}.'
             select_a_project: Si us plau, selecciona un projecte
-            select_a_selection: Si us plau, fes una selecció
-            success: 'Selecció de projectes modificada correctament: %{projects}.'
+            select_a_selection: Si us plau, selecciona un estat d'implementació
+            success:
+              selected: 'Aquests projectes s''han seleccionat correctament per a ser implementats: %{projects}.'
+              unselected: 'Aquests projectes s''han deseleccionat correctament per a ser implementats: %{projects}.'
         proposals_imports:
           create:
             invalid: S'ha produït un error en importar les propostes en projectes
@@ -256,7 +264,7 @@ ca:
             not_selected: No seleccionat
             selected: Seleccionat
         filters_small_view:
-          close_modal: Tancar finestra
+          close_modal: Tancar el modal
           filter: Filtra
           filter_by: Filtra per
           unfold: Desplegar

@@ -227,7 +227,7 @@ module Decidim
 
       it { is_expected.to be_truthy }
 
-      context "when user accepted ToS before organization last update" do
+      context "when user accepted TOS before organization last update" do
         let(:organization) { build(:organization, tos_version: Time.current) }
         let(:accepted_tos_version) { 1.year.before }
 
@@ -241,7 +241,7 @@ module Decidim
         end
       end
 
-      context "when user didn't accepted ToS" do
+      context "when user has not accepted the TOS" do
         let(:accepted_tos_version) { nil }
 
         it { is_expected.to be_falsey }
@@ -274,6 +274,75 @@ module Decidim
 
       it "finds the user even with weird casing in email" do
         expect(described_class.find_for_authentication(conditions)).to eq user
+      end
+    end
+
+    describe "#needs_password_update?" do
+      subject { user.needs_password_update? }
+
+      let(:user) { create(:user, :confirmed, organization: organization) }
+      let(:password_expired_time) { Decidim.config.admin_password_expiration_days.days.ago - 1.second }
+
+      context "with participant" do
+        before { user.update!(password_updated_at: password_expired_time) }
+
+        it { is_expected.to be(false) }
+      end
+
+      context "with admin" do
+        let(:user) { create(:user, :confirmed, :admin, organization: organization, password_updated_at: password_updated_at) }
+        let(:password_updated_at) { Time.current }
+
+        context "when the password has been recently updated" do
+          it { is_expected.to be(false) }
+        end
+
+        context "when the password was updated a long time ago" do
+          let(:password_updated_at) { password_expired_time }
+
+          it { is_expected.to be(true) }
+
+          context "when strong passwords are disabled" do
+            before { allow(Decidim.config).to receive(:admin_password_strong).and_return(false) }
+
+            it { is_expected.to be(false) }
+          end
+        end
+
+        context "when password_updated_at is blank" do
+          let(:password_updated_at) { nil }
+
+          it { is_expected.to be(true) }
+
+          context "when the user has identities" do
+            let!(:identity) { create(:identity, user: user) }
+
+            it { is_expected.to be(false) }
+          end
+        end
+      end
+    end
+
+    describe "#moderator?" do
+      context "when an organization has a moderator and a regular user" do
+        let(:organization) { create(:organization, available_locales: [:en]) }
+        let(:participatory_space) { create(:participatory_process, organization: organization) }
+        let(:moderator) do
+          create(
+            :process_moderator,
+            :confirmed,
+            organization: organization,
+            participatory_process: participatory_space
+          )
+        end
+
+        it "returns false when user is not a moderator" do
+          expect(subject.moderator?).to be false
+        end
+
+        it "returns true when user is a moderator" do
+          expect(moderator.moderator?).to be true
+        end
       end
     end
 

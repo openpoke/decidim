@@ -15,9 +15,9 @@ cs:
   activerecord:
     models:
       decidim/sortitions/sortition:
-        one: Sortiment
-        few: Sortitions
-        many: Sortitions
+        one: Losování
+        few: Losování
+        many: Losování
         other: Losování
   decidim:
     components:
@@ -56,9 +56,9 @@ cs:
               target_items: Položky k výběru
               title: Název
             name:
-              one: Třídění
-              few: Třídění
-              many: Sortitions
+              one: Losování
+              few: Losování
+              many: Losování
               other: Losování
         sortitions:
           confirm_destroy:
@@ -91,7 +91,7 @@ cs:
             success: Losování úspěšně aktualizováno
       admin_log:
         sortition:
-          create: "%{user_name} vytvořil %{resource_name} sortit v %{space_name}"
+          create: "%{user_name} vytvořil %{resource_name} losování v %{space_name}"
           delete: "%{user_name} zrušil losování %{resource_name} v %{space_name}"
           update: "%{user_name} aktualizoval losování %{resource_name} v %{space_name}"
       sortitions:
@@ -135,7 +135,7 @@ cs:
           candidate_proposals_info: 'Losování bylo provedeno mezi následujícími návrhy (%{category_label}), s následujícími ID (označené tučně vybrané návrhy)  '
           category: z kategorie %{category}
           dice_result: "(1) Výsledek hodu kostkou"
-          introduction: 'Tato stránka obsahuje výsledky losování %{reference}. Prostřednictvím tohoto losování bylo vybráno %{target_items} počet výsledků náhodně a se stejným rozdělením pravděpodobnosti ze souboru návrhů zobrazených níže. Spolu s výsledky informace zobrazené na této stránce poskytují všechny informace potřebné pro maximalizaci záruk a reprodukci výsledků. Klíčem ke kvalitě tohoto losování je dvojitá náhodnost, kterou poskytuje hod kostkou (ověřený svědky) a přesný čas výběru, který poskytuje vstup pro algoritmus, který generuje náhodný výběr. Časový základ pro losování je tak přesný(sekundy), že není možné ovládat lidi, a tak lze poskytnout dvojitý "nekontrolovatelný" vstup, který zaručí spravedlivý výsledek.  '
+          introduction: "Tato stránka obsahuje výsledky losování %{reference}. Prostřednictvím tohoto losování bylo vybráno %{target_items} výsledků náhodně a se stejným rozdělením pravděpodobnosti ze souboru návrhů zobrazených níže. \n\nSpolu s výsledky informace zobrazené na této stránce poskytují všechny informace potřebné pro maximalizaci záruk a reprodukci výsledků. Klíčem ke kvalitě tohoto losování je dvojitá náhodnost, kterou poskytuje hod kostkou (ověřený svědky) a přesný čas výběru, který poskytuje vstup pro algoritmus, který generuje náhodný výběr. \n\nČasový základ pro losování je tak přesný (na sekundy), že není možné ovládat lidi, a tak lze poskytnout dvojitý \"nekontrolovatelný\" vstup, který zaručí spravedlivý výsledek.  "
           mathematical_result: Výsledek (1) x (2)
           proposals_selected_by_sortition: Návrhy vybrané losováním
           sortition_reproducibility_details: Detaily reprodukovatelnosti losování
@@ -155,9 +155,9 @@ cs:
           deleted: Odstraněný uživatel
         sortitions_count:
           count:
-            one: 1 sortie
-            few: "%{count} sortitions"
-            many: "%{count} sortitions"
+            one: 1 losování
+            few: "%{count} losování"
+            many: "%{count} losování"
             other: "%{count} losování"
     statistics:
       sortitions_count: Losování

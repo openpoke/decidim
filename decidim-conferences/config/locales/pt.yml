@@ -29,7 +29,6 @@ pt:
         show_statistics: Mostrar estatísticas
         sign_date: Data de assinatura
         signature: Assinatura
-        signature_name: nome da assinatura
         slogan: Slogan
         slug: Campo de dados dinâmicos de URL
         start_date: Data de início
@@ -38,13 +37,11 @@ pt:
         date: Datas
         link: Hiperligação
         title: Título
-        weight: Peso
       conference_partner:
         link: Hiperligação
         logo: Logótipo
         name: Nome
         partner_type: Tipo de parceiro
-        weight: Peso
       conference_registration_invite:
         email: E-Mail
         name: Nome
@@ -54,14 +51,12 @@ pt:
         description: Descrição
         price: Preço
         title: Título
-        weight: Peso
       conference_speaker:
         affiliation: Afiliação
         avatar: Avatar
         conference_meeting_ids: Reuniões relacionadas
         full_name: Nome completo
         position: Posição
-        twitter_handle: Identificador do Twitter
         user_id: Utilizador
       conference_user_role:
         email: E-mail
@@ -132,8 +127,6 @@ pt:
         edit:
           title: Atualizar administrador da conferência.
           update: Atualizar
-        index:
-          conference_admins_title: administradores da conferência
         new:
           create: Criar
           title: Novo administrador da conferência.
@@ -326,9 +319,6 @@ pt:
         title: Oradores
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'Os campos de dados dinâmicos de URL são utilizados para gerar os URL que direcionam para esta conferência. Apenas aceitam letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
         conference_invites:
           create:
             error: Ocorreu um problema ao convidar o participante para se juntar à conferência.
@@ -370,7 +360,6 @@ pt:
             registrations_count:
               one: Ocorreu 1 registo.
               other: Ocorreram %{count} registos.
-            slug_help: 'Os campos de dados dinâmicos de URL são utilizados para gerar os URL que direcionam para esta conferência. Apenas aceitam letras, números e traços, devendo começar com uma letra. Exemplo: %{url}'
         diplomas:
           edit:
             save: Guardar
@@ -378,7 +367,7 @@ pt:
         invite_join_conference_mailer:
           invite:
             decline: Recusar convite '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} convido-o para participar numa conferência em %{application}. Pode recusá-lo ou aceitá-lo através dos links abaixo."
+            invited_existing_user_to_join_a_conference: "%{invited_by} convido-o para participar numa conferência em %{application}. Pode recusá-lo ou aceitá-lo através dos links abaixo."
             registration: Registo para '%{conference_title}'
         partners:
           index:
@@ -436,7 +425,6 @@ pt:
           invalid: Ocorreu um problema ao sair desta conferência.
           success: Saiu da conferência corretamente.
       conference_speaker:
-        go_to_twitter: Vá para o Twitter
         more_info: mais informações
         personal_website: Sítio pessoal
         show:
@@ -501,7 +489,6 @@ pt:
           highlighted_conferences:
             active_conferences: Conferências ativas
             conferences_button_title: Ligação para a página de Conferências que mostra todas as conferências
-            see_all_conferences: Ver todas as conferências
       photo:
         image:
           attributes:

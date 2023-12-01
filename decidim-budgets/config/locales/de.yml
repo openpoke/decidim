@@ -7,17 +7,23 @@ de:
         description: Beschreibung
         title: Titel
         total_budget: Gesamtbudget
-        weight: Bestellposition
+        weight: Reihenfolge
       project:
         budget_amount: Höhe des Budgets
         decidim_category_id: Kategorie
         decidim_scope_id: Umfang
         description: Beschreibung
         proposal_ids: Ähnliche Vorschläge
+        proposals: Vorschläge
         selected: Zur Implementierung ausgewählt
         title: Titel
+      proposals_import:
+        scope_id: Themenbereich
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Budget
+        other: Budgets
       decidim/budgets/project:
         one: Projekt
         other: Projekte
@@ -45,6 +51,7 @@ de:
         import: Vorschläge in Projekte importieren
         new: Neue(r/s) %{name}
         preview: Vorschau
+        send_voting_reminders: Abstimmungserinnerungen versenden
         title: Aktionen
       admin:
         budgets:
@@ -73,7 +80,7 @@ de:
           projects: Projekte
         models:
           budget:
-            name: Bugdet
+            name: Budget
           project:
             name: Projekt
         projects:
@@ -90,11 +97,11 @@ de:
             cancel: Abbrechen
             change_category: Kategorie ändern
             change_scope: Themenbereich ändern
-            change_selected: Auswahl ändern
-            deselect_implementation: Auswahl aufheben
+            change_selected: Ausgewählten Status ändern
+            deselect_implementation: Von umzusetzenden Projekten abwählen
             finished_orders: Abgeschlossene Stimmen
             pending_orders: Ausstehende Stimmen
-            select_for_implementation: Auswählen
+            select_for_implementation: Zur Umsetzung auswählen
             selected: Ausgewählt
             title: Projekte
             update: Aktualisieren
@@ -116,17 +123,24 @@ de:
             select_a_scope: Bitte wählen Sie einen Themenbereich
             success: 'Die folgenden Projekte wurden erfolgreich zum Themenbereich %{subject_name} hinzugefügt: %{projects}.'
           update_selected:
-            invalid: 'Diese Projekte wurden bereits zur Umsetzung ausgewählt: %{projects}.'
+            invalid:
+              selected: 'Diese Projekte wurden bereits für die Umsetzung ausgewählt: %{projects}.'
+              unselected: 'Diese Projekte wurden bereits von den umzusetzenden Projekten abgewählt: %{projects}.'
             select_a_project: Bitte wählen Sie ein Projekt
-            select_a_selection: Bitte wähle einen Umsetzungsstatus
-            success: 'Ausgewählte Projekte erfolgreich geändert: %{projects}.'
+            select_a_selection: Bitte wählen Sie einen Umsetzungsstatus
+            success:
+              selected: 'Diese Projekte wurden erfolgreich für die Umsetzung ausgewählt: %{projects}.'
+              unselected: 'Diese Projekte wurden erfolgreich von den umzusetzenden Projekten abgewählt: %{projects}.'
         proposals_imports:
           create:
             invalid: Beim Importieren der Vorschläge in Projekte ist ein Problem aufgetreten
             success: "%{number} Vorschläge wurden erfolgreich in Projekte importiert"
           new:
             create: Importieren Sie Vorschläge in Projekte
+            default_budget: Standardbudget
+            import_all_accepted_proposals: Alle akzeptierten Vorschläge importieren
             no_components: Es gibt keine weiteren Vorschlagskomponenten in diesem partizipativen Raum, um die Vorschläge in Projekte zu importieren.
+            origin_component_id: Ursprungskomponente
             select_component: Bitte wählen Sie eine Komponente aus
             title: Vorschläge importieren
         reminders:
@@ -181,7 +195,7 @@ de:
           fields:
             category: Kategorie
             id: ID
-            scope: Themenbereich
+            scope: Umfang
             title: Titel
       order_summary_mailer:
         order_summary:
@@ -192,7 +206,7 @@ de:
       projects:
         budget_confirm:
           are_you_sure: Wenn du deine Meinung änderst, kannst du deine Stimme nachträglich ändern.
-          cancel: Stornieren
+          cancel: Abbrechen
           confirm: Bestätigen
           description: Dies sind die Projekte, die Sie für das Budget ausgewählt haben.
           title: Bestätigung der Abstimmung
@@ -225,7 +239,7 @@ de:
           rules:
             title: Budgetregeln
           title: Sie entscheiden über das Budget
-          total_budget: Gesamtbudget
+          total_budget: Gesamtbudget; Gesamtetat
           total_projects: Stimmen insgesamt
           vote_threshold_percent_rule:
             description: Welche Projekte sollen finanziert werden? Wählen Sie Projekte im Wert von mindestens %{minimum_budget} aus und stimmen Sie entsprechend Ihren Präferenzen ab, um das Budget festzulegen.
@@ -250,12 +264,14 @@ de:
             not_selected: Nicht ausgewählt
             selected: Ausgewählt
         filters_small_view:
-          close_modal: Modal schließen
+          close_modal: Dialog schließen
           filter: Filter
           filter_by: Filtern nach
           unfold: Aufklappen
+        index:
+          view_project: Projekt anzeigen
         order_progress:
-          vote: Abstimmung
+          vote: Abstimmen
         order_selected_projects:
           remove: Löschen
           selected_projects:
@@ -277,7 +293,7 @@ de:
           votes:
             one: Abstimmung
             other: Abstimmungen
-          you_voted: Du hast für dieses gestimmt
+          you_voted: Sie haben dafür gestimmt
         project_budget_button:
           add: Zur Abstimmung hinzufügen
           add_descriptive: Projekt %{resource_name} Ihrer Stimme hinzufügen
@@ -311,6 +327,7 @@ de:
               errors:
                 budget_voting_rule_only_one: Nur eine Abstimmungsregel kann aktiviert sein
                 budget_voting_rule_required: Es ist eine Abstimmungsregel notwendig
+            geocoding_enabled: Geocoding aktiviert
             landing_page_content: Budgets Landingpage
             more_information_modal: Weitere Informationen
             projects_per_page: Projekte pro Seite

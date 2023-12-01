@@ -72,12 +72,14 @@ tr:
         success_color: başarı
         time_zone: Zaman Dilimi
         tos_version: Hizmet sürümü şartları
-        twitter_handler: Twitter işleyicisi
+        twitter_handler: "X işleyicisi.\nX Çözümleyici\n\n"
         user_groups_enabled: Kullanıcı gruplarını etkinleştir
         warning_color: Uyarı
         welcome_notification_body: Karşılama bildirimi gövdesi
         welcome_notification_subject: Karşılama bildirimi konusu
         youtube_handler: YouTube işleyici
+      participatory_space_private_user:
+        name: Adı
       scope:
         code: kod
         name: isim
@@ -144,12 +146,9 @@ tr:
           error: Yönetici kullanım şartlarını kabul ederken bir hata oluştu.
           success: Harika! Yönetici kullanım şartlarını kabul ettiniz.
         actions:
-          accept: Aşağıdaki şartları kabul ediyorum
-          refuse: Yönetici şartlarını reddedin
           title: Kullanım şartlarını ve koşullarını kabul edin
         required_review:
           alert: 'Gerekli: Yönetici kullanım şartlarımızı inceleyin'
-          cta: Şimdi gözden geçirin.
         title: Yönetici Kullanım Koşulları
       area_types:
         create:
@@ -393,7 +392,7 @@ tr:
         area_types: Alan türleri
         areas: alanlar
         configuration: Yapılandırma
-        dashboard: gösterge paneli
+        dashboard: Pano
         help_sections: Yardım bölümleri
         homepage: Anasayfa
         impersonations: impersonations
@@ -496,15 +495,12 @@ tr:
           name: Adı
           nickname: Rumuz
           reason: Nedeni
-          title: Bildirilen kullanıcılar listesi
         report:
           reasons:
             does_not_belong: Ait değil
             offensive: Saldırgan
             spam: İstenmeyen
       moderations:
-        index:
-          title: Denetimler
         report:
           reasons:
             does_not_belong: Ait değil
@@ -574,9 +570,6 @@ tr:
           select_scopes: Hesaplarındaki 'İlgi Alanlarım' ayarlarında herhangi bir seçilmiş kapsam etkinleştirilmiş bulunan kullanıcılar için filtre.
           select_spaces: Haber bültenini bölmek için alanları seçin
           select_users: Haber bültenini göndermek istediğiniz kullanıcıları seçiniz
-          send_to_all_users: Tüm kullanıcılara gönder
-          send_to_followers: Takipçilere gönder
-          send_to_participants: Katılımcılara gönder
           title: Teslim etmek için alıcıları seçiniz
           warning: "<strong>Dikkat:</strong> Haber bülteni yalnızca bildirim seçeneklerinden <em>Haber bülteni almak istiyorum</em> ayarını etkinleştirmiş kullanıcılara gönderilecektir."
         send:
@@ -635,7 +628,7 @@ tr:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Bazı metin alanlarında, katılımcılar zengin metin düzenleyicisini kullanarak HTML etiketleri ekleyebilecekler.
           social_handlers: Sosyal
-          twitter: Twitter
+          twitter: x
           url: URL
           youtube: YouTube
         update:
@@ -648,7 +641,6 @@ tr:
           colors:
             colors_title: Organizasyon renkleri
             header_snippets_help: HTML kafasına bir şeyler eklemek için bu alanı kullanın. En yaygın kullanım, bazı ekstra JavaScript veya CSS gerektiren üçüncü taraf hizmetleri entegre etmektir. Ayrıca, HTML'ye fazladan meta etiketler eklemek için de kullanabilirsiniz. Bunun yalnızca yönetici bölümünde değil, herkese açık sayfalarda gösterileceğini unutmayın.
-          cta_button_path_help: 'Ana sayfadaki Harekete Geçirici Mesaj düğmesinin nereye bağlanacağı üzerine yazabilirsiniz. Tam URL’leri değil kısmi yolları kullanın. Harfleri, sayıları, kısa çizgileri ve eğik çizgileri kabul eder ve bir harfle başlamalıdır. Karşılama metni ve açıklama arasındaki ana sayfada Eylem Çağrısı düğmesi görüntülenir. Örnek: %{url}'
           cta_button_text_help: Kuruluşunuzdaki mevcut her dil için ana sayfada Harekete Geçirici Mesaj düğmesinin üzerine yazabilirsiniz. Ayarlanmazsa, varsayılan değer kullanılır. Karşılama metni ve açıklama arasındaki ana sayfada Eylem Çağrısı düğmesi görüntülenir.
           homepage_appearance_title: Ana sayfa görünümünü düzenle
           homepage_highlighted_content_banner_title: Yüksek içerikli banner
@@ -656,10 +648,6 @@ tr:
             layout_appearance_title: Düzen görünümünü düzenle
             preview: Önizleme
           omnipresent_banner_appearance_title: Her yerde bulunan banner'ı düzenle
-      organization_homepage:
-        edit:
-          active_content_blocks: Aktif içerik blokları
-          inactive_content_blocks: Etkin olmayan içerik blokları
       organization_homepage_content_blocks:
         edit:
           update: Güncelleştirme
@@ -682,7 +670,7 @@ tr:
           success: CSV dosyası başarıyla yüklendi, katılımcılara bir davetiye e-postası gönderiyoruz. Bu biraz zaman alabilir.
         new:
           explanation: 'CSV dosyanızı yükleyin. Başlıksız, katılımcı alanına eklemek istediğiniz kullanıcıların dosyanın ilk sütununda e-posta ve dosyanın son sütununda (e-posta, ad) bulunan iki sütunu olmalıdır. Kullanıcı adında "<>?% & ^ * # @ () [] = +:;" {} \ | "gibi geçersiz karakterler kullanmaktan kaçının.'
-          title: CSV dosyası yükle
+          title: CSV dosyanızı yükleyin
           upload: Yükle
       resource_permissions:
         edit:
@@ -771,7 +759,6 @@ tr:
           update: Güncelleştirme
         form:
           none: Yok
-          slug_help: 'Burada tam URLleri değil, kısmi yolları kullanınız. Harfleri, sayıları, kesik çizgileri, taksimleri kabul eder ve bir harf ile başlamak zorundadır. Örnek: %{url}'
         index:
           last_notable_change: Son önemli değişiklik
         new:
@@ -791,9 +778,12 @@ tr:
         areas: alanlar
         authorization_workflows: Doğrulama yöntemleri
         dashboard: Pano
+        edit_external_domains: Harici Güvenli Alan
+        edit_organization_appearance: Ana Sayfayı Düzenleme
         impersonatable_users: Yönetilebilir kullanıcılar
         impersonations: Kullanıcılar yönetimi
         metrics: Metrik
+        pages: Sayfalar
         panel: Yönetici
         participants: Kullanıcılar
         scope_types: Kapsam türleri
@@ -894,4 +884,4 @@ tr:
         settings:
           title: Ayarlar
         users:
-          title: Kullanıcılar
+          title: Katılımcılar

@@ -55,9 +55,6 @@ tr:
               title: Başlık boş olamaz
   activerecord:
     models:
-      decidim/initiative:
-        one: İnisiyatif
-        other: Initatives
       decidim/initiative_comittee:
         one: Komitesi
         other: Kurullar
@@ -217,7 +214,6 @@ tr:
             success: Girişim teknik doğrulamaya gönderildi
             update: Güncelle
           form:
-            attachments: Ekli Dosyalar
             settings: Ayarlar
             title: Genel bilgi
           index:
@@ -314,7 +310,6 @@ tr:
           back: Geri
           continue: Devam et
           fill_data_help: "<ul> <li> Girişiminizin içeriğini inceleyin. Başlığınızı anlamak kolay mı? Girişiminizin amacı açık mı? </li> <li> İmza türünü seçmeniz gerekiyor. Yüz yüze, çevrimiçi veya her ikisinin kombinasyonu </li> <li> Girişimin coğrafi kapsamı nedir? </li> </ul>"
-          initiative_type: Girişim türü
           more_information: "(Daha fazla bilgi)"
           select_area: Bir alan seçin
           select_scope: Bir kapsam seçin
@@ -520,11 +515,6 @@ tr:
         status_change_for: Girişim %{title} durumu değişti
       last_activity:
         new_initiative: Yeni girişim
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Aktif girişimler
-            see_all_initiatives: Tüm girişimleri görün
       show:
         badge_name:
           accepted: Yeterince imza
@@ -560,7 +550,7 @@ tr:
         promotal_committee: Tanıtım komitesi
         select_initiative_type: Seç
         show_similar_initiatives: Karşılaştır
-        step: '%{total} adımdan %{current}. adımda'
+        step: Adım %{current} / %{total}
         title: Yeni girişim oluştur
       initiative_header:
         initiative_menu_item: girişim

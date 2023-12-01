@@ -29,7 +29,6 @@ lb:
         show_statistics: Zeige Statistiken
         sign_date: Datum der Unterschrift
         signature: Unterschrift
-        signature_name: Signaturname
         slogan: Slogan
         slug: URL-Block
         start_date: Startdatum
@@ -57,8 +56,6 @@ lb:
         edit:
           title: Aktualisieren Sie den Konferenzbenutzer.
           update: Aktualisieren
-        index:
-          conference_admins_title: Konferenzbenutzer
         new:
           create: Erstellen
           title: Neuer Konferenzbenutzer
@@ -128,6 +125,7 @@ lb:
         conference:
           fields:
             created_at: Hergestellt in
+            promoted: Gefördert
         conference_speaker:
           fields:
             position: Positioun
@@ -246,9 +244,6 @@ lb:
         title: Lautsprecher
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL-Slugs werden verwendet, um URLs zu generieren, die auf diese Konferenz verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         conference_invites:
           create:
             error: Beim Einladen des Benutzers zur Teilnahme an der Konferenz ist ein Problem aufgetreten.
@@ -290,7 +285,6 @@ lb:
             registrations_count:
               one: Es gab 1 Registrierung.
               other: Es gab %{count} Registrierungen.
-            slug_help: 'URL-Slugs werden verwendet, um URLs zu generieren, die auf diese Konferenz verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         diplomas:
           edit:
             save: Speichern
@@ -298,7 +292,7 @@ lb:
         invite_join_conference_mailer:
           invite:
             decline: Einladung '%{conference_title}' ablehnen
-            invited_you_to_join_a_conference: "%{invited_by} hat Sie eingeladen, an einer Konferenz um %{application}teilzunehmen. Sie können dies über die unten stehenden Links ablehnen oder akzeptieren."
+            invited_existing_user_to_join_a_conference: "%{invited_by} hat Sie eingeladen, an einer Konferenz um %{application}teilzunehmen. Sie können dies über die unten stehenden Links ablehnen oder akzeptieren."
             registration: Registrierung für '%{conference_title}'
         partners:
           index:
@@ -330,7 +324,7 @@ lb:
       conference_program:
         program_meeting:
           content: Inhalt
-          location: Ort
+          location: Standort
           speakers: Lautsprecher
           streaming: Streaming
         show:
@@ -356,7 +350,6 @@ lb:
           invalid: Beim Verlassen dieser Konferenz ist ein Problem aufgetreten.
           success: Sie haben die Konferenz erfolgreich verlassen.
       conference_speaker:
-        go_to_twitter: Gehe zu Twitter
         more_info: Mehr Informationen
         personal_website: Persönliche Webseite
         show:
@@ -421,7 +414,6 @@ lb:
           highlighted_conferences:
             active_conferences: Aktive Konferenzen
             conferences_button_title: Link zur Konferenz-Seite die alle Konferenzen anzeigt
-            see_all_conferences: Alle Konferenzen anzeigen
       photo:
         image:
           attributes:

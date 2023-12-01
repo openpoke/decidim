@@ -15,23 +15,34 @@ hu:
         description: Leírás
         file: Fájl
         title: Melléklet vagy kép neve
+        weight: Sorrend rendezése
       attachment_collection:
         description: Leírás
         name: Név
+        weight: Sorrend rendezése
       category:
         description: Leírás
         name: Név
         parent_id: Parent
+        weight: Sorrend rendezése
       component:
         name: Név
         published_at: Publikálva
-        weight: Rendelési pozíció
+        weight: Pozíció sorrend
+      external_domain:
+        value: Érték
+      help_section:
+        content: Tartalom
       id: ID
+      import:
+        user_group_id: Az importáltak létrehozása mint
       newsletter:
         body: Szöveg
         subject: Tárgy
       organization:
+        admin_terms_of_use_body: A szövegtörzse az admin felhasználási feltételeinek
         alert_color: Figyelmeztetés
+        available_authorizations: Elérhető authorizációk
         badges_enabled: Jelvények engedélyezése
         comments_max_length: Kommentek maximális hossza (Hagyjon 0 -t az alapértékhez)
         cta_button_path: Felhívás gomb elérési útvonala
@@ -40,8 +51,12 @@ hu:
         default_locale: Alapértelmezett hely
         description: Leírás
         enable_omnipresent_banner: Mindenhol megjelenő banner mutatása
+        enable_participatory_space_filters: A részvételi terek szűrőjének engedélyezése
         facebook_handler: Facebook handler
         favicon: Ikon
+        force_authentication: Kényszerített authentikáció
+        force_users_to_authenticate_before_access_organization: A felhasználók authentikációjának kényszerítése mielőtt a szervezethez csatlakoznak
+        from: A küldő emailcíme
         github_handler: GitHub handler
         header_snippets: Fejléc részletek
         highlight_alternative_color: Kiemelés, alternatíva
@@ -66,6 +81,9 @@ hu:
         omnipresent_banner_short_description: Rövid leírás
         omnipresent_banner_title: Cím
         omnipresent_banner_url: URL
+        organization_admin_email: A szervezet admin emailje
+        organization_admin_name: A szervezet admin neve
+        organization_locales: A szervezet helyi sajátossága
         primary_color: Elsődleges
         reference_prefix: Hivatkozási előtag
         rich_text_editor_in_public_views: A résztvevők számára a szövegszerkesztő felület engedélyezése
@@ -75,12 +93,15 @@ hu:
         success_color: Siker
         time_zone: Időzóna
         tos_version: Használati feltételek
-        twitter_handler: Twitter handler
         user_groups_enabled: Csoportok engedélyezése
+        users_registration_mode: Felhasználói regisztrációs mód
         warning_color: Figyelmeztetés
         welcome_notification_body: Üdvözlő értesítés szövegtörzse
         welcome_notification_subject: Üdvözlő üzenet tárgya
-        youtube_handler: YouTube handler
+        youtube_handler: YouTube kezelő
+      participatory_space_private_user:
+        email: Email
+        name: Név
       scope:
         code: Kód
         name: Név
@@ -93,28 +114,49 @@ hu:
         organization: Szervezet
         plural: Plurális
       settings:
-        scope_id: Hatáskör
+        scope_id: Hatókör
       static_page:
+        allow_public_access: Hozzáférés engedélyezése authentikáció nélkül
         changed_notably: Észrevehető változások történtek.
         content: Tartalom
         organization: Szervezet
         show_in_footer: Mutassa a láblécben
         slug: URL slug
         title: Cím
+        topic_id: Téma
+        weight: Pozíció sorrend
       static_page_topic:
         description: Leírás
         show_in_footer: Mutassa a láblécben
         title: Cím
+        weight: Pozíció sorrend
       user_group_csv_verification:
         file: Fájl
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Válasszon legalább egy részvételi teret
         organization:
           attributes:
             official_img_footer:
               allowed_file_content_types: Érvénytelen képfájl
             official_img_header:
               allowed_file_content_types: Érvénytelen képfájl
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Hibás importfájl, kérjük, olvassa el figyelmesen az utasításokat, és győződjön meg róla, hogy a fájl UTF-8 kódolású.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Hibás importfájl, kérjük, olvassa el figyelmesen az utasításokat, és győződjön meg róla, hogy a fájl UTF-8 kódolású.
+      new_import:
+        attributes:
+          file:
+            invalid_file: Nem érvényes fájl, ellenőrizze le, hogy helyesen van formázva a fájl
+            invalid_mime_type: Érvénytelen MIME típus
   activerecord:
     attributes:
       decidim/static_page:
@@ -133,18 +175,26 @@ hu:
     admin:
       actions:
         add: Hozzáad
+        attachment:
+          new: Új csatolmány
+        attachment_collection:
+          new: Új melléklet gyűjtemény
         browse: Böngészés
         category:
           new: Új kategória
         export: Összes exportálása
+        export-selection: Kiválasztottak exportálása
         import: Import
         manage: Kezelés
         new: Új %{name}
         newsletter:
           new: Új hírlevél
+        participatory_space_private_user:
+          new: Új privát felhasználó a részvételi térben
         per_page: Oldalanként
         permissions: Engedélyek
         reject: Elutasít
+        share: Megosztás
         user:
           new: Új adminisztrátor
         verify: Ellenőrzés
@@ -153,11 +203,14 @@ hu:
           error: Hiba történt az adminra vonatkozó általános szerződési feltételek elfogadása során.
           success: Nagyszerű! Elfogadtad az admin felhasználási feltételeket.
         actions:
-          refuse: Admin feltételek elutasítása
+          accept: Egyetértek a feltételekkel
+          are_you_sure: Biztosan visszautasítod az adminokra vonatkozó feltételek elfogadását?
+          refuse: Visszautasítja az admin feltételeket
           title: Elfogadom a felhasználási feltételeket
         required_review:
           alert: 'Szükséges: az admin felhasználási feltételek áttekintése'
-          cta: Áttekintés most.
+          callout: Kérünk nézz rá az adminokra vonatkozó felhasználási feltételekre. Máskülönben nem fogod tudni adminisztrálni a platformot.
+          cta: Tekintse át őket most.
         title: Admin felhasználási feltételek
       area_types:
         create:
@@ -179,6 +232,7 @@ hu:
           error: Hiba történt az új terület létrehozásakor.
           success: Terület létrehozása sikeres.
         destroy:
+          has_spaces: Ez a terület mással összefüggő terekkel rendelkezik. Kérjük, győződjön meg róla, hogy egyetlen részvételi tér sem hivatkozik erre a területre, mielőtt törölné.
           success: Terület eltávolítása sikeres
         edit:
           title: Terület szerkesztése
@@ -230,6 +284,12 @@ hu:
       autocomplete:
         no_results: Nincs találat
         search_prompt: Legalább három karakter szükséges a kereséshez
+      block_user:
+        new:
+          action: Fiók blokkolása és igazolás küldése
+          description: Egy felhasználó letiltása használhatatlanná teszi a fiókját. Az indoklásban megadhat bármilyen iránymutatást arra vonatkozóan, hogy miként lehetne feloldani a felhasználó blokkolását.
+          justification: Indoklás
+          title: '%{name} felhasználó blokkolása'
       categories:
         create:
           error: Hiba történt a kategória létrehozása során.
@@ -272,6 +332,7 @@ hu:
           headers:
             actions: Műveletek
             name: Elem neve
+            scope: Komponens hatóköre
             type: Elem típusa
         new:
           add: Elem hozzáadása
@@ -289,11 +350,13 @@ hu:
         'false': 'Nincs'
         managed_user_name: Kezelt felhasználó
         solved: Megoldva
+        title: Ellenőrzési konfliktusok
         transfer:
           email: Email
           error: Hiba történt a jelenlegi résztvevő kezelt résztvevővé transzferálása során.
           name: Név
           reason: Ok
+          success: Az átvitel sikeresen befejezve.
           title: Átvezetés
         'true': 'Igen'
         user_name: Felhasználó
@@ -301,6 +364,12 @@ hu:
         show:
           view_more_logs: További naplók megtekintése
           welcome: Üdvözölünk az Admin Panelben.
+      domain_whitelist:
+        form:
+          domain_too_short: Túl rövid domain
+        update:
+          error: Nem lehetett frissíteni a domain whitelistet
+          success: A domain whiteliste sikeresen frissítésre került
       exports:
         export_as: "%{name} mint %{export_format}"
         formats:
@@ -314,6 +383,7 @@ hu:
           label: Kategória
         filter_label: Szűrés
         invitation_accepted_at_present:
+          label: Meghívás elfogadva
           values:
             'false': 'Nem'
             'true': 'Igen'
@@ -322,6 +392,13 @@ hu:
           values:
             'false': 'Nincs'
             'true': 'Igen'
+        moderated_users:
+          reports_reason_eq:
+            label: A jelentés oka
+            values:
+              does_not_belong: Nem tartozik hozzá
+              offensive: Offenzív
+              spam: Spam
         moderations:
           reportable_type_string_eq:
             label: Típus
@@ -338,6 +415,9 @@ hu:
               'true': Elfogadva
           user_invitation_sent_at_not_null:
             label: Meghívó kiküldve
+            values:
+              'false': Nincs elküldve
+              'true': Elküldve
         private_space_eq:
           label: Magán
           values:
@@ -353,9 +433,24 @@ hu:
         search_label: Keresés
         search_placeholder:
           name_or_nickname_or_email_cont: Keresés %{collection} email, név vagy becenév alapján.
+          report_count_eq: Jelentések száma
+          reported_id_string_or_reported_content_cont: Keresés %{gyűjtemény} a jelentendő azonosító vagy tartalom alapján.
           title_cont: Keresés %{collection} cím alapján.
+          user_name_or_user_email_cont: Keresés itt %{collection} néva vagy emailcím alapján.
+          user_name_or_user_nickname_or_user_email_cont: Keresés %{collection} email, név vagy becenév alapján.
         state_eq:
           label: Állapot
+          values:
+            all: Összes
+            pending: Függőben levő
+            rejected: Elutasított
+            verified: Ellenőrizve
+      forms:
+        file_help:
+          import:
+            explanation: 'Útmutató a fájlhoz:'
+            message_1: A CSV, JSON és Excel (.xls) fájlok támogatottak
+            message_2: CSV fájlok esetén az oszlopok közötti elválasztójelnek pontosvesszőnek (";") kell lennie
       help_sections:
         error: Hiba történt a súgószakaszok frissítésekor
         form:
@@ -367,7 +462,7 @@ hu:
             all: Összes
             managed: Felügyelt
             not_managed: Nem felügyelt
-          filter_by: 'Szűrés ez alapján:'
+          filter_by: Szűrés ez alapján
           impersonate: Megszemélyesítés
           impersonate_new_managed_user: Új résztvevő kezelése
           managed: Felügyelt
@@ -395,14 +490,43 @@ hu:
           impersonate_existing_user: '"%{name}" felhasználó kezelése'
           impersonate_new_managed_user: Új résztvevő kezelése
       imports:
+        and: és
+        data_errors:
+          duplicate_headers:
+            detail: Kérjük, csak egyszer ellenőrizze, hogy a fájl tartalmazza-e a szükséges oszlopokat vagy fejléceket.
+            message:
+              one: Oszlop megkettőzése %{columns}.
+              other: '%{columns} Oszlopok megkettőzése.'
+          invalid_indexes:
+            lines:
+              detail: Ellenőrizze a sorok helyes formázását, valamint hogy érvényes rekordokat tartalmaznak.
+              message:
+                one: Hibát találtam az import fájlban a következő sorban %{indexes}.
+                other: Hibát találtam az import fájlban a következő sorokban %{indexes}.
+            records:
+              detail: Ellenőrizze a sorok helyes formázását, valamint hogy érvényes rekordokat tartalmaznak.
+              message:
+                one: Hibát találtam az importfájlban a rendelésszámmal rendelkező rekordnál %{indexes}.
+                other: Hibát találtam az importfájlban a rendelésszámmal rendelkező rekordoknál %{indexes}.
+          missing_headers:
+            detail: Kérjük, ellenőrizze, hogy a fájl tartalmazza-e a szükséges oszlopokat.
+            message:
+              one: Hiányzó oszlop %{columns}.
+              other: Hiányzó oszlopok száma %{columns}.
+        error: Hiba történt az importálás során
+        example_error: Nem sikerült példát létrehozni a megadott típusra
         new:
           accepted_mime_types:
             csv: csv
             json: json
-            xlsx: xlsx
+            xlsx: Xlsx
           actions:
             back: Vissza
+          download_example: Példa letöltése
+          download_example_format: Példa mint %{name}
+          file_legend: Adjon hozzá egy importált fájlt, amelyet elemezni fog.
           import: Import
+        notice: "%{count} %{resource_name} sikeresen importálva"
       logs:
         logs_list:
           no_logs_yet: Még nincsenek naplók
@@ -423,11 +547,14 @@ hu:
         areas: Területek
         configuration: Beállítások
         dashboard: Vezérlőpult
+        external_domain_whitelist: Engedélyezett külső domainek
         help_sections: Súgó szakaszok
         homepage: Homepage
         impersonations: Felhatalmazások
+        moderation: Globális moderációk
         newsletters: Hírlevelek
         participants: Résztvevők
+        reported_users: Jelentett felhasználók
         scope_types: Hatáskör típusok
         scopes: Hatáskörök
         settings: Beállítások
@@ -460,16 +587,16 @@ hu:
         impersonation_log:
           fields:
             admin: Admin
-            ended_at: 'Befejeződik:'
-            expired_at: 'Lejár:'
+            ended_at: 'Véget ért:'
+            expired_at: 'Lejárt:'
             reason: Indok
-            started_at: 'Kezdődik:'
+            started_at: 'Elkezdődött:'
             user: Résztvevő
         newsletter:
           fields:
-            created_at: 'Létrehozva:'
+            created_at: Létrehozva
             progress: Folyamat
-            sent_at: 'Elküldve:'
+            sent_at: Elküldve
             sent_to: Címzett
             subject: Tárgy
           name: Hírlevél
@@ -483,9 +610,17 @@ hu:
           fields:
             name: Név
             plural: Plurális
+        share_token:
+          fields:
+            created_at: Létrehozva
+            expires_at: Lejárat ekkor
+            last_used_at: Utoljára használva
+            times_used: Ennyiszer volt használva
+            token: Token
+            user: Létrehozta
         static_page:
           fields:
-            created_at: 'Létrehozva:'
+            created_at: Létrehozva
             title: Cím
         user:
           fields:
@@ -501,15 +636,35 @@ hu:
         user_group:
           fields:
             actions: Műveletek
-            created_at: 'Létrehozva:'
+            created_at: Létrehozva
             document_number: Dokumentum száma
             name: Név
             phone: Telefon
             state: Állapot
             users_count: Résztvevők száma
+      moderated_users:
+        index:
+          actions:
+            block: Felhasználó tiltása
+            title: Műveletek
+            unblock: Felhasználó feloldása
+            unreport: Jelentés visszavonása
+          name: Név
+          nickname: Felhasználónév
+          reason: Indok
+          reports: Jelentések száma
+          title: Jelentett résztvevők
+        report:
+          reasons:
+            does_not_belong: Nem tartozik hozzá
+            offensive: Offenzív
+            spam: Spam
+        tabs:
+          blocked: Letiltva
+          unblocked: Nincs letiltva
       moderations:
         index:
-          title: Moderálás
+          title: Jelentett tartalom
         report:
           reasons:
             does_not_belong: Nem tartozik hozzá
@@ -541,6 +696,7 @@ hu:
       newsletters:
         create:
           error: Hiba történt a hírlevél létrehozása során.
+          success: A hírlevél létrehozása sikeres. Kérjük, ellenőrizze a hírlevelet, mielőtt elküldené.
         deliver:
           error: Hiba történt a hírlevél kézbesítése során.
           success: Hírlevél kézbesítése sikeres.
@@ -552,7 +708,7 @@ hu:
           title: Hírlevél szerkesztése
         index:
           all: mind
-          all_users: 'Minden felhasználó'
+          all_users: 'Minden felhasználó '
           and: 'és '
           confirm_delete: Biztosan törölni szeretnéd ezt a hírlevelet?
           followers: 'követők '
@@ -579,9 +735,6 @@ hu:
           select_scopes: Kiszűri azokat a felhasználókat, akik a fiók "Saját érdeklődési kör" beállításainál aktiválták a kiválasztott hatókört.
           select_spaces: A hírlevél szegmentálására szolgáló terek kiválasztása
           select_users: Válassza ki, hogy mely felhasználók számára szeretné elküldeni a hírlevelet
-          send_to_all_users: Küldés mindenkinek
-          send_to_followers: Küldés a követőknek
-          send_to_participants: Küldés a résztvevőknek
           title: Címzettek kiválasztása
           warning: "<strong>Figyelem:</strong> Ez a hírlevél csak azoknak a felhasználóknak kerül elküldésre, akik bejelölték a <em>Hírleveleket szeretnék kapni</em> opciót az értesítési beállításokban."
         send:
@@ -605,7 +758,7 @@ hu:
           actions: Műveletek
           badge: Jelvény
           block: Felhasználó tiltása
-          created_at: 'Létrehozva:'
+          created_at: Létrehozva
           name: Név
           nickname: Becenév
           not_officialized: Nem hivatalos
@@ -618,17 +771,20 @@ hu:
           unblock: Felhasználó tiltásának törlése
           unofficialize: Hivatalossá tétel visszavonása
         new:
-          badge: A hitelesítés jelvénye
+          badge: A hivatalosság jelvénye
           officialize: Hivatalossá tétel
           title: '"%{name}" hivatalossá tétele'
         show_email_modal:
           close_modal: Ablak bezárás
+          description: Ha közvetlenül kapcsolatba kell lépnie egy résztvevővel, akkor kattintson a Megjelenítés gombra az e-mail cím megtekintéséhez. Ez a művelet naplózásra kerül.
           email_address: E-mail cím
           full_name: Teljes név
           hidden: rejtett
           show: Megjelenítés
+          title: A résztvevő e-mail címének megjelenítése
         unblock:
           error: Hiba történt a résztvevő feloldásának feloldása során
+          success: Sikeresen feloldotta a résztvevő tiltását
       organization:
         edit:
           title: Szervezet szerkesztése
@@ -639,7 +795,7 @@ hu:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Néhány szövegmezőbe, a résztvevők HTML tag-eket tudnak majd beilleszteni a szövegszerkesztő segítségével.
           social_handlers: Social
-          twitter: Twitter
+          url: URL
           youtube: Youtube
         update:
           error: Hiba történt a szervezet frissítése során.
@@ -650,8 +806,8 @@ hu:
         form:
           colors:
             colors_title: Szervezet színei
+            colors_warning_html: Óvatosan! A színek megváltoztatása megtörik az akadálymentes kontrasztokat. Ellenőrizheti a kontrasztot a <a href="%{link}">WebAIM Contrast Checker</a> vagy más, hasonló eszköz segítségével.
             header_snippets_help: Ebben a mezőben a HTML fejlécet szerkesztheted. Ennek akkor van jelentősége, ha olyan külső szolgáltatásokat szeretnél intergálni, amelyekhez JavaScript vagy CSS szükséges. Sőt, metacímkéket is hozzáadhatsz. Ez az adminban nem, csak a nyilvános oldalakon jelenik majd meg.
-          cta_button_path_help: 'Felülírhatod, hogy a kezdőlap felhívás gombja link hova mutasson. Részleges, ne pedig teljes URL címeket használj. A megengedett karakterek: betű, szám, kötőjel vagy perjel, de mindig betűvel kell kezdődnie. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon. Példa: %{url}'
           cta_button_text_help: A felhívás gomb szövegét a szervezethez tartozó minden egyes nyelven megjelenítheted. Amennyiben nincs beállítva, akkor akkor az alapértelmezett értéket fogja használni. A felhívás gomb az üdvözlő szöveg és a leírás között jelenik meg a nyitólapon.
           homepage_appearance_title: Honlap megjelenésének szerkesztése
           homepage_highlighted_content_banner_title: Kiemelt banner
@@ -659,10 +815,17 @@ hu:
             layout_appearance_title: Elrendezés szerkesztése
             preview: Előnézet
           omnipresent_banner_appearance_title: Mindenhol megjelenő banner szerkesztése
-      organization_homepage:
+      organization_external_domain_whitelist:
         edit:
-          active_content_blocks: Aktív tartalomblokkok
-          inactive_content_blocks: Inaktív tartalomblokkok
+          update: Frissítés
+        external_domain:
+          down: Le
+          external_domain: Külső domain
+          remove: Eltávolítás
+          up: Fel
+        form:
+          add: Hozzáadás a kivétellistához
+          title: Külső domain kivétellista
       organization_homepage_content_blocks:
         edit:
           update: Frissítés
@@ -674,20 +837,31 @@ hu:
           error: Hiba történt egy privát felhasználó törlésével a részvételi helyen.
           success: Privát felhasználó részvételi helyhez való hozzáférése törölve.
         index:
+          import_via_csv: Importálás CSV -ből
           title: Részvételi tér privát felhasználója
         new:
           create: Létrehozás
           title: Új részvételi tér privát felhasználója.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Hiba történt a CSV fájl olvasásakor.
+          invalid: Hiba történt a CSV fájl olvasásában.
           success: A CSV-fájl sikeresen feltöltődött, meghívó e-mailt küldünk a résztvevőknek. Ez eltarthat egy ideig.
         new:
-          title: Töltse fel a CSV fájlod
+          destroy:
+            button: Az összes privát felhasználó törlése
+            confirm: Biztosan törölni akarja az összes privát felhasználót? Ezt a műveletet nem tudja visszavonni, vagy a felhasználókat később helyreállítani.
+            empty: Nincsenek privát résztvevők.
+            explanation: '%{count} privát résztvevője van.'
+            title: Privát felhasználók törlése
+          explanation: 'Töltse fel a CSV-fájlt. Két oszlopnak kell lennie, e-mail címmel a fájl első oszlopában, és a fájl utolsó oszlopában (e-mail, név) azoknak a felhasználóknak az adataival, akiket fel akar venni a részvételi térbe, fejlécek nélkül. Kerülje az olyan érvénytelen karakterek használatát, mint a `<>?%&^*#@()[]=+:;"{}\|` a felhasználónévben.'
+          title: Töltse fel a CSV fájlját
           upload: Feltölt
       reminders:
         create:
           error: Hiba történt a bejegyzés létrehozása során.
+          success:
+            one: "%{count} felhasználó emlékeztetőt fog kapni."
+            other: "%{count} felhasználó emlékeztetőt fog kapni."
         new:
           submit: Küldés
       resource_permissions:
@@ -696,6 +870,10 @@ hu:
           title: Engedélyek szerkesztése
         update:
           success: Engedélyek frissítése sikeres.
+      resources:
+        index:
+          headers:
+            scope: Hatókör
       scope_types:
         create:
           error: Hiba történt az új hatáskör-típus létrehozásakor.
@@ -727,6 +905,18 @@ hu:
         update:
           error: Hiba történt a hatáskör frissítése során.
           success: Hatáskör frissítése sikeres
+      share_tokens:
+        actions:
+          confirm_destroy: Biztosan törlöd ezt a tokent?
+          destroy: Törlés
+          share: Megosztás
+        destroy:
+          error: Hiba történt a token törlése során.
+          success: A token törlése sikeres.
+        share_tokens:
+          empty: Nincs aktív token
+          help: Ezeket a tokeneket arra használják, hogy ezt a nem közzétett erőforrást nyilvánosan megosszák valamely felhasználóval. Az erőforrás közzétételekor elrejtésre kerülnek. Kattintson a token megosztási ikonjára a megosztható URL-cím megtekintéséhez.
+          title: Tokenek megosztása
       shared:
         gallery:
           add_images: Képek hozzáadása
@@ -762,7 +952,6 @@ hu:
           update: Frissítés
         form:
           none: Egyik sem
-          slug_help: 'Használjon részleges útvonalakat, nem teljes URL-eket itt. Betűk, számok, vonalak és per-jelek fogadhatók el, és betűvel kell kezdődniük. Példa: %{url}'
         index:
           last_notable_change: Utolsó jelentős változás
         new:
@@ -785,6 +974,7 @@ hu:
         impersonatable_users: Kezelhető résztvevők
         impersonations: Résztvevők kezelése
         metrics: Mérőszámok
+        panel: Admin
         participants: Résztvevők
         scope_types: Hatáskör típusok
         scopes: Hatáskörök
@@ -837,7 +1027,17 @@ hu:
           no_users_count_statistics_yet: Nincsenek felhasználói statisztikák még
           participants: Résztvevők
       view_public_page: Nyilvános oldal megtekintése
+    forms:
+      errors:
+        impersonate_user:
+          reason: Indokolnod kell a nem menedzselt résztvevők kezelését
     metrics:
+      blocked_users:
+        object: letiltott felhasználók
+        title: Letiltott felhasználók
+      reported_users:
+        object: jelentett felhasználók
+        title: Jelentett felhasználók
       user_reports:
         object: felhasználói jelentések
         title: Felhasználói jelentések
@@ -865,9 +1065,11 @@ hu:
         moderation:
           fields:
             created_at: Létrehozás dátuma
-            hidden_at: 'Rejtett itt:'
+            deleted_resource: Törölt erőforrás
+            hidden_at: Rejtve
             participatory_space: Részvételi tér
             report_count: Számol
+            reportable_id: ID
             reportable_type: Típus
             reported_content_url: Jelentett URL tartalom
             reports: Jelentések
@@ -890,4 +1092,4 @@ hu:
         settings:
           title: Beállítások
         users:
-          title: résztvevők
+          title: Résztvevők

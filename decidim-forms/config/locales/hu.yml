@@ -67,8 +67,6 @@ hu:
       errors:
         answer:
           body: A szövegtörzs nem lehet üres
-      files:
-        extension_allowlist: 'Elfogadott formátumok:'
       images:
         processors:
           resize_to_fit: 'A kép át lesz méretezve erre a méretre: %{dimensions}.'
@@ -102,6 +100,7 @@ hu:
       step_navigation:
         show:
           are_you_sure: Ez a művelet nem vonható vissza, és nem tudod majd szerkeszteni a válaszokat. Biztos vagy ebben?
+          continue: Folytatás
           submit: Beküldés
       user_answers_serializer:
         created_at: Válaszolt

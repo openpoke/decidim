@@ -131,7 +131,6 @@ is:
         fill_data:
           back: Til baka
           continue: Haltu áfram
-          initiative_type: Frumgerðartegund
           more_information: "(Meiri upplýsingar)"
           select_scope: Veldu umfang
         finish:
@@ -172,6 +171,9 @@ is:
       initiatives:
         author:
           deleted: Eytt
+        committee_members:
+          confirm_revoke: Ertu viss?
+          revoke: Afturkalla
         count:
           title:
             one: "%{count} frumkvæði"
@@ -207,11 +209,8 @@ is:
           check_initiative_details: Þú getur séð frumkvæði upplýsingar
           here: hér
         more_information: Hér hefur þú meiri upplýsingar um frumkvöðlunarferlið.
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Virk verkefni
-            see_all_initiatives: Sjá öll verkefni
+      last_activity:
+        new_initiative: Nýtt frumkvæði
       states:
         accepted: Samþykkt
         expired: Útrunnið
@@ -220,6 +219,7 @@ is:
   layouts:
     decidim:
       initiative_creation_header:
+        back: Til baka
         fill_data: Búa til
         finish: Klára
         previous_form: Byrja
@@ -227,6 +227,8 @@ is:
         show_similar_initiatives: Bera saman
       initiative_header:
         initiative_menu_item: Frumkvæði
+      initiative_signature_creation_header:
+        back: Til baka
       initiatives:
         initiative:
           check: Skoðaðu þetta

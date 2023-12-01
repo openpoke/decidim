@@ -15,17 +15,24 @@ el:
         description: Περιγραφή
         file: Αρχείο
         title: Συνημμένο ή όνομα εικόνας
+        weight: Θέση κατάταξης
       attachment_collection:
         description: Περιγραφή
         name: Όνομα
+        weight: Θέση κατάταξης
       category:
         description: Περιγραφή
         name: Όνομα
         parent_id: Γονικό στοιχείο
+        weight: Θέση κατάταξης
       component:
         name: Όνομα
         published_at: Δημοσιεύτηκε στις
         weight: Θέση κατάταξης
+      external_domain:
+        value: Τιμή
+      help_section:
+        content: Περιεχόμενο
       id: Αναγνωριστικό
       import:
         user_group_id: Δημιουργία εισαγωγών ως
@@ -86,13 +93,15 @@ el:
         success_color: Επιτυχία
         time_zone: Ζώνη ώρας
         tos_version: Έκδοση όρων χρήσης υπηρεσίας
-        twitter_handler: Πρόγραμμα χειρισμού Twitter
         user_groups_enabled: Ενεργοποίηση ομάδων
         users_registration_mode: Λειτουργία εγγραφής χρηστών
         warning_color: Προειδοποίηση
         welcome_notification_body: Σώμα ειδοποίησης καλωσορίσματος
         welcome_notification_subject: Θέμα ειδοποίησης καλωσορίσματος
         youtube_handler: Πρόγραμμα χειρισμού YouTube
+      participatory_space_private_user:
+        email: Email
+        name: Όνομα
       scope:
         code: Κωδικός
         name: Όνομα
@@ -114,6 +123,7 @@ el:
         show_in_footer: Εμφάνιση στο υποσέλιδο
         slug: Slug διεύθυνσης URL
         title: Τίτλος
+        topic_id: Θέμα
         weight: Θέση κατάταξης
       static_page_topic:
         description: Περιγραφή
@@ -130,6 +140,14 @@ el:
               allowed_file_content_types: Μη έγκυρο αρχείο εικόνας
             official_img_header:
               allowed_file_content_types: Μη έγκυρο αρχείο εικόνας
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Λάθος στο αρχείο εισαγωγής, παρακαλούμε διαβάστε προσεκτικά τις οδηγίες και βεβαιωθείτε ότι το αρχείο είναι κωδικοποιημένο σε UTF-8.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Λάθος στο αρχείο εισαγωγής, παρακαλούμε διαβάστε προσεκτικά τις οδηγίες και βεβαιωθείτε ότι το αρχείο είναι κωδικοποιημένο σε UTF-8.
       new_import:
         attributes:
           file:
@@ -172,13 +190,15 @@ el:
         permissions: Δικαιώματα
         reject: Απόρριψη
         share: Κοινοποίηση
+        user:
+          new: Νέος διαχειριστής
         verify: Επαλήθευση
       admin_terms_of_use:
         accept:
           error: Υπήρξε ένα σφάλμα κατά την αποδοχή των όρων χρήσης διαχειριστή.
           success: Εξαιρετικά! Αποδεχτήκατε τους όρους χρήσης διαχειριστή.
         actions:
-          accept: Συμφωνώ με τους ακόλουθους όρους
+          accept: Συμφωνώ με τους όρους
           are_you_sure: Είστε σίγουρος ότι θέλετε να αρνηθείτε τους όρους χρήσης του διαχειριστή;
           refuse: Απόρριψη των όρων διαχειριστή
           title: Αποδοχή των όρων και των προϋποθέσεων χρήσης
@@ -254,6 +274,8 @@ el:
         update:
           error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του συνημμένου.
           success: Το συνημμένο ενημερώθηκε με επιτυχία.
+      attachments_privacy_warning:
+        message: Να είστε προσεκτικοί όταν εργάζεστε με συνημμένα σε έναν ιδιωτικό χώρο. Οποιοσδήποτε συμμετέχων θα μπορούσε να μοιραστεί αυτό το έγγραφο σε άλλους.
       autocomplete:
         no_results: Δεν βρέθηκαν αποτελέσματα
         search_prompt: Πληκτρολογήστε τουλάχιστον τρεις χαρακτήρες για αναζήτηση
@@ -336,6 +358,7 @@ el:
       dashboard:
         show:
           view_more_logs: Προβολή περισσότερων αρχείων καταγραφής
+          welcome: Καλώς ήλθατε στον Πίνακα Διαχειριστή.
       domain_whitelist:
         form:
           domain_too_short: Πολύ σύντομος τομέας
@@ -364,6 +387,13 @@ el:
           values:
             'false': 'Όχι'
             'true': 'Ναι'
+        moderated_users:
+          reports_reason_eq:
+            label: Λόγος αναφοράς
+            values:
+              does_not_belong: Δεν ανήκει
+              offensive: Επιθετικό
+              spam: Ανεπιθύμητο
         moderations:
           reportable_type_string_eq:
             label: Τύπος
@@ -398,11 +428,18 @@ el:
         search_label: Αναζήτηση
         search_placeholder:
           name_or_nickname_or_email_cont: Αναζήτηση συλλογής %{collection} με βάση το email, όνομα ή ψευδώνυμο.
+          report_count_eq: Αναφορά μετρητή eq
           reported_id_string_or_reported_content_cont: Αναζήτηση %{collection} με αναγνωριστικό ή περιεχόμενο προς αναφορά.
           title_cont: Αναζήτηση συλλογής %{collection} με βάση τον τίτλο.
           user_name_or_user_email_cont: Αναζήτηση %{collection} με βάση το όνομα ή το email.
+          user_name_or_user_nickname_or_user_email_cont: Αναζήτηση %{collection} με email, όνομα ή ψευδώνυμο.
         state_eq:
           label: Κατάσταση
+          values:
+            all: Όλα
+            pending: Εκκρεμεί
+            rejected: Απορρίφθηκε
+            verified: Επαληθεύτηκε
       forms:
         file_help:
           import:
@@ -448,10 +485,39 @@ el:
           impersonate_existing_user: Διαχείριση συμμετέχοντα «%{name}»
           impersonate_new_managed_user: Διαχείριση νέου συμμετέχοντα
       imports:
+        and: και
+        data_errors:
+          duplicate_headers:
+            detail: Παρακαλώ ελέγξτε ότι το αρχείο περιέχει τις απαιτούμενες στήλες ή κεφαλίδες μόνο μία φορά.
+            message:
+              one: Διπλότυπη στήλη %{columns}.
+              other: Διπλότυπες στήλες %{columns}.
+          invalid_indexes:
+            lines:
+              detail: Παρακαλώ ελέγξτε ότι αυτές οι γραμμές έχουν μορφοποιηθεί σωστά και περιέχουν έγκυρες εγγραφές.
+              message:
+                one: Βρέθηκε ένα σφάλμα στο αρχείο εισαγωγής στη γραμμή %{indexes}.
+                other: Βρέθηκαν σφάλματα στο αρχείο εισαγωγής στις γραμμές %{indexes}.
+            records:
+              detail: Παρακαλώ ελέγξτε ότι αυτές οι γραμμές έχουν μορφοποιηθεί σωστά και περιέχουν έγκυρες εγγραφές.
+              message:
+                one: Βρέθηκε ένα σφάλμα στο αρχείο εισαγωγής για εγγραφές με αριθμούς παραγγελίας %{indexes}.
+                other: Βρέθηκαν σφάλματα στο αρχείο εισαγωγής για εγγραφές με αριθμούς παραγγελίας %{indexes}.
+          missing_headers:
+            detail: Παρακαλώ ελέγξτε ότι το αρχείο περιέχει τις απαιτούμενες στήλες.
+            message:
+              one: Λείπει στήλη %{columns}.
+              other: Λείπουν στήλες %{columns}.
         error: Υπήρξε πρόβλημα κατά την εισαγωγή
         new:
+          accepted_mime_types:
+            csv: CSV
+            json: JSON
+            xlsx: Excel (.xlsx)
           actions:
             back: Πίσω
+          download_example: Παράδειγμα λήψης
+          download_example_format: Παράδειγμα ως %{name}
           file_legend: Προσθέστε ένα αρχείο εισαγωγής που θα αναλυθεί.
           import: Εισαγωγή
         notice: "%{number} %{resource_name} επιτυχώς εισαχθείσα"
@@ -581,7 +647,7 @@ el:
           nickname: Ψευδώνυμο
           reason: Αιτία
           reports: Πλήθος αναφορών
-          title: Λίστα αναφερόμενων χρηστών
+          title: Συμμετέχοντες που αναφέρθηκαν
         report:
           reasons:
             does_not_belong: Δεν ανήκει
@@ -592,7 +658,7 @@ el:
           unblocked: Δεν έχει μπλοκαριστεί
       moderations:
         index:
-          title: Εποπτεύσεις
+          title: Περιεχόμενο που αναφέρθηκε
         report:
           reasons:
             does_not_belong: Δεν ανήκει
@@ -663,9 +729,6 @@ el:
           select_scopes: Φιλτράρισμα με βάση χρήστες που έχουν ενεργοποιήσει οποιοδήποτε επιλεγμένο πεδίο εφαρμογής στις ρυθμίσεις «Τα ενδιαφέροντά μου» του λογαριασμού τους.
           select_spaces: Επιλέξτε χώρους για τμηματοποίηση του ενημερωτικού δελτίου
           select_users: Επιλέξτε τους χρήστες στους οποίους θέλετε να στείλετε το ενημερωτικό δελτίο
-          send_to_all_users: Αποστολή σε όλους τους χρήστες
-          send_to_followers: Αποστολή σε ακολούθους
-          send_to_participants: Αποστολή σε συμμετέχοντες
           title: Επιλέξτε παραλήπτες για παράδοση
           warning: "<strong>Προσοχή:</strong> Αυτό το ενημερωτικό δελτίο θα σταλεί μόνο σε χρήστες που έχουν ενεργοποιήσει την επιλογή <em>Θέλω να λαμβάνω ενημερωτικά δελτία</em> στις ρυθμίσεις ειδοποιήσεών τους."
         send:
@@ -726,7 +789,6 @@ el:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Σε ορισμένες περιοχές κειμένου, οι συμμετέχοντες θα μπορούν να εισαγάγουν μερικές ετικέτες HTML χρησιμοποιώντας το πρόγραμμα επεξεργασίας εμπλουτισμένου κειμένου.
           social_handlers: Μέσα κοινωνικής δικτύωσης
-          twitter: Twitter
           url: Διεύθυνση URL
           youtube: YouTube
         update:
@@ -739,7 +801,6 @@ el:
           colors:
             colors_title: Χρώματα οργανισμού
             header_snippets_help: Χρησιμοποιήστε αυτό το πεδίο για να προσθέσετε στοιχεία στην κεφαλίδα HTML. Η πιο συχνή χρήση είναι η ενσωμάτωση υπηρεσιών τρίτων οι οποίες απαιτούν επιπλέον στοιχεία JavaScript ή CSS. Επίσης, μπορείτε να το χρησιμοποιήσετε για να προσθέσετε επιπλέον ετικέτες μεταδεδομένων στο HTML. Λάβετε υπόψη ότι αυτό θα απεικονίζεται στις δημόσιες σελίδες και όχι στην ενότητα διαχειριστή.
-          cta_button_path_help: 'Μπορείτε να αντικαταστήσετε το σημείο σύνδεσης του κουμπιού «Call To Action» στην αρχική σελίδα. Χρησιμοποιήστε μερικές διαδρομές, όχι πλήρεις διευθύνσεις URL εδώ. Δέχεται γράμματα, αριθμούς, παύλες και καθέτους, και πρέπει να ξεκινά με γράμμα. Το κουμπί «Call To Action» εμφανίζεται στην αρχική σελίδα μεταξύ του κειμένου καλωσορίσματος και της περιγραφής. Παράδειγμα: διεύθυνση %{url}'
           cta_button_text_help: Μπορείτε να αντικαταστήσετε το κείμενο του κουμπιού «Call To Action» στην αρχική σελίδα για κάθε διαθέσιμη γλώσσα στον οργανισμό σας. Εάν δεν έχει οριστεί, θα χρησιμοποιηθεί η προεπιλεγμένη τιμή. Το κουμπί «Call To Action» εμφανίζεται στην αρχική σελίδα μεταξύ του κειμένου καλωσορίσματος και της περιγραφής.
           homepage_appearance_title: Επεξεργασία εμφάνισης αρχικής σελίδας
           homepage_highlighted_content_banner_title: Επισημασμένο πλαίσιο περιεχομένου
@@ -758,10 +819,6 @@ el:
         form:
           add: Προσθήκη στη λευκή λίστα
           title: Εξωτερική λευκή λίστα τομέων
-      organization_homepage:
-        edit:
-          active_content_blocks: Ενεργά μπλοκ περιεχομένου
-          inactive_content_blocks: Ανενεργά μπλοκ περιεχομένου
       organization_homepage_content_blocks:
         edit:
           update: Ενημέρωση
@@ -784,8 +841,11 @@ el:
           success: Η αποστολή του αρχείου CSV ήταν επιτυχής, στέλνουμε email πρόσκλησης στους συμμετέχοντες. Αυτό μπορεί να διαρκέσει μερικά λεπτά.
         new:
           explanation: 'Ανεβάστε το αρχείο CSV. Πρέπει να έχει δύο στήλες με το email στην πρώτη στήλη του αρχείου και το όνομα στην τελευταία στήλη του αρχείου (email, όνομα) των χρηστών που θέλετε να προσθέσετε στον συμμετοχικό χώρο, χωρίς επικεφαλίδες. Αποφύγετε τη χρήση άκυρων χαρακτήρων όπως `<>?%&^*#@()[]=+:;"{}\|` στο όνομα χρήστη.'
-          title: Αποστολή του CSV αρχείου σας
+          title: Αποστολή του αρχείου σας CSV
           upload: Αποστολή
+      reminders:
+        new:
+          submit: Αποστολή
       resource_permissions:
         edit:
           submit: Υποβολή
@@ -843,6 +903,7 @@ el:
         gallery:
           add_images: Προσθήκη εικόνων
           delete_image: Διαγραφή εικόνας
+          edit_images: Επεξεργασία εικόνας
           gallery_legend: Προσθήκη συλλογής εικόνων (προαιρετικά)
       static_page_topics:
         create:
@@ -873,7 +934,6 @@ el:
           update: Ενημέρωση
         form:
           none: Κανένας
-          slug_help: 'Χρησιμοποιήστε μερικές διαδρομές, όχι πλήρεις διευθύνσεις URL εδώ. Δέχεται γράμματα, αριθμούς, παύλες και καθέτους, και πρέπει να ξεκινά με γράμμα. Παράδειγμα: διεύθυνση %{url}'
         index:
           last_notable_change: Τελευταία σημαντική αλλαγή
         new:
@@ -903,6 +963,7 @@ el:
         static_pages: Σελίδες
         statistics: Δραστηριότητα
         user_groups: Ομάδες
+        users: Διαχειριστές
       user_group:
         csv_verify:
           invalid: Υπήρξε ένα πρόβλημα κατά την ανάγνωση του αρχείου CSV.
@@ -938,6 +999,7 @@ el:
           role: Ρόλος
         new:
           create: Πρόσκληση
+          title: Προσκαλέστε νέο διαχειριστή
       users_statistics:
         users_count:
           admins: Διαχειριστές
@@ -985,9 +1047,11 @@ el:
         moderation:
           fields:
             created_at: Ημερομηνία δημιουργίας
+            deleted_resource: Διαγραμμένος πόρος
             hidden_at: Αποκρύφτηκε στις
             participatory_space: Συμμετοχικός χώρος
             report_count: Πλήθος
+            reportable_id: ID
             reportable_type: Τύπος
             reported_content_url: Διεύθυνση URL περιεχομένου που έχει αναφερθεί
             reports: Αναφορές

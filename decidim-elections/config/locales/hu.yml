@@ -21,6 +21,7 @@ hu:
         description: Leírás
         end_time: Szavazás vége
         promoted: Támogatott
+        scope_id: Hatókör
         start_time: Szavazás kezdete
         title: Cím
     errors:
@@ -87,7 +88,6 @@ hu:
           label: Érvényesített
           values:
             'false': Érvényesített
-            'true': Nem érvényesített
     components:
       elections:
         actions:
@@ -150,13 +150,12 @@ hu:
         models:
           answer:
             name: Válasz
-          election:
-            name: Választás
-          question:
-            name: Kérdés
           trustee:
             name: Felügyelő
         proposals_imports:
+          create:
+            invalid: Hiba történt a javaslatok válaszokba történő importálása során
+            success: "%{number} javaslat sikeresen importálva a válaszokba"
           new:
             create: Válaszjavaslatok importálása
             select_component: Kérjük, válassz egy komponenst
@@ -190,6 +189,14 @@ hu:
           key_ceremony_ended:
             invalid: Hiba történt a szavazási időszak elindításakor
             title: Készen áll a kezdésre
+          tally_started:
+            continue: Folytatás
+            invalid: Probléma volt a hiányzó megbízott bejelentésével
+            mark_as_missing: Hiányzóként megjelölt
+            mark_as_missing_description: Minden megbízottnaik részt kell vennie ebben a folyamatban, de ha egy megbízott nem tud részt venni a folyamatban, akkor jelölheti hiányzónak.
+            success: Hiányzó megbízottról szóló jelentést elküldtük a Hirdetőtáblára
+            tally_completion: A folyamat akkor fejeződik be, ha az összes megbízott aktív vagy hiányzónak van jelölve. A folyamat befejezéséhez legalább %{quorum} megbízottra van szükség.
+            undo_mark_as_missing: A tévedésből hiányzónak megjelölt megbízott az eljárás befejezése előtt részt vehet. A szokásos módon folytathatja a folyamatot, és a hiányzó jelölést figyelmen kívül hagyják.
       elections:
         filters:
           date: Dátum
@@ -214,12 +221,18 @@ hu:
                 invalid_public_key: A feltöltött fájlban található azonosító kulcsok nem egyeznek a tárolt nyilvános azonosítókulccsal.
               upload_legend: A szerver rendelkezik az nyilvános azonosító kulcsaiddal, de a böngésződ még mindig nem. Az azonosító kulcsaidat tartalmazó fájlt importálnod kell a számítógépére a generálás után létrehozott biztonsági másolatból.
       votes:
+        confirm:
+          answer: Válasz
+        modal:
+          proposal_header: 'Javaslatok:'
         onboarding_modal:
           description: Szeretnél új fiókot létrehozni a platformon? Képes leszel a folyamatokban részt venni, és aktív részese lehetsz a szervezetnek.
           title: Új a platformon?
         verify:
           form:
             back: Vissza a platformra
+        voting_step:
+          continue: Következő
     events:
       elections:
         election_published:
@@ -233,9 +246,16 @@ hu:
           votings_submenu:
             monitoring_committee: Ellenőrző Bizottság
         votings:
+          actions:
+            publish: Közzétesz
+            unpublish: Közzététel visszavonása
           form:
             census_contact_information_help: Ez a kapcsolatfelvételi információ azoknak a résztvevőknek szól, akik a népszámlálással kapcsolatos problémákat szeretnének jelenteni. Ez lehet e-mail cím, kapcsolatfelvételi űrlap egy másik oldalon, kérdőív a látogatók számára, stb.
+            show_check_census_help: Megjelenítse-e a "Szavazhatok?" linket a nyilvános szavazások menüben
       polling_officer_zone:
+        closures:
+          sign:
+            confirm: Ok, folytassuk
         in_person_votes:
           complete_voting:
             questions_title: 'A következő kérdésekben jogosultak szavazni:'
@@ -256,3 +276,6 @@ hu:
           date: Dátum
         login:
           start_voting: Szavazás kezdete
+      votings_m:
+        footer_button_text:
+          vote: Szavazás

@@ -46,7 +46,7 @@ fr-CA:
         participatory_text:
           attributes:
             document:
-              allowed_file_content_types: 'Type de document invalide. Les formats acceptés sont: %{types}'
+              allowed_file_content_types: 'Type de document invalide. Seuls les fichiers avec les extensions suivantes sont autorisés : %{types}'
         proposal:
           attributes:
             add_documents:
@@ -118,7 +118,7 @@ fr-CA:
           state_null:
             label: État
             values:
-              'true': Non répondu
+              'true': En attente de réponse
           valuator_role_ids_has:
             label: Assigné à l'évaluateur
         search_placeholder:
@@ -198,6 +198,7 @@ fr-CA:
             automatic_hashtags: Hashtags ajoutés à toutes les propositions
             comments_blocked: Bloquer la création de nouveaux commentaires
             creation_enabled: Les participants peuvent créer des propositions
+            creation_enabled_readonly: Ce paramètre est désactivé lorsque vous activez la fonctionnalité Textes participatifs. Pour télécharger des propositions sous forme de texte participatif, cliquez sur le bouton Textes participatifs et suivez les instructions.
             default_sort_order: Tri des propositions par défaut
             default_sort_order_help: Par défaut, si les aides sont activés, les propositions seront affichées par ordre aléatoire, et si les aides sont bloqués, alors ils seront triés par l’aide le plus soutenu.
             default_sort_order_options:
@@ -213,6 +214,7 @@ fr-CA:
             endorsements_enabled: Activer le module de soutiens
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             publish_answers_immediately: Publier immédiatement les réponses à la proposition
+            publish_answers_immediately_help_html: 'N''oubliez pas que si vous répondez à une proposition sans cette option, vous devrez la publier manuellement en les sélectionnant et en utilisant l''action de publication. Pour plus d''informations sur comment cela fonctionne, voir la page de documentation de <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">propositions</a>.'
             suggested_hashtags: Hashtags suggérés aux utilisateurs pour de nouvelles propositions
             votes_blocked: Bloquer les votes
             votes_enabled: Activer le module de vote simple
@@ -302,6 +304,7 @@ fr-CA:
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez cesser de le suivre en cliquant sur le lien précédent.
           email_subject: Nouvelle proposition "%{resource_title}" ajoutée à %{participatory_space_title}
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title} par %{author}
+          notification_title_official: La proposition officielle <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Votre proposition "%{resource_title}" a été rejetée. Vous pouvez lire la réponse sur cette page:'
@@ -400,8 +403,21 @@ fr-CA:
           proposals: Propositions
         imports:
           help:
-            answers: 'Le document d''importation doit contenir les colonnes suivantes : Id, État (accepté, évaluation, rejeté), réponse/fr (et d''autres langues activées pour l''organisme).'
-            proposals: Le fichier doit comprendre les colonnes title/fr et corps/fr (ou une autre locale de votre choix, par ex. titre/de et corps/de). Les colonnes scope/id et category/id sont également pris en charge.
+            answers: |
+              Le document d'importation doit contenir les noms de colonnes suivants en cas de fichiers CSV ou Excel ou noms de clés suivants dans le cas de fichiers JSON :
+              <ul>
+              <li><b>id:</b> ID de la proposition à laquelle on répond</li>
+              <li><b>state:</b>"accepted", "evaluating", ou "rejected"</li>
+              <li><b>answer/en:</b> Réponse en langue anglaise. Cela dépendra de la configuration de langue de votre plateforme.</li>
+              </ul>
+            proposals: |
+              Le fichier doit avoir les noms de colonnes suivants en cas de fichiers CSV ou Excel ou noms de clés suivants en cas de fichiers JSON :
+              <ul>
+              <li><b>title/en:</b> Titre en langue anglaise. Cela dépendra de la configuration de la langue de votre plateforme.</li>
+              <li><b>corps/en:</b> Corps en langue anglaise. Cela dépendra de la configuration de la langue de votre plateforme.</li>
+              <li><b>scope/id :</b> ID du périmêtre d'application</li>
+              <li><b>category/id :</b> ID de la catégorie</li>
+              </ul>
           label:
             answers: Importer des valeurs depuis un fichier
             proposals: Importer des propositions depuis un fichier
@@ -634,7 +650,7 @@ fr-CA:
             one: "%{count} brouillon collaboratif"
             other: "%{count} brouillons collaboratifs"
         create:
-          error: Il y a eu un problème lors de la création de ces brouillons collaboratifs
+          error: Il y a eu un problème lors de la création de ce brouillon collaboratif.
           success: Brouillon collaboratif créé avec succès.
         edit:
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
@@ -727,7 +743,7 @@ fr-CA:
         collaborative_draft:
           fields:
             authors: Auteurs
-            comments: commentaires
+            comments: Commentaires
             contributions: Contributions
         proposal:
           fields:
@@ -751,7 +767,7 @@ fr-CA:
         buttons:
           amend: Modifier
           comment: Commentaire
-          comments: commentaires
+          comments: Commentaires
       proposal_votes:
         create:
           error: Des erreurs se sont produites lors du soutien de la proposition.
@@ -800,10 +816,10 @@ fr-CA:
           type: Type
           voted: Ne montrer que les propositions pour lesquelles j'ai voté
         filters_small_view:
-          close_modal: Fermer la fenêtre de dialogue
-          filter: Filtrer
+          close_modal: Fermer la fenêtre
+          filter: Filtre
           filter_by: Filtrer par
-          unfold: Voir plus
+          unfold: Se dérouler
         index:
           click_here: Voir toutes les propositions
           collaborative_drafts_list: Accéder aux brouillons collaboratifs
@@ -830,7 +846,7 @@ fr-CA:
           with_more_authors: Avec le plus d'auteurs
         participatory_texts:
           index:
-            document_index: Index de document
+            document_index: Index du document
           view_index:
             see_index: Voir index
         placeholder:

@@ -169,9 +169,6 @@ id:
       wizard_step_form:
         steps:
           '1': Buat amandemen Anda
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
     anonymous_user: Anonim
     application:
       collection:
@@ -306,7 +303,6 @@ id:
           already_have_an_account?: Sudah memiliki akun?
           newsletter: Terima sesekali newsletter dengan informasi yang relevan
           newsletter_title: Izin kontak
-          sign_in: Masuk
           sign_up: Daftar
           sign_up_as:
             legend: Mendaftar sebagai
@@ -325,7 +321,6 @@ id:
         newsletter_modal:
           buttons:
             check: Periksa dan lanjutkan
-            close_modal: Tutup modal
           notice: |-
             <p>Hai, apakah Anda yakin tidak ingin menerima buletin?<br>
             Harap pertimbangkan lagi mencentang kotak nawala di bawah ini.<br>
@@ -361,8 +356,6 @@ id:
       show:
         download_data: Unduh datanya
         request_data: Meminta data
-    endorsable:
-      endorsements: Endorsemen
     errors:
       internal_server_error:
         title: Ada masalah dengan server kami
@@ -528,6 +521,10 @@ id:
       default_image: Gambar default
       errors:
         error: Ada kesalahan di bidang ini.
+      upload:
+        labels:
+          cancel: Membatalkan
+          save: Menyimpan
     gamification:
       all_badges_link: Lihat semua lencana yang tersedia.
       badges:
@@ -546,18 +543,6 @@ id:
           how: Bagaimana Anda bisa mendapatkannya
           page_description: Lencana adalah pengakuan untuk tindakan dan kemajuan peserta dalam platform. Ketika Anda mulai menemukan, berpartisipasi, dan berinteraksi di platform, Anda akan mendapatkan lencana yang berbeda. Di sini adalah daftar lencana dan beberapa cara Anda dapat memperolehnya.
           title: Lencana
-        invitations:
-          conditions:
-            - Gunakan tautan "undang teman" di halaman pengguna Anda untuk mengundang teman-teman Anda
-            - Sesuaikan, jika Anda mau, pesan yang Anda kirim
-            - Anda akan naik level dengan mengirim undangan dan meminta mereka terdaftar.
-          description: Lencana ini diberikan ketika Anda mengundang beberapa orang dan mereka telah menghabiskan sedikit waktu untuk mendaftar di %{organization_name} dan menjadi peserta. Terima kasih telah membuat %{organization_name} diketahui orang lain dan membantu memperluas komunitas!
-          description_another: Pengguna ini telah mengundang %{score} pengguna.
-          description_own: Anda telah mengundang %{score} pengguna.
-          name: Undangan
-          next_level_in: Undang %{score} lebih banyak pengguna untuk mencapai level berikutnya!
-          unearned_another: Pengguna ini belum mengundang pengguna apa pun.
-          unearned_own: Anda belum mengundang pengguna.
       description: Lencana adalah pengakuan untuk tindakan dan kemajuan peserta dalam platform. Ketika Anda mulai menemukan, berpartisipasi, dan berinteraksi di platform, Anda akan mendapatkan lencana yang berbeda.
       level: Level %{level}
       reached_top: Anda telah mencapai level teratas untuk lencana ini.
@@ -700,17 +685,14 @@ id:
         create:
           error: Percakapan tidak dimulai. Coba lagi nanti
         index:
-          close: Tutup modal
           no_conversations: Anda belum memiliki percakapan
           title: Percakapan
         reply:
           send: Kirim
-          title: Balasan
         show:
           title: Percakapan dengan %{usernames}
         start:
           send: Kirim
-          title: Mulai percakapan
     metrics:
       followers:
         description: Jumlah pengguna yang mengikuti ruang partisipasi ini
@@ -727,7 +709,6 @@ id:
     newsletter_mailer:
       newsletter:
         note: Anda menerima email ini karena Anda berlangganan nawala pada %{organization_name}. Anda dapat mengubah pengaturan Anda pada <a href="%{link}">halaman pemberitahuan</a>.
-        see_on_website: Tidak bisa melihat email ini dengan benar? Lihat di situs web <a href="%{link}" target="_blank"></a>.
         unsubscribe: Untuk memilih tidak menerima jenis email ini, <a href="%{link}" target="_blank" class="unsubscribe">Berhenti Berlangganan</a>.
     newsletters:
       unsubscribe:
@@ -786,7 +767,6 @@ id:
           proposals: Proposal
           proposals_explanation: Buat proposal, dukung yang sudah ada dan promosikan perubahan yang ingin Anda lihat.
         footer_sub_hero:
-          footer_sub_hero_body: Mari membangun masyarakat yang lebih terbuka, transparan, dan kolaboratif.<br /> Gabung, berpartisipasi, dan putuskan.
           footer_sub_hero_headline: Selamat datang di %{organization} platform partisipatif.
           register: Daftar
         hero:
@@ -815,15 +795,11 @@ id:
         form:
           legend: Setujui persyaratan dan ketentuan penggunaan
         refuse:
-          modal_btn_continue: Terima persyaratan dan lanjutkan
           modal_btn_exit: Saya akan memeriksanya nanti
-          modal_button: Menolak persyaratan
-          modal_close: Tutup modal
           modal_title: Apakah Anda benar-benar menolak Syarat dan Ketentuan yang diperbarui?
         required_review:
           alert: Kami telah memperbarui Persyaratan Layanan, harap tinjau.
           body: Harap luangkan waktu untuk meninjau pembaruan pada Ketentuan Layanan kami. Jika tidak, Anda tidak akan dapat menggunakan platform.
-          title: 'Diperlukan: Tinjau pembaruan untuk persyaratan layanan kami'
     participatory_space_private_users:
       not_allowed: Anda tidak diizinkan untuk melihat konten ini
     profile:
@@ -892,7 +868,6 @@ id:
           future: Masa depan
           past: Lalu
       filters_small_view:
-        close_modal: Tutup modal
         filter: Filter
         filter_by: Filter berdasarkan
         unfold: Membuka
@@ -941,10 +916,11 @@ id:
         share_link: Membagikan tautan
     statistics:
       comments_count: Komentar
-    user_activity:
-      index:
-        no_activities_warning: Pengguna ini belum memiliki aktivitas apa pun.
     user_conversations:
+      index:
+        close: Dekat
+      show:
+        title: Percakapan dengan %{usernames}
       update:
         error: Pesan tidak terkirim. Coba lagi nanti
     user_interests:
@@ -1060,15 +1036,6 @@ id:
       updated_not_active: Kata sandi Anda telah berhasil diubah.
     registrations:
       destroyed: Bye! Akun Anda telah berhasil dibatalkan. Kami berharap dapat melihat Anda lagi segera.
-      edit:
-        are_you_sure: Apakah kamu yakin?
-        cancel_my_account: Batalkan akun saya
-        currently_waiting_confirmation_for_email: 'Sedang menunggu konfirmasi untuk: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: biarkan kosong jika Anda tidak ingin mengubahnya
-        title: Edit %{resource}
-        unhappy: Tidak bahagia?
-        update: Memperbarui
-        we_need_your_current_password_to_confirm_your_changes: kami memerlukan kata sandi Anda saat ini untuk mengonfirmasi perubahan Anda
       new:
         sign_up: Daftar
       signed_up: Selamat datang! Anda telah berhasil mendaftar.
@@ -1079,8 +1046,6 @@ id:
       updated: Akun Anda telah berhasil diperbarui.
     sessions:
       already_signed_out: Berhasil keluar.
-      new:
-        sign_in: Masuk
       signed_in: Berhasil masuk.
       signed_out: Berhasil keluar.
     shared:
@@ -1089,7 +1054,6 @@ id:
         didn_t_receive_confirmation_instructions: Tidak menerima instruksi konfirmasi?
         didn_t_receive_unlock_instructions: Tidak menerima instruksi buka kunci?
         forgot_your_password: lupa kata sandi Anda?
-        sign_in: Masuk
         sign_in_with_provider: Masuk dengan %{provider}
         sign_up: Daftar
       minimum_password_length:
@@ -1117,7 +1081,6 @@ id:
       not_locked: tidak terkunci
       too_many_marks: menggunakan terlalu banyak tanda baca (misalnya! dan?)
       too_much_caps: menggunakan terlalu banyak huruf besar (lebih dari 25% dari teks)
-      too_short: terlalu pendek (kurang dari 15 karakter)
   forms:
     required: Wajib
   invisible_captcha:
@@ -1125,6 +1088,10 @@ id:
     timestamp_error_message: Maaf, itu terlalu cepat! Silakan kirim ulang.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Mengetik
       edit_link:
         edit: Edit
       footer:
@@ -1160,7 +1127,8 @@ id:
       widget:
         see_more: Lihat lebih banyak
   locale:
-    name: Inggris
+    name: Bahasa Indonesia
+    name_with_error: Bahasa Indonesia (salah!)
   password_validator:
     domain_included_in_password: terlalu mirip dengan nama domain ini
     email_included_in_password: terlalu mirip dengan email Anda

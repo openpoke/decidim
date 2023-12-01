@@ -31,6 +31,25 @@ describe "Filter Proposals", :slow, type: :system do
     end
   end
 
+  context "when filtering proposals by TEXT" do
+    it "updates the current URL" do
+      create(:proposal, component: component, title: { en: "Foobar proposal" })
+      create(:proposal, component: component, title: { en: "Another proposal" })
+      visit_component
+
+      within "form.new_filter" do
+        fill_in("filter[search_text_cont]", with: "foobar")
+        click_button "Search"
+      end
+
+      expect(page).not_to have_content("Another proposal")
+      expect(page).to have_content("Foobar proposal")
+
+      filter_params = CGI.parse(URI.parse(page.current_url).query)
+      expect(filter_params["filter[search_text_cont]"]).to eq(["foobar"])
+    end
+  end
+
   context "when filtering proposals by ORIGIN" do
     context "when official_proposals setting is enabled" do
       before do
@@ -96,9 +115,13 @@ describe "Filter Proposals", :slow, type: :system do
   context "when filtering proposals by SCOPE" do
     let(:scopes_picker) { select_data_picker(:filter_scope_id, multiple: true, global_value: "global") }
     let!(:scope2) { create :scope, organization: participatory_process.organization }
+    let!(:proposals) { create_list(:proposal, 2, component: component, scope: scope) }
+    let(:first_proposal) { proposals.first }
+    let(:last_proposal) { proposals.last }
+    let!(:proposal_comment) { create(:comment, commentable: first_proposal) }
+    let!(:proposal_follow) { create(:follow, followable: last_proposal) }
 
     before do
-      create_list(:proposal, 2, component: component, scope: scope)
       create(:proposal, component: component, scope: scope2)
       create(:proposal, component: component, scope: nil)
       visit_component
@@ -131,6 +154,31 @@ describe "Filter Proposals", :slow, type: :system do
 
         expect(page).to have_css(".card--proposal", count: 2)
         expect(page).to have_content("2 PROPOSALS")
+      end
+
+      it "can be ordered by most commented and most followed after filtering" do
+        within ".filters .with_any_scope_check_boxes_tree_filter" do
+          uncheck "All"
+          check scope.name[I18n.locale.to_s]
+        end
+
+        within ".order-by__dropdown" do
+          expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          page.find("a", text: "Random").click
+          click_link "Most commented"
+        end
+
+        expect(page).to have_css(".card--proposal", count: 2)
+        expect(page).to have_selector(".card--proposal:first-child", text: translated(first_proposal.title))
+
+        within ".order-by__dropdown" do
+          expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          page.find("a", text: "Most commented").click
+          click_link "Most followed"
+        end
+
+        expect(page).to have_css(".card--proposal", count: 2)
+        expect(page).to have_selector(".card--proposal:first-child", text: translated(last_proposal.title))
       end
     end
 
@@ -332,6 +380,9 @@ describe "Filter Proposals", :slow, type: :system do
       let!(:proposal1) { create(:proposal, component: component, category: category) }
       let!(:proposal2) { create(:proposal, component: component, category: category2) }
       let!(:proposal3) { create(:proposal, component: component, category: category3) }
+      let!(:proposal4) { create(:proposal, component: component, category: category) }
+      let!(:proposal1_comment) { create(:comment, commentable: proposal1) }
+      let!(:proposal4_follow) { create(:follow, followable: proposal4) }
 
       before do
         login_as user, scope: :user
@@ -345,7 +396,7 @@ describe "Filter Proposals", :slow, type: :system do
           check category.name[I18n.locale.to_s]
         end
 
-        expect(page).to have_css(".card--proposal", count: 1)
+        expect(page).to have_css(".card--proposal", count: 2)
       end
 
       it "can be filtered by two categories" do
@@ -357,7 +408,36 @@ describe "Filter Proposals", :slow, type: :system do
           check category2.name[I18n.locale.to_s]
         end
 
+        expect(page).to have_css(".card--proposal", count: 3)
+      end
+
+      it "can be ordered by most commented and most followed after filtering" do
+        visit_component
+
+        within ".filters .with_any_category_check_boxes_tree_filter" do
+          uncheck "All"
+          check category.name[I18n.locale.to_s]
+        end
+
         expect(page).to have_css(".card--proposal", count: 2)
+
+        within ".order-by__dropdown" do
+          expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          page.find("a", text: "Random").click
+          click_link "Most commented"
+        end
+
+        expect(page).to have_css(".card--proposal", count: 2)
+        expect(page).to have_selector(".card--proposal:first-child", text: translated(proposal1.title))
+
+        within ".order-by__dropdown" do
+          expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          page.find("a", text: "Most commented").click
+          click_link "Most followed"
+        end
+
+        expect(page).to have_css(".card--proposal", count: 2)
+        expect(page).to have_selector(".card--proposal:first-child", text: translated(proposal4.title))
       end
     end
   end

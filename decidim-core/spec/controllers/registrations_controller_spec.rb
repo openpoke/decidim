@@ -56,6 +56,33 @@ module Decidim
         it "renders the new template" do
           send_form_and_expect_rendering_the_new_template_again
         end
+
+        it "adds the flash message" do
+          post :create, params: params
+          expect(controller.flash.now[:alert]).to have_content("There was a problem creating your account.")
+        end
+
+        context "when all params are invalid" do
+          let(:params) do
+            {
+              user: {
+                sign_up_as: "",
+                name: "",
+                nickname: "",
+                email: email,
+                password: "123",
+                password_confirmation: "456",
+                tos_agreement: "0",
+                newsletter: "0"
+              }
+            }
+          end
+
+          it "adds the flash message" do
+            post :create, params: params
+            expect(controller.flash.now[:alert]).to have_content("There was a problem creating your account.")
+          end
+        end
       end
 
       context "when the registering user has pending invitations" do
@@ -67,7 +94,7 @@ module Decidim
 
         it "informs the user she must accept the pending invitation" do
           send_form_and_expect_rendering_the_new_template_again
-          expect(controller.flash.now[:alert]).to have_content("You have a pending invitation, accept it to finish creating your account")
+          expect(controller.flash.now[:alert]).to have_content("There was a problem creating your account.")
         end
       end
     end

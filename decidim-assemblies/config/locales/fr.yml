@@ -4,8 +4,11 @@ fr:
     attributes:
       assemblies_setting:
         enable_organization_chart: Activer le schéma d'assemblée
+      assemblies_type:
+        title: Titre
       assembly:
-        area_id: Zone d'application
+        announcement: Message d'annonce
+        area_id: Périmètre d'assemblée
         assembly_type: Type d'assemblée
         assembly_type_other: Autre type d'assemblée
         banner_image: Image d'en-tête
@@ -18,17 +21,21 @@ fr:
         created_by: Créé par
         created_by_other: Si "autres", précisez
         creation_date: Date de création
-        decidim_area_id: Zone d'application
+        decidim_area_id: Périmètre d'assemblée
         decidim_assemblies_type_id: Type d'assemblée
         decidim_scope_id: Périmètre d'application
         description: Description
         developer_group: Organisateur
+        document: Document
         domain: Domaine
         duration: Durée
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
+        import_attachments: Importer les pièces jointes
+        import_categories: Importer les catégories
+        import_components: Importer les fonctionnalités
         included_at: Intégrée à cette plateforme le
         instagram: Instagram
         internal_organisation: Organisation interne
@@ -44,7 +51,7 @@ fr:
         published_at: Publiée à
         purpose_of_action: But de l'action
         scope_id: Périmètre d'application
-        scopes_enabled: Périmètres d'application activés
+        scopes_enabled: Secteurs activés
         short_description: Résumé
         show_statistics: Afficher les statistiques
         slug: Identifiant
@@ -52,7 +59,7 @@ fr:
         subtitle: Sous-titre
         target: Participants
         title: Titre
-        twitter: Twitter
+        twitter: X
         weight: Rang d'affichage
         youtube: Youtube
       assembly_member:
@@ -65,6 +72,7 @@ fr:
         non_user_avatar: Avatar
         position: Statut
         user_id: Utilisateur ou groupe
+        weight: Rang d'affichage
       assembly_user_role:
         email: E-mail
         name: "Nom\n"
@@ -74,7 +82,7 @@ fr:
         assembly:
           attributes:
             document:
-              allowed_file_content_types: 'Type de document invalide. Les formats acceptés sont: %{types}'
+              allowed_file_content_types: 'Type de document invalide. Seuls les fichiers avec les extensions suivantes sont autorisés : %{types}'
   activerecord:
     models:
       decidim/assembly:
@@ -196,7 +204,7 @@ fr:
           attachment_files: Fichiers
           attachments: Documents liés
           categories: Catégories
-          components: Composants
+          components: Fonctionnalités
           info: Information
           moderations: Modérations
           private_users: Utilisateurs privés
@@ -278,10 +286,10 @@ fr:
             metadata: Métadonnées
             other: Autre
             select_a_created_by: Sélectionnez un créateur
-            select_an_area: Sélectionnez une zone d'application
+            select_an_area: Sélectionnez un périmètre d'assemblée
             select_an_assembly_type: Sélectionnez un type d'assemblée
             select_parent_assembly: Sélectionnez l'assemblée parente
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui renvoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
             social_handlers: Réseaux sociaux
             title: Informations générales
             visbility: Visibilité
@@ -292,14 +300,14 @@ fr:
             title: Paramètres pour les assemblées
         assemblies_types:
           form:
-            title: Titre
+            title: Modifier le type d'assemblée
         assembly_copies:
           form:
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les liens qui envoient vers cette agora. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
         assembly_imports:
           form:
             document_legend: Ajouter un document
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
         assembly_members:
           form:
             existing_user: Utilisateur existant
@@ -313,8 +321,8 @@ fr:
           index:
             filter:
               all: Tout
-              ceased: Validité terminée
-              not_ceased: Validité en cours
+              ceased: Terminé
+              not_ceased: En cours
             filter_by: Filtrer par
             search: Rechercher
         content_blocks:
@@ -368,22 +376,22 @@ fr:
           member_of:
             member_of: Membre de
       show:
-        area: Zone d'application
+        area: Périmètre d'assemblée
         assembly_type: Type d'assemblée
-        children: Sous-assemblées
+        children: Assemblées
         closing_date: Date de clôture
         composition: Composition
         created_by: Créé par
         creation_date: Date de création
         developer_group: Organisateur
         duration: Durée
-        included_at: Inclus à
+        included_at: Intégrée à cette plateforme le
         indefinite_duration: Indéfinie
         internal_organisation: Organisation interne
         is_transparent:
           'false': non-visible par les non-membres
           'true': visible par les non-membres
-        local_area: Périmètre d'assemblée
+        local_area: Espace d'organisation
         participatory_scope: Objectifs
         participatory_structure: Modalités de décision
         private_space: Ceci est une assemblée privée
@@ -409,7 +417,7 @@ fr:
           notification_title: Vous avez été inscrit en tant que membre de l'assemblée <a href="%{resource_path}">%{resource_name}</a>. Consultez la <a href="%{resource_path}">page de l'assemblée</a> pour contribuer !
       assembly:
         role_assigned:
-          email_intro: Vous avez été assigné le rôle de %{role} de l'assemblée "%{resource_title}".
+          email_intro: Un administrateur vous a assigné le rôle de %{role} de l'assemblée "%{resource_title}".
           email_outro: Vous avez reçu cette notification parce que vous êtes %{role} de l'assemblée "%{resource_title}".
           email_subject: Vous avez été assigné le rôle de %{role} pour l'assemblée "%{resource_title}".
           notification_title: Vous avez été assigné le rôle de %{role} pour l'assemblée <a href="%{resource_url}">%{resource_title}</a>.

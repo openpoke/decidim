@@ -57,6 +57,8 @@ describe "Account", type: :system do
     end
 
     describe "updating personal data" do
+      let!(:encrypted_password) { user.encrypted_password }
+
       it "updates the user's data" do
         within "form.edit_user" do
           select "Castellano", from: :user_locale
@@ -82,6 +84,9 @@ describe "Account", type: :system do
 
         expect(page).to have_content("example.org")
         expect(page).to have_content("Serbian-American")
+
+        # The user's password should not change when they did not update it
+        expect(user.reload.encrypted_password).to eq(encrypted_password)
       end
     end
 
@@ -303,7 +308,7 @@ describe "Account", type: :system do
 
     context "when VAPID keys are set" do
       before do
-        allow(Rails.application.secrets).to receive("vapid").and_return(vapid_keys)
+        Rails.application.secrets[:vapid] = vapid_keys
         driven_by(:pwa_chrome)
         switch_to_host(organization.host)
         login_as user, scope: :user
@@ -334,9 +339,23 @@ describe "Account", type: :system do
       end
     end
 
+    context "when VAPID is disabled" do
+      before do
+        Rails.application.secrets[:vapid] = { enabled: false }
+        driven_by(:pwa_chrome)
+        switch_to_host(organization.host)
+        login_as user, scope: :user
+        visit decidim.notifications_settings_path
+      end
+
+      it "does not show the push notifications switch" do
+        expect(page).to have_no_selector(".push-notifications")
+      end
+    end
+
     context "when VAPID keys are not set" do
       before do
-        allow(Rails.application.secrets).to receive("vapid").and_return({})
+        Rails.application.secrets.delete(:vapid)
         driven_by(:pwa_chrome)
         switch_to_host(organization.host)
         login_as user, scope: :user

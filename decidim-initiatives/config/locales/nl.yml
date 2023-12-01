@@ -52,9 +52,6 @@ nl:
               title: Titel mag niet leeg zijn
   activerecord:
     models:
-      decidim/initiative:
-        one: Initatief
-        other: Initatief
       decidim/initiative_comittee:
         one: Commissie
         other: Commissies
@@ -302,7 +299,6 @@ nl:
           back: Terug
           continue: Doorgaan met
           fill_data_help: "<ul> <li>Herbekijk de inhoud van je initiatief. Is de titel begrijpelijk? Is het doel van uw initiatief duidelijk?</li> <li>Je moet het type handtekening kiezen. Persoonlijk, online of een combinatie van beide</li> <li>Wat is de geografische reikwijdte van het initiatief?</li> </ul>"
-          initiative_type: Initiatieftype
           more_information: "(Meer informatie)"
           select_area: Selecteer een gebied
           select_scope: Selecteer een scope
@@ -359,7 +355,9 @@ nl:
           email_subject: "%{applicant_nickname} wil deelnemen aan je initiatief"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> wil graag deel uitmaken van de promotiecommissie voor jouw initiatief <a href="%{resource_url}">%{resource_title}</a>. Om te accepteren of te weigeren, klik <a href="%{resource_url}/edit">hier</a>.
       form:
+        add_attachments: Documenten
         attachment_legend: "(Optioneel) Voeg een bijlage toe"
+        delete_attachment: Verwijder
       index:
         title: Initiatieven
       initiative_signatures:
@@ -396,6 +394,9 @@ nl:
           hidden_authors_count:
             one: en nog 1 persoon
             other: en nog %{count} mensen
+        committee_members:
+          confirm_revoke: Weet je het zeker?
+          revoke: Intrekken
         count:
           title:
             one: "%{count} initiatief"
@@ -470,11 +471,6 @@ nl:
         status_change_for: Het initiatief %{title} is van status veranderd
       last_activity:
         new_initiative: Nieuw initiatief
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Actieve initiatieven
-            see_all_initiatives: Bekijk alle initiatieven
       show:
         badge_name:
           accepted: Genoeg handtekeningen

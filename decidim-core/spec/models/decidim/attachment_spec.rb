@@ -37,6 +37,14 @@ module Decidim
         let(:attachment_path) { Decidim::Dev.asset("malicious.jpg") }
 
         it { is_expected.not_to be_valid }
+
+        it "shows the correct error" do
+          expect(subject.valid?).to be(false)
+          # Note: After update to Ubuntu 22.04, the expectation needs to be
+          # changed to the one below.
+          expect(subject.errors[:file]).to match_array(["File resolution is too large"])
+          # expect(subject.errors[:file]).to match_array(["File cannot be processed"])
+        end
       end
     end
 
@@ -55,6 +63,20 @@ module Decidim
 
       it "has a big version" do
         expect(subject.big_url).not_to be_nil
+      end
+
+      context "when the image is an invariable format" do
+        before do
+          allow(ActiveStorage).to receive(:variable_content_types).and_return(%w(image/bmp))
+        end
+
+        it "has a thumbnail" do
+          expect(subject.thumbnail_url).not_to be_nil
+        end
+
+        it "has a big version" do
+          expect(subject.big_url).not_to be_nil
+        end
       end
 
       describe "photo?" do

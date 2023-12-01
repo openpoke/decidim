@@ -40,8 +40,6 @@ id:
         name: Nama lengkap
   activerecord:
     models:
-      decidim/initiative:
-        other: Initatives
       decidim/initiative_comittee:
         other: Komite-komite
       decidim/initiative_vote:
@@ -239,7 +237,6 @@ id:
         fill_data:
           back: Kembali
           continue: Terus
-          initiative_type: Jenis inisiatif
           more_information: "(Informasi lebih lanjut)"
           select_scope: Pilih cakupan
         finish:
@@ -279,6 +276,8 @@ id:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{author_nickname}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
           email_subject: Inisiatif yang didukung oleh %{author_nickname}
           notification_title: Prakarsa <a href="%{resource_path}">%{resource_title}</a> didukung oleh <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      form:
+        delete_attachment: Menghapus
       index:
         title: Inisiatif
       initiative_signatures:
@@ -314,6 +313,9 @@ id:
         author_list:
           hidden_authors_count:
             other: dan %{count} lebih banyak orang
+        committee_members:
+          confirm_revoke: Apakah kamu yakin?
+          revoke: Mencabut
         count:
           title:
             other: "%{count} inisiatif"
@@ -373,11 +375,6 @@ id:
         status_change_for: Inisiatif %{title} telah mengubah keadaannya
       last_activity:
         new_initiative: Inisiatif baru
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Inisiatif aktif
-            see_all_initiatives: Lihat semua inisiatif
       states:
         accepted: Diterima
         expired: Kadaluarsa

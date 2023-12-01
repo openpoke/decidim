@@ -11,21 +11,28 @@ de:
         organization: Organisation
         plural: Plural
       attachment:
-        attachment_collection_id: Verzeichnis
+        attachment_collection_id: Ordner
         description: Beschreibung
         file: Datei
         title: Anhang oder Bildname
+        weight: Reihenfolge
       attachment_collection:
         description: Beschreibung
         name: Name
+        weight: Reihenfolge
       category:
         description: Beschreibung
         name: Name
         parent_id: Übergeordnete Kategorie
+        weight: Reihenfolge
       component:
         name: Name
-        published_at: Veröffentlicht unter
-        weight: Bestellposition
+        published_at: Veröffentlicht am
+        weight: Reihenfolge
+      external_domain:
+        value: Wert
+      help_section:
+        content: Inhalt
       id: ID
       import:
         user_group_id: Importierte Inhalte erstellen als
@@ -86,13 +93,16 @@ de:
         success_color: Erfolg
         time_zone: Zeitzone
         tos_version: Nutzungsbedingungen Version
-        twitter_handler: Twitter-Handler
+        twitter_handler: X-Handler
         user_groups_enabled: Benutzergruppen aktivieren
         users_registration_mode: Benutzerregistrierungs-Modus
         warning_color: Warnung
         welcome_notification_body: Text der Willkommens-Benachrichtigung
         welcome_notification_subject: Betreff der Willkommens-Benachrichtigung
         youtube_handler: YouTube-Handler
+      participatory_space_private_user:
+        email: E-Mail
+        name: Name
       scope:
         code: Code
         name: Name
@@ -114,12 +124,13 @@ de:
         show_in_footer: In der Fußzeile anzeigen
         slug: URL-Block
         title: Titel
-        weight: Bestellposition
+        topic_id: Thema
+        weight: Reihenfolge
       static_page_topic:
         description: Beschreibung
         show_in_footer: In der Fußzeile anzeigen
         title: Titel
-        weight: Bestellposition
+        weight: Reihenfolge
       user_group_csv_verification:
         file: Datei
     errors:
@@ -134,6 +145,14 @@ de:
               allowed_file_content_types: Ungültige Bilddatei
             official_img_header:
               allowed_file_content_types: Ungültige Bilddatei
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Fehlerhafte Importdatei. Bitte lesen Sie die Anweisungen sorgfältig durch und stellen Sie sicher, dass die Datei UTF-8 kodiert ist.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Fehlerhafte Importdatei. Bitte lesen Sie die Anweisungen sorgfältig durch und stellen Sie sicher, dass die Datei UTF-8 kodiert ist.
       new_import:
         attributes:
           file:
@@ -185,14 +204,14 @@ de:
           error: Beim Akzeptieren der Nutzungsbedingungen ist ein Fehler aufgetreten.
           success: Super! Sie haben die Admin-Nutzungsbedingungen akzeptiert.
         actions:
-          accept: Ich stimme den folgenden Bedingungen zu
+          accept: Ich stimme diesen Bedingungen zu
           are_you_sure: Sind Sie sicher, dass Sie die Admin-Nutzungsbedingungen ablehnen möchten?
-          refuse: Die Admin-Nutzungsbedingungen ablehnen
+          refuse: Admin-Nutzungsbedingungen ablehnen
           title: Den Admin-Nutzungsbedingungen zustimmen
         required_review:
           alert: 'Erforderlich: Überprüfen Sie unsere Admin-Nutzungsbedingungen'
           callout: Bitte nehmen Sie sich einen Moment Zeit, um die Admin-Nutzungsbedingungen zu lesen. Ansonsten können Sie die Plattform nicht verwalten.
-          cta: Lesen Sie sie jetzt.
+          cta: Jetzt überprüfen.
         title: Admin-Nutzungsbedingungen
       area_types:
         create:
@@ -323,7 +342,7 @@ de:
           success: Die Komponente wurde erfolgreich veröffentlicht.
         title: Komponenten
         unpublish:
-          success: Die Komponente wurde erfolgreich veröffentlicht.
+          success: Die Veröffentlichung der Komponente wurde erfolgreich zurückgezogen.
         update:
           error: Beim Aktualisieren dieser Komponente ist ein Fehler aufgetreten.
           success: Die Komponente wurde erfolgreich aktualisiert.
@@ -370,7 +389,7 @@ de:
             'false': 'Nein'
             'true': 'Ja'
         last_sign_in_at_present:
-          label: Schon einmal eingeloggt
+          label: Zuletzt angemeldet
           values:
             'false': 'Nein'
             'true': 'Ja'
@@ -414,12 +433,12 @@ de:
           label: Themenbereich
         search_label: Suche
         search_placeholder:
-          name_or_nickname_or_email_cont: Suche in %{collection} nach E-Mail, Name oder Benutzername.
+          name_or_nickname_or_email_cont: Suche in %{collection} nach E-Mail, Name oder Kontoname.
           report_count_eq: Anzahl Meldungen
           reported_id_string_or_reported_content_cont: Suche %{collection} nach meldbarer Id oder Inhalt.
           title_cont: In %{collection} nach Titel suchen.
           user_name_or_user_email_cont: In %{collection} nach Name oder E-Mail suchen.
-          user_name_or_user_nickname_or_user_email_cont: '%{collection} nach E-Mail, Name oder Benutzername durchsuchen.'
+          user_name_or_user_nickname_or_user_email_cont: '%{collection} nach E-Mail, Name oder Kontoname durchsuchen.'
         state_eq:
           label: Bundesland
           values:
@@ -539,7 +558,7 @@ de:
         reported_users: Gemeldete Nutzer
         scope_types: Bereichstypen
         scopes: Bereiche
-        settings: die Einstellungen
+        settings: Einstellungen
         static_pages: Seiten
         user_groups: Benutzergruppen
         users: Benutzer
@@ -557,13 +576,13 @@ de:
             plural: Plural
         attachment:
           fields:
-            collection: Mappe
+            collection: Ordner
             content_type: Art
             file_size: Größe
             title: Titel
           name: Befestigung
         attachment_collection:
-          name: Mappe
+          name: Ordner
         category:
           name: Kategorie
         impersonation_log:
@@ -576,7 +595,7 @@ de:
             user: Benutzer
         newsletter:
           fields:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             progress: Fortschritt
             sent_at: Gesendet um
             sent_to: Gesendet an
@@ -602,7 +621,7 @@ de:
             user: Erstellt von
         static_page:
           fields:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             title: Titel
         user:
           fields:
@@ -618,7 +637,7 @@ de:
         user_group:
           fields:
             actions: Aktionen
-            created_at: Hergestellt in
+            created_at: Erstellt am
             document_number: Dokumentnummer
             name: Name
             phone: Telefon
@@ -635,7 +654,7 @@ de:
           nickname: Spitzname
           reason: Grund
           reports: Anzahl Meldungen
-          title: Liste der gemeldeten Benutzer
+          title: Gemeldete Teilnehmende
         report:
           reasons:
             does_not_belong: Gehört nicht zu
@@ -646,7 +665,7 @@ de:
           unblocked: Nicht blockiert
       moderations:
         index:
-          title: Moderationen
+          title: Gemeldeter Inhalt
         report:
           reasons:
             does_not_belong: Gehört nicht
@@ -707,8 +726,8 @@ de:
         select_recipients_to_deliver:
           all_spaces: Alle
           all_users_help: Sendet Newsletter an alle bestätigten Benutzer.
-          confirm_deliver: Möchten Sie diesen Newsletter wirklich liefern? Diese Aktion kann nicht rückgängig gemacht werden.
-          deliver: Liefern Newsletter
+          confirm_deliver: Möchten Sie diesen Newsletter wirklich versenden? Diese Aktion kann nicht rückgängig gemacht werden.
+          deliver: Newsletter versenden
           followers_help: Sendet den Newsletter an alle bestätigten Benutzer, die den ausgewählten Teilnehmerräumen in der Liste folgen.
           none: Niemand
           participants_help: Sendet den Newsletter an alle bestätigten Benutzer, die an den ausgewählten Teilnehmerräumen der Liste teilgenommen haben.
@@ -717,9 +736,9 @@ de:
           select_scopes: Nur Teilnehmer anzeigen, die einen der gewählten Themenbereiche in Ihren "Meine Interessen" Einstellungen ihres Kontos aktiviert haben.
           select_spaces: Wählen Sie Abschnitte, um den Newsletter zu unterteilen
           select_users: Wählen Sie aus, welchen Benutzern Sie den Newsletter senden möchten
-          send_to_all_users: An alle Benutzer senden
+          send_to_all_users: An alle Benutzenden senden
           send_to_followers: An Follower senden
-          send_to_participants: An Teilnehmer senden
+          send_to_participants: An Teilnehmende senden
           title: Empfänger auswählen
           warning: "<strong>Achtung:</strong> Dieser Newsletter wird nur an Benutzer gesendet, die <em>Ich möchte Newsletter empfangen</em> in ihren Benachrichtigungseinstellungen aktiviert haben."
         send:
@@ -743,7 +762,7 @@ de:
           actions: Aktionen
           badge: Abzeichen
           block: Benutzer blockieren
-          created_at: Hergestellt in
+          created_at: Erstellt am
           name: Name
           nickname: Spitzname
           not_officialized: Nicht offiziell
@@ -780,7 +799,7 @@ de:
           instagram: Instagram
           rich_text_editor_in_public_views_help: In einigen Textbereichen können Teilnehmer mit Hilfe des Rich-Text-Editors HTML-Tags einfügen.
           social_handlers: Sozial
-          twitter: Twitter
+          twitter: X
           url: URL
           youtube: Youtube
         update:
@@ -794,7 +813,7 @@ de:
             colors_title: Organisationsfarben
             colors_warning_html: Warnung! Das Ändern dieser Farben kann die für Barrierefreiheit notwendigen Kontraste brechen. Sie können den Kontrast Ihrer Wahl mit <a href="%{link}">WebAIM Contrast Checker</a> oder ähnlichen Tools überprüfen.
             header_snippets_help: Verwenden Sie dieses Feld, um Dinge zum HTML-Kopf hinzuzufügen. Die häufigste Verwendung ist die Integration von Drittanbieterdiensten, für die zusätzliches JavaScript oder CSS erforderlich ist. Außerdem können Sie damit dem HTML zusätzliche Meta-Tags hinzufügen. Beachten Sie, dass dies nur auf öffentlichen Seiten und nicht im Admin-Bereich erfolgt.
-          cta_button_path_help: 'Sie können überschreiben, wo die Call To Action-Schaltfläche in der Homepage verlinkt ist. Verwenden Sie hier Teilpfade, nicht vollständige URLs. Akzeptiert Buchstaben, Zahlen, Bindestriche und Schrägstriche und muss mit einem Buchstaben beginnen. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt. Beispiel: %{url}'
+          cta_button_path_help: 'Sie können überschreiben, womit die Call To Action-Schaltfläche auf der Homepage verlinkt ist. Verwenden Sie hier Teilpfade, nicht die vollständige URL. Buchstaben, Zahlen, Bindestriche und Schrägstriche sind erlaubt; an der ersten Stelle ist ein Buchstabe erforderlich. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt. Beispiel: %{url}'
           cta_button_text_help: Sie können den Text der Call To Action-Schaltfläche auf der Startseite für jede verfügbare Sprache in Ihrer Organisation überschreiben. Wenn nicht festgelegt, wird der Standardwert verwendet. Die Call To Action-Schaltfläche wird auf der Startseite zwischen Begrüßungstext und Beschreibung angezeigt.
           homepage_appearance_title: Homepage-Erscheinungsbild bearbeiten
           homepage_highlighted_content_banner_title: Highlighted Inhaltsbanner
@@ -845,11 +864,14 @@ de:
             explanation: Sie haben %{count} private Teilnehmende.
             title: Alle private Teilnehmende entfernen
           explanation: 'Laden Sie Ihre CSV-Datei hoch. Diese muss zwei Spalten haben ohne Kopfzeile, mit E-Mail in der ersten Spalte der Datei und Namen in der letzten Spalte der Datei (E-Mail, Name) in Bezug auf die Benutzer, die Sie dem Beteiligungsbereich hinzufügen möchten. Vermeiden sie ungültige Zeichen wie `<>?%&^*#@()[]=+:;"{}\|` im Namen des Nutzers zu verwenden.'
-          title: CSV-Datei hochladen
+          title: Laden Sie Ihre CSV-Datei hoch
           upload: Hochladen
       reminders:
         create:
           error: Beim Erstellen dieser Erinnerungen ist ein Problem aufgetreten.
+          success:
+            one: "%{count} Benutzer wird erinnert."
+            other: "%{count} Benutzer werden erinnert."
         new:
           submit: Senden
       resource_permissions:
@@ -940,9 +962,9 @@ de:
           update: Aktualisieren
         form:
           none: Keiner
-          slug_help: 'Benutze partielle Pfade, nicht vollständige URLs. Akzeptiert Buchstaben, Zahlen, Bindestriche und Schrägstriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+          slug_help: 'Verwenden Sie hier Teilpfade, nicht die vollständige URL. Buchstaben, Zahlen, Bindestriche und Schrägstriche sind erlaubt; an der ersten Stelle ist ein Buchstabe erforderlich. Beispiel: %{url}'
         index:
-          last_notable_change: Letzte bemerkenswerte Änderung
+          last_notable_change: Letzte signifikante Änderung
         new:
           create: Seite erstellen
           title: Neue Seite
@@ -960,9 +982,12 @@ de:
         areas: Bereiche
         authorization_workflows: Verifizierungsmethoden
         dashboard: Instrumententafel
+        edit_external_domains: Externe Domain-Whitelist
+        edit_organization_appearance: Homepage-Erscheinungsbild bearbeiten
         impersonatable_users: Überschaubare Benutzer
         impersonations: Benutzerverwaltung
         metrics: Kriterien
+        pages: Seiten
         panel: Admin
         participants: Benutzer
         scope_types: Bereichstypen
@@ -1054,6 +1079,7 @@ de:
         moderation:
           fields:
             created_at: Erstellungsdatum
+            deleted_resource: Gelöschte Ressource
             hidden_at: Versteckt bei
             participatory_space: Beteiligungsbereich
             report_count: Anzahl
@@ -1078,6 +1104,6 @@ de:
         newsletters:
           title: Newsletter
         settings:
-          title: die Einstellungen
+          title: Einstellungen
         users:
-          title: Benutzer
+          title: Teilnehmer

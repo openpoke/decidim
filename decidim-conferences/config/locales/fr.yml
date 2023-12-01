@@ -24,12 +24,12 @@ fr:
         registration_terms: Conditions d’inscription
         registrations_enabled: Inscriptions ouvertes
         scope_id: Périmètre
-        scopes_enabled: Périmètres d'application activés
+        scopes_enabled: Secteurs activés
         short_description: Brève description
         show_statistics: Montrer les statistiques
         sign_date: Date de signature
         signature: Signature
-        signature_name: nom de la signature
+        signature_name: Nom de la signature
         slogan: Slogan
         slug: Slug URL
         start_date: Date de début
@@ -63,7 +63,7 @@ fr:
         personal_url: Site internet personnel
         position: Profession
         short_bio: Courte biographie
-        twitter_handle: Gestionnaire Twitter
+        twitter_handle: Compte X
         user_id: Utilisateur
       conference_user_role:
         email: Email
@@ -135,7 +135,7 @@ fr:
           title: Mettre à jour l'administrateur de la conférence.
           update: Mettre à jour
         index:
-          conference_admins_title: administrateurs de la conférence
+          conference_admins_title: Administrateurs de conférence
         new:
           create: Créer
           title: Nouvel administrateur de conférence.
@@ -189,7 +189,7 @@ fr:
           attachment_files: Fichiers
           attachments: Pièces jointes
           categories: Catégories
-          components: Composants
+          components: Fonctionnalités
           conference_admins: Administrateurs de conférence
           conference_invites: Invitations
           conference_speakers: Conférenciers
@@ -313,6 +313,7 @@ fr:
           update: "%{user_name} a mis à jour le partenaire %{resource_name} dans la conférence %{space_name}"
         registration_type:
           create: "%{user_name} créé le type d'inscription %{resource_name} dans la conférence %{space_name}"
+          delete: "%{user_name} a supprimé le type d'inscription %{resource_name} de la conférence %{space_name}"
           publish: "%{user_name} publié le %{resource_name} type d'inscription dans la %{space_name} conférence"
           unpublish: "%{user_name} non publié le type d'inscription %{resource_name} dans la conférence %{space_name}"
           update: "%{user_name} mis à jour le type d'inscription %{resource_name} dans la conférence %{space_name}"
@@ -330,7 +331,7 @@ fr:
       admin:
         conference_copies:
           form:
-            slug_help: 'Les slugs d''URL sont utilisés pour générer les URL qui pointent vers cette conférence. N''accepte que les lettres, les chiffres et les tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette conférence. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
         conference_invites:
           create:
             error: Un problème est survenu lors de l'invitation de l'utilisateur à rejoindre la conférence.
@@ -372,7 +373,7 @@ fr:
             registrations_count:
               one: Il y a eu une inscription.
               other: Il y a eu %{count} inscriptions.
-            slug_help: 'Les slugs d''URL sont utilisés pour générer les URL qui pointent vers cette conférence. N''accepte que les lettres, les chiffres et les tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette conférence. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
         diplomas:
           edit:
             save: sauvegarder
@@ -380,7 +381,8 @@ fr:
         invite_join_conference_mailer:
           invite:
             decline: Refuser l'invitation '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} a invité à participer à une conférence à %{application}. Vous pouvez refuser ou l'accepter via les liens ci-dessous."
+            invited_existing_user_to_join_a_conference: "%{invited_by} a invité à participer à une conférence à %{application}. Vous pouvez refuser ou l'accepter via les liens ci-dessous."
+            invited_user_to_join_a_conference: "%{invited_by} vous a invité à participer à une conférence à %{application}. Vous pouvez accepter en utilisant le lien ci-dessous."
             registration: Inscription pour '%{conference_title}'
         partners:
           index:
@@ -431,14 +433,16 @@ fr:
         create:
           invalid: Il y a eu un problème pour rejoindre cette conférence.
           success: Vous avez rejoint la conférence avec succès.
+          unauthorized: Vous devez vous connecter avant de vous inscrire à la conférence.
         decline_invitation:
           invalid: Il y a eu un problème pour refuser l'invitation.
           success: Vous avez refusé l'invitation avec succès.
+          unauthorized: Vous devez vous connecter avant de refuser l'invitation.
         destroy:
           invalid: Il y a eu un problème pour quitter cette conférence.
           success: Vous avez quitté la conférence avec succès.
       conference_speaker:
-        go_to_twitter: Aller sur Twitter
+        go_to_twitter: Aller sur X
         more_info: Plus d'informations
         personal_website: Site Web personnel
         show:

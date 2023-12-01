@@ -85,7 +85,6 @@ gl:
         success_color: Éxito
         time_zone: Fuso horario
         tos_version: Versión de condicións de servizo
-        twitter_handler: Xestor de Twitter
         user_groups_enabled: Activar grupos de usuarios
         users_registration_mode: Modo rexistro de usuarios/as
         warning_color: Aviso
@@ -180,12 +179,9 @@ gl:
           error: Produciuse un erro ao aceptar os termos de uso do panel de administración.
           success: Xenial! Aceptaches os termos de uso do panel de administración.
         actions:
-          accept: Concordo con seguintes termos
-          refuse: Rexeitar os termos de uso
           title: Concordo cos termos e condicións de uso
         required_review:
           alert: 'Requirido: Revisa os nosos termos de uso do panel de administración'
-          cta: Revísaos agora.
         title: Termos de uso do panel de administración
       area_types:
         create:
@@ -621,7 +617,6 @@ gl:
           nickname: Alcume
           reason: Motivo
           reports: Número de denuncias
-          title: Listando os usuarios reportados
         report:
           reasons:
             does_not_belong: Non pertence
@@ -631,8 +626,6 @@ gl:
           blocked: Bloqueados
           unblocked: Sen bloquear
       moderations:
-        index:
-          title: Moderacións
         report:
           reasons:
             does_not_belong: Non pertence
@@ -702,9 +695,6 @@ gl:
           select_scopes: Filtrar polos usuarios que teñan activado calquera ámbito seleccionado nos axustes "Os meus intereses" das súas contas.
           select_spaces: Seleccionar espazos para segmentar o boletín
           select_users: Selecciona a que usuarios queres enviar o boletín
-          send_to_all_users: Enviar a todos os usuarios
-          send_to_followers: Enviar aos seguidores
-          send_to_participants: Enviar aos participantes
           title: Seleccionar os destinatarios
           warning: "<strong>Atención:</strong> Este boletín enviarase só aos usuarios que teñen activado <em>Desexo recibir boletíns</em> nos seus axustes de notificacións."
         send:
@@ -763,7 +753,6 @@ gl:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Nalgúns cadros de texto, os participantes poderán inserir algunhas etiquetas HTML empregando o editor de texto avanzado.
           social_handlers: Social
-          twitter: Twitter
           url: URL
           youtube: YouTube
         update:
@@ -777,7 +766,6 @@ gl:
             colors_title: Cores da organización
             colors_warning_html: Atención! Mudar estas cores pode estragar ao contrastes de accesibilidade. Podes verificar o contraste da túa elección a través de <a href="%{link}">WebAIM Contrast Checker</a> ou outras ferramentas semellantes.
             header_snippets_help: Use este campo para engadir cousas ao título HTML. O uso máis común é integrar servizos de terceiros que requiren algún JavaScript ou CSS adicional. Ademais, podes usalo para engadir etiquetas metais extra ao HTML. Ten en conta que isto só se renderá en páxinas públicas, non na sección de administración.
-          cta_button_path_help: 'Pode sobrescribir onde se enlaza o botón de chamada a acción na páxina de inicio. Use aquí rutas parciais, non URL completo. Acepta letras, números, guións e barras, e debe comezar cunha letra. O botón de chamada a acción amósase na páxina de inicio entre o texto de benvida ea descrición. Exemplo: %{url}'
           cta_button_text_help: Pode sobrescribir o texto do botón de chamada a acción na páxina de inicio para cada idioma dispoñible na súa organización. Se non se establece, empregarase o valor predeterminado. O botón de chamada a acción amósase na páxina de inicio entre o texto de benvida ea descrición.
           homepage_appearance_title: Editar o aspecto da páxina de inicio
           homepage_highlighted_content_banner_title: Banner de contido de alto nivel
@@ -791,10 +779,6 @@ gl:
         external_domain:
           external_domain: Dominio externo
           remove: Eliminar
-      organization_homepage:
-        edit:
-          active_content_blocks: Bloques de contido activo
-          inactive_content_blocks: Bloques de contido inactivo
       organization_homepage_content_blocks:
         edit:
           update: Actualización
@@ -817,7 +801,7 @@ gl:
           success: Ficheiro CSV subido con éxito, estamos a enviar un correo de invitación aos participantes. Isto pode levar un pouco de tempo.
         new:
           explanation: 'Sube o teu ficheiro CSV. Ten de ter dúas columnas co correo electrónico na primeira e o nome na última (correo, nome) dos usuarios que desexes engadir ao espazo de participación, sen cabeceiras. Evita empregar os seguintes caracteres `<>?%&^*#@()[]=+:;"{}\|` no nome de usuario.'
-          title: Sube o teu ficheiro CSV
+          title: Carga o teu ficheiro CSV
           upload: Subir
       reminders:
         create:
@@ -915,7 +899,6 @@ gl:
           update: Actualización
         form:
           none: Nada
-          slug_help: 'Empregar aquí rutas parciais dos URLs. Acepta letras, números, guións, barras e ten de comezar cunha letra. Exemplo: %{url}'
         index:
           last_notable_change: Último cambio notable
         new:
@@ -1050,4 +1033,4 @@ gl:
         settings:
           title: Configuración
         users:
-          title: Usuarios
+          title: Participantes

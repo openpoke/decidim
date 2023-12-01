@@ -97,6 +97,13 @@ describe "Participatory Process Groups", type: :system do
       it "has a link to the group url" do
         expect(page).to have_link("www.example.org/external", href: "https://www.example.org/external")
       end
+
+      it_behaves_like "has embedded video in description", :description do
+        before do
+          participatory_process_group.update!(description: description)
+          visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
+        end
+      end
     end
 
     context "when the metadata content block is enabled" do
@@ -528,7 +535,7 @@ describe "Participatory Process Groups", type: :system do
     context "when filtering processes by scope" do
       context "and choosing a scope" do
         before do
-          visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group, filter: { with_scope: scope.id })
+          visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group, filter: { with_any_scope: [scope.id] })
         end
 
         it "lists active process belonging to that scope" do

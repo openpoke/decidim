@@ -11,6 +11,7 @@ ca:
         end_time: Data de finalització
         information_updates: Actualitzacions d'informació
         instructions: Instruccions per participar
+        scope_id: Àmbit
         start_time: Data d'inici
         title: Títol
         user_group_id: Crea un debat com
@@ -48,7 +49,7 @@ ca:
     debates:
       actions:
         close: Tanca
-        confirm_destroy: N'estàs segura?
+        confirm_destroy: Segur?
         destroy: Suprimeix
         edit: Edita
         new: Nou %{name}
@@ -109,6 +110,9 @@ ca:
           success: Debat creat correctament.
         debate:
           participate: Participa
+        debates:
+          empty: Encara no hi ha cap debat.
+          empty_filters: No hi ha cap debat amb aquest criteri.
         edit:
           back: Enrere
           save: Guardar canvis

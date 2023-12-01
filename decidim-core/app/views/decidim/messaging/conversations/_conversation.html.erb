@@ -9,7 +9,7 @@
             <%= image_tag present(current_user).avatar.default_multiuser_url, alt: t("decidim.author.avatar_multiuser") %>
           <% end %>
         </div>
-        <span class="text-medium mt-xs"><%= Date::ABBR_DAYNAMES[conversation.created_at.wday] %> <%= conversation.created_at.wday %></span>
+        <span class="text-medium mt-xs"><%= Date::ABBR_DAYNAMES[conversation.created_at.wday] %> <%= l conversation.created_at, format: :decidim_short %></span>
       </div>
     </li>
     <li class="card-data__item card--list__item card-data__item--expand absolutes">
@@ -33,11 +33,7 @@
         <span class="text-small">
           <%= t("last_message", scope: "decidim.messaging.conversations.index") %>:
           <strong>
-            <% if I18n.locale != :en %>
-              <%= t("ago", scope: "decidim.messaging.conversations.index") %> <%= time_ago_in_words(Time.parse(conversation.last_message.created_at.to_s)) %>
-            <% else %>
-              <%= time_ago_in_words(Time.parse(conversation.last_message.created_at.to_s)) %> <%= t("ago", scope: "decidim.messaging.conversations.index") %>
-            <% end %>
+            <%= t("decidim.user_conversations.index.time_ago", time: time_ago_in_words(Time.zone.parse(conversation.last_message.created_at.to_s))) %>
           </strong>
         </span>
       </div>

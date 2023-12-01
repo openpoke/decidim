@@ -3,8 +3,13 @@ es:
   activemodel:
     attributes:
       initiative:
+        answer: Respuesta
+        answer_url: URL de la respuesta
+        area_id: Área
+        decidim_scope_id: Ámbito
         decidim_user_group_id: Autoria
         description: Descripción
+        hashtag: Etiqueta (hashtag)
         offline_votes: Firmas presenciales
         offline_votes_for_scope: Firmas en persona para %{scope_name}
         scope_id: Ámbito
@@ -17,8 +22,11 @@ es:
           online: Digital
         state: Estado
         title: Título
+        type_id: Tipo
       initiatives_committee_member:
         user: Miembro del Comité
+      initiatives_settings:
+        initiatives_order: Orden
       initiatives_type:
         area_enabled: Permitir a las autoras elegir el área para su iniciativa
         attachments_enabled: Habilitar archivos adjuntos
@@ -34,9 +42,13 @@ es:
         online_signature_enabled: Firma digital habilitada
         only_global_scope_enabled: Permitir sólo la creación de iniciativas de ámbito global
         promoting_committee_enabled: Habilitar el comité promotor
+        signature_type: Tipo de firma
         title: Título
         undo_online_signatures_enabled: Permitir a las participantes deshacer sus firmas digitales
         validate_sms_code_on_votes: Añadir paso de validación mediante SMS al proceso de firma
+      initiatives_type_scope:
+        decidim_scopes_id: Ámbitos
+        supports_required: Se requieren apoyos
       initiatives_vote:
         date_of_birth: Fecha de nacimiento
         document_number: Número de documento
@@ -233,7 +245,7 @@ es:
             success: La iniciativa se ha enviado a validación técnica
             update: Actualizar
           form:
-            attachments: Archivos adjuntos
+            attachments: Adjuntos
             settings: Ajustes
             title: Información general
           index:
@@ -289,8 +301,8 @@ es:
             update: Actualizar
           form:
             authorizations: Ajustes de autorización
-            child_scope_threshold_enabled_help: 'Este ajuste de configuración no admite las votaciones sin conexión. Habilita los subámbitos y funciona con un gestor de autorizaciones que asocia un ámbito al usuario. Asegúrate de seleccionar esa autorización, más abajo en la configuración de autorizaciones. Para que funcione, los ámbitos deben configurarse de forma jerárquica: 1 Padre - N hijos. Para más información sobre cómo funciona esta configuración, <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">ver la documentación sobre l''administraciónb de iniciativas</a>.'
-            only_global_scope_enabled_help: Marca esta casilla si habilitaste "Activar firmas por subámbito" y configuraste el ámbito global como el ámbito principal. Al habilitar esta casilla, la selección del tipo de iniciativa se omitirá en el asistente de creación de iniciativas. Para más información sobre cómo funciona esta configuración, consulta este <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">enlace</a>.
+            child_scope_threshold_enabled_help: 'Este ajuste de configuración no admite las votaciones sin conexión. Este habilita los subámbitos y funciona con un gestor de autorizaciones que asocia un ámbito al usuario. Asegúrate de seleccionar esa autorización, más abajo en la configuración de autorizaciones. Para que funcione, los ámbitos deben configurarse de forma jerárquica: 1 Padre - N hijos. Para más información sobre cómo funciona esta configuración, <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">ver la documentación sobre la administración de iniciativas</a>.'
+            only_global_scope_enabled_help: Marca esta casilla si habilitaste "Activar firmas por subámbito" y configuraste el ámbito global como el ámbito principal. Al habilitar esta casilla, la selección del tipo de iniciativa se omitirá en el asistente de creación de iniciativas. Para más información sobre cómo funciona esta configuración, consulta la<a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">documentación sobre la administración de iniciativas</a>.
             options: Opciones
             title: Información general
           initiative_type_scopes:
@@ -322,7 +334,7 @@ es:
         validating: Validación técnica
       application_helper:
         filter_area_values:
-          all: Todas
+          all: Todos
         filter_scope_values:
           all: Todos
         filter_state_values:
@@ -351,11 +363,11 @@ es:
         fill_data:
           back: Volver
           continue: Continuar
+          decidim_user_group_id_help: No es posible cambiar l'autoría de la iniciativa después de crearla
           fill_data_help: "<ul> <li>Revisa el contenido de tu iniciativa. ¿Tu título es fácil de entender? ¿Está claro el objetivo de tu iniciativa?</li> <li>Tienes que elegir el tipo de firma. En persona, en línea o una combinación de ambos</li> <li>¿Cuál es el alcance geográfico de la iniciativa?</li> </ul>"
-          initiative_type: Tipo de iniciativa
           more_information: "(Más información)"
           select_area: Selecciona un área
-          select_scope: Seleccione un alcance
+          select_scope: Selecciona un ámbito
         finish:
           back: Volver
           back_to_initiatives: Volver a iniciativas
@@ -433,6 +445,7 @@ es:
         delete_attachment: Borrar
       index:
         title: Iniciativas
+        uninitialized: Las iniciativas aún no están configuradas desde la administración.
       initiative_signatures:
         fill_personal_data:
           continue: Continuar
@@ -469,7 +482,7 @@ es:
             other: y %{count} personas más
         committee_members:
           approve: Aprobar
-          confirm_revoke: '¿Estás seguro/a?'
+          confirm_revoke: '¿Estás seguro?'
           invite_to_committee_help: Comparte este enlace para invitar a otras participantes al comité promotor
           no_members_yet: No hay miembros en el comité promotor
           revoke: Revocar
@@ -591,8 +604,8 @@ es:
       signature_interval:
         title: Período de recogida de firmas
       states:
-        accepted: Aceptado
-        expired: Caducado
+        accepted: Aceptada
+        expired: Caducada
       unavailable_scope: Ámbito no disponible
       update:
         error: Se ha producido un error

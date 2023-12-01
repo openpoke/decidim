@@ -1,3 +1,4 @@
+<% add_decidim_page_title(t(".title")) %>
 <div class="card">
   <div class="card-divider">
     <h2 class="card-title">
@@ -37,7 +38,7 @@
             <tr data-id="<%= moderation.id %>">
               <td><%= moderation.reportable.id %></td>
               <td>
-                <%= moderation.reportable.class.name.demodulize %>
+                <%= moderation.reportable.class.model_name.human %>
               </td>
               <% if !respond_to?(:current_participatory_space) %>
                 <td>
@@ -48,9 +49,13 @@
                 <%= moderation.report_count %>
               </td>
               <td>
-                <%=
-                  link_to t("models.moderation.fields.visit_url", scope: "decidim.moderations"), moderation.reportable.reported_content_url, data: { tooltip: true }, title: strip_tags(reported_content_excerpt_for(moderation.reportable, limit: 250))
-                %>
+                <% if (reportable_url = moderation.reportable.reported_content_url) %>
+                  <%=
+                    link_to t("models.moderation.fields.visit_url", scope: "decidim.moderations"), reportable_url, data: { tooltip: true }, title: strip_tags(reported_content_excerpt_for(moderation.reportable, limit: 250))
+                  %>
+                <% else %>
+                  <%= t("models.moderation.fields.deleted_resource", scope: "decidim.moderations") %>
+                <% end %>
               </td>
               <td>
                 <% reports = moderation.reports.map { |report| render "report", report: report } %>

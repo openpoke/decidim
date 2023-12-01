@@ -3,8 +3,13 @@ sv:
   activemodel:
     attributes:
       initiative:
+        answer: Svar
+        answer_url: Svars URL
+        area_id: Område
+        decidim_scope_id: Omfång
         decidim_user_group_id: Författare
         description: Beskrivning
+        hashtag: Hashtag
         offline_votes: Fysiska underskrifter
         scope_id: Omfång
         signature_end_date: Insamling av underskrifter avslutas
@@ -16,8 +21,11 @@ sv:
           online: Online
         state: Status
         title: Titel
+        type_id: Typ
       initiatives_committee_member:
         user: Kommittémedlem
+      initiatives_settings:
+        initiatives_order: Ordning
       initiatives_type:
         area_enabled: Gör det möjligt för författare att välja området för deras initiativ
         attachments_enabled: Aktivera bilagor
@@ -30,9 +38,12 @@ sv:
         minimum_committee_members: Minsta antal kommittémedlemmar
         online_signature_enabled: Digitala signaturer är aktiverade
         promoting_committee_enabled: Tillåt kampanjutskott
+        signature_type: Signaturtyp
         title: Titel
         undo_online_signatures_enabled: Tillåt deltagare att ångra sina online-underskrifter
         validate_sms_code_on_votes: Lägg till SMS-validering till signeringsprocessen
+      initiatives_type_scope:
+        decidim_scopes_id: Omfång
       initiatives_vote:
         date_of_birth: Födelsedatum
         document_number: Dokumentnummer
@@ -53,7 +64,7 @@ sv:
   activerecord:
     models:
       decidim/initiative:
-        one: Intitiativ
+        one: Initiativ
         other: Initiativ
       decidim/initiative_comittee:
         one: Kommitté
@@ -87,6 +98,7 @@ sv:
         components: Komponenter
         information: Information
         initiatives: Initiativ
+        initiatives_settings: Inställningar
         initiatives_types: Initiativtyper
         moderations: Moderering
       models:
@@ -199,6 +211,7 @@ sv:
             max_results: Högsta antal element att visa
             order:
               default: Standard (Äldste)
+              label: 'Sortera efter:'
               most_recent: Senaste
         exports:
           initiatives: Initiativ
@@ -317,7 +330,6 @@ sv:
         fill_data:
           back: Tillbaka
           continue: Fortsätt
-          initiative_type: Typ av initiativ
           more_information: "(Mer information)"
           select_area: Välj ett område
           select_scope: Välj ett omfång
@@ -342,7 +354,7 @@ sv:
           more_information: "(Mer information)"
           select: Jag vill arbeta för detta initiativ
         share_committee_link:
-          continue: Fortsätt
+          continue: Fortsätta
           invite_to_committee_help: Länk för att bjuda in personer till kampanjutskottet
         show_similar_initiatives:
           back: Tillbaka
@@ -509,11 +521,6 @@ sv:
         status_change_for: Initiativet %{title} har ändrat status
       last_activity:
         new_initiative: Nytt initiativ
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Pågående initiativ
-            see_all_initiatives: Visa alla initiativ
       show:
         badge_name:
           accepted: Nog med signaturer

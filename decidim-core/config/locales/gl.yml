@@ -64,24 +64,6 @@ gl:
         one: ao redor de 1 mes
         other: ao redor de %{count} meses
       half_a_minute: medio minuto
-      less_than_x_minutes:
-        one: menos de 1 minuto
-        other: menos de %{count} minutos
-      less_than_x_seconds:
-        one: agora
-        other: menos de %{count} segundos
-      x_days:
-        one: hai 1 día
-        other: "hai %{count} días"
-      x_hours:
-        one: hai 1 hora
-        other: "hai %{count} horas"
-      x_minutes:
-        one: hai 1 min
-        other: "hai %{count} min"
-      x_seconds:
-        one: hai 1 seg
-        other: "hai %{count} seg"
   decidim:
     accessibility:
       front_page_link: Ir á páxina principal
@@ -201,9 +183,6 @@ gl:
       wizard_step_form:
         steps:
           '1': Crea a túa emenda
-          '2': Compare your amendment
-          '3': Complete your amendment
-          '4': Publish your amendment
     anonymous_user: Anónimo
     application:
       collection:
@@ -345,7 +324,6 @@ gl:
           already_have_an_account?: Xa ten unha conta?
           newsletter: Recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
-          sign_in: Iniciar sesión
           sign_up: Rexistrarse
           sign_up_as:
             legend: Rexístrate como
@@ -364,7 +342,6 @@ gl:
         newsletter_modal:
           buttons:
             check: Comprobar e continuar
-            close_modal: Pechar modal
           notice: |-
             <p>Ola, estás seguro de que non queres recibir un boletín informativo?<br>
             Por favor, considere nuevamente marcar a caixa de verificación seguinte.<br>
@@ -402,7 +379,7 @@ gl:
         success: Imaxe subida con éxito
       drag_and_drop_help: Engade imaxes arrastrándoas ou pegándoas aquí.
     endorsable:
-      endorsements: Aprobacións
+      endorsements: Adhesións
     errors:
       internal_server_error:
         title: Produciuse un problema co noso servidor
@@ -611,18 +588,6 @@ gl:
           how: Como podes gañalo
           page_description: As insignias son recoñecementos ás accións participantes e ao progreso na plataforma. Ao comezar a descubrir, participar e interactuar na plataforma, gañará distintas insignias. Aquí está a lista de emblemas e algunhas formas de gaña-los.
           title: Insignias
-        invitations:
-          conditions:
-            - Utiliza a ligazón "invitar amigos" na túa páxina de usuario para invitar aos teus amigos
-            - Personaliza, se queres, a mensaxe que estás enviando
-            - Subirás ao enviar invitacións e obtelos rexistrados.
-          description: Este distintivo concedeuse cando convidou a algunhas persoas e pasaron un pouco de tempo para inscribirse en %{organization_name} e converterse en participantes. Grazas por facer %{organization_name} a coñecer aos outros e axudando a ampliar a comunidade!
-          description_another: Este usuario invitou a %{score} usuarios.
-          description_own: Invitaches %{score} usuarios.
-          name: Invitacións
-          next_level_in: Invita %{score} usuarios máis para chegar ao seguinte nivel!
-          unearned_another: Este usuario aínda non invitou ningún usuario.
-          unearned_own: Aínda non invitaches usuarios.
       description: As insignias son recoñecementos ás accións participantes e ao progreso na plataforma. Ao comezar a descubrir, participar e interactuar na plataforma, gañará distintas insignias.
       level: Nivel %{level}
       reached_top: Alcanzou o nivel superior desta placa.
@@ -729,7 +694,6 @@ gl:
         body_1: Estás a punto de visitar unha ligazón externa e gustaríanos ser cautelosos canto ao contido deste sitio externo.
         body_2: Por favor, verifica a ligazón a punto de visitar e asegúrate de que é un sitio seguro antes de continuar.
         cancel: Cancelar
-        close_modal: Pechar modal
         proceed: Continuar
         title: Abrir ligazón externa
     log:
@@ -774,19 +738,16 @@ gl:
         create:
           error: Non se iniciou a conversa. Téntao de novo máis tarde
         index:
-          close: Pechar modal
           no_conversations: Aínda non tes conversas
           title: Conversas
           to: Para
         reply:
           send: Enviar
-          title: Responder
         show:
           deleted_accounts: Non podes manter unha conversa con contas eliminadas.
           title: Conversa con %{usernames}
         start:
           send: Enviar
-          title: Comezar unha conversa
     metrics:
       followers:
         description: Número de usuarios que seguen este espazo de participación
@@ -803,7 +764,6 @@ gl:
     newsletter_mailer:
       newsletter:
         note: Recibiches este correo electrónico porque estás subscrito a boletíns en %{organization_name}. Podes cambiar a configuración nas túas <a href="%{link}"> notificacións páxina</a>.
-        see_on_website: Non se pode ver este correo electrónico correctamente? Vénseo no <a href="%{link}" target="_blank"> sitio web</a>.
         unsubscribe: Para desactivar a recepción deste tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">Subscribe</a>.
     newsletters:
       unsubscribe:
@@ -872,7 +832,6 @@ gl:
           proposals: Propostas
           proposals_explanation: Fai propostas, apoia as existentes e promove os cambios que queres ver.
         footer_sub_hero:
-          footer_sub_hero_body: Construamos unha sociedade máis aberta, transparente e de colaboración.<br /> Unirse, participar e decidir.
           footer_sub_hero_headline: Benvido a %{organization} plataforma participativa.
           register: Rexistrarse
         hero:
@@ -901,15 +860,11 @@ gl:
         form:
           legend: Concorda cos termos e condicións de uso
         refuse:
-          modal_btn_continue: Aceptar termos e continuar
           modal_btn_exit: Vou revisalo máis tarde
-          modal_button: Rexeitar os termos
-          modal_close: Pechar modal
           modal_title: '¿Realmente rexeita os Termos e condicións actualizados?'
         required_review:
           alert: Actualizamos as nosas Condicións de servizo, por favor revíselas.
           body: Leve un momento para revisar as actualizacións das nosas Condicións de servizo. Se non, non poderás usar a plataforma.
-          title: 'Requirido: repasa as actualizacións dos nosos termos de servizo'
     participatory_space_private_users:
       not_allowed: Non tes permiso para ver este contido
     profile:
@@ -978,7 +933,6 @@ gl:
           future: Futuro
           past: Pasado
       filters_small_view:
-        close_modal: Pechar modal
         filter: Filtro
         filter_by: Filtrar por
         unfold: Despregar
@@ -989,7 +943,7 @@ gl:
         view_all: Ver todos (%{count})
     shared:
       embed_modal:
-        close_window: Pechar ventá
+        close_window: Pechar xanela
         embed: Pega este código na túa páxina
         embed_link: Inserir
       extended_navigation_bar:
@@ -1028,7 +982,7 @@ gl:
       results_per_page:
         label: 'Resultados por páxina:'
       share_modal:
-        close_window: Pechar ventá
+        close_window: Pechar xanela
         copy_share_link: Copiar
         copy_share_link_clarification: Copiar ligazón ao portapapeis
         copy_share_link_copied: Copiado!
@@ -1044,13 +998,13 @@ gl:
       pages_count: Páxinas
       participants_count: Participantes
       users_count: Participantes
-    user_activity:
-      index:
-        no_activities_warning: Este usuario aínda non tivo ningunha actividade.
     user_conversations:
+      index:
+        close: Pechar
       show:
         back: Amosar todas as conversas
         deleted_accounts: Non podes manter unha conversa con contas eliminadas.
+        title: Conversa con %{usernames}
       update:
         error: Mensaxe non enviada. Téntao de novo máis tarde
     user_interests:
@@ -1171,15 +1125,6 @@ gl:
       updated_not_active: O seu contrasinal modificouse con éxito.
     registrations:
       destroyed: Adeus! Cancelouse correctamente a túa conta. Esperamos volver a ver de novo.
-      edit:
-        are_you_sure: Estás seguro?
-        cancel_my_account: Cancelar a miña conta
-        currently_waiting_confirmation_for_email: 'Actualmente está a espera de confirmación para: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: Deixar en branco se non o quere cambiar
-        title: Editar %{resource}
-        unhappy: Infeliz
-        update: Actualización
-        we_need_your_current_password_to_confirm_your_changes: necesitamos o seu contrasinal actual para confirmar os seus cambios
       new:
         sign_up: Rexistrarse
       signed_up: Benvido! Rexistráches con éxito.
@@ -1190,8 +1135,6 @@ gl:
       updated: A túa conta foi actualizada correctamente.
     sessions:
       already_signed_out: Saíu con éxito.
-      new:
-        sign_in: Iniciar sesión
       signed_in: Iniciar sesión con éxito.
       signed_out: Saíu con éxito.
     shared:
@@ -1200,7 +1143,6 @@ gl:
         didn_t_receive_confirmation_instructions: Non recibiches instrucións de confirmación?
         didn_t_receive_unlock_instructions: Non recibiches instrucións de desbloqueo?
         forgot_your_password: Esqueceu o contrasinal?
-        sign_in: Iniciar sesión
         sign_in_with_provider: Inicia sesión con %{provider}
         sign_up: Rexistrarse
       minimum_password_length:
@@ -1229,7 +1171,6 @@ gl:
       not_locked: Non estaba bloqueado
       too_many_marks: está a usar demasiadas marcas de puntuación consecutivas (por exemplo, e?)
       too_much_caps: está a usar letras maiúsculas (máis do 25% do texto)
-      too_short: é demasiado curto (menos de 15 caracteres)
   forms:
     length_validator:
       minimum:
@@ -1241,6 +1182,10 @@ gl:
     timestamp_error_message: Sentímolo, iso foi demasiado rápido. Reenvío de novo.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Tipo
       edit_link:
         edit: Editar
       footer:
@@ -1261,8 +1206,6 @@ gl:
         mark_all_as_read: Marca todo como lido
       offline_banner:
         cache_version_page: Vaites! A túa rede está desconectada. O que estás a ver é unha versión previa da páxina gardada na caché, é podería non estar actualizada.
-      upload_modal:
-        close_modal: Pechar modal
       user_menu:
         admin_dashboard: Taboleiro de administración
         conversations: Conversas

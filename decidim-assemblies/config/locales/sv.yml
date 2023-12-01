@@ -4,7 +4,10 @@ sv:
     attributes:
       assemblies_setting:
         enable_organization_chart: Aktivera organisationskarta
+      assemblies_type:
+        title: Titel
       assembly:
+        announcement: Meddelande
         area_id: Område
         assembly_type: Typ av grupp
         assembly_type_other: Annan typ av grupp
@@ -23,12 +26,14 @@ sv:
         decidim_scope_id: Omfång
         description: Beskrivning
         developer_group: Kampanjgrupp
+        document: Dokument
         domain: Domän
         duration: Varaktighet
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Hembild
+        import_attachments: Importera bilagor
         included_at: Inkluderad vid
         instagram: Instagram
         internal_organisation: Intern organisation
@@ -52,8 +57,7 @@ sv:
         subtitle: Underrubrik
         target: Vem deltar
         title: Titel
-        twitter: Twitter
-        weight: Vikt
+        weight: Ordning
         youtube: YouTube
       assembly_member:
         birthday: Födelsedag
@@ -65,6 +69,7 @@ sv:
         non_user_avatar: Profilbild
         position: Befattning
         user_id: Användare
+        weight: Ordning
       assembly_user_role:
         email: E-post
         name: Namn
@@ -272,7 +277,6 @@ sv:
             select_an_area: Välj ett område
             select_an_assembly_type: Välj typ av gruppen
             select_parent_assembly: Välj överordnad gruppen
-            slug_help: 'URL-slugs används till att generera de URL:er som pekar på gruppen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
             social_handlers: Socialt
             title: Allmän information
             visbility: Synlighet
@@ -284,13 +288,9 @@ sv:
         assemblies_types:
           form:
             title: Titel
-        assembly_copies:
-          form:
-            slug_help: 'URL-slugs används till att generera de URL:er som pekar på gruppen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         assembly_imports:
           form:
             document_legend: Lägg till ett dokument
-            slug_help: 'URL-sniglar används för att generera URL:er som pekar till församlingen. Accepterar endast bokstäver, siffror och bindestreck och måste börja med en bokstav. Exempel: %{url}'
         assembly_members:
           form:
             existing_user: Befintlig deltagare
@@ -304,8 +304,6 @@ sv:
           index:
             filter:
               all: Allt
-              ceased: Upphört
-              not_ceased: Inte upphört
             filter_by: Filtrera efter
             search: Sök
         content_blocks:
@@ -352,9 +350,7 @@ sv:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktiva grupper
             assemblies_button_title: Länk till sidan över grupper som visar alla grupper
-            see_all_assemblies: Visa alla grupper
         user_profile:
           member_of:
             member_of: Medlem av
@@ -362,13 +358,13 @@ sv:
         area: Område
         assembly_type: Typ av grupp
         children: Grupper
-        closing_date: Stängningsdatum
+        closing_date: Slutdatum
         composition: Sammansättning
         created_by: Skapad av
-        creation_date: Skapelsedatum
+        creation_date: Skapad datum
         developer_group: Kampanjgrupp
         duration: Varaktighet
-        included_at: Ingår vid
+        included_at: Inkluderad vid
         indefinite_duration: Permanent
         internal_organisation: Intern organisation
         is_transparent:
@@ -376,15 +372,15 @@ sv:
           'true': transparent
         local_area: Område
         participatory_scope: Vad bestäms
-        participatory_structure: Hur det bestäms
+        participatory_structure: Hur bestäms det
         private_space: Detta är en privat grupp
-        purpose_of_action: Syftet med åtgärden
+        purpose_of_action: Syfte med åtgärden
         read_less: Läs mindre
         read_more: Läs mer
         related_participatory_processes: Relaterade dialoger
         scope: Omfång
         social_networks: Sociala nätverk
-        target: Vilka deltar
+        target: Vem deltar
     assembly_members:
       assembly_member:
         designated_on: Utsedd den

@@ -1,3 +1,4 @@
+<% add_decidim_page_title(t(".title")) %>
 <div class="card" id='user-groups'>
   <div class="card-divider">
     <h2 class="card-title">
@@ -8,7 +9,7 @@
     <%= decidim_form_for(@form, url: user_groups_csv_verification_path, html: { class: "form" }) do |form| %>
       <p><%= t(".explanation") %></p>
       <div class="row column">
-        <%= form.upload :file, optional: false %>
+        <%= form.upload :file, required: true %>
       </div>
 
       <div class="button--double form-general-submit">

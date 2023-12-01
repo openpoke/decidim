@@ -98,7 +98,6 @@ lv:
           attachments: Pielikumi
           categories: Kategorijas
           components: Komponenti
-          info: Informācija
           moderations: Moderācijas
           private_users: Privātie dalībnieki
           process_admins: Procesa administratori
@@ -140,6 +139,9 @@ lv:
           copy: Kopēt
           select: Atlasiet, kurus datus vēlaties dublēt
           title: Dublēt līdzdalības procesu
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Atjaunināt
       participatory_process_groups:
         destroy:
           error: Līdzdalības procesa grupas dzēšanas laikā radās kļūda.
@@ -195,6 +197,9 @@ lv:
         update:
           error: Šīs līdzdalības procesa fāzes atjaunināšanas laikā radās problēma.
           success: Līdzdalības procesa fāze ir veiksmīgi atjaunināta.
+      participatory_process_types:
+        form:
+          title: Nosaukums
       participatory_process_user_roles:
         create:
           error: Pievienojot dalībnieku šim līdzdalības procesam, radās problēma.
@@ -297,6 +302,11 @@ lv:
         related_assemblies: Saistītās asamblejas
     participatory_process_groups:
       content_blocks:
+        metadata:
+          name: Metadati
+          participatory_scope: Kas tiek izlemts
+          participatory_structure: Kā tas tiek izlemts
+          target: Kas piedalās
         stats:
           name: Statistika
       show:
@@ -310,16 +320,14 @@ lv:
         content_blocks:
           highlighted_processes:
             max_results: Maksimālais parādāmo elementu daudzums
-        participatory_process_copies:
+        participatory_process_groups:
           form:
-            slug_help: 'URL sadaļas adrese (slug) tiek izmantota, lai ģenerētu URL, kas ved uz šo procesu. Tajā var būt tikai burti, cipari un defises, un tai jāsākas ar burtu. Piemērs: %{url}'
+            title: Vispārēja informācija
         participatory_process_imports:
           form:
             document_legend: Pievienot dokumentu
-            slug_help: 'URL sadaļas adrese (slug) tiek izmantota, lai ģenerētu URL, kas ved uz šo procesu. Tajā var būt tikai burti, cipari un defises, un tai jāsākas ar burtu. Piemērs: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Šeit izmantojiet daļējus ceļus, nevis pilnus URL. Tajos var būt tikai burti, cipari, defises un slīpsvītras, un tiem jāsākas ar burtu. Ja tas nav iestatīts, poga netiks rādīta. Piemērs:%{url}'
             cta_text_help: Ja tas nav iestatīts, poga netiks rādīta.
         participatory_processes:
           form:
@@ -333,7 +341,6 @@ lv:
             scope_type_max_depth_help: Ierobežojiet tvēruma filtra dziļumu; filtrētais rezultāts rādīs no vispārējā uz izvēlēto tvēruma veidu.
             select_an_area: Izvēlieties jomu
             select_process_group: Atlasiet procesa grupu
-            slug_help: 'URL sadaļas adrese (slug) tiek izmantota, lai ģenerētu URL, kas ved uz šo procesu. Tajā var būt tikai burti, cipari un defises, un tai jāsākas ar burtu. Piemērs: %{url}'
             title: Vispārēja informācija
             visbility: Redzamība
       content_blocks:
@@ -346,11 +353,9 @@ lv:
       pages:
         home:
           highlighted_processes:
-            active_processes: Aktīvie procesi
             active_step: Aktīvā fāze
             more_information: Papildu informācija
             participate: Piedalīties
-            see_all_processes: Skatīt visus procesus
       participatory_processes:
         filters:
           counters:
@@ -382,7 +387,6 @@ lv:
         area: Joma
         developer_group: Atbalstītāju grupa
         end_date: Beigu datums
-        local_area: Organizācijas joma
         participatory_scope: Kas tiek izlemts
         participatory_structure: Kā tas tiek izlemts
         private_space: Šis ir privāts process
@@ -412,7 +416,10 @@ lv:
           active_step: 'Pašreizējā fāze:'
           more_info: Sīkāka informācija
           take_part: Piedalīties
+        promoted_process_group:
+          more_info: Sīkāka informācija
       process_header_steps:
         step: Fāze %{current} no %{total}
+        view_steps: Procesa fāzes
       process_navigation:
         process_menu_item: Process

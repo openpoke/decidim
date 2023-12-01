@@ -2,10 +2,6 @@
 uk:
   activemodel:
     attributes:
-      agenda:
-        description: Опис
-        duration: Тривалість
-        title: Заголовок
       close_meeting:
         attendees_count: Кількість учасників
         attending_organizations: Перелік організацій, які брали участь
@@ -19,14 +15,12 @@ uk:
         decidim_category_id: Категорія
         decidim_scope_id: Обсяг
         description: Опис
-        end_time: Час завершення
         location: Розташування
         location_hints: Як дістатися до цього місця
         organizer_id: Організатор
         private_meeting: Приватна зустріч
         registration_terms: Умови реєстрації
         registrations_enabled: Реєстрацію відкрито
-        start_time: Час початку
         title: Назва
         transparent: Прозора
     errors:
@@ -135,7 +129,6 @@ uk:
         confirm_destroy: Ви впевнені, що хочете видалити цю зустріч?
         destroy: Видалити
         edit: Редагувати
-        new: Додати зустріч
         preview: Попередній перегляд
         registrations: Реєстрації
         title: Дії
@@ -264,6 +257,12 @@ uk:
           value_types:
             organizer_presenter:
               not_found: 'Цього організатора не знайдено в базі даних (ID: %{id})'
+      application_helper:
+        filter_scope_values:
+          all: Усі
+      content_blocks:
+        upcoming_meetings:
+          upcoming_meetings: Прийдешні зустрічі
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -277,6 +276,7 @@ uk:
         filters:
           category: Категорія
           date: Дата
+          scope: Обсяг
           search: Шукати
         filters_small_view:
           close_modal: Закрити віконце
@@ -293,8 +293,9 @@ uk:
           confirm: Підтвердити
         show:
           attendees: Кількість учасників
+          close_meeting: Закрити зустріч
           contributions: Кількість внесених пропозицій
-          join: Долучитись до зустрічі
+          date: Дата
           meeting_minutes: Протокол зустрічі
           no_slots_available: Не залишилось місць
           organizations: Організації, що приймають участь

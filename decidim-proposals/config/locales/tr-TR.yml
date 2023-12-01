@@ -101,7 +101,7 @@ tr:
               validating: Teknik doğrulama
               withdrawn: Geri çekildi
           state_null:
-            label: Durum
+            label: Belirtmek, bildirmek
             values:
               'true': Cevaplanmadı
           valuator_role_ids_has:
@@ -249,7 +249,6 @@ tr:
           affected_user:
             email_intro: 'Teklifiniz "%{resource_title}" reddedildi. Cevabı bu sayfada okuyabilirsiniz:'
             email_outro: Bu bildirimi, "%{resource_title}" ın bir yazarı olduğunuz için aldınız.
-            email_subject: Teklifiniz reddedildi
             notification_title: Teklifiniz <a href="%{resource_path}">%{resource_title}</a> reddedildi.
           follower:
             email_intro: '"%{resource_title}" teklifi reddedildi. Cevabı bu sayfada okuyabilirsiniz:'
@@ -341,6 +340,9 @@ tr:
         exports:
           proposal_comments: Yorumlar
           proposals: Teklifler
+        imports:
+          title:
+            proposals: Teklifleri içe aktar
         models:
           proposal:
             name: Teklif
@@ -555,7 +557,6 @@ tr:
             one: "%{count} ortak taslak"
             other: "%{count} ortak taslak"
         create:
-          error: Bu ortak çalışma taslakları oluşturulurken bir sorunla karşılaşıldı
           success: Ortak taslak başarıyla oluşturuldu.
         edit:
           attachment_legend: "(İsteğe bağlı) Bir ek ekleyin"
@@ -736,8 +737,6 @@ tr:
           recent: En son
           with_more_authors: Daha fazla yazarlı
         participatory_texts:
-          index:
-            document_index: Belge indeksi
           view_index:
             see_index: Endeksi görmek
         placeholder:
@@ -814,7 +813,7 @@ tr:
           vote_limit:
             description: En fazla %{limit} teklife oy verebilirsiniz.
             left: Kalan
-            votes: oy
+            votes: Destekler
         wizard_aside:
           back: Geri
           back_from_step_1: Teklifte geri dön

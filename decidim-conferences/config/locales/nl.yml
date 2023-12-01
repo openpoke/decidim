@@ -29,7 +29,6 @@ nl:
         show_statistics: Toon statistieken
         sign_date: Datum ondertekenen
         signature: Handtekening
-        signature_name: naam van de handtekenaar
         slogan: Slogan
         slug: URL-slug
         start_date: Startdatum
@@ -38,13 +37,11 @@ nl:
         date: Datum
         link: Link
         title: Titel
-        weight: Gewicht
       conference_partner:
         link: Link
         logo: Logo
         name: Naam
         partner_type: Type partner
-        weight: Gewicht
       conference_registration_invite:
         email: E-mail
         name: Naam
@@ -54,14 +51,12 @@ nl:
         description: Omschrijving
         price: Prijs
         title: Titel
-        weight: Gewicht
       conference_speaker:
         affiliation: Aansluiting
         avatar: Profielfoto
         conference_meeting_ids: Gerelateerde vergaderingen
         full_name: Voor-en achternaam
         position: Positie
-        twitter_handle: Twitter-account
         user_id: Gebruiker
       conference_user_role:
         email: E-mail
@@ -132,8 +127,6 @@ nl:
         edit:
           title: Update conferentiebeheerder.
           update: Bijwerken
-        index:
-          conference_admins_title: conferentiebeheerders
         new:
           create: Creëren
           title: Nieuwe conferentiebeheerder.
@@ -326,9 +319,6 @@ nl:
         title: Sprekers
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze conferentie verwijzen. Accepteert alleen letters, cijfers en streepjes en moet beginnen met een letter. Voorbeeld: %{url}'
         conference_invites:
           create:
             error: Er is een probleem opgetreden tijdens het uitnodigen van de gebruiker om deel te nemen aan de conferentie.
@@ -370,7 +360,6 @@ nl:
             registrations_count:
               one: Er is 1 registratie geweest.
               other: Er zijn %{count} registraties geweest.
-            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze conferentie verwijzen. Accepteert alleen letters, cijfers en streepjes en moet beginnen met een letter. Voorbeeld: %{url}'
         diplomas:
           edit:
             save: Opslaan
@@ -378,7 +367,7 @@ nl:
         invite_join_conference_mailer:
           invite:
             decline: Uitnodiging '%{conference_title}' weigeren
-            invited_you_to_join_a_conference: "%{invited_by} heeft je uitgenodigd om deel te nemen aan een conferentie op %{application}. U kunt het weigeren of accepteren via de onderstaande links."
+            invited_existing_user_to_join_a_conference: "%{invited_by} heeft je uitgenodigd om deel te nemen aan een conferentie op %{application}. U kunt het weigeren of accepteren via de onderstaande links."
             registration: Registratie voor '%{conference_title}'
         partners:
           index:
@@ -410,7 +399,7 @@ nl:
       conference_program:
         program_meeting:
           content: Inhoud
-          location: Plaats
+          location: Locatie
           speakers: Sprekers
           streaming: Streaming
         show:
@@ -436,12 +425,11 @@ nl:
           invalid: Er is een probleem met het verlaten van deze conferentie.
           success: U hebt de conferentie met succes verlaten.
       conference_speaker:
-        go_to_twitter: Ga naar Twitter
         more_info: meer informatie
         personal_website: Persoonlijke website
         show:
           more_info: meer informatie
-          speaking_at: Spreker bij
+          speaking_at: Spreekt bij
       conference_speaker_cell:
         personal_url:
           personal_website: Persoonlijke website
@@ -501,7 +489,6 @@ nl:
           highlighted_conferences:
             active_conferences: Actieve conferenties
             conferences_button_title: Link naar de pagina Conferenties waarop alle conferenties worden weergegeven
-            see_all_conferences: Bekijk alle conferenties
       photo:
         image:
           attributes:
@@ -515,7 +502,7 @@ nl:
       registration_types:
         index:
           choose_an_option: 'Kies je registratieoptie:'
-          login_as: Je bent ingelogd als %{name} <%{email}>
+          login_as: U bent ingelogd als %{name} <%{email}>
           no_registrations: Geen inschrijvingen
           register: Registreren
           title: Registratie soorten

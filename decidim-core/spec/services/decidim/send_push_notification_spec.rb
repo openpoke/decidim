@@ -15,12 +15,27 @@ describe Decidim::SendPushNotification do
   end
 
   before do
-    allow(Rails.application.secrets).to receive("vapid").and_return({ enabled: true, public_key: "public_key", private_key: "private_key" })
+    Rails.application.secrets[:vapid] = { enabled: true, public_key: "public_key", private_key: "private_key" }
   end
 
   context "without vapid settings config" do
     before do
-      allow(Rails.application.secrets).to receive("vapid").and_return({ enabled: false })
+      Rails.application.secrets.delete(:vapid)
+    end
+
+    describe "#perform" do
+      let(:user) { create(:user) }
+      let(:notification) { create :notification, user: user }
+
+      it "returns false" do
+        expect(subject.perform(notification)).to be_falsy
+      end
+    end
+  end
+
+  context "without vapid enabled" do
+    before do
+      Rails.application.secrets[:vapid] = { enabled: false }
     end
 
     describe "#perform" do
@@ -124,6 +139,29 @@ describe Decidim::SendPushNotification do
         }
 
         allow(Webpush).to receive(:payload_send).with(notification_payload).and_return(double("result", message: "Created", code: "201"))
+
+        responses = subject.perform(notification)
+        expect(responses.all? { |response| response.code == "201" }).to be(true)
+        expect(responses.all? { |response| response.message == "Created" }).to be(true)
+      end
+
+      it "builds notification in user locale" do
+        # Pick other locale from organization
+        alternative_locale = (user.organization.available_locales - [user.locale]).sample
+        user.update(locale: alternative_locale)
+
+        I18n.with_locale(user.locale) do
+          presented_notification = Decidim::PushNotificationPresenter.new(notification)
+          message = JSON.generate({
+                                    title: presented_notification.title,
+                                    body: presented_notification.body,
+                                    icon: presented_notification.icon,
+                                    data: { url: presented_notification.url }
+                                  })
+
+          notification_payload = a_hash_including(message: message)
+          expect(Webpush).to receive(:payload_send).with(notification_payload).ordered.and_return(double("result", message: "Created", code: "201"))
+        end
 
         responses = subject.perform(notification)
         expect(responses.all? { |response| response.code == "201" }).to be(true)

@@ -64,6 +64,7 @@ lv:
       models:
         project:
           fields:
+            scope: Darbības tvērums
             title: Nosaukums
       order_summary_mailer:
         order_summary:
@@ -88,6 +89,7 @@ lv:
             description: Jūs jau esat nobalsojis par budžetu. Ja esat mainījis savas domas, varat %{cancel_link}.
             title: Balsojums par budžetu pabeigts
           title: Jūs lemjat par budžetu
+          total_budget: Kopējais budžets
         count:
           projects_count:
             zero: "%{count} projekti"
@@ -98,7 +100,6 @@ lv:
           scope: Darbības tvērums
           search: Meklēt
         filters_small_view:
-          close_modal: Aizvērt modal
           filter: Filtrēt
           filter_by: Filtrēt pēc
           unfold: Atritināt

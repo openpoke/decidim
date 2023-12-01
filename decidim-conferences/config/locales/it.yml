@@ -29,7 +29,6 @@ it:
         show_statistics: Mostra statistiche
         sign_date: Firmato il
         signature: Firma
-        signature_name: nome firma
         slogan: Slogan
         slug: Slug URL
         start_date: Data di inizio
@@ -38,13 +37,11 @@ it:
         date: Data
         link: Collegamento
         title: Titolo
-        weight: Peso
       conference_partner:
         link: Collegamento
         logo: Logo
         name: Nome
         partner_type: Tipo di partner
-        weight: Peso
       conference_registration_invite:
         email: Email
         name: Nome
@@ -54,14 +51,12 @@ it:
         description: Descrizione
         price: Prezzo
         title: Titolo
-        weight: Peso
       conference_speaker:
         affiliation: Affiliazione
         avatar: Avatar
         conference_meeting_ids: Conferenze correlate
         full_name: Nome e cognome
         position: Posizione
-        twitter_handle: Identificativo Twitter
         user_id: Utente
       conference_user_role:
         email: E-mail
@@ -132,8 +127,6 @@ it:
         edit:
           title: Aggiorna l'amministratore della conferenza.
           update: Aggiornare
-        index:
-          conference_admins_title: amministratori della conferenza
         new:
           create: Creare
           title: Nuovo amministratore della conferenza.
@@ -203,7 +196,7 @@ it:
         conference:
           fields:
             created_at: Creato il
-            promoted: Evidenziato
+            promoted: In evidenza
             published: Pubblicato
             title: Titolo
         conference_speaker:
@@ -326,9 +319,6 @@ it:
         title: Relatori
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa conferenza. Accetta solo lettere, numeri e trattini e deve iniziare con una lettera. Esempio: %{url}'
         conference_invites:
           create:
             error: Si è verificato un problema durante l'invito dell'utente a partecipare alla conferenza.
@@ -370,7 +360,6 @@ it:
             registrations_count:
               one: C'è stata 1 registrazione.
               other: Ci sono state %{count} iscrizioni.
-            slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa conferenza. Accetta solo lettere, numeri e trattini e deve iniziare con una lettera. Esempio: %{url}'
         diplomas:
           edit:
             save: Salva
@@ -378,7 +367,7 @@ it:
         invite_join_conference_mailer:
           invite:
             decline: Rifiuta l'invito '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} ti ha invitato a partecipare alla conferenza %{application}. Puoi rifiutare o accettare tramite i link sottostanti."
+            invited_existing_user_to_join_a_conference: "%{invited_by} ti ha invitato a partecipare alla conferenza %{application}. Puoi rifiutare o accettare tramite i link sottostanti."
             registration: Registrazione a '%{conference_title}'
         partners:
           index:
@@ -410,7 +399,7 @@ it:
       conference_program:
         program_meeting:
           content: Soddisfare
-          location: Posizione
+          location: Luogo
           speakers: Relatori
           streaming: Streaming
         show:
@@ -436,7 +425,6 @@ it:
           invalid: C'è stato un problema a lasciare questa conferenza.
           success: Hai lasciato la conferenza con successo.
       conference_speaker:
-        go_to_twitter: Vai a Twitter
         more_info: Ulteriori informazioni
         personal_website: Sito web personale
         show:
@@ -501,7 +489,6 @@ it:
           highlighted_conferences:
             active_conferences: Conferenze attive
             conferences_button_title: Link alla pagina Conferenze in cui sono visualizzate tutte le conferenze
-            see_all_conferences: Vedi tutte le conferenze
       photo:
         image:
           attributes:
@@ -603,7 +590,7 @@ it:
             one: "%{count} conferenza"
             other: "%{count} conferenze"
         promoted_conference:
-          more_info: Maggiori informazioni
+          more_info: Ulteriori informazioni
           take_part: Partecipa
       conferences_nav:
         conference_menu_item: Informazioni

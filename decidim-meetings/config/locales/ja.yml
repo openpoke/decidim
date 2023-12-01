@@ -2,10 +2,6 @@
 ja:
   activemodel:
     attributes:
-      agenda:
-        description: 説明
-        duration: 持続期間
-        title: タイトル
       close_meeting:
         attendees_count: 出席者数
         attending_organizations: 参加した組織一覧
@@ -23,8 +19,9 @@ ja:
         decidim_scope_id: スコープ
         decidim_user_group_id: ユーザーグループ
         description: 説明
-        end_time: 終了時刻
+        end_time: 終了時間
         id: ID
+        iframe_embed_type: Iframe 埋め込みタイプ
         location: 場所
         location_hints: 位置情報のヒント
         online_meeting_url: オンラインミーティングURL
@@ -34,19 +31,34 @@ ja:
         registration_email_custom_content: 登録メールのカスタムコンテンツ
         registration_form_enabled: 登録フォームが有効
         registration_terms: 登録条件
+        registration_type: 登録種別
         registration_url: 登録URL
         registrations_enabled: 登録が有効
-        show_embedded_iframe: この URL の埋め込まれた iframe を表示
-        start_time: 開始時刻
+        reserved_slots: この会議の予約済みスロット
+        start_time: 開始日時
         title: タイトル
         transparent: 透明度
         type_of_meeting: 種別
+      meeting_agenda:
+        title: タイトル
+        visible: 表示
+      meeting_agenda_items:
+        description: 説明
+        duration: 期間
+        title: タイトル
+      meeting_registration_invite:
+        email: Eメールアドレス
+        name: 名前
+      validate_registration_code:
+        code: コード
     errors:
       models:
         meeting:
           attributes:
             iframe_embed_type:
               not_embeddable: このURLはミーティングまたはライブイベントページに埋め込むことができません
+            online_meeting_url:
+              url_format: 有効な URL でなければなりません
         meeting_agenda:
           attributes:
             base:
@@ -215,7 +227,7 @@ ja:
       admin:
         agenda:
           agenda_item:
-            add_agenda_item_child: 議題サブ項目を追加
+            add_agenda_item_child: アジェンダのサブ項目を追加
             agenda_item: 予定表の項目
             agenda_item_children: アジェンダサブアイテム
             down: 下
@@ -230,16 +242,16 @@ ja:
             invalid: この議題の作成中に問題が発生しました
             success: アジェンダを作成しました
           edit:
-            title: 議題を編集
+            title: アジェンダを編集
             update: 更新
           form:
-            add_agenda_item: 議題項目を追加
+            add_agenda_item: アジェンダを追加
             agenda_items: 予定表の項目
             end_date: 終了日
             start_date: 開始日
           new:
             create: 作成
-            title: 新しい議題の作成
+            title: 新しいアジェンダの作成
           update:
             invalid: この議題の更新中に問題が発生しました
             success: アジェンダを正常に更新しました
@@ -279,9 +291,6 @@ ja:
           edit:
             close: 閉じる
             title: ミーティングを閉じる
-        meeting_copies:
-          form:
-            select_a_meeting_type: ミーティング種別を選択してください
         meetings:
           close:
             invalid: このミーティングを終了する際に問題が発生しました
@@ -307,7 +316,6 @@ ja:
             select_a_meeting_type: ミーティング種別を選択してください
             select_a_registration_type: 登録種別を選択してください
             select_an_iframe_access_level: Iframeアクセスレベルを選択してください
-            show_embedded_iframe_help: 'ミーティングまたはライブイベントに埋め込めるサービスは以下のドメインに限定されています: %{domains}'
           index:
             title: ミーティング
           new:
@@ -406,7 +414,7 @@ ja:
       content_blocks:
         upcoming_meetings:
           name: これからのミーティング
-          upcoming_meetings: これからのミーティング
+          upcoming_meetings: 今後のミーティング
           view_all_meetings: すべて表示
       directory:
         meetings:
@@ -504,7 +512,6 @@ ja:
           select_a_meeting_type: ミーティング種別を選択してください
           select_a_registration_type: 登録種別を選択してください
           select_an_iframe_access_level: iframeアクセスレベルを選択してください
-          show_embedded_iframe_help: 'ミーティングまたはライブイベントに埋め込めるサービスは以下のドメインに限定されています: %{domains}'
         index:
           click_here: すべてのミーティングを見る
           new_meeting: 新しいミーティング

@@ -65,7 +65,6 @@ sr:
         success_color: Uspeh
         time_zone: Vremenska zona
         tos_version: Verzija uslova korišćenja
-        twitter_handler: Administrator Twitter-a
         user_groups_enabled: Omogući grupe
         warning_color: Upozorenje
         welcome_notification_body: Glavni tekst obaveštenja dobrodošlice
@@ -133,11 +132,9 @@ sr:
           error: Greška u postupku prihvatanja uslova korišćenja za administratore.
           success: Odlično! Prihvatili ste uslove korišćenja za administratore.
         actions:
-          refuse: Ne prihvatam uslove korišćenja za administratore
           title: Prihvatam propisane načine i uslove korišćenja
         required_review:
           alert: 'Obavezno: Pročitajte naše uslove korišćenja za administratore'
-          cta: Proučite uslove sada.
         title: Uslovi korišćenja za administratore
       area_types:
         create:
@@ -350,7 +347,6 @@ sr:
         area_types: Tipovi oblasti
         areas: Oblasti
         configuration: Konfiguracija
-        dashboard: Kontrolna tabla
         help_sections: Sekcije za pomoć
         homepage: Početna stranica
         impersonations: Predstavljanja
@@ -436,8 +432,6 @@ sr:
             state: Država
             users_count: Broj učesnika
       moderations:
-        index:
-          title: Moderacije
         report:
           reasons:
             does_not_belong: Ne pripada
@@ -492,9 +486,6 @@ sr:
           select_scopes: Filter za korisnike koji su aktivirali makar jedan od odabranih opsega u podešavanjima "Moji interesi" svog naloga.
           select_spaces: Izaberite prostore da podelite bilten
           select_users: Izaberite kojim korisnicima želite da pošaljete bilten
-          send_to_all_users: Pošalji svim korisnicima
-          send_to_followers: Pošalji pratiocima
-          send_to_participants: Pošalji učesnicima
           title: Izaberi primaoce za dostavu
           warning: "<strong>Pažnja:</strong> Ovaj bilten će biti poslan samo korisnicima koji su aktivirali <em>Želim da dobijam biltene</em> u svojim podešavanjima obaveštenja."
         send:
@@ -543,7 +534,6 @@ sr:
           instagram: Instagram
           rich_text_editor_in_public_views_help: U pojedinim delovima teksta učesnici će uz pomoć programa moći da ubace HTML oznake.
           social_handlers: Društvene
-          twitter: Twitter
           youtube: YouTube
         update:
           error: Pojavio se problem pri ažuriranju ove organizacije.
@@ -556,6 +546,9 @@ sr:
           images:
             preview: Pregled
           omnipresent_banner_appearance_title: Izmeni sveprisutni baner
+      organization_homepage_content_blocks:
+        edit:
+          update: Ažuriraj
       shared:
         gallery:
           add_images: Dodaj slike
@@ -563,6 +556,7 @@ sr:
           gallery_legend: Dodaj galeriju slika (opciono)
       titles:
         metrics: Metrika
+        static_pages: Stranice
         statistics: Aktivnost
       users_statistics:
         users_count:
@@ -570,3 +564,17 @@ sr:
           last_month: Poslednji mesec
           last_week: Poslednje nedelje
           no_users_count_statistics_yet: Još nema statistike o broju korisnika
+    moderations:
+      models:
+        moderation:
+          fields:
+            created_at: Datum kreiranja
+  layouts:
+    decidim:
+      admin:
+        newsletters:
+          title: Bilteni
+        settings:
+          title: Podešavanja
+        users:
+          title: Učesnici

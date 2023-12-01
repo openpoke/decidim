@@ -2,10 +2,6 @@
 tr:
   activemodel:
     attributes:
-      agenda:
-        description: Açıklama
-        duration: süre
-        title: Başlık
       close_meeting:
         attendees_count: Katılımcı sayısı
         attending_organizations: Katılan kuruluşların listesi
@@ -22,7 +18,6 @@ tr:
         decidim_scope_id: kapsam
         decidim_user_group_id: Kullanıcı grubu
         description: Açıklama
-        end_time: Bitiş zamanı
         location: yer
         location_hints: Yer ipuçları
         online_meeting_url: Çevrimiçi Toplantı URL
@@ -33,7 +28,6 @@ tr:
         registration_terms: Kayıt şartları
         registration_url: Kayıt URL
         registrations_enabled: Kayıtlar etkinleştirildi
-        start_time: Başlama zamanı
         title: Başlık
         transparent: Şeffaf
         type_of_meeting: Tür
@@ -320,6 +314,9 @@ tr:
           value_types:
             organizer_presenter:
               not_found: 'Organizatör veritabanında bulunamadı (ID: %{id})'
+      application_helper:
+        filter_scope_values:
+          all: Tümü
       calendar_modal:
         calendar_url: Takvim URL'si
         close_window: Pencereyi kapat
@@ -327,6 +324,7 @@ tr:
       conference_venues: Konferans Mekanları
       content_blocks:
         upcoming_meetings:
+          upcoming_meetings: Yaklaşan toplantılar
           view_all_meetings: Hepsini gör
       directory:
         meetings:
@@ -372,8 +370,7 @@ tr:
           origin_values:
             all: Tümü
             official: Resmi
-            user_groups: Gruplar
-          scope: Kapsam
+          scope: kapsam
           search: Arama
           type: Türü
           type_values:
@@ -383,7 +380,7 @@ tr:
         filters_small_view:
           close_modal: Pencereyi kapat
           filter: Filtrele
-          filter_by: Şuna göre filtrele
+          filter_by: Tarafından filtre
           unfold: Aç
         form:
           address_help: 'Adres: Geocoder tarafından konumu bulmak için kullanılır'
@@ -418,7 +415,6 @@ tr:
           contributions: Katkı sayımı
           date: Tarih
           edit_meeting: Toplantıyı Düzenle
-          join: Toplantıya katıl
           meeting_minutes: Görüşme süreleri
           no_slots_available: Kullanılabilir yer yok
           organizations: Katılan kuruluşlar

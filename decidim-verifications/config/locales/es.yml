@@ -7,6 +7,8 @@ es:
         offline: Sin conexión
         offline_explanation: Instrucciones para la verificación presencial
         online: En línea
+      confirmation:
+        verification_code: Código de verificación
       id_document_information:
         document_number: Número de documento (con letra)
         document_type: Tipo de documento
@@ -15,6 +17,8 @@ es:
         document_type: Tipo de tu documento
         user: Participante
         verification_attachment: Copia escaneada de tu documento
+      mobile_phone:
+        mobile_phone_number: Número de teléfono móvil
       offline_confirmation:
         email: Correo electrónico de la participante
       postal_letter_address:
@@ -24,6 +28,12 @@ es:
       postal_letter_postage:
         full_address: Dirección completa
         verification_code: Código de verificación
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: Archivo de importación mal formateado, por favor lea las instrucciones cuidadosamente y asegúrese de que el archivo está codificado en UTF-8.
   decidim:
     admin:
       menu:
@@ -79,10 +89,10 @@ es:
     events:
       verifications:
         verify_with_managed_user:
-          email_intro: La participante <a href="%{resource_path}">%{resource_title}</a> ha intentado verificarse a si misma con los datos de la participante gestionada <a href="%{managed_user_path}">%{managed_user_name}</a>.
-          email_outro: Comprueba la <a href="%{conflicts_path}">lista de conflictos de verificaciones</a> y ponte en contacto con la participante para verificar sus detalles y resolver el problema.
-          email_subject: Error al intentar verificarse contra una participante gestionada
-          notification_title: La participante <a href="%{resource_path}">%{resource_title}</a> ha intentado verificarse a si misma con los datos de la participante gestionada <a href="%{managed_user_path}">%{managed_user_name}</a>.
+          email_intro: La participante <a href="%{resource_url}">%{resource_title}</a> ha intentado verificarse con los datos de otra participante (<a href="%{managed_user_url}">%{managed_user_name}</a>).
+          email_outro: Comprueba la <a href="%{conflicts_url}">lista de conflictos de verificaciones</a> y ponte en contacto con la participante para verificar sus detalles y resolver el problema.
+          email_subject: Error al intentar verificarse contra otra participante
+          notification_title: La participante <a href="%{resource_path}">%{resource_title}</a> ha intentado verificarse con los datos de otra participante (<a href="%{managed_user_path}">%{managed_user_name}</a>).
     verifications:
       authorizations:
         authorization_metadata:
@@ -240,7 +250,7 @@ es:
             success: '¡Gracias! Te enviaremos un código de verificación a tu dirección'
           edit:
             send: Confirmar
-            title: Introduce el código de verificación que recibiste
+            title: Introduce el código de verificación que has recibido
             waiting_for_letter: Pronto enviaremos una carta a tu dirección con tu código de verificación
           new:
             send: Mándame una carta

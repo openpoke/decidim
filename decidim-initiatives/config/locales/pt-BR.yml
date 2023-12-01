@@ -1,5 +1,5 @@
 ---
-pt:
+pt-BR:
   activemodel:
     attributes:
       initiative:
@@ -55,9 +55,6 @@ pt:
               title: O título não pode ficar vazio
   activerecord:
     models:
-      decidim/initiative:
-        one: Iniciativa
-        other: Iniciativas
       decidim/initiative_comittee:
         one: Comissão
         other: Comissões
@@ -85,6 +82,10 @@ pt:
             label: Tipo
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Pesquisar %{collection} por título, descrição, ID ou nome do autor.
+      initiatives_settings:
+        update:
+          error: Ocorreu um erro
+          success: As configurações de iniciativas foram atualizadas com sucesso
       menu:
         attachments: Anexos
         committee_members: Membros do Comitê
@@ -328,7 +329,6 @@ pt:
           back: Costas
           continue: Continuar
           fill_data_help: "<ul> <li>Revise o conteúdo de sua iniciativa. Seu título é fácil de entender? O objetivo da sua iniciativa é claro?</li> <li>Você tem que escolher o tipo de assinatura. Pessoalmente, online ou uma combinação de ambos</li> <li>Qual é o âmbito geográfico da iniciativa?</li> </ul>"
-          initiative_type: Tipo de iniciativa
           more_information: "(Mais Informações)"
           select_area: Selecione uma área
           select_scope: Selecione um âmbito
@@ -553,7 +553,7 @@ pt:
         home:
           highlighted_initiatives:
             active_initiatives: Iniciativas ativas
-            see_all_initiatives: Veja todas as iniciativas
+            see_all_initiatives: Ver todas as iniciativas
       show:
         badge_name:
           accepted: Assinaturas suficientes
@@ -582,7 +582,7 @@ pt:
   layouts:
     decidim:
       initiative_creation_header:
-        back: De volta
+        back: Costas
         fill_data: Criar
         finish: Finalizar
         previous_form: Começar
@@ -594,7 +594,7 @@ pt:
       initiative_header:
         initiative_menu_item: Iniciativa
       initiative_signature_creation_header:
-        back: De volta
+        back: Costas
         fill_personal_data: Complete seus dados
         finish: Terminar
         finished: Assinatura de iniciativa criada

@@ -111,6 +111,18 @@ module Decidim
       it { is_expected.to be_invalid }
     end
 
+    context "when the name is an email" do
+      let(:name) { "test@example.org" }
+
+      it { is_expected.to be_invalid }
+    end
+
+    context "when the nickname has spaces" do
+      let(:nickname) { "test example" }
+
+      it { is_expected.to be_invalid }
+    end
+
     context "when the password is not present" do
       let(:password) { nil }
 
@@ -139,6 +151,19 @@ module Decidim
       let(:tos_agreement) { "0" }
 
       it { is_expected.to be_invalid }
+    end
+
+    describe "password_confirmation" do
+      context "when the password confirmaiton does not match" do
+        let(:password_confirmation) { "aaaabbbbcccc" }
+
+        it { is_expected.to be_invalid }
+
+        it "adds the correct error" do
+          subject.valid?
+          expect(subject.errors[:password_confirmation]).to include('"Confirm your password" does not match Password')
+        end
+      end
     end
   end
 end

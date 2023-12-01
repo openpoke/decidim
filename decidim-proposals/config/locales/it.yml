@@ -112,7 +112,7 @@ it:
           state_null:
             label: Stato
             values:
-              'true': Senza risposta
+              'true': Non risposto
           valuator_role_ids_has:
             label: Assegnato al valutatore
         search_placeholder:
@@ -269,7 +269,6 @@ it:
           affected_user:
             email_intro: 'La tua proposta "%{resource_title}" è stata respinta. Puoi leggere la risposta in questa pagina:'
             email_outro: Hai ricevuto questa notifica perché sei un autore di "%{resource_title}".
-            email_subject: La tua proposta è stata respinta
             notification_title: La tua proposta <a href="%{resource_path}">%{resource_title}</a> è stata respinta.
           follower:
             email_intro: 'La proposta "%{resource_title}" è stata respinta. Puoi leggere la risposta in questa pagina:'
@@ -361,6 +360,9 @@ it:
         exports:
           proposal_comments: Commenti
           proposals: Proposte
+        imports:
+          title:
+            proposals: Importa proposte
         models:
           proposal:
             name: Proposta
@@ -474,7 +476,7 @@ it:
               one: e 1 altro
               other: e altri %{count}
             photos: Foto
-            proposals: proposte
+            proposals: Proposte
             ranking: "%{ranking} di %{total}"
             related_meetings: Riunioni correlate
             remove_assignment: Rimuovi assegnazione
@@ -577,7 +579,6 @@ it:
             one: "%{count} bozza collaborativa"
             other: "%{count} bozza collaborativa"
         create:
-          error: Si è verificato un problema durante la creazione di queste bozze collaborative
           success: Bozza collaborativa creata con successo.
         edit:
           attachment_legend: "(Opzionale) Aggiungi un allegato"
@@ -737,15 +738,15 @@ it:
           type: genere
           voted: Votata
         filters_small_view:
-          close_modal: Chiudi modalità
-          filter: Filtra
+          close_modal: Chiudi modale
+          filter: Filtro
           filter_by: Filtra per
-          unfold: Espandi
+          unfold: spiegare
         index:
           collaborative_drafts_list: Accedi alle bozze di collaborazione
           new_proposal: Nuova proposta
           see_all_withdrawn: Vedi tutte le proposte ritirate
-          view_proposal: Visualizza proposta
+          view_proposal: Visualizza la proposta
         linked_proposals:
           proposal_votes:
             one: voto
@@ -762,8 +763,6 @@ it:
           recent: le più recenti
           with_more_authors: Con più autori
         participatory_texts:
-          index:
-            document_index: Indice del documento
           view_index:
             see_index: Vedi indice
         placeholder:

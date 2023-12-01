@@ -41,13 +41,6 @@ ar:
         name: اكمل الاسم
   activerecord:
     models:
-      decidim/initiative:
-        zero: بعض المبادرات
-        one: بالمبادرة
-        two: بعض المبادرات
-        few: بعض المبادرات
-        many: بعض المبادرات
-        other: بعض المبادرات
       decidim/initiative_comittee:
         zero: Comittees
         one: إحداث الهيئة
@@ -239,6 +232,8 @@ ar:
         published: نشرت
         validating: المصادقة الفنية
       application_helper:
+        filter_area_values:
+          all: الكل
         filter_scope_values:
           all: الكل
         filter_state_values:
@@ -260,7 +255,6 @@ ar:
         fill_data:
           back: الى الخلف
           continue: استمر
-          initiative_type: نوع المبادرة
           more_information: "(معلومات اكثر)"
           select_scope: حدد النطاق
         finish:
@@ -300,6 +294,8 @@ ar:
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{author_nickname}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
           email_subject: المبادرة التي أقرتها %{author_nickname}
           notification_title: تمت الموافقة على مبادرة <a href="%{resource_path}">%{resource_title}</a> من قبل <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      form:
+        delete_attachment: حذف
       index:
         title: المبادرات
       initiative_signatures:
@@ -340,6 +336,9 @@ ar:
             few: و %{count} المزيد من الناس
             many: و %{count} المزيد من الناس
             other: و %{count} المزيد من الناس
+        committee_members:
+          confirm_revoke: هل أنت واثق؟
+          revoke: سحب
         count:
           title:
             zero: "%{count} مبادرات"
@@ -379,6 +378,7 @@ ar:
           recent: الأحدث
         print:
           city: مدينة
+          full_name: الاسم الكامل
           initiative:
             description: 'الوصف:'
         result:
@@ -421,13 +421,9 @@ ar:
         status_change_for: لقد غيرت المبادرة %{title} حالتها
       last_activity:
         new_initiative: مبادرة جديدة
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: المبادرات النشطة
-            see_all_initiatives: رؤية جميع المبادرات
       show:
         badge_name:
+          accepted: ما يكفي من التوقيعات
           validating: تحقق تقني
       states:
         accepted: وافقت

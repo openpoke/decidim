@@ -23,7 +23,7 @@ Decidim.register_component(:blogs) do |component|
   component.settings(:global) do |settings|
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :comments_enabled, type: :boolean, default: true
-    settings.attribute :comments_max_length, type: :integer, required: false
+    settings.attribute :comments_max_length, type: :integer, required: true
   end
 
   component.settings(:step) do |settings|
@@ -36,7 +36,7 @@ Decidim.register_component(:blogs) do |component|
   component.register_resource(:blogpost) do |resource|
     resource.model_class_name = "Decidim::Blogs::Post"
     resource.card = "decidim/blogs/post"
-    resource.actions = %w(endorse vote amend comment)
+    resource.actions = %w(endorse comment)
     resource.searchable = true
   end
 

@@ -55,9 +55,6 @@ lb:
               title: Der Titel sollte nicht leer sein
   activerecord:
     models:
-      decidim/initiative:
-        one: Initativ
-        other: Initiativen
       decidim/initiative_comittee:
         one: Komitee
         other: Ausschüsse
@@ -203,10 +200,20 @@ lb:
             confirm_revoke: Bist du sicher?
             invite_to_committee_help: Teilen Sie diesen Link, um andere Benutzer zum Promotionskomitee einzuladen
             no_members_yet: Es gibt keine Mitglieder im Promoter-Ausschuss
+        initiatives:
+          form:
+            attachments: Anhänge
+        initiatives_type_scopes:
+          edit:
+            back: Zurück
+            confirm_destroy: Bist du sicher?
+          new:
+            back: Zurück
         initiatives_types:
+          edit:
+            confirm_destroy: Bist du sicher?
           form:
             options: Optionen
-            title: Allgemeine Information
           initiative_type_scopes:
             title: Bereiche für den Typ der Initiative
           new:
@@ -260,7 +267,6 @@ lb:
           back: Zurück
           continue: Fortsetzen
           fill_data_help: "<ul> <li>Inhalt Ihrer Initiative überprüfen. Ist Ihr Titel leicht verständlich? Ist das Ziel Ihrer Initiative klar?</li> <li>Sie müssen die Art der Unterschrift wählen. Persönlich, online oder eine Kombination aus beidem</li> <li>Was ist die geografische Reichweite der Initiative? Stadt, Bezirk?</li> </ul>"
-          initiative_type: Art der Initiative
           more_information: "(Weitere Informationen)"
           select_area: Wählen Sie einen Bereich aus
           select_scope: Wählen Sie einen Bereich aus
@@ -282,7 +288,7 @@ lb:
           help: Woraus besteht die Initiative? Schreiben Sie den Titel und die Beschreibung auf. Wir empfehlen einen kurzen und prägnanten Titel und eine Beschreibung der vorgeschlagenen Lösung.
           more_information: "(Weitere Informationen)"
         promotal_committee:
-          back: Zréck
+          back: Zurück
           individual_help_text: Diese Art der Bürgerinitiative erfordert einen Ausschuss der Initiatoren, der aus mindestens %{committee_size} Personen (Zeugen) besteht. Sie müssen den folgenden Link mit den anderen Personen teilen, die an dieser Initiative beteiligt sind. Wenn Ihre Kontakte diesen Link erhalten, müssen sie die angegebenen Schritte befolgen.
           more_information: "(Weitere Informationen)"
         select_initiative_type:
@@ -292,10 +298,10 @@ lb:
           select: Ich möchte diese Initiative fördern
           select_initiative_type_help: Bürgerinitiativen sind ein Mittel, mit dem die Bürger eingreifen können, damit die Organisation Maßnahmen zur Verteidigung des Allgemeininteresses ergreifen kann, die in den Zuständigkeitsbereich der Stadtverwaltung fallen. Welche Initiative möchten Sie starten?
         share_committee_link:
-          continue: Weider
+          continue: Fortsetzen
           invite_to_committee_help: Link, um Leute einzuladen, die Teil des Promoter-Komitees sein werden
         show_similar_initiatives:
-          back: Zréck
+          back: Zurück
           compare_help: Wenn eine der folgenden Initiativen Ihrer ähnelt, empfehlen wir Ihnen, sie zu unterstützen. Ihr Vorschlag wird mehr Möglichkeiten haben, erledigt zu werden.
           continue: Meine Initiative ist anders
           more_information: "(Weitere Informationen)"
@@ -335,9 +341,6 @@ lb:
           email_outro: 'Sie haben diese Benachrichtigung erhalten, weil Sie der Autor der Initiative %{resource_title} sind'
           email_subject: "%{applicant_nickname} möchte Ihrer Initiative beitreten"
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> hat sich für das Promoter-Komittee Ihrer Initiative <a href="%{resource_url}">%{resource_title}</a> beworben. Um anzunehmen oder abzulehnen, klicken Sie <a href="%{resource_url}/edit">hier</a>.
-      form:
-        add_attachments: Dokumente
-        delete_attachment: Löschen
       index:
         title: Initiativen
       initiative_signatures:
@@ -376,10 +379,9 @@ lb:
             other: und %{count} weitere Leute
         committee_members:
           approve: Genehmigen
-          confirm_revoke: Bist du dir sicher?
+          confirm_revoke: Bist du sicher?
           invite_to_committee_help: Teilen Sie diesen Link, um andere Benutzer zum Promotionskomitee einzuladen
           no_members_yet: Es gibt keine Mitglieder im Promoter-Ausschuss
-          revoke: Widerrufen
           title: Ausschussmitglieder
         count:
           title:
@@ -420,11 +422,6 @@ lb:
           city: Uertschaft
       last_activity:
         new_initiative: Neue Initiative
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Aktive Initiativen
-            see_all_initiatives: Sehen Sie alle Initiativen
       show:
         badge_name:
           accepted: Ausreichend Unterschriften

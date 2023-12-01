@@ -12,21 +12,28 @@ fr:
         decidim_area_id: Périmètre d'assemblée
         description: Description
         developer_group: Organisateur
+        document: Document
         domain: Domaine
         end_date: Date de fin
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
+        import_attachments: Importer les pièces jointes
+        import_categories: Importer les catégories
+        import_components: Importer les fonctionnalités
+        import_steps: Importer les étapes
         local_area: Espace d'organisation
         meta_scope: Échelle
         participatory_process_group_id: Groupe de processus
+        participatory_process_type_id: Type de processus
         participatory_scope: Objectifs
         participatory_structure: Modalités de décision
+        private_space: Processus privé
         promoted: Mis en avant
         published_at: Publiée à
         related_process_ids: Concertations liées
         scope_id: Périmètre d'application
         scope_type_max_depth_id: Profondeur du filtre de portée
-        scopes_enabled: Périmètres d'application activés
+        scopes_enabled: Secteurs activés
         short_description: Résumé
         show_metrics: Afficher les métriques
         show_statistics: Montrer les statistiques
@@ -68,7 +75,7 @@ fr:
         participatory_process:
           attributes:
             document:
-              allowed_file_content_types: 'Type de document invalide. Les formats acceptés sont: %{types}'
+              allowed_file_content_types: 'Type de document invalide. Seuls les fichiers avec les extensions suivantes sont autorisés : %{types}'
     models:
       decidim/participatory_process_step_activated_event: Étape activée
       decidim/participatory_process_step_changed_event: Étape modifiée
@@ -367,11 +374,11 @@ fr:
         html_3:
           name: Bloc HTML 3
         metadata:
-          developer_group: Organisateur
+          developer_group: Promu par
           name: Métadonnées
           participatory_scope: Objectifs
           participatory_structure: Modalités de décision
-          target: Qui participe
+          target: Participants
         participatory_processes:
           name: Concertations
         stats:
@@ -398,7 +405,7 @@ fr:
             json: JSON
         participatory_process_copies:
           form:
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette concertation. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         participatory_process_groups:
           form:
             metadata: Métadonnées
@@ -407,10 +414,10 @@ fr:
         participatory_process_imports:
           form:
             document_legend: Ajouter un document
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette concertation. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Utilisez des chemins partiels, pas des URL complètes ici. Accepte les lettres, les chiffres, les tirets et les barres obliques et doit commencer par une lettre. Si non défini, le bouton ne sera pas affiché. Exemple: %{url}'
+            cta_path_help: 'Utilisez ici des chemins partiels, pas des URL complètes. Accepte les lettres, chiffres, tirets et barres obliques, et doit commencer par une lettre. Si non défini, le bouton ne sera pas affiché. Exemple : %{url}'
             cta_text_help: Si non défini, le bouton ne sera pas affiché.
         participatory_processes:
           form:
@@ -425,7 +432,7 @@ fr:
             select_an_area: Sélectionnez un secteur
             select_participatory_process_type: Sélectionnez un type de concertation
             select_process_group: Sélectionnez un groupe de concertations
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette concertation. Ils n''acceptent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette concertation. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
             title: Informations générales
             visbility: Visibilité
       content_blocks:
@@ -526,6 +533,6 @@ fr:
           more_info: Plus d'informations
       process_header_steps:
         step: Étape %{current} sur %{total}
-        view_steps: Voir les étapes
+        view_steps: Étapes de la concertation
       process_navigation:
         process_menu_item: Présentation

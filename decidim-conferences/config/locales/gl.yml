@@ -29,7 +29,6 @@ gl:
         show_statistics: Amosar estatísticas
         sign_date: Data de sinatura
         signature: Sinatura
-        signature_name: nome da sinatura
         slogan: Eslogan
         slug: URL slug
         start_date: Data de inicio
@@ -38,13 +37,11 @@ gl:
         date: Data
         link: Ligazón
         title: Título
-        weight: Peso
       conference_partner:
         link: Ligazón
         logo: Logotipo
         name: Nome
         partner_type: Tipo de socio
-        weight: Peso
       conference_registration_invite:
         email: Correo electrónico
         name: Nome
@@ -54,14 +51,12 @@ gl:
         description: Descrición
         price: Prezo
         title: Título
-        weight: Peso
       conference_speaker:
         affiliation: Afiliación
         avatar: Avatar
         conference_meeting_ids: Xuntanzas relacionadas
         full_name: Nome completo
         position: Posición
-        twitter_handle: Conta do Twitter
         user_id: Usuario
       conference_user_role:
         email: Correo electrónico
@@ -132,8 +127,6 @@ gl:
         edit:
           title: Actualiza o usuario da conferencia.
           update: Actualización
-        index:
-          conference_admins_title: usuarios de conferencias
         new:
           create: Crear
           title: Novo usuario da conferencia.
@@ -322,9 +315,6 @@ gl:
         title: Ponentes
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a esta conferencia. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
         conference_invites:
           create:
             error: Houbo un problema ao invitar ao usuario a unirse á conferencia.
@@ -366,7 +356,6 @@ gl:
             registrations_count:
               one: Houbo 1 rexistro.
               other: Houbo %{count} rexistros.
-            slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a esta conferencia. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
         diplomas:
           edit:
             save: Gardar
@@ -374,7 +363,7 @@ gl:
         invite_join_conference_mailer:
           invite:
             decline: Declina a invitación '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} convidoute a unirse a unha conferencia en %{application}. Podes rexeitalo ou aceptalo a través das ligazóns a continuación."
+            invited_existing_user_to_join_a_conference: "%{invited_by} convidoute a unirse a unha conferencia en %{application}. Podes rexeitalo ou aceptalo a través das ligazóns a continuación."
             registration: Rexistro para '%{conference_title}'
         partners:
           index:
@@ -432,7 +421,6 @@ gl:
           invalid: Houbo un problema deixando esta conferencia.
           success: Deixaches con éxito a conferencia.
       conference_speaker:
-        go_to_twitter: Ir a Twitter
         more_info: máis información
         personal_website: Sitio web persoal
         show:
@@ -497,7 +485,6 @@ gl:
           highlighted_conferences:
             active_conferences: Conferencias activas
             conferences_button_title: Ligazón á páxina de Conferencias que amosa todas as conferencias
-            see_all_conferences: Ver todas as conferencias
       photo:
         image:
           attributes:

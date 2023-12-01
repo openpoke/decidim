@@ -56,7 +56,6 @@ uk:
         omnipresent_banner_url: Веб-адреса
         reference_prefix: Довідковий префікс
         tos_version: Версія умов участі
-        twitter_handler: Адреса Twitter
         youtube_handler: Адреса YouTube
       scope:
         code: Код
@@ -368,8 +367,6 @@ uk:
             state: Стан
             users_count: Кількість учасників
       moderations:
-        index:
-          title: Дії з модерації
         report:
           reasons:
             does_not_belong: Неприйнятно
@@ -435,7 +432,6 @@ uk:
           github: ГітХаб
           instagram: Інстаграм
           social_handlers: Соціальні мережі
-          twitter: Твіттер
           youtube: ЮТуб
         update:
           error: При спробі оновити цю організацію сталася помилка.
@@ -446,17 +442,15 @@ uk:
         form:
           colors:
             header_snippets_help: Використовуйте це поле, щоб додавати щось до заголовку HTML. Найпоширенішим використанням є інтеграція сторонніх служб, які потребують додаткового JavaScript або CSS. Також ви можете використовувати його для додавання додаткових метатегів до HTML. Зверніть увагу, що це буде показано лише на загальнодоступних сторінках, а не в розділі адміністратора.
-          cta_button_path_help: 'Ви можете змінити те, куди веде натискання кнопки "Закликати до дії" на головній сторінці. Використовуйте тут часткові шляхи, а не повні веб-адреси. Прийнятні літери, цифри, дефіс та скісна риска. Першою має бути літера. Кнопка "Закликати до дії" відображається на головній сторінці між привітальним текстом та описом. Приклад: %{url}'
           cta_button_text_help: Ви можете змінити текст кнопки "Закликати до дії" на головній сторінці для кожної доступної мови вашої організації. Якщо ви не задасте цей текст, буде використане значення за замовчуванням. Кнопка "Закликати до дії" відображається на домашній сторінці між привітальним текстом та описом.
           homepage_appearance_title: Редагувати вигляд головної сторінки
           homepage_highlighted_content_banner_title: Банер висвітленого вмісту
           images:
             layout_appearance_title: Редагувати зовнішній вигляд шаблону
           omnipresent_banner_appearance_title: Редагувати всюдисущий банер
-      organization_homepage:
+      organization_homepage_content_blocks:
         edit:
-          active_content_blocks: Блоки діючого вмісту
-          inactive_content_blocks: Блоки недіючого вмісту
+          update: Оновити
       participatory_space_private_users:
         create:
           error: При спробі додати приватного учасника до цього простору співучасті сталася помилка.
@@ -560,6 +554,7 @@ uk:
       users_statistics:
         users_count:
           admins: Адміністратори
+      view_public_page: Переглянути загальнодоступну сторінку
     moderations:
       actions:
         hidden: Приховано
@@ -578,10 +573,10 @@ uk:
       models:
         moderation:
           fields:
+            created_at: Дата створення
             hidden_at: 'Приховано:'
             report_count: Кількість
             reported_content_url: Веб-адреса оскарженого вмісту
-            reports: Скарги
             visit_url: Відвідайте веб-адресу
   errors:
     messages:
@@ -593,5 +588,3 @@ uk:
           title: Розсилання новин
         settings:
           title: Налаштування
-        users:
-          title: Учасники

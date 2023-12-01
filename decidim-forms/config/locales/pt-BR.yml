@@ -1,5 +1,5 @@
 ---
-pt:
+pt-BR:
   activemodel:
     attributes:
       answer:
@@ -115,8 +115,6 @@ pt:
       errors:
         answer:
           body: O corpo não pode ficar em branco
-      files:
-        extension_allowlist: 'Formatos aceitos:'
       images:
         dimensions: "%{width} x %{height} px"
       question_types:

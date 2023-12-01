@@ -42,6 +42,8 @@ sv:
       decidim/promote_to_admin: Befordrad till gruppadministratör
       decidim/removed_from_group: Borttagen från gruppen
       decidim/resource_endorsed_event: Resurs instämd
+      decidim/user_group_created_event: Användargrupp skapad
+      decidim/welcome_notification_event: Välkomstmeddelande
   activerecord:
     attributes:
       decidim/user:
@@ -69,6 +71,8 @@ sv:
     'true': 'Ja'
   carrierwave:
     errors:
+      file_resolution_too_large: Filupplösningen är för stor
+      file_size_too_large: Filen är för stor
       not_inside_organization: Den här filen är inte bifogad till någon organisation
   date:
     formats:
@@ -86,24 +90,21 @@ sv:
         one: ungefär 1 månad
         other: ungefär %{count} månader
       half_a_minute: en halv minut
-      less_than_x_minutes:
-        one: mindre än en minut
-        other: mindre än %{count} minut
-      less_than_x_seconds:
-        one: just nu
-        other: mindre än %{count} sekunder
       x_days:
-        one: 1 dag sedan
-        other: "%{count} dagar sedan"
+        one: 1 dag
+        other: "%{count} dagar"
       x_hours:
-        one: 1 timme sedan
-        other: "%{count} timmar sedan"
+        one: 1 timme
+        other: "%{count} minuter"
       x_minutes:
-        one: 1 min sedan
-        other: "%{count} min sedan"
+        one: 1 minut
+        other: "%{count} minuter"
+      x_months:
+        one: 1 månad
+        other: "%{count} månader"
       x_seconds:
-        one: 1 sek. sedan
-        other: "%{count} sek. sedan"
+        one: 1 sekund
+        other: "%{count} sekunder"
   decidim:
     accessibility:
       external_link: Extern länk
@@ -127,7 +128,11 @@ sv:
         file_no_exists: Filen finns inte
         notice: Dina uppgifter hämtas för närvarande. Du får ett e-postmeddelande när det är klart.
       email_change:
+        body1: Vi har skickat ett e-postmeddelande till %{unconfirmed_email} för att bekräfta din nya e-postadress.
+        body2: Vill du att vi ska skicka verifieringsmailet igen? %{resend_link} eller %{cancel_link}.
         cancel: avbryt
+        cancel_error: Kunde inte avbryta ändringen av e-postadressen.
+        send_again: Skicka igen
       show:
         available_locales_helper: Välj det språk du vill använda på plattformen och få i notiserna
         change_password: Ändra lösenord
@@ -139,6 +144,8 @@ sv:
     admin:
       actions:
         cancel: Avbryt
+      password_change:
+        alert: Du måste ändra ditt lösenord för att kunna fortsätta
     admin_log:
       area:
         create: "%{user_name} skapade området %{resource_name}"
@@ -306,6 +313,7 @@ sv:
       endorsements:
         one: instämmande
         other: instämmanden
+      official_author: Officiella
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Bli bekräftad genom att ange ett passnummer som inleds med "A"
@@ -396,6 +404,7 @@ sv:
           debate: Debatt
           initiative: Initiativ
           meeting: Möte
+          order: Röster
           post: Inlägg
           proposal: Förslag
           question: Fråga
@@ -486,7 +495,6 @@ sv:
           newsletter: Få enstaka nyhetsbrev med relevant information
           newsletter_title: Kontakttillstånd
           nickname_help: Ditt alias i %{organization}. Kan bara innehålla bokstäver, siffror, '-' och '_'.
-          sign_in: Logga in
           sign_up: Registrera dig
           sign_up_as:
             legend: Registrera dig som
@@ -758,6 +766,8 @@ sv:
         file:
           explanation: 'Vägledning för fil:'
           message_1: Måste vara en bild eller ett dokument.
+        icon:
+          explanation: 'Vägledning för ikon:'
         image:
           explanation: 'Vägledning för bild:'
           message_1: Helst en landskapsbild som inte har någon text.
@@ -770,7 +780,7 @@ sv:
           add_attachment: Lägg till bilaga
           add_file: Lägg till fil
           add_image: Lägg till bild
-          cancel: Avbryta
+          cancel: Avbryt
           edit_image: Redigera bild
           error: Fel!
           remove: Ta bort
@@ -799,18 +809,6 @@ sv:
           how: Hur kan du få det
           page_description: Märken visar att du varit aktiv som deltagare på plattformen och deltagit i behandlingen. Medan du upptäcker, deltar och samverkar på plattformen får du olika märken. Här är listan med märken och hur du kan få dem.
           title: Märken
-        invitations:
-          conditions:
-            - Bjud in dina vänner med länken "bjud in vänner" på din användarsida
-            - Om du vill kan du anpassa meddelandet som du skickar
-            - Nå nästa nivå genom att skicka inbjudningar till andra och få dem att registrera sig.
-          description: Du får detta märke när när du har bjudit in några personer, de har registrerat sig i %{organization_name} och blivit deltagare. Tack för att du gör %{organization_name} mer välkänt och gör vår gemenskap större!
-          description_another: Den här deltagaren har bjudit in %{score} personer.
-          description_own: Du har bjudit in %{score} personer.
-          name: Inbjudningar
-          next_level_in: Nå nästa nivå genom att bjuda in %{score} personer till!
-          unearned_another: Denna deltagare har inte bjudit in någon användare än.
-          unearned_own: Du har inte ännu bjudit in någon annan.
       description: Märken visar att du varit aktiv som deltagare på plattformen och deltagit i behandlingen. Medan du upptäcker, deltar och samverkar på plattformen får du olika märken.
       level: Nivå %{level}
       reached_top: Du har nått den högsta nivån för detta märke.
@@ -881,6 +879,7 @@ sv:
         success: Förfrågan att gå med har skickats. En administratör granskar din förfrågan innan du blir godkänd i gruppen.
       leave:
         error: Det gick inte att lämna gruppen
+        last_admin: Du kan inte ta bort dig själv från denna grupp eftersom du är den sista administratören. Gör en annan medlem till administratör för att lämna gruppen.
         success: Du har lämnat gruppen.
       members:
         accept_or_reject_join_requests: 'Följande användare har ansökt om att få gå med i den här gruppen. Godkänn eller avvisa deras förfrågningar:'
@@ -918,7 +917,7 @@ sv:
         body_1: Du är på väg att besöka en extern länk och vi vill att du ska vara försiktig med innehållet på den externa webbplatsen.
         body_2: Kontrollera länken du är på väg att besöka och se till att den är säker innan du fortsätter.
         cancel: Avbryt
-        close_modal: Stäng fönster
+        close_modal: Stäng modal
         proceed: Fortsätt
         title: Öppna extern länk
     log:
@@ -1050,7 +1049,6 @@ sv:
     newsletter_mailer:
       newsletter:
         note: Du har fått det här e-brevet eftersom du prenumererar på nyhetsbrev från %{organization_name}. Du kan ändra dina inställningar på <a href="%{link}">meddelandesidan</a>.
-        see_on_website: Visa inte e-brevet som det ska? Läs det på <a href="%{link}" target="_blank">webbplatsen</a>.
         unsubscribe: Välj att <a href="%{link}" target="_blank" class="unsubscribe">Avprenumerera</a> om du inte vill få denna typ av brev.
     newsletter_templates:
       basic_only_text:
@@ -1113,8 +1111,10 @@ sv:
         notifications_sending_frequencies:
           daily: Dagligen
           none: Ingen
+          real_time: Realtid
           weekly: Veckovis
         own_activity: Min egen verksamhet, som när någon kommenterar mitt förslag eller nämner mig
+        push_notifications: Push-meddelanden
         receive_notifications_about: Jag vill få notiser om
         update_notifications_settings: Spara ändringar
       update:
@@ -1147,14 +1147,13 @@ sv:
           proposals: Förslag
           proposals_explanation: Lämna förslag, stötta befintliga förslag och stöd de förändringar som du vill se.
         footer_sub_hero:
-          footer_sub_hero_body: Låt oss bygga ett öppet, transparent och samarbetande samhälle.<br /> Gå med, delta och fatta beslut.
           footer_sub_hero_headline: Välkommen till %{organization} deltagarplattform.
           register: Registrera dig
         hero:
           participate: Delta
           welcome: Välkommen till %{organization}!
         metrics:
-          headline: Deltagande i siffror
+          headline: Metrik
         statistics:
           headline: Aktuellt läge för %{organization}
         sub_hero:
@@ -1174,18 +1173,14 @@ sv:
           error: Det uppstod ett problem med att godkänna villkoren.
           success: Tack! Du har godkänt användarvillkoren.
         form:
-          agreement: Jag godkänner villkoren
           legend: Godkänn användarvillkoren
         refuse:
-          modal_btn_continue: Acceptera villkoren och fortsätt
           modal_btn_exit: Jag granskar dem senare
-          modal_button: Avvisa villkoren
-          modal_close: Stäng fönstret
+          modal_close: Stäng modal
           modal_title: Avvisar du de uppdaterade användarvillkoren?
         required_review:
           alert: Vi har uppdaterat våra användarvillkor, var god och granska dem.
           body: Var snäll och granska uppdateringarna i våra användarvillkor. Annars kommer du inte att kunna använda plattformen.
-          title: 'Obligatoriskt: Granska uppdateringarna av våra användarvillkor'
     participatory_space_private_users:
       not_allowed: Du har inte rätt att se det här innehållet
     profile:
@@ -1275,10 +1270,10 @@ sv:
           future: Framtida
           past: Tidigare
       filters_small_view:
-        close_modal: Stäng fönster
+        close_modal: Stäng modal
         filter: Filtrera
         filter_by: Filtrera efter
-        unfold: Vik ut
+        unfold: Veckla ut
       results:
         results:
           one: "%{count} resultat"
@@ -1295,7 +1290,7 @@ sv:
         ok: Ok
         title: Bekräfta
       embed_modal:
-        close_window: Stäng fönstret
+        close_window: Stäng fönster
         embed: Klistra in den här koden på din sida
         embed_link: Bädda in
       extended_navigation_bar:
@@ -1370,9 +1365,6 @@ sv:
       help_text: "<strong>OBS:</strong> Innehåll översattes kanske automatiskt och inte är 100% korrekt."
       show_original: Visa originaltexten
       show_translated: Visa maskinöversatt texten
-    user_activity:
-      index:
-        no_activities_warning: Den här användaren har inte haft någon aktivitet än.
     user_contact_disabled: Deltagaren tar inte emot inte direktmeddelanden.
     user_conversations:
       create:
@@ -1380,14 +1372,14 @@ sv:
         existing_error: Meddelandet kunde inte skapas. Konversationen finns redan, försök igen nu.
         success: Samtalet startades framgångsrikt!
       index:
-        add_max_users: 'Lägg till användare till konversation: max 9 användare'
+        add_max_users: 'Lägg till användare i samtalet: högst 9'
         add_users_placeholder: Sök...
         close: Stäng
         conversations_info: Konversationer är privata. Ingen annan kan se dem. En konversation kan startas med någon deltagare eller grupp som är registrerad på plattformen.
         from: Från
         last_message: Senaste meddelande
-        modal_title: Ny konversation
-        new_conversation: Ny konversation
+        modal_title: Nytt samtal
+        new_conversation: Nytt samtal
         next: Nästa
         no_conversations_warning: Det finns inga konversationer än.
         no_results: Inga resultat
@@ -1403,7 +1395,7 @@ sv:
         back: Visa alla samtal
         deleted_accounts: Du kan inte meddela raderade konton.
         not_allowed: Den här användaren accepterar inte fler direkta meddelanden.
-        title: Konversation med %{usernames}
+        title: Samtal med %{usernames}
       update:
         error: Meddelandet skickades inte. Försök igen senare
     user_interests:
@@ -1549,6 +1541,7 @@ sv:
         confirm_new_password: Bekräfta nytt lösenord
         new_password: Nytt lösenord
         password_help: "Minst %{minimun_characters} tecken, får inte vara för vanligt (som 123456) och måste vara skilt från ditt användarnamn och din e-postadress."
+        title: Lösenordsändring
       new:
         forgot_your_password: Glömt ditt lösenord?
         send_me_reset_password_instructions: Skicka mig anvisningar om återställning av lösenord
@@ -1559,15 +1552,6 @@ sv:
       updated_not_active: Ditt lösenord har ändrats.
     registrations:
       destroyed: Ditt konto har avregistrerats. Vi hoppas att vi ses snart igen.
-      edit:
-        are_you_sure: Är du säker?
-        cancel_my_account: Avregistrera mitt konto
-        currently_waiting_confirmation_for_email: 'Väntar för närvarande på bekräftelse från: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: lämna tomt om du inte vill ändra det
-        title: Redigera %{resource}
-        unhappy: Olycklig?
-        update: Uppdatera
-        we_need_your_current_password_to_confirm_your_changes: Vi behöver ditt nuvarande lösenord för att bekräfta ändringarna
       new:
         sign_up: Registrera
       signed_up: Välkommen! Din registrering är klar.
@@ -1578,8 +1562,6 @@ sv:
       updated: Ditt konto har uppdaterats.
     sessions:
       already_signed_out: Du har loggats ut.
-      new:
-        sign_in: Logga in
       signed_in: Inloggningen är klar.
       signed_out: Du är utloggad.
     shared:
@@ -1588,7 +1570,6 @@ sv:
         didn_t_receive_confirmation_instructions: Fick du inte anvisningar om bekräftelse?
         didn_t_receive_unlock_instructions: Fick du inte anvisningar om att låsa upp?
         forgot_your_password: Glömt ditt lösenord?
-        sign_in: Logga in
         sign_in_with_provider: Logga in med %{provider}
         sign_up: Registrera dig
       minimum_password_length:
@@ -1622,7 +1603,6 @@ sv:
         other: 'Det finns flera fel i din begäran:'
       too_many_marks: använder för många på varandra följande skiljetecken (t.ex. ! och ?)
       too_much_caps: använder för många stora bokstäver (över 25% av texten)
-      too_short: är för kort (under 15 tecken)
   forms:
     correct_errors: Det finns fel på formuläret, vänligen korrigera dem för att fortsätta.
     length_validator:
@@ -1636,18 +1616,34 @@ sv:
     timestamp_error_message: Det gick för snabbt! Försök igen.
   layouts:
     decidim:
-      cookie_consent:
-        cookie_details:
+      data_consent:
+        details:
           columns:
             name: Namn
             service: Tjänst
             type: Typ
+          items:
+            _session_id:
+              service: Denna webbplats
+            decidim-consent:
+              service: Denna webbplats
+            pwaInstallPromptSeen:
+              service: Denna webbplats
           types:
             cookie: Cookie
+            local_storage: Lokal lagring
         dialog:
-          cookie_settings: Inställningar
+          accept_all: Acceptera alla
+          settings: Inställningar
         modal:
+          accept_all: Acceptera alla
+          essential:
+            title: Nödvändigt
+          marketing:
+            title: Marknadsföring
           save_settings: Spara inställningar
+        warning:
+          consent_required: Du måste aktivera %{categories} för att kunna se innehållet.
       edit_link:
         edit: Redigera
       footer:
@@ -1677,7 +1673,6 @@ sv:
         facebook: "%{organization} på Facebook"
         github: "%{organization} på GitHub"
         instagram: "%{organization} på Instagram"
-        twitter: "%{organization} på Twitter"
         youtube: "%{organization} på YouTube"
       timeout_modal:
         body: Du har varit inaktiv i %{minutes} minuter. Om du fortsätter att vara inaktiv kommer du automatiskt att loggas ut för din egen säkerhet.
@@ -1685,7 +1680,7 @@ sv:
         sign_out: Logga ut
         title: Vill du fortsätta med din session?
       upload_modal:
-        close_modal: Stäng fönstret
+        close_modal: Stäng modal
       user_menu:
         account: 'Användarkonto: %{name}'
         admin_dashboard: Adminpanel

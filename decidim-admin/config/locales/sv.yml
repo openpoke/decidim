@@ -15,17 +15,24 @@ sv:
         description: Beskrivning
         file: Fil
         title: Bilaga eller bildnamn
+        weight: Ordning
       attachment_collection:
         description: Beskrivning
         name: Namn
+        weight: Ordning
       category:
         description: Beskrivning
         name: Namn
         parent_id: Överordnad
+        weight: Ordning
       component:
         name: Namn
         published_at: Publicerad
-        weight: Vikt
+        weight: Ordning
+      external_domain:
+        value: Värde
+      help_section:
+        content: Innehåll
       id: ID
       import:
         user_group_id: Skapa import som
@@ -86,13 +93,15 @@ sv:
         success_color: Färdigt
         time_zone: Tidszon
         tos_version: Version på användarvillkor
-        twitter_handler: Twitter-hanterare
         user_groups_enabled: Aktivera grupper
         users_registration_mode: Registreringsmode
         warning_color: Varning
         welcome_notification_body: Välkomstmeddelandets brödtext
         welcome_notification_subject: Välkomstmeddelandets ämnesrad
         youtube_handler: YouTube-hanterare
+      participatory_space_private_user:
+        email: E-post
+        name: Namn
       scope:
         code: Kod
         name: Namn
@@ -114,12 +123,13 @@ sv:
         show_in_footer: Visa i sidfoten
         slug: URL slug
         title: Titel
-        weight: Vikt
+        topic_id: Ämne
+        weight: Ordning
       static_page_topic:
         description: Beskrivning
         show_in_footer: Visa i sidfoten
         title: Titel
-        weight: Vikt
+        weight: Ordning
       user_group_csv_verification:
         file: Fil
     errors:
@@ -134,6 +144,14 @@ sv:
               allowed_file_content_types: Ogiltig bildfil
             official_img_header:
               allowed_file_content_types: Ogiltig bildfil
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Fel format, läs igenom instruktionerna noga och se till att filen är UTF-8 kodad.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Fel format, läs igenom instruktionerna noga och se till att filen är UTF-8 kodad.
       new_import:
         attributes:
           file:
@@ -185,14 +203,11 @@ sv:
           error: Ett fel inträffade när användarvillkoren för administratörer skulle godkännas.
           success: Du har godkänt användarvillkoren för administratörer.
         actions:
-          accept: Jag godkänner villkoren
           are_you_sure: Är du säker på att du vill avvisa administratörsvillkoren?
-          refuse: Avvisa villkoren för administratörer
           title: Godkänn användarvillkoren
         required_review:
           alert: 'Krav: granska villkoren för administratörer'
           callout: Granska användarvillkoren för administratörer. Annars kan du inte administrera plattformen.
-          cta: Granska dem nu.
         title: Användarvillkor för administratörer
       area_types:
         create:
@@ -635,7 +650,6 @@ sv:
           nickname: Användarnamn
           reason: Anledning
           reports: Antal anmälningar
-          title: Rapporterade användare
         report:
           reasons:
             does_not_belong: Tillhör inte
@@ -645,8 +659,6 @@ sv:
           blocked: Blockerad
           unblocked: Icke blockerade
       moderations:
-        index:
-          title: Moderering
         report:
           reasons:
             does_not_belong: Hör inte hemma
@@ -717,9 +729,6 @@ sv:
           select_scopes: Filtrera för användare som har aktiverat något av de markerade omfången under Mina intressen i sina konton.
           select_spaces: Segmentera nyhetsbrevet genom att markera utrymmen
           select_users: Välj vilka användare som ska få nyhetsbrevet
-          send_to_all_users: Skicka till alla användare
-          send_to_followers: Skicka till följare
-          send_to_participants: Skicka till deltagare
           title: Välj mottagare att skicka till
           warning: "<strong>Obs:</strong> Detta nyhetsbrev kommer endast att skickas till de användare som har markerat <em>Jag vill få nyhetsbrev</em> i sina meddelandeinställningar."
         send:
@@ -780,7 +789,6 @@ sv:
           instagram: Instagram
           rich_text_editor_in_public_views_help: I vissa textfält kan deltagare använda vissa HTML-taggar med hjälp av den rika textredigeraren.
           social_handlers: Sociala
-          twitter: Twitter
           url: URL
           youtube: Youtube
         update:
@@ -794,7 +802,6 @@ sv:
             colors_title: Organisationsfärger
             colors_warning_html: Varning! Att ändra dessa färger kan bryta minska kontrasterna och tillgängligheten. Du kan kontrollera kontrasten i ditt val med <a href="%{link}">WebAIM Contrast Checker</a> eller andra liknande verktyg.
             header_snippets_help: Lägg till saker i HTML-huvudet med detta fält. Den vanligaste användningen är att integrera tjänster från tredje part som kräver särskild JavaScript eller CSS. Du kan också lägga till extra meta-taggar i HTML-koden. Märk att detta endast kommer att läggas in på offentliga sidor, inte i administratörsdelen.
-          cta_button_path_help: 'Du kan ändra vad uppmaningsknappen på hemsidan länkar till. Använd partiella sökvägar, inte fullständiga URL:er här. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste inledas med en bokstav. Uppmaningsknappen visas på hemsidan mellan välkomsttexten och beskrivningen. Exempel: %{url}'
           cta_button_text_help: Du kan ha separata texter på uppmaningsknappen på hemsidan för varje tillgängligt språk i organisationen. Om det inte anges kommer det förvalda värdet att användas. Uppmaningsknappen visas på hemsidan mellan välkomsttexten och beskrivningen.
           homepage_appearance_title: Redigera startsidans utseende
           homepage_highlighted_content_banner_title: Banner för uppmärksammat innehåll
@@ -813,10 +820,6 @@ sv:
         form:
           add: Lägg till i vitlistan
           title: Vitlista för externa domäner
-      organization_homepage:
-        edit:
-          active_content_blocks: Block med aktivt innehåll
-          inactive_content_blocks: Block med inaktivt innehåll
       organization_homepage_content_blocks:
         edit:
           update: Uppdatera
@@ -943,7 +946,6 @@ sv:
           update: Uppdatera
         form:
           none: Ingen
-          slug_help: 'Använd relativa sökvägar, inte fullständiga URL: er här. Tar emot bokstäver, siffror, streck och snedstreck, och måste börja med en bokstav. Exempel: %{url}'
         index:
           last_notable_change: Senast märkbara förändring
         new:
@@ -966,6 +968,7 @@ sv:
         impersonatable_users: Hanterbara deltagare
         impersonations: Deltagarhantering
         metrics: Metrik
+        pages: Sidor
         panel: Administratör
         participants: Deltagare
         scope_types: Omfattningstyper
@@ -1057,6 +1060,7 @@ sv:
         moderation:
           fields:
             created_at: Skapandedatum
+            deleted_resource: Borttagen resurs
             hidden_at: Dold
             participatory_space: Deltagarutrymme
             report_count: Antal

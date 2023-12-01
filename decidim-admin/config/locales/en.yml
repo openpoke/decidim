@@ -15,17 +15,24 @@ en:
         description: Description
         file: File
         title: Attachment or image name
+        weight: Order position
       attachment_collection:
         description: Description
         name: Name
+        weight: Order position
       category:
         description: Description
         name: Name
         parent_id: Parent
+        weight: Order position
       component:
         name: Name
         published_at: Published at
         weight: Order position
+      external_domain:
+        value: Value
+      help_section:
+        content: Content
       id: ID
       import:
         user_group_id: Create imports as
@@ -86,13 +93,16 @@ en:
         success_color: Success
         time_zone: Time Zone
         tos_version: Terms of service version
-        twitter_handler: Twitter handler
+        twitter_handler: X handler
         user_groups_enabled: Enable groups
         users_registration_mode: Users registration mode
         warning_color: Warning
         welcome_notification_body: Welcome notification body
         welcome_notification_subject: Welcome notification subject
         youtube_handler: YouTube handler
+      participatory_space_private_user:
+        email: Email
+        name: Name
       scope:
         code: Code
         name: Name
@@ -114,6 +124,7 @@ en:
         show_in_footer: Show in the footer
         slug: URL slug
         title: Title
+        topic_id: Topic
         weight: Order position
       static_page_topic:
         description: Description
@@ -134,6 +145,14 @@ en:
               allowed_file_content_types: Invalid image file
             official_img_header:
               allowed_file_content_types: Invalid image file
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Malformed import file, please read through the instructions carefully and make sure the file is UTF-8 encoded.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Malformed import file, please read through the instructions carefully and make sure the file is UTF-8 encoded.
       new_import:
         attributes:
           file:
@@ -185,7 +204,7 @@ en:
           error: There's been an error while accepting the admin terms of use.
           success: Great! You've accepted the admin terms of use.
         actions:
-          accept: I agree with the following terms
+          accept: I agree with the terms
           are_you_sure: Are you sure you want to refuse the admin terms of use?
           refuse: Refuse the admin terms
           title: Agree to the terms and conditions of use
@@ -635,7 +654,7 @@ en:
           nickname: Nickname
           reason: Reason
           reports: Reports count
-          title: Listing reported users
+          title: Reported participants
         report:
           reasons:
             does_not_belong: Does not belong
@@ -646,7 +665,7 @@ en:
           unblocked: Not Blocked
       moderations:
         index:
-          title: Moderations
+          title: Reported content
         report:
           reasons:
             does_not_belong: Does not belong
@@ -780,7 +799,7 @@ en:
           instagram: Instagram
           rich_text_editor_in_public_views_help: In some text areas, participants will be able to insert some HTML tags by using the rich text editor.
           social_handlers: Social
-          twitter: Twitter
+          twitter: X
           url: URL
           youtube: YouTube
         update:
@@ -876,7 +895,7 @@ en:
           update: Update
         new:
           create: Create scope type
-          title: New scope
+          title: New scope type
         update:
           error: There was a problem updating this scope type.
           success: Scope type updated successfully
@@ -963,9 +982,12 @@ en:
         areas: Areas
         authorization_workflows: Verification methods
         dashboard: Dashboard
+        edit_external_domains: External domain whitelist
+        edit_organization_appearance: Edit homepage appearance
         impersonatable_users: Manageable participants
         impersonations: Participants management
         metrics: Metrics
+        pages: Pages
         panel: Admin
         participants: Participants
         scope_types: Scope types
@@ -1057,6 +1079,7 @@ en:
         moderation:
           fields:
             created_at: Creation date
+            deleted_resource: Deleted resource
             hidden_at: Hidden at
             participatory_space: Participatory space
             report_count: Count

@@ -1,5 +1,5 @@
 ---
-pt:
+pt-BR:
   activemodel:
     attributes:
       participatory_process:
@@ -108,7 +108,7 @@ pt:
           attachments: Anexos
           categories: Categorias
           components: Componentes
-          info: Info
+          info: Informações
           moderations: Moderação
           private_users: Usuários privados
           process_admins: Processar usuários
@@ -214,6 +214,9 @@ pt:
         update:
           error: Ocorreu um erro ao atualizar esta etapa do processo participativo.
           success: Passo do processo participativo atualizado com sucesso.
+      participatory_process_types:
+        form:
+          title: Título
       participatory_process_user_roles:
         create:
           error: Ocorreu um erro ao adicionar um usuário para esse processo participativo.
@@ -304,6 +307,10 @@ pt:
           contextual: "<p>A <strong>processo de participação</strong> é uma sequência de actividades de participação (por exemplo, primeiro o preenchimento de uma pesquisa, em seguida, fazendo propostas, discutindo-los em face-a-face ou virtuais reuniões, e, finalmente, privilegiando-los) com o objectivo de definir e de tomar uma decisão em um tópico específico.</p> <p>Os exemplos de processos de participação são: um processo de eleição membros da comissão (onde candidaturas são apresentados pela primeira vez, em seguida, discutida e, finalmente, uma candidatura é escolhido), orçamentos de participação (por serem apresentadas propostas, valorizado economicamente e considerados com o dinheiro disponível), um processo de planejamento estratégico, a elaboração colaborativa de um regulamento ou norma, a concepção de um espaço urbano ou a produção de um plano de políticas públicas.</p>\n"
           page: "<p>A <strong>processo de participação</strong> é uma sequência de actividades de participação (por exemplo, primeiro o preenchimento de uma pesquisa, em seguida, fazendo propostas, discutindo-los em face-a-face ou virtuais reuniões, e, finalmente, privilegiando-los) com o objectivo de definir e de tomar uma decisão em um tópico específico.</p> <p>Os exemplos de processos de participação são: um processo de eleição membros da comissão (onde candidaturas são apresentados pela primeira vez, em seguida, discutida e, finalmente, uma candidatura é escolhido), orçamentos de participação (por serem apresentadas propostas, valorizado economicamente e considerados com o dinheiro disponível), um processo de planejamento estratégico, a elaboração colaborativa de um regulamento ou norma, a concepção de um espaço urbano ou a produção de um plano de políticas públicas.</p>\n"
           title: O que é um processo participativo?
+    log:
+      value_types:
+        participatory_process_type_presenter:
+          not_found: 'A categoria de processo não foi encontrado no banco de dados (ID: %{id})'
     menu:
       processes: Processos
     metrics:
@@ -323,7 +330,6 @@ pt:
         html_3:
           name: Terceiro bloco HTML
         metadata:
-          developer_group: Promovido por
           name: Metadados
           participatory_scope: O que é decidido
           participatory_structure: Como é decidido
@@ -352,9 +358,6 @@ pt:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para esse processo. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadados
@@ -363,10 +366,8 @@ pt:
         participatory_process_imports:
           form:
             document_legend: Adicionar um documento
-            slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para esse processo. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Use caminhos parciais, não URLs completos aqui. Aceita letras, números, traços e barras, e deve começar com uma letra. Se não estiver definido, o botão não será mostrado. Exemplo: %{url}'
             cta_text_help: Se não estiver definido, o botão não será mostrado.
         participatory_processes:
           form:
@@ -380,7 +381,6 @@ pt:
             scope_type_max_depth_help: Restringir a profundidade do filtro de escopo; O filtro será mostrado de modo geral ao tipo de escopo selecionado.
             select_an_area: Selecione uma área
             select_process_group: Selecione um grupo de processos
-            slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para esse processo. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
             title: Informação geral
             visbility: Visibilidade
       content_blocks:
@@ -393,13 +393,11 @@ pt:
       pages:
         home:
           highlighted_processes:
-            active_processes: Processos ativos
             active_step: Passo ativo
             more_information: Mais Informações
             participate: Participar
             participate_in: Participe do processo %{resource_name}
             processes_button_title: Link para a página de processos exibindo todos os processos
-            see_all_processes: Ver todos os processos
       participatory_process_steps:
         index:
           back_to_process: Voltar à página do processo
@@ -436,7 +434,6 @@ pt:
         dates: Datas
         developer_group: Grupo promotor
         end_date: Data final
-        local_area: Área de organização
         participatory_scope: O que é decidido
         participatory_structure: Como é decidido
         private_space: Este é um processo privado
@@ -477,6 +474,6 @@ pt:
           more_info: Mais informações
       process_header_steps:
         step: Passo %{current} de %{total}
-        view_steps: Ver as etapas
+        view_steps: Etapas do processo
       process_navigation:
         process_menu_item: O processo

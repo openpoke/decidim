@@ -3,26 +3,29 @@
 require "spec_helper"
 
 describe "Filter Initiatives", :slow, type: :system do
-  let(:organization) { create :organization }
-  let(:type1) { create :initiatives_type, organization: organization }
-  let(:type2) { create :initiatives_type, organization: organization }
-  let(:type3) { create :initiatives_type, organization: organization }
-  let(:scoped_type1) { create :initiatives_type_scope, type: type1 }
-  let(:scoped_type2) { create :initiatives_type_scope, type: type2 }
-  let(:scoped_type3) { create :initiatives_type_scope, type: type3, scope: nil }
-  let(:area_type1) { create(:area_type, organization: organization) }
-  let(:area_type2) { create(:area_type, organization: organization) }
-  let(:area1) { create(:area, area_type: area_type1, organization: organization) }
-  let(:area2) { create(:area, area_type: area_type1, organization: organization) }
-  let(:area3) { create(:area, area_type: area_type2, organization: organization) }
+  let!(:organization) { create :organization }
+  let!(:type1) { create :initiatives_type, organization: organization }
+  let!(:type2) { create :initiatives_type, organization: organization }
+  let!(:type3) { create :initiatives_type, organization: organization }
+  let!(:scoped_type1) { create :initiatives_type_scope, type: type1 }
+  let!(:scoped_type2) { create :initiatives_type_scope, type: type2 }
+  let!(:scoped_type3) { create :initiatives_type_scope, type: type3, scope: nil }
+  let!(:area_type1) { create(:area_type, organization: organization) }
+  let!(:area_type2) { create(:area_type, organization: organization) }
+  let!(:area1) { create(:area, area_type: area_type1, organization: organization) }
+  let!(:area2) { create(:area, area_type: area_type1, organization: organization) }
+  let!(:area3) { create(:area, area_type: area_type2, organization: organization) }
 
   before do
     switch_to_host(organization.host)
   end
 
   context "when filtering initiatives by SCOPE" do
+    let!(:initiatives) { create_list(:initiative, 2, organization: organization, scoped_type: scoped_type1) }
+    let(:first_initiative) { initiatives.first }
+    let!(:proposal_comment) { create(:comment, commentable: first_initiative) }
+
     before do
-      create_list(:initiative, 2, organization: organization, scoped_type: scoped_type1)
       create(:initiative, organization: organization, scoped_type: scoped_type2)
       create(:initiative, organization: organization, scoped_type: scoped_type3)
 
@@ -67,6 +70,22 @@ describe "Filter Initiatives", :slow, type: :system do
 
         expect(page).to have_css(".card--initiative", count: 2)
         expect(page).to have_content("2 INITIATIVES")
+      end
+
+      it "can be ordered by most commented after filtering" do
+        within ".filters .with_any_scope_check_boxes_tree_filter" do
+          uncheck "All"
+          check scoped_type1.scope_name[I18n.locale.to_s]
+        end
+
+        within ".order-by__dropdown" do
+          expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          page.find("a", text: "Random").click
+          click_link "Most commented"
+        end
+
+        expect(page).to have_css(".card--initiative", count: 2)
+        expect(page).to have_selector(".card--initiative:first-child", text: translated(first_initiative.title))
       end
     end
   end
@@ -191,7 +210,7 @@ describe "Filter Initiatives", :slow, type: :system do
       end
     end
 
-    context "when there is more than on initiative_type" do
+    context "when there is more than one initiative_type" do
       before do
         create_list(:initiative, 2, organization: organization, scoped_type: scoped_type1)
         create(:initiative, organization: organization, scoped_type: scoped_type2)

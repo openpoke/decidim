@@ -161,34 +161,10 @@ module Decidim
       end
     end
 
-    describe "#user_is_moderator?" do
-      context "when an organization has a moderator and a regular user" do
-        let(:organization) { create :organization, available_locales: [:en] }
-        let(:participatory_space) { create :participatory_process, organization: organization }
-        let(:moderator) do
-          create(
-            :process_moderator,
-            :confirmed,
-            organization: organization,
-            participatory_process: participatory_space
-          )
-        end
-        let(:user) { create :user, organization: organization }
-
-        it "returns false when user isnt a moderator" do
-          expect(subject.user_is_moderator?(user)).to be false
-        end
-
-        it "returns true when user is a moderator" do
-          expect(subject.user_is_moderator?(moderator)).to be true
-        end
-      end
-    end
-
     describe "#meet_push_notifications_requirements?" do
       context "when the notifications requirements are met" do
         before do
-          allow(Rails.application.secrets).to receive("vapid").and_return({ enabled: true })
+          Rails.application.secrets[:vapid] = { enabled: true }
         end
 
         it "returns true" do
@@ -196,9 +172,19 @@ module Decidim
         end
       end
 
+      context "when vapid secrets are not present" do
+        before do
+          Rails.application.secrets.delete(:vapid)
+        end
+
+        it "returns false" do
+          expect(subject.meet_push_notifications_requirements?).to be false
+        end
+      end
+
       context "when the notifications requirements aren't met" do
         before do
-          allow(Rails.application.secrets).to receive("vapid").and_return({ enabled: false })
+          Rails.application.secrets[:vapid] = { enabled: false }
         end
 
         it "returns false" do

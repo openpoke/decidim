@@ -11,6 +11,7 @@ fi-pl:
         end_time: Päättymisaika
         information_updates: Tietojen päivitykset
         instructions: Osallistumisohjeet
+        scope_id: Teema
         start_time: Alkamisaika
         title: Otsikko
         user_group_id: Luo keskustelu käyttäjänä
@@ -109,6 +110,9 @@ fi-pl:
           success: Keskustelu luotu onnistuneesti.
         debate:
           participate: Osallistu
+        debates:
+          empty: Ei yhtään keskustelua.
+          empty_filters: Keskusteluja ei löytynyt annetuilla hakuehdoilla.
         edit:
           back: Takaisin
           save: Tallenna muutokset
@@ -129,7 +133,7 @@ fi-pl:
           state_values:
             closed: Suljetut
             open: Avoimet
-          user_groups: Ryhmät
+          user_groups: Ryhmiä
         filters_small_view:
           close_modal: Sulje ikkuna
           filter: Suodata

@@ -6,9 +6,19 @@ ar:
         description: الوصف
       election:
         description: الوصف
+      monitoring_committee_member:
+        name: الاسم
+      polling_officer:
+        name: الاسم
   decidim:
+    components:
+      elections:
+        name: الانتخابات
     elections:
       admin:
+        models:
+          answer:
+            name: الإجابة
         steps:
           tally_started:
             invalid: كانت هناك مشكلة في الإبلاغ عن الأمين المفقود
@@ -22,16 +32,33 @@ ar:
           results_title: النتائج
         results:
           percentage: "%{count}%"
+      models:
+        trustees_participatory_space:
+          fields:
+            name: الاسم
       trustee_zone:
         trustees:
           show:
             identification_keys:
               cancel: إلغاء
+      votes:
+        confirm:
+          answer: الإجابة
     votings:
       admin:
+        models:
+          monitoring_committee_member:
+            fields:
+              name: الاسم
+          polling_officer:
+            fields:
+              name: الاسم
         monitoring_committee_election_results:
           actions:
             title: الإجراءات
+      monitoring_committee_members:
+        actions:
+          destroy: حذف
       polling_officer_zone:
         closures:
           edit:
@@ -39,3 +66,16 @@ ar:
               close_modal: غلق
           sign:
             cancel: إلغاء
+        in_person_votes:
+          verify_document:
+            name: الاسم
+        polling_officers:
+          index:
+            polling_station:
+              name: الاسم
+      polling_officers:
+        actions:
+          destroy: حذف
+      polling_stations:
+        actions:
+          destroy: حذف

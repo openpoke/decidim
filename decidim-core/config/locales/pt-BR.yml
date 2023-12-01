@@ -1,5 +1,5 @@
 ---
-pt:
+pt-BR:
   activemodel:
     attributes:
       account:
@@ -450,7 +450,6 @@ pt:
           newsletter: Receba um boletim informativo ocasional com informações relevantes
           newsletter_title: Permissão de contato
           nickname_help: Seu alias em %{organization}. Só pode conter letras, números, '-' e '_'.
-          sign_in: Iniciar sessão
           sign_up: Inscreva-se
           sign_up_as:
             legend: Inscreva-se como
@@ -506,7 +505,7 @@ pt:
         download_data_description: Um arquivo contendo todas as informações associadas à sua conta será enviado para <strong>%{user_email}</strong>. Este e-mail conterá um arquivo .zip e uma senha para abri-lo.<br/><br/>Para descompactar o arquivo, você precisará de <a href="https://www.7-zip.org/">7-Zip</a> (para Windows) ou <a href="https://www.keka.io/">Keka</a> (para MacOS). Se você usar Linux, a maior parte do tempo você o terá instalado por padrão. Se não, você pode usar <a href="https://gitlab.gnome.org/GNOME/file-roller">Rolagem de Arquivos</a> ou <a href="https://peazip.github.io">PeaZip</a>. ).
         request_data: Solicitar dados
     endorsable:
-      endorsements: Avais
+      endorsements: Endossos
       endorsements_count: Contagem de endossos
     endorsement_buttons_cell:
       already_endorsed: Endossado
@@ -722,6 +721,10 @@ pt:
       file_validation:
         allowed_file_extensions: 'Extensões de arquivo permitidas: %{extensions}'
         max_file_size: 'Tamanho máximo de arquivo: %{megabytes}MB'
+      upload:
+        labels:
+          cancel: Cancelar
+          save: Salvar
     gamification:
       all_badges_link: Veja todos os emblemas disponíveis.
       badges:
@@ -740,18 +743,6 @@ pt:
           how: Como você pode ganhar
           page_description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes. Aqui está a lista de crachás e algumas maneiras de ganhá-los.
           title: Distintivos
-        invitations:
-          conditions:
-            - Use o link "convidar amigos" na sua página de usuário para convidar seus amigos
-            - Personalize, se quiser, a mensagem que você está enviando
-            - Você vai subir de nível enviando convites e recebendo-os registrados.
-          description: Esse selo é concedido quando você convidou algumas pessoas e elas gastaram um pouco de tempo para se inscrever em %{organization_name} e se tornarem participantes. Obrigado por fazer %{organization_name} a conhecer aos outros e ajudando a expandir a comunidade!
-          description_another: Este usuário convidou %{score} usuários.
-          description_own: Você convidou %{score} usuários.
-          name: Convites
-          next_level_in: Convide mais %{score} usuários para alcançar o próximo nível!
-          unearned_another: Este usuário ainda não convidou nenhum usuário.
-          unearned_own: Você não convidou nenhum usuário ainda.
       description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes.
       level: Nível %{level}
       reached_top: Você atingiu o nível superior para este selo.
@@ -958,7 +949,7 @@ pt:
           title: Conversas
         reply:
           placeholder: Sua resposta...
-          send: Mandar
+          send: Enviar
           title: Resposta
         show:
           back: Voltar para todas as conversas
@@ -967,7 +958,7 @@ pt:
           title: Conversa com %{usernames}
         start:
           send: Enviar
-          title: Comece uma conversa
+          title: Iniciar uma conversa
         update:
           error: A mensagem não foi enviada devido a um erro
     metrics:
@@ -988,7 +979,6 @@ pt:
     newsletter_mailer:
       newsletter:
         note: Você recebeu este e-mail porque está inscrito em boletins informativos em %{organization_name}. Você pode alterar suas configurações em suas <a href="%{link}">notifications page</a>.
-        see_on_website: Não é possível ver este email corretamente? Visualize-o no <a href="%{link}" target="_blank">website</a>.
         unsubscribe: Para optar por não receber esse tipo de email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
     newsletter_templates:
       basic_only_text:
@@ -1069,7 +1059,6 @@ pt:
           proposals: Propostas
           proposals_explanation: Faça propostas, suporte as existentes e promova as mudanças que deseja ver.
         footer_sub_hero:
-          footer_sub_hero_body: Vamos construir uma sociedade mais aberta, transparente e colaborativa.<br /> Participe, participe e decida.
           footer_sub_hero_headline: Bem-vindo à plataforma participativa %{organization}.
           register: Registrar-se
         hero:
@@ -1096,18 +1085,14 @@ pt:
           error: Houve um erro ao aceitar os termos e condições.
           success: Ótimo! Você aceitou os termos e condições.
         form:
-          agreement: Concordo com estes termos
           legend: Concorde com os termos e condições de uso
         refuse:
-          modal_btn_continue: Aceite os termos e continue
           modal_btn_exit: Vou revisá-lo mais tarde
-          modal_button: Recuse os termos
           modal_close: Fechar modal
           modal_title: Você realmente recusa os Termos e Condições atualizados?
         required_review:
           alert: Atualizamos nossos Termos de Serviço, revise-os.
           body: Por favor, dedique um momento para rever as atualizações dos nossos Termos de Serviço. Caso contrário, você não poderá usar a plataforma.
-          title: 'Obrigatório: revise as atualizações dos nossos Termos de Serviço'
     participatory_space_private_users:
       not_allowed: Você não tem permissão para visualizar este conteúdo
     profile:
@@ -1292,9 +1277,6 @@ pt:
       help_text: "<strong>Aviso:</strong> O conteúdo pode ser traduzido automaticamente e não está 100% correto."
       show_original: Exibir texto original
       show_translated: Mostrar texto traduzido automaticamente
-    user_activity:
-      index:
-        no_activities_warning: Este usuário ainda não possui nenhuma atividade.
     user_contact_disabled: Este usuário não aceita mensagens diretas.
     user_conversations:
       create:
@@ -1303,7 +1285,7 @@ pt:
         success: Conversa iniciada com sucesso!
       index:
         add_max_users: 'Adicionar usuários à conversa: máximo de 9 usuários'
-        add_users_placeholder: Procurar...
+        add_users_placeholder: Buscar...
         close: Fechar
         conversations_info: As conversas são privadas. Ninguém mais pode vê-las. Uma conversa pode ser iniciada com qualquer participante ou grupo registrado na plataforma.
         from: De
@@ -1479,15 +1461,6 @@ pt:
       updated_not_active: Sua senha foi alterada com sucesso.
     registrations:
       destroyed: Tchau! Sua conta foi cancelada com sucesso. Esperamos te ver novamente em breve.
-      edit:
-        are_you_sure: Você tem certeza?
-        cancel_my_account: Cancelar minha conta
-        currently_waiting_confirmation_for_email: 'Atualmente aguardando confirmação para: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: deixe em branco se você não quiser mudá-lo
-        title: Editar %{resource}
-        unhappy: Infeliz?
-        update: Atualizar
-        we_need_your_current_password_to_confirm_your_changes: Precisamos da sua senha atual para confirmar suas alterações
       new:
         sign_up: inscrever-se
       signed_up: Bem vinda! Você se inscreveu com sucesso.
@@ -1498,8 +1471,6 @@ pt:
       updated: Sua conta foi atualizada com sucesso.
     sessions:
       already_signed_out: Saiu com sucesso.
-      new:
-        sign_in: Entrar
       signed_in: Conectado com sucesso.
       signed_out: Saiu com sucesso.
     shared:
@@ -1508,7 +1479,6 @@ pt:
         didn_t_receive_confirmation_instructions: Não recebeu instruções de confirmação?
         didn_t_receive_unlock_instructions: Não recebeu instruções de desbloqueio?
         forgot_your_password: Esqueceu sua senha?
-        sign_in: Entrar
         sign_in_with_provider: Entrar com %{provider}
         sign_up: inscrever-se
       minimum_password_length:
@@ -1542,7 +1512,6 @@ pt:
         other: 'Houve erros múltiplos ao processar sua solicitação:'
       too_many_marks: está usando muitos sinais de pontuação consecutivos (por exemplo,! e?)
       too_much_caps: está usando muitas letras maiúsculas (mais de 25% do texto)
-      too_short: é muito curto (menos de 15 caracteres)
   forms:
     correct_errors: Há erros no formulário, por favor corrija-os para continuar.
     length_validator:
@@ -1556,6 +1525,10 @@ pt:
     timestamp_error_message: Desculpe, isso foi muito rápido! Reenvie.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Tipo
       edit_link:
         edit: Editar
       footer:
@@ -1583,13 +1556,14 @@ pt:
         facebook: "%{organization} no Facebook"
         github: "%{organization} no GitHub"
         instagram: "%{organization} no Instagram"
-        twitter: "%{organization} no Twitter"
         youtube: "%{organization} no YouTube"
       timeout_modal:
         body: Você está inativo por %{minutes} minutos. Se você continuar inativo, será automaticamente desconectado para sua própria segurança.
         continue_session: Continuar sessão
         sign_out: Sair
         title: Deseja continuar sua sessão?
+      upload_modal:
+        close_modal: Fechar modal
       user_menu:
         account: 'Conta de usuário: %{name}'
         admin_dashboard: Painel de administração
@@ -1611,8 +1585,8 @@ pt:
       widget:
         see_more: Ver mais
   locale:
-    name: Português
-    name_with_error: Inglês (erro!)
+    name: Português brasileiro
+    name_with_error: Português brasileiro (erro!)
   password_validator:
     domain_included_in_password: é muito semelhante a este nome de domínio
     email_included_in_password: é muito parecido com o seu email

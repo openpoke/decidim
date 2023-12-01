@@ -36,8 +36,6 @@ module Decidim
     has_many :access_tokens, class_name: "Doorkeeper::AccessToken", foreign_key: :resource_owner_id, dependent: :destroy
     has_many :reminders, foreign_key: "decidim_user_id", class_name: "Decidim::Reminder", dependent: :destroy
 
-    has_one :blocking, class_name: "Decidim::UserBlock", foreign_key: :id, primary_key: :block_id, dependent: :destroy
-
     validates :name, presence: true, unless: -> { deleted? }
     validates :nickname,
               presence: true,
@@ -48,7 +46,6 @@ module Decidim
     validates :tos_agreement, acceptance: true, allow_nil: false, on: :create
     validates :tos_agreement, acceptance: true, if: :user_invited?
     validates :email, :nickname, uniqueness: { scope: :organization }, unless: -> { deleted? || managed? || nickname.blank? }
-    validates :time_zone, time_zone: true, if: -> { time_zone.present? }
 
     validate :all_roles_are_valid
 
@@ -208,7 +205,7 @@ module Decidim
     end
 
     def admin_terms_accepted?
-      return true if admin_terms_accepted_at
+      admin_terms_accepted_at.present?
     end
 
     # Whether this user can be verified against some authorization or not.
@@ -264,11 +261,20 @@ module Decidim
     end
 
     def needs_password_update?
+      return false if organization.users_registration_mode == "disabled"
       return false unless admin?
       return false unless Decidim.config.admin_password_strong
-      return true if password_updated_at.blank?
+      return identities.none? if password_updated_at.blank?
 
       password_updated_at < Decidim.config.admin_password_expiration_days.days.ago
+    end
+
+    def moderator?
+      Decidim.participatory_space_manifests.map do |manifest|
+        participatory_space_type = manifest.model_class_name.constantize
+        return true if participatory_space_type.moderators(organization).exists?(id: id)
+      end
+      false
     end
 
     protected
@@ -296,7 +302,8 @@ module Decidim
         event: "decidim.events.core.welcome_notification",
         event_class: WelcomeNotificationEvent,
         resource: self,
-        affected_users: [self]
+        affected_users: [self],
+        extra: { force_email: true }
       )
     end
 

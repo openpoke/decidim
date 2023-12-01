@@ -4,7 +4,10 @@ ja:
     attributes:
       assemblies_setting:
         enable_organization_chart: 組織図を有効化
+      assemblies_type:
+        title: タイトル
       assembly:
+        announcement: お知らせ
         area_id: エリア
         assembly_type: 参加スペース種別
         assembly_type_other: その他（参加スペース）
@@ -23,12 +26,16 @@ ja:
         decidim_scope_id: スコープ
         description: 説明
         developer_group: プロモーターグループ
+        document: ドキュメント
         domain: ドメイン
         duration: 持続期間
         facebook: Facebook
         github: GitHub
         hashtag: ハッシュタグ
         hero_image: ホーム画像
+        import_attachments: 添付ファイルをインポート
+        import_categories: カテゴリをインポート
+        import_components: コンポーネントをインポート
         included_at: 含まれた日
         instagram: Instagram
         internal_organisation: 内部組織
@@ -52,7 +59,7 @@ ja:
         subtitle: サブタイトル
         target: 参加者
         title: タイトル
-        twitter: Twitter
+        twitter: X
         weight: 順番の位置
         youtube: YouTube
       assembly_member:
@@ -65,6 +72,7 @@ ja:
         non_user_avatar: アバター
         position: ポジション
         user_id: ユーザー
+        weight: 並び順の位置
       assembly_user_role:
         email: Eメールアドレス
         name: 名前
@@ -74,7 +82,7 @@ ja:
         assembly:
           attributes:
             document:
-              allowed_file_content_types: '無効なドキュメントタイプです。使用できるフォーマット: %{types}'
+              allowed_file_content_types: '無効なドキュメントタイプです。次の拡張子を持つファイルのみ許可されます: %{types}'
   activerecord:
     models:
       decidim/assembly:
@@ -278,7 +286,7 @@ ja:
             select_an_area: エリアを選択
             select_an_assembly_type: 参加スペース種別を選択
             select_parent_assembly: 親参加スペースを選択
-            slug_help: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            slug_help: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
             social_handlers: ソーシャル
             title: 一般情報
             visbility: 公開範囲
@@ -292,11 +300,11 @@ ja:
             title: タイトル
         assembly_copies:
           form:
-            slug_help: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            slug_help: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         assembly_imports:
           form:
             document_legend: ドキュメントを追加
-            slug_help: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            slug_help: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         assembly_members:
           form:
             existing_user: 既存の参加者
@@ -310,8 +318,6 @@ ja:
           index:
             filter:
               all: すべて
-              ceased: 終了済み
-              not_ceased: 終了していません
             filter_by: フィルター
             search: 検索
         content_blocks:

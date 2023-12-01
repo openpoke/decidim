@@ -101,6 +101,9 @@ ga:
           steps_title: Céimeanna
         new:
           create: Cruthaigh
+      participatory_process_types:
+        form:
+          title: Teideal
       participatory_process_user_roles:
         edit:
           update: Nuashonraigh
@@ -116,6 +119,8 @@ ga:
           create: Cruthaigh
     participatory_process_groups:
       content_blocks:
+        metadata:
+          name: Meiteashonraí
         title:
           meta_scope: Scóip
     participatory_processes:

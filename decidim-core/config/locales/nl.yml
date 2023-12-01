@@ -82,24 +82,6 @@ nl:
         one: ongeveer 1 maand
         other: ongeveer %{count} maanden
       half_a_minute: een halve minuut
-      less_than_x_minutes:
-        one: minder dan een minuut
-        other: minder dan %{count} minuten
-      less_than_x_seconds:
-        one: nu meteen
-        other: minder dan %{count} seconden
-      x_days:
-        one: 1 dag geleden
-        other: "%{count} dagen geleden"
-      x_hours:
-        one: 1 uur geleden
-        other: "%{count} uren geleden"
-      x_minutes:
-        one: 1 minuut geleden
-        other: "%{count} minuten geleden"
-      x_seconds:
-        one: 1 seconde geleden
-        other: "%{count} seconden geleden"
   decidim:
     accessibility:
       external_link: Externe link
@@ -465,7 +447,6 @@ nl:
           newsletter: Ontvang af en toe een nieuwsbrief met relevante informatie
           newsletter_title: Contact toestemming
           nickname_help: Je alias in %{organization}. Kan alleen letters, cijfers, '-' en '_' bevatten.
-          sign_in: Aanmelden
           sign_up: Registratie
           sign_up_as:
             legend: Aanmelden als
@@ -733,6 +714,10 @@ nl:
       file_validation:
         allowed_file_extensions: 'Toegestane bestandsextensies: %{extensions}'
         max_file_size: 'Maximale bestandsgrootte: %{megabytes}MB'
+      upload:
+        labels:
+          cancel: annuleren
+          save: Opslaan
     gamification:
       all_badges_link: Zie alle beschikbare badges.
       badges:
@@ -751,18 +736,6 @@ nl:
           how: Hoe kun je het verdienen?
           page_description: Badges zijn erkenningen voor acties van deelnemers en voortgang op het platform. Naarmate je begint met ontdekken, deelnemen en communiceren op het platform, verdien je verschillende badges. Hier is de lijst met badges en enkele manieren waarop u ze kunt verdienen.
           title: Badges
-        invitations:
-          conditions:
-            - Gebruik de link "Vrienden uitnodigen" op uw gebruikerspagina om uw vrienden uit te nodigen
-            - Pas het bericht aan dat u stuurt, als u wilt
-            - Je komt op een niveau door uitnodigingen te versturen en ze te laten registreren.
-          description: Deze badge wordt toegekend als je enkele mensen hebt uitgenodigd en ze hebben een beetje tijd besteed om in %{organization_name} te registreren en deelnemers te worden. Dank u om %{organization_name} bekend te maken bij anderen en om de community te helpen uit te breiden!
-          description_another: Deze deelnemer heeft %{score} personen uitgenodigd.
-          description_own: Je hebt %{score} mensen uitgenodigd.
-          name: Uitnodigingen
-          next_level_in: Nodig nog %{score} mensen uit om het volgende niveau te bereiken!
-          unearned_another: Deze deelnemer heeft nog niemand uitgenodigd.
-          unearned_own: Je hebt nog niemand uitgenodigd.
       description: Badges zijn erkenningen voor acties van deelnemers en voortgang op het platform. Naarmate je begint met ontdekken, deelnemen en communiceren op het platform, verdien je verschillende badges.
       level: Niveau %{level}
       reached_top: U hebt het hoogste niveau bereikt voor deze badge.
@@ -969,7 +942,7 @@ nl:
           title: conversaties
         reply:
           placeholder: Jouw antwoord...
-          send: Sturen
+          send: Verzenden
           title: Beantwoorden
         show:
           back: Terug naar alle gesprekken
@@ -979,7 +952,7 @@ nl:
           title: Gesprek met %{usernames}
         start:
           send: Verzenden
-          title: Een gesprek beginnen
+          title: Gesprek starten
         update:
           error: Bericht is niet verzonden vanwege een fout
     metrics:
@@ -1000,7 +973,6 @@ nl:
     newsletter_mailer:
       newsletter:
         note: U ontvangt deze e-mail omdat u bent geabonneerd op nieuwsbrieven van %{organization_name}. U kunt uw instellingen op uw <a href="%{link}">notificatiepagina</a> veranderen.
-        see_on_website: Wordt deze e-mail niet correct worden weergegeven? Bekijk hem via deze link <a href="%{link}" target="_blank">website</a>.
         unsubscribe: Om je uit te schrijven, <a href="%{link}" target="_blank" class="unsubscribe">Uitschrijven</a>.
     newsletter_templates:
       basic_only_text:
@@ -1091,7 +1063,6 @@ nl:
           proposals: voorstellen
           proposals_explanation: Maak voorstellen, ondersteun de bestaande en bevorder de veranderingen die u wilt zien.
         footer_sub_hero:
-          footer_sub_hero_body: Laten we een meer open, transparante en samenwerkende samenleving bouwen.<br /> Doe mee, neem deel en beslis.
           footer_sub_hero_headline: Welkom bij %{organization} participatief platform.
           register: Registreren
         hero:
@@ -1118,18 +1089,14 @@ nl:
           error: Er is een fout opgetreden bij het accepteren van de algemene voorwaarden.
           success: Geweldig! U hebt de algemene voorwaarden geaccepteerd.
         form:
-          agreement: Ik ga akkoord met deze voorwaarden
           legend: Ga akkoord met de gebruiksvoorwaarden
         refuse:
-          modal_btn_continue: Voorwaarden accepteren en doorgaan
           modal_btn_exit: Ik zal het later bekijken
-          modal_button: Weigeren de voorwaarden
-          modal_close: Modal sluiten
+          modal_close: Sluit venster
           modal_title: Weig je de bijgewerkte Algemene voorwaarden echt af?
         required_review:
           alert: We hebben onze Servicevoorwaarden bijgewerkt. Bekijk ze alstublieft.
           body: Neem even de tijd om updates van onze Servicevoorwaarden door te nemen. Anders kunt u het platform niet gebruiken.
-          title: 'Vereist: bekijk updates van onze servicevoorwaarden'
     participatory_space_private_users:
       not_allowed: Je hebt geen toestemming om deze inhoud te bekijken
     profile:
@@ -1218,7 +1185,7 @@ nl:
           future: Toekomstige
           past: Verleden
       filters_small_view:
-        close_modal: Modal sluiten
+        close_modal: Sluit venster
         filter: Filter
         filter_by: Filteren op
         unfold: Ontvouwen
@@ -1300,9 +1267,6 @@ nl:
     tags:
       filter_results_for_category: 'Resultaten filteren voor categorie: %{resource}'
       filter_results_for_scope: 'Filter resultaten voor bereik: %{resource}'
-    user_activity:
-      index:
-        no_activities_warning: Deze deelnemer heeft nog geen activiteit gehad.
     user_contact_disabled: Deze gebruiker accepteert geen directe berichten.
     user_conversations:
       create:
@@ -1312,7 +1276,7 @@ nl:
       index:
         add_max_users: 'Gebruikers toevoegen aan gesprek: maximaal 9 gebruikers'
         add_users_placeholder: Zoeken...
-        close: Afsluiten
+        close: Sluit
         conversations_info: Gesprekken zijn privé. Niemand anders kan ze zien. Een gesprek kan worden gestart met elke geregistreerde deelnemer of groep op het platform.
         from: van
         last_message: Laatste bericht
@@ -1480,15 +1444,6 @@ nl:
       updated_not_active: Je wachtwoord is met succes veranderd.
     registrations:
       destroyed: Uw account is succesvol geannuleerd. We hopen je snel weer te zien.
-      edit:
-        are_you_sure: Weet je het zeker?
-        cancel_my_account: Annuleer mijn account
-        currently_waiting_confirmation_for_email: 'Momenteel wachtende bevestiging voor: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: laat leeg als je het niet wilt wijzigen
-        title: Bewerk %{resource}
-        unhappy: Ongelukkig?
-        update: Bijwerken
-        we_need_your_current_password_to_confirm_your_changes: we hebben je huidige wachtwoord nodig om je wijzigingen te bevestigen
       new:
         sign_up: Aanmelden
       signed_up: Welkom! Je hebt je succesvol aangemeld.
@@ -1499,8 +1454,6 @@ nl:
       updated: Uw account is succesvol bijgewerkt.
     sessions:
       already_signed_out: Succesvol ondertekend.
-      new:
-        sign_in: Aanmelden
       signed_in: Succesvol aangemeld.
       signed_out: Succesvol afgemeld.
     shared:
@@ -1509,7 +1462,6 @@ nl:
         didn_t_receive_confirmation_instructions: Geen bevestigingsinstructies ontvangen?
         didn_t_receive_unlock_instructions: Geen ontgrendelingsinstructies ontvangen?
         forgot_your_password: Uw wachtwoord vergeten?
-        sign_in: Aanmelden
         sign_in_with_provider: Meld aan met %{provider}
         sign_up: Registreren
       minimum_password_length:
@@ -1543,7 +1495,6 @@ nl:
         other: 'Er zijn fouten opgetreden bij de verwerking van je aanvraag:'
       too_many_marks: gebruikt te veel opeenvolgende leestekens (bijvoorbeeld ! en?)
       too_much_caps: gebruikt te veel hoofdletters (meer dan 25% van de tekst)
-      too_short: is te kort (minder dan 15 tekens)
   forms:
     correct_errors: Er zijn fouten in het formulier, corrigeer ze om door te gaan.
     length_validator:
@@ -1557,6 +1508,21 @@ nl:
     timestamp_error_message: Sorry, dat was te snel! Gelieve opnieuw in te dienen.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            description: Beschrijving
+            name: Naam
+            type: Type
+          items:
+            pwaInstallPromptSeen:
+              description: Bewaart de status als de progressieve webapplicatie (PWA) installatiemelding al gezien is door de gebruiker.
+          types:
+            local_storage: Lokale opslag
+        modal:
+          analytics:
+            description: Deze cookies worden gebruikt om het gebruik van de website te meten en te analyseren en zo de website te verbeteren.
+          description: We gebruiken cookies om de basisfunctionaliteiten van de website te garanderen en jouw online-ervaring te verbeteren. Je kunt op elk gewenst moment het gebruik van de cookies configureren en accepteren of je toestemmingsopties wijzigen.
       edit_link:
         edit: Bewerk
       footer:
@@ -1586,8 +1552,9 @@ nl:
         facebook: "%{organization} op Facebook"
         github: "%{organization} op GitHub"
         instagram: "%{organization} op Instagram"
-        twitter: "%{organization} op Twitter"
         youtube: "%{organization} op YouTube"
+      upload_modal:
+        close_modal: Sluit venster
       user_menu:
         account: 'Gebruikersaccount: %{name}'
         admin_dashboard: Admin
@@ -1610,7 +1577,7 @@ nl:
         see_more: Zie meer
   locale:
     name: Nederlands
-    name_with_error: Engels (fout!)
+    name_with_error: Nederlands (fout!)
   password_validator:
     blacklisted: staat op de zwarte lijst
     domain_included_in_password: lijkt te veel op deze domeinnaam

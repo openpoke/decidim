@@ -385,7 +385,6 @@ lv:
           already_have_an_account?: Jums jau ir konts?
           newsletter: Saņemiet neregulāru informatīvo biļetenu ar būtisko informāciju
           newsletter_title: Atļauja sazināties
-          sign_in: Pieteikties
           sign_up: Reģistrēties
           sign_up_as:
             legend: Reģistrēties kā
@@ -404,7 +403,6 @@ lv:
         newsletter_modal:
           buttons:
             check: Pārbaudīt un turpināt
-            close_modal: Aizvērt modal
           notice: |-
             <p>Hei, vai tiešām nevēlaties saņemt informatīvo biļetenu?<br>
             Lūdzu, vēlreiz apsveriet iespēju atzīmēt turpmāk esošo informatīvā biļetena saņemšanas izvēles rūtiņu<br>
@@ -436,8 +434,6 @@ lv:
       show:
         download_data: Lejupielādēt datus
         request_data: Pieprasīt datus
-    endorsable:
-      endorsements: Atbalsts
     endorsement_buttons_cell:
       already_endorsed: Atbalstīts
       endorse: Atbalstīt
@@ -627,6 +623,10 @@ lv:
           password: Parole ir pārāk īsa.
           password_confirmation: Apstiprinājuma parolei jāsakrīt ar paroli.
         error: Šajā laukā ir kļūda.
+      upload:
+        labels:
+          cancel: Atcelt
+          save: Saglabāt
     gamification:
       all_badges_link: Skatīt visus pieejamos žetonus.
       badges:
@@ -645,18 +645,6 @@ lv:
           how: Kā jūs to varat nopelnīt
           page_description: Žetoni ir atzinība par dalībnieku darbībām un progresu platformā. Sākot atklāt platformu, piedaloties un mijiedarbojoties ar to, jūs nopelnīsiet dažādus žetonus. Šeit ir žetonu saraksts un daži veidi, kā tos nopelnīt.
           title: Žetoni
-        invitations:
-          conditions:
-            - Lai uzaicinātu draugus, izmantojiet saiti Uzaicināt draugus savā lietotāja lapā
-            - Pielāgojiet sūtāmo ziņojumu, ja vēlaties
-            - Jūs sasniegsiet augstāku līmeni, sūtot ielūgumus un piesaistot jaunus reģistrētus lietotājus.
-          description: Šis žetons tiek piešķirts, kad esat uzaicinājis dažus cilvēkus un viņi ir veltījuši nedaudz laika, lai reģistrētos %{organization_name} un kļūtu par dalībniekiem. Paldies, ka darījāt %{organization_name} zināmu citiem un palīdzējāt paplašināt mūsu kopienu.
-          description_another: Šis dalībnieks ir uzaicinājis %{score} cilvēkus.
-          description_own: Jūs esat uzaicinājis %{score} cilvēkus.
-          name: Ielūgumi
-          next_level_in: Piesaistiet vēl %{score} cilvēkus, lai sasniegtu nākamo līmeni!
-          unearned_another: Šis dalībnieks vēl nav uzaicinājis nevienu.
-          unearned_own: Jūs vēl nevienu neesat uzaicinājis.
       description: Žetoni ir atzinība par dalībnieku darbībām un progresu platformā. Sākot atklāt platformu, piedaloties un mijiedarbojoties ar to, jūs nopelnīsiet dažādus žetonus.
       level: Līmenis %{level}
       reached_top: Jūs esat sasniedzis šim žetona nepieciešamo augstāko līmeni.
@@ -830,7 +818,6 @@ lv:
           error: Saruna nav sākusies. Pamēģiniet vēlreiz vēlāk
         index:
           ago: pirms
-          close: Aizvērt modal
           from: "No"
           groups: Manas grupas
           last_message: Pēdējā ziņa
@@ -864,7 +851,6 @@ lv:
     newsletter_mailer:
       newsletter:
         note: Jūs saņēmāt šo e-pasta ziņojumu, jo esat abonējis informatīvos biļetenus vietnē %{organization_name}. Iestatījumus var mainīt jūsu <a href="%{link}"> paziņojumu lapā </a>.
-        see_on_website: Vai nevarat pareizi redzēt šo e-pastu? Skatiet to <a href="%{link}" target="_blank"> tīmekļvietnē </a>.
         unsubscribe: Lai atteiktos no šāda veida e-pasta saņemšanas, <a href="%{link}" target="_blank" class="unsubscribe"> Anulēt abonementu</a>.
     newsletter_templates:
       basic_only_text:
@@ -942,7 +928,6 @@ lv:
           proposals: Priekšlikumi
           proposals_explanation: Iesniedziet jaunus priekšlikumus, atbalstiet esošos un veiciniet vēlamās izmaiņas.
         footer_sub_hero:
-          footer_sub_hero_body: Veidosim atvērtāku, caurskatāmāku un uz sadarbību tendētu sabiedrību. <br /> Pievienojieties, piedalieties un izlemiet!
           footer_sub_hero_headline: Laipni lūdzam %{organization} līdzdalības platformā.
           register: Reģistrēties
         hero:
@@ -971,15 +956,11 @@ lv:
         form:
           legend: Piekrist lietošanas noteikumiem
         refuse:
-          modal_btn_continue: Pieņemt noteikumus un turpināt
           modal_btn_exit: Es tos pārskatīšu vēlāk
-          modal_button: Atteikties no noteikumu pieņemšanas
-          modal_close: Aizvērt modal
           modal_title: Vai jūs tiešām atsakāties no atjauninātajiem lietošanas noteikumiem?
         required_review:
           alert: Mēs esam atjauninājuši mūsu pakalpojumu sniegšanas noteikumus, lūdzu, pārskatiet tos.
           body: Lūdzu, atvēliet laiku, lai pārskatītu atjauninātos pakalpojumu sniegšanas noteikumus administratoriem. Pretējā gadījumā jūs nevarēsiet izmantot platformu.
-          title: 'Obligāti: pārskatiet mūsu atjaunotos pakalpojumu sniegšanas noteikumus.'
     participatory_space_private_users:
       not_allowed: Jums nav atļauts skatīt šo saturu
     profile:
@@ -1052,7 +1033,6 @@ lv:
           future: Nākotnes
           past: Iepriekšējie
       filters_small_view:
-        close_modal: Aizvērt modal
         filter: Filtrēt
         filter_by: Filtrēt pēc
         unfold: Atritināt
@@ -1103,9 +1083,6 @@ lv:
         share_link: Kopīgot saiti
     statistics:
       comments_count: Komentāri
-    user_activity:
-      index:
-        no_activities_warning: Šis dalībnieks vēl nav veicis nekādas aktivitātes
     user_contact_disabled: Šis dalībnieks nepieņem tiešās ziņas.
     user_conversations:
       create:
@@ -1278,15 +1255,6 @@ lv:
       updated_not_active: Jūsu parole ir veiksmīgi nomainīta.
     registrations:
       destroyed: Jūsu konts ir veiksmīgi atcelts. Mēs ceram jūs drīz atkal redzēt.
-      edit:
-        are_you_sure: Vai esat pārliecināts?
-        cancel_my_account: Atcelt manu kontu
-        currently_waiting_confirmation_for_email: 'Pašlaik tiek gaidīts apstiprinājums e-pastam: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: atstājiet tukšu, ja nevēlaties to mainīt
-        title: Labot %{resource}
-        unhappy: Neesat apmierināts?
-        update: Atjaunināt
-        we_need_your_current_password_to_confirm_your_changes: mums ir nepieciešama jūsu pašreizējā parole, lai apstiprinātu izmaiņas
       new:
         sign_up: Reģistrēties
       signed_up: Laipni lūdzam! Jūsu reģistrācija bija veiksmīga.
@@ -1297,8 +1265,6 @@ lv:
       updated: Jūsu konts tika veiksmīgi atjaunināts.
     sessions:
       already_signed_out: Veiksmīgi izrakstījāties.
-      new:
-        sign_in: Pieteikties
       signed_in: Veiksmīgi pierakstījāties.
       signed_out: Veiksmīgi izrakstījāties.
     shared:
@@ -1307,7 +1273,6 @@ lv:
         didn_t_receive_confirmation_instructions: Nesaņēmāt apstiprināšanas norādījumus?
         didn_t_receive_unlock_instructions: Nesaņēmāt atbloķēšanas norādījumus?
         forgot_your_password: Aizmirsāt paroli?
-        sign_in: Pieteikties
         sign_in_with_provider: Pierakstīties, izmantojot %{provider}
         sign_up: Reģistrēties
       minimum_password_length:
@@ -1343,12 +1308,15 @@ lv:
         other: 'Apstrādājot jūsu pieprasījumu, radās vairākas kļūdas:'
       too_many_marks: izmanto pārāk daudz secīgu pieturzīmju (piemēram,! un ?)
       too_much_caps: izmanto pārāk daudz lielo burtu (vairāk nekā 25 % no teksta)
-      too_short: ir pārāk īsa (līdz 15 rakstzīmēm)
   invisible_captcha:
     sentence_for_humans: Ja esat cilvēks, ignorējiet šo lauku
     timestamp_error_message: Diemžēl tas bija par ātru! Lūdzu, iesniedziet atkārtoti.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Veids
       edit_link:
         edit: Labot
       footer:

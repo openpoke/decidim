@@ -8,19 +8,26 @@ ja:
         banner_image: バナー画像
         copy_categories: カテゴリをコピー
         copy_components: コンポーネントをコピー
-        copy_steps: ステップをコピー
+        copy_steps: フェーズをコピー
         decidim_area_id: エリア
         description: 説明
         developer_group: プロモーターグループ
+        document: ドキュメント
         domain: ドメイン
         end_date: 終了日
         hashtag: ハッシュタグ
         hero_image: ホーム画像
+        import_attachments: 添付ファイルをインポート
+        import_categories: カテゴリをインポート
+        import_components: コンポーネントをインポート
+        import_steps: フェーズをインポート
         local_area: 組織エリア
         meta_scope: スコープメタデータ
         participatory_process_group_id: 参加型プロセスグループ
+        participatory_process_type_id: プロセス種別
         participatory_scope: 決定されるもの
         participatory_structure: どのように決められますか？
+        private_space: プライベートプロセス
         promoted: プロモート
         published_at: 公開日時
         related_process_ids: 関連する参加型プロセス
@@ -68,7 +75,7 @@ ja:
         participatory_process:
           attributes:
             document:
-              allowed_file_content_types: '無効なドキュメントタイプです。使用できるフォーマット: %{types}'
+              allowed_file_content_types: '無効なドキュメントタイプです。次の拡張子を持つファイルのみが許可されています: %{types}'
     models:
       decidim/participatory_process_step_activated_event: フェーズ有効化
       decidim/participatory_process_step_changed_event: フェーズ変更
@@ -366,8 +373,8 @@ ja:
         metadata:
           developer_group: プロモーター
           name: メタデータ
-          participatory_scope: 決定されること
-          participatory_structure: 決定方法
+          participatory_scope: 決定されるもの
+          participatory_structure: どのように決められますか？
           target: 参加者
         participatory_processes:
           name: 参加型プロセス
@@ -394,7 +401,7 @@ ja:
             json: JSON
         participatory_process_copies:
           form:
-            slug_help: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            slug_help: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         participatory_process_groups:
           form:
             metadata: メタデータ
@@ -403,10 +410,10 @@ ja:
         participatory_process_imports:
           form:
             document_legend: ドキュメントを追加
-            slug_help: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            slug_help: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'ここでは完全な URL ではなく、部分パスを使用してください。文字、数字、ダッシュ、スラッシュを受け入れ、文字で始まる必要があります。 設定されていない場合、ボタンは表示されません。例: %{url}'
+            cta_path_help: 'ここでは完全な URL ではなく、相対パスを使用してください。英字、数字、ハイフン、スラッシュを受け入れ、英字で始まる必要があります。 設定されていない場合、ボタンは表示されません。例: %{url}'
             cta_text_help: 設定されていない場合、ボタンは表示されません。
         participatory_processes:
           form:
@@ -421,7 +428,7 @@ ja:
             select_an_area: エリアを選択
             select_participatory_process_type: プロセスの種別を選択
             select_process_group: 参加型プロセス グループを選択
-            slug_help: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。 文字、数字、ダッシュのみを受け付け、文字で始める必要があります。例: %{url}'
+            slug_help: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
             title: 一般情報
             visbility: 公開範囲
       content_blocks:
@@ -434,13 +441,13 @@ ja:
       pages:
         home:
           highlighted_processes:
-            active_processes: アクティブな参加型プロセス
+            active_processes: アクティブなプロセス
             active_step: アクティブフェーズ
             more_information: 詳細情報
             participate: 参加
             participate_in: 参加型プロセス %{resource_name} に参加する
             processes_button_title: すべてのプロセスを表示するプロセスページへのリンク
-            see_all_processes: すべての参加型プロセスを見る
+            see_all_processes: すべてのプロセスを見る
       participatory_process_steps:
         index:
           back_to_process: 参加型プロセスのページに戻る
@@ -518,6 +525,6 @@ ja:
           more_info: 詳細情報
       process_header_steps:
         step: 段階 %{current} / %{total}
-        view_steps: プロセスのフェーズ
+        view_steps: 参加型プロセスのフェーズ
       process_navigation:
         process_menu_item: プロセス

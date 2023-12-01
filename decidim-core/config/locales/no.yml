@@ -85,24 +85,6 @@
         one: omtrent 1 måned
         other: omtrent %{count} måneder
       half_a_minute: et halvt minutt
-      less_than_x_minutes:
-        one: mindre enn et minutt.
-        other: mindre enn %{count} minutter.
-      less_than_x_seconds:
-        one: akkurat nå
-        other: mindre enn %{count} sekunder.
-      x_days:
-        one: 1 dag siden
-        other: "%{count} dager siden"
-      x_hours:
-        one: 1 time siden
-        other: "%{count} timer siden"
-      x_minutes:
-        one: 1 minutt siden
-        other: "%{count} minutter siden"
-      x_seconds:
-        one: 1 sekund siden
-        other: "%{count} sekunder siden"
   decidim:
     accessibility:
       external_link: Ekstern lenke
@@ -360,7 +342,7 @@
           request_confirmation_instructions: Be om bekreftels instruksjoner
           title: Bekreft e-posten din
       show:
-        close_modal: Lukk vinduet
+        close_modal: Lukk modal
     block_user_mailer:
       notify:
         body_1: Kontoen din ble blokkert.
@@ -474,7 +456,6 @@
           newsletter: Motta et sporadisk nyhetsbrev med relevant informasjon
           newsletter_title: Kontakt tillatelse
           nickname_help: Ditt alias i %{organization}, kan bare inneholde bokstaver, tall, '-' og '_'.
-          sign_in: Logg inn
           sign_up: Registrer deg
           sign_up_as:
             legend: Registrer deg som
@@ -756,6 +737,10 @@
       file_validation:
         allowed_file_extensions: 'Tillatte filetternavn: %{extensions}'
         max_file_size: 'Maksimal filstørrelse: %{megabytes}MB'
+      upload:
+        labels:
+          cancel: Avbryt
+          save: Lagre
     gamification:
       all_badges_link: Se alle tilgjengelige merker.
       badges:
@@ -774,18 +759,6 @@
           how: Hvordan kan du tjene det
           page_description: Merker er anerkjennelser for deltaker handlinger og fremdrift i plattformen. Når du begynner å oppdage, delta og samhandle i plattformen, vil du tjene forskjellige merker. Her er listen over merker og noen måter du kan tjene dem på.
           title: Merker
-        invitations:
-          conditions:
-            - Bruk "invitere venner" lenken på din bruker side for å invitere vennene dine
-            - Tilpass, hvis du vil, meldingen du sender
-            - Du vil gå opp i nivå ved å sende invitasjoner og få dem registrert.
-          description: Dette merket blir gitt når du har invitert noen og de har brukt lite tid på å registrere seg i %{organization_name} og bli deltakere. Takk for at du gjør %{organization_name} kjent til andre og hjelper med å utvide samfunnet!
-          description_another: Denne deltakeren har invitert %{score} folk.
-          description_own: Du har invitert %{score} folk.
-          name: Invitasjoner
-          next_level_in: Inviter %{score} flere folk for å nå neste nivå!
-          unearned_another: Denne deltakeren har ikke invitert noen ennå.
-          unearned_own: Du har ikke invitert noen ennå.
       description: Merker er anerkjennelser for deltaker handlinger og fremdrift i plattformen. Når du begynner å oppdage, delta og samhandle i plattformen, vil du tjene forskjellige merker.
       level: Nivå %{level}
       reached_top: Du har nådd det høyeste nivået for dette merket.
@@ -892,7 +865,7 @@
         body_1: Du er i ferd med å besøke en ekstern lenke, og vi vil at du skal være forsiktig med hensyn til innholdet på det eksterne nettstedet.
         body_2: Vennligst sjekk linken du er i ferd med å besøke og sørg for at du anser den som et sikkert nettsted før du fortsetter.
         cancel: Avbryt
-        close_modal: Lukk dialogboks
+        close_modal: Lukk modal
         proceed: Fortsett
         title: Åpne ekstern lenke
     log:
@@ -1024,7 +997,6 @@
     newsletter_mailer:
       newsletter:
         note: Du mottok denne e-posten fordi du abonnerer på nyhetsbrev for %{organization_name}. Du kan endre innstillingene dine på <a href="%{link}">varslings siden din</a>.
-        see_on_website: Kan ikke se denne e-posten riktig? Se den på <a href="%{link}" target="_blank">nettsiden</a>.
         unsubscribe: For å velge bort å motta denne typen e-mailer, <a href="%{link}" target="_blank" class="unsubscribe">Avslutt abonnementet</a>.
     newsletter_templates:
       basic_only_text:
@@ -1115,7 +1087,6 @@
           proposals: Forslag
           proposals_explanation: Lag forslag, støtt eksisterende og promoter endringene du ønsker å se.
         footer_sub_hero:
-          footer_sub_hero_body: La oss sammen utvikle et mer bærekraftig samfunn.<br /> Bli med og påvirk utviklingen gjennom å si din mening.
           footer_sub_hero_headline: Velkommen til %{organization} deltaker plattform.
           register: Registrer deg
         hero:
@@ -1142,18 +1113,14 @@
           error: Det oppstod et problem med å godta vilkårene.
           success: Flott! Du har godtatt vilkårene for bruk.
         form:
-          agreement: Jeg godtar vilkårene
           legend: Godta vilkårene for bruk
         refuse:
-          modal_btn_continue: Aksepter vilkår og fortsett
           modal_btn_exit: Jeg vil vurdere det senere
-          modal_button: Avslå vilkårene
           modal_close: Lukk modal
           modal_title: Nekter du virkelig de oppdaterte vilkårene?
         required_review:
           alert: Vi har oppdatert våre vilkår for bruk, vennligst se gjennom dem.
           body: Vennligst ta deg tid til å se gjennom oppdateringer til våres Vilkår for Bruk. Ellers vil du ikke kunne bruke plattformen.
-          title: 'Påkrevd: Se gjennom oppdateringer til våre vilkår for bruk'
     participatory_space_private_users:
       not_allowed: Du er ikke tillatt å se dette innholdet
     profile:
@@ -1297,7 +1264,7 @@
       follow_button:
         sign_in_before_follow: Logg på før du utfører denne handlingen
       login_modal:
-        close_modal: Lukk dialogboks
+        close_modal: Lukk modal
         please_sign_in: Vennligst logg inn
         sign_up: Registrer deg
       participatory_space_filters:
@@ -1338,9 +1305,6 @@
       help_text: "<strong>Advarsel:</strong> Innhold kan automatisk bli oversatt og ikke alltid være 100 % nøyaktig."
       show_original: Vis originaltekst
       show_translated: Vis automatisk oversatt tekst
-    user_activity:
-      index:
-        no_activities_warning: Denne deltakeren har ikke hatt noe aktivitet ennå.
     user_contact_disabled: Denne deltakeren godtar ikke direktemeldinger.
     user_conversations:
       create:
@@ -1349,13 +1313,13 @@
         success: Samtalen startet vellykket!
       index:
         add_max_users: 'Legg til brukere i samtale: maks 9 brukere'
-        add_users_placeholder: Søk..
+        add_users_placeholder: Søk...
         close: Lukk
         conversations_info: Samtaler er private. Ingen andre kan se dem. En samtale kan startes med alle deltakere eller grupper som er registrert på plattformen.
         from: Fra
         last_message: Siste melding
-        modal_title: Ny samtale
-        new_conversation: Ny samtale
+        modal_title: Ny Samtale
+        new_conversation: Ny Samtale
         next: Neste
         no_conversations_warning: Det er ingen samtaler ennå.
         no_results: Ingen resultater
@@ -1411,7 +1375,7 @@
     versions_list:
       show:
         back_to_resource: Gå tilbake
-        changes_at_title: Endringer på "%{title}"
+        changes_at_title: Endringer på"%{title}
         number_of_versions: Versjoner
         title: Versjoner
     versions_list_item:
@@ -1526,15 +1490,6 @@
       updated_not_active: Passordet ditt er blitt endret.
     registrations:
       destroyed: Din konto er lukket. Vi håper å se deg igjen snart.
-      edit:
-        are_you_sure: Er du sikker?
-        cancel_my_account: Avbryt kontoen min
-        currently_waiting_confirmation_for_email: 'Foreløpig venter for bekreftelse på: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: la stå tom hvis du ikke vil endre det
-        title: Endre %{resource}
-        unhappy: Ikke fornøyd?
-        update: Oppdater
-        we_need_your_current_password_to_confirm_your_changes: vi trenger ditt nåværende passord for å bekrefte endringene dine
       new:
         sign_up: Registrer deg
       signed_up: Velkommen! Din registrering er fullført. Husk å bekrefte epostadressen din via mailen vi har sendt deg.
@@ -1545,8 +1500,6 @@
       updated: Kontoen din er oppdatert.
     sessions:
       already_signed_out: Logget ut.
-      new:
-        sign_in: Logg inn
       signed_in: Logget inn.
       signed_out: Logget ut.
     shared:
@@ -1555,7 +1508,6 @@
         didn_t_receive_confirmation_instructions: Mottok ikke bekreftelse instruksjonen?
         didn_t_receive_unlock_instructions: Mottok ikke instruksjoner om opplåsing?
         forgot_your_password: Glemt ditt passord?
-        sign_in: Logg inn
         sign_in_with_provider: Logg deg på med %{provider}
         sign_up: Registrer deg
       minimum_password_length:
@@ -1589,7 +1541,6 @@
         other: 'Det oppsto flere feil med å behandle forespørselen din:'
       too_many_marks: bruker for mange påfølgende skilletegn (f.eks. ! og ?)
       too_much_caps: bruker for mange store bokstaver (over 25% av teksten)
-      too_short: er for kort (under 15 tegn)
   forms:
     correct_errors: Det er feil i skjemaet, korriger dem for å fortsette.
     length_validator:
@@ -1603,6 +1554,10 @@
     timestamp_error_message: Beklager, det var for raskt! Vennligst, send inn på nytt.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Type
       edit_link:
         edit: Rediger
       footer:
@@ -1632,13 +1587,14 @@
         facebook: "%{organization} på Facebook"
         github: "%{organization} på GitHub"
         instagram: "%{organization} på Instagram"
-        twitter: "%{organization} på Twitter"
         youtube: "%{organization} på YouTube"
       timeout_modal:
         body: Du har vært inaktiv i %{minutes} minutter. Hvis du fortsetter å være inaktiv, vil du automatisk bli logget ut for din egen sikkerhet.
         continue_session: Fortsett økten
         sign_out: Logg ut
         title: Ønsker du å fortsette økten?
+      upload_modal:
+        close_modal: Lukk modal
       user_menu:
         account: 'Brukerkonto: %{name}'
         admin_dashboard: Admin hovedpanel
@@ -1660,8 +1616,8 @@
       widget:
         see_more: Se mer
   locale:
-    name: Engelsk
-    name_with_error: Engelsk (feil!)
+    name: Norsk
+    name_with_error: Norsk (feil!)
   password_validator:
     blacklisted: er svartelistet
     domain_included_in_password: er for lik dette domenenavnet

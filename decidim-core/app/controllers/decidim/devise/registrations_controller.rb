@@ -39,7 +39,7 @@ module Decidim
           end
 
           on(:invalid) do
-            flash.now[:alert] = @form.errors[:base].join(", ") if @form.errors[:base].any?
+            flash.now[:alert] = t("error", scope: "decidim.devise.registrations.create")
             render :new
           end
         end
@@ -59,6 +59,10 @@ module Decidim
       def build_resource(hash = nil)
         super(hash)
         resource.organization = current_organization
+      end
+
+      def devise_mapping
+        ::Devise.mappings[:user]
       end
     end
   end

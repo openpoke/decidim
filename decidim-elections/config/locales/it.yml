@@ -19,6 +19,7 @@ it:
       voting:
         end_time: La votazione termina il
         start_time: La votazione inizia il
+        voting_type: Tipo di votazione
     errors:
       models:
         answer:
@@ -100,7 +101,6 @@ it:
           label: Convalidato
           values:
             'false': Convalidato
-            'true': Non convalidato
     components:
       elections:
         actions:
@@ -190,7 +190,7 @@ it:
           election:
             name: Elezione
           question:
-            name: Quesito
+            name: Domanda
           trustee:
             name: Fiduciari
         proposals_imports:
@@ -408,7 +408,7 @@ it:
           active: Attiva
           all: Tutti
           finished: Completata
-          search: Cerca
+          search: Ricerca
           upcoming: Imminente
         filters_small_view:
           close_modal: Chiudi finestra
@@ -523,6 +523,7 @@ it:
               tally:
                 cast: Invio del conteggio
                 share: Condivisione del conteggio
+            start_icon: Icona che indica un pulsante avvia per avviare la generazione delle chiavi elettorali
             title: Conteggio di %{election}
           update:
             error: Lo stato delle elezioni non è stato aggiornato.
@@ -732,30 +733,10 @@ it:
           highlighted_votings:
             max_results: Quantità massima di elementi da mostrare
           landing_page:
-            attachments_and_folders:
-              name: Allegati e cartelle della votazione
             description:
               name: Descrizione del voto
-            elections:
-              name: Votazioni elettorali
-            header:
-              name: Intestazione delle votazioni
-            html_block_1:
-              name: Votazioni html blocco 1
-            html_block_2:
-              name: Votazioni html blocco 2
-            html_block_3:
-              name: Votazioni html blocco 3
-            metrics:
-              name: Metriche di voto
-            polling_stations:
-              name: Seggi elettorali
-            stats:
-              name: Statistiche di voto
-            timeline:
-              name: Calendario delle votazioni
         index:
-          not_published: Non Pubblicato
+          not_published: Non pubblicato
           published: Pubblicato
         landing_page:
           content_blocks:
@@ -907,7 +888,7 @@ it:
             title: Titolo
           polling_officers_picker:
             choose_polling_officers: Crea responsabile sondaggio
-            close: Chiudi
+            close: Chiuso
             more_polling_officers: Ci sono altre %{number} proposte. Affina la tua ricerca per localizzarle.
             no_polling_officers: Nessun funzionario di sondaggio corrisponde ai tuoi criteri di ricerca o non c'è alcun funzionario di sondaggio.
         polling_stations:
@@ -943,7 +924,7 @@ it:
             destroy: Elimina
             new_voting: Nuovo Spazio Di Votazione
             publish: Pubblica
-            unpublish: Annulla la pubblicazione
+            unpublish: Ritira
           create:
             invalid: Si è verificato un problema durante la creazione di questa votazione
             success: Votazione creata con successo
@@ -953,7 +934,6 @@ it:
             update: Aggiorna
           form:
             select_a_voting_type: Seleziona un tipo di votazione
-            slug_help: 'Gli URL slugs sono usati per generare gli URL che puntano a questo voto. Accetta solo lettere, numeri e trattini e deve iniziare con una lettera. Esempio: %{url}'
             title: Titolo
             voting_type:
               hybrid: Ibrido
@@ -998,8 +978,6 @@ it:
             create:
               invalid: Si è verificato un errore durante il caricamento del censimento, riprova più tardi.
               invalid_csv_header: Le intestazioni CSV sono mancanti o non corrette - si prega di leggere attentamente le istruzioni
-            creating_data:
-              info_message: "<strong>Attendere</strong>, elaborato %{processed_count} di %{raw_count} righe dal file %{file}."
             delete:
               button: Elimina tutti i dati del censimento
             destroy:
@@ -1011,8 +989,6 @@ it:
               confirm: Puoi esportare i codici di accesso solo una volta. Assicurati di avere accesso all'indirizzo <strong>%{email}</strong>.
               launch_error: Problema nel lanciare l'esportazione dei codici di accesso
               launch_success: Esportazione codici di accesso avviata. A breve riceverai un'email all'indirizzo %{email}
-            exporting_access_codes:
-              info_message: "<strong>Attendere</strong>, l'esportazione è in fase di preparazione, lo riceverai tra breve all'indirizzo %{email}"
             freeze:
               callout: Il censimento è congelato e non può essere modificato.
             generate_access_codes:
@@ -1023,8 +999,6 @@ it:
               info_message_warn: Si prega di controllare che non manchino dati, poiché %{data_count} record sono stati creati e il file caricato %{file} aveva %{raw_count} righe.
               launch_error: Problema nel lanciare la generazione di codici di accesso
               launch_success: Generazione di codici lanciata.
-            generating_access_codes:
-              info_message: "<strong>Attendere</strong>, vengono generati i codici di accesso alle votazioni..."
             new:
               file_help:
                 explanation: 'Guida per il file:'
@@ -1057,8 +1031,6 @@ it:
         highlighted_votings:
           name: Votazioni evidenziate
         landing_page:
-          description:
-            title: Informazioni su questa votazione
           metrics:
             heading: Statistiche
           polling_stations:
@@ -1075,8 +1047,6 @@ it:
       pages:
         home:
           highlighted_votings:
-            active_votings: Votazioni attive
-            see_all_votings: Vedi tutte le votazioni
             votings_button_title: Link alla pagina Votazioni che mostra tutte le votazioni
       polling_officer_zone:
         closures:
@@ -1110,7 +1080,7 @@ it:
             info_text: 'Si prega di introdurre il numero totale di schede (buste) contate in questa stazione di sondaggio:'
             modal_ballots_count_error:
               btn_validate_total: Convalida il totale delle votazioni
-              close_modal: Chiudi
+              close_modal: Chiuso
               info_text: Il numero totale di schede (buste) introdotte non corrisponde al record di persone che hanno votato in questa Polling Station.
               message_for_monitoring_committee: Messaggio per il comitato di sorveglianza
               review_recount: Rivedi il conto
@@ -1127,7 +1097,7 @@ it:
           sign:
             cancel: Annulla
             check_box: Ho recensito questo ed è lo stesso del certificato di chiusura elettorale fisico
-            close_modal: Chiudi
+            close_modal: Chiuso
             confirm: Ok, continua
             error: Si è verificato un errore, riprova.
             heading: Resoconto dei voti - Chiusura dei segni
@@ -1259,7 +1229,7 @@ it:
         elections_log:
           bb_status: Stato elettorale
           description: Il registro elettorale vi mostrerà tutte le informazioni pertinenti su ogni voto. Per esempio, lo stato della cerimonia chiave o tally o se i risultati sono già stati pubblicati. Fare clic sull'elezione in cui si desidera le informazioni di registro.
-          election_log: Registro Delle Elezioni
+          election_log: Registro delle elezioni
           title: Registro elettorale
         filters:
           active: Attivo

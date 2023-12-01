@@ -83,7 +83,7 @@ it:
           comments: Commenti
         models:
           debate:
-            name: Dibattito
+            name: Discussione
       admin_log:
         debate:
           close: "%{user_name} ha chiuso il dibattito %{resource_name} sullo spazio %{space_name}"
@@ -123,7 +123,7 @@ it:
           official: Ufficiale
           origin: Origine
           participants: Partecipanti
-          scope: Ambito
+          scope: Obiettivo
           search: Ricerca
           state: Stato
           state_values:

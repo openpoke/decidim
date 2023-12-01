@@ -2,10 +2,6 @@
 fi-pl:
   activemodel:
     attributes:
-      agenda:
-        description: Kuvaus
-        duration: Kesto
-        title: Otsikko
       close_meeting:
         attendees_count: Osallistujien määrä
         attending_organizations: Osallistuvien organisaatioiden lista
@@ -23,8 +19,9 @@ fi-pl:
         decidim_scope_id: Teema
         decidim_user_group_id: Käyttäjäryhmä
         description: Kuvaus
-        end_time: Lopetusaika
+        end_time: Päättymisaika
         id: ID
+        iframe_embed_type: Iframe-upotuksen tyyppi
         location: Paikka
         location_hints: Paikan tarkemmat tiedot
         online_meeting_url: Verkkotapaamisen osoite (URL)
@@ -34,19 +31,34 @@ fi-pl:
         registration_email_custom_content: Ilmoittautumisten sähköpostivastauksen muokattu sisältö
         registration_form_enabled: Ilmoittautumislomake on käytössä
         registration_terms: Ilmoittautumisehdot
+        registration_type: Ilmoittautumistyyppi
         registration_url: Ilmoittautumisosoite (URL)
         registrations_enabled: Ilmoittautumiset ovat käytössä
-        show_embedded_iframe: Näytä upotettu iframe tälle osoitteelle
-        start_time: Aloitusaika
+        reserved_slots: Varatut paikat tälle tapaamiselle
+        start_time: Alkamisaika
         title: Otsikko
         transparent: Läpinäkyvä
         type_of_meeting: Tyyppi
+      meeting_agenda:
+        title: Otsikko
+        visible: Näkyvissä
+      meeting_agenda_items:
+        description: Kuvaus
+        duration: Kesto
+        title: Otsikko
+      meeting_registration_invite:
+        email: Sähköpostiosoite
+        name: Nimi
+      validate_registration_code:
+        code: Koodi
     errors:
       models:
         meeting:
           attributes:
             iframe_embed_type:
               not_embeddable: Tätä URL-osoitetta ei voi upottaa tapaamisen sivulle tai reaaliaikaisen tapahtuman sivulle
+            online_meeting_url:
+              url_format: URL-osoitteen tulee olla oikean muotoinen
         meeting_agenda:
           attributes:
             base:
@@ -212,7 +224,7 @@ fi-pl:
             one: 'Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotus:'
             other: 'Tapahtumaa ei voi poistaa, koska siihen on liitetty %{count} ehdotusta:'
         manage_poll: Hallitse mielipidetiedustelua
-        new: Uusi kokous
+        new: Uusi tapahtuma
         preview: Esikatsele
         registrations: Ilmoittautumiset
         title: Toiminnot
@@ -283,9 +295,6 @@ fi-pl:
           edit:
             close: Sulje
             title: Sulje tapahtuma
-        meeting_copies:
-          form:
-            select_a_meeting_type: Valitse tapaamisen tyyppi
         meetings:
           close:
             invalid: Tapahtuman sulkemisessa tapahtui virhe
@@ -312,7 +321,7 @@ fi-pl:
             select_a_meeting_type: Valitse tapaamisen tyyppi
             select_a_registration_type: Valitse ilmoittautumisten tyyppi
             select_an_iframe_access_level: Valitse iframe-upotusten käyttöoikeustaso
-            show_embedded_iframe_help: 'Vain palvelut näistä osoitteista sallivat tapaamisen upottamisen reaaliaikaisesti tapahtumasivulle: %{domains}'
+            show_embedded_iframe_help: 'Vain jotkin ulkoiset palvelut näistä osoitteista sallivat tapaamisen upottamisen reaaliaikaisesti tapaamisen sivulle: %{domains}'
           index:
             title: Tapahtumat
           new:
@@ -392,6 +401,9 @@ fi-pl:
           all: Kaikki
         filter_scope_values:
           all: Kaikki
+      calendar:
+        meeting_to_event:
+          read_more: Lue lisää tästä tapaamisesta
       calendar_modal:
         calendar_url: Kalenterin URL
         close_window: Sulje ikkuna
@@ -412,7 +424,7 @@ fi-pl:
       content_blocks:
         upcoming_meetings:
           name: Tulevat tapaamiset
-          upcoming_meetings: Tulevat tapaamiset
+          upcoming_meetings: Tulevat tapahtumat
           view_all_meetings: Näytä kaikki
       directory:
         meetings:
@@ -511,7 +523,7 @@ fi-pl:
           select_a_meeting_type: Valitse tapaamisen tyyppi
           select_a_registration_type: Valitse ilmoittautumisten tyyppi
           select_an_iframe_access_level: Valitse iframe-upotusten käyttöoikeustaso
-          show_embedded_iframe_help: 'Vain palvelut näistä osoitteista sallivat tapaamisen upottamisen reaaliaikaisesti tapahtumasivulle: %{domains}'
+          show_embedded_iframe_help: 'Vain jotkin ulkoiset palvelut näistä osoitteista sallivat tapaamisen upottamisen reaaliaikaisesti tapaamisen sivulle: %{domains}'
         index:
           click_here: Näytä kaikki tapahtumat
           new_meeting: Uusi tapahtuma
@@ -533,13 +545,13 @@ fi-pl:
         show:
           attendees: Osallistujamäärä
           back: Takaisin listaan
-          close_meeting: Sulje tapaaminen
+          close_meeting: Sulje tapahtuma
           contributions: Kontribuutioiden määrä
           date: Päivämäärä
-          edit_close_meeting: Muokkaa tapahtumaraporttia
-          edit_meeting: Muokkaa tapahtumaa
+          edit_close_meeting: Muokkaa tapaamisraporttia
+          edit_meeting: Muokkaa tapaamista
           going: Olet ilmoittautunut tähän tapaamiseen
-          join: Liity tapahtumaan
+          join: Ilmoittaudu tapaamiseen
           leave: Peruuta ilmoittautumisesi
           leave_confirmation: Haluatko varmasti peruuttaa ilmoittautumisesi tähän tapaamiseen?
           link_available_soon: Linkki julkaistaan pian

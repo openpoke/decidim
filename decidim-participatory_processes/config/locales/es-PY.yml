@@ -12,15 +12,22 @@ es-PY:
         decidim_area_id: Área
         description: Descripción
         developer_group: Grupo promotor
+        document: Documento
         domain: Dominio
         end_date: Fecha de finalización
         hashtag: Hashtag
         hero_image: Imagen de portada
+        import_attachments: Importar archivos adjuntos
+        import_categories: Importar categorias
+        import_components: Importar componentes
+        import_steps: Importar fases
         local_area: Área de organización
         meta_scope: 'Metadatos: ámbito'
         participatory_process_group_id: Grupo de procesos
+        participatory_process_type_id: Tipo de proceso
         participatory_scope: Qué se decide
         participatory_structure: Cómo se decide
+        private_space: Proceso privado
         promoted: Destacado
         published_at: Publicado en
         related_process_ids: Procesos relacionados
@@ -68,7 +75,7 @@ es-PY:
         participatory_process:
           attributes:
             document:
-              allowed_file_content_types: 'Tipo de documento inválido. Los formatos que se aceptan son: %{types}'
+              allowed_file_content_types: 'Tipo de documento no válido. Sólo se permiten archivos con las siguientes extensiones: %{types}'
     models:
       decidim/participatory_process_step_activated_event: Fase activada
       decidim/participatory_process_step_changed_event: La fase ha cambiado
@@ -407,10 +414,10 @@ es-PY:
         participatory_process_imports:
           form:
             document_legend: Añadir un documento
-            slug_help: 'Los slugs de URL se utilizan para generar las URLs que apuntan a este proceso. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Use rutas parciales, no URL completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. Si no está configurado, el botón no se mostrará. Ejemplo: %{url}'
+            cta_path_help: 'Utiliza rutas parciales, no URL completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. Si no ese establece ninguna ruta, el botón no se mostrará. Ejemplo: %{url}'
             cta_text_help: Si no está configurado, el botón no se mostrará.
         participatory_processes:
           form:
@@ -526,6 +533,6 @@ es-PY:
           more_info: Más información
       process_header_steps:
         step: Fase %{current} de %{total}
-        view_steps: Ver las fases
+        view_steps: Las fases de proceso
       process_navigation:
         process_menu_item: El proceso

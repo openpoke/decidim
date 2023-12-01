@@ -3,8 +3,13 @@ ca:
   activemodel:
     attributes:
       initiative:
+        answer: Resposta
+        answer_url: URL de la resposta
+        area_id: Àrea
+        decidim_scope_id: Àmbit
         decidim_user_group_id: Autoria
         description: Descripció
+        hashtag: Etiqueta (hashtag)
         offline_votes: Signatures presencials
         offline_votes_for_scope: Signatures presencials per a %{scope_name}
         scope_id: Àmbit
@@ -17,8 +22,11 @@ ca:
           online: Digital
         state: Estat
         title: Títol
+        type_id: Tipus
       initiatives_committee_member:
         user: Membre del comitè
+      initiatives_settings:
+        initiatives_order: Ordre
       initiatives_type:
         area_enabled: Permet a les autores triar l'àrea de la seva iniciativa
         attachments_enabled: Habilitat arxius adjunts
@@ -34,9 +42,13 @@ ca:
         online_signature_enabled: S'ha activat la signatura digital
         only_global_scope_enabled: Permetre només la creació d'iniciatives d'àmbit global
         promoting_committee_enabled: Habilita el comitè promotor
+        signature_type: Tipus de signatura
         title: Títol
         undo_online_signatures_enabled: Permetre a les participants desfer les seves signatures digitals
         validate_sms_code_on_votes: Afegeix el pas de validació mitjançant SMS al procés de signatura
+      initiatives_type_scope:
+        decidim_scopes_id: Àmbits
+        supports_required: Es requereixen suports
       initiatives_vote:
         date_of_birth: Data de naixement
         document_number: Número de document
@@ -206,7 +218,7 @@ ca:
         committee_requests:
           index:
             approve: Aprova
-            confirm_revoke: Estàs segur?
+            confirm_revoke: Segur?
             invite_to_committee_help: Comparteix aquest enllaç per convidar altres persones al comitè promotor
             no_members_yet: No hi ha membres al comitè promotor
             revoke: Revocar
@@ -223,8 +235,8 @@ ca:
         initiatives:
           edit:
             accept: Accepta la iniciativa
-            confirm: Estàs segur?
-            confirm_send_to_technical_validation: N'estàs segura?
+            confirm: Segur?
+            confirm_send_to_technical_validation: Segur?
             discard: Descarta la iniciativa
             export_pdf_signatures: Exporta PDF de signatures
             export_votes: Exportar signatures
@@ -266,7 +278,7 @@ ca:
             success: L'àmbit s'ha eliminat correctament
           edit:
             back: Torna
-            confirm_destroy: N'estàs segur?
+            confirm_destroy: Segur?
             destroy: Suprimeix
             title: Edita l'àmbit del tipus d'iniciativa
             update: Actualitza
@@ -284,13 +296,13 @@ ca:
           destroy:
             success: S'ha eliminat correctament el tipus d'iniciativa
           edit:
-            confirm_destroy: N'estàs segur?
+            confirm_destroy: Segur?
             destroy: Suprimeix
             update: Actualitza
           form:
             authorizations: Configuració de l'autorització
-            child_scope_threshold_enabled_help: 'Aquest ajust de configuració no admet les votacions sense connexió. Habilita els subàmbits i funciona amb un gestor d''autoritzacions que associa un àmbit a la participant. Assegura''t de seleccionar aquesta autorització, més avall a la configuració d''autoritzacions. Per a que funcioni, els àmbits han de configurar-se de forma jerárquica: 1 Pare - N fills. Per a més informació sobre com funciona aquesta configuració, <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">veure la documentació sobre l''administració d''iniciatives</a>.'
-            only_global_scope_enabled_help: Marca aquesta casella si has habilitat "Activar signatures per subàmbit" i vas configurar l'àmbit global com l'àmbit principal. En habilitar aquesta casella, la selecció del tipus d'iniciativa s'ometrà en l'assistent de creació d'iniciatives. Per a més informació sobre com funciona aquesta configuració, consulta aquest <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">enllaç</a>.
+            child_scope_threshold_enabled_help: 'Aquest ajust de configuració no admet les votacions sense connexió. Aquest habilita els subàmbits i funciona amb un gestor d''autoritzacions que associa un àmbit a la participant. Assegura''t de seleccionar aquesta autorització, més avall a la configuració d''autoritzacions. Per a que funcioni, els àmbits han de configurar-se de forma jerárquica: 1 Pare - N fills. Per a més informació sobre com funciona aquesta configuració, consulta la <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank"> documentació sobre l''administració d''iniciatives</a>.'
+            only_global_scope_enabled_help: Marca aquesta casella si has habilitat "Activar signatures per subàmbit" i vas configurar l'àmbit global com l'àmbit principal. En habilitar aquesta casella, la selecció del tipus d'iniciativa s'ometrà en l'assistent de creació d'iniciatives. Per a més informació sobre com funciona aquesta configuració, consulta la <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">documentació sobre l'administració d'iniciatives</a>.
             options: Opcions
             title: Informació general
           initiative_type_scopes:
@@ -322,7 +334,7 @@ ca:
         validating: Validació tècnica
       application_helper:
         filter_area_values:
-          all: Totes
+          all: Tots
         filter_scope_values:
           all: Tots
         filter_state_values:
@@ -351,8 +363,8 @@ ca:
         fill_data:
           back: Torna
           continue: Continua
+          decidim_user_group_id_help: No és possible canviar l'autoria de la iniciativa després de crear-la
           fill_data_help: "<ul> <li>Revisa el contingut de la teva iniciativa. El títol és fàcil d'entendre? L'objectiu de la teva iniciativa és clar?</li> <li>Has d'escollir el tipus de signatura. Presencial, digital o una combinació de totes dues.</li> <li>Quin és l'àmbit geogràfic de la iniciativa?</li> </ul>"
-          initiative_type: Tipus d'iniciativa
           more_information: "(Més informació)"
           select_area: Selecciona una àrea
           select_scope: Selecciona un àmbit d'aplicació
@@ -394,7 +406,7 @@ ca:
       edit:
         accept: Accepta la iniciativa
         back: Tornar
-        confirm: N'estàs segura?
+        confirm: Segur?
         discard: Descarta la iniciativa
         export_pdf_signatures: Exporta PDF de signatures
         export_votes: Exportar signatures
@@ -430,9 +442,10 @@ ca:
       form:
         add_attachments: Documents
         attachment_legend: "(Opcional) Afegir un fitxer adjunt"
-        delete_attachment: Esborrar
+        delete_attachment: Suprimeix
       index:
         title: Iniciatives
+        uninitialized: Les iniciatives no han estat configurades encara des de l'administració.
       initiative_signatures:
         fill_personal_data:
           continue: Continua
@@ -469,7 +482,7 @@ ca:
             other: i %{count} persones més
         committee_members:
           approve: Aprova
-          confirm_revoke: N'estàs segura?
+          confirm_revoke: Segur?
           invite_to_committee_help: Comparteix aquest enllaç per convidar altres persones a la comissió promotora
           no_members_yet: No hi ha membres a la comissió promotora
           revoke: Revocar
@@ -541,7 +554,7 @@ ca:
           initiative_rejected_reason: Aquesta iniciativa ha estat rebutjada per falta de signatures.
         show:
           any_vote_method: Aquesta iniciativa recull signatures digitals i presencials.
-          confirm: Estàs a punt d'enviar la iniciativa perquè una administradora la revisi i la publiqui. Un cop publicada no la podràs editar. N'estàs segura?
+          confirm: Estàs a punt d'enviar la iniciativa perquè una administradora la revisi i la publiqui. Un cop publicada no la podràs editar. Segur?
           edit: Editar
           follow_description: Rebre una notificació quan hi hagi novetats sobre aquesta iniciativa
           offline_method: Aquesta iniciativa només recull signatures presencials.
@@ -591,8 +604,8 @@ ca:
       signature_interval:
         title: Període de recollida de signatures
       states:
-        accepted: Acceptat
-        expired: Vençut
+        accepted: Acceptada
+        expired: Vençuda
       unavailable_scope: Àmbit no disponible
       update:
         error: S'ha produït un error
@@ -613,7 +626,7 @@ ca:
   layouts:
     decidim:
       initiative_creation_header:
-        back: Tornar
+        back: Torna
         fill_data: Crear
         finish: Acabar
         previous_form: Començar

@@ -29,7 +29,7 @@ fi-pl:
         show_statistics: Näytä tilastot
         sign_date: Allekirjoituksen päivämäärä
         signature: Allekirjoitus
-        signature_name: allekirjoituksen nimi
+        signature_name: Allekirjoituksen nimi
         slogan: Iskulause
         slug: URL-tunniste
         start_date: Alkamispäivä
@@ -38,13 +38,13 @@ fi-pl:
         date: Päivämäärä
         link: Linkki
         title: Otsikko
-        weight: Painoarvo
+        weight: Järjestysnumero
       conference_partner:
         link: Linkki
         logo: Logo
         name: Nimi
         partner_type: Kumppanin tyyppi
-        weight: Painoarvo
+        weight: Järjestysnumero
       conference_registration_invite:
         email: Sähköposti
         name: Nimi
@@ -54,7 +54,7 @@ fi-pl:
         description: Kuvaus
         price: Hinta
         title: Otsikko
-        weight: Painoarvo
+        weight: Järjestysnumero
       conference_speaker:
         affiliation: Jäsenyys
         avatar: Avatar
@@ -63,7 +63,7 @@ fi-pl:
         personal_url: Henkilökohtainen URL-osoite
         position: Asema
         short_bio: Lyhyt henkilökuvaus
-        twitter_handle: Twitter-käyttäjänimi
+        twitter_handle: X käsittelijä
         user_id: Käyttäjä
       conference_user_role:
         email: Sähköposti
@@ -135,7 +135,7 @@ fi-pl:
           title: Päivitä konferenssin käyttäjä.
           update: Päivitä
         index:
-          conference_admins_title: konferenssin käyttäjät
+          conference_admins_title: Konferenssin ylläpitäjät
         new:
           create: Luo
           title: Uusi konferenssin käyttäjä.
@@ -313,6 +313,7 @@ fi-pl:
           update: "%{user_name} päivitti yhteistyökumppania %{resource_name} konferenssissa %{space_name}"
         registration_type:
           create: "%{user_name} loi ilmoittautumistyypin %{resource_name} konferenssiin %{space_name}"
+          delete: "%{user_name} poisti ilmoittautumistyypin %{resource_name} konferenssista %{space_name}"
           publish: "%{user_name} julkaisi ilmoittautumistyypin %{resource_name} konferenssissa %{space_name}"
           unpublish: "%{user_name} lopetti ilmoittautumistyypin %{resource_name} julkaisun konferenssissa %{space_name}"
           update: "%{user_name} päivitti ilmoittautumistyyppiä %{resource_name} konferenssissa %{space_name}"
@@ -380,7 +381,8 @@ fi-pl:
         invite_join_conference_mailer:
           invite:
             decline: Hylkää kutsu "%{conference_title}"
-            invited_you_to_join_a_conference: "%{invited_by} on kutsunut sinut konferenssiin palvelussa %{application}. Voit hylätä tai hyväksyä kutsun alla olevien linkkien avulla."
+            invited_existing_user_to_join_a_conference: "%{invited_by} on kutsunut sinut konferenssiin palvelussa %{application}. Voit hylätä tai hyväksyä kutsun alla olevien linkkien avulla."
+            invited_user_to_join_a_conference: "%{invited_by} on kutsunut sinut osallistumaan konferenssiin palvelussa %{application}. Voit hyväksyä kutsun alla esitetyn linkin kautta."
             registration: Ilmoittautuminen konferenssiin "%{conference_title}"
         partners:
           index:
@@ -431,14 +433,16 @@ fi-pl:
         create:
           invalid: Konferenssiin ilmoittautumisessa tapahtui virhe.
           success: Olet ilmoittautunut konferenssiin onnistuneesti.
+          unauthorized: Sinun täytyy kirjautua sisään hyväksyäksesi konferenssikutsun.
         decline_invitation:
           invalid: Kutsun hyläämisessä esiintyi ongelma.
           success: Olet hylännyt kutsun onnistuneesti.
+          unauthorized: Sinun täytyy kirjautua sisään hylätäksesi konferenssikutsun.
         destroy:
           invalid: Konferenssista poistumisessa on tapahtunut virhe.
           success: Olet poistunut konferenssista onnistuneeksi.
       conference_speaker:
-        go_to_twitter: Siirry Twitteriin
+        go_to_twitter: Siirry X-palveluun
         more_info: lisätietoja
         personal_website: Henkilökohtainen verkkosivusto
         show:
@@ -503,7 +507,7 @@ fi-pl:
           highlighted_conferences:
             active_conferences: Aktiiviset konferenssit
             conferences_button_title: Linkki Konferenssit-sivulle, jossa näkyvät kaikki konferenssit
-            see_all_conferences: Katso kaikki konferenssit
+            see_all_conferences: Näytä kaikki konferenssit
       photo:
         image:
           attributes:

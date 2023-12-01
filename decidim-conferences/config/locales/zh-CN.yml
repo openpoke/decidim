@@ -23,12 +23,6 @@ zh-CN:
         slogan: 斯洛根文
         slug: URL 名称
         title: 标题
-      conference_media_link:
-        weight: 权重
-      conference_partner:
-        weight: 权重
-      conference_registration_type:
-        weight: 权重
       conference_speaker:
         full_name: 全名
       conference_user_role:
@@ -97,8 +91,6 @@ zh-CN:
         edit:
           title: 更新会议管理员。
           update: 更新
-        index:
-          conference_admins_title: 会议管理员
         new:
           create: 创建
           title: 新的会议管理员。
@@ -286,9 +278,6 @@ zh-CN:
         title: 发言者：
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL slugs 用于生成指向此会议的URL。 只接受字母、数字和破折号，必须以字母开头。例如: %{url}'
         conference_invites:
           create:
             error: 邀请与会者参加会议时出现问题。
@@ -329,7 +318,6 @@ zh-CN:
             available_slots_help: 如果您有无限空位可用，则将其留给0。
             registrations_count:
               other: 有 %{count} 个注册。
-            slug_help: 'URL slugs 用于生成指向此会议的URL。 只接受字母、数字和破折号，必须以字母开头。例如: %{url}'
         diplomas:
           edit:
             save: 保存
@@ -337,7 +325,7 @@ zh-CN:
         invite_join_conference_mailer:
           invite:
             decline: 拒绝邀请 '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} 邀请您在 %{application}加入会议。您可以拒绝或接受以下链接。"
+            invited_existing_user_to_join_a_conference: "%{invited_by} 邀请您在 %{application}加入会议。您可以拒绝或接受以下链接。"
             registration: 注册%{conference_title}'
         partners:
           index:
@@ -369,7 +357,6 @@ zh-CN:
       conference_program:
         program_meeting:
           content: 内容
-          location: 地点
           speakers: 发言者：
           streaming: 流流
         show:
@@ -395,7 +382,6 @@ zh-CN:
           invalid: 离开此会议时出现问题。
           success: 您已经成功离开了会议。
       conference_speaker:
-        go_to_twitter: 转到Twitter
         more_info: 更多信息
         personal_website: 个人网站
         show:
@@ -458,7 +444,6 @@ zh-CN:
         home:
           highlighted_conferences:
             active_conferences: 活跃的会议
-            see_all_conferences: 查看所有会议
       photo:
         image:
           attributes:

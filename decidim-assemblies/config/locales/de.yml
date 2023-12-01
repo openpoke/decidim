@@ -4,7 +4,10 @@ de:
     attributes:
       assemblies_setting:
         enable_organization_chart: Organisationsdiagramm aktivieren
+      assemblies_type:
+        title: Titel
       assembly:
+        announcement: Ankündigung
         area_id: Bereich
         assembly_type: Versammlungstyp
         assembly_type_other: Sonstiger Versammlungstyp
@@ -23,12 +26,16 @@ de:
         decidim_scope_id: Umfang
         description: Beschreibung
         developer_group: Promoter-Gruppe
+        document: Dokument
         domain: Domain
         duration: Dauer
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Hauptbild
+        import_attachments: Anhänge importieren
+        import_categories: Kategorien importieren
+        import_components: Komponenten importieren
         included_at: Inbegriffen bei
         instagram: Instagram
         internal_organisation: Interne Organisation
@@ -52,8 +59,8 @@ de:
         subtitle: Untertitel
         target: Wer nimmt teil?
         title: Titel
-        twitter: Twitter
-        weight: Bestellposition
+        twitter: X
+        weight: Reihenfolge
         youtube: Youtube
       assembly_member:
         birthday: Geburtstag
@@ -65,6 +72,7 @@ de:
         non_user_avatar: Profilbild
         position: Position
         user_id: User
+        weight: Reihenfolge
       assembly_user_role:
         email: Email
         name: Name
@@ -74,7 +82,7 @@ de:
         assembly:
           attributes:
             document:
-              allowed_file_content_types: 'Ungültiger Dokumenttyp Zulässige Formate sind: %{types}'
+              allowed_file_content_types: 'Ungültiger Dokumententyp. Nur Dateien mit folgenden Erweiterungen sind erlaubt: %{types}'
   activerecord:
     models:
       decidim/assembly:
@@ -108,7 +116,7 @@ de:
           title: Neues Gremium
         update:
           error: Beim Aktualisieren dieses Gremiums ist ein Fehler aufgetreten.
-          success: Das Gremium wurde erfolgreich aktualisiert.
+          success: Die Versammlung wurde erfolgreich aktualisiert.
       assemblies_copies:
         create:
           error: Beim Duplizieren dieses Gremiums ist ein Fehler aufgetreten.
@@ -149,7 +157,7 @@ de:
         destroy:
           success: Mitglied wurde erfolgreich aus diesem Gremium entfernt.
         edit:
-          title: Aktualisieren Sie die Versammlungsmitglieder.
+          title: Gremiumsmitglieder aktualisieren.
           update: Aktualisieren
         index:
           assembly_members_title: Gremienmitglieder
@@ -173,7 +181,7 @@ de:
         destroy:
           success: Benutzer wurde erfolgreich von dieser Assembly entfernt.
         edit:
-          title: Aktualisiere den Benutzer der Baugruppe
+          title: Gremienadmin aktualisieren.
           update: Aktualisieren
         index:
           assembly_admins_title: Assembly Benutzer
@@ -204,11 +212,11 @@ de:
       models:
         assemblies_types:
           fields:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             title: Titel
         assembly:
           fields:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             private: Privat
             promoted: Hervorgehoben
             published: Veröffentlicht
@@ -280,8 +288,8 @@ de:
             select_a_created_by: Wählen Sie eine erstellt von aus
             select_an_area: Wählen Sie einen Bereich
             select_an_assembly_type: Wählen Sie einen Gremiumstyp
-            select_parent_assembly: Wählen Sie die übergeordnete Baugruppe aus
-            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Assembly verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            select_parent_assembly: Übergeordnetes Gremium auswählen
+            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             social_handlers: Sozial
             title: Allgemeine Information
             visbility: Sichtweite
@@ -295,11 +303,11 @@ de:
             title: Titel
         assembly_copies:
           form:
-            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Assembly verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         assembly_imports:
           form:
             document_legend: Dokument hinzufügen
-            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Versammlung verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         assembly_members:
           form:
             existing_user: Existierender Benutzer
@@ -313,8 +321,8 @@ de:
           index:
             filter:
               all: Alle
-              ceased: Aufgegeben
-              not_ceased: Nicht aufgehört
+              ceased: Eingestellt
+              not_ceased: Nicht eingestellt
             filter_by: Filtern nach
             search: Suche
         content_blocks:
@@ -384,8 +392,8 @@ de:
           'false': undurchsichtig
           'true': transparent
         local_area: Organisationsbereich
-        participatory_scope: Was ist entschieden?
-        participatory_structure: Wie ist es entschieden?
+        participatory_scope: Was wird entschieden?
+        participatory_structure: Wie wird es entschieden?
         private_space: Dies ist eine private Versammlung
         purpose_of_action: Zweck der Aktion
         read_less: Lese weniger

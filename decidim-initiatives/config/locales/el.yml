@@ -52,9 +52,6 @@ el:
               title: Ο τίτλος δεν πρέπει να είναι κενός
   activerecord:
     models:
-      decidim/initiative:
-        one: Πρωτοβουλία
-        other: Πρωτοβουλίες
       decidim/initiative_comittee:
         one: Επιτροπή
         other: Επιτροπές
@@ -285,7 +282,6 @@ el:
         fill_data:
           back: Πίσω
           continue: Συνέχεια
-          initiative_type: Τύπος πρωτοβουλίας
           more_information: "(Περισσότερες πληροφορίες)"
           select_area: Επιλέξτε τομέα
           select_scope: Επιλέξτε πεδίο εφαρμογής
@@ -326,6 +322,9 @@ el:
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον συντάκτη %{author_nickname}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
           email_subject: Η πρωτοβουλία επιδοκιμάστηκε από τον συντάκτη %{author_nickname}
           notification_title: Η <a href="%{resource_path}">%{resource_title}</a> πρωτοβουλία επιδοκιμάστηκε από τον συντάκτη <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      form:
+        add_attachments: Έγγραφα
+        delete_attachment: Διαγραφή
       index:
         title: Πρωτοβουλίες
       initiative_signatures:
@@ -362,6 +361,9 @@ el:
           hidden_authors_count:
             one: και 1 ακόμη άτομο
             other: και %{count} ακόμη άτομα
+        committee_members:
+          confirm_revoke: Είστε βέβαιοι;
+          revoke: Ανάκληση
         count:
           title:
             one: "%{count} πρωτοβουλία"
@@ -428,11 +430,6 @@ el:
         status_change_for: Η κατάσταση της πρωτοβουλίας %{title} άλλαξε
       last_activity:
         new_initiative: Νέα πρωτοβουλία
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Ενεργές πρωτοβουλίες
-            see_all_initiatives: Δείτε όλες τις πρωτοβουλίες
       show:
         badge_name:
           accepted: Αρκετές υπογραφές

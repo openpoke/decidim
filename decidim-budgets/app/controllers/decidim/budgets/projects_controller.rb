@@ -28,8 +28,8 @@ module Decidim
       def projects
         return @projects if @projects
 
-        @projects = search.result.page(params[:page]).per(current_component.settings.projects_per_page)
-        @projects = reorder(@projects)
+        @projects = reorder(search.result)
+        @projects = @projects.page(params[:page]).per(current_component.settings.projects_per_page)
       end
 
       def all_geocoded_projects
@@ -37,7 +37,7 @@ module Decidim
       end
 
       def project
-        @project ||= Project.find_by(id: params[:id])
+        @project ||= budget&.projects&.find_by(id: params[:id])
       end
 
       def search_collection
@@ -54,7 +54,11 @@ module Decidim
       end
 
       def default_filter_status_params
-        voting_finished? ? %w(selected) : %w(all)
+        show_selected_budgets? ? %w(selected) : %w(all)
+      end
+
+      def show_selected_budgets?
+        voting_finished? && budget.projects.selected.any?
       end
     end
   end

@@ -1,9 +1,6 @@
 ---
 sl:
   activemodel:
-    attributes:
-      agenda:
-        description: Opis
     models:
       decidim/meetings/create_meeting_event: Sestanek
   decidim:
@@ -17,6 +14,9 @@ sl:
         meetings:
           index:
             title: Sestanki
+        models:
+          meeting:
+            name: Sestanek
       directory:
         meetings:
           index:

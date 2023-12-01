@@ -14,8 +14,11 @@ ro:
         decidim_scope_id: Domeniu de interes
         description: Descriere
         proposal_ids: Propuneri asociate
+        proposals: Propuneri
         selected: Selectate pentru implementare
         title: Titlu
+      proposals_import:
+        scope_id: Domeniu de interes
   activerecord:
     models:
       decidim/budgets/project:
@@ -46,6 +49,7 @@ ro:
         import: Importă propuneri în proiecte
         new: Nou %{name}
         preview: Previzualizare
+        send_voting_reminders: Trimite memento-uri de votare
         title: Acțiuni
       admin:
         budgets:
@@ -87,16 +91,32 @@ ro:
             title: Editare proiect
             update: Actualizare
           index:
+            actions: Acțiuni
+            cancel: Anulează
+            change_category: Schimbă categoria
+            change_scope: Schimbă domeniul
+            change_selected: Schimbă starea selectată
             finished_orders: Voturi terminate
             pending_orders: Voturi în așteptare
+            select_for_implementation: Ales pentru implementare
             selected: Selectate
             title: Proiecte
+            update: Actualizare
+            update_scope_button: Actualizează domeniu
           new:
             create: Creează
             title: Proiect nou
           update:
             invalid: A apărut o eroare la actualizarea acestui proiect
             success: Proiectul a fost actualizat cu succes
+          update_category:
+            select_a_category: Te rugăm să selectezi o categorie
+            select_a_project: Vă rugăm să selectaţi un proiect
+          update_scope:
+            select_a_project: Te rugăm să selectezi un proiect
+            select_a_scope: Te rugăm selectează un domeniu
+          update_selected:
+            select_a_project: Te rugăm să selectezi un proiect
         proposals_imports:
           create:
             invalid: A apărut o problemă la importul propunerilor în proiecte
@@ -150,6 +170,7 @@ ro:
           fields:
             category: Categorie
             id: ID
+            scope: Domeniu de interes
             title: Titlu
       order_summary_mailer:
         order_summary:
@@ -220,6 +241,8 @@ ro:
           filter: Filtrare
           filter_by: Filtrează după
           unfold: Extinde
+        index:
+          view_project: Vizualizare proiect
         order_progress:
           vote: Votează
         order_selected_projects:
@@ -245,7 +268,6 @@ ro:
             one: vot
             few: voturi
             other: voturi
-          you_voted: Ai votat pentru
         project_budget_button:
           add: Adaugă la votul tău
           add_descriptive: Adaugă proiectul %{resource_name} la votul tău

@@ -1,5 +1,5 @@
 ---
-pt:
+pt-BR:
   activemodel:
     attributes:
       collaborative_draft:
@@ -256,7 +256,6 @@ pt:
           affected_user:
             email_intro: 'Sua proposta "%{resource_title}" foi rejeitada. Você pode ler a resposta nesta página:'
             email_outro: Você recebeu esta notificação porque é um autor de "%{resource_title}".
-            email_subject: Sua proposta foi rejeitada
             notification_title: Sua proposta <a href="%{resource_path}">%{resource_title}</a> foi rejeitada.
           follower:
             email_intro: 'A proposta "%{resource_title}" foi rejeitada. Você pode ler a resposta nesta página:'
@@ -348,6 +347,9 @@ pt:
         exports:
           proposal_comments: Comentários
           proposals: Propostas
+        imports:
+          title:
+            proposals: Importar propostas
         models:
           proposal:
             name: Proposta
@@ -471,7 +473,7 @@ pt:
             votes_ranking: Classificação por votos
           update_category:
             invalid: 'Estas propostas já tinham a categoria %{subject_name}: %{proposals}.'
-            select_a_category: Selecione uma categoria
+            select_a_category: Por favor, selecione uma categoria
             select_a_proposal: Selecione uma proposta
             success: 'Propostas atualizadas com sucesso para a categoria %{subject_name}: %{proposals}.'
           update_scope:
@@ -563,7 +565,6 @@ pt:
             one: "%{count} rascunho colaborativo"
             other: "%{count} rascunho colaborativo"
         create:
-          error: Houve um problema ao criar esses rascunhos colaborativos
           success: Rascunho colaborativo criado com sucesso.
         edit:
           attachment_legend: "(Opcional) Adicione um anexo"
@@ -698,8 +699,10 @@ pt:
           description: As coordenadas serão atualizadas quando clicar no botão 'visualizar'. No entanto, o endereço não muda.
           instructions: Você pode mover o ponto no mapa.
         edit:
+          add_image: Adiciona figura
           attachment_legend: "(Opcional) Adicione um anexo"
           back: Voltar
+          edit_image: Editar imagens
           gallery_legend: "(Opcional) Adicione uma imagem à carta da proposta"
           select_a_category: Selecione uma categoria
           send: Enviar
@@ -749,7 +752,7 @@ pt:
           with_more_authors: Com mais autores
         participatory_texts:
           index:
-            document_index: Índice de documentos
+            document_index: Índice de Documentos
           view_index:
             see_index: Veja o índice
         placeholder:

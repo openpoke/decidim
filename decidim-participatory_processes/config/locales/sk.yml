@@ -101,7 +101,6 @@ sk:
           attachments: Prílohy
           categories: Kategória
           components: Komponenty
-          info: Info
           moderations: Moderovanie
           private_users: Súkromní užívatelia
           process_admins: Spracovať užívateľa
@@ -143,6 +142,9 @@ sk:
           copy: kopírovať
           select: Vyberte, ktoré dáta chcete duplikovať
           title: Duplicitné participačné proces
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: Aktualizácia
       participatory_process_groups:
         destroy:
           error: Došlo k chybe pri zrušení skupiny účastníckych procesov.
@@ -198,6 +200,9 @@ sk:
         update:
           error: Pri aktualizácii tohto kroku procesu participácie došlo k chybe.
           success: Úspešný krok procesu bol úspešne aktualizovaný.
+      participatory_process_types:
+        form:
+          title: Titul
       participatory_process_user_roles:
         create:
           error: Pri pridávaní používateľa pre tento participačné proces došlo k chybe.
@@ -292,6 +297,11 @@ sk:
         title: Participatívne procesy
     participatory_process_groups:
       content_blocks:
+        metadata:
+          name: Metadata
+          participatory_scope: Čo sa rozhodlo
+          participatory_structure: Ako sa to rozhoduje
+          target: Kto sa zúčastňuje
         stats:
           name: Štatistiky
       show:
@@ -305,16 +315,14 @@ sk:
         content_blocks:
           highlighted_processes:
             max_results: Maximálne množstvo prvkov, ktoré chcete zobraziť
-        participatory_process_copies:
+        participatory_process_groups:
           form:
-            slug_help: 'Stĺpce adries URL sa používajú na vygenerovanie adries URL, ktoré smerujú k tomuto procesu. Prijme iba písmená, čísla a pomlčky a musí začínať písmenom. Príklad:%{url} '
+            title: Všeobecná informácia
         participatory_process_imports:
           form:
             document_legend: Pridať dokument
-            slug_help: 'URL slug sa používajú na vygenerovanie adries URL, ktoré odkazujú na toto zhromaždenie. Prijme iba písmená, čísla a pomlčky a musí začínať písmenom. Príklad:%{url} '
         participatory_process_steps:
           form:
-            cta_path_help: 'Použite tu čiastočné cesty, nie úplné adresy URL. Prijme písmená, čísla, pomlčky a lomítka a musí začínať písmenom. Ak nie je nastavené, tlačidlo sa nezobrazí. Príklad:%{url} '
             cta_text_help: Ak nie je nastavené, tlačidlo sa nezobrazí.
         participatory_processes:
           form:
@@ -328,7 +336,6 @@ sk:
             scope_type_max_depth_help: Obmedziť hĺbku filtra rozsahu; filter umožňuje zobraziť všeobecné alebo vybrané druhy rozsahov.
             select_an_area: Vyberte rozsah
             select_process_group: Vyberte skupinu procesov
-            slug_help: 'Stĺpce adries URL sa používajú na vygenerovanie adries URL, ktoré smerujú k tomuto procesu. Prijme iba písmená, čísla a pomlčky a musí začínať písmenom. Príklad:%{url} '
             title: Všeobecná informácia
             visbility: Viditeľnosť
       content_blocks:
@@ -341,11 +348,9 @@ sk:
       pages:
         home:
           highlighted_processes:
-            active_processes: Aktívne procesy
             active_step: Aktívne krok
             more_information: Viac informácií
             participate: Zúčastniť sa
-            see_all_processes: Zobraziť všetky procesy
       participatory_processes:
         filters:
           counters:
@@ -385,7 +390,6 @@ sk:
         area: Plocha
         developer_group: Skupina promotérov
         end_date: Dátum ukončenia
-        local_area: Oblasť organizácie
         participatory_scope: Čo sa rozhodlo
         participatory_structure: Ako sa to rozhoduje
         private_space: Jedná sa o súkromný proces
@@ -415,8 +419,10 @@ sk:
           active_step: 'Aktuálny krok:'
           more_info: Viac informácií
           take_part: Zúčastniť sa
+        promoted_process_group:
+          more_info: Viac informácií
       process_header_steps:
         step: Krok%{current} z%{total}
-        view_steps: Zobraziť kroky
+        view_steps: Kroky procesu
       process_navigation:
         process_menu_item: Proces

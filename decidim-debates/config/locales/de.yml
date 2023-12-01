@@ -11,6 +11,7 @@ de:
         end_time: Endet am
         information_updates: Informationsaktualisierungen
         instructions: Anweisungen zur Teilnahme
+        scope_id: Themenbereich
         start_time: Startet um
         title: Titel
         user_group_id: Debatte erstellen als
@@ -18,6 +19,7 @@ de:
       decidim/debates/close_debate_event: Debatte beendet
       decidim/debates/create_debate_event: Debatte
       decidim/debates/creation_disabled_event: Debatten deaktiviert
+      decidim/debates/creation_enabled_event: Erstellung von Debatten aktiviert
   activerecord:
     models:
       decidim/debates/debate:
@@ -27,6 +29,7 @@ de:
     components:
       debates:
         actions:
+          comment: Kommentar
           create: Erstellen
           endorse: Bestätigen
         name: Debatten
@@ -40,12 +43,13 @@ de:
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
+            creation_enabled: Teilnehmer können Debatten erstellen
             endorsements_blocked: Bestätigungen blockiert
             endorsements_enabled: Bestätigungen aktiviert
     debates:
       actions:
         close: Schließen
-        confirm_destroy: Bist du sicher?
+        confirm_destroy: Sind Sie sicher?
         destroy: Löschen
         edit: Bearbeiten
         new: Neu %{name}
@@ -106,6 +110,9 @@ de:
           success: Diskussion erfolgreich erstellt
         debate:
           participate: Mitmachen
+        debates:
+          empty: Es gibt noch keine Debatten.
+          empty_filters: Es liegen noch keine Debatten mit diesen Kriterien vor.
         edit:
           back: Zurück
           save: Änderungen speichern
@@ -119,6 +126,7 @@ de:
           my_debates: Meine Debatten
           official: Offiziell
           origin: Ursprung
+          participants: Teilnehmer
           scope: Bereich
           search: Suche
           state: Status

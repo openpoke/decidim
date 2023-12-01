@@ -21,6 +21,9 @@ en:
         scope_id: Scope
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Budget
+        other: Budgets
       decidim/budgets/project:
         one: Project
         other: Projects
@@ -48,6 +51,7 @@ en:
         import: Import proposals to projects
         new: New %{name}
         preview: Preview
+        send_voting_reminders: Send voting reminders
         title: Actions
       admin:
         budgets:
@@ -93,11 +97,11 @@ en:
             cancel: Cancel
             change_category: Change category
             change_scope: Change scope
-            change_selected: Change selected
-            deselect_implementation: Unselect
+            change_selected: Change selected state
+            deselect_implementation: Unselect from implementation
             finished_orders: Finished votes
             pending_orders: Pending votes
-            select_for_implementation: Select
+            select_for_implementation: Select for implementation
             selected: Selected
             title: Projects
             update: Update
@@ -119,10 +123,14 @@ en:
             select_a_scope: Please select a scope
             success: 'Projects successfully updated to the %{subject_name} scope: %{projects}.'
           update_selected:
-            invalid: 'These projects already had the same selected: %{projects}.'
+            invalid:
+              selected: 'These projects were already selected for implementation: %{projects}.'
+              unselected: 'These projects were already unselected from implementation: %{projects}.'
             select_a_project: Please select a project
-            select_a_selection: Please select a selection
-            success: 'Projects selection successfully changed: %{projects}.'
+            select_a_selection: Please select an implementation state
+            success:
+              selected: 'These projects were successfully selected for implementation: %{projects}.'
+              unselected: 'These projects were successfully unselected from implementation: %{projects}.'
         proposals_imports:
           create:
             invalid: There was a problem importing the proposals into projects
@@ -285,7 +293,7 @@ en:
           votes:
             one: vote
             other: votes
-          you_voted: You voted this
+          you_voted: You voted for this
         project_budget_button:
           add: Add to your vote
           add_descriptive: Add project %{resource_name} to your vote

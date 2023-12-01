@@ -1,6 +1,12 @@
 ---
 el:
   activemodel:
+    attributes:
+      post:
+        body: Σώμα
+        decidim_author_id: Συντάκτης
+        published_at: Ώρα δημοσίευσης
+        title: Τίτλος
     models:
       decidim/blogs/create_post_event: Νέα ανάρτηση ιστολογίου
   activerecord:
@@ -19,8 +25,6 @@ el:
         title: Ενέργειες
       admin:
         models:
-          components:
-            body: Σώμα
           post:
             name: Δημοσίευση
         posts:
@@ -40,6 +44,11 @@ el:
           update:
             invalid: Υπήρξε ένα πρόβλημα κατά την αποθήκευση της ανάρτησης.
             success: Η ανάρτηση αποθηκεύτηκε με επιτυχία
+      admin_log:
+        post:
+          create: "Ο/Η %{user_name} δημιούργησε την ανάρτηση %{resource_name} στο %{space_name}"
+          delete: "Ο/Η %{user_name} διέγραψε την ανάρτηση %{resource_name} στο %{space_name}"
+          update: "Ο/Η %{user_name} ενημέρωση την ανάρτηση %{resource_name} στο %{space_name}"
       last_activity:
         new_post_at_html: "<span>Νέα ανάρτηση στις %{link}</span>"
       models:
@@ -48,7 +57,8 @@ el:
             author: Συντάκτης
             body: Σώμα
             created_at: Δημιουργήθηκε στις
-            title: τίτλος
+            official_blog_post: Επίσημη ανάρτηση
+            title: Τίτλος
       posts:
         show:
           back: Επιστροφή στη λίστα
@@ -60,6 +70,12 @@ el:
       read_more: Διαβάστε περισσότερα
     components:
       blogs:
+        actions:
+          comment: Σχόλιο
+          create: Δημιουργία
+          destroy: Διαγραφή
+          endorse: Επιδοκιμασία
+          update: Ενημέρωση
         name: Ιστολόγιο
         settings:
           global:

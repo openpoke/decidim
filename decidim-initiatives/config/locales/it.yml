@@ -55,9 +55,6 @@ it:
               title: Il nome non dovrebbe essere vuoto
   activerecord:
     models:
-      decidim/initiative:
-        one: Iniziativa
-        other: Iniziative
       decidim/initiative_comittee:
         one: Comitato di
         other: COMITATI
@@ -328,7 +325,6 @@ it:
           back: Indietro
           continue: Continua
           fill_data_help: "<ul> <li>Rivedi il contenuto della tua iniziativa. Il tuo titolo è facile da capire? L'obiettivo della tua iniziativa è chiaro?</li> <li>Devi scegliere il tipo di firma. Di persona, online o una combinazione di entrambe</li> <li>Qual è l'ambito territoriale dell'iniziativa? Città, municipio, quartiere?</li> </ul>"
-          initiative_type: Tipo di iniziativa
           more_information: "(Maggiori informazioni)"
           select_area: Seleziona un'area
           select_scope: Seleziona un ambito
@@ -405,7 +401,7 @@ it:
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> ha fatto domanda per il comitato promoter della tua iniziativa <a href="%{resource_url}">%{resource_title}</a>. Per accettare o rifiutare clicca <a href="%{resource_url}/edit">qui</a>.
       form:
         add_attachments: Documenti
-        delete_attachment: Cancella
+        delete_attachment: Elimina
       index:
         title: Iniziative
       initiative_signatures:
@@ -447,7 +443,7 @@ it:
           confirm_revoke: Sei sicuro?
           invite_to_committee_help: Condividi questo link per invitare altri utenti al comitato di promozione
           no_members_yet: Non vi sono membri nel comitato promotore
-          revoke: Revoca
+          revoke: Revocare
           title: Membri del comitato
         count:
           title:
@@ -549,11 +545,6 @@ it:
         status_change_for: L'iniziativa %{title} ha cambiato il suo stato
       last_activity:
         new_initiative: Nuova iniziativa
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Iniziative attive
-            see_all_initiatives: Vedi tutte le iniziative
       show:
         badge_name:
           accepted: Firme sufficienti

@@ -81,6 +81,10 @@ lv:
     admin:
       filters:
         proposals:
+          state_null:
+            label: Stāvoklis
+            values:
+              'true': Nav atbildēts
           valuator_role_ids_has:
             label: Piešķirts vērtētājam
         search_placeholder:
@@ -223,7 +227,6 @@ lv:
           affected_user:
             email_intro: 'Jūsu priekšlikums "%{resource_title}" tika noraidīts. Jūs varat izlasīt atbildi šajā lapā:'
             email_outro: Jūs saņēmāt šo paziņojumu, jo esat "%{resource_title}" autors.
-            email_subject: Jūsu priekšlikums tika noraidīts
             notification_title: Jūsu priekšlikums <a href="%{resource_path}">%{resource_title}</a> tika noraidīts.
           follower:
             email_intro: 'Priekšlikums "%{resource_title}" tika noraidīts. Jūs varat izlasīt atbildi šajā lapā:'
@@ -311,6 +314,9 @@ lv:
           preview: Priekšskatīt
         exports:
           proposals: Priekšlikumi
+        imports:
+          title:
+            proposals: Importēt priekšlikumus
         models:
           proposal:
             name: Priekšlikums
@@ -447,6 +453,7 @@ lv:
             no_components: Šajā līdzdalības telpā nav citu priekšlikumu komentāru, no kuriem importēt priekšlikumus.
             select_component: Lūdzu, izvēlieties komponentu
             select_states: Pārbaudiet importējamo priekšlikumu statusu
+            title: Importēt priekšlikumus
         proposals_merges:
           create:
             success: Visi priekšlikumi ir veiksmīgi apvienoti vienā jaunā priekšlikumā.
@@ -522,7 +529,6 @@ lv:
             one: "%{count} sadarbības projekts"
             other: "%{count} sadarbības projekti"
         create:
-          error: Šo sadarbības projektu izveides laikā radās problēma
           success: Sadarbības projekts ir veiksmīgi izveidots.
         edit:
           attachment_legend: "(Pēc izvēles) Pievienojiet pielikumu"
@@ -597,6 +603,9 @@ lv:
           info: Jūs veidojat <strong>sadarbības projektu</strong>.
         wizard_header:
           title: Izveidot jūsu sadarbības projektu
+      content_blocks:
+        highlighted_proposals:
+          proposals: Priekšlikumi
       create:
         error: Saglabājot priekšlikumu, radās problēma.
         success: Priekšlikums ir veiksmīgi izveidots. Saglabāts kā projekts.
@@ -700,8 +709,6 @@ lv:
           recent: Nesenie
           with_more_authors: Ar vairākiem autoriem
         participatory_texts:
-          index:
-            document_index: Dokumentu indekss
           view_index:
             see_index: Skatīt indeksu
         preview:

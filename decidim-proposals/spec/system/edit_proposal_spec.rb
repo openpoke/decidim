@@ -55,7 +55,7 @@ describe "Edit proposals", type: :system do
         dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("participatory_text.md"), keep_modal_open: true) do
           expect(page).to have_content("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions_image.join(", ")}")
         end
-        expect(page).to have_content("file should be one of (?-mix:image\\/.*?), (?-mix:application\\/pdf), (?-mix:application\\/rtf), (?-mix:text\\/plain)")
+        expect(page).to have_content("only files with the following extensions are allowed: bmp, gif, jpeg, jpg, pdf, png, rtf, txt")
       end
 
       context "with a file and photo" do
@@ -108,6 +108,50 @@ describe "Edit proposals", type: :system do
             expect(Decidim::Attachment.count).to eq(2)
             expect(translated(Decidim::Attachment.find_by(attached_to_id: proposal.id, content_type: "image/jpeg").title)).to eq(attachment_image_title)
             expect(translated(Decidim::Attachment.find_by(attached_to_id: proposal.id, content_type: "application/pdf").title)).to eq(attachment_file_title)
+          end
+        end
+
+        context "with problematic file titles" do
+          let!(:photo) { create(:attachment, :with_image, weight: 0, attached_to: proposal) }
+          let!(:document) { create(:attachment, :with_pdf, weight: 1, attached_to: proposal) }
+
+          before do
+            document.update!(title: { en: "<svg onload=alert('ALERT')>.pdf" })
+            photo.update!(title: { en: "<svg onload=alert('ALERT')>.jpg" })
+          end
+
+          it "displays them correctly on the edit form" do
+            # With problematic code, should raise Selenium::WebDriver::Error::UnexpectedAlertOpenError
+            click_link "Edit proposal"
+            expect(page).to have_content("Required fields are marked with an asterisk")
+            click_button("Edit documents")
+            within "[data-reveal]" do
+              click_button("Save")
+            end
+            click_button("Send")
+            expect(page).to have_content("Proposal successfully updated.")
+          end
+        end
+
+        context "with problematic file names" do
+          let!(:photo) { create(:attachment, :with_image, weight: 0, attached_to: proposal) }
+          let!(:document) { create(:attachment, :with_pdf, weight: 1, attached_to: proposal) }
+
+          before do
+            document.file.blob.update!(filename: "<svg onload=alert('ALERT')>.pdf")
+            photo.file.blob.update!(filename: "<svg onload=alert('ALERT')>.jpg")
+          end
+
+          it "displays them correctly on the edit form" do
+            # With problematic code, should raise Selenium::WebDriver::Error::UnexpectedAlertOpenError
+            click_link "Edit proposal"
+            expect(page).to have_content("Required fields are marked with an asterisk")
+            click_button("Edit documents")
+            within "[data-reveal]" do
+              click_button("Save")
+            end
+            click_button("Send")
+            expect(page).to have_content("Proposal successfully updated.")
           end
         end
       end
@@ -266,15 +310,16 @@ describe "Edit proposals", type: :system do
           proposal.update!(body: body)
           visit_component
           click_link proposal_title
+          click_link "Edit proposal"
         end
 
+        it_behaves_like "having a rich text editor", "edit_proposal", "basic"
+
         it "doesnt change the href" do
-          click_link "Edit proposal"
           expect(page).to have_link("this is a link", href: link)
         end
 
-        it "doesnt add external link container inside the editor" do
-          click_link "Edit proposal"
+        it "does not add external link container inside the editor" do
           editor = page.find(".editor-container")
           expect(editor).to have_selector("a[href='#{link}']")
           expect(editor).not_to have_selector("a.external-link-container")

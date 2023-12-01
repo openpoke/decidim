@@ -40,20 +40,15 @@ module Decidim
         end
       end
 
-      initializer "decidim_templates.admin_mount_routes" do
-        Decidim::Core::Engine.routes do
-          mount Decidim::Templates::AdminEngine, at: "/admin/templates", as: "decidim_admin_templates"
-        end
-      end
-
-      initializer "decidim_templates.admin_menu" do
+      initializer "decidim_templates_admin.menu" do
         Decidim.menu :admin_menu do |menu|
           menu.add_item :questionnaire_templates,
                         I18n.t("menu.templates", scope: "decidim.admin", default: "Templates"),
                         decidim_admin_templates.questionnaire_templates_path,
                         icon_name: "document",
                         position: 12,
-                        active: :inclusive
+                        active: :inclusive,
+                        if: allowed_to?(:read, :templates)
         end
       end
 

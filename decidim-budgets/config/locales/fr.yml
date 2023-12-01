@@ -18,7 +18,7 @@ fr:
         selected: Sélectionné pour l'implémentation
         title: Titre
       proposals_import:
-        scope_id: Périmètre d'application
+        scope_id: Secteur
   activerecord:
     models:
       decidim/budgets/project:
@@ -48,6 +48,7 @@ fr:
         import: Importer des propositions dans des projets
         new: Nouveau %{name}
         preview: Aperçu
+        send_voting_reminders: Envoyer des rappels de vote
         title: Actions
       admin:
         budgets:
@@ -93,8 +94,8 @@ fr:
             cancel: Annuler
             change_category: Modifier la catégorie
             change_scope: Changer le secteur
-            change_selected: Changer l'état "sélectionné"
-            deselect_implementation: Annuler la sélection
+            change_selected: Changer l'état sélectionné
+            deselect_implementation: Retirer de la sélection pour implémentation
             finished_orders: Votes terminés
             pending_orders: Votes en cours
             select_for_implementation: Sélectionné pour implémentation
@@ -119,10 +120,14 @@ fr:
             select_a_scope: Veuillez sélectionner un secteur
             success: 'Les projets ont été mis à jour avec succès avec le secteur %{subject_name} : %{projects}.'
           update_selected:
-            invalid: 'Ces projets étaient déjà sélectionnés pour l''implémentation : %{projects}.'
+            invalid:
+              selected: 'Ces projets ont déjà été sélectionnés pour une implémentation : %{projects}.'
+              unselected: 'Ces projets ont déjà été retirés de la sélection pour une implémentation : %{projects}.'
             select_a_project: Veuillez selectionner un projet
-            select_a_selection: Veuillez sélectionner un état de sélection pour implémentation
-            success: 'La sélection des projets a été modifiée avec succès : %{projects}.'
+            select_a_selection: Veuillez sélectionner un état d'implémentation
+            success:
+              selected: 'Ces projets ont été bien été sélectionnés pour une implémentation : %{projects}.'
+              unselected: 'Ces projets ont été retirés de la sélection pour une implémentation : %{projects}.'
         proposals_imports:
           create:
             invalid: Un problème est survenu lors de l'importation des propositions dans des projets
@@ -187,7 +192,7 @@ fr:
           fields:
             category: Catégorie
             id: ID
-            scope: Secteur
+            scope: Périmètre d'application
             title: Titre
       order_summary_mailer:
         order_summary:
@@ -256,7 +261,7 @@ fr:
             not_selected: Non sélectionné
             selected: Sélectionné
         filters_small_view:
-          close_modal: Fermez la fenêtre
+          close_modal: Fermer la fenêtre de dialogue
           filter: Filtrer
           filter_by: Filtrer par
           unfold: Voir la suite
@@ -285,7 +290,7 @@ fr:
           votes:
             one: vote
             other: votes
-          you_voted: Vous avez voté pour
+          you_voted: Vous avez voté pour ceci
         project_budget_button:
           add: Ajouter à votre vote
           add_descriptive: Ajouter le projet %{resource_name} à votre vote
@@ -319,6 +324,7 @@ fr:
               errors:
                 budget_voting_rule_only_one: Une seule règle de vote doit être activée
                 budget_voting_rule_required: Une règle de vote est requise
+            geocoding_enabled: Géocodage activé
             landing_page_content: Page d'accueil des budgets
             more_information_modal: Plus d’informations
             projects_per_page: Projets par page

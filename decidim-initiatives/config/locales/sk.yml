@@ -41,11 +41,6 @@ sk:
         name: Kompletné meno
   activerecord:
     models:
-      decidim/initiative:
-        one: Iniciatíva
-        few: Iniciatívy
-        many: Iniciatívy
-        other: Iniciatívy
       decidim/initiative_comittee:
         one: Komisia
         few: Komisie
@@ -190,7 +185,7 @@ sk:
           destroy:
             success: Typ iniciatívy bol úspešne odstránený
           edit:
-            confirm_destroy: Ste si istý?
+            confirm_destroy: Si si istý?
             destroy: Odstrániť
             update: Aktualizovať
           form:
@@ -229,7 +224,6 @@ sk:
         fill_data:
           back: Späť
           continue: Pokračovať
-          initiative_type: Typ iniciatívy
           more_information: "(Viac informácií)"
           select_scope: Zvoľte rozsah
         finish:
@@ -269,6 +263,8 @@ sk:
           email_outro: Toto oznámenie ste dostali, pretože sledujete %{author_nickname}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Iniciatíva bola schválená od%{author_nickname}
           notification_title: Iniciatíva <a href="%{resource_path}">% {resource_title} </a> bola schválená <a href="%{author_path}">% {AUTHOR_NAME}% {author_nickname} </a>.
+      form:
+        delete_attachment: Odstrániť
       index:
         title: Iniciatívy
       initiative_signatures:
@@ -307,6 +303,9 @@ sk:
             few: a%{count} ďalších ľudí
             many: a%{count} ďalších ľudí
             other: a%{count} ďalších ľudí
+        committee_members:
+          confirm_revoke: Si si istý?
+          revoke: Zrušiť
         count:
           title:
             one: "%{count} iniciatíva"
@@ -376,11 +375,6 @@ sk:
         status_change_for: Iniciatíva%{title} zmenila svoj stav
       last_activity:
         new_initiative: Nová iniciatíva
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Aktívne iniciatívy
-            see_all_initiatives: Zobraziť všetky iniciatívy
       states:
         accepted: Prijal
         expired: Platnosť vypršala

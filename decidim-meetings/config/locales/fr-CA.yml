@@ -2,10 +2,6 @@
 fr-CA:
   activemodel:
     attributes:
-      agenda:
-        description: Description
-        duration: Durée
-        title: Titre
       close_meeting:
         attendees_count: Nombre de participants
         attending_organizations: Liste des organisations qui ont participé à cette rencontre
@@ -23,8 +19,9 @@ fr-CA:
         decidim_scope_id: Périmètre d'application
         decidim_user_group_id: Groupe d'utilisateurs
         description: Description
-        end_time: Date de fin
+        end_time: Heure de fin
         id: ID
+        iframe_embed_type: Type d'Iframe encapsulée
         location: Lieu
         location_hints: Indicateurs d’emplacement
         online_meeting_url: URL de la rencontre
@@ -34,19 +31,34 @@ fr-CA:
         registration_email_custom_content: Contenu personnalisé de l'e-mail d'inscription
         registration_form_enabled: Formulaire d'inscription activé
         registration_terms: Conditions d'inscription
+        registration_type: Type d'inscription
         registration_url: URL d'inscription
         registrations_enabled: Inscriptions ouvertes
-        show_embedded_iframe: Montrer l'iframe intégrée pour cette URL
+        reserved_slots: Places réservées pour cette rencontre
         start_time: Heure de début
         title: Titre
         transparent: Visible par les non-membres
         type_of_meeting: Type
+      meeting_agenda:
+        title: Titre
+        visible: Visible
+      meeting_agenda_items:
+        description: Description
+        duration: Durée
+        title: Titre
+      meeting_registration_invite:
+        email: Email
+        name: Nom
+      validate_registration_code:
+        code: Code
     errors:
       models:
         meeting:
           attributes:
             iframe_embed_type:
               not_embeddable: Cette URL ne peut pas être intégrée dans la page de rencontre ou d'événement en direct
+            online_meeting_url:
+              url_format: Veuillez saisir une adresse URL valide
         meeting_agenda:
           attributes:
             base:
@@ -283,9 +295,6 @@ fr-CA:
           edit:
             close: Clore
             title: Clore la rencontre
-        meeting_copies:
-          form:
-            select_a_meeting_type: Veuillez sélectionner un type de rencontre
         meetings:
           close:
             invalid: Il y a eu un problème au moment de clore cette rencontre
@@ -312,7 +321,6 @@ fr-CA:
             select_a_meeting_type: Veuillez sélectionner un type de rencontre
             select_a_registration_type: Veuillez sélectionner un type d'inscription
             select_an_iframe_access_level: Veuillez sélectionner un niveau d'accès iframe
-            show_embedded_iframe_help: 'Seuls quelques services permettent d''intégrer des réunions ou des événements en direct depuis les domaines suivants : %{domains}'
           index:
             title: Rencontres
           new:
@@ -383,13 +391,18 @@ fr-CA:
           value_types:
             organizer_presenter:
               not_found: 'L''organisateur n''a pas été trouvé dans la base de données (ID: %{id})'
+        questionnaire:
+          update: "%{user_name} a mis à jour le questionnaire pour la réunion %{meeting_name}"
       application_helper:
         filter_category_values:
           all: Tous
         filter_meeting_space_values:
           all: Tous
         filter_scope_values:
-          all: Tous
+          all: Tout
+      calendar:
+        meeting_to_event:
+          read_more: En savoir plus sur cette réunion
       calendar_modal:
         calendar_url: URL du calendrier
         close_window: Fermer la fenêtre
@@ -509,7 +522,6 @@ fr-CA:
           select_a_meeting_type: Veuillez sélectionner un type de rencontre
           select_a_registration_type: Veuillez sélectionner un type d'inscription
           select_an_iframe_access_level: Veuillez sélectionner un niveau d'accès iframe
-          show_embedded_iframe_help: 'Seuls quelques services permettent d''intégrer des réunions ou des événements en direct depuis les domaines suivants : %{domains}'
         index:
           click_here: Voir toutes les réunions
           new_meeting: Nouvelle réunion
@@ -534,8 +546,8 @@ fr-CA:
           close_meeting: Clore la rencontre
           contributions: Décompte des contributions
           date: Date
-          edit_close_meeting: Modifier le rapport de la rencontre
-          edit_meeting: Modifier la réunion
+          edit_close_meeting: Modifier le compte-rendu de la rencontre
+          edit_meeting: Modifier la rencontre
           going: Vous vous êtes inscrit à cette rencontre
           join: Participer à la rencontre
           leave: Annuler votre inscription

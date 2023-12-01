@@ -88,6 +88,10 @@ sk:
     admin:
       filters:
         proposals:
+          state_null:
+            label: Štát
+            values:
+              'true': Nezodpovedané
           valuator_role_ids_has:
             label: Priradené ku hodnotiteľov
         search_placeholder:
@@ -221,7 +225,6 @@ sk:
           affected_user:
             email_intro: 'Váš návrh "%{resource_title}" bol zamietnutý. Odpoveď môžete čítať na tejto stránke: '
             email_outro: Toto oznámenie ste dostali, pretože ste autorom položky "%{resource_title}".
-            email_subject: Váš návrh bol zamietnutý
             notification_title: Váš návrh <a href="%{resource_path}">%{resource_title} </a> bol zamietnutý.
           follower:
             email_intro: 'Návrh "%{resource_title}" bol zamietnutý. Odpoveď môžete čítať na tejto stránke: '
@@ -312,6 +315,9 @@ sk:
           preview: Náhľad
         exports:
           proposals: Návrhy
+        imports:
+          title:
+            proposals: Importovať návrhy
         models:
           proposal:
             name: Návrh
@@ -451,6 +457,7 @@ sk:
             no_components: V tomto účastníckom priestore neexistujú žiadne iné komponenty návrhu, ktoré by mohli importovať návrhy.
             select_component: Vyberte súčasť
             select_states: Skontrolujte stav návrhov, ktoré chcete importovať
+            title: Importovať návrhy
         proposals_merges:
           create:
             success: Projekty boli úspešne zlúčené do novej.
@@ -527,7 +534,6 @@ sk:
             many: "%{count} návrh spolupráce"
             other: "%{count} návrh spolupráce"
         create:
-          error: Pri vytváraní tohto konceptu spolupráce vyskytol problém
           success: Projekt spolupráce bol úspešne vytvorený.
         edit:
           attachment_legend: "(Voliteľné) Pridanie prílohy"
@@ -603,6 +609,9 @@ sk:
           info: Pri vytváraní <strong> spolupráca návrhu </strong>.
         wizard_header:
           title: Vytvorte návrh spolupráca
+      content_blocks:
+        highlighted_proposals:
+          proposals: Návrhy
       create:
         error: Pri ukladaní návrhu došlo k chybám.
         success: Návrh bol úspešne vytvorený. Uložené ako návrh.
@@ -682,7 +691,7 @@ sk:
           type: Typ
           voted: Hlasoval
         filters_small_view:
-          close_modal: Zatvoriť okno
+          close_modal: Zatvoriť modálne
           filter: Filter
           filter_by: Filtrovať podľa
           unfold: Rozbaliť
@@ -709,8 +718,6 @@ sk:
           recent: Nedávno
           with_more_authors: S viac autormi
         participatory_texts:
-          index:
-            document_index: Index dokumentov
           view_index:
             see_index: Pozri index
         preview:

@@ -1,11 +1,7 @@
 ---
-pt:
+pt-BR:
   activemodel:
     attributes:
-      agenda:
-        description: Descrição
-        duration: Duração
-        title: Título
       close_meeting:
         attendees_count: Número de Participantes
         attending_organizations: Lista de organizações que participaram
@@ -23,7 +19,6 @@ pt:
         decidim_scope_id: Âmbito
         decidim_user_group_id: Grupo de usuários
         description: Descrição
-        end_time: Fim do tempo
         location: Localização
         location_hints: Dicas de localização
         online_meeting_url: URL da reunião on-line
@@ -35,7 +30,6 @@ pt:
         registration_terms: Termos de registro
         registration_url: URL de Registro
         registrations_enabled: Registos habilitados
-        start_time: Hora de início
         title: Título
         transparent: Transparente
         type_of_meeting: Tipo
@@ -302,7 +296,7 @@ pt:
             success: Enquete da reunião atualizada com sucesso
         models:
           meeting:
-            name: encontro
+            name: Encontro
         registrations:
           edit:
             save: Salvar
@@ -340,13 +334,18 @@ pt:
           value_types:
             organizer_presenter:
               not_found: 'O organizador não foi encontrado no banco de dados (ID: %{id})'
+      application_helper:
+        filter_scope_values:
+          all: Tudo
       calendar_modal:
         calendar_url: URL do calendário
         close_window: Janela fechada
+        copy_calendar_url_explanation: Por favor, note que você está exportando uma coletânea de reuniões, enquanto existem filtros ativos. Se você deseja exportar todas elas, redefina todos os filtros primeiro.
         export_calendar: Calendário de exportação
       conference_venues: Locais de conferência
       content_blocks:
         upcoming_meetings:
+          upcoming_meetings: Próximas reuniões
           view_all_meetings: Ver tudo
       directory:
         meetings:
@@ -408,8 +407,7 @@ pt:
           origin_values:
             all: Tudo
             official: Oficial
-            user_groups: Grupos
-          scope: Escopo
+          scope: Âmbito
           search: Pesquisa
           type: Tipo
           type_values:
@@ -452,10 +450,9 @@ pt:
           back: Voltar para a lista
           close_meeting: Reunião próxima
           contributions: Contagem de Contribuições
-          date: Encontro
-          edit_meeting: Editar Reunião
+          date: Data
+          edit_meeting: Editar reuniões
           going: Você se inscreveu para esta reunião
-          join: Participe da reunião
           leave: Cancelar registro
           leave_confirmation: Tem certeza de que deseja cancelar seu cadastro para esta reunião?
           meeting_minutes: Atas de Reunião
@@ -557,7 +554,7 @@ pt:
         see_all: Ver todos (%{count})
         upcoming_meetings: Próximas reuniões
       upcoming_meeting_for_card:
-        upcoming_meeting: Próxima reunião
+        upcoming_meeting: Próximo encontro
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Resultados relacionados:'

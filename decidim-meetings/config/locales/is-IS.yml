@@ -15,13 +15,11 @@ is:
         decidim_category_id: Flokkur
         decidim_scope_id: Umfang
         description: Lýsing
-        end_time: Lokatími
         location: Staðsetning
         location_hints: Staðsetningarmöguleikar
         private_meeting: Einkafundur
         registration_terms: Skráningarskilmálar
         registrations_enabled: Skráningar virkt
-        start_time: Byrjunartími
         title: Titill
         transparent: Gegnsætt
   decidim:
@@ -120,9 +118,6 @@ is:
             services: Þjónusta
           update:
             success: Fundur tókst að uppfæra
-        models:
-          meeting:
-            name: Fundur
         registrations:
           edit:
             save: Vista
@@ -142,6 +137,9 @@ is:
           value_types:
             organizer_presenter:
               not_found: 'Skipuleggjandi fannst ekki í gagnagrunninum (ID: %{id})'
+      content_blocks:
+        upcoming_meetings:
+          upcoming_meetings: Næstu fundir
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -155,11 +153,11 @@ is:
         filters:
           category: Flokkur
           date: Dagsetning
+          scope: Umfang
           search: Leita
         filters_small_view:
           close_modal: Loka mát
           filter: Sía
-          filter_by: Sía eftir
           unfold: Fella út
         meetings:
           no_meetings_warning: Engar fundir samræmast leitarskilyrðum þínum eða það er ekki fundur áætlað.
@@ -169,8 +167,9 @@ is:
           confirm: Staðfesta
         show:
           attendees: Þátttakendur telja
+          close_meeting: Loka fundi
           contributions: Framlög telja
-          join: Skráðu þig í fundi
+          date: Dagsetning
           no_slots_available: Engar rifa í boði
           organizations: Mæta stofnanir
       models:

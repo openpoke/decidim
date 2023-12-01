@@ -11,6 +11,7 @@ cs:
         end_time: Končí v
         information_updates: Aktualizace informací
         instructions: Pokyny k účasti
+        scope_id: Oblast působnosti
         start_time: Začíná v
         title: Titul
         user_group_id: Vytvořte debatu jako
@@ -113,6 +114,9 @@ cs:
           success: Debata byla úspěšně vytvořena.
         debate:
           participate: Účastnit se
+        debates:
+          empty: Zatím nejsou žádné diskuse.
+          empty_filters: S těmito kritérii nejsou žádné diskuse.
         edit:
           back: Zpět
           save: Uložit změny
@@ -164,7 +168,7 @@ cs:
           groups_count: Skupiny
           last_comment_by: Poslední komentář od
           no_comments_yet: Zatím žádné komentáře
-          open: Otevřít diskusi
+          open: Otevřená diskuse
           participants_count: Účastníci
         update:
           invalid: Při aktualizaci rozpravy došlo k chybě.

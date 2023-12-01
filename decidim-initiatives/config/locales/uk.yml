@@ -27,11 +27,6 @@ uk:
         name: Повне ім'я
   activerecord:
     models:
-      decidim/initiative:
-        one: Почин
-        few: Почини
-        many: Починів
-        other: Починів
       decidim/initiative_comittee:
         one: Робочий гурт
         few: Робочих гурти
@@ -184,7 +179,6 @@ uk:
         fill_data:
           back: Повернутись
           continue: Продовжити
-          initiative_type: Різновид почину
           more_information: "(Додаткові відомості)"
           select_scope: Оберіть обсяг
         finish:
@@ -222,6 +216,8 @@ uk:
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: '%{author_nickname} підтримав почин'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> підтримав почин <a href="%{resource_path}">%{resource_title}</a>.
+      form:
+        delete_attachment: Видалити
       index:
         title: Почини
       initiative_votes:
@@ -236,6 +232,9 @@ uk:
             few: і ще %{count} людей
             many: і ще %{count} людей
             other: і ще %{count} людей
+        committee_members:
+          confirm_revoke: Ви впевнені?
+          revoke: Відкликати
         count:
           title:
             one: "%{count} почин"
@@ -293,11 +292,8 @@ uk:
         promotal_committee_help: Пам'ятайте, що ви повинні запросити щонайменше %{member_count} людей до робочого гурту з просування. Перешліть їм наступне посилання, щоб запросити їх до робочого гурту з просування
         status_change_body_for: 'Стан почину %{title} змінився на: %{state}'
         status_change_for: Стан почину %{title} змінився
-      pages:
-        home:
-          highlighted_initiatives:
-            active_initiatives: Діючі почини
-            see_all_initiatives: Переглянути всі почини
+      last_activity:
+        new_initiative: Започаткувати почин
       states:
         accepted: Прийняті
         expired: Строк дії яких закінчився
@@ -306,6 +302,7 @@ uk:
   layouts:
     decidim:
       initiative_creation_header:
+        back: Повернутись
         fill_data: Внести
         finish: Завершити
         previous_form: Почати
@@ -314,6 +311,8 @@ uk:
         show_similar_initiatives: Порівняти
       initiative_header:
         initiative_menu_item: Почин
+      initiative_signature_creation_header:
+        back: Повернутись
       initiatives:
         initiative:
           check: Перевірте ще раз

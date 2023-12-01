@@ -1,6 +1,12 @@
 ---
 hu:
   activemodel:
+    attributes:
+      post:
+        body: Törzs
+        decidim_author_id: Szerző
+        published_at: Közzététel időpontja
+        title: Cím
     models:
       decidim/blogs/create_post_event: Új blogbejegyzés
   activerecord:
@@ -11,6 +17,7 @@ hu:
   decidim:
     blogs:
       actions:
+        author_id: Bejegyzés létrehozása
         confirm_destroy: Biztos, hogy törlöd ezt a bejegyzést?
         destroy: Törlés
         edit: Szerkesztés
@@ -18,8 +25,6 @@ hu:
         title: Műveletek
       admin:
         models:
-          components:
-            body: Szöveg
           post:
             name: Bejegyzés
         posts:
@@ -30,6 +35,7 @@ hu:
             success: Bejegyzés törlése sikeres
           edit:
             save: Frissítés
+            title: Bejegyzés szerkesztése
           index:
             title: Bejegyzések
           new:
@@ -38,6 +44,11 @@ hu:
           update:
             invalid: Hiba történt a bejegyzés mentése során.
             success: Bejegyzés mentése sikeres
+      admin_log:
+        post:
+          create: "%{user_name} létrehozta a(z) %{resource_name} blogposztot itt: %{space_name}"
+          delete: "%{user_name} törölte a(z) %{resource_name} blogposztot itt: %{space_name}"
+          update: "%{user_name} frissítette a(z) %{resource_name} blogposztot itt: %{space_name}"
       last_activity:
         new_post_at_html: "<span>Új hozzászólás %{link}</span>kor"
       models:
@@ -46,7 +57,8 @@ hu:
             author: Szerző
             body: Szöveg
             created_at: 'Létrehozva:'
-            title: cím
+            official_blog_post: Hivatalos bejegyzés
+            title: Cím
       posts:
         show:
           back: Vissza a listához
@@ -58,11 +70,18 @@ hu:
       read_more: Bővebben
     components:
       blogs:
+        actions:
+          comment: Hozzászólás
+          create: Létrehozás
+          destroy: Törlés
+          endorse: Helyesel/Jóváhagy
+          update: Frissítés
         name: Blog
         settings:
           global:
             announcement: Közlemény
             comments_enabled: Megjegyzések engedélyezve
+            comments_max_length: Kommentek maximális hossza (Hagyjon 0 -t az alapértékhez)
           step:
             announcement: Közlemény
             comments_blocked: Megjegyzések letiltva
@@ -75,3 +94,5 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Leiratkozás az előző link segítségével.'
           email_subject: 'Új bejegyzés ehhez: %{participatory_space_title}'
           notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> bejegyzés közzétéve itt: %{participatory_space_title}'
+    statistics:
+      posts_count: Bejegyzések

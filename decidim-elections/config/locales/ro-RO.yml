@@ -12,13 +12,17 @@ ro:
         end_time: Votarea se încheie la
         start_time: Votarea începe la
         title: Titlu
+      polling_station:
+        title: Titlu
       question:
         max_selections: Numărul maxim de selecții
         min_selections: Niciuna dintre opțiunile de mai sus
         title: Titlu
       voting:
         end_time: Votarea se încheie
+        scope_id: Domeniu de interes
         start_time: Votarea începe
+        title: Titlu
     errors:
       models:
         answer:
@@ -100,7 +104,6 @@ ro:
           label: Validat
           values:
             'false': Validat
-            'true': Nevalidat
     components:
       elections:
         actions:
@@ -397,7 +400,6 @@ ro:
           active: Activ
           all: Toate
           finished: Finalizat
-          search: Caută
           upcoming: Urmează
         filters_small_view:
           close_modal: Închidere
@@ -543,6 +545,7 @@ ro:
         header:
           confirm: Confirmă votul tău
           confirmed: Votare confirmată
+          failed: Vot eșuat
         messages:
           invalid_token: Sesiunea din cabina de vot nu este validă. Încercați să votați din nou.
           not_allowed: Nu aveţi voie să votaţi asupra acestor alegeri în acest moment.
@@ -589,19 +592,15 @@ ro:
           index:
             actions:
               confirm_destroy: Sigur dorești asta?
+              destroy: Șterge
+              edit: Editare
+              title: Acțiuni
             associated_census_data: Intrări asociate recensământului
             explanation_callout: Un stil de votare specifică ce fel de întrebări va primi un alegător în cabina de vot. Poți alege ce întrebări aparțin votării din componeta alegeri. Codul stilului de vot este folosit pentru a potrivi un alegător de la recensământ cu buletinul de vot pe care îl vor primi în cabina de vot. Nu crea niciun stil de votare dacă vrei să prezinți mereu toate întrebările.
           new:
             create: Creează
             title: Creează stil de vot
-        content_blocks:
-          landing_page:
-            attachments_and_folders:
-              name: Atașamente și dosare aferente votării
-            elections:
-              name: Alegeri cu votare
         index:
-          not_published: Anulează publicarea
           published: Publicate
         landing_page:
           edit:
@@ -616,7 +615,16 @@ ro:
             monitoring_committee: Comitetul de monitorizare
             monitoring_committee_members: Membri
             monitoring_committee_verify_elections: Verifică alegerile
+        models:
+          polling_station:
+            fields:
+              title: Titlu
+          voting:
+            fields:
+              title: Titlu
         monitoring_committee_election_results:
+          actions:
+            title: Acțiuni
           results:
             bulletin_board: Panoul de afișare
           update:
@@ -630,6 +638,7 @@ ro:
         monitoring_committee_polling_station_closures:
           actions:
             title: Acțiuni
+            validate: Validează
         monitoring_committee_verify_elections:
           index:
             how_to_run_verifier: 'Odată ce ai descărcat fișierul și te-ai asigurat că este în regulă, poți continua pornind verificatorul universal. Clonează <a href=''https://github.com/decidim/decidim-bulletin-board''>acestă arhivă</a> și, din dosarul rădăcină, rulează comanda următoare:'
@@ -640,6 +649,8 @@ ro:
           new:
             create: Creează
             title: Creează verificator al scrutinului
+          polling_officers_picker:
+            close: Inchide
         polling_stations:
           new:
             create: Creează
@@ -647,10 +658,12 @@ ro:
         votings:
           actions:
             confirm_destroy: Sigur dorești asta?
+            publish: Publică
+            unpublish: De-publicare
           edit:
             add_election_component: Nu ai alegeri configurate pentru acest vot. Te rugăm să o adaugi în secțiunea Componente
           form:
-            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest proces de votare. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+            title: Titlu
           new:
             create: Creează
       census:
@@ -678,11 +691,15 @@ ro:
       monitoring_committee_members:
         actions:
           confirm_destroy: Sigur dorești asta?
+          title: Acțiuni
       polling_officer_zone:
         closures:
           new:
             modal_ballots_count_error:
+              close_modal: Inchide
               text_area_placeholder: Te rugăm să îți scrii mesajul
+          sign:
+            close_modal: Inchide
         in_person_votes:
           complete_voting:
             questions_title: 'Are drept de vot pentru umătoarele întrebări:'
@@ -703,13 +720,16 @@ ro:
       polling_officers:
         actions:
           confirm_destroy: Sigur dorești asta?
+          title: Acțiuni
       polling_stations:
         actions:
           confirm_destroy: Sigur dorești asta?
+          title: Acțiuni
       votings:
         check_census:
           check_status: Verifică starea
           form_title: 'Completează următorul formular pentru a verifica datele recensământului:'
+          title: Pot vota?
         check_fields:
           date_of_birth: Data naşterii
           day: Zi
@@ -725,6 +745,7 @@ ro:
           year_placeholder: AAAA
         elections_log:
           description: Jurnalul alegerilor îți va arăta toate informațiile relevante aferente fiecărui proces de vot. De exemplu, rezultatul numărării voturilor și dacă acesstea sunt deja publicate. Apasă pe alegerile despre care vrei să aflii mai multe detalii.
+          election_log: Jurnal al alegerilor
         login:
           access_code: Cod de acces
           access_code_placeholder: Cod de acces
@@ -735,6 +756,12 @@ ro:
           step: Identificare
           title: Mă identifică cu datele mele de recensământ de vot
         no_census_contact_information: Nu există încă informații de contact
+        show:
+          dates: Date
+      votings_m:
+        footer_button_text:
+          view: Vizualizare
+          vote: Votează
   layouts:
     decidim:
       election_votes_header:

@@ -113,7 +113,6 @@ ga:
     devise:
       registrations:
         new:
-          sign_in: Logáil isteach
           sign_up: Cláraigh
       shared:
         omniauth_buttons:
@@ -149,12 +148,15 @@ ga:
     follows:
       create:
         button: Lean
+    forms:
+      upload:
+        labels:
+          cancel: Cealaigh
+          save: Sábháil
     gamification:
       badges:
         index:
           title: Suaitheantais
-        invitations:
-          name: Cuirí
     group_invites:
       accept_invitation: Glac
       index:
@@ -187,7 +189,7 @@ ga:
           next: I ndiaidh
         reply:
           send: Seol
-          title: Freagra
+          title: Freagair
         start:
           send: Seol
     newsletter_templates:
@@ -323,20 +325,18 @@ ga:
       edit:
         submit_button: Sábháil
     registrations:
-      edit:
-        update: Nuashonraigh
       new:
         sign_up: Cláraigh
-    sessions:
-      new:
-        sign_in: Logáil isteach
     shared:
       links:
         back: Ar Ais
-        sign_in: Logáil isteach
         sign_up: Cláraigh
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            type: Cineál
       edit_link:
         edit: Eagar
       header:
@@ -354,6 +354,7 @@ ga:
         see_more: Feic níos mó
   locale:
     name: Gaeilge
+    name_with_error: Gaeilge (earráid!)
   social_share_button:
     douban: Douban
     email: Seoladh ríomhphoist

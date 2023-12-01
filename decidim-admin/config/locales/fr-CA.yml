@@ -15,17 +15,24 @@ fr-CA:
         description: Description
         file: Fichier
         title: Nom de la pièce jointe ou de l'image
+        weight: Rang d'affichage
       attachment_collection:
         description: Description
         name: Titre
+        weight: Rang d'affichage
       category:
         description: Description
         name: Titre
         parent_id: Parent
+        weight: Rang d'affichage
       component:
         name: Titre
         published_at: Publiée à
         weight: Rang
+      external_domain:
+        value: Valeur
+      help_section:
+        content: Contenu
       id: ID
       import:
         user_group_id: Créer des imports en tant que
@@ -86,13 +93,16 @@ fr-CA:
         success_color: Succès
         time_zone: Fuseau horaire
         tos_version: Version des conditions d'utilisation
-        twitter_handler: Gestionnaire Twitter
+        twitter_handler: Gestionnaire X (ancien Twitter)
         user_groups_enabled: Activer les groupes d'utilisateurs
         users_registration_mode: Mode d'inscription des utilisateurs
         warning_color: Attention
         welcome_notification_body: Corps du mail de bienvenue
         welcome_notification_subject: Objet du mail de bienvenue
         youtube_handler: Gestionnaire YouTube
+      participatory_space_private_user:
+        email: Email
+        name: Nom
       scope:
         code: Code
         name: Titre
@@ -114,6 +124,7 @@ fr-CA:
         show_in_footer: Montrer dans le pied de page
         slug: Identifiant
         title: Titre
+        topic_id: Sujet
         weight: Rang
       static_page_topic:
         description: La description
@@ -134,6 +145,14 @@ fr-CA:
               allowed_file_content_types: Fichier image invalide
             official_img_header:
               allowed_file_content_types: Fichier image invalide
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Fichier d'importation mal formé, veuillez lire attentivement les instructions et assurez-vous que le fichier est encodé en UTF-8.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Fichier d'importation mal formé, veuillez lire attentivement les instructions et assurez-vous que le fichier est encodé en UTF-8.
       new_import:
         attributes:
           file:
@@ -185,14 +204,14 @@ fr-CA:
           error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation administrateur.
           success: Super! Vous avez accepté les conditions d'utilisation administrateur.
         actions:
-          accept: J'accepte les conditions d'utilisation suivantes
+          accept: J'accepte les conditions d'utilisation
           are_you_sure: Êtes-vous sûr de vouloir refuser les conditions d'utilisation de l'administrateur?
           refuse: Refuser les conditions d'utilisation administrateur
           title: Accepter les conditions d'utilisation
         required_review:
           alert: 'Obligatoire: Consultez nos conditions d''utilisation administrateur'
           callout: Veuillez prendre un moment pour consulter les conditions d'utilisation de l'administration. Sinon, vous ne pourrez pas gérer la plateforme.
-          cta: Consulter les maintenant.
+          cta: Consultez les maintenant.
         title: Conditions d'utilisation administrateur
       area_types:
         create:
@@ -635,7 +654,7 @@ fr-CA:
           nickname: Pseudonyme
           reason: Raison du signalement
           reports: Nombre de signalements
-          title: Liste des utilisateurs signalés
+          title: Participants signalés
         report:
           reasons:
             does_not_belong: N'appartient pas
@@ -646,7 +665,7 @@ fr-CA:
           unblocked: Non bloqué
       moderations:
         index:
-          title: Modérations
+          title: Contenu signalé
         report:
           reasons:
             does_not_belong: N'appartient pas
@@ -717,7 +736,7 @@ fr-CA:
           select_scopes: Filtrer pour les utilisateurs ayant activé un secteur dans les paramètres "Mes intérêts".
           select_spaces: Sélectionnez les espaces pour segmenter la newsletter
           select_users: Sélectionnez les utilisateurs à qui vous souhaitez envoyer la newsletter
-          send_to_all_users: Envoyer à tous
+          send_to_all_users: Envoyer à tous les utilisateurs
           send_to_followers: Envoyer aux abonnés
           send_to_participants: Envoyer aux participants
           title: Sélectionner les destinataires
@@ -780,7 +799,7 @@ fr-CA:
           instagram: Instagram
           rich_text_editor_in_public_views_help: Dans certains champs textuel, les participants pourront insérer des balises HTML en utilisant l'éditeur de texte avancé.
           social_handlers: Liens des réseaux sociaux
-          twitter: Twitter
+          twitter: X
           url: URL
           youtube: YouTube
         update:
@@ -794,7 +813,7 @@ fr-CA:
             colors_title: Couleurs de l'organisation
             colors_warning_html: Attention ! La modification de ces couleurs peut rompre les contrastes d'accessibilité. Vous pouvez vérifier le contraste de votre choix avec <a href="%{link}">WebAIM Contrast Checker</a> ou d'autres outils similaires.
             header_snippets_help: Utilisez ce champ pour ajouter des éléments entre les balises HTML <head> </head>. L'utilisation la plus courante de champs consiste à intégrer des services tiers nécessitant du JavaScript ou du CSS supplémentaire. Vous pouvez aussi l'utiliser pour ajouter des méta-tags supplémentaires au code HTML. Notez que cela ne fonctionnera que dans sur les pages publiques, et non dans la section admin.
-          cta_button_path_help: 'Vous pouvez remplacer le lien vers lequel renvoie le bouton de la page d''accueil. Utilisez ici des chemins partiels et non des URL complets. Il accepte les lettres, les chiffres, les tirets et les barres obliques, et doit commencer par une lettre. Le bouton apparaît sur la page d''accueil entre le texte de bienvenue et la description. Exemple : %{url}'
+          cta_button_path_help: 'Vous pouvez remplacer le lien du bouton d''appel à l''action de la page d''accueil. Utilisez des chemins partiels, pas des URL complètes ici. Accepte les lettres, chiffres, tirets et barres obliques, et doit commencer par une lettre. Le bouton d''appel à l''action est affiché sur la page d''accueil entre le texte de bienvenue et la description. Exemple : %{url}'
           cta_button_text_help: Vous pouvez remplacer le texte du bouton dans la page d'accueil pour chaque langue disponible dans votre organisation. Si elle n'est pas définie, la valeur par défaut sera utilisée. Le bouton apparaît sur la page d'accueil entre le texte de bienvenue et la description.
           homepage_appearance_title: Modifier l'apparence de la page d'accueil
           homepage_highlighted_content_banner_title: Bannière de contenu mis en valeur
@@ -815,8 +834,8 @@ fr-CA:
           title: Liste blanche du domaine externe
       organization_homepage:
         edit:
-          active_content_blocks: Blocs de contenu actif
-          inactive_content_blocks: Blocs de contenu inactif
+          active_content_blocks: Blocs de contenu actifs
+          inactive_content_blocks: Blocs de contenu inactifs
       organization_homepage_content_blocks:
         edit:
           update: Mettre à jour
@@ -835,7 +854,7 @@ fr-CA:
           title: Nouvel utilisateur privé de l'espace participatif.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Il y a eu un problème de lecture du fichier CSV.
+          invalid: Une erreur s'est produite lors de la lecture du fichier CSV.
           success: Fichier CSV a été transféré avec succès, nous envoyons un courriel d'invitation aux participants. Cela peut prendre un certain temps.
         new:
           destroy:
@@ -943,7 +962,7 @@ fr-CA:
           update: Mettre à jour
         form:
           none: Aucun
-          slug_help: 'Utilisez des chemins partiels, pas des URL complètes ici. Accepte les lettres, les chiffres, les tirets et les barres obliques et doit commencer par une lettre. Si non défini, le bouton ne sera pas affiché. Exemple: %{url}'
+          slug_help: 'Utilisez des chemins partiels, pas des URL complètes ici. Accepte les lettres, les chiffres, les tirets et les barres obliques et doit commencer par une lettre. Exemple : %{url}'
         index:
           last_notable_change: Dernier changement notable
         new:
@@ -963,9 +982,12 @@ fr-CA:
         areas: Zones d'application
         authorization_workflows: Méthodes de vérification
         dashboard: Tableau de bord
+        edit_external_domains: Liste des domaines externes autorisés
+        edit_organization_appearance: Modifier l'apparence de la page d'accueil
         impersonatable_users: Utilisateurs gérables
         impersonations: Gestion des utilisateurs
         metrics: Indicateurs
+        pages: Page(s)
         panel: Administrateur
         participants: Utilisateurs
         scope_types: Types de secteur
@@ -1057,13 +1079,14 @@ fr-CA:
         moderation:
           fields:
             created_at: Date de création
+            deleted_resource: Ressource supprimée
             hidden_at: Masqué le
             participatory_space: Espace participatif
             report_count: Compteur
             reportable_id: ID
             reportable_type: Type
             reported_content_url: URL
-            reports: Motif
+            reports: Signalements
             visit_url: Visitez l'URL
         report:
           fields:
@@ -1079,8 +1102,8 @@ fr-CA:
         global_moderations:
           title: Modération globale
         newsletters:
-          title: Newsletters
+          title: Bulletins d'information (newsletter)
         settings:
           title: Paramètres
         users:
-          title: Utilisateurs
+          title: Participants

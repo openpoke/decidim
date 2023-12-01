@@ -42,6 +42,9 @@ Decidim.configure do |config|
 
   # Map and Geocoder configuration
   #
+  # See Decidim docs at https://docs.decidim.org/en/develop/services/maps.html
+  # for more information about how it works and how to set it up.
+  #
   # == HERE Maps ==
   # config.maps = {
   #   provider: :here,
@@ -337,12 +340,12 @@ Decidim.configure do |config|
   # set cookies.
   config.consent_cookie_name = Rails.application.secrets.decidim[:consent_cookie_name] if Rails.application.secrets.decidim[:consent_cookie_name].present?
 
-  # Defines cookie consent categories and cookies.
+  # Defines data consent categories and the data stored in each category.
   # config.consent_categories = [
   #   {
   #     slug: "essential",
   #     mandatory: true,
-  #     cookies: [
+  #     items: [
   #       {
   #         type: "cookie",
   #         name: "_session_id"
