@@ -5,8 +5,10 @@ module Decidim
   class ReportedMailer < Decidim::ApplicationMailer
     helper Decidim::ResourceHelper
     helper Decidim::TranslationsHelper
+    helper Decidim::ComponentPathHelper
 
-    helper_method :reported_content_url, :report_url, :manage_moderations_url, :author_profile_url, :reported_content_cell
+    helper_method :reported_content_url, :report_url, :manage_moderations_url, :author_profile_url,
+                  :reported_content_cell, :resource_admin_url
 
     def report(user, report)
       with_user(user) do
@@ -46,6 +48,10 @@ module Decidim
 
     def report_url
       @report_url ||= EngineRouter.admin_proxy(@participatory_space).moderation_report_url(host: @organization.host, moderation_id: @report.moderation.id, id: @report.id)
+    end
+
+    def resource_admin_url
+      @resource_admin_url ||= Decidim::ResourceLocatorPresenter.new(@reportable).admin_url
     end
 
     def manage_moderations_url
