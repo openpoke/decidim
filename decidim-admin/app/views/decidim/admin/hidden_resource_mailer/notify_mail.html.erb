@@ -1,0 +1,12 @@
+<p class="email-greeting"><%= t ".hello" %></p>
+
+<p class="email-instructions"><%= t ".body_1" %></p>
+
+<p><strong><%= t ".reason", reason: h(@reason.join(", ")) %></strong></p>
+
+<p><strong><%= translated_attribute(@resource.title) %></strong></p>
+
+<p class="email-instructions">
+  <%= t ".body_2" %>
+  <%= link_to @organization.name, decidim.root_url(host: @organization.host).html_safe %>
+</p>
