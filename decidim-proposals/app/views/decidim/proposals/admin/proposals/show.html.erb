@@ -39,6 +39,20 @@
       <strong><%= t ".body" %>:</strong> <%= simple_format(present(proposal).body(strip_tags: true)) %>
     </div>
 
+    <% if component_settings.geocoding_enabled? %>
+      <div class="row column">
+        <strong><%= t ".geolocated_at" %>:</strong>
+        <div class="address__info">
+          <div class="address__icon">
+            <%= icon "proposals", role: "img", "aria-hidden": true, width: 40, height: 70 %>
+          </div>
+          <div class="address__details">
+            <%= render partial: "decidim/shared/address_details", locals: { geolocalizable: proposal } %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
     <div class="row column">
       <strong><%= t ".created_at" %>:</strong> <%= l proposal.created_at, format: :decidim_short %>
     </div>
