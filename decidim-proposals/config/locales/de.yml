@@ -192,7 +192,7 @@ de:
             amendments_visibility_choices:
               all: Ergänzungen sind für alle sichtbar
               participants: Ergänzungen sind nur für ihre Autoren sichtbar
-            amendments_visibility_help: Wenn die Option „Ergänzungen sind nur für ihre Autoren sichtbar“ ausgewählt ist, müssen Teilnehmer eingeloggt sein, um die vorgenommenen Ergänzungen zu sehen.
+            amendments_visibility_help: Wenn die Option „Ergänzungen sind nur für ihre Autoren sichtbar“ ausgewählt ist, müssen Teilnehmer angemeldet sein, um die vorgenommenen Ergänzungen zu sehen.
             announcement: Ankündigung
             answers_with_costs: Kosten für Vorschlagsantworten aktivieren
             automatic_hashtags: Hashtags wurden allen Vorschlägen hinzugefügt
@@ -753,7 +753,7 @@ de:
             notes: Anmerkungen
             official_proposal: Offizieller Vorschlag
             published_answer: Veröffentlichte Antwort
-            published_at: Veröffentlicht unter
+            published_at: Veröffentlicht am
             scope: Umfang
             state: Zustand
             title: Titel
@@ -785,7 +785,7 @@ de:
             other: "%{count} Vorschläge"
         dynamic_map_instructions:
           description: Die Koordinaten werden aktualisiert, wenn Sie auf "Vorschau" klicken. Die angegebene Adresse wird sich jedoch nicht ändern.
-          instructions: Sie können den Marker auf der Karte verschieben.
+          instructions: Sie können den Punkt auf der Karte verschieben.
         edit:
           add_documents: Dokumente hinzufügen
           add_image: Bild hinzufügen
@@ -915,7 +915,7 @@ de:
             description: Jeder Vorschlag kann mehr als %{limit} Unterstützungen sammeln
           minimum_votes_per_user:
             description: Sie müssen mindestens %{votes} Stimmen auf verschiedene Vorschläge verteilen.
-            given_enough_votes: Du hast genug Unterstützung gegeben.
+            given_enough_votes: Sie haben ausreichend Stimmen abgegeben.
             supports_remaining: Sie müssen %{remaining_votes} weitere Vorschläge abgeben, damit Ihre Stimmen berücksichtigt werden.
           proposal_limit:
             description: Sie können bis zu %{limit} Vorschläge erstellen.

@@ -63,7 +63,7 @@ ca:
         personal_url: URL personal
         position: Càrrec
         short_bio: Breu biografia
-        twitter_handle: Compte de Twitter
+        twitter_handle: Compte a X
         user_id: Usuària
       conference_user_role:
         email: Correu electrònic
@@ -347,7 +347,7 @@ ca:
               accepted: Acceptada
               all: Totes
               rejected: Rebutjada
-              sent: Enviada
+              sent: Enviat
             filter_by: Filtrar per
             invite_attendee: Convidar participant
             invites: Convida
@@ -428,7 +428,7 @@ ca:
         pending_validation:
           confirmation_pending: Rebràs la confirmació en breu
           details: 'La teva inscripció a la jornada és de tipus %{registration_type} amb un cost de %{price} i pots assistir als següents esdeveniments:'
-          pending_html: La teva inscripció a la jornada <a href="%{url}">%{title}</a> està pendent de confirmación.
+          pending_html: La teva inscripció a la jornada <a href="%{url}">%{title}</a> està pendent de confirmació.
       conference_registrations:
         create:
           invalid: S'ha produït un error en inscriure't a aquesta jornada.
@@ -442,7 +442,7 @@ ca:
           invalid: S'ha produït un error en abandonar aquesta jornada.
           success: Has abandonat la jornada correctament.
       conference_speaker:
-        go_to_twitter: Anar a Twitter
+        go_to_twitter: Ves a X
         more_info: més informació
         personal_website: Lloc web personal
         show:

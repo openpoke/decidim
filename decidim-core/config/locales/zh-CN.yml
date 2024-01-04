@@ -386,7 +386,6 @@ zh-CN:
           already_have_an_account?: 已经有一个帐户？
           newsletter: 接收附带相关信息的时事通讯
           newsletter_title: 联系人权限
-          sign_in: 登录
           sign_up: 注册
           sign_up_as:
             legend: 注册为
@@ -432,7 +431,6 @@ zh-CN:
         download_data: 下载数据
         request_data: 请求数据
     endorsable:
-      endorsements: 授权
       endorsements_count: 批准次数
     endorsement_buttons_cell:
       already_endorsed: 已批准
@@ -635,6 +633,10 @@ zh-CN:
       file_validation:
         allowed_file_extensions: '允许的文件扩展名: %{extensions}'
         max_file_size: '最大文件大小: %{megabytes}MB'
+      upload:
+        labels:
+          cancel: 取消
+          save: 保存
     gamification:
       all_badges_link: 查看所有可用的徽章。
       badges:
@@ -959,7 +961,6 @@ zh-CN:
           proposals: 建议
           proposals_explanation: 提出建议、支持现有建议并促进你想要看到的更改。
         footer_sub_hero:
-          footer_sub_hero_body: 让我们建设一个更加开放、透明和协作的社会。<br /> 加入、参与和决定。
           footer_sub_hero_headline: 欢迎使用 %{organization} 参与式平台。
           register: 注册
         hero:
@@ -1334,8 +1335,6 @@ zh-CN:
       updated: 您的帐户已成功更新。
     sessions:
       already_signed_out: 已成功注销。
-      new:
-        sign_in: 登录
       signed_in: 登录成功。
       signed_out: 已成功注销。
     shared:
@@ -1344,7 +1343,6 @@ zh-CN:
         didn_t_receive_confirmation_instructions: 没有收到确认说明？
         didn_t_receive_unlock_instructions: 没有收到解锁指令？
         forgot_your_password: 忘记密码？
-        sign_in: 登录
         sign_in_with_provider: 使用 %{provider} 登录
         sign_up: 注册
       minimum_password_length:
@@ -1414,8 +1412,9 @@ zh-CN:
         facebook: "%{organization} 在 Facebook"
         github: "%{organization} 在 GitHub"
         instagram: "%{organization} 在 Instagram"
-        twitter: "%{organization} 在 Twitter"
         youtube: "%{organization} 在 YouTube"
+      upload_modal:
+        close_modal: 关闭模式
       user_menu:
         account: '用户帐户: %{name}'
         admin_dashboard: 管理员控制面板

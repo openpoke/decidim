@@ -63,7 +63,6 @@ ro:
         personal_url: URL personal
         position: Poziție
         short_bio: Biografie scurtă
-        twitter_handle: Responsabil Twitter
         user_id: Utilizator
       conference_user_role:
         email: E-mail
@@ -208,7 +207,7 @@ ro:
         conference:
           fields:
             created_at: Creat la
-            promoted: Evident
+            promoted: Evidenţiat
             published: Publicat
             title: Titlu
         conference_speaker:
@@ -332,9 +331,6 @@ ro:
         title: Vorbitori
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică această conferință. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         conference_invites:
           create:
             error: A apărut o problemă la invitarea participantului să participe la conferinţă.
@@ -347,9 +343,7 @@ ro:
             select_user: Selectați un participant
           index:
             filter:
-              accepted: Acceptat
               all: Toate
-              rejected: Respins
               sent: Trimis
             filter_by: Filtrare după
             invite_attendee: Invite participant
@@ -377,7 +371,6 @@ ro:
               one: A existat o înregistrare.
               few: Au fost %{count} înregistrări.
               other: Au fost %{count} înregistrări.
-            slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică această conferință. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
         diplomas:
           edit:
             save: Salvează
@@ -446,7 +439,6 @@ ro:
           invalid: A apărut o problemă la ieşirea din această conferinţă.
           success: Aţi părăsit cu succes conferinţa.
       conference_speaker:
-        go_to_twitter: Mergi la Twitter
         more_info: mai multe informații
         personal_website: Website personal
         show:

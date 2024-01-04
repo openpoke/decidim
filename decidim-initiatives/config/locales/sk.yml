@@ -185,7 +185,7 @@ sk:
           destroy:
             success: Typ iniciatívy bol úspešne odstránený
           edit:
-            confirm_destroy: Ste si istý?
+            confirm_destroy: Si si istý?
             destroy: Odstrániť
             update: Aktualizovať
           form:
@@ -304,6 +304,7 @@ sk:
             many: a%{count} ďalších ľudí
             other: a%{count} ďalších ľudí
         committee_members:
+          confirm_revoke: Si si istý?
           revoke: Zrušiť
         count:
           title:

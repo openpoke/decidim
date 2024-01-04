@@ -519,7 +519,6 @@ zh-TW:
           newsletter: 偶爾收到包含相關信息的時事通訊。
           newsletter_title: 聯絡人權限
           nickname_help: 在 %{organization} 中的別名。只能包含字母、數字、'-' 和 '_'。
-          sign_in: 登入
           sign_up: 註冊登記
           sign_up_as:
             legend: 註冊登記為
@@ -1208,7 +1207,6 @@ zh-TW:
           proposals: 提案
           proposals_explanation: 提出建議、支持現有建議並推動您希望看到的變化。
         footer_sub_hero:
-          footer_sub_hero_body: 一起建立更加開放、透明和協作的社會。<br /> 加入、參與和做出決策。
           footer_sub_hero_headline: 歡迎來到 %{organization} 的參與平台。
           register: 註冊
         hero:
@@ -1638,8 +1636,6 @@ zh-TW:
       updated: 您的帳號已成功升級。
     sessions:
       already_signed_out: 已成功登出。
-      new:
-        sign_in: 登入
       signed_in: 已成功登入。
       signed_out: 已成功登出。
     shared:
@@ -1648,7 +1644,6 @@ zh-TW:
         didn_t_receive_confirmation_instructions: 沒有收到確認的說明嗎？
         didn_t_receive_unlock_instructions: 沒有收到解鎖說明？
         forgot_your_password: 忘記密碼了嗎？
-        sign_in: 登入
         sign_in_with_provider: 用%{provider} 登錄
         sign_up: 註冊登記
       minimum_password_length:
@@ -1773,7 +1768,6 @@ zh-TW:
         facebook: "%{organization} 在 Facebook"
         github: "%{organization} 在 GitHub"
         instagram: "%{organization} 在 Instagram"
-        twitter: "%{organization} 在 Twitter"
         youtube: "%{organization} 在 YouTube"
       timeout_modal:
         body: 您已經閒置了 %{minutes} 分鐘。如果您繼續閒置，為了您的安全，您將被自動登出。

@@ -125,7 +125,7 @@ de:
     account:
       blocked: Dieses Konto wurde wegen Verletzung der Allgemeinen Geschäftsbedingungen gesperrt
       delete:
-        alert: Diese Aktion kann nicht rückgängig gemacht werden. Wenn Sie Ihr Konto löschen, können Sie sich nicht mehr einloggen. Mit der Löschung ihres Accounts werden all Ihre Beiträge anonymisiert. Sie können später wieder ein neues Konto erstellen, aber diese Beiträge werden nicht mehr mit dem neuen Konto verknüpft sein.
+        alert: Diese Aktion kann nicht rückgängig gemacht werden. Wenn Sie Ihr Konto löschen, können Sie sich nicht mehr anmelden. Mit der Löschung ihres Accounts werden all Ihre Beiträge anonymisiert. Sie können später wieder ein neues Konto erstellen, aber diese Beiträge werden nicht mehr mit dem neuen Konto verknüpft sein.
         confirm:
           close: Fenster schließen
           ok: Ja, ich möchte mein Konto löschen
@@ -141,7 +141,7 @@ de:
       email_change:
         body1: Wir haben eine E-Mail an %{unconfirmed_email} gesendet, um Ihre neue E-Mail-Adresse zu verifizieren.
         body2: Möchten Sie die Verifizierungs-E-Mail erneut senden? %{resend_link} oder %{cancel_link}.
-        cancel: stornieren
+        cancel: Abbrechen
         cancel_error: Die Änderung der E-Mail-Adresse konnte nicht storniert werden.
         cancel_successfully: Die Änderung der E-Mail-Adresse wurde erfolgreich storniert.
         resend_error: Bestätigungs-E-Mail konnte nicht erneut gesendet werden.
@@ -158,7 +158,7 @@ de:
         success_with_email_confirmation: Ihr Konto wurde erfolgreich aktualisiert. Sie erhalten eine E-Mail zur Bestätigung Ihrer neuen E-Mail-Adresse.
     admin:
       actions:
-        cancel: Stornieren
+        cancel: Abbrechen
       password_change:
         alert: Sie müssen Ihr Passwort ändern, um fortzufahren
         notification: Administratoren müssen ihr Passwort alle %{days} Tage ändern.
@@ -398,7 +398,7 @@ de:
           explanation: Ihre Autorisierung ist abgelaufen. Um diese Aktion auszuführen, müssen Sie mit "%{authorization}" erneut autorisiert werden.
           title: Die Autorisierung ist abgelaufen
         incomplete:
-          cancel: Stornieren
+          cancel: Abbrechen
           explanation: 'Obwohl Sie derzeit mit "%{authorization}" autorisiert sind, müssen Sie erneut autorisieren, da uns folgende Daten fehlen:'
           invalid_field: "%{field}"
           reauthorize: Erneut autorisieren
@@ -534,6 +534,8 @@ de:
           subtitle: Bitte füllen Sie das folgende Formular aus, um die Anmeldung abzuschließen
           username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
       registrations:
+        create:
+          error: Es gab ein Problem bei der Erstellung Ihres Kontos.
         new:
           already_have_an_account?: Haben Sie bereits ein Konto?
           newsletter: Gelegentlich einen Newsletter mit relevanten Informationen erhalten
@@ -582,7 +584,7 @@ de:
           publish_content: Inhalte für Sie veröffentlichen
           see_email: Ihre E-Mail anzeigen
           see_name: Ihren Namen anzeigen
-          see_username: Ihren Benutzernamen anzeigen
+          see_username: Kontonamen anzeigen
           this_application_will_be_able_to: 'Diese Anwendung wird in der Lage sein:'
           this_application_will_not_be_able_to: 'Diese Anwendung kann nicht:'
           update_profile: Profil aktualisieren
@@ -600,7 +602,7 @@ de:
         success: Bild erfolgreich hochgeladen
       drag_and_drop_help: Sie können Bilder per Drag & Drop hinzufügen oder per Copy & Paste.
     endorsable:
-      endorsements: Empfehlungen
+      endorsements: Befürworungen
       endorsements_count: Anzahl Befürworter
     endorsement_buttons_cell:
       already_endorsed: Befürwortet
@@ -867,15 +869,15 @@ de:
           unearned_own: Sie haben noch keine Follower.
         index:
           badge_title: "%{name} Abzeichen"
-          how: Wie kannst du es verdienen?
+          how: Wie können Sie es verdienen?
           page_description: Badges sind Anerkennungen für Aktionen der Teilnehmer und Fortschritt in der Plattform. Wenn Sie auf der Plattform entdecken, teilnehmen und interagieren, verdienen Sie verschiedene Abzeichen. Hier ist die Liste der Abzeichen und einige Möglichkeiten, wie Sie sie verdienen können.
           title: Abzeichen
       description: Badges sind Anerkennungen für Aktionen der Teilnehmer und Fortschritt in der Plattform. Wenn Sie auf der Plattform entdecken, teilnehmen und interagieren, verdienen Sie verschiedene Abzeichen.
       level: Level %{level}
-      reached_top: Du hast die höchste Stufe für dieses Abzeichen erreicht.
+      reached_top: Sie haben die höchste Stufe für dieses Abzeichen erreicht.
     group_admins:
       actions:
-        are_you_sure: Bist du sicher? Dies wird den Benutzer nicht aus der Gruppe entfernen.
+        are_you_sure: Sind Sie sich sicher? Dies wird den Benutzer nicht aus der Gruppe entfernen.
         demote_admin: Entferne Admin
       demote:
         error: Beim Entfernen dieses Benutzers aus der Administratorliste ist ein Fehler aufgetreten
@@ -904,8 +906,8 @@ de:
         error: Bei der Annahme dieser Verknüpfungsanfrage ist ein Fehler aufgetreten
         success: Beitrittsanfrage wurde erfolgreich angenommen
       actions:
-        are_you_sure: Bist du sicher?
-        promote_to_admin: Machen Admin
+        are_you_sure: Sind Sie sich sicher?
+        promote_to_admin: Zum Admin ernennen
         remove_from_group: Benutzer entfernen
       index:
         current_members_without_admins: 'Aktuelle Mitglieder (ohne Admins):'
@@ -921,7 +923,7 @@ de:
         success: Der Benutzer wurde erfolgreich aus der Gruppe entfernt
     groups:
       actions:
-        are_you_sure: Bist du sicher?
+        are_you_sure: Sind Sie sich sicher?
       create:
         error: Beim Erstellen der Gruppe ist ein Problem aufgetreten
         success: Gruppe wurde erfolgreich erstellt
@@ -933,7 +935,7 @@ de:
         email_help: E-Mail Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw.
         fill_in_for_verification: 'Füllen Sie diese Felder aus, wenn Ihre Gruppe überprüft werden soll:'
         name_help: Name Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw.
-        nickname_help: Benutzername Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw. Verwenden Sie keine Leerzeichen oder Akzente.
+        nickname_help: Kontonamen Ihrer Organisation, Ihrer Vereinigung, Ihres Kollektivs, Ihrer Gruppe usw. Verwenden Sie keine Leerzeichen oder Akzente.
         phone_help: Verwenden Sie keine Bindestriche oder Leerzeichen
       join:
         error: Es ist ein Problem aufgetreten, der Gruppe beizutreten
@@ -1077,7 +1079,7 @@ de:
           last_message: Letzte Nachricht
           new_conversation: Neue Unterhaltung
           next: Weiter
-          no_conversations: Du hast noch keine Unterhaltungen
+          no_conversations: Sie haben noch keine Unterhaltungen
           title: Nachrichten
           to: An
         reply:
@@ -1339,7 +1341,7 @@ de:
     scopes:
       global: Globaler Umfang
       picker:
-        cancel: Stornieren
+        cancel: Abbrechen
         change: Ausgewählten Bereich ändern
         choose: Wählen
         currently_selected: Aktuell ausgewählter Bereich
@@ -1417,7 +1419,7 @@ de:
         sign_in_before_follow: Bitte melden Sie sich an, bevor Sie diese Aktion ausführen
       login_modal:
         close_modal: Fenster schließen
-        please_sign_in: Bitte einloggen
+        please_sign_in: Bitte anmelden
         sign_up: Registrieren
       mentions_modal:
         remove_recipient: Empfänger %{name} entfernen
@@ -1500,7 +1502,7 @@ de:
         my_interests: Meine Interessen
         no_scopes: Diese Organisation hat noch keinen Spielraum!
         select_your_interests: Wählen Sie die Themen aus, an denen Sie interessiert sind, um Ereignisse, die sich auf sie beziehen, auf der Registerkarte "Zeitleiste" Ihres Profils zu erhalten.
-        update_my_interests: Aktualisieren Sie meine Interessen
+        update_my_interests: Meine Interessen aktualisieren
       update:
         error: Beim Aktualisieren Ihrer Interessen ist ein Fehler aufgetreten.
         success: Ihre Interessen wurden erfolgreich aktualisiert.
@@ -1542,7 +1544,7 @@ de:
         version_index: Version %{index}
     welcome_notification:
       default_body: <p>Hallo {{name}}, Dank für die Verbindung {{organization}} und willkommen!</p><ul><li>Wenn Sie sich schnell ein Bild machen möchten, was Sie hier tun können, sehen Sie sich den Abschnitt <a href="{{help_url}}">Hilfe</a> .</li><li>Sobald Sie es gelesen haben, erhalten Sie Ihr erstes Abzeichen. Hier ist eine <a href="{{badges_url}}">Liste aller Abzeichen</a> Sie erhalten können, wenn Sie an {{organization}}</li><li>teilnehmen. Schließen Sie sich anderen Personen an, und teilen Sie mit ihnen die Erfahrung, an {{organization}}teilzunehmen. Machen Sie Vorschläge, kommentieren Sie, diskutieren Sie, wie Sie einen Beitrag zum Gemeinwohl leisten können, geben Sie Argumente an, die überzeugen, zuhören und lesen, um überzeugt zu sein, drücken Sie Ihre Ideen konkret und direkt aus, reagieren Sie mit Geduld und Entscheidung, verteidigen Sie Ihre Ideen und halten Sie sie Offenheit, um zusammenzuarbeiten und sich den Ideen anderer anzuschließen.</li></ul>
-      default_subject: Danke, dass du {{organization}}beigetreten {{organization}} !
+      default_subject: Danke, dass Sie {{organization}} beigetreten sind!
     wizard_step_form:
       wizard_aside:
         back: Zurück
@@ -1564,14 +1566,14 @@ de:
       last_attempt: Sie haben noch einen Versuch, bevor Ihr Konto gesperrt ist.
       locked: Dein Konto ist gesperrt.
       not_found_in_database: Ungültige %{authentication_keys} oder Passwort
-      timeout: Ihre Sitzung ist abgelaufen. Bitte logge dich erneut ein, um fortzufahren.
+      timeout: Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an, um fortzufahren.
       unauthenticated: Sie müssen sich anmelden oder registrieren, bevor Sie fortfahren.
     invitations:
       edit:
         header: Beenden Sie die Erstellung Ihres Kontos
         nickname_help: Ihr Pseudonym auf %{organization}. Kann nur Buchstaben, Zahlen, '-' und '_' enthalten.
         submit_button: Speichern
-        subtitle: Wenn Sie die Einladung annehmen, geben Sie bitte Ihren Benutzernamen und Ihr Passwort ein.
+        subtitle: Wenn Sie die Einladung annehmen, geben Sie bitte Ihren Kontonamen und Ihr Passwort ein.
       invitation_removed: Ihre Einladung wurde entfernt.
       invitation_token_invalid: Das angegebene Einladungstoken ist nicht gültig!
       new:
@@ -1598,12 +1600,12 @@ de:
         hello: Hallo %{email},
         ignore: |-
           Wenn Sie die Einladung nicht annehmen möchten, ignorieren Sie diese E-Mail.<br />
-          Ihr Konto wird erst erstellt, wenn Sie auf den obigen Link zugreifen und Ihren Benutzernamen und Ihr Passwort festlegen.
-        invited_you_as_admin: "%{invited_by} hat dich als Admin von %{application}eingeladen. Sie können es über den folgenden Link akzeptieren."
-        invited_you_as_private_user: "%{invited_by} hat dich als privaten Benutzer von %{application}eingeladen. Sie können es über den folgenden Link akzeptieren."
-        someone_invited_you: Jemand hat dich zu %{application}eingeladen. Sie können es über den folgenden Link akzeptieren.
-        someone_invited_you_as_admin: Jemand hat dich als Admin von %{application}eingeladen, du kannst es über den untenstehenden Link akzeptieren.
-        someone_invited_you_as_private_user: Jemand hat dich als private_user von %{application}eingeladen, du kannst es über den folgenden Link akzeptieren.
+          Ihr Konto wird erst erstellt, wenn Sie auf den obigen Link zugreifen und Ihren Kontonamen und Ihr Passwort festlegen.
+        invited_you_as_admin: "%{invited_by} hat Sie als Admin von %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren."
+        invited_you_as_private_user: "%{invited_by} hat Sie als privaten Nutzenden zu %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren."
+        someone_invited_you: Jemand hat Sie zu %{application} eingeladen. Sie können die EInladung über den folgenden Link akzeptieren.
+        someone_invited_you_as_admin: Jemand hat Sie als Admin zu %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren.
+        someone_invited_you_as_private_user: Jemand hat Sie als privater Teilnehmende zu %{application} eingeladen. Sie können die Einladung über den folgenden Link akzeptieren.
         subject: Anweisungen zur Einladung
       invite_admin:
         subject: Du wurdest eingeladen, %{organization} zu verwalten
@@ -1638,7 +1640,7 @@ de:
         change_my_password: Ändere mein Passwort
         confirm_new_password: Bestätige neues Passwort
         new_password: Neues Passwort
-        password_help: "Mindestens %{minimun_characters} Zeichen, nicht zu gewöhnlich (z. B. 123456) und darf nicht Ihr Benutzername oder Ihre E-Mail-Adresse sein."
+        password_help: "Mindestens %{minimun_characters} Zeichen, nicht zu gewöhnlich (z. B. 123456) und darf nicht Ihren Kontonamen oder Ihre E-Mail-Adresse sein."
         password_help_admin: "Das Passwort muss mindestens aus %{minimun_characters} Zeichen bestehen, nicht zu gewöhnlich (z. B. 123456) sein und es darf nicht Ihr Pseudonym oder Ihre E-Mail-Adresse enthalten."
         title: Passwort ändern
       new:
@@ -1654,15 +1656,15 @@ de:
       new:
         sign_up: Registrieren
       signed_up: Herzlich willkommen! Sie haben sich erfolgreich angemeldet.
-      signed_up_but_inactive: Sie haben sich erfolgreich angemeldet. Wir konnten dich jedoch nicht anmelden, weil dein Konto noch nicht aktiviert ist.
-      signed_up_but_locked: Sie haben sich erfolgreich angemeldet. Wir konnten dich jedoch nicht anmelden, weil dein Konto gesperrt ist.
+      signed_up_but_inactive: Sie haben sich erfolgreich angemeldet. Wir konnten Sie jedoch nicht anmelden, weil Ihr Konto noch nicht aktiviert wurde.
+      signed_up_but_locked: Sie haben sich erfolgreich angemeldet. Wir konnten Sie jedoch nicht anmelden, weil Ihr Konto gesperrt ist.
       signed_up_but_unconfirmed: Eine Nachricht mit einem Bestätigungslink wurde an Ihre E-Mail-Adresse gesendet. Bitte folgen Sie dem Link, um Ihr Konto zu aktivieren.
       update_needs_confirmation: Sie haben Ihr Konto erfolgreich aktualisiert, aber wir müssen Ihre neue E-Mail-Adresse bestätigen. Bitte überprüfen Sie Ihre E-Mail und folgen Sie dem Bestätigungslink, um Ihre neue E-Mail-Adresse zu bestätigen.
       updated: Ihr Konto wurde erfolgreich aktualisiert.
     sessions:
       already_signed_out: Erfolgreich abgemeldet.
       new:
-        sign_in: Einloggen
+        sign_in: Anmelden
       signed_in: Erfolgreich angemeldet
       signed_out: Erfolgreich abgemeldet.
     shared:
@@ -1671,7 +1673,7 @@ de:
         didn_t_receive_confirmation_instructions: Haben Sie keine Bestätigungs-Mail erhalten?
         didn_t_receive_unlock_instructions: Haben Sie keine Entsperrungsanweisungen erhalten?
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
-        sign_in: Einloggen
+        sign_in: Anmelden
         sign_in_with_provider: Mit %{provider} anmelden
         sign_up: Registrieren
       minimum_password_length:
@@ -1682,7 +1684,7 @@ de:
         resend_unlock_instructions: Erneute Anweisungen zum Entsperren senden
       send_instructions: Sie erhalten eine E-Mail mit Anweisungen zum Freischalten Ihres Kontos in wenigen Minuten.
       send_paranoid_instructions: Wenn Ihr Konto existiert, erhalten Sie eine E-Mail mit Anweisungen, wie Sie es in wenigen Minuten entsperren können.
-      unlocked: Ihr Konto wurde erfolgreich entsperrt. Bitte einloggen, um fortzufahren.
+      unlocked: Ihr Konto wurde erfolgreich entsperrt. Melden Sie sich an, um fortzufahren.
   doorkeeper:
     scopes:
       public: Ihre öffentlichen Informationen.
@@ -1704,6 +1706,7 @@ de:
       not_saved:
         one: 'Bei der Bearbeitung Ihrer Anfrage ist ein Fehler aufgetreten:'
         other: 'Bei der Bearbeitung Ihrer Anfrage sind mehrere Fehler aufgetreten:'
+      password_confirmation_message: '"Passwort bestätigen" stimmt nicht mit Passwort überein'
       too_many_marks: benutzt zu viele aufeinanderfolgende Satzzeichen (zB! und?)
       too_much_caps: verwendet zu viele Großbuchstaben (über 25% des Textes)
       too_short: ist zu kurz (mindestens %{count} Zeichen)
@@ -1800,12 +1803,12 @@ de:
         facebook: "%{organization} auf Facebook"
         github: "%{organization} auf GitHub"
         instagram: "%{organization} auf Instagram"
-        twitter: "%{organization} bei Twitter"
+        x: "%{organization} auf X"
         youtube: "%{organization} auf YouTube"
       timeout_modal:
         body: Sie sind seit %{minutes} Minuten inaktiv. Wenn Sie weiterhin inaktiv sind, werden Sie aus Sicherheitsgründen automatisch abgemeldet.
         continue_session: Sitzung fortsetzen
-        sign_out: Ausloggen
+        sign_out: Abmelden
         title: Möchten Sie ihre Sitzung fortsetzen?
       upload_modal:
         close_modal: Fenster schließen
@@ -1816,7 +1819,7 @@ de:
         notifications: Benachrichtigungen
         profile: Mein Konto
         public_profile: Mein öffentliches Profil
-        sign_out: Ausloggen
+        sign_out: Abmelden
         title: Profil-Links
       user_profile:
         account: Konto
@@ -1867,6 +1870,7 @@ de:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:

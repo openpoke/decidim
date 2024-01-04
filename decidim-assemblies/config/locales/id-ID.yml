@@ -50,7 +50,6 @@ id:
         subtitle: Subtitle
         target: Yang berpartisipasi
         title: Judul
-        twitter: Kericau
         youtube: Youtube
       assembly_member:
         birthday: Ulang tahun
@@ -224,16 +223,15 @@ id:
             select_an_area: Pilih Area
             select_an_assembly_type: Pilih jenis perakitan
             select_parent_assembly: Pilih perakitan induk
-            slug_help: 'Slug URL digunakan untuk menghasilkan URL yang mengarah ke rakitan ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
             social_handlers: Sosial
             title: Informasi Umum
             visbility: Visibilitas
+        assemblies_settings:
+          edit:
+            update: Memperbarui
         assemblies_types:
           form:
             title: Judul
-        assembly_copies:
-          form:
-            slug_help: 'Slug URL digunakan untuk menghasilkan URL yang mengarah ke rakitan ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
         assembly_members:
           form:
             existing_user: Pengguna yang sudah ada
@@ -244,8 +242,6 @@ id:
           index:
             filter:
               all: Semua
-              ceased: Hentikan
-              not_ceased: Tidak berhenti
             filter_by: Filter berdasarkan
             search: Pencarian
         content_blocks:

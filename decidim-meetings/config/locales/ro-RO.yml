@@ -226,7 +226,7 @@ ro:
             few: 'Întâlnirea nu poate fi eliminată deoarece are %{count} propuneri asociate:'
             other: 'Întâlnirea nu poate fi eliminată deoarece are %{count} propuneri asociate acestuia:'
         manage_poll: Gestionare sondaj
-        new: Noua întâlnire
+        new: Întâlnire nouă
         preview: Previzualizare
         registrations: Înregistrări
         title: Acțiuni
@@ -284,9 +284,7 @@ ro:
             select_user: Selecteză un participant
           index:
             filter:
-              accepted: Acceptat
               all: Toate
-              rejected: Respins
               sent: Trimis
             filter_by: Filtrare după
             invite_attendee: Invită participantul
@@ -541,7 +539,6 @@ ro:
           contributions: Număr de contribuții
           date: Data
           edit_meeting: Editați ședința
-          going: Te-ai înregistrat pentru această întâlnire
           leave: Anulează înregistrarea
           leave_confirmation: Sigur dorești să anulezi înregistrarea la această întâlnire?
           link_available_soon: Link disponibil în curând
@@ -658,7 +655,7 @@ ro:
         see_all: Afișează toate întâlnirile (%{count})
         upcoming_meetings: Întâlniri viitoare
       upcoming_meeting_for_card:
-        upcoming_meeting: Întâlnire viitoare
+        upcoming_meeting: Şedinţa viitoare
     resource_links:
       meetings_through_proposals:
         meeting_result: 'Rezultate asociate:'

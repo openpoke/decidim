@@ -3,7 +3,7 @@ cs:
   activemodel:
     attributes:
       account:
-        delete_reason: Důvod odstranění účtu
+        delete_reason: Důvod odstranění vašeho účtu
       common:
         created_at: Vytvořeno v
       conversation:
@@ -33,7 +33,7 @@ cs:
         tos_agreement: Smluvní podmínky užití
     models:
       decidim/attachment_created_event: Příloha
-      decidim/component_published_event: Aktivní součást
+      decidim/component_published_event: Aktivní komponenty
       decidim/demoted_membership: Již není správcem skupiny
       decidim/gamification/badge_earned_event: Získaný odznak
       decidim/gamification/level_up_event: Vy jste vyrovnali
@@ -456,7 +456,7 @@ cs:
           request_confirmation_instructions: Požádejte o pokyny pro potvrzení
           title: Potvrdit svůj email
       show:
-        close_modal: Zavřít modální
+        close_modal: Zavřít okno
     block_user_mailer:
       notify:
         body_1: Váš účet byl zablokován.
@@ -568,12 +568,14 @@ cs:
           subtitle: Pro dokončení registrace vyplňte prosím následující formulář
           username_help: Veřejné jméno, které se zobrazí ve vašich příspěvcích. S cílem zaručit anonymitu může být jakékoliv jméno.
       registrations:
+        create:
+          error: Vyskytl se problém při vytváření účtu.
         new:
           already_have_an_account?: Máte již účet?
           newsletter: Chci dostávat příležitostný zpravodaj s relevantními informacemi
           newsletter_title: Povolení kontaktu
           nickname_help: Váš alias v %{organization}. Může obsahovat pouze písmena, číslice, '-' a '_'.
-          sign_in: Přihlásit se
+          sign_in: Přihlásit
           sign_up: Zaregistrovat se
           sign_up_as:
             legend: Zaregistrovat se jako
@@ -594,7 +596,7 @@ cs:
         newsletter_modal:
           buttons:
             check: Zkontrolujte a pokračujte
-            close_modal: Zavřít modální
+            close_modal: Zavřít okno
             uncheck: Ponechat nezaškrtnuté
           notice: |-
             <p>Hej, jste si jisti, že nechcete dostávat zpravodaj?<br>
@@ -1018,7 +1020,7 @@ cs:
         body_1: Chystáte se navštívit externí odkaz a chtěli bychom, abyste byli opatrní, pokud jde o obsah na externím webu.
         body_2: Zkontrolujte prosím odkaz, který se chystáte navštívit, a než budete pokračovat, ujistěte se, že jste jej rozpoznali jako bezpečný web.
         cancel: Zrušit
-        close_modal: Zavřít modální
+        close_modal: Zavřít okno
         proceed: Pokračovat
         title: Otevřít externí odkaz
     log:
@@ -1111,7 +1113,7 @@ cs:
           ok: OK
         index:
           ago: před
-          close: Zavřít modální
+          close: Zavřít okno
           from: Od
           groups: Moje skupiny
           last_message: Poslední zpráva
@@ -1269,7 +1271,7 @@ cs:
           proposals: Návrhy
           proposals_explanation: Vytvářejte návrhy, podporujte stávající návrhy a prosazujte změny, které chcete vidět.
         footer_sub_hero:
-          footer_sub_hero_body: Vybudujme otevřenější, transparentnější a spolupracující společnost.<br /> Přihlaste se, zúčastněte se a rozhodněte se.
+          footer_sub_hero_body: Vytvořme otevřenější, transparentnější a více spolupracující společnost.<br /> Připojte se, účastněte se a rozhodujte.
           footer_sub_hero_headline: Vítejte na %{organization} participační platformě.
           register: Registrovat
         hero:
@@ -1303,7 +1305,7 @@ cs:
           modal_btn_continue: Přijmout podmínky a pokračovat
           modal_btn_exit: Později to přezkoumám
           modal_button: Odmítnout podmínky
-          modal_close: Zavřít modální
+          modal_close: Zavřít okno
           modal_title: Opravdu odmítáte aktualizované smluvní podmínky?
         required_review:
           alert: Aktualizovali jsme Smluvní podmínky, přečtěte si je.
@@ -1402,7 +1404,7 @@ cs:
           future: Budoucí
           past: Minulé
       filters_small_view:
-        close_modal: Zavřít modální
+        close_modal: Zavřít okno
         filter: Filtr
         filter_by: Filtrovat podle
         unfold: Rozvinout
@@ -1704,7 +1706,7 @@ cs:
     sessions:
       already_signed_out: Bylo úspěšně odhlášeno.
       new:
-        sign_in: Přihlásit se
+        sign_in: Přihlásit
       signed_in: Úspěšně jste se přihlásili.
       signed_out: Odhlášení proběhlo úspěšně.
     shared:
@@ -1713,7 +1715,7 @@ cs:
         didn_t_receive_confirmation_instructions: Nedostali jste pokyny k potvrzení?
         didn_t_receive_unlock_instructions: Nezískali jste pokyny k odemknutí?
         forgot_your_password: Zapomněli jste heslo?
-        sign_in: Přihlásit se
+        sign_in: Přihlásit
         sign_in_with_provider: Přihlásit se přes %{provider}
         sign_up: Zaregistrovat se
       minimum_password_length:
@@ -1750,6 +1752,7 @@ cs:
         few: 'Při zpracování vašeho požadavku došlo k několika chybám:'
         many: 'Při zpracování vašeho požadavku došlo k mnoha chybám:'
         other: 'Při zpracování vašeho požadavku došlo k nějakým chybám:'
+      password_confirmation_message: '"Potvrzení hesla" neodpovídá heslu'
       too_many_marks: používá příliš mnoho po sobě jdoucích interpunkčních znamének (např.! a?)
       too_much_caps: používá příliš mnoho velkých písmen (více než 25% textu)
       too_short: je příliš krátká (pod %{count} znaků)
@@ -1848,7 +1851,7 @@ cs:
         facebook: "%{organization} na Facebooku"
         github: "%{organization} na GitHubu"
         instagram: "%{organization} na Instagramu"
-        twitter: "%{organization} na Twitteru"
+        x: "%{organization} v X"
         youtube: "%{organization} na YouTube"
       timeout_modal:
         body: '%{minutes} minut jste byli neaktivní. Pokud budete i nadále neaktivní, budete automaticky odhlášeni z důvodu své vlastní bezpečnosti.'
@@ -1856,7 +1859,7 @@ cs:
         sign_out: Odhlásit se
         title: Chcete pokračovat v relaci?
       upload_modal:
-        close_modal: Zavřít modal
+        close_modal: Zavřít okno
       user_menu:
         account: 'Uživatelský účet: %{name}'
         admin_dashboard: Ovládací panel
@@ -1915,6 +1918,7 @@ cs:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:

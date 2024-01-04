@@ -644,7 +644,7 @@ fr-CA:
               upload_legend: Le serveur a vos clés d'identification publiques, mais votre navigateur ne les a toujours pas. Vous devez importer le fichier avec vos clés d'identification sur votre ordinateur à partir de la sauvegarde que vous avez créée après leur génération.
             not_supported_browser_description: On dirait que vous utilisez un navigateur Web qui ne peut pas être utilisé pour agir en tant que garant. Assurez-vous d'utiliser la version la plus récente de votre navigateur, ou essayez d'utiliser l'un des navigateurs les plus populaires pour accomplir vos tâches de garant.
             not_supported_browser_title: Mettre à niveau le navigateur pour agir en tant que garant
-            trustee_role_description: Vous avez été assigné à agir en tant que garant lors de certaines des élections mises en place sur cette plateforme.
+            trustee_role_description: Vous avez été assigné à agir en tant que garant lors de certaines élections mises en place sur cette plateforme.
           update:
             success: Votre clé d'identification publique a bien été stockée.
       votes:
@@ -818,8 +818,28 @@ fr-CA:
           highlighted_votings:
             max_results: Nombre maximum d'éléments à afficher
           landing_page:
+            attachments_and_folders:
+              name: Pièces jointes et dossiers du vote
             description:
               name: Description du vote
+            elections:
+              name: Élections
+            header:
+              name: En-tête de vote
+            html_block_1:
+              name: Bloc HTML 1 du Vote
+            html_block_2:
+              name: Bloc HTML 2 du Vote
+            html_block_3:
+              name: Bloc HTML 3 du Vote
+            metrics:
+              name: Métriques de vote
+            polling_stations:
+              name: Bureaux de vote
+            stats:
+              name: Statistiques du vote
+            timeline:
+              name: Calendrier du vote
         index:
           not_published: Non publié
           published: Publié
@@ -1027,7 +1047,7 @@ fr-CA:
             select_a_voting_type: Veuillez sélectionner un type de vote
             show_check_census_help: Si vous voulez afficher le lien "Puis-je voter?" dans le menu des votes publics
             slug: Slug
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui renvoient vers cette élection. Ils ne contiennent que des lettres, des chiffres et des tirets et doivent commencer par une lettre. Exemple : %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers ce vote. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
             title: Titre
             voting_type:
               hybrid: Hybride
@@ -1158,6 +1178,8 @@ fr-CA:
       pages:
         home:
           highlighted_votings:
+            active_votings: Votations en cours
+            see_all_votings: Voir toutes les votations
             votings_button_title: Lien vers la page Votations où toutes les votations sont affichées
       polling_officer_zone:
         closures:

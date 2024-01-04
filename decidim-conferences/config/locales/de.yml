@@ -20,7 +20,7 @@ de:
         objectives: Ziele
         participatory_processes_ids: Ähnliche Beteiligungsprozesse
         promoted: Gefördert
-        published_at: Veröffentlicht unter
+        published_at: Veröffentlicht am
         registration_terms: Registrierungsbedingungen
         registrations_enabled: Registrierungen aktiviert
         scope_id: Umfang
@@ -63,7 +63,7 @@ de:
         personal_url: Persönliche URL
         position: Position
         short_bio: Kurze Beschreibung
-        twitter_handle: Twitter-Handle
+        twitter_handle: X-Handler
         user_id: Nutzer
       conference_user_role:
         email: Email
@@ -132,7 +132,7 @@ de:
         destroy:
           success: Benutzer wurde erfolgreich von dieser Konferenz entfernt.
         edit:
-          title: Aktualisieren Sie den Konferenzbenutzer.
+          title: Konferenzadmin aktualisieren.
           update: Aktualisieren
         index:
           conference_admins_title: Konferenzadmins
@@ -204,7 +204,7 @@ de:
       models:
         conference:
           fields:
-            created_at: Hergestellt in
+            created_at: Erstellt am
             promoted: Gefördert
             published: Veröffentlicht
             title: Titel
@@ -331,7 +331,7 @@ de:
       admin:
         conference_copies:
           form:
-            slug_help: 'URL-Slugs werden verwendet, um URLs zu generieren, die auf diese Konferenz verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Konferenz verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         conference_invites:
           create:
             error: Beim Einladen des Benutzers zur Teilnahme an der Konferenz ist ein Problem aufgetreten.
@@ -344,7 +344,7 @@ de:
             select_user: Nutzer wählen
           index:
             filter:
-              accepted: Akzeptiert
+              accepted: Angenommen
               all: Alle
               rejected: Abgelehnt
               sent: Geschickt
@@ -373,7 +373,7 @@ de:
             registrations_count:
               one: Es gab 1 Registrierung.
               other: Es gab %{count} Registrierungen.
-            slug_help: 'URL-Slugs werden verwendet, um URLs zu generieren, die auf diese Konferenz verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Konferenz verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         diplomas:
           edit:
             save: Speichern
@@ -404,7 +404,7 @@ de:
           success: Konferenz-Teilnahmebestätigung korrekt gesendet
       conference:
         registration_confirm:
-          cancel: Stornieren
+          cancel: Abbrechen
           confirm: Bestätigen
         show:
           free: Kostenlos
@@ -442,7 +442,7 @@ de:
           invalid: Beim Verlassen dieser Konferenz ist ein Problem aufgetreten.
           success: Sie haben die Konferenz erfolgreich verlassen.
       conference_speaker:
-        go_to_twitter: Gehe zu Twitter
+        go_to_twitter: Gehe zu X
         more_info: Mehr Informationen
         personal_website: Persönliche Webseite
         show:
@@ -498,7 +498,7 @@ de:
             email: Email
             name: Name
             registration_type: Registrierungstyp
-            state: Zustand
+            state: Status
             states:
               confirmed: Bestätigt
               pending: steht aus

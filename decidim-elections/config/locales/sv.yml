@@ -25,6 +25,7 @@ sv:
         location: Plats
         location_hints: Detaljer om platsen
         polling_station_managers: Koordinatorer
+        polling_station_president_id: Ordförande
         title: Titel
       question:
         max_selections: Maximalt antal val
@@ -33,6 +34,7 @@ sv:
         banner_image: Bannerbild
         end_time: Omröstningen avslutas
         promoted: Annonserad
+        scope_id: Omfång
         start_time: Omröstningen börjar
         title: Titel
         voting_type: Rösttyp
@@ -104,6 +106,7 @@ sv:
           label: Bekräftad
           values:
             'false': Bekräftad
+            'true': Ej validerad
     components:
       elections:
         actions:
@@ -392,7 +395,9 @@ sv:
               task: Uppgift
             start: Start
             status:
+              completed: Slutförd
               pending: Väntande
+              processing: Bearbetar
         menu:
           trustee_zone: Förvaltarzon
         trustees:
@@ -468,7 +473,6 @@ sv:
           continue: Nästa
       warnings:
         no_elections_warning: Inga omröstningar matchar dina sökkriterier eller det finns ingen omröstning planerad.
-        no_scheduled_elections_warning: För närvarande finns det inga planerade omröstningar, men här hittar du alla tidigare omröstningar listade.
     events:
       elections:
         election_published:
@@ -505,8 +509,13 @@ sv:
             title: Valtyper
           new:
             create: Skapa
+        content_blocks:
+          landing_page:
+            header:
+              name: Omröstningsbanner
+            metrics:
+              name: Omröstningsmetrik
         index:
-          not_published: Ej publicerade
           published: Publicerad
         landing_page:
           content_blocks:
@@ -635,6 +644,7 @@ sv:
         admin:
           census:
             new:
+              submit: Skicka in CSV
               title: Skapa census
         document_types:
           dni: ID-kort
@@ -657,6 +667,10 @@ sv:
           destroy: Radera
           new: Ny medlem
           title: Åtgärder
+      pages:
+        home:
+          highlighted_votings:
+            active_votings: Activa omröstningar
       polling_officer_zone:
         closures:
           certify:
@@ -734,6 +748,7 @@ sv:
         check_census:
           check_status: Kontrollera status
           success:
+            access_link: via e-post.
             access_link_with_sms: via SMS eller e-post.
           title: Kan jag rösta?
         check_fields:

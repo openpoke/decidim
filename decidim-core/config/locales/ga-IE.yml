@@ -113,7 +113,6 @@ ga:
     devise:
       registrations:
         new:
-          sign_in: Logáil isteach
           sign_up: Cláraigh
       shared:
         omniauth_buttons:
@@ -149,6 +148,11 @@ ga:
     follows:
       create:
         button: Lean
+    forms:
+      upload:
+        labels:
+          cancel: Cealaigh
+          save: Sábháil
     gamification:
       badges:
         index:
@@ -323,13 +327,9 @@ ga:
     registrations:
       new:
         sign_up: Cláraigh
-    sessions:
-      new:
-        sign_in: Logáil isteach
     shared:
       links:
         back: Ar Ais
-        sign_in: Logáil isteach
         sign_up: Cláraigh
   layouts:
     decidim:

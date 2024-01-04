@@ -62,7 +62,7 @@ sv:
         full_name: Fullständigt namn
         personal_url: Personlig URL
         position: Plats
-        twitter_handle: Twitternamn
+        short_bio: Kort biographi
         user_id: Användare
       conference_user_role:
         email: E-post
@@ -202,7 +202,7 @@ sv:
         conference:
           fields:
             created_at: Skapad
-            promoted: Annonserad
+            promoted: Uppmärksammad
             published: Publicerad
             title: Titel
         conference_speaker:
@@ -325,9 +325,6 @@ sv:
         title: Talare
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL-slugs används till att skapa de URL:er som pekar på konferensen. Tar bara emot bokstäver, siffror och bindestreck, och måste börja med en bokstav. Exempel: %{url}'
         conference_invites:
           create:
             error: Det gick inte att bjuda in deltagaren till konferensen.
@@ -343,7 +340,7 @@ sv:
               accepted: Accepterad
               all: Alla
               rejected: Avvisad
-              sent: Skickade
+              sent: Skickad
             filter_by: Filtrera efter
             invite_attendee: Bjud in deltagare
             invites: Inbjudningar
@@ -369,7 +366,6 @@ sv:
             registrations_count:
               one: Det har gjorts en registrering.
               other: Det har gjorts %{count} registreringar.
-            slug_help: 'URL-slugs används till att skapa de URL:er som pekar på konferensen. Tar bara emot bokstäver, siffror och bindestreck, och måste börja med en bokstav. Exempel: %{url}'
         diplomas:
           edit:
             save: Spara
@@ -435,7 +431,6 @@ sv:
           invalid: Det gick inte att lämna konferensen.
           success: Du har lämnat konferensen.
       conference_speaker:
-        go_to_twitter: Gå till Twitter
         more_info: mer information
         personal_website: Personlig hemsida
         show:

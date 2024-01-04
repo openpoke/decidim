@@ -49,7 +49,6 @@ uk:
         subtitle: Підзаголовок
         target: Хто бере участь
         title: Назва
-        twitter: Твіттер
         youtube: ЮТуб
       assembly_member:
         birthday: День народження
@@ -226,15 +225,14 @@ uk:
             select_a_created_by: Вкажіть, ким створені
             select_an_area: Оберіть дільницю
             select_an_assembly_type: Оберіть різновид зборів
-            slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на ці збори. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
             social_handlers: Соціальні мережі
             title: Загальні відомості
+        assemblies_settings:
+          edit:
+            update: Оновити
         assemblies_types:
           form:
             title: Назва
-        assembly_copies:
-          form:
-            slug_help: 'Cкорочені веб-адреси використовуються для створення посилань на ці збори. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
         assembly_members:
           form:
             existing_user: Чинний учасник
@@ -245,8 +243,6 @@ uk:
           index:
             filter:
               all: Усі
-              ceased: Повноваження припинені
-              not_ceased: Повноваження не припинені
             filter_by: 'Відібрати за ознакою:'
             search: Шукати
       assembly_members:

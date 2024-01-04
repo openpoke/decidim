@@ -52,7 +52,6 @@ nl:
         subtitle: Ondertiteling
         target: Wie neemt deel
         title: Titel
-        twitter: Twitter
         weight: Bestelpositie
         youtube: YouTube
       assembly_member:
@@ -275,7 +274,6 @@ nl:
             select_an_area: Selecteer een onderwerp
             select_an_assembly_type: Selecteer een groepstype
             select_parent_assembly: Selecteer de hoofdgroep
-            slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
             social_handlers: sociaal
             title: Algemene informatie
             visbility: Zichtbaarheid
@@ -287,13 +285,9 @@ nl:
         assemblies_types:
           form:
             title: Titel
-        assembly_copies:
-          form:
-            slug_help: 'URL-paden worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
         assembly_imports:
           form:
             document_legend: Document toevoegen
-            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze groep verwijzen. Accepteert alleen letters, cijfers en streepjes en moet beginnen met een letter. Voorbeeld: %{url}'
         assembly_members:
           form:
             existing_user: Bestaande deelnemer
@@ -307,8 +301,6 @@ nl:
           index:
             filter:
               all: Alle
-              ceased: Gestopt
-              not_ceased: Niet gestopt
             filter_by: Filteren op
             search: Zoeken
         content_blocks:

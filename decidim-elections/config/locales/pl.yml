@@ -199,6 +199,10 @@ pl:
         exports:
           elections: Wybory
           feedback_form_answers: Odpowiedzi zebrane z formularza
+        mailers:
+          trustee_mailer:
+            body: "<p>Cześć, %{user_name},</p><p>Dodano cię jako mąż zaufania do %{resource_name}.</p>"
+            subject: Dodano cię jako mąż zaufania do %{resource_name}
         menu:
           trustees: Mężowie (osoby) zaufania
         models:
@@ -221,6 +225,7 @@ pl:
             title: Importuj propozycje
         questions:
           create:
+            election_started: Wybory już się rozpoczęły
             invalid: Wystąpił błąd podczas tworzenia pytania
             success: Pytanie zostało pomyślnie utworzone
           destroy:
@@ -584,7 +589,6 @@ pl:
                 invalid_key: Nie można załadować kluczy identyfikacyjnych z przesłanego pliku.
             not_supported_browser_description: Wygląda na to, że używasz przeglądarki internetowej, która nie może być użyta do działań męża (osoby) zaufania. Upewnij się, że używasz najnowszej wersji przeglądarki, lub spróbuj użyć dowolnej z najpopularniejszych przeglądarek, aby móc wykonać zadania męża (osoby) zaufania.
             not_supported_browser_title: Aktualizuj przeglądarkę by działać jako mąż (osoba) zaufania
-            trustee_role_description: Zostałeś powołany do pełnienia funkcji męża (osoby) zaufania w niektórych głosowaniach na tej platformie.
           update:
             success: Twój publiczny klucz identyfikacyjny został zapisany.
       votes:
@@ -670,7 +674,6 @@ pl:
           continue: Dalej
       warnings:
         no_elections_warning: Brak wyborów spełniających kryteria wyszukiwania lub nie ma żadnych zaplanowanych wyborów.
-        no_scheduled_elections_warning: Obecnie nie ma żadnych zaplanowanych wyborów, ale możesz zobaczyć wszystkie zakończone już wybory.
     events:
       elections:
         election_published:
@@ -756,7 +759,6 @@ pl:
             description:
               name: Opis głosowania
         index:
-          not_published: Nie opublikowano
           published: Opublikowano
         landing_page:
           content_blocks:
@@ -943,8 +945,8 @@ pl:
             confirm_destroy: Jesteś pewny?
             destroy: Usuń
             new_voting: Nowa przestrzeń do głosowania
-            publish: Publikuj
-            unpublish: Cofnij publikowanie
+            publish: Opublikuj
+            unpublish: Cofnij publikację
           create:
             invalid: Podczas tworzenia głosowania wystąpił błąd
             success: Utworzono głosowanie
@@ -954,12 +956,12 @@ pl:
             update: Aktualizuj
           form:
             select_a_voting_type: Wybierz typ głosowania
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego procesu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
             title: Tytuł
             voting_type:
               hybrid: Hybrydowe
               in_person: Osobiste
               online: Online
+            voting_type_label: Typ głosowania
           new:
             create: Utwórz
             title: Nowe głosowanie
@@ -989,6 +991,7 @@ pl:
               button: Eksportuj kody dostępu do głosowania
               callout: Możesz teraz przejść do eksportu kodów dostępu. Można to zrobić tylko raz. Po uruchomieniu eksportu, otrzymasz e-mail z instrukcjami na adres <strong>%{email}</strong>
               confirm: Możesz wyeksportować kody dostępu tylko raz. Upewnij się, że masz dostęp do konta e-mail <strong>%{email}</strong>.
+              file_not_exist: Ten plik nie istnieje
               launch_error: Wystąpił problem z uruchomieniem eksportu kodów dostępu
               launch_success: Eksport kodów dostępu został uruchomiony. Wkrótce otrzymasz e-mail na adres %{email}
             freeze:
@@ -1056,7 +1059,6 @@ pl:
           certify:
             add_images: Dodaj obrazy
             error: Wystąpił błąd podczas dołączania certyfikatu, spróbuj ponownie.
-            form_legend: Prześlij zdjęcie certyfikatu zamknięcia wyborów
             heading: Przeliczanie głosów - Prześlij certyfikat
             info_text: Prześlij zdjęcie certyfikatu zamknięcia wyborów.
             submit: Prześlij certyfikat
@@ -1204,6 +1206,8 @@ pl:
         check_census:
           check_status: Sprawdź status
           description: Tutaj masz możliwość sprawdzenia danych umieszczonych na liście wyborców, aby wiedzieć, czy masz prawo uczestniczyć w tym głosowaniu. Powinieneś mieć już kod dostępu, ale jeśli go zgubiłeś, możesz ponownie o ten kod poprosić, gdy Twoje dane są poprawne.
+          error:
+            info: 'Spróbuj ponownie. Jeśli uważasz, że dane w systemie są nieprawidłowe, możesz je zgłosić tutaj: %{census_contact_information}'
           form_title: 'Wypełnij formularz, aby sprawdzić Twoje dane na liście wyborców:'
           invalid: Wystąpił błąd przy sprawdzaniu listy wyborców.
           success:

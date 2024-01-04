@@ -82,6 +82,7 @@ pl:
     'true': 'Tak'
   carrierwave:
     errors:
+      file_cannot_be_processed: Plik nie może być przetworzony
       file_resolution_too_large: Rozdzielczość pliku jest zbyt duża
       file_size_too_large: Rozmiar pliku jest zbyt duży
       not_inside_organization: Plik nie jest dołączony do żadnej organizacji
@@ -525,7 +526,6 @@ pl:
           newsletter: Chcę otrzymywać okazjonalne newslettery z istotnymi informacjami
           newsletter_title: Zgoda na subskrybcję
           nickname_help: Twój pseudonim w %{organization}. Może zawierać tylko litery, cyfry, '-' i '_'.
-          sign_in: Zaloguj się
           sign_up: Zarejestruj się
           sign_up_as:
             legend: Zarejestruj się jako
@@ -580,6 +580,10 @@ pl:
         download_data: Pobierz dane
         download_data_description: Plik zawierający wszystkie informacje związane z Twoim kontem zostanie wysłany do <strong>%{user_email}</strong>. E-mail będzie zawierał plik .zip i hasło, aby go otworzyć.<br/><br/>Aby rozpakować plik, będziesz potrzebował <a href="https://www.7-zip.org/">7-Zip</a> (Windows) lub <a href="https://www.keka.io/">Keka</a> (MacOS). Jeśli używasz systemu Linux, w większości przypadków program będziesz miał zainstalowany domyślnie. Jeśli nie, możesz użyć programów <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> lub <a href="https://peazip.github.io">PeaZip</a>.
         request_data: Poproś o dane
+    editor_images:
+      create:
+        error: Błąd podczas przesyłania obrazu
+        success: Obraz przesłany pomyślnie
     endorsable:
       endorsements: Rekomendacje
       endorsements_count: Liczba rekomendacji
@@ -799,6 +803,10 @@ pl:
       file_validation:
         allowed_file_extensions: 'Dozwolone rozszerzenia plików: %{extensions}'
         max_file_size: 'Maksymalny rozmiar pliku: %{megabytes}MB'
+      upload:
+        labels:
+          cancel: Anuluj
+          save: Zapisz
     gamification:
       all_badges_link: Zobacz wszystkie dostępne odznaki.
       badges:
@@ -1017,6 +1025,7 @@ pl:
           next: Dalej
           no_conversations: Nie masz jeszcze żadnych konwersacji
           title: Konwersacje
+          to: Do
         reply:
           placeholder: Twoja odpowiedź...
           send: Wyślij
@@ -1024,6 +1033,7 @@ pl:
         show:
           back: Powrót do wszystkich konwersacji
           chat_with: Konwersacja z
+          deleted_accounts: Nie można prowadzić rozmowy z usuniętymi kontami.
           not_allowed: Ten użytkownik nie przyjmuje wiadomości prywatnych.
           title: Konwersacja z %{usernames}
         start:
@@ -1049,6 +1059,7 @@ pl:
     newsletter_mailer:
       newsletter:
         note: Otrzymujesz ten e-mail, ponieważ subskrybujesz newslettery %{organization_name}. Możesz zmienić swoje ustawienia na <a href="%{link}">stronie powiadomień</a>.
+        see_on_website: Nie widzisz tego e-maila poprawnie? Zobacz go na stronie <a href="%{link}" target="_blank" class="see-on-website"></a>.
         unsubscribe: Aby zrezygnować z otrzymywania tego typu wiadomości e-mail, <a href="%{link}" target="_blank" class="unsubscribe">cofnij subskrypcję</a>.
     newsletter_templates:
       basic_only_text:
@@ -1133,7 +1144,6 @@ pl:
           proposals: Propozycje
           proposals_explanation: Zgłaszaj nowe propozycje, wspieraj te już zgłoszone oraz wspieraj te zmiany, które chcesz zobaczyć.
         footer_sub_hero:
-          footer_sub_hero_body: Zbudujmy społeczeństwo bardziej otwarte, przejrzyste i współpracujące.<br /> Dołącz, uczestnicz i decyduj.
           footer_sub_hero_headline: Witamy na %{organization} platformie partycypacyjnej.
           register: Zarejestruj się
         hero:
@@ -1350,6 +1360,9 @@ pl:
       help_text: "<strong>Uwaga:</strong> Zawartość może być tłumaczeniem automatycznym i może nie być w 100% dokładna."
       show_original: Pokaż oryginalny tekst
       show_translated: Pokaż automatyczne tłumaczenie
+    user_activity:
+      index:
+        no_activities_warning: Ten uczestnik nie ma jeszcze żadnej aktywności.
     user_contact_disabled: Ten użytkownik nie przyjmuje bezpośrednich wiadomości.
     user_conversations:
       create:
@@ -1378,6 +1391,7 @@ pl:
         title_reply: Odpowiedz
       show:
         back: Pokaż wszystkie rozmowy
+        deleted_accounts: Nie można prowadzić rozmowy z usuniętymi kontami.
         not_allowed: Ten użytkownik nie przyjmuje więcej bezpośrednich wiadomości.
         title: Konwersacja z %{usernames}
       update:
@@ -1544,8 +1558,6 @@ pl:
       updated: Twoje konto zostało pomyślnie zaktualizowane.
     sessions:
       already_signed_out: Wylogowano pomyślnie.
-      new:
-        sign_in: Zaloguj się
       signed_in: Zalogowano pomyślnie.
       signed_out: Wylogowano pomyślnie.
     shared:
@@ -1554,7 +1566,6 @@ pl:
         didn_t_receive_confirmation_instructions: Nie otrzymałeś(aś) instrukcji potwierdzenia?
         didn_t_receive_unlock_instructions: Nie otrzymałeś(aś) instrukcji odblokowania?
         forgot_your_password: Nie pamiętasz hasła?
-        sign_in: Zaloguj się
         sign_in_with_provider: Zaloguj się, używając %{provider}
         sign_up: Zarejestruj się
       minimum_password_length:
@@ -1638,13 +1649,14 @@ pl:
         facebook: "%{organization} na Facebooku"
         github: "%{organization} na GitHubie"
         instagram: "%{organization} na Instagramie"
-        twitter: "%{organization} na Twitterze"
         youtube: "%{organization} na YouTube"
       timeout_modal:
         body: Byłeś nieaktywny przez %{minutes} min. Jeśli pozostaniesz nieaktywny, zostaniesz automatycznie wylogowany ze względów bezpieczeństwa.
         continue_session: Kontynuuj sesję
         sign_out: Wyloguj się
         title: Czy chcesz kontynuować sesję?
+      upload_modal:
+        close_modal: Zamknij okno
       user_menu:
         account: 'Konto użytkownika: %{name}'
         admin_dashboard: Panel administracyjny
@@ -1668,6 +1680,7 @@ pl:
     name: Polski
     name_with_error: Polski (błąd!)
   password_validator:
+    blacklisted: jest na liście blokowania
     domain_included_in_password: jest zbyt podobne do tej nazwy domeny
     email_included_in_password: jest zbyt podobne do twojego adresu e-mail
     fallback: nie jest poprawne
@@ -1726,6 +1739,7 @@ pl:
     dropdown:
       choose_diff_view_html: 'Tryb widoku HTML:'
       choose_diff_view_mode: 'Porównaj tryb widoku:'
+      choose_diff_view_mode_menu: Wybierz tryb porównywania
       option_escaped: Cytowany
       option_split: Obok siebie
       option_unescaped: Niecytowany

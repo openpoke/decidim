@@ -167,6 +167,7 @@ gl:
             success: A iniciativa foi enviada á validación técnica
             update: Actualización
           form:
+            attachments: Anexos
             title: Información xeral
           index:
             actions_title: Acción
@@ -321,6 +322,7 @@ gl:
             one: e 1 persoa máis
             other: e %{count} persoas máis
         committee_members:
+          confirm_revoke: Estás seguro?
           revoke: Revocar
         count:
           title:

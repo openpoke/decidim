@@ -129,7 +129,6 @@ uk:
         confirm_destroy: Ви впевнені, що хочете видалити цю зустріч?
         destroy: Видалити
         edit: Редагувати
-        new: Додати зустріч
         preview: Попередній перегляд
         registrations: Реєстрації
         title: Дії
@@ -184,10 +183,7 @@ uk:
             select_user: Оберіть учасника
           index:
             filter:
-              accepted: Прийняті
-              all: Усі
-              rejected: Відхилені
-              sent: Надіслані
+              sent: Надіслано
             filter_by: 'Відібрати за ознакою:'
             invite_attendee: Запросити учасника
             invites: Запрошення
@@ -258,9 +254,6 @@ uk:
           value_types:
             organizer_presenter:
               not_found: 'Цього організатора не знайдено в базі даних (ID: %{id})'
-      application_helper:
-        filter_scope_values:
-          all: Усі
       content_blocks:
         upcoming_meetings:
           upcoming_meetings: Прийдешні зустрічі
@@ -296,6 +289,7 @@ uk:
           attendees: Кількість учасників
           close_meeting: Закрити зустріч
           contributions: Кількість внесених пропозицій
+          date: Дата
           meeting_minutes: Протокол зустрічі
           no_slots_available: Не залишилось місць
           organizations: Організації, що приймають участь

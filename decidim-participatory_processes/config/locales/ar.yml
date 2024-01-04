@@ -106,7 +106,6 @@ ar:
           attachments: مرفقات
           categories: الاقسام
           components: المكونات
-          info: معلومات
           moderations: الإعتدال
           private_users: المشاركون من القطاع الخاص
           process_admins: مدراء العملية
@@ -147,6 +146,9 @@ ar:
           copy: نسخ
           select: حدد البيانات التي ترغب في تكرارها
           title: عملية تشاركية مكررة
+      participatory_process_group_landing_page_content_blocks:
+        edit:
+          update: تحديث
       participatory_process_groups:
         destroy:
           success: تم حذف مجموعة العملية التشاركية بنجاح.
@@ -197,6 +199,9 @@ ar:
         update:
           error: حدثت مشكلة أثناء تحديث هذه المرحلة من العملية التشاركية.
           success: تم تحديث المرحلة التشاركية بنجاح.
+      participatory_process_types:
+        form:
+          title: عنوان
       participatory_process_user_roles:
         create:
           error: حدثت مشكلة أثناء إضافة مشارك لهذه العملية التشاركية.
@@ -304,15 +309,14 @@ ar:
         content_blocks:
           highlighted_processes:
             max_results: أقصى قدر من العناصر لإظهارها
-        participatory_process_copies:
+        participatory_process_groups:
           form:
-            slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذه العملية. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
+            title: معلومات عامة
         participatory_process_imports:
           form:
             document_legend: إضافة وثيقة
         participatory_process_steps:
           form:
-            cta_path_help: 'استخدم المسارات الجزئية ، وليس عناوين URL الكاملة هنا. يقبل الحروف والأرقام والشرطات والمائلة ، ويجب أن يبدأ بحرف. إذا لم يتم تعيينه ، فلن يظهر الزر. مثال: %{url}'
             cta_text_help: إذا لم يتم تعيينه ، فلن يظهر الزر.
         participatory_processes:
           form:
@@ -325,7 +329,6 @@ ar:
             related_processes: العمليات ذات الصلة
             select_an_area: اختر منطقة
             select_process_group: حدد مجموعة عملية
-            slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذه العملية. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
             title: معلومات عامة
             visbility: رؤية
       content_blocks:
@@ -421,6 +424,6 @@ ar:
           more_info: مزيد من المعلومات
       process_header_steps:
         step: المرحلة %{current} من %{total}
-        view_steps: عرض المراحل
+        view_steps: مراحل العملية
       process_navigation:
         process_menu_item: المسار

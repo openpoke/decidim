@@ -108,6 +108,9 @@ ja:
           success: ディベートが正常に作成されました。
         debate:
           participate: 参加
+        debates:
+          empty: ディベートはまだありません。
+          empty_filters: この条件のディベートはありません。
         edit:
           back: 戻る
           save: 変更を保存
@@ -120,7 +123,7 @@ ja:
           commented: 'コメント:'
           my_debates: 私の議論
           official: 事務局
-          origin: 起案者：
+          origin: 起案者
           participants: 参加者
           scope: スコープ
           search: 検索

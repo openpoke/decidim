@@ -52,7 +52,6 @@ lb:
         subtitle: Untertitel
         target: Wer nimmt teil?
         title: Titel
-        twitter: Twitter
         weight: Bestellposition
         youtube: Youtube
       assembly_member:
@@ -222,16 +221,15 @@ lb:
             name: Name
     assemblies:
       admin:
+        assemblies_settings:
+          edit:
+            update: Aktualisieren
         assemblies_types:
           form:
             title: Titel
-        assembly_copies:
-          form:
-            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Assembly verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         assembly_imports:
           form:
             document_legend: Dokument hinzufügen
-            slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Versammlung verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         assembly_members:
           form:
             existing_user: Existierender Benutzer
@@ -242,8 +240,6 @@ lb:
           index:
             filter:
               all: Alle
-              ceased: Aufgegeben
-              not_ceased: Nicht aufgehört
             filter_by: Filtern nach
             search: Suche
         content_blocks:

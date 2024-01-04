@@ -55,6 +55,8 @@ ar:
         new:
           create: إنشاء
           title: المشرف الجديد
+        show:
+          edit: تعديل
         update:
           error: حدثت مشكلة أثناء تحديث هذا المشرف.
           success: تم تحديث المشرف بنجاح
@@ -93,7 +95,7 @@ ar:
             name: اسم
             omniauth_settings: إعدادات Omniauth
             smtp_settings: إعدادات الـ SMTP
-          name: منظمة
+          name: المنظمة
       oauth_applications:
         create:
           error: كانت هناك مشكلة في إنشاء هذا التطبيق.
@@ -145,8 +147,6 @@ ar:
         index:
           title: المنظمات
         new:
-          reference_prefix_hint: يتم استخدام بادئة المرجع لتعريف الموارد بشكل فريد في كل المؤسسة
-          secondary_hosts_hint: أدخل كل واحد منهم في سطر جديد
           title: منظمة جديدة
         omniauth_settings:
           decidim:

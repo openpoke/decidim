@@ -277,9 +277,6 @@ id:
         title: Pembicara
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'Siput URL digunakan untuk menghasilkan URL yang mengarah ke konferensi ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
         conference_invites:
           create:
             error: Ada masalah saat mengundang pengguna untuk bergabung dengan konferensi.
@@ -292,9 +289,7 @@ id:
             select_user: Pilih pengguna
           index:
             filter:
-              accepted: Diterima
               all: Semua
-              rejected: Ditolak
               sent: Terkirim
             filter_by: Filter berdasarkan
             invite_attendee: Undang Peserta
@@ -320,7 +315,6 @@ id:
             available_slots_help: Biarkan hingga 0 jika Anda memiliki slot tidak terbatas.
             registrations_count:
               other: Ada %{count} pendaftaran.
-            slug_help: 'Siput URL digunakan untuk menghasilkan URL yang mengarah ke konferensi ini. Hanya menerima huruf, angka, dan tanda hubung, dan harus dimulai dengan huruf. Contoh: %{url}'
         diplomas:
           edit:
             save: Menyimpan
@@ -385,7 +379,6 @@ id:
           invalid: Ada masalah saat meninggalkan konferensi ini.
           success: Anda telah meninggalkan konferensi dengan sukses.
       conference_speaker:
-        go_to_twitter: Pergi ke Twitter
         more_info: Info lebih lanjut
         personal_website: Situs web pribadi
         show:

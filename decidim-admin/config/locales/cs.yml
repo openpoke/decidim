@@ -93,7 +93,7 @@ cs:
         success_color: Úspěch
         time_zone: Časové pásmo
         tos_version: Verze podmínek služby
-        twitter_handler: Twitter handler
+        twitter_handler: X handler
         user_groups_enabled: Povolit skupiny
         users_registration_mode: Režim registrace uživatelů
         warning_color: Varování
@@ -807,7 +807,7 @@ cs:
           instagram: Instagram
           rich_text_editor_in_public_views_help: V některých textových polích budou účastníci moci vložit některé HTML tagy pomocí textového editoru.
           social_handlers: Sociální
-          twitter: Twitter
+          twitter: X
           url: URL
           youtube: Youtube
         update:
@@ -821,7 +821,7 @@ cs:
             colors_title: Organizační barvy
             colors_warning_html: Varování! Změna těchto barev může narušit kontrasty přístupnosti. Můžete zkontrolovat kontrast výběru s <a href="%{link}">kontrolou kontrastu WebAIM Contrast Checker</a> nebo jinými podobnými nástroji.
             header_snippets_help: Toto pole použijte k přidání věcí do hlavičky HTML. Nejběžnějším používáním je integrace služeb třetích stran, které vyžadují nějaký extra JavaScript nebo CSS. Můžete také použít k přidání dalších metaznaček do HTML. Všimněte si, že to bude vykresleno pouze na veřejných stránkách, nikoliv v sekci admin.
-          cta_button_path_help: 'Můžete přepsat, kde se na domovské stránce odkazuje tlačítko Výzvy k akci. Použijte zde částečné cesty, ne úplné adresy URL. Přijme písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Tlačítko Výzvy k akci se na domovské stránce zobrazí mezi uvítacím textem a popisem. Příklad: %{url}'
+          cta_button_path_help: 'Místo, kam tlačítko Výzva k akci na domovské stránce vede, lze přepsat. V tomto případě použijte částečnou cestu, nikoliv kompletní URL. Lze použít písmena, číslice, pomlčky a lomítka a musí se začínat písmenem. Tlačítko Výzva k akci je na domovské stránce umístěno mezi uvítacím textem a popisem. Příklad: %{url}'
           cta_button_text_help: Text tlačítka výzvy k akci můžete na domovské stránce přepsat pro každý dostupný jazyk ve vaší organizaci. Pokud není nastaveno, bude použita výchozí hodnota. Tlačítko Výzvy k akci se na domovské stránce zobrazí mezi uvítacím textem a popisem.
           homepage_appearance_title: Upravit vzhled stránky
           homepage_highlighted_content_banner_title: Zvýrazněný obsahový banner
@@ -842,7 +842,7 @@ cs:
           title: Seznam externích povolených domén
       organization_homepage:
         edit:
-          active_content_blocks: Bloky aktivního obsahu
+          active_content_blocks: Aktivní bloky obsahu
           inactive_content_blocks: Neaktivní bloky obsahu
       organization_homepage_content_blocks:
         edit:
@@ -872,7 +872,7 @@ cs:
             explanation: Máte %{count} soukromých účastníků.
             title: Odstranit soukromé účastníky
           explanation: 'Nahrajte soubor CSV. Musí mít dva sloupce s e-mailem v prvním sloupci souboru a jméno v posledním sloupci souboru (e-mail, jméno) uživatelů, které chcete přidat do participačního prostoru, bez záhlaví. Vyhněte se používání neplatných znaků jako `<>?%&^*#@()[]=+:;"{}\|` v uživatelském jméně.'
-          title: Nahrajte Váš CSV soubor
+          title: Nahrát soubor CSV
           upload: Nahrát
       reminders:
         create:
@@ -972,7 +972,7 @@ cs:
           update: Aktualizace
         form:
           none: Žádný
-          slug_help: 'Zde použijte částečné cesty, nikoli úplné adresy URL. Jsou povolena písmena, čísla, pomlčky a lomítka a musí začínat písmenem. Příklad: %{url}'
+          slug_help: 'Použijte v tomto případě částečnou cestu, nikoliv kompletní URL. Lze použít písmena, číslice, pomlčky a lomítka a musí se začínat písmenem. Příklad: %{url}'
         index:
           last_notable_change: Poslední významná změna
         new:

@@ -206,7 +206,6 @@ zh-CN:
             success: 该倡议已经发送给技术验证
             update: 更新
           form:
-            attachments: 附件
             settings: 设置
             title: 通告周知
           index:
@@ -381,6 +380,7 @@ zh-CN:
           hidden_authors_count:
             other: 和更多 %{count} 人
         committee_members:
+          confirm_revoke: 您确定吗？
           revoke: Revoke
         count:
           title:

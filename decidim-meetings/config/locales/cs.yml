@@ -232,7 +232,7 @@ cs:
             many: 'Schůzku nelze zničit, protože má k ní přidruženo %{count} návrhů:'
             other: 'Schůzka nemůže být zničena, protože s ní je spojeno %{count} návrhů:'
         manage_poll: Spravovat anketu
-        new: Nové setkání
+        new: Nová schůzka
         preview: Náhled
         registrations: Registrace
         title: Akce
@@ -413,6 +413,9 @@ cs:
           all: Vše
         filter_scope_values:
           all: Vše
+      calendar:
+        meeting_to_event:
+          read_more: Přečtěte si více o této schůzce
       calendar_modal:
         calendar_url: Adresa URL kalendáře
         close_window: Zavřete okno
@@ -561,7 +564,6 @@ cs:
           date: Datum
           edit_close_meeting: Upravit zprávu schůzky
           edit_meeting: Upravit schůzku
-          going: Přihlásili jste se k této schůzce
           join: Připojit se ke schůzce
           leave: Zrušit registraci
           leave_confirmation: Opravdu chcete zrušit registraci na tuto schůzku?
@@ -663,7 +665,7 @@ cs:
         in_person: Osobně
         online: Online
       types:
-        private_meeting: Privátní setkání
+        private_meeting: Soukromá schůzka
         transparent: Průhledný
         withdraw: Staženo
       versions:

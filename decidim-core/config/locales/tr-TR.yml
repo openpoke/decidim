@@ -322,7 +322,7 @@ tr:
           request_confirmation_instructions: Onaylama talimatlarını tekrar gönder
           title: E-posta adresinizi doğrulayın
       show:
-        close_modal: Yakın kalıcı
+        close_modal: Pencereyi kapat
     block_user_mailer:
       notify:
         body_1: Hesabınız kilitlendi.
@@ -436,7 +436,7 @@ tr:
           newsletter: Ara sıra ilgili bilgileri içeren bir haber bülteni alın
           newsletter_title: İletişim izni
           nickname_help: Takma adınız %{organization}. Yalnızca harf, rakam, "-" ve "_" içerebilir.
-          sign_in: Oturum aç
+          sign_in: "Giriş \nGiriş Yapın "
           sign_up: kaydol
           sign_up_as:
             legend: Olarak kaydol
@@ -455,7 +455,7 @@ tr:
         newsletter_modal:
           buttons:
             check: Kontrol et ve devam et
-            close_modal: Yakın kalıcı
+            close_modal: Pencereyi kapat
             uncheck: İşaretlemeyin
           notice: |-
             <p>Hey, bir haber bülteni almak istemediğine emin misin?<br>
@@ -493,7 +493,6 @@ tr:
         download_data: Verileri indir
         request_data: Veri talep et
     endorsable:
-      endorsements: Cirolar
       endorsements_count: Onay sayısı
     endorsement_buttons_cell:
       already_endorsed: Onaylanan
@@ -707,6 +706,10 @@ tr:
       file_validation:
         allowed_file_extensions: 'İzin verilen dosya uzantıları: %{extensions}'
         max_file_size: 'Maksimum dosya boyutu: %{megabytes} MB'
+      upload:
+        labels:
+          cancel: İptal Et
+          save: Kayıt etmek
     gamification:
       all_badges_link: Tüm mevcut rozetleri görün.
       badges:
@@ -827,7 +830,7 @@ tr:
         resource_type: Türü
     links:
       warning:
-        close_modal: Yakın kalıcı
+        close_modal: Pencereyi kapat
     log:
       base_presenter:
         create: "%{user_name}, %{resource_name} oluşturdu"
@@ -915,7 +918,7 @@ tr:
           ok: OK
         index:
           ago: önce
-          close: Yakın kalıcı
+          close: Pencereyi kapat
           from: Gönderen
           groups: Gruplarım
           last_message: Son mesaj
@@ -1033,7 +1036,6 @@ tr:
           proposals: Teklifler
           proposals_explanation: Öneriler yapın, mevcut olanları destekleyin ve görmek istediğiniz değişiklikleri tanıtın.
         footer_sub_hero:
-          footer_sub_hero_body: Daha açık, şeffaf ve işbirliğine dayalı bir toplum oluşturalım. <br /> Katılın, katılımcı olun ve karar verin.
           footer_sub_hero_headline: '%{organization} katılımcı platformuna hoş geldiniz.'
           register: Kayıt Ol
         hero:
@@ -1063,7 +1065,7 @@ tr:
           legend: Kullanım şartlarını ve koşullarını kabul et
         refuse:
           modal_btn_exit: Daha sonra inceleyeceğim
-          modal_close: Yakın kalıcı
+          modal_close: Pencereyi kapat
           modal_title: Güncellenmiş Şartlar ve Koşulları gerçekten reddediyor musunuz?
         required_review:
           alert: Hizmet Şartlarımızı güncellendi, lütfen inceleyin.
@@ -1156,7 +1158,7 @@ tr:
           future: gelecek
           past: geçmiş
       filters_small_view:
-        close_modal: Yakın kalıcı
+        close_modal: Pencereyi kapat
         filter: filtre
         filter_by: Tarafından filtre
         unfold: açılmak
@@ -1430,7 +1432,7 @@ tr:
     sessions:
       already_signed_out: Başarıyla imzalandı.
       new:
-        sign_in: Oturum aç
+        sign_in: "Giriş \nGiriş Yapın "
       signed_in: Başarıyla imzalandı.
       signed_out: Başarıyla imzalandı.
     shared:
@@ -1439,7 +1441,7 @@ tr:
         didn_t_receive_confirmation_instructions: Onaylama talimatları almadı mı?
         didn_t_receive_unlock_instructions: Kilit açma talimatları almadı mı?
         forgot_your_password: Parolanızı mı unuttunuz?
-        sign_in: Oturum aç
+        sign_in: "Giriş \nGiriş Yapın "
         sign_in_with_provider: '%{provider}ile giriş yap'
         sign_up: kaydol
       minimum_password_length:
@@ -1511,8 +1513,10 @@ tr:
         facebook: "Facebook'ta %{organization}"
         github: "GitHub'da %{organization}"
         instagram: "Instagram'da %{organization}"
-        twitter: "Twitter'da %{organization}"
+        x: "X 'de % organizasyon "
         youtube: "YouTube'da %{organization}"
+      upload_modal:
+        close_modal: Pencereyi kapat
       user_menu:
         account: 'Kullanıcı hesabı: %{name}'
         admin_dashboard: Yönetici kontrol paneli
@@ -1567,6 +1571,7 @@ tr:
     weibo: Sina Weibo
     whatsapp_app: Whatsapp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:

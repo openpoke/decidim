@@ -23,6 +23,8 @@ sl:
         new:
           create: Ustvari
           title: Nov skrbnik
+        show:
+          edit: Uredi
         update:
           error: Pojavila se je težava pri urejanju skrbnika.
           success: Skrbnik uspešno posodobljen
@@ -43,7 +45,6 @@ sl:
             created_at: Ustvarjen ob
             name: Ime
             smtp_settings: SMTP nastavitve
-          name: Organizacija
       organizations:
         create:
           error: Pojavila se je težava pri kreiranju organizacije.

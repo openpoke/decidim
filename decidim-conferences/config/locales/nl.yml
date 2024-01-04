@@ -57,7 +57,6 @@ nl:
         conference_meeting_ids: Gerelateerde vergaderingen
         full_name: Voor-en achternaam
         position: Positie
-        twitter_handle: Twitter-account
         user_id: Gebruiker
       conference_user_role:
         email: E-mail
@@ -320,9 +319,6 @@ nl:
         title: Sprekers
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze conferentie verwijzen. Accepteert alleen letters, cijfers en streepjes en moet beginnen met een letter. Voorbeeld: %{url}'
         conference_invites:
           create:
             error: Er is een probleem opgetreden tijdens het uitnodigen van de gebruiker om deel te nemen aan de conferentie.
@@ -335,9 +331,7 @@ nl:
             select_user: Selecteer gebruiker
           index:
             filter:
-              accepted: Aanvaard
               all: Alle
-              rejected: Verworpen
               sent: Verzonden
             filter_by: Filteren op
             invite_attendee: Nodig deelnemer uit
@@ -364,7 +358,6 @@ nl:
             registrations_count:
               one: Er is 1 registratie geweest.
               other: Er zijn %{count} registraties geweest.
-            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze conferentie verwijzen. Accepteert alleen letters, cijfers en streepjes en moet beginnen met een letter. Voorbeeld: %{url}'
         diplomas:
           edit:
             save: Opslaan
@@ -430,7 +423,6 @@ nl:
           invalid: Er is een probleem met het verlaten van deze conferentie.
           success: U hebt de conferentie met succes verlaten.
       conference_speaker:
-        go_to_twitter: Ga naar Twitter
         more_info: meer informatie
         personal_website: Persoonlijke website
         show:

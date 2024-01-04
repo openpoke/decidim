@@ -157,7 +157,7 @@ tr:
           inactive_content_blocks: Aktif olmayan içerik blokları
       participatory_process_group_landing_page_content_blocks:
         edit:
-          update: Güncelle
+          update: Güncelleştirme
       participatory_process_groups:
         destroy:
           error: Katılımcı süreç grubu yok edilirken bir hata oluştu.
@@ -213,6 +213,9 @@ tr:
         update:
           error: Bu katılımcı süreç adımı güncellenirken bir hata oluştu.
           success: Katılımcı süreç adımı başarıyla güncellendi.
+      participatory_process_types:
+        form:
+          title: Başlık
       participatory_process_user_roles:
         create:
           error: Bu katılımcı süreç için bir kullanıcı eklenirken bir hata oluştu.
@@ -350,9 +353,6 @@ tr:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help: 'URL sümükleri, bu işleme işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
         participatory_process_groups:
           form:
             metadata: Meta veri
@@ -361,10 +361,8 @@ tr:
         participatory_process_imports:
           form:
             document_legend: Doküman Ekle
-            slug_help: 'Sahte URL, bu işleme işaret eden URL''leri oluşturmak için kullanılır. Yalnızca harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Tam URL’leri değil kısmi yolları kullanın. Harfleri, sayıları, kısa çizgileri ve eğik çizgileri kabul eder ve bir harfle başlamalıdır. Ayarlanmazsa, düğme gösterilmeyecektir. Örnek: %{url}'
             cta_text_help: Ayarlanmazsa, düğme gösterilmeyecektir.
         participatory_processes:
           form:
@@ -378,7 +376,6 @@ tr:
             scope_type_max_depth_help: Kapsam filtresi derinliğini sınırlayın; Filtre genelden seçilen kapsam türüne kadar gösterilecektir.
             select_an_area: Bir alan seçin
             select_process_group: Bir işlem grubu seçin
-            slug_help: 'URL sümükleri, bu işleme işaret eden URL''leri oluşturmak için kullanılır. Sadece harfleri, sayıları ve kısa çizgileri kabul eder ve bir harfle başlamalıdır. Örnek: %{url}'
             title: Genel bilgi
             visbility: görünürlük
       content_blocks:
@@ -469,6 +466,6 @@ tr:
           more_info: Daha fazla bilgi
       process_header_steps:
         step: '%{total}adımdan %{current}'
-        view_steps: Adımları göster
+        view_steps: Süreç adımları
       process_navigation:
         process_menu_item: Süreç

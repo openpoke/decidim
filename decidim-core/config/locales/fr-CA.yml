@@ -424,7 +424,7 @@ fr-CA:
           request_confirmation_instructions: Demander des instructions de confirmation
           title: confirmez votre email
       show:
-        close_modal: Fermer la fenêtre de dialogue
+        close_modal: Fermer la fenêtre modale
     block_user_mailer:
       notify:
         body_1: Votre compte a été bloqué.
@@ -534,6 +534,8 @@ fr-CA:
           subtitle: Remplissez le formulaire suivant pour compléter l'inscription
           username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       registrations:
+        create:
+          error: Il y a eu un problème pour créer votre compte.
         new:
           already_have_an_account?: Vous avez déjà un compte ?
           newsletter: Recevoir une newsletter sur l'actualité de la plateforme
@@ -560,7 +562,7 @@ fr-CA:
         newsletter_modal:
           buttons:
             check: Oui, je souhaite m'inscrire à la newsletter
-            close_modal: Fermer la fenêtre de dialogue
+            close_modal: Fermer la fenêtre modale
             uncheck: Garder décoché
           notice: |-
             La newsletter vous permet de suivre tous les événements importants sur la plateforme (lancement de nouvelles concertations, annonce des résultats, etc.). Souhaitez-vous vous y inscrire ?
@@ -973,7 +975,7 @@ fr-CA:
         body_1: Vous êtes sur le point de visiter un lien externe et nous aimerions que vous soyez prudent quant au contenu du site externe.
         body_2: Veuillez vérifier le lien que vous êtes sur le point de visiter et assurez-vous de le reconnaître comme un site sûr avant de poursuivre.
         cancel: Annuler
-        close_modal: Fermer la fenêtre de dialogue
+        close_modal: Fermer la fenêtre modale
         proceed: Continuer
         title: Ouvrir le lien externe
     log:
@@ -1066,7 +1068,7 @@ fr-CA:
           ok: Ok
         index:
           ago: il y a
-          close: Fermer la fenêtre de dialogue
+          close: Fermer la fenêtre modale
           from: De
           groups: Mes groupes
           last_message: Dernier message
@@ -1258,7 +1260,7 @@ fr-CA:
           modal_btn_continue: Accepter les conditions et continuer
           modal_btn_exit: Je l'examinerai plus tard
           modal_button: Refuser les conditions d'utilisation
-          modal_close: Fermer la fenêtre de dialogue
+          modal_close: Fermer la fenêtre modale
           modal_title: Refusez-vous vraiment les conditions d'utilisation mises à jour ?
         required_review:
           alert: Nous avons mis à jour nos conditions d'utilisation, veuillez les consulter.
@@ -1357,10 +1359,10 @@ fr-CA:
           future: Futur
           past: Passé
       filters_small_view:
-        close_modal: Fermer la fenêtre de dialogue
+        close_modal: Fermer la fenêtre modale
         filter: Filtrer
         filter_by: Filtrer par
-        unfold: Voir plus
+        unfold: Afficher
       results:
         results:
           one: "%{count} résultat"
@@ -1657,7 +1659,7 @@ fr-CA:
     sessions:
       already_signed_out: Déconnecté(e) avec succès.
       new:
-        sign_in: S'identifier
+        sign_in: Se connecter
       signed_in: Connexion réussie.
       signed_out: Déconnecté(e) avec succès.
     shared:
@@ -1666,7 +1668,7 @@ fr-CA:
         didn_t_receive_confirmation_instructions: Vous n'avez pas reçu d'instructions de confirmation?
         didn_t_receive_unlock_instructions: Si la plateforme vous indique que votre compte est bloqué, cliquez ici pour recevoir les instructions de déblocage
         forgot_your_password: Mot de passe oublié?
-        sign_in: S'identifier
+        sign_in: Se connecter
         sign_in_with_provider: Se connecter avec %{provider}
         sign_up: S'inscrire
       minimum_password_length:
@@ -1699,6 +1701,7 @@ fr-CA:
       not_saved:
         one: 'Une erreur est survenue pendant le traitement de votre requête.'
         other: 'Plusieurs erreurs sont survenues pendant le traitement de votre requête.'
+      password_confirmation_message: '"Confirmer votre mot de passe" ne correspond pas au mot de passe'
       too_many_marks: utilise trop de signes de ponctuation consécutifs (par exemple! et?)
       too_much_caps: utilise trop de lettres majuscules (plus de 25% du texte)
       too_short: est trop court (le minimum est de %{count} caractères)
@@ -1795,7 +1798,7 @@ fr-CA:
         facebook: "%{organization} sur Facebook"
         github: "%{organization} sur GitHub"
         instagram: "%{organization} sur Instagram"
-        twitter: "%{organization} sur Twitter"
+        x: "%{organization} sur X"
         youtube: "%{organization} sur YouTube"
       timeout_modal:
         body: Vous avez été inactif pendant %{minutes} minutes. Si vous continuez à être inactif, vous serez automatiquement déconnecté pour votre propre sécurité.
@@ -1803,7 +1806,7 @@ fr-CA:
         sign_out: Se déconnecter
         title: Voulez-vous poursuivre votre session ?
       upload_modal:
-        close_modal: Fermer la fenêtre
+        close_modal: Fermer la fenêtre modale
       user_menu:
         account: 'Compte utilisateur: %{name}'
         admin_dashboard: Tableau de bord des administrateurs
@@ -1862,6 +1865,7 @@ fr-CA:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:

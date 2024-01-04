@@ -65,7 +65,6 @@ sk:
         success_color: Úspech
         time_zone: Časové pásmo
         tos_version: Verzia podmienok použitia
-        twitter_handler: Twitter handler
         user_groups_enabled: Povoliť skupiny
         warning_color: Varovanie
         welcome_notification_body: Telo textu úvodného privítania
@@ -488,9 +487,6 @@ sk:
           select_scopes: Filtrovať užívateľov, ktorí aktivovali aspoň jednu označenú oblasť vo svojich nastaveniach "Moje záujmy".
           select_spaces: Vyberte skupiny pre rozdelenie spravodaja
           select_users: Vyberte, ktorým účastníkom chcete rozoslať spravodaj
-          send_to_all_users: Poslať všetkým účastníkom
-          send_to_followers: Poslať sledujúcim
-          send_to_participants: Poslať účastníkom
           title: Vyberte príjemcov
           warning: "<strong>Pozor:</strong> Tento spravodaj bude odoslaný len účastníkom, ktorí aktivovali možnosť <em>Chcem dostávať spravodaje</em> vo svojich nastaveniach."
         send:
@@ -539,7 +535,6 @@ sk:
           instagram: Instagram
           rich_text_editor_in_public_views_help: V niektorých textových oknách budú účastníci môcť vkladať niektoré HTML tagy pomocou pokročilého textového editoru.
           social_handlers: Sociálne
-          twitter: Twitter
           youtube: YouTube
         update:
           error: Pri aktualizácii organizácie došlo k chybe.
@@ -551,17 +546,12 @@ sk:
           colors:
             colors_title: Farby organizácie
             header_snippets_help: Použite pole pre pridanie vecí do HTML hlavičky. Najbežnejšie využitie je integrácia služieb tretích strán, JavaScriptu a CSS. Tiež môžete pridať ďalšie meta tagy. Tieto veci sa zobrazia iba na verejných stránkach, nie administrátorskej.
-          cta_button_path_help: 'Môžete prepísať, kam tlačidlo Výzva do Akcie na úvodnej stránke odkazuje. Používajte relatívne adresy, nie celé URL. Akceptuje písmená, čísla, pomlčky a lomky, ale musí začínať písmenom. Tlačidlo Výzva do Akcie sa zobrazuje na úvodnej strane medzi úvodným textom a popisom. Príklad: %{url}'
           cta_button_text_help: Môžete prepísať tlačidlo Výzva do Akcie pre každý dostupný jazyk Vašej organizácie. Ak to nespravíte, bude použitý primárny jazyk. Tlačidlo Výzva do Akcie sa zobrazuje na úvodnej strane medzi úvodným textom a popisom.
           homepage_appearance_title: Upraviť vzhľad úvodnej obrazovky
           homepage_highlighted_content_banner_title: Banner so zdôrazneným obsahom
           images:
             layout_appearance_title: Upraviť vzhľad 
           omnipresent_banner_appearance_title: Upraviť všadeprítomný banner
-      organization_homepage:
-        edit:
-          active_content_blocks: Bloky aktívneho obsahu
-          inactive_content_blocks: Bloky neaktívneho obsahu
       organization_homepage_content_blocks:
         edit:
           update: Aktualizovať
@@ -655,7 +645,6 @@ sk:
           update: Aktualizovať
         form:
           none: Žiadne
-          slug_help: 'Použite tu čiastočné cesty, nie úplné adresy URL. Prijme písmená, čísla, pomlčky a lomítka a musí začínať písmenom. Príklad: %{url}'
         index:
           last_notable_change: Posledná výrazná úprava
         new:

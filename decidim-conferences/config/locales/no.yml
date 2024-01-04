@@ -57,7 +57,6 @@
         conference_meeting_ids: Relaterte møter
         full_name: Fullt navn
         position: Stilling
-        twitter_handle: Brukernavn Twitter
         user_id: Bruker
       conference_user_role:
         email: Epost
@@ -320,9 +319,6 @@
         title: Talere
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne konferansen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         conference_invites:
           create:
             error: Det oppstod et problem med å invitere deltakeren til å delta på konferansen.
@@ -364,7 +360,6 @@
             registrations_count:
               one: Det har vært 1 registrering.
               other: Det har vært %{count} registreringer.
-            slug_help: 'URL slugs brukes til å generere nettadressene som peker på denne konferansen. Godtar bare bokstaver, tall og bindestreker, og må starte med en bokstav. Eksempel: %{url}'
         diplomas:
           edit:
             save: Lagre
@@ -430,7 +425,6 @@
           invalid: Det oppstod et problem med å forlate denne konferansen.
           success: Du har forlatt konferansen.
       conference_speaker:
-        go_to_twitter: Gå til Twitter
         more_info: mer info
         personal_website: Personlig nettside
         show:

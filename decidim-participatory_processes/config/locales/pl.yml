@@ -222,6 +222,8 @@ pl:
           error: Podczas aktualizowania etapu procesu partycypacyjnego wystąpił błąd.
           success: Etap procesu partycypacyjnego został zaktualizowany.
       participatory_process_types:
+        form:
+          title: Tytuł
         new:
           create: Utwórz
           title: Nowy typ procesu
@@ -315,6 +317,10 @@ pl:
           contextual: "<p> <strong>Proces partycypacyjny</strong> jest sekwencją działań partycypacyjnych (np najpierw wypełnij ankietę, a następnie złóż propozycję, omów je twarzą w twarz lub w trakcie wirtualnych spotkań, a na końcu ustal swoje priorytety) w celu definiowania i podejmowania decyzji na określony temat.</p> <p>Przykładami procesów partycypacyjnych są: proces wybierania członków komitetu (w którym kandydatury są najpierw przedstawiane, następnie omawiane, a ostatecznie kandydat jest wybierany), budżety partycypacyjne (w których składane są propozycje, dokonuje się wycen ekonomicznych i głosuje w granicy dostępnego budżetu), proces planowania strategicznego, wspólne opracowywanie rozporządzenia lub normy, projektowanie przestrzeni miejskiej lub opracowywanie planu polityki publicznej.</p>\n"
           page: "<p> <strong>Proces partycypacyjny</strong> jest sekwencją działań partycypacyjnych (np najpierw wypełnij ankietę, a następnie złóż propozycję, omów je twarzą w twarz lub w trakcie wirtualnych spotkań, a na końcu ustal swoje priorytety) w celu definiowania i podejmowania decyzji na określony temat.</p> <p>Przykładami procesów partycypacyjnych są: proces wybierania członków komitetu (w którym kandydatury są najpierw przedstawiane, następnie omawiane, a ostatecznie kandydat jest wybierany), budżety partycypacyjne (w których składane są propozycje, dokonuje się wycen ekonomicznych i głosuje w granicy dostępnego budżetu), proces planowania strategicznego, wspólne opracowywanie rozporządzenia lub normy, projektowanie przestrzeni miejskiej lub opracowywanie planu polityki publicznej.</p>\n"
           title: Czym jest proces partycypacyjny?
+    log:
+      value_types:
+        participatory_process_type_presenter:
+          not_found: 'Tej operacji nie ma w bazie danych (ID: %{id})'
     menu:
       processes: Procesy
     metrics:
@@ -364,9 +370,6 @@ pl:
         new_import:
           accepted_types:
             json: JSON
-        participatory_process_copies:
-          form:
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego procesu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadane
@@ -375,10 +378,8 @@ pl:
         participatory_process_imports:
           form:
             document_legend: Dodaj dokument
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego procesu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         participatory_process_steps:
           form:
-            cta_path_help: 'Wpisz tutaj tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełny adres URL. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Jeśli nie zostanie ustawione, przycisk nie będzie wyświetlany. Przykład: %{url}'
             cta_text_help: Jeśli nie zostanie ustawione, przycisk nie będzie wyświetlany.
         participatory_processes:
           form:
@@ -393,7 +394,6 @@ pl:
             select_an_area: Wybierz kategorię
             select_participatory_process_type: Wybierz typ procesu
             select_process_group: Wybierz grupę procesów
-            slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego procesu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
             title: Informacje ogólne
             visbility: Widoczność
       content_blocks:
@@ -494,6 +494,6 @@ pl:
           more_info: Więcej informacji
       process_header_steps:
         step: Etap %{current} z %{total}
-        view_steps: Pokaż etapy
+        view_steps: Etapy procesu
       process_navigation:
         process_menu_item: Proces

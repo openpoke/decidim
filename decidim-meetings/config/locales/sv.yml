@@ -32,6 +32,7 @@ sv:
         registration_terms: Registreringsvillkor
         registration_url: URL för anmälan
         registrations_enabled: Registreringar aktiverade
+        start_time: Starttid
         title: Titel
         transparent: Transparent
         type_of_meeting: Typ
@@ -272,9 +273,7 @@ sv:
             select_user: Välj deltagare
           index:
             filter:
-              accepted: Accepterad
-              all: Allt
-              rejected: Avvisad
+              all: Alla
               sent: Skickat
             filter_by: Filtrera efter
             invite_attendee: Bjud in deltagare
@@ -387,7 +386,7 @@ sv:
         filter_meeting_space_values:
           all: Alla
         filter_scope_values:
-          all: Allt
+          all: Alla
       calendar_modal:
         calendar_url: Kalender-URL
         close_window: Stäng fönster
@@ -470,6 +469,7 @@ sv:
             all: Alla
             official: Officiell
             participants: Deltagare
+            user_groups: Grupper
           scope: Omfång
           search: Sök
           type: Typ
@@ -521,7 +521,6 @@ sv:
           contributions: Antal bidrag
           date: Datum
           edit_meeting: Redigera möte
-          going: Du har anmält dig för detta möte
           leave: Avbryt din registrering
           leave_confirmation: Är du säker på att du vill avboka från detta möte?
           link_available_soon: Länk snart tillgänglig

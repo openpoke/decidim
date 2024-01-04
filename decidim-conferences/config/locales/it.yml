@@ -57,7 +57,6 @@ it:
         conference_meeting_ids: Conferenze correlate
         full_name: Nome e cognome
         position: Posizione
-        twitter_handle: Identificativo Twitter
         user_id: Utente
       conference_user_role:
         email: E-mail
@@ -197,7 +196,7 @@ it:
         conference:
           fields:
             created_at: Creato il
-            promoted: Evidenziato
+            promoted: In evidenza
             published: Pubblicato
             title: Titolo
         conference_speaker:
@@ -320,9 +319,6 @@ it:
         title: Relatori
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa conferenza. Accetta solo lettere, numeri e trattini e deve iniziare con una lettera. Esempio: %{url}'
         conference_invites:
           create:
             error: Si è verificato un problema durante l'invito dell'utente a partecipare alla conferenza.
@@ -335,9 +331,7 @@ it:
             select_user: Seleziona utente
           index:
             filter:
-              accepted: Accettato
               all: Tutti
-              rejected: Respinto
               sent: Inviato
             filter_by: Filtra per
             invite_attendee: Invita il partecipante
@@ -364,7 +358,6 @@ it:
             registrations_count:
               one: C'è stata 1 registrazione.
               other: Ci sono state %{count} iscrizioni.
-            slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questa conferenza. Accetta solo lettere, numeri e trattini e deve iniziare con una lettera. Esempio: %{url}'
         diplomas:
           edit:
             save: Salva
@@ -430,7 +423,6 @@ it:
           invalid: C'è stato un problema a lasciare questa conferenza.
           success: Hai lasciato la conferenza con successo.
       conference_speaker:
-        go_to_twitter: Vai a Twitter
         more_info: Ulteriori informazioni
         personal_website: Sito web personale
         show:

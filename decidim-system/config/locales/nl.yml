@@ -32,6 +32,8 @@ nl:
         new:
           create: Creëren
           title: Nieuwe admin
+        show:
+          edit: Bewerk
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze admin.
           success: Admin succesvol bijgewerkt
@@ -62,7 +64,6 @@ nl:
             name: Naam
             omniauth_settings: Omniauth instellingen
             smtp_settings: SMTP-instellingen
-          name: Organisatie
       organizations:
         advanced_settings:
           hide: Geavanceerde instellingen verbergen
@@ -75,8 +76,6 @@ nl:
         index:
           title: Organisaties
         new:
-          reference_prefix_hint: Het referentie-voorvoegsel wordt gebruikt ter identificatie van unieke middelen over alle organisaties
-          secondary_hosts_hint: Voer elk van hen op een nieuwe regel in
           title: Nieuwe organisatie
         omniauth_settings:
           decidim:

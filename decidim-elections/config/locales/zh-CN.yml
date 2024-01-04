@@ -102,10 +102,6 @@ zh-CN:
         models:
           answer:
             name: 答案
-          election:
-            name: 选举
-          question:
-            name: 问
         proposals_imports:
           create:
             invalid: 将建议导入答案时遇到问题
@@ -220,7 +216,6 @@ zh-CN:
           continue: 下一个
       warnings:
         no_elections_warning: 没有符合您的搜索条件的选项，或者没有排定任何选区。
-        no_scheduled_elections_warning: 目前没有预定的选举，但是你们可以在这里看到过去的所有选举都被列入清单。
     events:
       elections:
         election_published:
@@ -229,6 +224,14 @@ zh-CN:
           email_subject: '%{resource_title} 的选举现在对 %{participatory_space_title} 生效。'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> 选区现已启用 %{participatory_space_title}。
     votings:
+      admin:
+        polling_officers:
+          polling_officers_picker:
+            close: 关闭
+        votings:
+          actions:
+            publish: 发布
+            unpublish: 取消发布
       polling_officer_zone:
         closures:
           new:

@@ -125,6 +125,7 @@ lb:
         conference:
           fields:
             created_at: Hergestellt in
+            promoted: Gefördert
         conference_speaker:
           fields:
             position: Positioun
@@ -243,9 +244,6 @@ lb:
         title: Lautsprecher
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'URL-Slugs werden verwendet, um URLs zu generieren, die auf diese Konferenz verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         conference_invites:
           create:
             error: Beim Einladen des Benutzers zur Teilnahme an der Konferenz ist ein Problem aufgetreten.
@@ -287,7 +285,6 @@ lb:
             registrations_count:
               one: Es gab 1 Registrierung.
               other: Es gab %{count} Registrierungen.
-            slug_help: 'URL-Slugs werden verwendet, um URLs zu generieren, die auf diese Konferenz verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         diplomas:
           edit:
             save: Speichern
@@ -353,7 +350,6 @@ lb:
           invalid: Beim Verlassen dieser Konferenz ist ein Problem aufgetreten.
           success: Sie haben die Konferenz erfolgreich verlassen.
       conference_speaker:
-        go_to_twitter: Gehe zu Twitter
         more_info: Mehr Informationen
         personal_website: Persönliche Webseite
         show:

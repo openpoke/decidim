@@ -58,7 +58,6 @@ ar:
         conference_meeting_ids: الاجتماعات ذات الصلة
         full_name: الاسم الكامل
         position: المنصب
-        twitter_handle: مُعرّف حساب تويتر
         user_id: المستخدم
       conference_user_role:
         email: البريد الإلكتروني
@@ -333,9 +332,6 @@ ar:
         title: مكبرات الصوت
     conferences:
       admin:
-        conference_copies:
-          form:
-            slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذا المؤتمر. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
         conference_invites:
           create:
             error: حدثت مشكلة أثناء دعوة المشارك للانضمام إلى المؤتمر.
@@ -348,9 +344,7 @@ ar:
             select_user: اختر المشارك
           index:
             filter:
-              accepted: وافقت
               all: الكل
-              rejected: مرفوض
               sent: أرسلت
             filter_by: مصنف بواسطة
             invite_attendee: دعوة مشارك
@@ -381,7 +375,6 @@ ar:
               few: كان هناك %{count} التسجيلات.
               many: كان هناك %{count} التسجيلات.
               other: كان هناك %{count} التسجيلات.
-            slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذا المؤتمر. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
         diplomas:
           edit:
             save: حفظ
@@ -447,7 +440,6 @@ ar:
           invalid: حدثت مشكلة أثناء مغادرة هذا المؤتمر.
           success: لقد تركت المؤتمر بنجاح.
       conference_speaker:
-        go_to_twitter: انتقل إلى تويتر
         more_info: مزيد من المعلومات
         personal_website: موقع الويب الشخصي
         show:

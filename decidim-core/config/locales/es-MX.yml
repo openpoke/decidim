@@ -424,7 +424,7 @@ es-MX:
           request_confirmation_instructions: Solicitar instrucciones de confirmación
           title: Confirma tu email
       show:
-        close_modal: Cerrar modal
+        close_modal: Cerrar el modal
     block_user_mailer:
       notify:
         body_1: Tu cuenta ha sido bloqueda.
@@ -534,6 +534,8 @@ es-MX:
           subtitle: Por favor, rellena el siguiente formulario con el fin de completar la inscripción
           username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
+        create:
+          error: Hubo un problema al crear tu cuenta.
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           newsletter: Quiero recibir un boletín ocasional con información relevante
@@ -560,7 +562,7 @@ es-MX:
         newsletter_modal:
           buttons:
             check: Verificar y continuar
-            close_modal: Cerrar modal
+            close_modal: Cerrar el modal
             uncheck: Mantener desmarcado
           notice: |-
             <p>Oye, ¿estás seguro de que no quieres recibir un boletín informativo?<br>
@@ -978,7 +980,7 @@ es-MX:
         body_1: Estás a punto de visitar un enlace externo y te recomendamos que seas prudente respecto al contenido de páginas externas.
         body_2: Por favor, antes de seguir, comprueba que el enlace que estás a punto de visitar pertenece a un sitio seguro.
         cancel: Cancelar
-        close_modal: Cerrar modal
+        close_modal: Cerrar el modal
         proceed: Continuar
         title: Abrir enlace externo
     log:
@@ -1071,7 +1073,7 @@ es-MX:
           ok: De acuerdo
         index:
           ago: anteriores
-          close: Cerrar modal
+          close: Cerrar el modal
           from: 'De:'
           groups: Mis grupos
           last_message: Último mensaje
@@ -1263,7 +1265,7 @@ es-MX:
           modal_btn_continue: Aceptar los términos y condiciones de uso, y continuar
           modal_btn_exit: Lo revisaré más tarde
           modal_button: Rechazar los términos y condiciones de uso
-          modal_close: Cerrar modal
+          modal_close: Cerrar el modal
           modal_title: '¿Confirmas que no aceptas los Términos y Condiciones actualizados?'
         required_review:
           alert: Hemos actualizado nuestros Términos de Servicio, por favor revísalos.
@@ -1362,7 +1364,7 @@ es-MX:
           future: Futuros
           past: Pasados
       filters_small_view:
-        close_modal: Cerrar modal
+        close_modal: Cerrar el modal
         filter: Filtrar
         filter_by: Filtrar por
         unfold: Desplegar
@@ -1662,7 +1664,7 @@ es-MX:
     sessions:
       already_signed_out: Sesión finalizada con éxito.
       new:
-        sign_in: Iniciar sesión
+        sign_in: Entra
       signed_in: Sesión iniciada con éxito.
       signed_out: Sesión finalizada con éxito.
     shared:
@@ -1671,7 +1673,7 @@ es-MX:
         didn_t_receive_confirmation_instructions: '¿No has recibido las instrucciones de confirmación?'
         didn_t_receive_unlock_instructions: '¿No has recibido instrucciones de desbloqueo?'
         forgot_your_password: '¿Olvidaste tu contraseña?'
-        sign_in: Iniciar sesión
+        sign_in: Entra
         sign_in_with_provider: Inicia sesión con %{provider}
         sign_up: Regístrate
       minimum_password_length:
@@ -1704,6 +1706,7 @@ es-MX:
       not_saved:
         one: 'Se ha producido un error procesando tu solicitud:'
         other: 'Hubo varios errores al procesar tu solicitud:'
+      password_confirmation_message: '"Confirma tu contraseña" no coincide con la Contraseña'
       too_many_marks: Estás usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
       too_much_caps: Está usando demasiadas letras mayúsculas (más del 25% del texto)
       too_short: es demasiado corto (menos %{count} caracteres)
@@ -1800,7 +1803,7 @@ es-MX:
         facebook: "%{organization} en Facebook"
         github: "%{organization} en GitHub"
         instagram: "%{organization} en Instagram"
-        twitter: "%{organization} en Twitter"
+        x: "%{organization} en X"
         youtube: "%{organization} en YouTube"
       timeout_modal:
         body: Has estado sin actividad durante %{minutes} minutos. Si sigues estando inactivo, serás desconectado automáticamente por tu propia seguridad.
@@ -1808,7 +1811,7 @@ es-MX:
         sign_out: Cerrar sesión
         title: '¿Quieres continuar con la sesión?'
       upload_modal:
-        close_modal: Cerrar ventana
+        close_modal: Cerrar el modal
       user_menu:
         account: 'Cuenta de usuario: %{name}'
         admin_dashboard: Tablero de administración
@@ -1867,6 +1870,7 @@ es-MX:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:

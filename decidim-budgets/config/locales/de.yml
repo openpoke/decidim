@@ -21,6 +21,9 @@ de:
         scope_id: Themenbereich
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Budget
+        other: Budgets
       decidim/budgets/project:
         one: Projekt
         other: Projekte
@@ -77,7 +80,7 @@ de:
           projects: Projekte
         models:
           budget:
-            name: Bugdet
+            name: Budget
           project:
             name: Projekt
         projects:
@@ -192,7 +195,7 @@ de:
           fields:
             category: Kategorie
             id: ID
-            scope: Themenbereich
+            scope: Umfang
             title: Titel
       order_summary_mailer:
         order_summary:
@@ -203,7 +206,7 @@ de:
       projects:
         budget_confirm:
           are_you_sure: Wenn du deine Meinung änderst, kannst du deine Stimme nachträglich ändern.
-          cancel: Stornieren
+          cancel: Abbrechen
           confirm: Bestätigen
           description: Dies sind die Projekte, die Sie für das Budget ausgewählt haben.
           title: Bestätigung der Abstimmung
