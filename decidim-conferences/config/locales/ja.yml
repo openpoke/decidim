@@ -343,7 +343,7 @@ ja:
             filter:
               accepted: 承認済み
               all: すべて
-              rejected: 拒否
+              rejected: 却下済み
               sent: 送信済み
             filter_by: フィルター
             invite_attendee: 参加者の招待

@@ -293,9 +293,7 @@ tr:
             select_user: Kullanıcı seç
           index:
             filter:
-              accepted: Kabul edilmiş
               all: Herşey
-              rejected: Reddedilen
               sent: Gönderilen
             filter_by: Tarafından filtre
             invite_attendee: Katılımcı Davet Et
@@ -450,6 +448,7 @@ tr:
         home:
           highlighted_conferences:
             active_conferences: Aktif konferanslar
+            conferences_button_title: Tüm konferansları görüntüleyen Konferanslar sayfasına bağlantı
             see_all_conferences: Tüm Konferanslar
       photo:
         image:
