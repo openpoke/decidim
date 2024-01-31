@@ -5,7 +5,7 @@ module Decidim
     class DiffRenderer < BaseDiffRenderer
       include ActionView::Helpers::TextHelper
       include ActionView::Helpers::TagHelper
-      include ProposalPresenterHelper
+      include ApplicationHelper
       include SanitizeHelper
 
       delegate :organization, to: :proposal, prefix: :current
