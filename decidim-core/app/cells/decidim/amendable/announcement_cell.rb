@@ -47,7 +47,7 @@ module Decidim::Amendable
     end
 
     def announcement_date
-      model.amendment.updated_at
+      l(model.amendment.updated_at, format: :decidim_short)
     end
 
     def state_classes
