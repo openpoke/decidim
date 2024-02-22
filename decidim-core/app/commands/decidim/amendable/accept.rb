@@ -57,8 +57,20 @@ module Decidim
           visibility: "public-only"
         ) do
           @amendable.assign_attributes(form.emendation_params)
-          @amendable.title = { I18n.locale => form.emendation_params.with_indifferent_access[:title] }
-          @amendable.body = { I18n.locale => form.emendation_params.with_indifferent_access[:body] }
+          if @amendable.official?
+            # official proposals can be translated, when amending them, we want to keep the translations
+            # (admins will have to update it afterwards if needed) so we assign the original attributes first
+            @amendable.title = @emendation.amendable.title
+            @amendable.title[I18n.locale.to_s] = form.emendation_params.with_indifferent_access[:title]
+            @amendable.body = @emendation.amendable.body
+            @amendable.body[I18n.locale.to_s] = form.emendation_params.with_indifferent_access[:body]
+          else
+            # For non-official proposals, we only allow one locale, so we just assign the new values.
+            # Note that this will trigger the automatic translation if enabled 
+            # effectively changing the original language in what the proposal was writen
+            @amendable.title = { I18n.locale => form.emendation_params.with_indifferent_access[:title] }
+            @amendable.body = { I18n.locale => form.emendation_params.with_indifferent_access[:body] }
+          end
           @amendable.save!
           @amendable
         end
