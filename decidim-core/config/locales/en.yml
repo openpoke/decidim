@@ -322,7 +322,7 @@ en:
         back: Back
         heading: Review the amendment
         help_text: You are reviewing an amendment to the %{model_name}
-        locale_changed: This amendment is being made for the "%{lang}" language. The display language has been changed to prevent misunderstandings.
+        locale_changed: For technical reasons, this amendment must be reviewed in "%{lang}", as this was the language used by the submitter. Your display language has been adjusted accordingly.
         send: Accept amendment
       update_draft:
         error: There was a problem updating the amendment draft.
