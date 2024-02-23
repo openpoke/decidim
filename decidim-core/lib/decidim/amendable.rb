@@ -137,7 +137,7 @@ module Decidim
 
         published_emendations.where(decidim_amendments: { decidim_user_id: user.id })
       else # Assume 'all'
-        published_emendations
+        published_emendations.not_hidden
       end
     end
 
