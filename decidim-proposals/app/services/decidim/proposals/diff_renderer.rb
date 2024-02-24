@@ -55,7 +55,15 @@ module Decidim
       # Returns and Array of two Strings.
       def parse_values(attribute, values)
         values = [amended_previous_value(attribute), values[1]] if proposal&.emendation?
-        values = values.map { |item| item.to_h {|lang, value| [lang,normalize_line_endings(value)] }} if attribute == :body
+        if attribute == :body
+          values = values.map do |item|
+            if item.respond_to?(:to_h)
+              item.to_h {|lang, value| [lang,normalize_line_endings(value)] }
+            else
+              normalize_line_endings(item)
+            end
+          end
+        end
         values
       end
 
