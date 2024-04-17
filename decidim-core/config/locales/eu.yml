@@ -78,7 +78,7 @@ eu:
       file_cannot_be_processed: Fitxategia ezin izan da prozesatu
       file_resolution_too_large: Fitxategiaren erresoluzioa handiegia da
       file_size_too_large: Fitxategiaren taimaina handiegia da
-      not_inside_organization: Artxiboa ez dago antolatzaile batekin erlazionatuta
+      not_inside_organization: Artxiboa ez dago erakunde batekin erlazionatuta
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -104,6 +104,12 @@ eu:
       x_minutes:
         one: Minutu 1
         other: "Minutu %{count}"
+      x_months:
+        one: Hilabete bat
+        other: "%{count} hilabete"
+      x_seconds:
+        one: Segundo bat
+        other: "%{count} segundo"
   decidim:
     accessibility:
       external_link: Kanpoko lotura
@@ -780,6 +786,9 @@ eu:
       title: Hatz-marka
       value: Balioa
     followers:
+      followers_count:
+        one: "%{count} jarraitzaile"
+        other: "%{count} jarraitzaileak"
       no_followers: Ez da jarraitzailerik oraindik.
     following:
       no_followings: Ez du inork edo ezer oraindik jarraitzen.
@@ -1817,7 +1826,7 @@ eu:
       widget:
         see_more: Ikusi gehiago
   locale:
-    name: Ingelesa
+    name: Euskera
     name_with_error: Euskera (akatsa!)
   password_validator:
     blacklisted: Zerrenda beltzean

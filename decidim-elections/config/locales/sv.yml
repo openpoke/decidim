@@ -32,6 +32,7 @@ sv:
         title: Titel
       voting:
         banner_image: Bannerbild
+        description: Beskrivning
         end_time: Omröstningen avslutas
         promoted: Annonserad
         scope_id: Omfång
@@ -809,7 +810,6 @@ sv:
           hybrid: Hybrid
           in_person: Fysisk
           online: Online
-        voting_types_label: Rösttyp
   layouts:
     decidim:
       election_votes_header:

@@ -831,11 +831,11 @@ cs:
           omnipresent_banner_appearance_title: Upravit všudypřítomný banner
       organization_external_domain_whitelist:
         edit:
-          update: Aktualizovat
+          update: Aktualizace
         external_domain:
           down: Dolů
           external_domain: Externí doména
-          remove: Odebrat
+          remove: Odstranit
           up: Nahoru
         form:
           add: Přidat do seznamu povolených

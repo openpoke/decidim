@@ -95,6 +95,7 @@ hu:
         create:
           error: Hiba történt az új konzultáció létrehozása során.
           success: Konzultáció létrehozása sikeres.
+        deprecation_warning: A konzultációk modul a közeljövőben elavulttá válik. Dolgozunk a következő kriptográfiailag biztonságos változaton, a Szavazásokon.
         edit:
           update: Frissítés
         form:
@@ -360,6 +361,10 @@ hu:
       consultations:
         actions:
           comment: Megjegyzés
+          vote: Szavazás
+      question:
+        actions:
+          comment: Hozzászólás
           vote: Szavazás
     statistics:
       consultations_count: Konzultációk

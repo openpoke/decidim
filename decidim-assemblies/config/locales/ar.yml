@@ -59,6 +59,7 @@ ar:
         subtitle: العنوان الفرعي
         target: من يشارك
         title: العنوان
+        twitter: X
         weight: موضع الطلب
         youtube: يوتيوب
       assembly_member:
@@ -302,7 +303,6 @@ ar:
             select_parent_assembly: حدد الجمعية الأصلية
             social_handlers: التواصل الاجتماعي
             title: معلومات عامة
-            visbility: الرؤية
         assemblies_settings:
           edit:
             update: تحديث

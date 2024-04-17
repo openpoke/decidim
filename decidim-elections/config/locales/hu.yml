@@ -158,6 +158,7 @@ hu:
             success: "%{number} javaslat sikeresen importálva a válaszokba"
           new:
             create: Válaszjavaslatok importálása
+            no_components: Ezen a részvételi téren nincsenek más javaslati komponensek, amelyek a javaslatokat kérdésekbe importálják.
             select_component: Kérjük, válassz egy komponenst
             title: Javaslatok importálása
         questions:
@@ -245,6 +246,10 @@ hu:
         menu:
           votings_submenu:
             monitoring_committee: Ellenőrző Bizottság
+        polling_officers:
+          index:
+            role_manager: menedzser
+            role_president: elnök
         votings:
           actions:
             publish: Közzétesz
@@ -266,6 +271,11 @@ hu:
               no_polling_stations: Még nem vagy kijelölve egyetlen szavazóhelyiséghez sem.
               role: A te szereped
               voting: Szavazás
+      polling_officers:
+        roles:
+          manager: Menedzser
+          president: Elnök
+          unassigned: Nem hozzárendelt
       votings:
         check_census:
           error:

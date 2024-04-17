@@ -12,6 +12,8 @@ es:
         state: Estado
         title: Título
         user_group_id: Crear borrador colaborativo como
+      import_participatory_text:
+        document: Documento de texto participativo
       proposal:
         address: Dirección
         answer: Respuesta
@@ -109,7 +111,7 @@ es:
           state_eq:
             label: Estado
             values:
-              accepted: Aceptada
+              accepted: Aceptadas
               evaluating: En evaluación
               published: Publicada
               rejected: Rechazada
@@ -275,7 +277,7 @@ es:
             notification_title: Tu propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido aceptada.
           follower:
             email_intro: 'La propuesta "%{resource_title}" ha sido aceptada. Puedes leer la respuesta en esta página:'
-            email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
+            email_outro: Has recibido esta notificación porque estás siguiendo "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
             email_subject: Una propuesta que estás siguiendo ha sido aceptada
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido aceptada.
         proposal_evaluating:
@@ -286,7 +288,7 @@ es:
             notification_title: Tu propuesta <a href="%{resource_path}">%{resource_title}</a> está siendo evaluada.
           follower:
             email_intro: 'La propuesta "%{resource_title}" se está evaluando actualmente. Puedes encontrar la respuesta en esta página:'
-            email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
+            email_outro: Has recibido esta notificación porque estás siguiendo "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
             email_subject: Una propuesta que estás siguiendo está siendo evaluada
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> está siendo evaluada.
         proposal_mentioned:
@@ -313,7 +315,7 @@ es:
             notification_title: Tu propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido rechazada.
           follower:
             email_intro: 'La propuesta "%{resource_title}" ha sido rechazada. Puedes leer la respuesta en esta página:'
-            email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
+            email_outro: Has recibido esta notificación porque estás siguiendo "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
             email_subject: Una propuesta que estás siguiendo ha sido rechazada
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido rechazada.
         proposal_update_category:
@@ -469,7 +471,7 @@ es:
             success: Texto participativo actualizado correctamente.
         proposal_answers:
           form:
-            accepted: Aceptadas
+            accepted: Aceptada
             answer_proposal: Respuesta
             evaluating: En evaluación
             not_answered: No contestada
@@ -600,7 +602,7 @@ es:
           create: "%{user_name} asignó la propuesta %{resource_name} a una evaluadora"
           delete: "%{user_name} desasignó una evaluadora de la propuesta %{proposal_title}"
       answers:
-        accepted: Aceptadas
+        accepted: Aceptada
         evaluating: En evaluación
         not_answered: No contestada
         rejected: Rechazada
