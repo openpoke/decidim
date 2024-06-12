@@ -8,6 +8,7 @@ ru:
         body: Основной текст
         category_id: Категория
         has_address: Имеет адрес
+        scope_id: Охват
         state: Cостояние
         title: Заголовок
         user_group_id: Создать предложение в качестве
@@ -82,7 +83,6 @@ ru:
             proposal_wizard_step_1_help_text: Справка мастера предложений о шаге "Создать"
             proposal_wizard_step_2_help_text: Справка мастера предложений о шаге "Сравнить"
             proposal_wizard_step_3_help_text: Справка мастера предложений о шаге "Завершить"
-            proposal_wizard_step_4_help_text: Справка мастера предложений о шаге "Обнародовать"
             resources_permissions_enabled: Для каждого предложения можно задать те или иные разрешения на действия
             threshold_per_proposal: Порог для каждого предложения
             vote_limit: Предельное количество голосов для одного участника
@@ -270,7 +270,6 @@ ru:
           no_similars_found: Хорошая работа! Подобных предложений не найдено
           title: Похожие предложения
         complete:
-          send: Отправить
           title: Завершите свое предложение
         edit:
           attachment_legend: "(Необязательно) Добавить вложение"
@@ -284,6 +283,7 @@ ru:
           send: Предпросмотр
           title: Редактировать черновик предложения
         filters:
+          all: Все
           category: Категория
           origin: Источник
           related_to: Связано с

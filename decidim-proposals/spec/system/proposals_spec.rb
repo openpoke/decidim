@@ -154,7 +154,7 @@ describe "Proposals", type: :system do
       end
 
       it "shows the author as meeting" do
-        expect(page).to have_content(translated(proposal.authors.first.title))
+        expect(page).to have_content(decidim_sanitize_translated(proposal.authors.first.title))
       end
 
       it_behaves_like "rendering safe content", ".columns.mediumlarge-8.large-9"
@@ -494,6 +494,7 @@ describe "Proposals", type: :system do
       let!(:component) do
         create(:proposal_component,
                :with_votes_disabled,
+               :with_proposal_limit,
                manifest: manifest,
                participatory_space: participatory_process)
       end

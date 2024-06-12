@@ -6,7 +6,7 @@ describe Decidim::Proposals::CollaborativeDraftAccessRequestedEvent do
   include_context "when a simple event"
 
   let(:event_name) { "decidim.events.proposals.collaborative_draft_access_requested" }
-  let(:resource) { create :collaborative_draft, title: "It's my collaborative draft" }
+  let(:resource) { create :collaborative_draft, title: "It is my collaborative draft" }
   let(:resource_path) { Decidim::ResourceLocatorPresenter.new(resource).path }
   let(:resource_title) { resource.title }
   let(:author) { resource.authors.first }
@@ -24,9 +24,9 @@ describe Decidim::Proposals::CollaborativeDraftAccessRequestedEvent do
   let(:extra) { { requester_id: requester_id } }
 
   context "when the notification is for coauthor users" do
-    let(:notification_title) { %(<a href="#{requester_path}">#{requester_name} #{requester_nickname}</a> requested access to contribute to the <a href="#{resource_path}">#{decidim_html_escape(resource_title)}</a> collaborative draft. Please <strong>accept or reject the request</strong>.) }
-    let(:email_outro) { %(You have received this notification because you are a collaborator of <a href="#{resource_url}">#{decidim_html_escape(resource_title)}</a>.) }
-    let(:email_intro) { %(#{requester_name} requested access as a contributor. You can <strong>accept or reject the request</strong> from the <a href="#{resource_url}">#{decidim_html_escape(resource_title)}</a> collaborative draft page.) }
+    let(:notification_title) { %(<a href="#{requester_path}">#{requester_name} #{requester_nickname}</a> requested access to contribute to the <a href="#{resource_path}">#{resource_title}</a> collaborative draft. Please <strong>accept or reject the request</strong>.) }
+    let(:email_outro) { %(You have received this notification because you are a collaborator of <a href="#{resource_url}">#{resource_title}</a>.) }
+    let(:email_intro) { %(#{requester_name} requested access as a contributor. You can <strong>accept or reject the request</strong> from the <a href="#{resource_url}">#{resource_title}</a> collaborative draft page.) }
     let(:email_subject) { "#{requester_name} requested access to contribute to #{resource_title}." }
 
     it_behaves_like "a simple event"
