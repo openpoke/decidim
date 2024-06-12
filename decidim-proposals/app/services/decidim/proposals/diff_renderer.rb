@@ -3,6 +3,19 @@
 module Decidim
   module Proposals
     class DiffRenderer < BaseDiffRenderer
+      include ActionView::Helpers::TextHelper
+      include ActionView::Helpers::TagHelper
+      include ProposalPresenterHelper
+      include SanitizeHelper
+
+      delegate :organization, to: :proposal, prefix: :current
+
+      def preview
+        title = content_tag(:h3, render_proposal_title(proposal), class: "heading3")
+        body = content_tag(:div, render_proposal_body(proposal), class: "body")
+        content_tag(:div, "#{title}#{body}".html_safe, class: "diff-preview diff-proposal")
+      end
+
       private
 
       # Lists which attributes will be diffable and how they should be rendered.
@@ -42,7 +55,15 @@ module Decidim
       # Returns and Array of two Strings.
       def parse_values(attribute, values)
         values = [amended_previous_value(attribute), values[1]] if proposal&.emendation?
-        values = values.map { |value| normalize_line_endings(value) } if attribute == :body
+        if attribute == :body
+          values = values.map do |item|
+            if item.respond_to?(:to_h)
+              item.to_h {|lang, value| [lang,normalize_line_endings(value)] }
+            else
+              normalize_line_endings(item)
+            end
+          end
+        end
         values
       end
 

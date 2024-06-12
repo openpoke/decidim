@@ -249,7 +249,6 @@
           '1': Opprett endringen din
           '2': Sammenlign endringen din
           '3': Fullfør endringen din
-          '4': Publiser endringen din
     anonymous_user: Anonym
     application:
       collection:
@@ -727,6 +726,7 @@
         file:
           explanation: 'Veiledning for fil:'
           message_1: Må være et bilde eller et dokument.
+          message_2: For bilder anbefales bruk av landskapsbilder, tjenesten beskjærer bildet.
         image:
           explanation: 'Veiledning for bilde:'
           message_1: Et landskapsbilde uten tekst er å anbefale.

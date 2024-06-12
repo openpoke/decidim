@@ -32,7 +32,6 @@ describe "Decidim::Api::QueryType" do
       "hasComments" => result.comment_threads.size.positive?,
       "id" => result.id.to_s,
       "parent" => result.parent,
-      "participatorySpace" => { "id" => result.participatory_space.id.to_s },
       "progress" => result.progress.to_f,
       "reference" => result.reference,
       "scope" => result.scope,
@@ -71,7 +70,7 @@ describe "Decidim::Api::QueryType" do
     {
       "__typename" => "Accountability",
       "id" => current_component.id.to_s,
-      "name" => { "translation" => "Accountability" },
+      "name" => { "translation" => translated(current_component.name) },
       "results" => {
         "edges" => [
           {
@@ -121,9 +120,6 @@ describe "Decidim::Api::QueryType" do
               hasComments
               id
               parent {
-                id
-              }
-              participatorySpace {
                 id
               }
               progress
@@ -230,9 +226,6 @@ describe "Decidim::Api::QueryType" do
           hasComments
           id
           parent {
-            id
-          }
-          participatorySpace {
             id
           }
           progress

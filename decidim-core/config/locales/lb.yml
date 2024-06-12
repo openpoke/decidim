@@ -243,7 +243,6 @@ lb:
           '1': Erstell deng Ännerung
           '2': Vergläich deng Ännerungsvirschléi
           '3': Vervollstänneg deng Ännerungsvirschléi
-          '4': Verëffentlech deng Ännerungsvirschléi
     anonymous_user: Anonym
     application:
       collection:
@@ -707,6 +706,7 @@ lb:
         file:
           explanation: 'Uleedung fir dës Datei:'
           message_1: Soll eBild oder en Dokument sinn.
+          message_2: Für Bilder verwenden Sie vorzugsweise Landschaftsbilder, der Dienst bewirtschaftet das Bild.
         image:
           explanation: 'Uleedung fir d''Bild:'
           message_1: Am beschten queesch Format ouni Text.

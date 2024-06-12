@@ -45,7 +45,6 @@ is:
             proposal_wizard_step_1_help_text: Tillaga töframaður "Búa til" skref hjálpartexta
             proposal_wizard_step_2_help_text: Tillaga töframaður "Bera saman" skref hjálpartexta
             proposal_wizard_step_3_help_text: Tillaga töframaður "Complete" skref hjálpartexta
-            proposal_wizard_step_4_help_text: Tillaga "Birta" skref hjálpartexti
             threshold_per_proposal: Gildi fyrir hverja tillögu
           step:
             announcement: Tilkynning
@@ -67,13 +66,11 @@ is:
         proposal_accepted:
           follower:
             email_intro: 'Tillagan "%{resource_title}" hefur verið samþykkt. Þú getur lesið svarið á þessari síðu:'
-            email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{resource_title}". Þú getur sleppt því frá fyrri tengilinn.
             email_subject: Tillaga sem þú ert að fylgja hefur verið samþykkt
             notification_title: <a href="%{resource_path}">%{resource_title}</a> tillöguna hefur verið samþykkt.
         proposal_evaluating:
           follower:
             email_intro: 'Tillagan "%{resource_title}" er nú metin. Þú getur leitað að svari á þessari síðu:'
-            email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{resource_title}". Þú getur sleppt því frá fyrri tengilinn.
             email_subject: Tillaga sem þú fylgir er metin
             notification_title: <a href="%{resource_path}">%{resource_title}</a> tillögunni er metið.
         proposal_mentioned:
@@ -87,7 +84,6 @@ is:
         proposal_rejected:
           follower:
             email_intro: 'Tillagan "%{resource_title}" hefur verið hafnað. Þú getur lesið svarið á þessari síðu:'
-            email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með "%{resource_title}". Þú getur sleppt því frá fyrri tengilinn.
             email_subject: Tillaga sem þú ert að fylgja hefur verið hafnað
             notification_title: <a href="%{resource_path}">%{resource_title}</a> tillöguna hefur verið hafnað.
         proposal_update_category:
@@ -115,6 +111,7 @@ is:
             accepted: Samþykkt
             answer_proposal: Svara
             evaluating: Mat
+            not_answered: Ekki svarað
             rejected: Hafnað
             title: Svar fyrir tillögu %{title}
         proposal_notes:
@@ -177,7 +174,10 @@ is:
         filter_origin_values:
           official: Opinber
         filter_state_values:
+          accepted: Samþykkt
+          evaluating: Mat
           not_answered: Ekki svarað
+          rejected: Hafnað
       content_blocks:
         highlighted_proposals:
           proposals: Tillögur
@@ -205,7 +205,6 @@ is:
           no_similars_found: Vel gert! Engar svipaðar tillögur fundust
           title: Svipaðar tillögur
         complete:
-          send: Senda
           title: Ljúka tillögu þinni
         edit:
           back: Til baka

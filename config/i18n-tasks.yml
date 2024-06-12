@@ -324,6 +324,9 @@ ignore_unused:
   - decidim.templates.admin_log.*
   - decidim.forms.upload_help.explanation
   - decidim.messaging.conversations.index.ago
+  - versions.dropdown.choose_diff_view_html
+  - versions.dropdown.option_escaped
+  - versions.dropdown.option_unescaped
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

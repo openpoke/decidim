@@ -333,7 +333,6 @@ pt-BR:
           '1': Crie sua emenda
           '2': Compare sua alteração
           '3': Completar sua alteração
-          '4': Publique sua alteração
     anonymous_user: Anônimo
     application:
       collection:
@@ -1412,7 +1411,7 @@ pt-BR:
         title: Denunciar usuário inapropriado
       floating_help:
         close: Fechar Ajuda
-        help: Socorro
+        help: Ajuda
       follow_button:
         sign_in_before_follow: Faça login antes de executar esta ação
       login_modal:

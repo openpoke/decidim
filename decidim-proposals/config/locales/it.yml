@@ -161,7 +161,6 @@ it:
             proposal_wizard_step_1_help_text: Procedura guidata proposta "Crea" testo guida passo
             proposal_wizard_step_2_help_text: Procedura guidata di proposta "Confronta" il testo della guida del passo
             proposal_wizard_step_3_help_text: Procedura guidata "Completa" del testo della guida guidata della proposta
-            proposal_wizard_step_4_help_text: Procedura guidata "Pubblica" del testo della guida per la procedura guidata
             resources_permissions_enabled: Le autorizzazioni delle azioni possono essere impostate per ogni proposta
             scope_id: Ambito
             scopes_enabled: Ambiti abilitati
@@ -236,7 +235,6 @@ it:
             notification_title: La tua proposta <a href="%{resource_path}">%{resource_title}</a> è stata accettata.
           follower:
             email_intro: 'La proposta "%{resource_title}" è stata accettata. Puoi leggere la risposta in questa pagina:'
-            email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
             email_subject: Una proposta che stai seguendo è stata accettata
             notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata accettata.
         proposal_evaluating:
@@ -247,7 +245,6 @@ it:
             notification_title: La tua proposta <a href="%{resource_path}">%{resource_title}</a> è in fase di valutazione.
           follower:
             email_intro: 'La proposta "%{resource_title}" è attualmente in fase di valutazione. Puoi trovare una risposta in questa pagina:'
-            email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
             email_subject: Una proposta che stai seguendo è in corso di valutazione
             notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è in fase di valutazione.
         proposal_mentioned:
@@ -272,7 +269,6 @@ it:
             notification_title: La tua proposta <a href="%{resource_path}">%{resource_title}</a> è stata respinta.
           follower:
             email_intro: 'La proposta "%{resource_title}" è stata respinta. Puoi leggere la risposta in questa pagina:'
-            email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
             email_subject: Una proposta che stai seguendo è stata respinta
             notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata respinta.
         proposal_update_category:
@@ -404,6 +400,7 @@ it:
             accepted: Accettata
             answer_proposal: Risposta
             evaluating: Valutare
+            not_answered: Non risposto
             rejected: Rifiutata
             title: Risposta per la proposta %{title}
         proposal_notes:
@@ -546,11 +543,11 @@ it:
         filter_scope_values:
           all: Tutti
         filter_state_values:
-          accepted: Accettato
+          accepted: Accettata
           all: Tutti
           evaluating: Valutare
           not_answered: Non risposto
-          rejected: Respinto
+          rejected: Rifiutata
         filter_type_values:
           all: Tutti
           amendments: Modifiche
@@ -699,7 +696,7 @@ it:
           error: Ci sono stati errori durante la votazione della proposta.
       proposals:
         compare:
-          continue: Prosegui
+          continue: Continua
           no_similars_found: Molto bene! Non sono state trovate proposte simili
           title: Proposte simili
         complete:

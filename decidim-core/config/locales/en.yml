@@ -151,6 +151,7 @@ en:
       show:
         available_locales_helper: Choose the language you want to use to browse and receive notifications on the platform
         change_password: Change password
+        time_zone_helper: Use your personal time zone to display dates in your local time when you are logged in
         update_account: Update account
       update:
         error: There was a problem updating your account.
@@ -321,6 +322,7 @@ en:
         back: Back
         heading: Review the amendment
         help_text: You are reviewing an amendment to the %{model_name}
+        locale_changed: For technical reasons, this amendment must be reviewed in "%{lang}", as this was the language used by the submitter. Your display language has been adjusted accordingly.
         send: Accept amendment
       update_draft:
         error: There was a problem updating the amendment draft.
@@ -1907,6 +1909,10 @@ en:
       option_split: Side-by-side
       option_unescaped: Unescaped
       option_unified: Unified
+    tabs:
+      preview: Preview
+      source: Source diff
+      text: Text diff
   views:
     pagination:
       first: "&laquo; First"

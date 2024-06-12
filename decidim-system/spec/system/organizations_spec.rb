@@ -53,6 +53,48 @@ describe "Organizations", type: :system do
           expect(page).to have_content("There's an error in this field")
         end
       end
+
+      context "with an invalid organization admin name" do
+        before do
+          click_on "Organizations"
+          click_on "New"
+        end
+
+        it "does not create an organization" do
+          fill_in "Name", with: "Citizen Corp 2"
+          fill_in "Reference prefix", with: "CCORP"
+          fill_in "Host", with: "www.example.org"
+          fill_in "Organization admin name", with: "system@example.org"
+          fill_in "Organization admin email", with: "system@example.org"
+          check "organization_available_locales_en"
+          choose "organization_default_locale_en"
+          choose "Allow participants to register and login"
+
+          click_on "Create organization & invite admin"
+
+          within ".flash", match: :first do
+            expect(page).to have_content("There was a problem creating a new organization. Review your organization admin name.")
+          end
+        end
+      end
+
+      context "without the secret key defined" do
+        before do
+          allow(Rails.application.secrets).to receive(:secret_key_base).and_return(nil)
+        end
+
+        it "does not create an organization" do
+          fill_in "Name", with: "Citizen Corp"
+          fill_in "Host", with: "www.example.org"
+          fill_in "Reference prefix", with: "CCORP"
+          fill_in "Organization admin name", with: "City Mayor"
+          fill_in "Organization admin email", with: "mayor@example.org"
+          click_on "Create organization & invite admin"
+
+          click_on "Show advanced settings"
+          expect(page).to have_content("You need to define the SECRET_KEY_BASE environment variable to be able to save this field")
+        end
+      end
     end
 
     describe "showing an organization with different locale than user" do
@@ -101,6 +143,21 @@ describe "Organizations", type: :system do
 
         expect(page).to have_css("div.flash.success")
         expect(page).to have_content("Citizens Rule!")
+      end
+
+      context "without the secret key defined" do
+        before do
+          allow(Rails.application.secrets).to receive(:secret_key_base).and_return(nil)
+        end
+
+        it "shows the error message" do
+          fill_in "Name", with: "Citizens Rule!"
+          fill_in "Host", with: "www.example.org"
+          click_on "Save"
+
+          click_on "Show advanced settings"
+          expect(page).to have_content("You need to define the SECRET_KEY_BASE environment variable to be able to save this field")
+        end
       end
     end
 

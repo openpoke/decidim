@@ -83,7 +83,10 @@ cs:
     'true': 'Ano'
   carrierwave:
     errors:
+      file_cannot_be_processed: Soubor nelze zpracovat
+      file_resolution_too_large: Rozlišení souboru je příliš velké
       file_size_too_large: Soubor je příliš velký
+      not_inside_organization: Soubor není připojen k žádné organizaci
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -356,7 +359,6 @@ cs:
           '1': Vytvořte svůj pozměňovací návrh
           '2': Porovnejte váš pozměňovací návrh
           '3': Dokončete váš pozměňovací návrh
-          '4': Zveřejněte svůj pozměňovací návrh
     anonymous_user: Anonymní
     application:
       collection:

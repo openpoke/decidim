@@ -11,6 +11,8 @@ module Decidim
     helper_method :amendment, :amendable, :emendation, :similar_emendations
     before_action :ensure_is_draft_from_user, only: [:compare_draft, :edit_draft, :update_draft, :destroy_draft, :preview_draft, :publish_draft]
 
+    around_action :ensure_locale_on_review, only: [:review]
+
     def new
       raise ActionController::RoutingError, "Not Found" unless amendable
 
@@ -191,6 +193,16 @@ module Decidim
     end
 
     private
+
+    def ensure_locale_on_review
+      emendation_locale = (emendation.title.keys - ["machine_translations"]).first
+      if current_locale.to_s != emendation_locale
+        flash[:alert] = t("locale_changed", scope: "decidim.amendments.review", lang: t("locale.name", locale: emendation_locale))
+      end
+      I18n.with_locale(emendation_locale) do
+        yield
+      end
+    end
 
     # GlobalID::SignedGlobalID parameter to locate the amendable resource.
     # Needed for actions :new and :create, when there is no amendment yet.

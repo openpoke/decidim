@@ -11,7 +11,7 @@
         <p>
           <%= t(".help_text", model_name: emendation.amendable.model_name.human.downcase) %>
           <strong>
-            <%= emendation.amendable.title %>
+            <%= present(emendation).title %>
           </strong>
         </p>
       </div>
