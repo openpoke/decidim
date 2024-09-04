@@ -559,6 +559,8 @@ en:
         scope_types: Scope types
         scopes: Scopes
         settings: Settings
+        share_tokens: Share tokens
+        static_page_topics: Topics
         static_pages: Pages
         user_groups: Groups
         users: Participants

@@ -194,8 +194,6 @@ shared_examples "manage assembly components" do
 
         expect(enqueued_jobs.last[:args]).to include("decidim.events.components.component_published")
       end
-
-      it_behaves_like "manage component share tokens"
     end
 
     context "when the component is published" do
