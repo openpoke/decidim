@@ -200,6 +200,8 @@ en:
           partners: Partners
           registration_types: Registration Types
           registrations: Registrations
+          see_conference: See conference
+          share_tokens: Share tokens
           user_registrations: User Registrations
       models:
         conference:

@@ -928,7 +928,7 @@ en:
           error: There was a problem destroying the token.
           success: Token successfully destroyed.
         edit:
-          title: 'Edit sharing tokens for component: %{component_name}'
+          title: 'Edit sharing tokens for: %{name}'
           update: Update
         form:
           automatic: Automatic
@@ -945,13 +945,18 @@ en:
           back_to_share_tokens: Back to share tokens
           copied: Copied!
           copy_message: The text was successfully copied to clipboard.
-          empty: There are no active tokens.
+          create_new_token: Create your first token!
+          empty: There are no active tokens. %{new_token_link}
           never: Never
           new_share_token_button: New token
-          title: 'Sharing tokens for component: %{component_name}'
+          share_tokens_help: |
+            Share tokens are a way to allow access to an unpublished resource for non-admin users.
+            Tokens can be valid for registered users only or have and expiration date if necessary.
+            To share a new token with someone, create it and then copy the link using the "%{clipboard} clipboard" action icon.
+          title: 'Sharing tokens for: %{name}'
         new:
           create: Create
-          title: 'New sharing tokens for component: %{component_name}'
+          title: 'New sharing tokens for: %{name}'
         share_tokens:
           empty: There are no active tokens
           help: These tokens are used to publicly share this unpublished resource to any user. They will be hidden when the resource is published. Click on the token's share icon to visit the shareable URL.

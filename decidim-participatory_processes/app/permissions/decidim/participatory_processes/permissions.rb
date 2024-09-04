@@ -228,6 +228,7 @@ module Decidim
           :process_user_role,
           :space_private_user,
           :export_space,
+          :share_tokens,
           :import
         ].include?(permission_action.subject)
         allow! if is_allowed
@@ -248,6 +249,7 @@ module Decidim
           :process_user_role,
           :space_private_user,
           :export_space,
+          :share_tokens,
           :import
         ].include?(permission_action.subject)
         allow! if is_allowed
