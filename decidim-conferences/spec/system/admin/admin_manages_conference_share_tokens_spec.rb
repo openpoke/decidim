@@ -10,8 +10,8 @@ describe "Admin manages conference share tokens" do
   it_behaves_like "manage participatory space share tokens"
 
   context "when the user is a conference admin" do
-    let(:user) { create(:user, :confirmed, :admin_terms_accepted, organization:) }
-    let!(:role) { create(:conference_user_role, user:, conference:, role: :admin) }
+    let(:user) { create(:user, :confirmed, :admin_terms_accepted, organization: organization) }
+    let!(:role) { create(:conference_user_role, user: user, conference: conference, role: :admin) }
 
     it_behaves_like "manage participatory space share tokens"
   end

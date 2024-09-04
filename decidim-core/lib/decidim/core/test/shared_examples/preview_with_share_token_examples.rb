@@ -54,7 +54,7 @@ shared_examples "visit unpublished resource with a share token" do
       end
 
       context "when a user is logged" do
-        let(:user) { create(:user, :confirmed, organization:) }
+        let(:user) { create(:user, :confirmed, organization: organization) }
 
         before do
           login_as user, scope: :user
@@ -73,7 +73,7 @@ shared_examples "visit unpublished resource with a share token" do
 end
 
 shared_examples "preview component with a share_token" do
-  let!(:component) { create(:component, manifest_name:, participatory_space:, published_at: nil) }
+  let!(:component) { create(:component, manifest_name: manifest_name, participatory_space: participatory_space, published_at: nil) }
   let(:resource) { component }
   let(:resource_path) { main_component_path(component) }
 

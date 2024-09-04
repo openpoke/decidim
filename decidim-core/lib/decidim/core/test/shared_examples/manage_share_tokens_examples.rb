@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "visit resource share tokens" do
-  let!(:share_token) { create(:share_token, token_for: resource, organization:, user:, registered_only: true) }
+  let!(:share_token) { create(:share_token, token_for: resource, organization: organization, user: user, registered_only: true) }
 
   before do
     visit_resource_page
@@ -72,7 +72,7 @@ shared_examples "manage resource share tokens" do
   end
 
   context "when there are tokens" do
-    let!(:share_tokens) { create_list(:share_token, 3, token_for: resource, organization:, registered_only: true) }
+    let!(:share_tokens) { create_list(:share_token, 3, token_for: resource, organization: organization, registered_only: true) }
 
     before do
       visit_share_tokens_page
@@ -162,7 +162,7 @@ shared_examples "manage resource share tokens" do
   end
 
   context "when there are many pages" do
-    let!(:share_tokens) { create_list(:share_token, 16, token_for: resource, organization:) }
+    let!(:share_tokens) { create_list(:share_token, 16, token_for: resource, organization: organization) }
 
     before do
       visit_share_tokens_page
@@ -180,7 +180,7 @@ end
 
 shared_examples "manage component share tokens" do
   let!(:components_path) { participatory_space_engine.components_path(participatory_space) }
-  let!(:component) { create(:component, participatory_space:, published_at: nil) }
+  let!(:component) { create(:component, participatory_space: participatory_space, published_at: nil) }
   let(:resource) { component }
   let(:resource_name) { translated(component.name) }
 
