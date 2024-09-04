@@ -5,18 +5,18 @@ require "spec_helper"
 module Decidim::Admin
   describe ShareTokenForm do
     let(:organization) { create(:organization) }
-    let(:current_user) { create(:user, :admin, organization:) }
-    let(:component) { create(:component, participatory_space: create(:participatory_process, organization:)) }
+    let(:current_user) { create(:user, :admin, organization: organization) }
+    let(:component) { create(:component, participatory_space: create(:participatory_process, organization: organization)) }
 
     let(:form) do
       described_class.from_params(
-        token:,
-        automatic_token:,
-        expires_at:,
-        no_expiration:,
-        registered_only:
+        token: token,
+        automatic_token: automatic_token,
+        expires_at: expires_at,
+        no_expiration: no_expiration,
+        registered_only: registered_only
       ).with_context(
-        current_user:,
+        current_user: current_user,
         current_organization: organization,
         resource: component
       )
@@ -91,7 +91,7 @@ module Decidim::Admin
 
     context "when token exists" do
       let(:automatic_token) { false }
-      let!(:share_token) { create(:share_token, organization:, token_for: component, token:) }
+      let!(:share_token) { create(:share_token, organization: organization, token_for: component, token: token) }
 
       it "validates uniqueness of token" do
         expect(form).to be_invalid

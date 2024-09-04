@@ -7,18 +7,18 @@ module Decidim::Admin
     subject { described_class.new(form) }
 
     let(:organization) { create(:organization) }
-    let(:current_user) { create(:user, :admin, organization:) }
-    let(:component) { create(:component, participatory_space: create(:participatory_process, organization:)) }
+    let(:current_user) { create(:user, :admin, organization: organization) }
+    let(:component) { create(:component, participatory_space: create(:participatory_process, organization: organization)) }
 
     let(:form) do
       ShareTokenForm.from_params(
-        token:,
-        expires_at:,
-        automatic_token:,
-        no_expiration:,
-        registered_only:
+        token: token,
+        expires_at: expires_at,
+        automatic_token: automatic_token,
+        no_expiration: no_expiration,
+        registered_only: registered_only
       ).with_context(
-        current_user:,
+        current_user: current_user,
         current_organization: organization,
         resource: component
       )
