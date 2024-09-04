@@ -59,6 +59,7 @@ module Decidim
               put :unpublish
               get :share
             end
+            resources :share_tokens, except: [:show]
             resources :exports, only: :create
           end
 

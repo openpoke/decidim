@@ -295,11 +295,7 @@ shared_examples "manage process components" do
     context "when the component is unpublished" do
       it "shows the share tokens section" do
         within ".component-#{component.id}" do
-<<<<<<< HEAD
-          click_link "Configure"
-=======
           click_on "Share"
->>>>>>> ca02be2ab7 (fix manage_process_components_examples spec)
         end
 
         expect(page).to have_content("Sharing tokens")
