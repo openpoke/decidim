@@ -1,0 +1,41 @@
+<% add_decidim_page_title(t(".title")) %>
+<div class="item_show__header">
+  <h1 class="item_show__header-title">
+    <%= t ".title", component_name: translated_attribute(component.name) %>
+    <a class="button button__sm button__secondary" href="<%= share_tokens_path(component) %>"><%= t("share_tokens.index.back_to_share_tokens", scope: "decidim.admin") %></a>
+  </h1>
+</div>
+<div class="item__edit-form">
+  <%= decidim_form_for(@form, url: share_tokens_path(component), html: { class: "form-defaults form new_component_share_token" }) do |f| %>
+    <div class="card">
+      <div class="card-section">
+        <div class="form__wrapper">
+          <div class="pt-4">
+            <div class="row column">
+              <%= t("share_tokens.form.token", scope: "decidim.admin") %>
+            </div>
+            <div class="row column -mt-4">
+              <div class="ml-2">
+                <div class="mr-4">
+                  <%= f.radio_button :automatic_token, t("share_tokens.form.automatic", scope: "decidim.admin"), checked: f.object.automatic_token %>
+                </div>
+
+                <%= f.radio_button :automatic_token, t("share_tokens.form.custom", scope: "decidim.admin"), checked: !f.object.automatic_token %>
+
+                <div id="automatic_token_field_wrapper">
+                  <%= f.text_field :token, label: t("share_tokens.form.custom_token", scope: "decidim.admin"), style: "text-transform: uppercase" %>
+                </div>
+              </div>
+            </div>
+            <%= render partial: "form", object: f %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="item__edit-sticky">
+      <div class="item__edit-sticky-container">
+        <%= f.submit t(".create"), class: "button button__sm button__secondary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -3,6 +3,51 @@
 module Decidim
   module Admin
     class ShareTokensController < Decidim::Admin::ApplicationController
+      include Decidim::ComponentPathHelper
+      helper_method :share_token, :share_tokens, :component
+
+      def index; end
+
+      def new
+        @form = form(ShareTokenForm).instance
+      end
+
+      def create
+        @form = form(ShareTokenForm).from_params(params, component: component)
+
+        CreateShareToken.call(@form) do
+          on(:ok) do
+            flash[:notice] = I18n.t("share_tokens.create.success", scope: "decidim.admin")
+            redirect_to share_tokens_path(component)
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("share_tokens.create.invalid", scope: "decidim.admin")
+            render action: "new"
+          end
+        end
+      end
+
+      def edit
+        @form = form(ShareTokenForm).from_model(share_token)
+      end
+
+      def update
+        @form = form(ShareTokenForm).from_params(params, component: component)
+
+        UpdateShareToken.call(@form, share_token) do
+          on(:ok) do
+            flash[:notice] = I18n.t("share_tokens.update.success", scope: "decidim.admin")
+            redirect_to share_tokens_path(component)
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("share_tokens.update.error", scope: "decidim.admin")
+            render :edit
+          end
+        end
+      end
+
       def destroy
         enforce_permission_to :destroy, :share_token, share_token: share_token
 
@@ -20,10 +65,18 @@ module Decidim
 
       private
 
-      def share_token
-        @share_token ||= Decidim::ShareToken.where(
+      def component
+        @component ||= current_participatory_space.components.find(params[:component_id])
+      end
+
+      def share_tokens
+        Decidim::ShareToken.where(
           organization: current_organization
-        ).find(params[:id])
+        )
+      end
+
+      def share_token
+        @share_token ||= share_tokens.find(params[:id])
       end
     end
   end

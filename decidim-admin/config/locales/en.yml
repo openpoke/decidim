@@ -613,9 +613,11 @@ en:
             plural: Plural
         share_token:
           fields:
+            actions: Actions
             created_at: Created at
             expires_at: Expires at
             last_used_at: Last time used
+            registered_only: Registered only?
             times_used: Times used
             token: Token
             user: Created by
@@ -918,15 +920,48 @@ en:
       share_tokens:
         actions:
           confirm_destroy: Are you sure you want to delete this token?
+          copy_link: Copy link
           destroy: Delete
-          share: Share
+          edit: Edit
+          preview: Preview
+        create:
+          invalid: There was a problem generating the token.
+          success: Token generated successfully.
         destroy:
           error: There was a problem destroying the token.
           success: Token destroyed successfully.
+        edit:
+          title: 'Edit sharing tokens for component: %{component_name}'
+          update: Update
+        form:
+          automatic: Automatic
+          custom: Custom
+          custom_expiration: Custom expiration
+          custom_token: Custom token
+          expires_at: Expires at
+          'false': 'No'
+          never_expire: Never
+          registered_only: Registered only?
+          token: Token
+          'true': 'Yes'
+        index:
+          back_to_share_tokens: Back to share tokens
+          copied: Copied!
+          copy_message: The text was successfully copied to clipboard.
+          never: Never
+          new_share_token_button: New token
+          title: 'Sharing tokens for component: %{component_name}'
+        new:
+          create: Create
+          title: 'New sharing tokens for component: %{component_name}'
         share_tokens:
           empty: There are no active tokens
           help: These tokens are used to publicly share this unpublished resource to any user. They will be hidden when the resource is published. Click on the token's share icon to visit the shareable URL.
           title: Share tokens
+        update:
+          error: There was a problem updating this token.
+          invalid: There was a problem updating the token.
+          success: Token updated successfully.
       shared:
         gallery:
           add_images: Add images

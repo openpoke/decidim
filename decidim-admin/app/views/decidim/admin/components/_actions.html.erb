@@ -4,6 +4,18 @@
   <span class="action-space icon"></span>
 <% end %>
 
+<% if component.manifest.admin_engine %>
+  <%= icon_link_to "share", share_tokens_path(component), t("actions.share", scope: "decidim.admin"), class: "action-icon--share" %>
+<% else %>
+  <span class="action-space icon"></span>
+<% end %>
+
+<% if allowed_to? :update, :component, component: component %>
+  <%= icon_link_to "cog", url_for(action: :edit, id: component, controller: "components"), t("actions.configure", scope: "decidim.admin"), class: "action-icon--configure" %>
+<% else %>
+  <span class="action-space icon"></span>
+<% end %>
+
 <% if allowed_to?(:update, :component, component: component) %>
   <% if component.published? %>
     <%= icon_link_to "x", url_for(action: :unpublish, id: component, controller: "components"), t("actions.unpublish", scope: "decidim.admin"), class: "action-icon--unpublish", method: :put %>
