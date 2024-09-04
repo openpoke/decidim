@@ -614,13 +614,10 @@ en:
         share_token:
           fields:
             actions: Actions
-            created_at: Created at
             expires_at: Expires at
-            last_used_at: Last time used
             registered_only: Registered only?
             times_used: Times used
             token: Token
-            user: Created by
         static_page:
           fields:
             created_at: Created at
@@ -961,7 +958,6 @@ en:
           title: Share tokens
         update:
           error: There was a problem updating this token.
-          invalid: There was a problem updating the token.
           success: Token updated successfully.
       shared:
         gallery:
