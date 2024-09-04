@@ -201,6 +201,12 @@ module Decidim
                         decidim_admin_assemblies.moderations_path(current_participatory_space),
                         if: allowed_to?(:read, :moderation, assembly: current_participatory_space),
                         active: is_active_link?(decidim_admin_assemblies.moderations_path(current_participatory_space))
+
+          menu.add_item :assembly_share_tokens,
+                        I18n.t("menu.share_tokens", scope: "decidim.admin"),
+                        decidim_admin_assemblies.assembly_share_tokens_path(current_assembly),
+                        active: is_active_link?(decidim_admin_assemblies.assembly_share_tokens_path(current_participatory_space)),
+                        if: allowed_to?(:read, :share_tokens, current_participatory_space: current_participatory_space)
         end
       end
       initializer "decidim_assemblies.admin_assemblies_menu" do

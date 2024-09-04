@@ -46,7 +46,7 @@ module Decidim
       private
 
       def token_uniqueness
-        return unless Decidim::ShareToken.where(organization:, token_for:, token:).where.not(id:).any?
+        return unless Decidim::ShareToken.where(organization: organization, token_for: token_for, token: token).where.not(id: id).any?
 
         errors.add(:token, :taken)
       end

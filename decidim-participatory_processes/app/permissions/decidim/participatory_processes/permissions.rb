@@ -257,7 +257,7 @@ module Decidim
       end
 
       def user_can_preview_space?
-        return allow! if context[:share_token].present? && Decidim::ShareToken.use!(token_for: process, token: context[:share_token], user:)
+        return allow! if context[:share_token].present? && Decidim::ShareToken.use!(token_for: process, token: context[:share_token], user: user)
       rescue ActiveRecord::RecordNotFound, StandardError
         nil
       end
