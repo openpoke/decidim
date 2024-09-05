@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages assembly component share tokens" do
+describe "Admin manages assembly component share tokens", type: :system do
   include_context "when admin administrating an assembly"
 
   it_behaves_like "manage component share tokens" do

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages conference share tokens" do
+describe "Admin manages conference share tokens", type: :system do
   include_context "when admin administrating a conference"
   let(:participatory_space) { conference }
   let(:participatory_space_path) { decidim_admin_conferences.edit_conference_path(conference) }

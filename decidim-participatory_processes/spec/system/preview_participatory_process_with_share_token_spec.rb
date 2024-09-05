@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Preview participatory process with share token" do
+describe "Preview participatory process with share token", type: :system do
   let(:organization) { create(:organization) }
   let!(:participatory_space) { create(:participatory_process, organization: organization, published_at: nil) }
   let(:resource_path) { decidim_participatory_processes.participatory_process_path(participatory_space) }

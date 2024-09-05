@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages participatory process component share tokens" do
+describe "Admin manages participatory process component share tokens", type: :system do
   include_context "when admin administrating a participatory process"
 
   it_behaves_like "manage component share tokens" do

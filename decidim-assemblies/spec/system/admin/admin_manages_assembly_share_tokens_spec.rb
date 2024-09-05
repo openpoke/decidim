@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages assembly share tokens" do
+describe "Admin manages assembly share tokens", type: :system do
   let!(:user) { create(:user, :admin, :confirmed, organization: organization) }
   let(:organization) { create(:organization) }
   let!(:assembly) { create(:assembly, organization: organization, private_space: true) }
