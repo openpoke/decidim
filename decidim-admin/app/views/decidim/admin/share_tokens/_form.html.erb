@@ -6,7 +6,7 @@
       <%= b.label %>
     </div>
   <% end %>
-  <div id="expires_at_field_wrapper" class="hidden mt-4 row column">
+  <div id="expires_at_field_wrapper" class="hide row column">
     <%= form.datetime_field :expires_at, label: t("share_tokens.form.custom_expiration", scope: "decidim.admin") %>
   </div>
 </div>
@@ -35,9 +35,9 @@
 
     const toggleExpiresAtField = () => {
       if (expiresButton.checked) {
-        expiresAtWrapper.classList.remove("hidden");
+        expiresAtWrapper.classList.remove("hide");
       } else {
-        expiresAtWrapper.classList.add("hidden");
+        expiresAtWrapper.classList.add("hide");
         expiresAtInput.value = "";
         expiresAtInput.removeAttribute("required");
       }

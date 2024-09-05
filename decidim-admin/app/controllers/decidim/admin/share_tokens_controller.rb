@@ -37,12 +37,7 @@ module Decidim
       end
 
       def edit
-        enforce_permission_to(:update, :share_token, share_token: share_token)
-        @form = form(ShareTokenForm).from_model(share_token)
-      end
-
-      def update
-        enforce_permission_to(:update, :share_tokens, share_token: current_token)
+        enforce_permission_to(:update, :share_token, share_token: current_token)
         @form = form(ShareTokenForm).from_model(current_token)
       end
 
