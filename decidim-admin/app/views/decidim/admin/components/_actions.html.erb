@@ -10,12 +10,6 @@
   <span class="action-space icon"></span>
 <% end %>
 
-<% if allowed_to? :update, :component, component: component %>
-  <%= icon_link_to "cog", url_for(action: :edit, id: component, controller: "components"), t("actions.configure", scope: "decidim.admin"), class: "action-icon--configure" %>
-<% else %>
-  <span class="action-space icon"></span>
-<% end %>
-
 <% if allowed_to?(:update, :component, component: component) %>
   <% if component.published? %>
     <%= icon_link_to "x", url_for(action: :unpublish, id: component, controller: "components"), t("actions.unpublish", scope: "decidim.admin"), class: "action-icon--unpublish", method: :put %>
@@ -38,12 +32,6 @@
   <% else %>
     <%= icon_link_to "key", url_for(action: :edit, component_id: component, controller: "component_permissions"), t("actions.permissions", scope: "decidim.admin"), class: "action-icon--permissions" %>
   <% end %>
-<% else %>
-  <span class="action-space icon"></span>
-<% end %>
-
-<% if allowed_to? :share, :component, component: component %>
-  <%= icon_link_to "share", url_for(action: :share, id: component, controller: "components"), t("actions.share", scope: "decidim.admin"), class: "action-icon--share", target: "_blank" %>
 <% else %>
   <span class="action-space icon"></span>
 <% end %>
