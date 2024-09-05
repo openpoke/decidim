@@ -38,6 +38,7 @@ module Decidim
           {
             expires_at: form.expires_at,
             token_for: form.token_for,
+            registered_only: form.registered_only,
             organization: form.organization,
             user: form.user
           }

@@ -51,10 +51,10 @@ shared_examples "manage resource share tokens" do
       find_by_id("share_token_no_expiration_false").click
       find_by_id("share_token_registered_only_true").click
       click_on "Create"
-      expect(page).to have_content("cannot be blank", count: 2)
+      expect(page).to have_content("can't be blank", count: 2)
 
       fill_in "share_token_token", with: " custom token "
-      fill_in "share_token_expires_at", with: 1.day.from_now, visible: :all
+      fill_in "share_token_expires_at", with: 1.day.from_now.strftime("%d/%m/%Y %H:%M"), visible: :all
       click_on "Create"
 
       expect(page).to have_content("Token created successfully")
@@ -94,6 +94,8 @@ shared_examples "manage resource share tokens" do
     end
 
     it "can edit a share token" do
+      token_to_edit = find("tbody tr:first-child td:first-child").text.strip
+
       within "tbody tr:first-child td:nth-child(3)" do
         expect(page).to have_content("Yes")
       end
@@ -105,17 +107,16 @@ shared_examples "manage resource share tokens" do
       find_by_id("share_token_no_expiration_false").click
       find_by_id("share_token_registered_only_false").click
       click_on "Update"
-      expect(page).to have_content("cannot be blank", count: 1)
 
-      fill_in "share_token_expires_at", with: 1.day.from_now, visible: :all
+      expect(page).to have_content("can't be blank", count: 1)
+
+      fill_in "share_token_expires_at", with: 1.day.from_now.strftime("%d/%m/%Y %H:%M"), visible: :all
       click_on "Update"
 
       expect(page).to have_content("Token updated successfully")
       expect(page).to have_css("tbody tr", count: 3)
-      within "tbody tr:first-child td:nth-child(2)" do
+      within "tbody tr", text: token_to_edit do
         expect(page).to have_content(1.day.from_now.strftime("%d/%m/%Y %H:%M"))
-      end
-      within "tbody tr:first-child td:nth-child(3)" do
         expect(page).to have_content("No")
       end
     end

@@ -287,6 +287,7 @@ module Decidim
           :assembly_member,
           :space_private_user,
           :export_space,
+          :assemblies_setting,
           :share_tokens,
           :import
         ].include?(permission_action.subject)
