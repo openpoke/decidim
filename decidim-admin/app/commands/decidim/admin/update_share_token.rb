@@ -24,7 +24,7 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         update_share_token
-        broadcast(:ok)
+        broadcast(:ok, token)
       end
 
       private

@@ -42,7 +42,7 @@ module Decidim::Admin
       it "validates presence of token" do
         form.token = nil
         expect(form).to be_invalid
-        expect(form.errors[:token]).to include("cannot be blank")
+        expect(form.errors[:token]).to include("can't be blank")
       end
 
       context "when automatic_token is set" do
@@ -60,7 +60,7 @@ module Decidim::Admin
 
       it "validates presence of expires_at" do
         expect(form).to be_invalid
-        expect(form.errors[:expires_at]).to include("cannot be blank")
+        expect(form.errors[:expires_at]).to include("can't be blank")
       end
 
       context "when no_expiration is set" do
