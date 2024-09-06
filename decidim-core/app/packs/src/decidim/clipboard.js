@@ -135,7 +135,7 @@ const announceToScreenReader = ($el, message) => {
         announcementMessage += "&nbsp;";
       }
     } else {
-      $msg = $('<div aria-role="alert" aria-live="assertive" aria-atomic="true" class="sr-only"></div>');
+      $msg = $('<div aria-role="alert" aria-live="assertive" aria-atomic="true" class="sr-only clipboard-announcement"></div>');
       $el.after($msg);
       $el.data("clipboard-message-element", $msg);
     }

@@ -80,7 +80,7 @@ describe "Filter Initiatives", :slow, type: :system do
 
         within ".order-by__dropdown" do
           expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
-          page.find("a", text: "Random").click
+          page.find("a", text: "Random", visible: true).click
           click_link "Most commented"
         end
 
