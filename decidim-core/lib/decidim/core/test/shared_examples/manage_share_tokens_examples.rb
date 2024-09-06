@@ -143,7 +143,7 @@ shared_examples "manage resource share tokens" do
     end
 
     it "has a share button that opens the share url for the resource" do
-      within ".share_tokens tbody tr:first-child" do
+      within ".share_tokens tbody tr", text: share_tokens.first.token do
         share_window = window_opened_by { click_on "Preview", wait: 2 }
 
         within_window share_window do
