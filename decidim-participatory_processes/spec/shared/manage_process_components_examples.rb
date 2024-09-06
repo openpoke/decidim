@@ -4,6 +4,8 @@ shared_examples "manage process components" do
   let!(:participatory_process) do
     create(:participatory_process, :with_steps, organization: organization)
   end
+  let!(:attributes) { attributes_for(:component, participatory_space: participatory_process) }
+
   let(:step_id) { participatory_process.steps.first.id }
 
   before do
@@ -28,9 +30,7 @@ shared_examples "manage process components" do
           fill_in_i18n(
             :component_name,
             "#component-name-tabs",
-            en: "My component",
-            ca: "La meva funcionalitat",
-            es: "Mi funcionalitat"
+            **attributes[:name].except("machine_translations")
           )
 
           within ".global-settings" do
@@ -57,12 +57,17 @@ shared_examples "manage process components" do
 
       it "is successfully created" do
         expect(page).to have_admin_callout("successfully")
-        expect(page).to have_content("My component")
+        expect(page).to have_content(translated(attributes[:name]))
+      end
+
+      it "has a successful admin log" do
+        visit decidim_admin.root_path
+        expect(page).to have_content("created #{translated(attributes[:name])} in #{translated(participatory_process.title)}")
       end
 
       context "and then edit it" do
         before do
-          within find("tr", text: "My component") do
+          within "tr", text: translated(attributes[:name]) do
             click_link "Configure"
           end
         end
@@ -192,9 +197,7 @@ shared_examples "manage process components" do
         fill_in_i18n(
           :component_name,
           "#component-name-tabs",
-          en: "My updated component",
-          ca: "La meva funcionalitat actualitzada",
-          es: "Mi funcionalidad actualizada"
+          **attributes[:name].except("machine_translations")
         )
 
         within ".global-settings" do
@@ -209,9 +212,9 @@ shared_examples "manage process components" do
       end
 
       expect(page).to have_admin_callout("successfully")
-      expect(page).to have_content("My updated component")
+      expect(page).to have_content(translated(attributes[:name]))
 
-      within find("tr", text: "My updated component") do
+      within "tr", text: translated(attributes[:name]) do
         click_link "Configure"
       end
 
@@ -222,6 +225,9 @@ shared_examples "manage process components" do
       within ".step-settings" do
         expect(all("input[type=checkbox]").first).to be_checked
       end
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated #{translated(attributes[:name])} in #{translated(participatory_process.title)}")
     end
 
     context "when the process doesn't have active steps" do
@@ -309,7 +315,16 @@ shared_examples "manage process components" do
           click_link "Publish"
         end
 
-        expect(enqueued_jobs.last[:args]).to include("decidim.events.components.component_published")
+        expect(Decidim::EventPublisherJob).to(have_been_enqueued.with(
+                                                "decidim.events.components.component_published", {
+                                                  resource: component,
+                                                  event_class: "Decidim::ComponentPublishedEvent",
+                                                  affected_users: [],
+                                                  followers: [follower],
+                                                  force_send: false,
+                                                  extra: {}
+                                                }
+                                              ))
       end
     end
 

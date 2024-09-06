@@ -333,7 +333,7 @@ es-PY:
           '1': Crea tu enmienda
           '2': Compara tu enmienda
           '3': Completa tu enmienda
-          '4': Publicar tu enmienda
+          '4': Publica tu enmienda
     anonymous_user: Anónimo
     application:
       collection:
@@ -535,7 +535,7 @@ es-PY:
           username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
         create:
-          error: Hubo un problema al crear tu cuenta.
+          error: Se ha producido un error al crear tu cuenta.
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           newsletter: Quiero recibir un boletín ocasional con información relevante
@@ -1167,6 +1167,7 @@ es-PY:
       no_notifications: No hay notificaciones aún.
       show:
         missing_event: Vaya, esta notificación pertenece a un elemento que ya no está disponible. Puedes descartarla.
+        moderated: Contenido moderado
     notifications_digest_mailer:
       header:
         daily: Resumen diario de notificaciones
@@ -1664,7 +1665,7 @@ es-PY:
     sessions:
       already_signed_out: Firmado con éxito.
       new:
-        sign_in: Entra
+        sign_in: Iniciar sesión
       signed_in: Firmado con éxito
       signed_out: Firmado con éxito.
     shared:
@@ -1673,7 +1674,7 @@ es-PY:
         didn_t_receive_confirmation_instructions: '¿No recibió las instrucciones de confirmación?'
         didn_t_receive_unlock_instructions: '¿No recibió instrucciones de desbloqueo?'
         forgot_your_password: '¿Olvidaste tu contraseña?'
-        sign_in: Entra
+        sign_in: Iniciar sesión
         sign_in_with_provider: Inicia sesión con %{provider}
         sign_up: Regístrate
       minimum_password_length:

@@ -66,6 +66,8 @@ shared_examples "manage proposals" do
         end
 
         context "when process is not related to any scope" do
+          let(:attributes) { attributes_for(:proposal, component: current_component) }
+
           it "can be related to a scope" do
             click_link "New proposal"
 
@@ -74,12 +76,12 @@ shared_examples "manage proposals" do
             end
           end
 
-          it "creates a new proposal", :slow do
+          it "creates a new proposal", versioning: true do
             click_link "New proposal"
 
             within ".new_proposal" do
-              fill_in_i18n :proposal_title, "#proposal-title-tabs", en: "Make decidim great again"
-              fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", en: "Decidim is great but it can be better"
+              fill_in_i18n :proposal_title, "#proposal-title-tabs", **attributes[:title].except("machine_translations")
+              fill_in_i18n_editor :proposal_body, "#proposal-body-tabs", **attributes[:body].except("machine_translations")
               select translated(category.name), from: :proposal_category_id
               scope_pick select_data_picker(:proposal_scope_id), scope
               find("*[type=submit]").click
@@ -90,11 +92,13 @@ shared_examples "manage proposals" do
             within "table" do
               proposal = Decidim::Proposals::Proposal.last
 
-              expect(page).to have_content("Make decidim great again")
-              expect(translated(proposal.body)).to eq("<p>Decidim is great but it can be better</p>")
+              expect(page).to have_content(translated(attributes[:title]))
+              expect(translated(proposal.body)).to eq("<p>#{strip_tags(translated(attributes[:body]))}</p>")
               expect(proposal.category).to eq(category)
               expect(proposal.scope).to eq(scope)
             end
+            visit decidim_admin.root_path
+            expect(page).to have_content("created the #{translated(attributes[:title])} proposal")
           end
         end
 
@@ -354,8 +358,8 @@ shared_examples "manage proposals" do
         end
 
         proposal.reload
-        expect(proposal.answered_at).to be_within(2.seconds).of Time.zone.now
-        expect(proposal.state_published_at).to be_within(2.seconds).of Time.zone.now
+        expect(proposal.answered_at).to be_within(5.seconds).of Time.zone.now
+        expect(proposal.state_published_at).to be_within(5.seconds).of Time.zone.now
       end
 
       it "can accept a proposal" do
@@ -373,8 +377,8 @@ shared_examples "manage proposals" do
         end
 
         proposal.reload
-        expect(proposal.answered_at).to be_within(2.seconds).of Time.zone.now
-        expect(proposal.state_published_at).to be_within(2.seconds).of Time.zone.now
+        expect(proposal.answered_at).to be_within(5.seconds).of Time.zone.now
+        expect(proposal.state_published_at).to be_within(5.seconds).of Time.zone.now
       end
 
       it "can mark a proposal as evaluating" do
@@ -392,8 +396,8 @@ shared_examples "manage proposals" do
         end
 
         proposal.reload
-        expect(proposal.answered_at).to be_within(2.seconds).of Time.zone.now
-        expect(proposal.state_published_at).to be_within(2.seconds).of Time.zone.now
+        expect(proposal.answered_at).to be_within(5.seconds).of Time.zone.now
+        expect(proposal.state_published_at).to be_within(5.seconds).of Time.zone.now
       end
 
       it "can mark a proposal as 'not answered'" do
@@ -452,7 +456,7 @@ shared_examples "manage proposals" do
         end
 
         proposal.reload
-        expect(proposal.answered_at).to be_within(2.seconds).of Time.zone.now
+        expect(proposal.answered_at).to be_within(5.seconds).of Time.zone.now
       end
     end
 

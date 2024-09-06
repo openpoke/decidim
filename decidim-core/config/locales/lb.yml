@@ -243,7 +243,6 @@ lb:
           '1': Erstell deng Ännerung
           '2': Vergläich deng Ännerungsvirschléi
           '3': Vervollstänneg deng Ännerungsvirschléi
-          '4': Verëffentlech deng Ännerungsvirschléi
     anonymous_user: Anonym
     application:
       collection:
@@ -447,6 +446,7 @@ lb:
           newsletter: Heiansdo en Newsletter mat relevanten Informatiounen zougeschéckt kréien
           newsletter_title: Erlabnis Kontakt opzehuelen
           nickname_help: Däin Pseudonym an %{organization}. Dierf nëmmen aus Buschtawen, Zuelen, _ an - bestoen.
+          sign_in: Umelden
           sign_up: Registréieren
           sign_up_as:
             legend: Registréieren als
@@ -707,6 +707,7 @@ lb:
         file:
           explanation: 'Uleedung fir dës Datei:'
           message_1: Soll eBild oder en Dokument sinn.
+          message_2: Für Bilder verwenden Sie vorzugsweise Landschaftsbilder, der Dienst bewirtschaftet das Bild.
         image:
           explanation: 'Uleedung fir d''Bild:'
           message_1: Am beschten queesch Format ouni Text.
@@ -1464,6 +1465,8 @@ lb:
       updated: Däin Kont gouf aktualiséiert.
     sessions:
       already_signed_out: Du bass elo ausgeloggt.
+      new:
+        sign_in: Aloggen
       signed_in: Du bass elo ageloggt.
       signed_out: Du bass elo ausgeloggt.
     shared:
@@ -1472,6 +1475,7 @@ lb:
         didn_t_receive_confirmation_instructions: Du hues keng Instruktiounen kritt fir d'Bestätegung?
         didn_t_receive_unlock_instructions: Du hues keng Instruktiounen kritt fir ze entspären?
         forgot_your_password: Passwuert vergiess?
+        sign_in: Umellen
         sign_in_with_provider: Registréier dech iwwer %{provider}
         sign_up: Registréieren
       minimum_password_length:

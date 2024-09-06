@@ -156,7 +156,6 @@ pt-BR:
             proposal_wizard_step_1_help_text: Assistente de propostas "Criar" passo ajuda texto
             proposal_wizard_step_2_help_text: Assistente de proposta "Comparar" passo ajuda texto
             proposal_wizard_step_3_help_text: Texto de ajuda da etapa "Completa" do assistente de proposta
-            proposal_wizard_step_4_help_text: Assistente de propostas "Publicar" passo ajuda texto
             resources_permissions_enabled: Permissões de ações podem ser definidas para cada proposta
             scope_id: Escopo
             scopes_enabled: Escopos habilitados
@@ -247,7 +246,6 @@ pt-BR:
             notification_title: Sua proposta <a href="%{resource_path}">%{resource_title}</a> foi aceita.
           follower:
             email_intro: 'A proposta "%{resource_title}" foi aceita. Você pode ler a resposta nesta página:'
-            email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
             email_subject: Uma proposta que você está seguindo foi aceita
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi aceita.
         proposal_evaluating:
@@ -258,7 +256,6 @@ pt-BR:
             notification_title: Sua proposta <a href="%{resource_path}">%{resource_title}</a> está sendo avaliada.
           follower:
             email_intro: 'A proposta "%{resource_title}" está sendo avaliada atualmente. Você pode verificar uma resposta nesta página:'
-            email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
             email_subject: Uma proposta que você está seguindo está sendo avaliada
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> está sendo avaliada.
         proposal_mentioned:
@@ -285,7 +282,6 @@ pt-BR:
             notification_title: Sua proposta <a href="%{resource_path}">%{resource_title}</a> foi rejeitada.
           follower:
             email_intro: 'A proposta "%{resource_title}" foi rejeitada. Você pode ler a resposta nesta página:'
-            email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
             email_subject: Uma proposta que você está seguindo foi rejeitada
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi rejeitada.
         proposal_update_category:

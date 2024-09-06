@@ -12,6 +12,8 @@ de:
         state: Status
         title: Titel
         user_group_id: Kollaborativen Entwurf erstellen als
+      import_participatory_text:
+        document: Partizipatives Textdokument
       proposal:
         address: Adresse
         answer: Antworten
@@ -40,7 +42,7 @@ de:
         keep_authors: Behalten Sie die ursprünglichen Autoren
       valuation_assignment:
         admin_log:
-          valuator_role_id: Name des Schätzers
+          valuator_role_id: Name des Bewertenden
     errors:
       models:
         participatory_text:
@@ -107,7 +109,7 @@ de:
           scope_id_eq:
             label: Umfang
           state_eq:
-            label: Zustand
+            label: Status
             values:
               accepted: Angenommen
               evaluating: In Bearbeitung
@@ -120,7 +122,7 @@ de:
             values:
               'true': Unbeantwortet
           valuator_role_ids_has:
-            label: Zugewiesen zu dem Schätzer
+            label: Zur Bewertung zugewiesen
         search_placeholder:
           id_string_or_title_cont: In %{collection} nach ID oder Titel suchen.
     components:
@@ -502,7 +504,7 @@ de:
             select_a_meeting: Besprechung auswählen
           index:
             actions: Aktionen
-            assign_to_valuator: Zuweisen zu dem Schätzer
+            assign_to_valuator: Zuweisen zur Bewertung
             assign_to_valuator_button: Zuweisen
             cancel: Abbrechen
             change_category: Kategorie ändern
@@ -516,7 +518,7 @@ de:
             split: Vorschläge aufteilen
             split_button: Aufteilen
             title: Vorschläge
-            unassign_from_valuator: Zuweisung an den Schätzer zurückziehen
+            unassign_from_valuator: Zuweisung zur Bewertung zurückziehen
             unassign_from_valuator_button: Zuweisung aufheben
             update: Aktualisieren
             update_scope_button: Umfang aktualisieren
@@ -528,7 +530,7 @@ de:
             select_a_proposal: Bitte wählen Sie einen Vorschlag
           show:
             amendments_count: Anzahl der Ergänzungen
-            assigned_valuators: Zugewiesene Schätzer
+            assigned_valuators: Zugewiesene Bewertende
             authors: Autoren
             body: Haupttext
             comments_count: Anzahl der Kommentare
@@ -549,8 +551,8 @@ de:
             ranking: "%{ranking} von %{total}"
             related_meetings: Ähnliche Besprechungen
             remove_assignment: Zuweisung entfernen
-            remove_assignment_confirmation: Sind Sie sicher, diesen Schätzer von diesem Vorschlag zurückzuziehen?
-            valuators: Schätzer
+            remove_assignment_confirmation: Sind Sie sicher, dass Sie den BewerterIn dieses Vorschlags entfernen möchten?
+            valuators: Bewertende
             votes_count: Anzahl der Unterstützungen
             votes_ranking: Nach Unterstützungen sortieren
           update_category:
@@ -583,10 +585,10 @@ de:
             success: Die Vorschläge wurden erfolgreich in neue aufgeteilt.
         valuation_assignments:
           create:
-            invalid: Bei der Zuweisung von Vorschlägen an einen Schätzer ist ein Fehler aufgetreten
-            success: Die Vorschläge wurden erfolgreich dem Schätzer zugewiesen
+            invalid: Bei der Zuweisung der Vorschläge zur Bewertung ist ein Fehler aufgetreten
+            success: Die Vorschläge wurden erfolgreich zur Bewertung zugewiesen
           delete:
-            invalid: Beim Zurückziehen der Zuweisung von Vorschlägen an einen Schätzer ist ein Fehler aufgetreten
+            invalid: Beim Zurückziehen der Zuweisung der Vorschläge zur Bewertung ist ein Fehler aufgetreten
             success: Die Zuweisung der Vorschläge wurden erfolgreich von dem Schätzer zurückgezogen
       admin_log:
         proposal:
@@ -597,8 +599,8 @@ de:
         proposal_note:
           create: "%{user_name} eine private Notiz zu dem %{resource_name} Vorschlag auf dem %{space_name} Feld hinterlassen"
         valuation_assignment:
-          create: "%{user_name} hat den Vorschlag %{resource_name} einem Schätzer zugewiesen"
-          delete: "%{user_name} hat die Zuweisung vom Vorschlag %{proposal_title} von einem Schätzer zurückgezogen"
+          create: "%{user_name} hat den Vorschlag %{resource_name} zur Bewertung zugewiesen"
+          delete: "%{user_name} hat die Zuweisung zur Bewertung des Vorschlags %{proposal_title} zurückgezogen"
       answers:
         accepted: Angenommen
         evaluating: In Bewertung
@@ -619,7 +621,7 @@ de:
         filter_state_values:
           accepted: Angenommen
           all: Alle
-          evaluating: In Bearbeitung
+          evaluating: In Bewertung
           not_answered: Unbeantwortet
           rejected: Abgelehnt
         filter_type_values:
@@ -755,10 +757,10 @@ de:
             published_answer: Veröffentlichte Antwort
             published_at: Veröffentlicht am
             scope: Umfang
-            state: Zustand
+            state: Status
             title: Titel
-            valuator: Schätzer
-            valuators: Schätzer
+            valuator: BewerterIn
+            valuators: Bewertende
             votes: Stimmen
       new:
         limit_reached: Sie können keine neuen Vorschläge erstellen, da Sie das Maximum erreicht haben.
@@ -777,7 +779,7 @@ de:
           no_similars_found: Gut gemacht! Keine ähnlichen Vorschläge gefunden
           title: Ähnliche Vorschläge
         complete:
-          send: Senden
+          send: Abschicken
           title: Vorschlag vervollständigen
         count:
           proposals_count:
@@ -794,7 +796,7 @@ de:
           edit_documents: Dokumente bearbeiten
           edit_image: Bild bearbeiten
           gallery_legend: "(Optional) Ein Bild zur Vorschlagskarte hinzufügen"
-          select_a_category: Bitte wählen sie eine Kategorie
+          select_a_category: Bitte wählen Sie eine Kategorie
           send: Abschicken
           title: Vorschlag bearbeiten
         edit_draft:
@@ -812,7 +814,7 @@ de:
           related_to: Bezüglich
           scope: Umfang
           search: Suche
-          state: Zustand
+          state: Status
           type: Art
           voted: Gewählt
         filters_small_view:

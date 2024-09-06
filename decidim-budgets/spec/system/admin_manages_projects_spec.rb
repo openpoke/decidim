@@ -5,13 +5,12 @@ require "decidim/proposals/test/capybara_proposals_picker"
 
 describe "Admin manages projects", type: :system do
   let(:manifest_name) { "budgets" }
-  let(:budget) { create :budget, component: current_component }
+  let!(:budget) { create :budget, component: current_component }
   let!(:project) { create :project, budget: budget }
 
   include_context "when managing a component as an admin"
 
   before do
-    budget
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit_component_admin
@@ -83,6 +82,15 @@ describe "Admin manages projects", type: :system do
       end
       expect(::Decidim::Budgets::Project.find(project.id).selected_at).to eq(Time.zone.today)
       expect(::Decidim::Budgets::Project.find(project2.id).selected_at).to eq(Time.zone.today)
+    end
+
+    describe "when managing a project with scopes" do
+      let!(:project) { create(:project, component: current_component) }
+      let!(:scope) { create(:scope, organization: current_component.organization) }
+
+      it "does not display subscopes" do
+        expect(page).to have_no_content(scope.name)
+      end
     end
   end
 end

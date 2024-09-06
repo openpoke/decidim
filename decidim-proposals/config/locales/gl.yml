@@ -157,7 +157,6 @@ gl:
             proposal_wizard_step_1_help_text: Asistente de propostas "Crear" texto de axuda paso a paso
             proposal_wizard_step_2_help_text: Asistente de propostas "Comparar" texto de axuda paso a paso
             proposal_wizard_step_3_help_text: Asistente de propostas Texto de axuda de paso "Completo"
-            proposal_wizard_step_4_help_text: Asistente de propostas "Publica" o texto de axuda paso a paso
             resources_permissions_enabled: Os permisos de acción pódense establecer para cada proposta
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
@@ -224,7 +223,6 @@ gl:
             notification_title: A túa proposta <a href="%{resource_path}">%{resource_title}</a> foi aceptada.
           follower:
             email_intro: 'A proposta "%{resource_title}" foi aceptada. Podes ler a resposta nesta páxina:'
-            email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
             email_subject: Aceptouse unha proposta que estás seguindo
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi aceptada.
         proposal_evaluating:
@@ -235,7 +233,6 @@ gl:
             notification_title: A súa proposta <a href="%{resource_path}">%{resource_title}</a> está sendo avaliada.
           follower:
             email_intro: 'A proposta "%{resource_title}" está a ser avaliada. Podes consultar unha resposta nesta páxina:'
-            email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
             email_subject: Estase evaluando unha proposta que estás seguindo
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> está a ser avaliada.
         proposal_mentioned:
@@ -259,7 +256,6 @@ gl:
             notification_title: A túa proposta <a href="%{resource_path}">%{resource_title}</a> foi rexeitada.
           follower:
             email_intro: 'A proposta "%{resource_title}" foi rexeitada. Podes ler a resposta nesta páxina:'
-            email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
             email_subject: A proposta que segues foi rexeitada
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi rexeitada.
         proposal_update_category:
@@ -396,6 +392,7 @@ gl:
             accepted: Aceptada
             answer_proposal: Resposta
             evaluating: Avaliación
+            not_answered: Non respondeu
             rejected: Rexeitado
             title: Resposta á proposta %{title}
         proposal_notes:
@@ -665,7 +662,7 @@ gl:
           error: Houbo erros ao votar a proposta.
       proposals:
         compare:
-          continue: Continúe
+          continue: Continuar
           no_similars_found: Ben feito! Non se atoparon propostas similares
           title: Propostas similares
         complete:

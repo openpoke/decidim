@@ -3,12 +3,12 @@
 require "spec_helper"
 
 describe "Admin manages budgets", type: :system do
-  let(:budget) { create :budget, component: current_component }
+  let!(:budget) { create :budget, component: current_component }
   let(:manifest_name) { "budgets" }
+  let(:attributes) { attributes_for(:budget) }
 
   include_context "when managing a component as an admin"
   before do
-    budget
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit_component_admin
@@ -20,26 +20,15 @@ describe "Admin manages budgets", type: :system do
     it_behaves_like "having a rich text editor", "new_budget", "content"
   end
 
-  it "creates a new budget" do
+  it "creates a new budget", versioning: true do
     within ".card-title" do
       click_link "New Budget"
     end
 
     within ".new_budget" do
-      fill_in_i18n(
-        :budget_title,
-        "#budget-title-tabs",
-        en: "My Budget",
-        es: "Mi Presupuesto",
-        ca: "El meu Pressupost"
-      )
-      fill_in_i18n_editor(
-        :budget_description,
-        "#budget-description-tabs",
-        en: "Long description",
-        es: "Descripción más larga",
-        ca: "Descripció més llarga"
-      )
+      fill_in_i18n(:budget_title, "#budget-title-tabs", **attributes[:title].except("machine_translations"))
+      fill_in_i18n_editor(:budget_description, "#budget-description-tabs", **attributes[:description].except("machine_translations"))
+
       fill_in :budget_weight, with: 1
       fill_in :budget_total_budget, with: 100_000_00
       scope_pick select_data_picker(:budget_decidim_scope_id), scope
@@ -54,24 +43,22 @@ describe "Admin manages budgets", type: :system do
     end
 
     within "table" do
-      expect(page).to have_content("My Budget")
+      expect(page).to have_content(translated(attributes[:title]))
     end
+
+    visit decidim_admin.root_path
+    expect(page).to have_content("created the #{translated(attributes[:title])} budget")
   end
 
-  describe "updating a budget" do
+  describe "updating a budget", versioning: true do
     it "updates a budget" do
       within find("tr", text: translated(budget.title)) do
         page.find(".action-icon--edit").click
       end
 
       within ".edit_budget" do
-        fill_in_i18n(
-          :budget_title,
-          "#budget-title-tabs",
-          en: "My new title",
-          es: "Mi nuevo título",
-          ca: "El meu nou títol"
-        )
+        fill_in_i18n(:budget_title, "#budget-title-tabs", **attributes[:title].except("machine_translations"))
+        fill_in_i18n_editor(:budget_description, "#budget-description-tabs", **attributes[:description].except("machine_translations"))
 
         find("*[type=submit]").click
       end
@@ -81,8 +68,11 @@ describe "Admin manages budgets", type: :system do
       end
 
       within "table" do
-        expect(page).to have_content("My new title")
+        expect(page).to have_content(translated(attributes[:title]))
       end
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated the #{translated(attributes[:title])} budget")
     end
   end
 
@@ -116,6 +106,62 @@ describe "Admin manages budgets", type: :system do
       it "cannot delete the budget" do
         within find("tr", text: translated(budget.title)) do
           expect(page).to have_no_selector(".action-icon--remove")
+        end
+      end
+    end
+  end
+
+  describe "when managing a budget with scopes" do
+    let!(:scopes) { create_list(:subscope, 3, organization: organization, parent: scope) }
+    let(:scope_id) { scope.id }
+    let(:participatory_space) { create(:participatory_process, organization: organization, scopes_enabled: scopes_enabled) }
+    let!(:component) { create(:component, manifest: manifest, settings: { scopes_enabled: scopes_enabled, scope_id: scope_id }, participatory_space: participatory_space) }
+    let!(:budget) { create(:budget, component: current_component) }
+    let!(:scope) { create(:scope, organization: organization) }
+    let(:scopes_enabled) { true }
+
+    before do
+      visit current_path
+    end
+
+    context "when the scope has subscopes" do
+      context "when scopes_enabled is true" do
+        it "displays the scope column" do
+          expect(component).to be_scopes_enabled
+          expect(component).to have_subscopes
+          expect(page).to have_content("Scope")
+        end
+      end
+
+      context "when scopes_enabled is false" do
+        let(:scopes_enabled) { false }
+
+        it "displays the scope column" do
+          expect(component).not_to be_scopes_enabled
+          expect(component).not_to have_subscopes
+          expect(page).to have_no_content("Scope")
+        end
+      end
+    end
+
+    context "when the scope does not have subscopes" do
+      let(:scope_id) { scopes.first.id }
+
+      context "when scopes_enabled is true" do
+        it "hides the scope column" do
+          expect(component).to be_scopes_enabled
+          expect(component).not_to have_subscopes
+          expect(page).to have_no_content("Scope")
+        end
+      end
+
+      context "when scopes_enabled is false" do
+        let(:scopes_enabled) { false }
+
+        it "displays the scope column" do
+          expect(component).not_to be_scopes_enabled
+          expect(component).not_to have_subscopes
+          expect(page).to have_no_content("Scope")
         end
       end
     end

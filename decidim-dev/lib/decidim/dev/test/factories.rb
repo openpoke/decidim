@@ -2,7 +2,11 @@
 
 FactoryBot.define do
   factory :dummy_component, parent: :component do
-    name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :surveys).i18n_name }
+    transient do
+      skip_injection { false }
+    end
+
+    name { generate_component_name(participatory_space.organization.available_locales, :dummy, skip_injection: skip_injection) }
     manifest_name { :dummy }
   end
 end
