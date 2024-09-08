@@ -170,6 +170,7 @@ describe "Admin manages consultation components", type: :system do
   end
 
   describe "publish and unpublish a component" do
+    let(:participatory_space_engine) { decidim_admin_consultations }
     let!(:component) do
       create(:component, participatory_space: question, published_at: published_at)
     end
