@@ -32,13 +32,22 @@ module Decidim
           @current_consultation ||= detect_consultation
         end
 
+        def current_component
+          @current_component ||= Decidim::Component.find_by(id: params[:component_id])
+        end
+
+        def current_question
+          @current_question ||= Decidim::Consultations::Question.find_by(slug: params[:question_slug])
+        end
+
         alias current_participatory_space current_consultation
 
         private
 
         def detect_consultation
-          request.env["current_consultation"] ||
-            organization_consultations.find_by!(slug: params[:consultation_slug] || params[:slug])
+          current_question&.consultation ||
+            request.env["current_consultation"] ||
+            organization_consultations.find_by(slug: params[:consultation_slug] || params[:slug])
         end
 
         def organization_consultations

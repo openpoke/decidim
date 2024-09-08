@@ -28,6 +28,7 @@ module Decidim
           allowed_question_action?
           allowed_response_action?
           allowed_response_group_action?
+          share_tokens_action?
 
           permission_action
         end
@@ -104,6 +105,12 @@ module Decidim
           when :update, :destroy
             toggle_allow(response_group.present?)
           end
+        end
+
+        def share_tokens_action?
+          return unless permission_action.subject == :share_tokens
+
+          allow!
         end
 
         # Only admin users can enter the consultations area.
