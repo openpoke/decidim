@@ -15,6 +15,7 @@ module Decidim
     include Decidim::HasUploadValidations
     include Decidim::TranslatableResource
     include Decidim::FilterableResource
+    include Decidim::ShareableWithToken
 
     translatable_fields :title, :subtitle, :description
 
@@ -115,6 +116,10 @@ module Decidim
 
     def self.ransackable_scopes(_auth_object = nil)
       [:with_any_date]
+    end
+
+    def shareable_url(share_token)
+      EngineRouter.main_proxy(self).consultation_url(self, share_token: share_token.token)
     end
   end
 end

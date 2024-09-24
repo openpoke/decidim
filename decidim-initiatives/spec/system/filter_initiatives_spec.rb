@@ -80,8 +80,8 @@ describe "Filter Initiatives", :slow, type: :system do
 
         within ".order-by__dropdown" do
           expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
-          sleep(2)
           page.find("a", text: "Random").click
+          expect(page).to have_link("Most commented")
           click_link "Most commented"
         end
 
@@ -201,6 +201,7 @@ describe "Filter Initiatives", :slow, type: :system do
       end
 
       it "doesn't display TYPE filter" do
+        expect(page).not_to have_css("legend", text: /Type/i)
         expect(page).not_to have_css(".filters__section.with_any_type_check_boxes_tree_filter")
       end
 
@@ -220,7 +221,7 @@ describe "Filter Initiatives", :slow, type: :system do
 
       it "can be filtered by type" do
         within "form.new_filter" do
-          expect(page).to have_content(/Type/i)
+          expect(page).to have_css("legend", text: /Type/i)
         end
       end
 

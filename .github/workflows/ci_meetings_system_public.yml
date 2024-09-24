@@ -21,7 +21,7 @@ on:
 
 env:
   CI: "true"
-  RUBY_VERSION: 3.0.2
+  RUBY_VERSION: 3.0.6
   NODE_VERSION: 16.9.1
   DECIDIM_MODULE: decidim-meetings
   CODECOV_TOKEN: bc15b944-6b42-420a-b3f9-a5a8fb214326

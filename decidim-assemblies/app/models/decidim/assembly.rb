@@ -36,6 +36,7 @@ module Decidim
     include Decidim::TranslatableResource
     include Decidim::HasArea
     include Decidim::FilterableResource
+    include Decidim::ShareableWithToken
 
     SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
     CREATED_BY = %w(city_council public others).freeze
@@ -160,6 +161,10 @@ module Decidim
 
     def self.ransackable_scopes(_auth_object = nil)
       [:with_area, :with_any_scope]
+    end
+
+    def shareable_url(share_token)
+      EngineRouter.main_proxy(self).assembly_url(self, share_token: share_token.token)
     end
 
     private

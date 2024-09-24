@@ -119,6 +119,7 @@ module Decidim
         return disallow! unless can_view_private_space?
         return allow! if user&.admin?
         return allow! if assembly.published?
+        return allow! if user_can_preview_space?
 
         toggle_allow(can_manage_assembly?)
       end
@@ -277,6 +278,7 @@ module Decidim
           :assembly_member,
           :space_private_user,
           :export_space,
+          :share_tokens,
           :import
         ].include?(permission_action.subject)
         allow! if is_allowed
@@ -297,10 +299,17 @@ module Decidim
           :assembly_member,
           :space_private_user,
           :export_space,
-          :import,
-          :assemblies_setting
+          :assemblies_setting,
+          :share_tokens,
+          :import
         ].include?(permission_action.subject)
         allow! if is_allowed
+      end
+
+      def user_can_preview_space?
+        return allow! if context[:share_token].present? && Decidim::ShareToken.use!(token_for: assembly, token: context[:share_token], user: user)
+      rescue ActiveRecord::RecordNotFound, StandardError
+        nil
       end
 
       # Checks if the permission_action is to read the admin assemblies list or

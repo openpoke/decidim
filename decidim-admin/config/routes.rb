@@ -101,8 +101,6 @@ Decidim::Admin::Engine.routes.draw do
       put :accept
     end
 
-    resources :share_tokens, only: :destroy
-
     resources :moderations, controller: "global_moderations" do
       member do
         put :unreport
