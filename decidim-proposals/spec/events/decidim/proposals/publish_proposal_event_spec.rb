@@ -56,6 +56,21 @@ module Decidim
 
           expect(subject.notification_title)
             .to include("<a href=\"/profiles/#{author.nickname}\">#{author.name} @#{author.nickname}</a>.")
+
+          expect(subject.notification_title).not_to include("Check it out of the")
+        end
+      end
+
+      describe "notification_title to admin" do
+        let(:extra) { { type: "admin", participatory_space: true } }
+
+        i18n_scope = "decidim.events.proposals.proposal_published_for_admin"
+
+        it "is generated correctly" do
+          expect(subject.notification_title).to include("Check it out of the")
+
+          expect(subject.notification_title)
+            .to include("<a href=\"#{Decidim::ResourceLocatorPresenter.new(resource).admin_url}\">#{I18n.t(".admin_panel", scope: i18n_scope)}</a>")
         end
       end
 
