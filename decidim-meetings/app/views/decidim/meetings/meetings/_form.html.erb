@@ -89,6 +89,17 @@
   <label><%= t(".disclaimer", organization: current_component.organization.name) %></label><br>
 </div>
 
+<div class="row column">
+  <%= form.check_box :reminder_enabled, label: t("reminder_enabled", scope: "decidim.meetings.admin.meetings.form"), "data-toggle": "customize_reminder_times" %>
+</div>
+
+<div id="customize_reminder_times" data-toggler=".hide" class="row column <%= @form.reminder_enabled ? nil : "hide" %>">
+  <div class="my-4">
+    <%= form.number_field :send_reminders_before_hours, label: t("send_reminder", scope: "decidim.meetings.admin.meetings.form"), help_text: t("reminder_help_text", scope: "decidim.meetings.admin.meetings.form") %>
+  </div>
+  <%= text_editor_for(form, :reminder_message_custom_content, hashtaggable: true, label: t("reminder_message", scope: "decidim.meetings.admin.meetings.form"), help_text: t("reminder_message_help_text", scope: "decidim.meetings.admin.meetings.form") ) %>
+</div>
+
 <div class="field">
   <%= form.select(
     :user_group_id,

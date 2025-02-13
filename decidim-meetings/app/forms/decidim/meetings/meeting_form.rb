@@ -19,6 +19,9 @@ module Decidim
       attribute :registration_terms, String
       attribute :iframe_embed_type, String, default: "none"
       attribute :iframe_access_level, String
+      attribute :reminder_enabled, Boolean, default: true
+      attribute :send_reminders_before_hours, Integer, default: Decidim::Meetings.upcoming_meeting_notification.in_hours
+      attribute :reminder_message_custom_content, String
 
       validates :iframe_embed_type, inclusion: { in: Decidim::Meetings::Meeting.participants_iframe_embed_types }
       validates :title, presence: true
@@ -34,6 +37,9 @@ module Decidim
       validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
       validates :decidim_scope_id, scope_belongs_to_component: true, if: ->(form) { form.decidim_scope_id.present? }
       validates :clean_type_of_meeting, presence: true
+      validates :send_reminders_before_hours,
+                presence: true, if: :reminder_enabled,
+                numericality: { only_integer: true, greater_than: 0, if: :reminder_enabled }
       validates(
         :iframe_access_level,
         inclusion: { in: Decidim::Meetings::Meeting.iframe_access_levels },
@@ -55,6 +61,18 @@ module Decidim
       end
 
       alias component current_component
+
+      def send_reminders_before_hours
+        return nil unless reminder_enabled
+
+        super
+      end
+
+      def reminder_message_custom_content
+        return {} unless reminder_enabled
+
+        super
+      end
 
       # Finds the Scope from the given decidim_scope_id, uses the compoenent scope if missing.
       #

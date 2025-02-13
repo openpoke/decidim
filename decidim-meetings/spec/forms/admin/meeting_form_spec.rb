@@ -55,6 +55,9 @@ module Decidim::Meetings
     let(:registration_type) { "on_this_platform" }
     let(:registrations_enabled) { true }
     let(:available_slots) { 0 }
+    let(:reminder_enabled) { true }
+    let(:send_reminders_before_hours) { 48 }
+    let(:reminder_message_custom_content) { { en: "Custom reminder message" } }
     let(:iframe_embed_type) { "none" }
     let(:attributes) do
       {
@@ -77,7 +80,10 @@ module Decidim::Meetings
         type_of_meeting: type_of_meeting,
         online_meeting_url: online_meeting_url,
         iframe_embed_type: iframe_embed_type,
-        registrations_enabled: registrations_enabled
+        registrations_enabled: registrations_enabled,
+        reminder_enabled: reminder_enabled,
+        send_reminders_before_hours: send_reminders_before_hours,
+        reminder_message_custom_content: reminder_message_custom_content
       }
     end
 
@@ -148,6 +154,38 @@ module Decidim::Meetings
       let(:category_id) { category.id + 10 }
 
       it { is_expected.not_to be_valid }
+    end
+
+    describe "when reminder_enabled is false" do
+      let(:reminder_enabled) { false }
+
+      it { is_expected.to be_valid }
+    end
+
+    describe "when reminder_enabled is true" do
+      context "and send_reminders_before_hours is missing" do
+        let(:send_reminders_before_hours) { nil }
+
+        it { is_expected.not_to be_valid }
+      end
+
+      context "and send_reminders_before_hours is present" do
+        let(:send_reminders_before_hours) { 50 }
+
+        it { is_expected.to be_valid }
+      end
+
+      context "and send_reminders_before_hours is not valid" do
+        let(:send_reminders_before_hours) { -1 }
+
+        it { is_expected.not_to be_valid }
+      end
+
+      context "and reminder_message_custom_content is missing" do
+        let(:reminder_message_custom_content) { nil }
+
+        it { is_expected.to be_valid }
+      end
     end
 
     it "validates address and store its coordinates" do

@@ -27,6 +27,8 @@ module Decidim::Meetings
     let(:registrations_enabled) { true }
     let(:available_slots) { 0 }
     let(:registration_terms) { Faker::Lorem.sentence(word_count: 3) }
+    let(:reminder_enabled) { true }
+    let(:send_reminders_before_hours) { 50 }
     let(:form) do
       double(
         invalid?: invalid,
@@ -53,7 +55,10 @@ module Decidim::Meetings
         clean_type_of_meeting: type_of_meeting,
         online_meeting_url: online_meeting_url,
         iframe_embed_type: iframe_embed_type,
-        iframe_access_level: iframe_access_level
+        iframe_access_level: iframe_access_level,
+        reminder_enabled: reminder_enabled,
+        send_reminders_before_hours: send_reminders_before_hours,
+        reminder_message_custom_content: "Custom reminder message!"
       )
     end
 
@@ -89,6 +94,23 @@ module Decidim::Meetings
       it "sets the category" do
         subject.call
         expect(meeting.category).to eq category
+      end
+
+      it "sets the reminder settings" do
+        subject.call
+        expect(meeting.reminder_enabled).to eq reminder_enabled
+        expect(meeting.send_reminders_before_hours).to eq send_reminders_before_hours
+        expect(meeting.reminder_message_custom_content).to include("en" => "Custom reminder message!")
+      end
+
+      context "when reminder is not enabled" do
+        let(:reminder_enabled) { false }
+
+        it "sends reminders before hours is nil" do
+          subject.call
+          expect(meeting.send_reminders_before_hours).to be_nil
+          expect(meeting.reminder_message_custom_content).to be_empty
+        end
       end
 
       it "sets the registration_terms" do

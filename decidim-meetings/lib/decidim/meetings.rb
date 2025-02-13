@@ -26,7 +26,7 @@ module Decidim
 
     # Public Setting that defines the interval when the upcoming meeting will be sent
     config_accessor :upcoming_meeting_notification do
-      2.days
+      48.hours
     end
 
     config_accessor :embeddable_services do
