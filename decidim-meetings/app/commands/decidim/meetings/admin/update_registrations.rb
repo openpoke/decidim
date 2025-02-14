@@ -27,6 +27,7 @@ module Decidim
               available_slots: form.available_slots,
               reserved_slots: form.reserved_slots,
               registration_terms: form.registration_terms,
+              waitlist_enabled: form.waitlist_enabled,
               customize_registration_email: form.customize_registration_email
             }
             extra_params.merge!(registration_email_custom_content: form.registration_email_custom_content) if form.customize_registration_email

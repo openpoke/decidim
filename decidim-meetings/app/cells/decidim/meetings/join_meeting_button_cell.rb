@@ -34,6 +34,12 @@ module Decidim
         I18n.t("no_slots_available", scope: "decidim.meetings.meetings.show")
       end
 
+      def i18n_waiting_list_text
+        return if model.has_available_slots?
+
+        I18n.t("waiting_list", scope: "decidim.meetings.meetings.show")
+      end
+
       def i18n_confirm_text
         I18n.t("confirm", scope: "decidim.meetings.meetings.registration_confirm")
       end

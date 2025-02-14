@@ -431,6 +431,8 @@ en:
             reserved_slots_help: Leave it to 0 if you do not have reserved slots.
             reserved_slots_less_than: Must be less than or equal to %{count}
             title: Registrations
+            waitlist_enabled: Waitlist enabled
+            waitlist_enabled_help: If enabled, the user will be able to join the waitlist when the available slots are full.
           update:
             invalid: There was a problem saving the registration settings.
             success: Meeting registrations settings successfully saved.
@@ -592,6 +594,7 @@ en:
           cancel: Cancel
           confirm: Confirm
         show:
+          add_to_waitlist: Add to waitlist
           attendees: Attendees count
           contributions: Contributions count
           join: Register
