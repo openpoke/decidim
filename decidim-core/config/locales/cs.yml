@@ -359,6 +359,7 @@ cs:
           '1': Vytvořte svůj pozměňovací návrh
           '2': Porovnejte váš pozměňovací návrh
           '3': Dokončete váš pozměňovací návrh
+          '4': Publikovat svůj pozměňovací návrh
     anonymous_user: Anonymní
     application:
       collection:
@@ -1206,6 +1207,7 @@ cs:
       no_notifications: Zatím žádné oznámení.
       show:
         missing_event: Jejda, toto oznámení patří k položce, která již není k dispozici. Můžete ho zahodit.
+        moderated: Obsah upraven
     notifications_digest_mailer:
       header:
         daily: Denní výběr oznámení
