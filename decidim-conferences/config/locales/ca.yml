@@ -607,7 +607,7 @@ ca:
         order_by_conferences:
           conferences:
             one: "%{count} jornada"
-            other: "%{count} jornadas"
+            other: "%{count} jornades"
         promoted_conference:
           more_info: Més informació
           take_part: Participar
