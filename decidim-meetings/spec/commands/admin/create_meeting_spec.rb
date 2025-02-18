@@ -27,7 +27,7 @@ module Decidim::Meetings
     let(:registrations_enabled) { true }
     let(:reminder_enabled) { true }
     let(:send_reminders_before_hours) { 50 }
-    let(:reminder_message_custom_content) { { en: "Custom reminder message" } }
+    let(:reminder_message_custom_content) { { "en" => "Custom reminder message" } }
     let(:iframe_embed_type) { "embed_in_meeting_page" }
     let(:iframe_access_level) { "all" }
     let(:services) do
