@@ -40,14 +40,15 @@ module Decidim
           user: current_user,
           user_group:,
           public_participation: form.public_participation,
-          status: :waiting_list
+          status: :on_waiting_list
         )
       end
 
+      # TODO: Implement this method
       def send_waitlist_notification
         Decidim::EventsManager.publish(
           event: "decidim.events.meetings.meeting_waitlist_added",
-          event_class: Decidim::Meetings::MeetingWaitlistNotificationEvent,
+          event_class: Decidim::Meetings::MeetingRegistrationNotificationEvent,
           resource: meeting,
           affected_users: [current_user]
         )

@@ -12,9 +12,9 @@ module Decidim
 
       validates :user, uniqueness: { scope: :meeting }
       validates :code, uniqueness: { allow_blank: true, scope: :meeting }
-      validates :code, presence: true, on: :create
+      validates :code, presence: true, on: :create, if: -> { status == "registered" }
 
-      enum status: { registered: "registered", waitlisted: "waitlisted" }, _prefix: true
+      enum status: { registered: "registered", on_waiting_list: "on_waiting_list" }
 
       before_validation :generate_code, on: :create
 
@@ -45,6 +45,8 @@ module Decidim
       private
 
       def generate_code
+        return if on_waiting_list?
+
         self[:code] ||= calculate_registration_code
       end
 

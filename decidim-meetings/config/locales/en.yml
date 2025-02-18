@@ -594,11 +594,12 @@ en:
           cancel: Cancel
           confirm: Confirm
         show:
-          add_to_waitlist: Add to waitlist
+          add_to_waitlist: Join the waiting list
           attendees: Attendees count
           contributions: Contributions count
           join: Register
           leave: Cancel your registration
+          cancel_waitlist: Leave the waiting list
           leave_confirmation: Are you sure you want to cancel your registration for this meeting?
           link_available_soon: Link available soon
           link_closed: The link to join the meeting will be available a few minutes before it starts
@@ -702,6 +703,9 @@ en:
         destroy:
           invalid: There was a problem leaving this meeting.
           success: You have left the meeting successfully.
+        waitlist:
+          invalid: There was a problem joining the waiting list.
+          success: You have joined the waiting list successfully.
       type_of_meeting:
         hybrid: Hybrid
         in_person: In person

@@ -10,15 +10,16 @@ module Decidim
         enforce_permission_to(:join, :meeting, meeting:)
 
         @form = form(Decidim::Forms::QuestionnaireForm).from_params(params, session_token:)
+        command = params[:waitlist] ? JoinWaitlist : JoinMeeting
 
-        JoinMeeting.call(meeting, @form) do
+        command.call(meeting, @form) do
           on(:ok) do
-            flash[:notice] = I18n.t("registrations.create.success", scope: "decidim.meetings")
+            flash[:notice] = I18n.t("registrations.#{params[:waitlist] ? "waitlist" : "create"}.success", scope: "decidim.meetings")
             redirect_to after_answer_path
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("registrations.create.invalid", scope: "decidim.meetings")
+            flash.now[:alert] = I18n.t("registrations.#{params[:waitlist] ? "waitlist" : "create"}.invalid", scope: "decidim.meetings")
             render template: "decidim/forms/questionnaires/show"
           end
 
@@ -98,7 +99,7 @@ module Decidim
       end
 
       def allow_answers?
-        meeting.registrations_enabled? && meeting.registration_form_enabled? && meeting.has_available_slots?
+        meeting.registrations_enabled? && meeting.registration_form_enabled? && (meeting.has_available_slots? || meeting.waitlist_enabled?)
       end
 
       def after_answer_path
@@ -108,7 +109,7 @@ module Decidim
       # You can implement this method in your controller to change the URL
       # where the questionnaire will be submitted.
       def update_url
-        answer_meeting_registration_path(meeting_id: meeting.id)
+        answer_meeting_registration_path(meeting_id: meeting.id, waitlist: request.path.include?("join_waitlist"))
       end
 
       def questionnaire_for

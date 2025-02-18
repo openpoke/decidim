@@ -41,7 +41,7 @@
       <% end %>
     <% end %>
 
-    <% if registration.present? && registration.meeting.component.settings.registration_code_enabled %>
+    <% if registration.present? && registration.meeting.component.settings.registration_code_enabled && registration.registered? %>
       <%= render layout: "decidim/meetings/layouts/aside_block", locals: { emoji: "coupon-line" } do %>
         <h3 class="meeting__aside-block__title"><%= registration_code_help_text %></h3>
         <div class="meeting__aside-block__large"><%= registration.code %></div>

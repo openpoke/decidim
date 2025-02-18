@@ -30,7 +30,7 @@ module Decidim
       end
 
       def icon_name
-        "list-ordered"
+        "clockwise-line"
       end
 
       def registration_form
