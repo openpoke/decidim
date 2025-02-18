@@ -26,6 +26,7 @@ module Decidim
               get :decline_invitation
               get :join, action: :show
               post :answer
+              post :join_waitlist
             end
           end
           resources :versions, only: [:show]
