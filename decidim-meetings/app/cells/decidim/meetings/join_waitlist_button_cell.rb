@@ -13,6 +13,10 @@ module Decidim
         render
       end
 
+      def render_registration_modal
+        cell(JoinMeetingButtonCell, model, current_user: current_user).call(:registration_modal)
+      end
+
       private
 
       def current_component

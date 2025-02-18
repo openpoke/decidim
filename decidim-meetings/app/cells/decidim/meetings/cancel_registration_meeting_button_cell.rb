@@ -24,8 +24,7 @@ module Decidim
       end
 
       def cancel_button_text
-        scope = "decidim.meetings.meetings.show"
-        registration_status == "on_waiting_list" ? I18n.t("cancel_waitlist", scope:) : I18n.t("leave", scope:)
+        I18n.t(registration_status == "on_waiting_list" ? "cancel_waitlist" : "leave", scope: "decidim.meetings.meetings.show")
       end
 
       def button_classes

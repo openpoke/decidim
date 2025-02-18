@@ -1,5 +1,5 @@
 <%= decidim_modal id: "meeting-registration-confirm-#{model.id}", class: "meeting__registration-modal" do %>
-  <%= decidim_form_for(registration_form, url: meeting_registration_path(model), method: :post) do |form| %>
+  <%= decidim_form_for(registration_form, url: model.has_available_slots? ? meeting_registration_path(model) : join_waitlist_meeting_registration_path(model), method: :post) do |form| %>
     <div data-dialog-container>
       <%= icon "login-circle-line" %>
       <h2 id="dialog-title-meeting-registration-confirm-<%= model.id %>" data-dialog-title><%= t("join", scope: "decidim.meetings.meetings.show") %></h2>

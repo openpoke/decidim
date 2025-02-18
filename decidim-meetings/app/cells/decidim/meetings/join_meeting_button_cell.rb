@@ -12,6 +12,10 @@ module Decidim
         render
       end
 
+      def registration_modal
+        render
+      end
+
       private
 
       delegate :current_user, to: :controller, prefix: false
