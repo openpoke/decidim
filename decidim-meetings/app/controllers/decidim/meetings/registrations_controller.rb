@@ -71,12 +71,12 @@ module Decidim
 
         LeaveMeeting.call(meeting, current_user) do
           on(:ok) do
-            flash[:notice] = I18n.t("registrations.destroy.success", scope: "decidim.meetings")
+            flash[:notice] = I18n.t("registrations.destroy.#{registration.status}.success", scope: "decidim.meetings")
             redirect_after_path
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("registrations.destroy.invalid", scope: "decidim.meetings")
+            flash.now[:alert] = I18n.t("registrations.destroy.#{registration.status}.invalid", scope: "decidim.meetings")
             redirect_after_path
           end
         end
@@ -120,6 +120,10 @@ module Decidim
 
       def meeting
         @meeting ||= Meeting.where(component: current_component).find(params[:meeting_id])
+      end
+
+      def registration
+        @registration ||= meeting.registrations.find_by(user: current_user)
       end
 
       def redirect_after_path

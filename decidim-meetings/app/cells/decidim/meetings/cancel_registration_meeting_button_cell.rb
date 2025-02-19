@@ -23,8 +23,32 @@ module Decidim
         model.registrations.find_by(user: current_user)&.status
       end
 
+      def action_keys
+        if registration_status == "on_waiting_list"
+          {
+            button: "cancel_waitlist",
+            modal_title: "waitlist_title",
+            modal_confirmation: "waitlist_confirmation"
+          }
+        else
+          {
+            button: "leave",
+            modal_title: "registration_title",
+            modal_confirmation: "registration_confirmation"
+          }
+        end
+      end
+
       def cancel_button_text
-        I18n.t(registration_status == "on_waiting_list" ? "cancel_waitlist" : "leave", scope: "decidim.meetings.meetings.show")
+        I18n.t(action_keys[:button], scope: "decidim.meetings.meetings.show")
+      end
+
+      def i18n_modal_title
+        I18n.t(action_keys[:modal_title], scope: "decidim.meetings.meetings.show")
+      end
+
+      def i18n_modal_confirmation_text
+        I18n.t(action_keys[:modal_confirmation], scope: "decidim.meetings.meetings.show")
       end
 
       def button_classes
