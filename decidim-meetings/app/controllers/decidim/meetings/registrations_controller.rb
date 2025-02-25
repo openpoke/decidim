@@ -10,22 +10,24 @@ module Decidim
         enforce_permission_to(:join, :meeting, meeting:)
 
         @form = form(Decidim::Forms::QuestionnaireForm).from_params(params, session_token:)
-        command = params[:waitlist] ? JoinWaitlist : JoinMeeting
+
+        waitlist = ActiveModel::Type::Boolean.new.cast(params[:waitlist])
+        command = waitlist ? JoinWaitlist : JoinMeeting
 
         command.call(meeting, @form) do
           on(:ok) do
-            flash[:notice] = I18n.t("registrations.#{params[:waitlist] ? "waitlist" : "create"}.success", scope: "decidim.meetings")
+            flash[:notice] = I18n.t("registrations.#{waitlist ? "waitlist" : "create"}.success", scope: "decidim.meetings")
             redirect_to after_answer_path
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("registrations.#{params[:waitlist] ? "waitlist" : "create"}.invalid", scope: "decidim.meetings")
-            render template: "decidim/forms/questionnaires/show"
+            flash.now[:alert] = I18n.t("registrations.#{waitlist ? "waitlist" : "create"}.invalid", scope: "decidim.meetings")
+            render template: "decidim/forms/questionnaires/show", status: :unprocessable_entity
           end
 
           on(:invalid_form) do
             flash.now[:alert] = I18n.t("answer.invalid", scope: i18n_flashes_scope)
-            render template: "decidim/forms/questionnaires/show"
+            render template: "decidim/forms/questionnaires/show", status: :unprocessable_entity
           end
         end
       end
@@ -109,7 +111,7 @@ module Decidim
       # You can implement this method in your controller to change the URL
       # where the questionnaire will be submitted.
       def update_url
-        answer_meeting_registration_path(meeting_id: meeting.id, waitlist: request.path.include?("join_waitlist"))
+        answer_meeting_registration_path(meeting_id: meeting.id, waitlist: params[:waitlist] || request.path.include?("join_waitlist"))
       end
 
       def questionnaire_for

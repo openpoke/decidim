@@ -28,6 +28,7 @@ module Decidim::Meetings
         registration_form_enabled:,
         available_slots:,
         reserved_slots:,
+        waitlist_enabled: true,
         customize_registration_email:,
         registration_email_custom_content:,
         registration_terms:,
@@ -57,12 +58,13 @@ module Decidim::Meetings
         expect(meeting.customize_registration_email).to be true
         expect(meeting.registration_email_custom_content).to eq(registration_email_custom_content)
         expect(translated(meeting.registration_terms)).to eq "A legal text"
+        expect(meeting.waitlist_enabled).to be true
       end
     end
 
     describe "events" do
       let(:user) { create(:user, :confirmed, organization: meeting.organization) }
-      let!(:follow) { create(:follow, followable: meeting, user:) }
+      let!(:follow) { create(:follow, followable: meeting, user: user) }
 
       context "when registrations are enabled" do
         it "notifies the change" do

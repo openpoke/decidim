@@ -44,6 +44,7 @@ FactoryBot.define do
     registration_terms { generate_localized_description(:meeting_registration_terms, skip_injection:) }
     registration_type { :on_this_platform }
     type_of_meeting { :in_person }
+    waitlist_enabled { false }
     component { build(:meeting_component) }
     iframe_access_level { :all }
     iframe_embed_type { :none }
