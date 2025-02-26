@@ -231,6 +231,8 @@ en:
           email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
           email_subject: The "%{resource_title}" meeting was updated
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was updated.
+        meeting_waitlist_added:
+          notification_title: You have been added to the waiting list for the <a href="%{resource_url}">%{resource_title}</a> meeting.
         registration_code_validated:
           email_intro: Your registration code "%{registration_code}" for the "%{resource_title}" meeting has been validated.
           email_outro: You have received this notification because your registration code for the "%{resource_title}" meeting has been validated.

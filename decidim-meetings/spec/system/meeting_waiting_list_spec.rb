@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Meeting registrations" do
+describe "Meeting waiting list" do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
@@ -10,7 +10,6 @@ describe "Meeting registrations" do
   let!(:question) { create(:questionnaire_question, questionnaire:, position: 0) }
   let!(:meeting) { create(:meeting, :published, component:, questionnaire:, waitlist_enabled:) }
   let!(:user) { create(:user, :confirmed, organization:) }
-
   let(:registrations_enabled) { true }
   let(:registration_form_enabled) { false }
   let(:available_slots) { 10 }
@@ -25,10 +24,6 @@ describe "Meeting registrations" do
 
   def visit_meeting
     visit resource_locator(meeting).path
-  end
-
-  def questionnaire_waitlist_public_path
-    Decidim::EngineRouter.main_proxy(component).join_waitlist_meeting_registration_path(meeting_id: meeting.id)
   end
 
   before do
@@ -51,7 +46,7 @@ describe "Meeting registrations" do
           login_as user, scope: :user
         end
 
-        it "doesn't show the join waitlist button" do
+        it "does not show the join waitlist button" do
           expect(page).to have_no_content("Join the waiting list")
         end
       end
@@ -94,6 +89,16 @@ describe "Meeting registrations" do
             expect(page).to have_i18n_content(question.body)
             expect(page).to have_css(".form.answer-questionnaire")
           end
+
+          it "can join the waitlist" do
+            click_on "Join the waiting list"
+            fill_in question.body["en"], with: "My first answer"
+            check "questionnaire_tos_agreement"
+            accept_confirm do
+              click_on "Submit"
+            end
+            expect(page).to have_content("You have joined the waiting list successfully.")
+          end
         end
       end
     end
@@ -107,7 +112,7 @@ describe "Meeting registrations" do
           login_as user, scope: :user
         end
 
-        it "doesn't show the join waitlist button" do
+        it "does not show the join waitlist button" do
           expect(page).to have_no_content("Join the waiting list")
         end
       end
@@ -122,7 +127,7 @@ describe "Meeting registrations" do
             visit_meeting
           end
 
-          it "doesn't show the join waitlist button" do
+          it "does not show the join waitlist button" do
             expect(page).to have_no_content("Join the waiting list")
           end
         end
@@ -133,7 +138,7 @@ describe "Meeting registrations" do
             visit_meeting
           end
 
-          it "doesn't show the join waitlist button" do
+          it "does not show the join waitlist button" do
             expect(page).to have_no_content("Join the waiting list")
           end
         end
@@ -149,7 +154,7 @@ describe "Meeting registrations" do
           login_as user, scope: :user
         end
 
-        it "doesn't show the join waitlist button" do
+        it "does not show the join waitlist button" do
           expect(page).to have_no_content("Join the waiting list")
         end
       end
@@ -180,6 +185,66 @@ describe "Meeting registrations" do
 
     context "when the waitlist is disabled" do
       let(:waitlist_enabled) { false }
+
+      context "when the meeting has available slots" do
+        before do
+          visit_meeting
+          login_as user, scope: :user
+        end
+
+        it "does not show the join waitlist button" do
+          expect(page).to have_no_content("Join the waiting list")
+        end
+      end
+
+      context "when the meeting has no available slots" do
+        before do
+          create_list(:registration, available_slots, meeting: meeting)
+          login_as user, scope: :user
+          visit_meeting
+        end
+
+        it "does not show the join waitlist button" do
+          expect(page).to have_no_content("Join the waiting list")
+        end
+      end
+    end
+  end
+
+  def leave_meeting(user)
+    login_as user, scope: :user
+    visit_meeting
+    click_on "Cancel your registration"
+    logout :user
+  end
+
+  context "when the meeting is full and a user cancels their registration" do
+    context "and there are users on the waiting list" do
+      let!(:registrations) { create_list(:registration, available_slots, meeting: meeting) }
+      let(:users_on_waitlist) { create_list(:user, 5, :confirmed, organization:) }
+      let(:first_waitlist_user) { users_on_waitlist.first }
+
+      let!(:waitlist_entries) do
+        users_on_waitlist.map.with_index do |user, index|
+          create(:registration, meeting: meeting, user: user, status: "on_waiting_list", created_at: Time.current - index.minutes)
+        end
+      end
+
+      let(:earliest_waitlist_entry) { waitlist_entries.min_by(&:created_at) }
+      let(:earliest_waitlist_user) { earliest_waitlist_entry.user }
+
+      before do
+        perform_enqueued_jobs { Decidim::Meetings::LeaveMeeting.call(meeting, registrations.first.user) }
+        login_as earliest_waitlist_user, scope: :user
+      end
+
+      it "displays the registration confirmation" do
+        visit_meeting
+        email = last_email
+        expect(page).to have_content("Your registration code")
+        expect(email.subject).to eq("Your meeting's registration has been confirmed")
+        expect(email.to).to eq([earliest_waitlist_user.email])
+      end
     end
   end
 end

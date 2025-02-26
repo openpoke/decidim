@@ -52,6 +52,10 @@ module Decidim
         Decidim::Gamification.decrement_score(@user, :attended_meetings)
       end
 
+      def send_email_confirmation(registration, user, meeting)
+        Decidim::Meetings::RegistrationMailer.confirmation(user, meeting, registration).deliver_later
+      end
+
       def move_from_waitlist!
         return unless @meeting.remaining_slots.positive?
 
@@ -59,12 +63,16 @@ module Decidim
         return unless on_waiting_list_user
 
         on_waiting_list_user.update!(status: :registered)
+        send_email_confirmation(on_waiting_list_user, on_waiting_list_user.user, @meeting)
 
         Decidim::EventsManager.publish(
           event: "decidim.events.meetings.meeting_registration_confirmed",
           event_class: Decidim::Meetings::MeetingRegistrationNotificationEvent,
           resource: @meeting,
-          affected_users: [on_waiting_list_user.user]
+          affected_users: [on_waiting_list_user.user],
+          extra: {
+            registration_code: on_waiting_list_user.code
+          }
         )
       end
     end

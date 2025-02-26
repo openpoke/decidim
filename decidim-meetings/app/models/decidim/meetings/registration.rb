@@ -45,8 +45,6 @@ module Decidim
       private
 
       def generate_code
-        return if on_waiting_list?
-
         self[:code] ||= calculate_registration_code
       end
 

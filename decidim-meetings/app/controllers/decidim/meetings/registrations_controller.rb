@@ -70,15 +70,15 @@ module Decidim
 
       def destroy
         enforce_permission_to(:leave, :meeting, meeting:)
-
+        status = registration.status
         LeaveMeeting.call(meeting, current_user) do
           on(:ok) do
-            flash[:notice] = I18n.t("registrations.destroy.#{registration.status}.success", scope: "decidim.meetings")
+            flash[:notice] = I18n.t("registrations.destroy.#{status}.success", scope: "decidim.meetings")
             redirect_after_path
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("registrations.destroy.#{registration.status}.invalid", scope: "decidim.meetings")
+            flash.now[:alert] = I18n.t("registrations.destroy.#{status}.invalid", scope: "decidim.meetings")
             redirect_after_path
           end
         end

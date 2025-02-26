@@ -44,7 +44,6 @@ module Decidim
         )
       end
 
-      # TODO: Implement this method
       def send_waitlist_notification
         Decidim::EventsManager.publish(
           event: "decidim.events.meetings.meeting_waitlist_added",

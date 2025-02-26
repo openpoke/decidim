@@ -3,7 +3,7 @@
   <%= decidim_form_for(registration_form, url: model.has_available_slots? ? meeting_registration_path(model) : join_waitlist_meeting_registration_path(model), method: :post) do |form| %>
     <div data-dialog-container>
       <%= icon "login-circle-line" %>
-      <h2 id="dialog-title-meeting-registration-confirm-<%= model.id %>" data-dialog-title><%= t(model.has_available_slots? ? "join" : "join_waitlist", scope: "decidim.meetings.meetings.show")  %></h2>
+      <h2 id="dialog-title-meeting-registration-confirm-<%= model.id %>" data-dialog-title><%= t(model.has_available_slots? ? "join" : "join_waitlist", scope: "decidim.meetings.meetings.show") %></h2>
       <div>
 
         <div class="form__wrapper">
