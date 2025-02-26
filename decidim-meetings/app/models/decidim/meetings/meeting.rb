@@ -206,7 +206,7 @@ module Decidim
       end
 
       def has_available_slots?
-        return false if available_slots.zero?
+        return true if available_slots.zero?
 
         (available_slots - reserved_slots) > registrations.registered.count
       end

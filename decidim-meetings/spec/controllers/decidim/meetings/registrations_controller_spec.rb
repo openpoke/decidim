@@ -36,7 +36,7 @@ module Decidim::Meetings
         end
 
         context "when no available slots" do
-          let(:meeting) { create(:meeting, component:, available_slots: 0, registrations_enabled: true, waitlist_enabled: false) }
+          let!(:registrations) { create_list(:registration, 10, meeting: meeting) }
 
           it "shows error message" do
             post :create, params: params
@@ -85,18 +85,8 @@ module Decidim::Meetings
       end
 
       context "with valid params" do
-        before do
-          if waitlist
-            meeting.update!(waitlist_enabled: true, available_slots: 0)
-          else
-            meeting.update!(available_slots: 5)
-          end
-        end
-
         context "when joining directly" do
           it "answers questionnaire and redirects" do
-            puts "Test Params: #{params.inspect}"
-
             expect do
               post :answer, params: params
             end.to change { meeting.registrations.count }.by(1)
@@ -107,6 +97,8 @@ module Decidim::Meetings
         end
 
         context "when joining waitlist" do
+          let(:meeting) { create(:meeting, component:, available_slots: 10, waitlist_enabled: true) }
+          let!(:registrations) { create_list(:registration, 10, meeting: meeting) }
           let(:waitlist) { true }
 
           it "adds user to waitlist and redirects" do
@@ -124,29 +116,24 @@ module Decidim::Meetings
         let(:params) do
           {
             meeting_id: meeting.id,
-            waitlist: waitlist,
-            questionnaire: { responses: [] } # Пустые ответы
+            waitlist: false,
+            questionnaire: { responses: [] }
           }
-        end
-
-        before do
-          meeting.update!(available_slots: 0, waitlist_enabled: waitlist, registrations_enabled: true)
         end
 
         it "shows error message" do
           post :answer, params: params
 
-          expected_key = waitlist ? "waitlist" : "create"
-          expect(flash[:alert]).to eq(I18n.t("registrations.#{expected_key}.invalid", scope: "decidim.meetings"))
+          expect(flash[:alert]).to eq(I18n.t("answer.invalid", scope: "decidim.forms.questionnaires"))
           expect(response).to render_template("decidim/forms/questionnaires/show")
         end
       end
     end
 
     describe "POST join_waitlist" do
-      let(:meeting) { create(:meeting, component:, available_slots: available_slots, waitlist_enabled: true) }
+      let(:meeting) { create(:meeting, component:, available_slots: 10, waitlist_enabled: true) }
+      let!(:registrations) { create_list(:registration, 10, meeting: meeting) }
       let(:params) { { meeting_id: meeting.id } }
-      let(:available_slots) { 0 }
 
       before { sign_in user }
 
