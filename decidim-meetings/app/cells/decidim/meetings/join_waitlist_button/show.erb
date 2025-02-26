@@ -8,14 +8,11 @@
     <%= icon(icon_name) %>
   <% end %>
 <% else %>
-  <% unless options[:hide_modal] %>
-    <%= render_registration_modal %>
-  <% end %>
   <%= action_authorized_button_to(
         :join_waitlist,
         "#",
         class: button_classes,
-        data: { "dialog-open": current_user.present? ? "meeting-registration-confirm-#{model.id}" : "loginModal" },
+        data: { "dialog-open": current_user.present? ? "meeting-waitlist-confirm-#{model.id}" : "loginModal" },
         resource: model
       )  do %>
     <%= i18n_join_waitlist_text %>

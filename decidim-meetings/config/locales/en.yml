@@ -599,6 +599,7 @@ en:
           cancel_waitlist: Leave the waiting list
           contributions: Contributions count
           join: Register
+          join_waitlist: Join the waiting list
           leave: Cancel your registration
           link_available_soon: Link available soon
           link_closed: The link to join the meeting will be available a few minutes before it starts

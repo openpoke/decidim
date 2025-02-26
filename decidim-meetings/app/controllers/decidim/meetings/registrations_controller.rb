@@ -101,7 +101,9 @@ module Decidim
       end
 
       def allow_answers?
-        meeting.registrations_enabled? && meeting.registration_form_enabled? && (meeting.has_available_slots? || meeting.waitlist_enabled?)
+        return false unless meeting.registrations_enabled? && meeting.registration_form_enabled?
+
+        meeting.has_available_slots? || (meeting.waitlist_enabled? && request.path.include?("join_waitlist"))
       end
 
       def after_answer_path
