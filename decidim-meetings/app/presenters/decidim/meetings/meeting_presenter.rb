@@ -76,13 +76,10 @@ module Decidim
         end
       end
 
-      def reminder_message_custom_content(links: false, all_locales: false)
+      def reminder_message_custom_content(links: false, extras: true, strip_tags: false, all_locales: false)
         return unless meeting
 
-        handle_locales(meeting.reminder_message_custom_content, all_locales) do |content|
-          renderer = Decidim::ContentRenderers::HashtagRenderer.new(content)
-          renderer.render(links: links).html_safe
-        end
+        content_handle_locale(meeting.reminder_message_custom_content, all_locales, extras, links, strip_tags)
       end
 
       # start time and end time in rfc3339 format removing '-' and ':' symbols

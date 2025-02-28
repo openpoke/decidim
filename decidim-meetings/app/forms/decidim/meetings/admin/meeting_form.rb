@@ -44,9 +44,7 @@ module Decidim
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
         validates :decidim_scope_id, scope_belongs_to_component: true, if: ->(form) { form.decidim_scope_id.present? }
         validates :clean_type_of_meeting, presence: true
-        validates :send_reminders_before_hours,
-                  presence: true, if: :reminder_enabled,
-                  numericality: { only_integer: true, greater_than: 0, if: :reminder_enabled }
+        validates :send_reminders_before_hours, numericality: { only_integer: true, greater_than_or_equal_to: 0, if: :reminder_enabled }
         validates(
           :iframe_access_level,
           inclusion: { in: Decidim::Meetings::Meeting.iframe_access_levels },
@@ -78,7 +76,8 @@ module Decidim
         def send_reminders_before_hours
           return nil unless reminder_enabled
 
-          super
+          value = super.presence
+          value.blank? || value.to_i.zero? ? Decidim::Meetings.upcoming_meeting_notification.in_hours.to_i : value.to_i
         end
 
         def reminder_message_custom_content
