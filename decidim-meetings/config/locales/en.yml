@@ -622,6 +622,7 @@ en:
             other: "%{count} slots remaining"
           visit_finished: View past meeting
           waitlist_confirmation: Are you sure you want to cancel your waitlist registration for this meeting?
+          waitlist_info: You have joined the waiting list for this meeting. If a spot became available you will be automatically registered and you will receive a notification.
           waitlist_title: Cancel your waitlist registration
           withdraw_btn_hint: You can withdraw your meeting if you change your mind. The meeting is not deleted, it will appear in the list of withdrawn meetings.
           withdraw_confirmation_html: Are you sure you want to withdraw this meeting?<br><br><strong>This action cannot be cancelled!</strong>

@@ -7,6 +7,7 @@
 <% end %>
 
 <% if meeting.waitlist_enabled? && !meeting.has_available_slots? && meeting.can_be_joined_by?(current_user) %>
+  <%= cell("decidim/announcement", t("waitlist_info", scope: "decidim.meetings.meetings.show")) %>
   <section class="layout-aside__section layout-aside__buttons layout-aside__ctas-buttons" data-sticky-buttons>
     <%= cell "decidim/meetings/join_waitlist_button", meeting, hide_modal: local_assigns[:hide_modal] %>
   </section>
