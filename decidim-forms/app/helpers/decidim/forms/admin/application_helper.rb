@@ -37,13 +37,13 @@ module Decidim
         end
 
         def template?(questionnaire_for)
-          return unless defined? Decidim::Templates::Template
+          return unless templates_defined?
 
           questionnaire_for.is_a? Decidim::Templates::Template
         end
 
         def templates_defined?
-          defined? Decidim::Templates::Admin::Concerns::Templatable
+          Decidim.module_installed? :templates
         end
       end
     end
