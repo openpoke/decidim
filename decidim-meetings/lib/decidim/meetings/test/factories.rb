@@ -44,6 +44,9 @@ FactoryBot.define do
     registration_type { :on_this_platform }
     type_of_meeting { :in_person }
     component { build(:meeting_component) }
+    reminder_enabled { true }
+    send_reminders_before_hours { 48 }
+    reminder_message_custom_content { {} }
     iframe_access_level { :all }
     iframe_embed_type { :none }
 

@@ -32,6 +32,7 @@ module Decidim
       def create_meeting!
         parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
         parsed_description = Decidim::ContentProcessor.parse(form.description, current_organization: form.current_organization).rewrite
+        parsed_reminder_message = Decidim::ContentProcessor.parse(form.reminder_message_custom_content, current_organization: form.current_organization).rewrite
 
         params = {
           scope: form.scope,
@@ -56,6 +57,9 @@ module Decidim
           type_of_meeting: form.clean_type_of_meeting,
           component: form.current_component,
           published_at: Time.current,
+          reminder_enabled: form.reminder_enabled,
+          send_reminders_before_hours: form.reminder_enabled ? form.send_reminders_before_hours : nil,
+          reminder_message_custom_content: form.reminder_enabled ? { I18n.locale => parsed_reminder_message } : {},
           iframe_embed_type: form.iframe_embed_type,
           iframe_access_level: form.iframe_access_level
         }
@@ -77,7 +81,7 @@ module Decidim
         checksum = Decidim::Meetings::UpcomingMeetingNotificationJob.generate_checksum(meeting)
 
         Decidim::Meetings::UpcomingMeetingNotificationJob
-          .set(wait_until: meeting.start_time - Decidim::Meetings.upcoming_meeting_notification)
+          .set(wait_until: meeting.start_time - form.send_reminders_before_hours.hours)
           .perform_later(meeting.id, checksum)
       end
 

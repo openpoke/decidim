@@ -26,6 +26,8 @@ module Decidim::Meetings
     let(:registration_url) { "http://decidim.org" }
     let(:iframe_embed_type) { "none" }
     let(:iframe_access_level) { nil }
+    let(:reminder_enabled) { true }
+    let(:send_reminders_before_hours) { 50 }
     let(:form) do
       double(
         invalid?: invalid,
@@ -51,7 +53,10 @@ module Decidim::Meetings
         clean_type_of_meeting: type_of_meeting,
         online_meeting_url: online_meeting_url,
         iframe_embed_type: iframe_embed_type,
-        iframe_access_level: iframe_access_level
+        iframe_access_level: iframe_access_level,
+        reminder_enabled: reminder_enabled,
+        send_reminders_before_hours: send_reminders_before_hours,
+        reminder_message_custom_content: "Custom reminder message!"
       )
     end
 
@@ -85,6 +90,13 @@ module Decidim::Meetings
         subject.call
         expect(meeting.latitude).to eq(latitude)
         expect(meeting.longitude).to eq(longitude)
+      end
+
+      it "sets the reminder settings" do
+        subject.call
+        expect(meeting.reminder_enabled).to eq reminder_enabled
+        expect(meeting.send_reminders_before_hours).to eq send_reminders_before_hours
+        expect(meeting.reminder_message_custom_content).to include("en" => "Custom reminder message!")
       end
 
       context "when the author is a user_group" do
@@ -150,7 +162,10 @@ module Decidim::Meetings
             clean_type_of_meeting: type_of_meeting,
             online_meeting_url: online_meeting_url,
             iframe_embed_type: iframe_embed_type,
-            iframe_access_level: iframe_access_level
+            iframe_access_level: iframe_access_level,
+            reminder_enabled: reminder_enabled,
+            send_reminders_before_hours: send_reminders_before_hours,
+            reminder_message_custom_content: "Custom reminder message!"
           )
         end
 

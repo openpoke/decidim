@@ -64,6 +64,9 @@ module Decidim
             comments_enabled: form.comments_enabled,
             comments_start_time: form.comments_start_time,
             comments_end_time: form.comments_end_time,
+            reminder_enabled: form.reminder_enabled,
+            send_reminders_before_hours: form.reminder_enabled ? form.send_reminders_before_hours : nil,
+            reminder_message_custom_content: form.reminder_enabled ? form.reminder_message_custom_content : nil,
             iframe_access_level: form.iframe_access_level
           )
         end
@@ -102,7 +105,7 @@ module Decidim
           checksum = Decidim::Meetings::UpcomingMeetingNotificationJob.generate_checksum(meeting)
 
           Decidim::Meetings::UpcomingMeetingNotificationJob
-            .set(wait_until: meeting.start_time - Decidim::Meetings.upcoming_meeting_notification)
+            .set(wait_until: meeting.start_time - meeting.send_reminders_before_hours.hours)
             .perform_later(meeting.id, checksum)
         end
       end

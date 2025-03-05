@@ -29,6 +29,9 @@ module Decidim::Meetings
     let(:registration_url) { "http://decidim.org" }
     let(:registration_type) { "on_this_platform" }
     let(:registrations_enabled) { true }
+    let(:reminder_enabled) { true }
+    let(:send_reminders_before_hours) { 50 }
+    let(:reminder_message_custom_content) { { "en" => "Custom reminder message!" } }
     let(:iframe_embed_type) { "none" }
     let(:iframe_access_level) { nil }
 
@@ -60,6 +63,9 @@ module Decidim::Meetings
         comments_enabled: true,
         comments_start_time: nil,
         comments_end_time: nil,
+        reminder_enabled: reminder_enabled,
+        send_reminders_before_hours: send_reminders_before_hours,
+        reminder_message_custom_content: reminder_message_custom_content,
         iframe_access_level: iframe_access_level
       )
     end
@@ -102,6 +108,13 @@ module Decidim::Meetings
       it "sets the registration enabled flag" do
         subject.call
         expect(meeting.registrations_enabled).to eq registrations_enabled
+      end
+
+      it "sets the reminder settings" do
+        subject.call
+        expect(meeting.reminder_enabled).to eq reminder_enabled
+        expect(meeting.send_reminders_before_hours).to eq send_reminders_before_hours
+        expect(meeting.reminder_message_custom_content).to eq reminder_message_custom_content
       end
 
       it "sets the services" do
@@ -163,6 +176,9 @@ module Decidim::Meetings
             comments_enabled: true,
             comments_start_time: nil,
             comments_end_time: nil,
+            reminder_enabled: reminder_enabled,
+            send_reminders_before_hours: send_reminders_before_hours,
+            reminder_message_custom_content: reminder_message_custom_content,
             iframe_access_level: iframe_access_level
           )
         end
