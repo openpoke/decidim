@@ -18,6 +18,7 @@ module Decidim
           get :results, on: :member
           resource :publish, controller: "consultation_publications", only: [:create, :destroy]
           resource :publish_results, controller: "consultation_results_publications", only: [:create, :destroy]
+          resources :consultation_share_tokens, except: [:show], path: "share_tokens", as: "share_tokens"
           resources :questions, param: :slug, except: :show, shallow: true do
             resource :publish, controller: "question_publications", only: [:create, :destroy]
             resource :permissions, controller: "question_permissions"
@@ -35,6 +36,7 @@ module Decidim
               get :share
             end
             resources :exports, only: :create
+            resources :component_share_tokens, except: [:show], path: "share_tokens", as: "share_tokens"
           end
 
           resources :question_attachments
@@ -73,6 +75,12 @@ module Decidim
                         position: 1.0,
                         active: is_active_link?(decidim_admin_consultations.results_consultation_path(current_consultation)),
                         if: allowed_to?(:read, :question)
+          menu.add_item :consultation_share_tokens,
+                        I18n.t("menu.share_tokens", scope: "decidim.admin"),
+                        decidim_admin_consultations.consultation_share_tokens_path(current_consultation),
+                        position: 1.2,
+                        active: is_active_link?(decidim_admin_consultations.consultation_share_tokens_path(current_consultation)),
+                        if: allowed_to?(:read, :share_tokens, consultation: current_consultation)
         end
       end
       initializer "decidim_consultations.admin_menu" do

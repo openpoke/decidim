@@ -59,6 +59,7 @@ module Decidim
               put :unpublish
               get :share
             end
+            resources :component_share_tokens, except: [:show], path: "share_tokens", as: "share_tokens"
             resources :exports, only: :create
           end
 
@@ -70,6 +71,8 @@ module Decidim
             end
             resources :reports, controller: "moderations/reports", only: [:index, :show]
           end
+
+          resources :initiative_share_tokens, except: [:show], path: "share_tokens"
         end
 
         scope "/initiatives/:initiative_slug/components/:component_id/manage" do
@@ -150,6 +153,12 @@ module Decidim
                         decidim_admin_initiatives.moderations_path(current_participatory_space),
                         active: is_active_link?(decidim_admin_initiatives.moderations_path(current_participatory_space)),
                         if: allowed_to?(:read, :moderation)
+
+          menu.add_item :initiatives_share_tokens,
+                        I18n.t("menu.share_tokens", scope: "decidim.admin"),
+                        decidim_admin_initiatives.initiative_share_tokens_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_initiatives.initiative_share_tokens_path(current_participatory_space)),
+                        if: allowed_to?(:read, :share_tokens, initiative: current_participatory_space)
         end
       end
 

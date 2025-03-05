@@ -54,9 +54,12 @@ module Decidim
         let(:query) { "{ projects { id } }" }
 
         it "returns the budget projects" do
-          ids = response["projects"].map { |project| project["id"] }
-          expect(ids).to include(*model.projects.map(&:id).map(&:to_s))
-          expect(ids).not_to include(*budget2.projects.map(&:id).map(&:to_s))
+          ids = response["projects"].map { |project| project["id"].to_s }
+          model_project_ids = model.projects.map(&:id).map(&:to_s)
+          budget2_project_ids = budget2.projects.map(&:id).map(&:to_s)
+
+          expect(ids).to match_array(model_project_ids)
+          expect(ids & budget2_project_ids).to be_empty
         end
       end
     end

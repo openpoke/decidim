@@ -1,0 +1,66 @@
+<% add_decidim_page_title(t(".title")) %>
+<%= decidim_form_for(@form, url: share_tokens_path(:create), html: { class: "form-defaults form new_share_token" }) do |f| %>
+  <div class="card">
+    <div class="card-divider">
+      <h2 class="card-title">
+        <div class="flex--sbc">
+        <%= t ".title", name: resource_title %>
+          <%= link_to :back do %>
+            <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
+            <%= t("share_tokens.index.back_to_share_tokens", scope: "decidim.admin") %>
+          <% end %>
+        </div>
+      </h2>
+    </div>
+    <div class="card-section">
+      <div class="row column">
+        <label><%= t("share_tokens.form.token", scope: "decidim.admin") %></label>
+        <%= f.collection_radio_buttons :automatic_token, [
+          [t("share_tokens.form.automatic", scope: "decidim.admin"), true],
+          [t("share_tokens.form.custom", scope: "decidim.admin"), false]
+        ], :last, :first do |b| %>
+          <div>
+            <%= b.radio_button %>
+            <%= b.label do %>
+              <%= b.text %>
+            <% end %>
+          </div>
+        <% end %>
+        <div id="token-field-wrapper" class="hide">
+          <%= f.text_field :token, label: t("share_tokens.form.custom_token", scope: "decidim.admin"), style: "text-transform: uppercase" %>
+        </div>
+      </div>
+      <%= render partial: "form", object: f %>
+    </div>
+  </div>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t(".create") %>
+  </div>
+<% end %>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const automaticTokenRadioButton = document.querySelector("input[name='share_token[automatic_token]'][value='true']");
+    const automaticTokenRadioButtons = document.querySelectorAll("input[name='share_token[automatic_token]']");
+    const tokenWrapper = document.getElementById("token-field-wrapper");
+    const tokenInput = document.querySelector("input[name='share_token[token]']");
+
+    const toggleTokenField = () => {
+      if (automaticTokenRadioButton.checked) {
+        tokenWrapper.classList.add("hide");
+        tokenInput.value = "";
+        tokenInput.removeAttribute("required");
+      } else {
+        tokenWrapper.classList.remove("hide");
+        tokenInput.focus();
+      }
+    };
+
+    automaticTokenRadioButtons.forEach(button => {
+      button.addEventListener("change", toggleTokenField);
+    });
+
+    toggleTokenField();
+  });
+</script>

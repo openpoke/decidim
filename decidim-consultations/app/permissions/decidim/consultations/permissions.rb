@@ -41,8 +41,12 @@ module Decidim
         when :consultation_list, :participatory_space
           allow!
         when :consultation
+          raise ActiveRecord::RecordNotFound unless consultation
+
           toggle_allow(consultation.published? || user&.admin?)
         when :question
+          raise ActiveRecord::RecordNotFound unless question
+
           toggle_allow(question.published? || user&.admin?)
         end
       end

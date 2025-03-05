@@ -127,8 +127,8 @@ module Decidim
           let(:initiatives) { create_list(:initiative, initiatives_type: model, organization: :current_organization) }
 
           it "returns the initiatives" do
-            ids = response["initiatives"].map { |item| item["id"] }
-            expect(ids).to include(*model.initiatives.map(&:id).map(&:to_s))
+            ids = response["initiatives"].map { |item| item["id"].to_s }
+            expect(ids).to match_array(model.initiatives.map(&:id).map(&:to_s))
           end
         end
       end
