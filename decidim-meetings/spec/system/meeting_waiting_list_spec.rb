@@ -63,7 +63,7 @@ describe "Meeting waiting list" do
 
           it "shows the join waitlist button" do
             expect(page).to have_content("Join the waiting list")
-            expect(page).to have_content("You have joined the waiting list for this meeting.")
+            expect(page).to have_no_content("You have joined the waiting list for this meeting.")
           end
 
           it "shows the login modal when clicking the join waitlist button" do
@@ -173,7 +173,7 @@ describe "Meeting waiting list" do
 
         it "shows the join waitlist button" do
           expect(page).to have_content("Join the waiting list")
-          expect(page).to have_content("You have joined the waiting list for this meeting.")
+          expect(page).to have_no_content("You have joined the waiting list for this meeting.")
         end
 
         it "can join the waitlist" do
@@ -185,6 +185,7 @@ describe "Meeting waiting list" do
           end
 
           expect(page).to have_content("You have joined the waiting list successfully.")
+          expect(page).to have_content("You have joined the waiting list for this meeting.")
         end
       end
     end

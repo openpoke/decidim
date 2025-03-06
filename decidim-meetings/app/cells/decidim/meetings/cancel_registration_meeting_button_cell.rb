@@ -13,6 +13,10 @@ module Decidim
         render
       end
 
+      def waiting_list_info
+        cell("decidim/announcement", t("waitlist_info", scope: "decidim.meetings.meetings.show")) if registration_status == "on_waiting_list"
+      end
+
       private
 
       def current_component
