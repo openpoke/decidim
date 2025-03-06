@@ -38,7 +38,7 @@ module Decidim
 
       def can_join_waitlist?
         meeting.waitlist_enabled? &&
-          !meeting.registrations.exists?(user: current_user) &&
+          !meeting.registrations.exists?(user: user) &&
           !meeting.has_available_slots?
       end
 
@@ -57,7 +57,7 @@ module Decidim
           event: "decidim.events.meetings.meeting_waitlist_added",
           event_class: Decidim::Meetings::MeetingRegistrationNotificationEvent,
           resource: meeting,
-          affected_users: [current_user]
+          affected_users: [user]
         )
       end
 
