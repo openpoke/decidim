@@ -82,6 +82,7 @@ module Decidim
             available_slots: meeting.available_slots,
             registration_terms: meeting.registration_terms,
             reserved_slots: meeting.reserved_slots,
+            waitlist_enabled: meeting.waitlist_enabled,
             customize_registration_email: meeting.customize_registration_email,
             registration_form_enabled: meeting.registration_form_enabled,
             registration_email_custom_content: meeting.registration_email_custom_content

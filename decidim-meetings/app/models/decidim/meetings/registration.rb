@@ -12,11 +12,15 @@ module Decidim
 
       validates :user, uniqueness: { scope: :meeting }
       validates :code, uniqueness: { allow_blank: true, scope: :meeting }
-      validates :code, presence: true, on: :create
+      validates :code, presence: true, on: :create, if: -> { status == "registered" }
+
+      enum status: { registered: "registered", on_waiting_list: "on_waiting_list" }
 
       before_validation :generate_code, on: :create
 
       scope :public_participant, -> { where(decidim_user_group_id: nil, public_participation: true) }
+      scope :registered, -> { where(status: :registered) }
+      scope :waiting_list, -> { where(status: :waiting_list).order(:created_at) }
 
       def self.user_collection(user)
         where(decidim_user_id: user.id)

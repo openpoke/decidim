@@ -1,3 +1,4 @@
+<%= waiting_list_info %>
 <div class="text-center">
   <%= action_authorized_link_to(
     :join,
@@ -5,9 +6,9 @@
     resource: model,
     method: :delete,
     class: button_classes,
-    data: { disable: true, confirm: t("leave_confirmation", scope: "decidim.meetings.meetings.show") }
+    data: { disable: true, confirm: i18n_modal_confirmation_text }
   ) do %>
-    <%= t("leave", scope: "decidim.meetings.meetings.show") %>
+    <%= cancel_button_text %>
     <%= icon icon_name %>
   <% end %>
 </div>
