@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Meeting waiting list" do
+describe "Meeting waiting list" do # rubocop:disable RSpec/DescribeClass
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
