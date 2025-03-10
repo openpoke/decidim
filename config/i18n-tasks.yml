@@ -318,6 +318,13 @@ ignore_unused:
   - decidim.meetings.meetings.show.withdraw_btn_hint
   - decidim.meetings.meetings.show.withdraw_confirmation_html
   - decidim.meetings.meetings.show.withdraw_meeting
+  - decidim.meetings.meetings.show.cancel_waitlist
+  - decidim.meetings.meetings.show.join_waitlist
+  - decidim.meetings.meetings.show.leave
+  - decidim.meetings.meetings.show.registration_confirmation
+  - decidim.meetings.meetings.show.registration_title
+  - decidim.meetings.meetings.show.waitlist_confirmation
+  - decidim.meetings.meetings.show.waitlist_title
   - decidim.proposals.proposals.show.withdraw_btn_hint
   - decidim.proposals.proposals.show.withdraw_confirmation_html
   - decidim.proposals.proposals.show.withdraw_proposal

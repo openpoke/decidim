@@ -14,6 +14,7 @@ describe "Meeting registrations" do
   let(:registrations_enabled) { true }
   let(:registration_form_enabled) { false }
   let(:available_slots) { 20 }
+  let(:waitlist_enabled) { true }
   let(:registration_terms) do
     {
       en: "A legal text",
@@ -30,6 +31,10 @@ describe "Meeting registrations" do
     Decidim::EngineRouter.main_proxy(component).join_meeting_registration_path(meeting_id: meeting.id)
   end
 
+  def questionnaire_waitlist_public_path
+    Decidim::EngineRouter.main_proxy(component).join_waitlist_meeting_registration_path(meeting_id: meeting.id)
+  end
+
   def see_questionnaire_questions; end
 
   before do
@@ -38,6 +43,7 @@ describe "Meeting registrations" do
       registrations_enabled:,
       registration_form_enabled:,
       available_slots:,
+      waitlist_enabled:,
       registration_terms:
     )
   end
@@ -50,6 +56,12 @@ describe "Meeting registrations" do
 
       expect(page).to have_no_button("Register")
       expect(page).to have_no_text("20 slots remaining")
+    end
+
+    it "the waitlist button is not visible" do
+      visit_meeting
+
+      expect(page).to have_no_content("Join the waiting list")
     end
 
     context "and registration form is also enabled" do
@@ -83,6 +95,14 @@ describe "Meeting registrations" do
         expect(page).to have_text("0 slots remaining")
       end
 
+      context "and waitlist is enabled" do
+        it "the waitlist button is visible" do
+          visit_meeting
+
+          expect(page).to have_content("Join the waiting list")
+        end
+      end
+
       context "and registration form is enabled" do
         let(:registration_form_enabled) { true }
 
@@ -99,6 +119,15 @@ describe "Meeting registrations" do
           expect(page).to have_no_i18n_content(question.body)
 
           expect(page).to have_content("The form is closed and cannot be answered")
+        end
+
+        it "can answer the waitlist form" do
+          visit questionnaire_waitlist_public_path
+
+          expect(page).to have_i18n_content(questionnaire.title)
+          expect(page).to have_i18n_content(questionnaire.description, strip_tags: true)
+          expect(page).to have_i18n_content(question.body)
+          expect(page).to have_css(".form.answer-questionnaire")
         end
       end
     end

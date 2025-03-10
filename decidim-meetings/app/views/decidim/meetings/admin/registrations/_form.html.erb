@@ -19,6 +19,10 @@
       </div>
 
       <div class="row column">
+        <%= form.check_box :waitlist_enabled, help_text: t(".waitlist_enabled_help") %>
+      </div>
+
+      <div class="row column">
         <%= form.check_box :customize_registration_email %>
       </div>
 
