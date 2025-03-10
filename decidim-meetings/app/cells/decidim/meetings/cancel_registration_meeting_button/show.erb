@@ -1,14 +1,4 @@
 <%= waiting_list_info %>
 <div class="text-center">
-  <%= action_authorized_link_to(
-    :join,
-    meeting_registration_path(model),
-    resource: model,
-    method: :delete,
-    class: button_classes,
-    data: { disable: true, confirm: i18n_modal_confirmation_text }
-  ) do %>
-    <%= cancel_button_text %>
-    <%= icon icon_name %>
-  <% end %>
+  <%= cancel_registration_button(style: :simple) unless registration_status == "on_waiting_list" %>
 </div>

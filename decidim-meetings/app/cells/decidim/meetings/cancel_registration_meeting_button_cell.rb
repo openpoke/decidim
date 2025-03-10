@@ -15,7 +15,11 @@ module Decidim
       end
 
       def waiting_list_info
-        cell("decidim/announcement", t("waitlist_info", scope: "decidim.meetings.meetings.show")) if registration_status == "on_waiting_list"
+        render if registration_status == "on_waiting_list"
+      end
+
+      def cancel_registration_button(style: :simple)
+        render locals: { style: style }
       end
 
       private
@@ -57,7 +61,7 @@ module Decidim
       end
 
       def button_classes
-        ""
+        registration_status == "on_waiting_list" ? "button expanded button--icon follow-button secondary hollow active small" : ""
       end
 
       def icon_name

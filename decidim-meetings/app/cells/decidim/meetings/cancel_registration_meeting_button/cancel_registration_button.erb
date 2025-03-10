@@ -1,0 +1,20 @@
+<%= action_authorized_link_to(
+      :join,
+      meeting_registration_path(model),
+      resource: model,
+      method: :delete,
+      class: button_classes,
+      data: { disable: true, confirm: i18n_modal_confirmation_text }
+    ) do %>
+  <% if style == :simple %>
+    <%= cancel_button_text %>
+    <%= icon icon_name %>
+  <% elsif style == :detailed %>
+    <span class="icon-wrap">
+      <%= icon icon_name %>
+    </span>
+    <span class="text-wrap">
+      <%= cancel_button_text %>
+    </span>
+  <% end %>
+<% end %>
