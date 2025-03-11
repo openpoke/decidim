@@ -14,6 +14,7 @@ module Decidim
         attribute :customize_registration_email, Boolean
         attribute :available_slots, Integer
         attribute :reserved_slots, Integer
+        attribute :waitlist_enabled, :boolean, default: false
 
         translatable_attribute :registration_terms, String
         translatable_attribute :registration_email_custom_content, String
@@ -21,6 +22,7 @@ module Decidim
         validates :registration_terms, translatable_presence: true, if: ->(form) { form.registrations_enabled? }
         validates :available_slots, :reserved_slots, presence: true, if: ->(form) { form.registrations_enabled? }
         validates :available_slots, numericality: { greater_than_or_equal_to: 0 }, if: ->(form) { form.registrations_enabled? && form.available_slots.present? }
+        validates :waitlist_enabled, inclusion: { in: [true, false] }
         validates :reserved_slots, numericality: { greater_than_or_equal_to: 0 }, if: ->(form) { form.registrations_enabled? }
         validates :reserved_slots, numericality: { less_than_or_equal_to: :available_slots }, if: lambda { |form|
                                                                                                     form.registrations_enabled? &&

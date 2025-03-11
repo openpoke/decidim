@@ -1,0 +1,16 @@
+<% if model.registration_form_enabled? %>
+  <%= action_authorized_link_to(
+        :join_waitlist,
+        i18n_join_waitlist_text,
+        join_waitlist_meeting_registration_path(model),
+        class: button_classes
+      ) %>
+<% else %>
+  <%= action_authorized_button_to(
+        :join_waitlist,
+        i18n_join_waitlist_text,
+        "#",
+        class: button_classes,
+        data: { open: current_user.present? ? "meeting-waitlist-confirm-#{model.id}" : "loginModal" }
+      ) %>
+<% end %>

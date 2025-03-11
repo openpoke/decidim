@@ -46,6 +46,9 @@ edit_link(
         <%= cell("decidim/date_range", { start: meeting.start_time, end: meeting.end_time }) %>
 
         <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
+        <% if meeting.waitlist_enabled? && !meeting.has_available_slots? && meeting.can_be_joined_by?(current_user) %>
+          <%= cell "decidim/meetings/join_waitlist_button", meeting %>
+        <% end %>
         <%= render partial: "decidim/shared/follow_button", locals: { followable: meeting, large: false  } %>
       </div>
       <% if meeting.closed? && meeting.closing_visible? %>
@@ -73,7 +76,7 @@ edit_link(
       <% end %>
     </div>
 
-    <% if registration.present? && registration.meeting.component.settings.registration_code_enabled %>
+    <% if registration.present? && registration.meeting.component.settings.registration_code_enabled && registration.registered? %>
       <div class="card extra">
         <div class="card__content">
             <div class="registration_code">

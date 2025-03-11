@@ -39,6 +39,7 @@ en:
         title: Title
         transparent: Transparent
         type_of_meeting: Type
+        waitlist_enabled: Waitlist enabled
       meeting_agenda:
         title: Title
         visible: Visible
@@ -180,6 +181,8 @@ en:
           email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
           email_subject: The "%{resource_title}" meeting was updated
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was updated.
+        meeting_waitlist_added:
+          notification_title: You have been added to the waiting list for the <a href="%{resource_url}">%{resource_title}</a> meeting.
         registration_code_validated:
           email_intro: Your registration code "%{registration_code}" for the "%{resource_title}" meeting has been validated.
           email_outro: You have received this notification because your registration code for the "%{resource_title}" meeting has been validated.
@@ -377,6 +380,7 @@ en:
             reserved_slots_help: Leave it to 0 if you don't have reserved slots
             reserved_slots_less_than: Must be less than or equal to %{count}
             title: Registrations
+            waitlist_enabled_help: If enabled, the user will be able to join the waitlist when the available slots are full.
           update:
             invalid: There was a problem saving the registration settings.
             success: Meeting registrations settings successfully saved.
@@ -548,16 +552,18 @@ en:
           cancel: Cancel
           confirm: Confirm
         show:
+          add_to_waitlist: Join the waiting list
           attendees: Attendees count
           back: Back to list
+          cancel_waitlist: Leave the waiting list
           close_meeting: Close meeting
           contributions: Contributions count
           date: Date
           edit_close_meeting: Edit meeting report
           edit_meeting: Edit meeting
           join: Join meeting
+          join_waitlist: Join the waiting list
           leave: Cancel your registration
-          leave_confirmation: Are you sure you want to cancel your registration for this meeting?
           link_available_soon: Link available soon
           link_closed: The link to join the meeting will be available a few minutes before it starts
           live_event: This meeting is happening right now
@@ -566,14 +572,19 @@ en:
           no_slots_available: No slots available
           organizations: Attending organizations
           registration_code_help_text: Your registration code
+          registration_confirmation: Are you sure you want to cancel your registration for this meeting?
           registration_state:
             validated: VALIDATED
             validation_pending: VALIDATION PENDING
+          registration_title: Cancel your registration
           remaining_slots:
             one: "%{count} slot remaining"
             other: "%{count} slots remaining"
           view: View
           visit_finished: View past meeting
+          waitlist_confirmation: Are you sure you want to cancel your waitlist registration for this meeting?
+          waitlist_info: You have joined the waiting list for this meeting. If a spot for this meeting becomes available, you will register automatically and receive a notification.
+          waitlist_title: Cancel your waitlist registration
           withdraw_btn_hint: You can withdraw your meeting if you change your mind. The meeting is not deleted, it will appear in the list of withdrawn meetings.
           withdraw_confirmation_html: Are you sure you want to withdraw this meeting?<br><br><strong>This action cannot be cancelled!</strong>
           withdraw_meeting: Withdraw meeting
@@ -645,8 +656,15 @@ en:
           invalid: There was a problem declining the invitation.
           success: You have declined the invitation successfully.
         destroy:
-          invalid: There was a problem leaving this meeting.
-          success: You have left the meeting successfully.
+          on_waiting_list:
+            invalid: There was a problem leaving the waiting list.
+            success: You have left the waiting list successfully.
+          registered:
+            invalid: There was a problem leaving this meeting.
+            success: You have left the meeting successfully.
+        waitlist:
+          invalid: There was a problem joining the waiting list.
+          success: You have joined the waiting list successfully.
       type_of_meeting:
         hybrid: Hybrid
         in_person: In person
