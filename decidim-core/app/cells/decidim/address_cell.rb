@@ -24,11 +24,9 @@ module Decidim
     end
 
     def location
-      if model.location.values.all?(&:blank?) && model.address.blank?
-        pending_address_text
-      else
-        decidim_sanitize_translated(model.location)
-      end
+      return pending_address_text if pending_address?
+
+      decidim_sanitize_translated(model.location)
     end
 
     def address
@@ -66,6 +64,10 @@ module Decidim
 
     def end_time
       l model.end_time, format: "%H:%M %p %Z"
+    end
+
+    def pending_address?
+      address.blank? && model.location.is_a?(Hash) ? model.location.values.none?(&:present?) : model.location.blank?
     end
 
     def pending_address_text
