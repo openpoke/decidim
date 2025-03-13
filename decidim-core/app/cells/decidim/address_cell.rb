@@ -24,11 +24,15 @@ module Decidim
     end
 
     def location
-      decidim_sanitize_translated(model.location)
+      if model.location.values.all?(&:blank?) && model.address.blank?
+        pending_address_text
+      else
+        decidim_sanitize_translated(model.location)
+      end
     end
 
     def address
-      decidim_sanitize_translated(model.address)
+      decidim_sanitize_translated(model.address) if model.respond_to?(:address) && model.address.present?
     end
 
     def display_start_and_end_time?
@@ -62,6 +66,10 @@ module Decidim
 
     def end_time
       l model.end_time, format: "%H:%M %p %Z"
+    end
+
+    def pending_address_text
+      t("show.pending_address", scope: "decidim.meetings.meetings")
     end
   end
 end

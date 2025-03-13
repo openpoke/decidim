@@ -22,6 +22,7 @@ module Decidim
       validates :title, presence: true, etiquette: true
       validates :description, presence: true, etiquette: true
       validates :type_of_meeting, presence: true
+      validates :address, presence: true, if: ->(form) { form.needs_address? }
       validates :location, presence: true, if: ->(form) { form.in_person_meeting? || form.hybrid_meeting? }
       validates :online_meeting_url, presence: true, url: true, if: ->(form) { form.online_meeting? || form.hybrid_meeting? }
       validates :registration_type, presence: true
