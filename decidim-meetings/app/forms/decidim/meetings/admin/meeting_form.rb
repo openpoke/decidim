@@ -64,6 +64,7 @@ module Decidim
 
           self.decidim_category_id = model.categorization.decidim_category_id if model.categorization
           self.type_of_meeting = model.type_of_meeting
+          self.location_pending = model.address.blank? && model.location.values.none?(&:present?)
         end
 
         def services_to_persist
