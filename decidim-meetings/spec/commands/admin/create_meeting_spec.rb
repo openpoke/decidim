@@ -12,6 +12,7 @@ module Decidim::Meetings
     let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
     let(:scope) { create :scope, organization: organization }
     let(:category) { create :category, participatory_space: participatory_process }
+    let(:location_pending) { false }
     let(:address) { "address" }
     let(:invalid) { false }
     let(:latitude) { 40.1234 }
@@ -55,6 +56,7 @@ module Decidim::Meetings
         location_hints: { en: "location_hints" },
         start_time: start_time,
         end_time: 1.day.from_now + 1.hour,
+        location_pending: location_pending,
         address: address,
         latitude: latitude,
         longitude: longitude,
@@ -120,6 +122,17 @@ module Decidim::Meetings
       it "sets the component" do
         subject.call
         expect(meeting.component).to eq current_component
+      end
+
+      context "and location_pending is true" do
+        let(:location_pending) { true }
+
+        it "sets location to nil" do
+          expect { subject.call }.to change(Meeting, :count).by(1)
+          new_meeting = Meeting.last
+          expect(new_meeting.location).to be_empty
+          expect(new_meeting.address).to be_empty
+        end
       end
 
       it "sets the longitude and latitude" do

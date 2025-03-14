@@ -16,6 +16,7 @@ module Decidim::Meetings
     let(:start_time) { 1.day.from_now }
     let(:private_meeting) { false }
     let(:transparent) { true }
+    let(:location_pending) { false }
     let(:services) do
       build_list(:service, 2, meeting: meeting)
     end
@@ -28,6 +29,7 @@ module Decidim::Meetings
         invalid?: invalid,
         title: { en: "title" },
         description: { en: "description" },
+        location_pending: location_pending,
         location: { en: "location" },
         location_hints: { en: "location hints" },
         start_time: start_time,
@@ -123,6 +125,17 @@ module Decidim::Meetings
             expect(new_meeting.type_of_meeting).to eq(meeting.type_of_meeting)
             expect(new_meeting.online_meeting_url).to eq(meeting.online_meeting_url)
           end
+        end
+      end
+
+      context "and location_pending is true" do
+        let(:location_pending) { true }
+
+        it "sets location to nil" do
+          expect { subject.call }.to change(Meeting, :count).by(1)
+          new_meeting = Meeting.last
+          expect(new_meeting.location).to be_empty
+          expect(new_meeting.address).to be_empty
         end
       end
     end
