@@ -571,6 +571,7 @@ en:
           micro_camera_permissions_warning: When you click on the button below, you will be asked for microphone and/or camera permissions, and you will join the videoconference
           no_slots_available: No slots available
           organizations: Attending organizations
+          pending_address: Place will be communicated soon.
           registration_code_help_text: Your registration code
           registration_confirmation: Are you sure you want to cancel your registration for this meeting?
           registration_state:
