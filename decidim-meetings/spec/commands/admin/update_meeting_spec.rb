@@ -149,7 +149,7 @@ module Decidim::Meetings
 
         it "sets location to nil" do
           subject.call
-          expect(meeting.location).to be_empty
+          expect(translated(meeting.location)).to be_nil
           expect(meeting.address).to be_empty
         end
       end

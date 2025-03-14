@@ -56,7 +56,7 @@ module Decidim
             address: form.location_pending ? "" : form.address,
             latitude: form.latitude,
             longitude: form.longitude,
-            location: form.location_pending ? {} : form.location,
+            location: form.location_pending ? nil : form.location,
             location_hints: form.location_hints,
             private_meeting: form.private_meeting,
             transparent: form.transparent,
