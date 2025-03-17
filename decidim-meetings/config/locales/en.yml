@@ -358,6 +358,8 @@ en:
             iframe_embed_type_html: 'Only a few services allow embedding in meeting or live event from the following domains: %{domains}'
             location_help: 'Location: message directed to the users implying the spot to meet at'
             location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
+            location_pending: In-person/Hybrid, venue to be decided
+            location_pending_help: Select this option if the venue has not been decided yet. The message 'Place will be communicated soon' will be shown on the public page.
             online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
             registration_url_help: 'Link: allow participants to go on the external service you are using for registrations'
             select_a_meeting_type: Please select a meeting type

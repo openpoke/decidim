@@ -17,11 +17,20 @@
       </div>
 
       <div class="row column" data-meeting-type="in_person">
-        <%= form.geocoding_field :address, help_text: t(".address_help") %>
+        <%= form.check_box :location_pending, label: t("location_pending", scope: "decidim.meetings.admin.meetings.form"), "data-toggle": "location_fields-div" %>
+        <p class="help-text"><%= t(".location_pending_help") %></p>
       </div>
 
-      <div class="row column" data-meeting-type="in_person">
-        <%= form.translated :text_area, :location, help_text: t(".location_help") %>
+      <div id="location_fields-div" data-toggler=".hide" class="row column <%= @form.location_pending ? "hide" : nil %>">
+        <div class="field" data-meeting-type="in_person">
+          <%= form.geocoding_field :address %>
+          <p class="help-text"><%= t(".address_help") %></p>
+        </div>
+
+        <div class="field" data-meeting-type="in_person">
+          <%= form.translated :text_area, :location %>
+          <p class="help-text"><%= t(".location_help") %></p>
+        </div>
       </div>
 
       <div class="row column">

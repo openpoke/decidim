@@ -12,6 +12,7 @@ module Decidim::Meetings
     let!(:meeting) { create(:meeting, component:, taxonomies: [taxonomy]) }
 
     let(:current_user) { create(:user, :admin, :confirmed, organization:) }
+    let(:location_pending) { false }
     let(:address) { "address" }
     let(:invalid) { false }
     let(:latitude) { 40.1234 }
@@ -32,6 +33,7 @@ module Decidim::Meetings
         invalid?: invalid,
         title: { en: "title" },
         description: { en: "description" },
+        location_pending:,
         location: { en: "location" },
         location_hints: { en: "location hints" },
         start_time:,
@@ -88,6 +90,17 @@ module Decidim::Meetings
 
       it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
+      end
+
+      context "and location_pending is true" do
+        let(:location_pending) { true }
+
+        it "sets location to nil" do
+          expect { subject.call }.to change(Meeting, :count).by(1)
+          new_meeting = Meeting.last
+          expect(new_meeting.location).to be_empty
+          expect(new_meeting.address).to be_empty
+        end
       end
 
       context "and saves the correct meeting type" do
