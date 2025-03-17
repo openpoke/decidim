@@ -80,6 +80,17 @@ describe "Meeting", download: true do
 
         expect(page).to have_css("div.meeting__calendar-container .static-map")
       end
+
+      context "and meeting has no address" do
+        let(:meeting) { create(:meeting, :published, :with_services, component:, address: "", location: {}) }
+
+        it "hides the map and displays pending address text" do
+          visit_meeting
+
+          expect(page).to have_no_css("div.meeting__calendar-container .static-map")
+          expect(page).to have_content(I18n.t("show.pending_address", scope: "decidim.meetings.meetings"))
+        end
+      end
     end
 
     context "and meeting is hybrid" do
@@ -135,6 +146,28 @@ describe "Meeting", download: true do
       within ".meeting__calendar-container .meeting__calendar" do
         expect(page).to have_content(meeting.start_time.year)
       end
+    end
+  end
+
+  context "when the meeting has no address and location" do
+    let(:meeting) { create(:meeting, :published, component:, address: "", location: {}) }
+
+    it "displays the pending address text" do
+      visit_meeting
+
+      expect(page).to have_content(I18n.t("show.pending_address", scope: "decidim.meetings.meetings"))
+    end
+  end
+
+  context "when meeting has an address and location" do
+    let(:meeting) { create(:meeting, :published, component:, address: "123 Main St", location: { "en" => "Central Park" }) }
+
+    it "displays the location and address" do
+      visit_meeting
+
+      expect(page).to have_content("123 Main St")
+      expect(page).to have_content("Central Park")
+      expect(page).to have_no_content(I18n.t("show.pending_address", scope: "decidim.meetings.meetings"))
     end
   end
 

@@ -37,6 +37,19 @@ describe Decidim::AddressCell, type: :cell do
     end
   end
 
+  context "when address is pending" do
+    let(:location) { {} }
+    let(:address) { "" }
+
+    before do
+      allow(model).to receive(:location).and_return(location)
+    end
+
+    it "renders pending address text" do
+      expect(subject.find(".address__location")).to have_content(I18n.t("show.pending_address", scope: "decidim.meetings.meetings"))
+    end
+  end
+
   context "with an online meeting url" do
     let(:my_cell) { cell("decidim/address", model, online: true) }
     let(:model) { create(:dummy_resource) }

@@ -8,6 +8,7 @@ module Decidim::Meetings
 
     let(:meeting) { create(:meeting, :published) }
     let(:organization) { meeting.component.organization }
+    let(:location_pending) { false }
     let(:address) { meeting.address }
     let(:invalid) { false }
     let(:latitude) { 40.1234 }
@@ -39,6 +40,7 @@ module Decidim::Meetings
         invalid?: invalid,
         title: { en: "title" },
         description: { en: "description" },
+        location_pending:,
         location: { en: "location" },
         location_hints: { en: "location_hints" },
         start_time: 1.day.from_now,
@@ -78,6 +80,16 @@ module Decidim::Meetings
       it "updates the meeting" do
         subject.call
         expect(translated(meeting.title)).to eq "title"
+      end
+
+      context "and location_pending is true" do
+        let(:location_pending) { true }
+
+        it "sets location to nil" do
+          subject.call
+          expect(translated(meeting.location)).to be_nil
+          expect(meeting.address).to be_empty
+        end
       end
 
       it "sets the taxonomies" do
@@ -137,6 +149,7 @@ module Decidim::Meetings
             invalid?: false,
             title:,
             description: meeting.description,
+            location_pending:,
             location: meeting.location,
             location_hints: meeting.location_hints,
             start_time:,

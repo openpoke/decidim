@@ -26,6 +26,8 @@ module Decidim
                         title: parsed_title,
                         description: parsed_description,
                         type_of_meeting: form.clean_type_of_meeting,
+                        address: form.location_pending ? "" : form.address,
+                        location: form.location_pending ? {} : form.location,
                         author: form.current_organization,
                         registration_terms: form.current_component.settings.default_registration_terms,
                         questionnaire: Decidim::Forms::Questionnaire.new

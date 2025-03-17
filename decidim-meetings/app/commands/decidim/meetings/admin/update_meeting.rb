@@ -27,7 +27,9 @@ module Decidim
           super.merge({
                         title: parsed_title,
                         description: parsed_description,
-                        type_of_meeting: form.clean_type_of_meeting
+                        type_of_meeting: form.clean_type_of_meeting,
+                        address: form.location_pending ? "" : form.address,
+                        location: form.location_pending ? nil : form.location
                       })
         end
 
