@@ -106,7 +106,7 @@ module Decidim
           reminder_hours = (meeting.send_reminders_before_hours.presence || Decidim::Meetings.upcoming_meeting_notification.in_hours).to_i
 
           Decidim::Meetings::UpcomingMeetingNotificationJob
-            .set(wait_until: meeting.start_time -reminder_hours.hours)
+            .set(wait_until: meeting.start_time - reminder_hours.hours)
             .perform_later(meeting.id, checksum)
         end
       end
