@@ -59,7 +59,7 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     end
 
     context "when the meeting does not have a reminder" do
-      let!(:meeting) { create :meeting, :published, scope: scope, services: [], component: current_component, reminder_enabled: false, send_reminders_before_hours: 0 }
+      let!(:meeting) { create :meeting, scope: scope, services: [], component: current_component, reminder_enabled: false, send_reminders_before_hours: 0 }
 
       it "can publish the meeting" do
         visit current_path
