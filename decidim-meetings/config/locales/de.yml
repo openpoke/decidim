@@ -318,9 +318,14 @@ de:
             location_hints_help: 'Hinweise zum Standort: Zusätzliche Informationen. Beispiel: das Stockwerk im Gebäude wenn es eine Sitzung vor Ort ist, oder das Passwort wenn es eine Online-Sitzung mit eingeschränktem Zugriff ist.'
             online_meeting_url_help: 'Link: Erlaubt Teilnehmern, sich direkt mit Ihrem Meeting zu verbinden'
             registration_url_help: 'Link: Erlaubt den Teilnehmern den externen Service zu nutzen, den Sie für die Registrierung verwenden'
+            reminder_enabled: Erinnerung aktiviert
+            reminder_help_text: Teilnehmer erhalten eine E-Mail die angegebene Anzahl von Stunden vor dem Meeting. Wenn leer oder null, wird die Erinnerung zum standardmäßig konfigurierten Wert von %{default_value} Stunden gesendet.
+            reminder_message: Erinnerungsnachricht
+            reminder_message_help_text: Passen Sie die Nachricht bei Bedarf an. Dies wird ignoriert, wenn keine Erinnerung geplant ist.    
             select_a_meeting_type: Bitte eine Meeting-Typ auswählen
             select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
             select_an_iframe_access_level: Bitte wählen Sie eine iFrame-Zugriffsebene aus
+            send_reminder: Erinnerung für dieses Meeting senden
             show_embedded_iframe_help: 'Folgende Dienste erlauben das Einbetten einer Veranstaltung oder eines Livestreams: %{domains}'
           index:
             title: Meetings

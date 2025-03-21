@@ -318,9 +318,14 @@ ca:
             location_hints_help: 'Detalls d''ubicació: informació addicional. Exemple: la planta de l''edifici si es tracta d''una reunió presencial, o la contrasenya de la reunió si es tracta d''una reunió en línia amb accés restringit.'
             online_meeting_url_help: 'Enllaç: permetre que les participants es connectin directament a la teva trobada'
             registration_url_help: 'Enllaç: permetre a les participants anar al servei extern que estàs utilitzant per a les inscripcions'
+            reminder_enabled: Recordatori habilitat
+            reminder_help_text: Les participants rebran un correu electrònic el nombre d'hores especificat abans de la trobada. Si es deixa buit o a zero, el recordatori s'enviarà amb el valor per defecte configurat de %{default_value} hores.
+            reminder_message: Missatge de recordatori
+            reminder_message_help_text: Personalitza el missatge si és necessari. Aquest serà ignorat si no hi ha cap recordatori programat.
             select_a_meeting_type: Si us plau selecciona un tipus de trobada
             select_a_registration_type: Si us plau selecciona un tipus d'inscripció
             select_an_iframe_access_level: Si us plau, selecciona el nivell d'accés a l'iframe
+            send_reminder: Envia recordatori per a la trobada
             show_embedded_iframe_help: 'Només uns quants serveis es poden incrustar a una trobada o esdeveniment en directe des dels següents dominis: %{domains}'
           index:
             title: Trobades
