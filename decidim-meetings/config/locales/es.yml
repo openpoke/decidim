@@ -317,6 +317,8 @@ es:
             location_help: 'Ubicación: mensaje dirigido a las participantes indicando el lugar donde reunirse'
             location_hints_help: 'Consejos de ubicación: información adicional. Ejemplo: la planta del edificio si se trata de un encuentro presencial, o la contraseña de la sala si se trata de un encuentro online con acceso restringido.'
             online_meeting_url_help: 'Enlace: permitir a las participantes conectarse directamente a tu encuentro'
+            location_pending: Presencial/Híbrido, lugar por decidir
+            location_pending_help: Selecciona esta opción si el lugar no ha sido decidido aún. El mensaje 'El lugar será comunicado próximamente' se mostrará en la página pública.    
             registration_url_help: 'Enlace: permitir a las participantes ir al servicio externo que estás utilizando para las inscripciones'
             reminder_enabled: Recordatorio habilitado
             reminder_help_text: Las participantes recibirán un correo electrónico el número de horas especificado antes del encuentro. Si se deja vacío o en cero, el recordatorio se enviará con el valor predeterminado configurado de %{default_value} horas.
@@ -565,6 +567,7 @@ es:
           micro_camera_permissions_warning: Cuando hagas clic en el botón de abajo, se te pedirán permisos de micrófono y/o cámara y te unirás a la videoconferencia
           no_slots_available: No hay plazas disponibles
           organizations: Organizaciones asistentes
+          pending_address: El lugar será comunicado próximamente.    
           registration_code_help_text: Tu código de inscripción
           registration_state:
             validated: VALIDADO

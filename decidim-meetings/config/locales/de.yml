@@ -317,6 +317,8 @@ de:
             location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
             location_hints_help: 'Hinweise zum Standort: Zusätzliche Informationen. Beispiel: das Stockwerk im Gebäude wenn es eine Sitzung vor Ort ist, oder das Passwort wenn es eine Online-Sitzung mit eingeschränktem Zugriff ist.'
             online_meeting_url_help: 'Link: Erlaubt Teilnehmern, sich direkt mit Ihrem Meeting zu verbinden'
+            location_pending: Persönlich/Hybrid, Veranstaltungsort noch nicht festgelegt
+            location_pending_help: Wählen Sie diese Option, wenn der Veranstaltungsort noch nicht festgelegt wurde. Die Nachricht 'Ort wird bald mitgeteilt' wird auf der öffentlichen Seite angezeigt.
             registration_url_help: 'Link: Erlaubt den Teilnehmern den externen Service zu nutzen, den Sie für die Registrierung verwenden'
             reminder_enabled: Erinnerung aktiviert
             reminder_help_text: Teilnehmer erhalten eine E-Mail die angegebene Anzahl von Stunden vor dem Meeting. Wenn leer oder null, wird die Erinnerung zum standardmäßig konfigurierten Wert von %{default_value} Stunden gesendet.
@@ -565,6 +567,7 @@ de:
           micro_camera_permissions_warning: Wenn Sie auf die Schaltfläche unten klicken, werden Sie nach Mikrofon- und/oder Kamera-Berechtigungen gefragt und Sie werden der Videokonferenz hinzugefügt
           no_slots_available: Keine Steckplätze verfügbar
           organizations: Teilnahme an Organisationen
+          pending_address: Ort wird bald mitgeteilt.
           registration_code_help_text: Ihr Registrierungscode
           registration_state:
             validated: GÜLTIG
