@@ -191,10 +191,10 @@ de:
           email_subject: Die Sitzung "%{resource_title}" hat Registrierungen aktiviert.
           notification_title: Die Sitzung <a href="%{resource_path}">%{resource_title}</a> hat Registrierungen aktiviert.
         upcoming_meeting:
-          email_intro: Die Sitzung "%{resource_title}" beginnt in weniger als 48 Stunden.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Sitzung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-          email_subject: Die Sitzung "%{resource_title}" beginnt in weniger als 48 Stunden.
-          notification_title: Die Sitzung <a href="%{resource_path}">%{resource_title}</a> beginnt in weniger als 48 Stunden.
+          email_intro: Das Meeting "%{resource_title}" beginnt in weniger als %{reminders_before_hours} Stunden.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie das Meeting "%{resource_title}" verfolgen. Sie können es über den vorherigen Link nicht mehr verfolgen.
+          email_subject: Das Meeting "%{resource_title}" beginnt in weniger als %{reminders_before_hours} Stunden.
+          notification_title: Das Meeting <a href="%{resource_path}">%{resource_title}</a> beginnt in weniger als %{reminders_before_hours} Stunden.
     forms:
       meetings:
         attendees_count_help_text: Vergessen Sie nicht, die Gesamtzahl der Teilnehmer an Ihrem Meeting anzugeben, egal ob dies persönlich, online oder hybrid stattgefunden hat.
