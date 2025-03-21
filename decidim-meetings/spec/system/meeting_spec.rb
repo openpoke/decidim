@@ -76,6 +76,16 @@ describe "Meeting", type: :system, download: true do
 
         expect(page).to have_css("div.address__map")
       end
+
+      context "and meeting has no address" do
+        let(:meeting) { create(:meeting, :published, :with_services, component: component, address: "", location: {}) }
+
+        it "hides the map and displays pending address text" do
+          visit_meeting
+
+          expect(page).to have_no_css("div.address__map")
+        end
+      end
     end
 
     context "and meeting is hybrid" do
@@ -117,6 +127,26 @@ describe "Meeting", type: :system, download: true do
         visit_meeting
 
         expect(page).to have_no_css("div.address__map")
+      end
+    end
+
+    context "when the meeting has no address and location" do
+      let!(:meeting) { create(:meeting, :published, component: component, address: "", location: {}) }
+
+      it "displays the pending address text" do
+        visit main_component_path(component)
+        expect(page).to have_content("PLACE WILL BE COMMUNICATED SOON")
+      end
+    end
+
+    context "when meeting has an address and location" do
+      let!(:meeting) { create(:meeting, :published, component: component, address: "123 Main St", location: { "en" => "Central Park" }) }
+
+      it "displays the location and address" do
+        visit main_component_path(component)
+        expect(page).to have_content("123 Main St")
+        expect(page).to have_content("CENTRAL PARK")
+        expect(page).to have_no_content("PLACE WILL BE COMMUNICATED SOON")
       end
     end
   end

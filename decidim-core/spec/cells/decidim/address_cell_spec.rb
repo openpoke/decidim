@@ -32,4 +32,17 @@ describe Decidim::AddressCell, type: :cell do
     expect(icondata_address).to have_no_content(model.latitude)
     expect(icondata_address).to have_no_content(model.longitude)
   end
+
+  context "when address is pending" do
+    let(:location) { {} }
+    let(:address) { "" }
+
+    before do
+      allow(model).to receive(:location).and_return(location)
+    end
+
+    it "renders pending address text" do
+      expect(icondata_address).to have_content(I18n.t("show.pending_address", scope: "decidim.meetings.meetings"))
+    end
+  end
 end
