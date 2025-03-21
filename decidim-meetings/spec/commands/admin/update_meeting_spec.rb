@@ -12,6 +12,7 @@ module Decidim::Meetings
     let(:category) { create :category, participatory_space: meeting.component.participatory_space }
     let(:address) { meeting.address }
     let(:invalid) { false }
+    let(:location_pending) { false }
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
     let(:service_objects) { build_list(:service, 2) }
@@ -46,6 +47,7 @@ module Decidim::Meetings
         end_time: 1.day.from_now + 1.hour,
         scope: scope,
         category: category,
+        location_pending: location_pending,
         address: address,
         latitude: latitude,
         longitude: longitude,
@@ -142,6 +144,16 @@ module Decidim::Meetings
         expect(action_log.version).to be_present
       end
 
+      context "and location_pending is true" do
+        let(:location_pending) { true }
+
+        it "sets location to nil" do
+          subject.call
+          expect(translated(meeting.location)).to be_nil
+          expect(meeting.address).to be_empty
+        end
+      end
+
       describe "events" do
         let!(:follow) { create :follow, followable: meeting, user: user }
         let(:title) { meeting.title }
@@ -159,6 +171,7 @@ module Decidim::Meetings
             end_time: end_time,
             scope: meeting.scope,
             category: meeting.category,
+            location_pending: location_pending,
             address: address,
             latitude: meeting.latitude,
             longitude: meeting.longitude,

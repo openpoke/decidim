@@ -53,10 +53,10 @@ module Decidim
             registration_url: form.registration_url,
             registrations_enabled: form.registrations_enabled,
             type_of_meeting: form.clean_type_of_meeting,
-            address: form.address,
+            address: form.location_pending ? "" : form.address,
             latitude: form.latitude,
             longitude: form.longitude,
-            location: form.location,
+            location: form.location_pending ? nil : form.location,
             location_hints: form.location_hints,
             private_meeting: form.private_meeting,
             transparent: form.transparent,
@@ -101,11 +101,13 @@ module Decidim
 
         def schedule_upcoming_meeting_notification
           return if meeting.start_time < Time.zone.now
+          return unless meeting.reminder_enabled
 
           checksum = Decidim::Meetings::UpcomingMeetingNotificationJob.generate_checksum(meeting)
+          reminder_hours = (meeting.send_reminders_before_hours.presence || Decidim::Meetings.upcoming_meeting_notification.in_hours).to_i
 
           Decidim::Meetings::UpcomingMeetingNotificationJob
-            .set(wait_until: meeting.start_time - meeting.send_reminders_before_hours.hours)
+            .set(wait_until: meeting.start_time - reminder_hours.hours)
             .perform_later(meeting.id, checksum)
         end
       end

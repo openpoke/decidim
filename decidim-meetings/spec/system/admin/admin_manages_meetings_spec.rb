@@ -58,6 +58,24 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
       end
     end
 
+    context "when the meeting does not have a reminder" do
+      let!(:meeting) { create :meeting, scope: scope, services: [], component: current_component, reminder_enabled: false, send_reminders_before_hours: 0 }
+
+      it "can publish the meeting" do
+        visit current_path
+
+        within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+          click_link "Publish"
+        end
+
+        expect(page).to have_admin_callout("successfully")
+
+        within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+          expect(page).to have_css(".action-icon--unpublish")
+        end
+      end
+    end
+
     context "with enriched content" do
       before do
         meeting.update!(title: { en: "Meeting <strong>title</strong>" })
@@ -314,6 +332,51 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
 
     visit decidim_admin.root_path
     expect(page).to have_content("created the #{translated(attributes[:title])} meeting on the")
+  end
+
+  context "when the venue has not been decided yet" do
+    it "creates a new meeting without a location" do
+      find(".card-title a.button").click
+
+      fill_in_i18n(:meeting_title, "#meeting-title-tabs", **attributes[:title].except("machine_translations"))
+
+      expect(page).to have_no_field("In-person/Hybrid, venue to be decided")
+
+      select "In person", from: :meeting_type_of_meeting
+
+      expect(page).to have_field("In-person/Hybrid, venue to be decided")
+
+      check "In-person/Hybrid, venue to be decided"
+
+      expect(page).to have_no_field(:meeting_location_en)
+      expect(page).to have_no_field(:meeting_address)
+
+      fill_in_i18n_editor(:meeting_description, "#meeting-description-tabs", **attributes[:description].except("machine_translations"))
+      select "Registration disabled", from: :meeting_registration_type
+      page.execute_script("$('#meeting_start_time').focus()")
+      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
+      page.find(".datepicker-dropdown .hour", text: "10:00").click
+      page.find(".datepicker-dropdown .minute", text: "10:50").click
+
+      page.execute_script("$('#meeting_end_time').focus()")
+      page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
+      page.find(".datepicker-dropdown .hour", text: "12:00").click
+      page.find(".datepicker-dropdown .minute", text: "12:50").click
+
+      scope_pick select_data_picker(:meeting_decidim_scope_id), scope
+      select translated(category.name), from: :meeting_decidim_category_id
+
+      within ".new_meeting" do
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      new_meeting = Decidim::Meetings::Meeting.last
+      puts "Meeting location: #{new_meeting.location}"
+      expect(new_meeting.location).to be_empty
+      expect(new_meeting.address).to be_empty
+    end
   end
 
   context "when using the front-end geocoder", :serves_geocoding_autocomplete do

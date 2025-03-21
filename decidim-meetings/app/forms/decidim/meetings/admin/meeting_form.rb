@@ -7,6 +7,7 @@ module Decidim
       class MeetingForm < ::Decidim::Meetings::BaseMeetingForm
         include TranslatableAttributes
 
+        attribute :location_pending, Boolean, default: false
         attribute :services, Array[MeetingServiceForm]
         attribute :decidim_scope_id, Integer
         attribute :decidim_category_id, Integer
@@ -36,7 +37,9 @@ module Decidim
         validates :registration_type, presence: true
         validates :registration_url, presence: true, url: true, if: ->(form) { form.on_different_platform? }
         validates :type_of_meeting, presence: true
-        validates :location, translatable_presence: true, if: ->(form) { form.in_person_meeting? || form.hybrid_meeting? }
+        validates :location, translatable_presence: true, if: ->(form) { !form.location_pending && (form.in_person_meeting? || form.hybrid_meeting?) }
+        validates :address, presence: true, if: ->(form) { !form.location_pending && (form.in_person_meeting? || form.hybrid_meeting?) }
+        validates :address, geocoding: true, if: ->(form) { !form.location_pending && form.has_address? && !form.geocoded? }
         validates :online_meeting_url, url: true, if: ->(form) { form.online_meeting? || form.hybrid_meeting? }
         validates :comments_start_time, date: { before: :comments_end_time, allow_blank: true, if: proc { |obj| obj.comments_end_time.present? } }
         validates :comments_end_time, date: { after: :comments_start_time, allow_blank: true, if: proc { |obj| obj.comments_start_time.present? } }
@@ -61,6 +64,7 @@ module Decidim
 
           self.decidim_category_id = model.categorization.decidim_category_id if model.categorization
           self.type_of_meeting = model.type_of_meeting
+          self.location_pending = model.address.blank? && model.location.to_h.values.none?(&:present?)
         end
 
         def services_to_persist

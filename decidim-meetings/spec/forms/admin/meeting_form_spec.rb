@@ -37,6 +37,7 @@ module Decidim::Meetings
     let(:services_attributes) do
       services.map(&:attributes)
     end
+    let(:location_pending) { false }
     let(:address) { "Somewhere over the rainbow" }
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
@@ -66,6 +67,7 @@ module Decidim::Meetings
         title_en: title[:en],
         description_en: description[:en],
         short_description_en: short_description[:en],
+        location_pending: location_pending,
         location_en: location[:en],
         location_hints_en: location_hints[:en],
         address: address,
@@ -105,6 +107,36 @@ module Decidim::Meetings
       let(:description) { { en: nil } }
 
       it { is_expected.not_to be_valid }
+    end
+
+    describe "when location_pending enabled" do
+      let(:location_pending) { true }
+
+      it { is_expected.to be_valid }
+
+      context "and location is missing" do
+        let(:location) { { en: nil } }
+
+        it { is_expected.to be_valid }
+      end
+
+      context "and address is missing" do
+        let(:address) { nil }
+
+        it { is_expected.to be_valid }
+      end
+
+      context "and location is present" do
+        let(:location) { { en: "location" } }
+
+        it { is_expected.to be_valid }
+      end
+
+      context "and address is present" do
+        let(:address) { "Somewhere over the rainbow" }
+
+        it { is_expected.to be_valid }
+      end
     end
 
     describe "when location is missing and type of meeting is in_person" do
