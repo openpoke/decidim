@@ -178,7 +178,7 @@ module Decidim::Meetings
       end
 
       it "schedules a upcoming meeting notification job 48h before start time" do
-        meeting = instance_double(Meeting, id: 1, start_time: start_time, participatory_space: participatory_process)
+        meeting = instance_double(Meeting, id: 1, start_time: start_time, participatory_space: participatory_process, reminder_enabled: true, send_reminders_before_hours: nil)
         allow(Decidim.traceability)
           .to receive(:create!)
           .and_return(meeting)
@@ -231,6 +231,92 @@ module Decidim::Meetings
           )
 
         subject.call
+      end
+
+      context "when scheduling a meeting reminder" do
+        let(:meeting) do
+          instance_double(
+            Meeting,
+            id: 1,
+            start_time: start_time,
+            participatory_space: participatory_process,
+            reminder_enabled: reminder_enabled,
+            send_reminders_before_hours: send_reminders_before_hours
+          )
+        end
+
+        before do
+          allow(Decidim.traceability).to receive(:create!).and_return(meeting)
+          allow(meeting).to receive(:valid?)
+          allow(meeting).to receive(:publish!)
+          allow(meeting).to receive(:to_signed_global_id).and_return "gid://Decidim::Meetings::Meeting/1"
+          allow(UpcomingMeetingNotificationJob).to receive(:generate_checksum).and_return "1234"
+          allow(Decidim::EventsManager).to receive(:publish).and_return(true)
+        end
+
+        context "when reminder is enabled and custom hours are set" do
+          let(:send_reminders_before_hours) { 48 }
+          let(:reminder_enabled) { true }
+
+          it "schedules a notification job 48h before start time" do
+            expect(UpcomingMeetingNotificationJob)
+              .to receive_message_chain(:set, :perform_later) # rubocop:disable RSpec/MessageChain
+              .with(set: start_time - 48.hours).with(1, "1234")
+
+            subject.call
+          end
+        end
+
+        context "when reminder is enabled but hours are zero" do
+          let(:send_reminders_before_hours) { 0 }
+          let(:reminder_enabled) { true }
+
+          it "schedules a notification job using the default value" do
+            default_value = Decidim::Meetings.upcoming_meeting_notification.in_hours
+
+            expect(UpcomingMeetingNotificationJob)
+              .to receive_message_chain(:set, :perform_later) # rubocop:disable RSpec/MessageChain
+              .with(set: start_time - default_value.hours).with(1, "1234")
+
+            subject.call
+          end
+        end
+
+        context "when reminder is enabled but hours are nil" do
+          let(:send_reminders_before_hours) { nil }
+          let(:reminder_enabled) { true }
+
+          it "schedules a notification job using the default value" do
+            default_value = Decidim::Meetings.upcoming_meeting_notification.in_hours
+
+            expect(UpcomingMeetingNotificationJob)
+              .to receive_message_chain(:set, :perform_later) # rubocop:disable RSpec/MessageChain
+              .with(set: start_time - default_value.hours).with(1, "1234")
+
+            subject.call
+          end
+        end
+
+        context "when reminder is disabled" do
+          let(:send_reminders_before_hours) { 48 }
+          let(:reminder_enabled) { false }
+
+          it "does not schedule a notification job" do
+            expect(UpcomingMeetingNotificationJob).not_to receive(:set)
+            subject.call
+          end
+        end
+
+        context "when start time is in the past" do
+          let(:start_time) { 2.days.ago }
+          let(:reminder_enabled) { true }
+          let(:send_reminders_before_hours) { 48 }
+
+          it "does not schedule a notification job" do
+            expect(UpcomingMeetingNotificationJob).not_to receive(:set)
+            subject.call
+          end
+        end
       end
     end
   end

@@ -58,6 +58,24 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
       end
     end
 
+    context "when the meeting does not have a reminder" do
+      let!(:meeting) { create :meeting, scope: scope, services: [], component: current_component, reminder_enabled: false, send_reminders_before_hours: 0 }
+
+      it "can publish the meeting" do
+        visit current_path
+
+        within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+          click_link "Publish"
+        end
+
+        expect(page).to have_admin_callout("successfully")
+
+        within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do
+          expect(page).to have_css(".action-icon--unpublish")
+        end
+      end
+    end
+
     context "with enriched content" do
       before do
         meeting.update!(title: { en: "Meeting <strong>title</strong>" })
