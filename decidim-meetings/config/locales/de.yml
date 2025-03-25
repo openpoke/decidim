@@ -191,10 +191,10 @@ de:
           email_subject: Die Sitzung "%{resource_title}" hat Registrierungen aktiviert.
           notification_title: Die Sitzung <a href="%{resource_path}">%{resource_title}</a> hat Registrierungen aktiviert.
         upcoming_meeting:
-          email_intro: Die Sitzung "%{resource_title}" beginnt in weniger als 48 Stunden.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Sitzung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
-          email_subject: Die Sitzung "%{resource_title}" beginnt in weniger als 48 Stunden.
-          notification_title: Die Sitzung <a href="%{resource_path}">%{resource_title}</a> beginnt in weniger als 48 Stunden.
+          email_intro: Das Meeting "%{resource_title}" beginnt in weniger als %{reminders_before_hours} Stunden.
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie das Meeting "%{resource_title}" verfolgen. Sie können es über den vorherigen Link nicht mehr verfolgen.
+          email_subject: Das Meeting "%{resource_title}" beginnt in weniger als %{reminders_before_hours} Stunden.
+          notification_title: Das Meeting <a href="%{resource_path}">%{resource_title}</a> beginnt in weniger als %{reminders_before_hours} Stunden.
     forms:
       meetings:
         attendees_count_help_text: Vergessen Sie nicht, die Gesamtzahl der Teilnehmer an Ihrem Meeting anzugeben, egal ob dies persönlich, online oder hybrid stattgefunden hat.
@@ -317,10 +317,17 @@ de:
             location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
             location_hints_help: 'Hinweise zum Standort: Zusätzliche Informationen. Beispiel: das Stockwerk im Gebäude wenn es eine Sitzung vor Ort ist, oder das Passwort wenn es eine Online-Sitzung mit eingeschränktem Zugriff ist.'
             online_meeting_url_help: 'Link: Erlaubt Teilnehmern, sich direkt mit Ihrem Meeting zu verbinden'
+            location_pending: Persönlich/Hybrid, Veranstaltungsort noch nicht festgelegt
+            location_pending_help: Wählen Sie diese Option, wenn der Veranstaltungsort noch nicht festgelegt wurde. Die Nachricht 'Ort wird bald mitgeteilt' wird auf der öffentlichen Seite angezeigt.
             registration_url_help: 'Link: Erlaubt den Teilnehmern den externen Service zu nutzen, den Sie für die Registrierung verwenden'
+            reminder_enabled: Erinnerung aktiviert
+            reminder_help_text: Teilnehmer erhalten eine E-Mail die angegebene Anzahl von Stunden vor dem Meeting. Wenn leer oder null, wird die Erinnerung zum standardmäßig konfigurierten Wert von %{default_value} Stunden gesendet.
+            reminder_message: Erinnerungsnachricht
+            reminder_message_help_text: Passen Sie die Nachricht bei Bedarf an. Dies wird ignoriert, wenn keine Erinnerung geplant ist.    
             select_a_meeting_type: Bitte eine Meeting-Typ auswählen
             select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
             select_an_iframe_access_level: Bitte wählen Sie eine iFrame-Zugriffsebene aus
+            send_reminder: Erinnerung für dieses Meeting senden
             show_embedded_iframe_help: 'Folgende Dienste erlauben das Einbetten einer Veranstaltung oder eines Livestreams: %{domains}'
           index:
             title: Meetings
@@ -560,6 +567,7 @@ de:
           micro_camera_permissions_warning: Wenn Sie auf die Schaltfläche unten klicken, werden Sie nach Mikrofon- und/oder Kamera-Berechtigungen gefragt und Sie werden der Videokonferenz hinzugefügt
           no_slots_available: Keine Steckplätze verfügbar
           organizations: Teilnahme an Organisationen
+          pending_address: Ort wird bald mitgeteilt.
           registration_code_help_text: Ihr Registrierungscode
           registration_state:
             validated: GÜLTIG

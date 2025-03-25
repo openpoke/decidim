@@ -191,10 +191,10 @@ es:
           email_subject: El encuentro "%{resource_title}" ha abierto las inscripciones.
           notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha abierto las inscripciones.
         upcoming_meeting:
-          email_intro: En menos de 48 horas empezará el encuentro "%{resource_title}".
-          email_outro: Has recibido esta notificación porqué sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
-          email_subject: En menos de 48 horas empezará el encuentro "%{resource_title}".
-          notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> empezará en menos de 48 h.
+          email_intro: El encuentro "%{resource_title}" comenzará en menos de %{reminders_before_hours}h.
+          email_outro: Has recibido esta notificación porque estás siguiendo el encuentro "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
+          email_subject: El encuentro "%{resource_title}" comenzará en menos de %{reminders_before_hours}h.
+          notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> comenzará en menos de %{reminders_before_hours}h.
     forms:
       meetings:
         attendees_count_help_text: No te olvides de añadir el número total de asistentes a la reunión, ya sea en persona, en línea o híbrido.
@@ -317,10 +317,17 @@ es:
             location_help: 'Ubicación: mensaje dirigido a las participantes indicando el lugar donde reunirse'
             location_hints_help: 'Consejos de ubicación: información adicional. Ejemplo: la planta del edificio si se trata de un encuentro presencial, o la contraseña de la sala si se trata de un encuentro online con acceso restringido.'
             online_meeting_url_help: 'Enlace: permitir a las participantes conectarse directamente a tu encuentro'
+            location_pending: Presencial/Híbrido, lugar por decidir
+            location_pending_help: Selecciona esta opción si el lugar no ha sido decidido aún. El mensaje 'El lugar será comunicado próximamente' se mostrará en la página pública.    
             registration_url_help: 'Enlace: permitir a las participantes ir al servicio externo que estás utilizando para las inscripciones'
+            reminder_enabled: Recordatorio habilitado
+            reminder_help_text: Las participantes recibirán un correo electrónico el número de horas especificado antes del encuentro. Si se deja vacío o en cero, el recordatorio se enviará con el valor predeterminado configurado de %{default_value} horas.
+            reminder_message: Mensaje de recordatorio
+            reminder_message_help_text: Personaliza el mensaje si es necesario. Esto será ignorado si no se programa ningún recordatorio.    
             select_a_meeting_type: Por favor, selecciona un tipo de encuentro
             select_a_registration_type: Por favor, seleccione un tipo de inscripción
             select_an_iframe_access_level: Por favor, seleccione un nivel de acceso iframe
+            send_reminder: Enviar recordatorio para este encuentro
             show_embedded_iframe_help: 'Solo unos pocos servicios permiten ser incrustados en encuentros o eventos en directo desde los siguientes dominios: %{domains}'
           index:
             title: Encuentros
@@ -560,6 +567,7 @@ es:
           micro_camera_permissions_warning: Cuando hagas clic en el botón de abajo, se te pedirán permisos de micrófono y/o cámara y te unirás a la videoconferencia
           no_slots_available: No hay plazas disponibles
           organizations: Organizaciones asistentes
+          pending_address: El lugar será comunicado próximamente.    
           registration_code_help_text: Tu código de inscripción
           registration_state:
             validated: VALIDADO
