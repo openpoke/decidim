@@ -5,6 +5,9 @@ module Decidim
     # A base class for static mapping functionality, common to all static map
     # services.
     class StaticMap < Map::Utility
+      DEFAULT_SIZE = 300
+      DEFAULT_ZOOM = 15
+
       # Creates a link for the static maps. This will point to an external map
       # service where the user can further explore the given location.
       #
