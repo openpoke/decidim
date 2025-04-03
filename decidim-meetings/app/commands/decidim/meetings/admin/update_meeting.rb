@@ -45,7 +45,8 @@ module Decidim
             event: "decidim.events.meetings.meeting_updated",
             event_class: Decidim::Meetings::UpdateMeetingEvent,
             resource:,
-            followers: resource.followers
+            followers: resource.followers,
+            extra: { changed_fields: resource.previous_changes.keys & important_attributes }
           )
         end
 
@@ -54,11 +55,15 @@ module Decidim
         end
 
         def important_attributes
-          %w(start_time end_time address)
+          %w(start_time end_time address location)
         end
 
         def start_time_changed?
           resource.previous_changes["start_time"].present?
+        end
+
+        def address_changed?
+          resource.previous_changes["address"].present? || resource.previous_changes["location"].present?
         end
 
         def schedule_upcoming_meeting_notification

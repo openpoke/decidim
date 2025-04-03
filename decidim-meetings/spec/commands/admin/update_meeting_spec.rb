@@ -224,7 +224,8 @@ module Decidim::Meetings
                 event: "decidim.events.meetings.meeting_updated",
                 event_class: UpdateMeetingEvent,
                 resource: meeting,
-                followers: [user]
+                followers: [user],
+                extra: { changed_fields: %w(start_time) }
               )
 
             subject.call
@@ -246,7 +247,8 @@ module Decidim::Meetings
                 event: "decidim.events.meetings.meeting_updated",
                 event_class: UpdateMeetingEvent,
                 resource: meeting,
-                followers: [user]
+                followers: [user],
+                extra: { changed_fields: %w(end_time) }
               )
 
             subject.call
@@ -263,7 +265,8 @@ module Decidim::Meetings
                 event: "decidim.events.meetings.meeting_updated",
                 event_class: UpdateMeetingEvent,
                 resource: meeting,
-                followers: [user]
+                followers: [user],
+                extra: { changed_fields: %w(address) }
               )
 
             subject.call
