@@ -21,11 +21,14 @@ module Decidim
         attribute :comments_start_time, Decidim::Attributes::TimeWithZone
         attribute :comments_end_time, Decidim::Attributes::TimeWithZone
         attribute :iframe_access_level, String
+        attribute :reminder_enabled, Boolean, default: true
+        attribute :send_reminders_before_hours, Integer, default: Decidim::Meetings.upcoming_meeting_notification.in_hours.to_i
 
         translatable_attribute :title, String
         translatable_attribute :description, Decidim::Attributes::RichText
         translatable_attribute :location, String
         translatable_attribute :location_hints, String
+        translatable_attribute :reminder_message_custom_content, String
 
         validates :iframe_embed_type, inclusion: { in: Decidim::Meetings::Meeting.iframe_embed_types }
         validates :title, translatable_presence: true
@@ -41,6 +44,7 @@ module Decidim
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
         validates :decidim_scope_id, scope_belongs_to_component: true, if: ->(form) { form.decidim_scope_id.present? }
         validates :clean_type_of_meeting, presence: true
+        validates :send_reminders_before_hours, numericality: { only_integer: true, greater_than: 0 }, if: :reminder_enabled
         validates(
           :iframe_access_level,
           inclusion: { in: Decidim::Meetings::Meeting.iframe_access_levels },
@@ -95,6 +99,26 @@ module Decidim
 
         def clean_type_of_meeting
           type_of_meeting.presence
+        end
+
+        def reminder_message_custom_content
+          return unless reminder_enabled
+
+          return super if super.respond_to?(:values) && super.values.any?(&:present?)
+
+          @default_reminder_message ||= if current_organization
+                                          current_organization.available_locales.index_with do |locale|
+                                            I18n.t("decidim.events.meetings.upcoming_meeting.default_body", locale:)
+                                          end
+                                        else
+                                          {}
+                                        end
+        end
+
+        def send_reminders_before_hours
+          return nil unless reminder_enabled
+
+          super.presence&.to_i
         end
 
         def iframe_access_level_select

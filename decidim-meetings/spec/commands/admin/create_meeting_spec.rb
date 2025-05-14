@@ -27,6 +27,9 @@ module Decidim::Meetings
     let(:registrations_enabled) { true }
     let(:iframe_embed_type) { "embed_in_meeting_page" }
     let(:iframe_access_level) { "all" }
+    let(:reminder_enabled) { true }
+    let(:send_reminders_before_hours) { 50 }
+    let(:reminder_message_custom_content) { { "en" => "Custom reminder message", "es" => "Mensaje de recordatorio personalizado", "ca" => "Missatge de recordatori personalitzat" } }
     let(:services) do
       [
         {
@@ -73,7 +76,10 @@ module Decidim::Meetings
         comments_enabled: true,
         comments_start_time: nil,
         comments_end_time: nil,
-        iframe_access_level:
+        iframe_access_level:,
+        reminder_enabled:,
+        send_reminders_before_hours:,
+        reminder_message_custom_content:
       )
     end
 
@@ -100,6 +106,27 @@ module Decidim::Meetings
       it "sets the category" do
         subject.call
         expect(meeting.category).to eq category
+      end
+
+      it "sets the reminder message" do
+        subject.call
+        expect(meeting.reminder_message_custom_content).to eq(reminder_message_custom_content)
+      end
+
+      it "sets the send_reminders_before_hours" do
+        subject.call
+        expect(meeting.send_reminders_before_hours).to eq(send_reminders_before_hours)
+        expect(meeting.reminder_message_custom_content).to eq(reminder_message_custom_content)
+      end
+
+      context "when reminder is not enabled" do
+        let(:reminder_enabled) { false }
+
+        it "sends reminders before hours is nil" do
+          subject.call
+          expect(meeting.send_reminders_before_hours).to be_nil
+          expect(meeting.reminder_message_custom_content).to be_empty
+        end
       end
 
       it "sets the author" do

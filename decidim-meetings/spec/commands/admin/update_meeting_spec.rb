@@ -31,6 +31,9 @@ module Decidim::Meetings
     let(:registrations_enabled) { true }
     let(:iframe_embed_type) { "none" }
     let(:iframe_access_level) { nil }
+    let(:reminder_enabled) { true }
+    let(:send_reminders_before_hours) { 50 }
+    let(:reminder_message_custom_content) { { "en" => "Custom reminder message!", "es" => "Mensaje de recordatorio personalizado", "ca" => "Missatge de recordatori personalitzat" } }
 
     let(:form) do
       double(
@@ -60,6 +63,9 @@ module Decidim::Meetings
         comments_enabled: true,
         comments_start_time: nil,
         comments_end_time: nil,
+        reminder_enabled:,
+        send_reminders_before_hours:,
+        reminder_message_custom_content:,
         iframe_access_level:
       )
     end
@@ -86,6 +92,13 @@ module Decidim::Meetings
       it "sets the category" do
         subject.call
         expect(meeting.category).to eq category
+      end
+
+      it "sets the reminder settings" do
+        subject.call
+        expect(meeting.reminder_enabled).to eq reminder_enabled
+        expect(meeting.send_reminders_before_hours).to eq send_reminders_before_hours
+        expect(meeting.reminder_message_custom_content).to eq reminder_message_custom_content
       end
 
       it "sets the latitude and longitude" do
@@ -163,6 +176,9 @@ module Decidim::Meetings
             comments_enabled: true,
             comments_start_time: nil,
             comments_end_time: nil,
+            reminder_enabled:,
+            send_reminders_before_hours:,
+            reminder_message_custom_content:,
             iframe_access_level:
           )
         end
