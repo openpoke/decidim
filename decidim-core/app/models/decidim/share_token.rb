@@ -51,14 +51,6 @@ module Decidim
       token_for.component if token_for.respond_to?(:component)
     end
 
-    def self.ransackable_attributes(_auth_object = nil)
-      %w(token expires_at last_used_at registered_only)
-    end
-
-    def self.ransackable_associations(_auth_object = nil)
-      %w(organization token_for user)
-    end
-
     private
 
     def generate
