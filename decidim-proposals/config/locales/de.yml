@@ -566,7 +566,7 @@ de:
             link: Vorschlag anzeigen
             photos: Fotos
             ranking: "%{ranking} von %{total}"
-            related_meetings: Ähnliche Besprechungen
+            related_meetings: Ähnliche Veranstaltungen
             remove_assignment: Zuweisung entfernen
             remove_assignment_confirmation: Sind Sie sicher, dass Sie den BewerterIn dieses Vorschlags entfernen möchten?
             valuators: Bewertende
@@ -820,7 +820,7 @@ de:
           list_mode: Listen-Ansicht
           new_proposal: Neuer Vorschlag
           see_all: Alle Vorschläge ansehen
-          see_all_withdrawn: Sehen Sie sich alle zurückgezogenen Vorschläge an
+          see_all_withdrawn: Zurückgezogene Vorschläge ansehen
           text_banner: Hier sehen Sie alle Vorschläge, die von ihren Autoren zurückgezogen wurden. %{go_back_link}.
         new:
           send: Fortsetzen
@@ -907,7 +907,7 @@ de:
           current_step: Aktueller Schritt
           step_1: Vorschlag erstellen
           step_2: Vorschlag veröffentlichen
-          title: Schritten zur Erstellung von Vorschlägen
+          title: Schritte der Vorschlagserstellung
       proposals_picker:
         choose_proposals: Vorschläge auswählen
         no_proposals: Kein Vorschlag entspricht Ihren Suchkriterien oder es ist keine Vorschlag geplant.
