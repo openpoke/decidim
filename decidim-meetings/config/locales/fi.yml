@@ -212,10 +212,11 @@ fi:
           email_subject: Ilmoittautumiset on avattu tapaamiseen "%{resource_title}".
           notification_title: Ilmoittautumiset on avattu tapaamiseen <a href="%{resource_path}">%{resource_title}</a>.
         upcoming_meeting:
-          email_intro: Tapaamisen "%{resource_title}" alkuun on alle 48 tuntia.
+          default_body: Tapaamisen "{{meeting_title}}" alkuun on alle {{before_hours}} tuntia.
+          email_intro: Tapaamisen "%{resource_title}" alkuun on alle %{reminders_before_hours} tuntia.
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapaamista "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
-          email_subject: Tapaamisen "%{resource_title}" alkuun on alle 48 tuntia.
-          notification_title: Tapaaminen <a href="%{resource_path}">%{resource_title}</a> alkaa alle 48 tuntin kuluttua.
+          email_subject: Tapaamisen "%{resource_title}" alkuun on alle %{reminders_before_hours} tuntia.
+          notification_title: Tapaamisen <a href="%{resource_path}">%{resource_title}</a> alkuun on alle %{reminders_before_hours} tuntia.
     forms:
       meetings:
         attendees_count_help_text: Älä unohda merkitä tapaamisesi osallistujien kokonaismäärää, olipa kyse fyysisestä, verkko- tai hybriditapaamisesta.

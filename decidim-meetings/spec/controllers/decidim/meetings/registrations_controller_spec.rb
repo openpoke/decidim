@@ -118,7 +118,7 @@ module Decidim::Meetings
         it "shows error message" do
           post(:answer, params:)
 
-          expect(flash[:alert]).to eq(I18n.t("response.invalid", scope: "decidim.forms.questionnaires"))
+          expect(flash[:alert]).to eq(I18n.t("answer.invalid", scope: "decidim.forms.questionnaires"))
           expect(response).to render_template("decidim/forms/questionnaires/show")
         end
       end
