@@ -93,7 +93,7 @@ describe "Meeting waiting list" do
           expect(page).to have_i18n_content(questionnaire.title)
           expect(page).to have_i18n_content(questionnaire.description, strip_tags: true)
           expect(page).to have_i18n_content(question.body)
-          expect(page).to have_css(".form.response-questionnaire")
+          expect(page).to have_css(".form.answer-questionnaire")
         end
 
         it "can join the waitlist" do

@@ -84,7 +84,7 @@ module Decidim::Meetings
         context "when joining directly" do
           it "answers questionnaire and redirects" do
             expect do
-              post :respond, params:
+              post :answer, params:
             end.to change { meeting.registrations.count }.by(1)
 
             expect(flash[:notice]).to eq(I18n.t("registrations.create.success", scope: "decidim.meetings"))
@@ -98,7 +98,7 @@ module Decidim::Meetings
 
           it "adds user to waitlist and redirects" do
             expect do
-              post :respond, params:
+              post :answer, params:
             end.to change { meeting.registrations.where(status: :waiting_list).count }.by(1)
 
             expect(flash[:notice]).to eq(I18n.t("registrations.waitlist.success", scope: "decidim.meetings"))
@@ -116,7 +116,7 @@ module Decidim::Meetings
         end
 
         it "shows error message" do
-          post(:respond, params:)
+          post(:answer, params:)
 
           expect(flash[:alert]).to eq(I18n.t("response.invalid", scope: "decidim.forms.questionnaires"))
           expect(response).to render_template("decidim/forms/questionnaires/show")
