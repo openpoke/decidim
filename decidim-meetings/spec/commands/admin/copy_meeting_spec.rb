@@ -40,8 +40,6 @@ module Decidim::Meetings
         reminder_enabled: meeting.reminder_enabled,
         send_reminders_before_hours: meeting.send_reminders_before_hours,
         reminder_message_custom_content: meeting.reminder_message_custom_content,
-        scope: meeting.scope,
-        category: meeting.category,
         services_to_persist:,
         current_user:,
         questionnaire: Decidim::Forms::Questionnaire.new,

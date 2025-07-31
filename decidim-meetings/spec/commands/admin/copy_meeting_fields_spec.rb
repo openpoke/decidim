@@ -39,6 +39,8 @@ module Decidim
             address: "Test Address",
             latitude: 40.1234,
             longitude: 2.1234,
+            scope: meeting.scope,
+            category: meeting.category,
             location: { "en" => "Test Location" },
             location_hints: { "en" => "Test hints" },
             private_meeting: false,
