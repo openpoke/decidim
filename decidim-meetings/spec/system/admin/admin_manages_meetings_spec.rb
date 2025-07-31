@@ -340,7 +340,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     visit decidim_admin.root_path
     expect(page).to have_content("created the #{translated(attributes[:title])} meeting on the")
   end
-  
+
   context "when the venue has not been decided yet" do
     it "creates a new meeting without an address" do
       click_on "New meeting"

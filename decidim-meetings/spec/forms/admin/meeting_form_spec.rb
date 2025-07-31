@@ -189,7 +189,7 @@ module Decidim::Meetings
 
       expect(described_class.from_model(meeting).decidim_category_id).to eq(category_id)
     end
-    
+
     describe "when reminder_enabled is false" do
       let(:reminder_enabled) { false }
 
@@ -221,6 +221,7 @@ module Decidim::Meetings
         it { is_expected.to be_valid }
       end
     end
+
     describe "services_to_persist" do
       subject { form.services_to_persist }
 
