@@ -35,6 +35,8 @@ module Decidim::Meetings
         address:,
         latitude:,
         longitude:,
+        scope: meeting.scope,
+        category: meeting.category,
         reminder_enabled: meeting.reminder_enabled,
         send_reminders_before_hours: meeting.send_reminders_before_hours,
         reminder_message_custom_content: meeting.reminder_message_custom_content,
