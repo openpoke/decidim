@@ -59,8 +59,6 @@ $(() => {
       handle: false,
       item: ".js-collection-input"
     });
-
-
   });
 
   $(".answer-questionnaire .question[data-conditioned='true']").each((idx, el) => {
