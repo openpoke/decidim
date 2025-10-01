@@ -186,6 +186,12 @@ cs:
         few: "%{count} sekundy"
         many: "%{count} sekund"
         other: "%{count} sekund"
+    widget:
+      label:
+        date: Vyberte datum pro %{label}
+        time: Vyberte čas pro %{label}
+      picker:
+        time_button: Otevřít výběr času pro %{label}
   decidim:
     accessibility:
       external_link: Externí odkaz
@@ -1292,11 +1298,10 @@ cs:
         main_image: Hlavní obrázek
     newsletters:
       unsubscribe:
-        check_subscription: Pokud chcete změnit své předvolby, můžete tak učinit na <a href="%{link}" target="_blank">konfigurační stránce</a>.
         error: Při odhlášení došlo k chybě.
         success: Úspěšně jste odhlášeni.
         token_error: Platnost odkazu vypršela.
-        unsubscribe: Odhlásit odběr
+        unsubscribe: Odhlásit odběr zpravodaje
     newsletters_opt_in:
       unauthorized: Je nám líto, tento odkaz již není k dispozici.
       update:
@@ -1304,7 +1309,6 @@ cs:
         success: Nastavení Zpravodaje bylo úspěšně aktualizováno.
     newsletters_opt_in_mailer:
       notify:
-        body_1: Zpracování osobních údajů a jejich ochrana jsou pro nás všechny stále důležitější. S novým obecným nařízením o ochraně osobních údajů (GDPR) ze dne 25. května 2018 mají jednotlivci lepší kontrolu nad svými osobními údaji. Z tohoto důvodu potřebujeme vaše "OK" pro pokračování v zasílání relevantních informací o aktivitách %{organization_name}.
         body_2: 'Jak nám můžete dát svůj souhlas? Stačí kliknout na následující tlačítko:'
         body_3: S tímto souhlasem budete moci pokračovat v přijímání informací o službách platformy. Pokud naopak nedostaneme pozitivní potvrzení z vašeho hlediska, přestaneme vám posílat naše zprávy. Pokud potvrdíte, že chcete být stále informováni, máte vždy možnost kdykoli zrušit.
         button: Ano, chci i nadále přijímat relevantní informace
@@ -1464,8 +1468,10 @@ cs:
         fill_in_email_to_confirm_it: Pro potvrzení vyplňte e-mailovou adresu skupiny.
     reported_mailer:
       hidden_automatically:
+        content: Nahlášený obsah
         details: Podrobnosti
         hello: Dobrý den %{name},
+        manage_moderations: Spravovat moderace
         participatory_space: Participativní prostor
         reason: Důvod
         report_html: <p>Následující <a href="%{url}">obsah</a> byl automaticky skryt.</p>
@@ -1545,6 +1551,7 @@ cs:
         close_modal: Zavřít okno
         ok: OK
         title: Potvrdit
+      confirm_unload: Tato stránka obsahuje neuložené změny. Opravdu chcete opustit tuto stránku?
       embed:
         title: Vložený obsah videa
       extended_navigation_bar:
@@ -1782,7 +1789,7 @@ cs:
         confirm_new_password: Potvrďte nové heslo
         new_password: Nové heslo
         old_password_help: Chcete-li potvrdit změny vašeho účtu, zadejte prosím své aktuální heslo.
-        password_help: "minimální počet znaků je %{minimun_characters}, nesmí být příliš obvyklý (např. 123456) a musí se lišit od vašeho uživatelského jména a e-mailu."
+        password_help: "minimální počet znaků je %{minimum_characters}, nesmí být příliš obvyklý (např. 123456) a musí se lišit od vašeho uživatelského jména a e-mailu."
         password_help_admin: "minimální počet znaků je %{minimum_characters}, nesmí být příliš časté (např. 123456), musí se lišit od vaší přezdívky a e-mailu a musí se lišit od vašich starých hesel."
         title: Změna hesla
       new:
@@ -2019,10 +2026,12 @@ cs:
         decidim_logo: Logo Decidim
         decidim_title: Decidim
         download_open_data: Stáhněte si soubory s otevřenými daty
+        help: Nápověda
         log_in: Přihlásit
         made_with_open_source: Webová stránka vytvořená s <a target="_blank" href="https://github.com/decidim/decidim">svobodným softwarem</a>.
         resources: Zdroje
         sign_up: Vytvořit účet
+        social_media: Sociální sítě
         terms_of_service: Podmínky služby
       header:
         log_in: Přihlásit
@@ -2062,6 +2071,8 @@ cs:
         profile: Můj účet
         public_profile: Můj veřejný profil
         title: Profilové odkazy
+        unread_conversations: Máte nepřečtené konverzace
+        unread_notifications: Máte nepřečtené oznámení
       user_profile:
         account: Účet
         authorizations: Autorizace

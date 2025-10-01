@@ -135,8 +135,8 @@ eu:
       assembly_copies:
         new:
           copy: Kopiatu
-          select: Hautatu bikoiztu nahi dituzun datuak
-          title: Kopiatu batzarra
+          select: Hautatu zein datu bikoiztu nahi dituzun
+          title: Batzarra bikoiuztu
       assembly_imports:
         create:
           error: Arazo bat egon da batzar hau inportatzean.
