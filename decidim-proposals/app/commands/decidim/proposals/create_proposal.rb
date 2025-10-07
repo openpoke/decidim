@@ -85,7 +85,11 @@ module Decidim
             proposal.category = form.category if form.category_id.present?
             proposal.scope = form.scope if form.scope_id.present?
             proposal.documents = form.documents if form.documents.present?
-            proposal.address = form.address if form.has_address? && !form.geocoded?
+            if form.geocoded?
+              proposal.latitude = form.latitude
+              proposal.longitude = form.longitude
+            end
+            proposal.address = form.address if form.has_address?
             proposal.add_coauthor(@current_user, user_group:)
             proposal.save!
             @attached_to = proposal
