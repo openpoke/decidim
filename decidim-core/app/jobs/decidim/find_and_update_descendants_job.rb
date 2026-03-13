@@ -4,8 +4,11 @@ module Decidim
   # Update search indexes for each descendants of a given element
   class FindAndUpdateDescendantsJob < ApplicationJob
     queue_as :default
+    MAX_DEPTH = 5
 
-    def perform(element)
+    def perform(element, current_depth = 0)
+      return if current_depth >= MAX_DEPTH
+
       descendants_collector = components_for(element)
       descendants_collector << element.comments.to_a if element.respond_to?(:comments)
 
@@ -14,7 +17,7 @@ module Decidim
       descendants_collector.each do |descendants|
         next if descendants.blank?
 
-        Decidim::UpdateSearchIndexesJob.perform_later(descendants)
+        Decidim::UpdateSearchIndexesJob.perform_later(descendants, current_depth + 1)
       end
     end
 
