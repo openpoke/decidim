@@ -191,7 +191,7 @@ es:
               random: Aleatorio
               recent: Recientes
               with_more_authors: Con más autoras
-            define_taxonomy_filters: Por favor, define algunos filtros para este espacio participativo antes de utilizar esta configuración.
+            define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             edit_time: Las autoras pueden editar las propuestas antes de que pase este tiempo
             edit_time_units:
               days: Días
@@ -690,7 +690,7 @@ es:
             success: El proceso de importación ha comenzado. Te avisaremos cuando haya terminado.
           new:
             create: Importar propuestas
-            no_components: No hay otros componentes de propuestas en este espacio participativo desde donde importarlas.
+            no_components: No hay otros componentes de propuestas en este espacio de participación desde donde importarlas.
             select_component: Selecciona un componente
             select_states: Importar solo propuestas con estos estados. Si no se selecciona ningún estado, todas las propuestas serán importadas.
             title: Importar propuestas desde otro componente
@@ -768,14 +768,14 @@ es:
         empty: Todavía no hay borradores colaborativos
         empty_filters: No hay ningún borrador colaborativo con este criterio
         filters:
-          all: Todas
+          all: Todos
           amendment: Enmiendas
           open: Abierto
-          published: Publicado
-          related_to: Relacionado con
+          published: Publicada
+          related_to: Relacionadas con
           search: Buscar
           state: Estado
-          withdrawn: Retirado
+          withdrawn: Retirada
         filters_small_view:
           close_modal: Cerrar la ventana
           filter: Filtrar
@@ -827,8 +827,8 @@ es:
           withdraw: retirar el borrador
         states:
           open: Abierto
-          published: Publicado
-          withdrawn: Retirado
+          published: Publicada
+          withdrawn: Retirada
         update:
           error: Se ha producido un error al guardar el borrador colaborativo.
           success: Borrador colaborativo actualizado correctamente.

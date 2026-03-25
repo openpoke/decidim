@@ -1123,8 +1123,6 @@ ar:
         submit_button: ارسل دعوة
       no_invitations_remaining: لا توجد دعوات متبقية
       send_instructions: تم إرسال دعوة بريد إلكتروني إلى %{email}.
-      updated: تم ضبط كلمة مرورك بنجاح. انت الآن مسجل دخولك.
-      updated_not_active: تم ضبط كلمة مرورك بنجاح.
     mailer:
       confirmation_instructions:
         action: تأكيد حسابي
@@ -1186,6 +1184,7 @@ ar:
       links:
         back: الى الخلف
         forgot_your_password: نسيت رقمك السري؟
+        log_in: تسجيل الدخول
         log_in_with_provider: تسجيل الدخول باستخدام %{provider}
       minimum_password_length:
         zero: "(%{count} حرف كحد أدنى)"
@@ -1274,7 +1273,7 @@ ar:
             description: وصف
             name: اسم
             service: الخدمة
-            type: نوع
+            type: النوع
           items:
             _session_id:
               description: يسمح للمواقع بتذكر المستخدم داخل الموقع عندما ينتقل بين صفحات الويب.
@@ -1324,6 +1323,7 @@ ar:
         data_consent_settings: إعدادات ملفات تعريف الارتباط
         decidim_logo: شعار Decidim
         decidim_title: Decidim
+        log_in: تسجيل الدخول
         made_with_open_source: موقع تم إنشاؤه <a target="_blank" href="https://github.com/decidim/decidim">بالبرمجيات الحرة</a>.
         resources: الموارد
       header:

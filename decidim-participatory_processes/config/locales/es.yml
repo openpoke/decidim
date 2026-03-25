@@ -109,7 +109,7 @@ es:
         participatory_process_groups: Grupos de procesos
         participatory_process_groups_submenu:
           info: Acerca de este grupo de procesos
-          landing_page: Disposición de la página de aterrizaje
+          landing_page: Disposición de la página de inicio
         participatory_processes: Procesos
         participatory_processes_submenu:
           attachment_collections: Carpetas
@@ -117,7 +117,7 @@ es:
           attachments: Adjuntos
           components: Componentes
           info: Acerca de este proceso
-          landing_page: Disposición de la página de aterrizaje
+          landing_page: Disposición de la página de inicio
           moderations: Moderaciones
           private_users: Miembros
           process_admins: Administradoras del proceso
@@ -170,7 +170,7 @@ es:
           error: Se ha producido un error al eliminar el grupo de procesos participativos.
           success: Grupo de procesos participativos eliminado correctamente.
         edit:
-          title: Editar grupo de procesos
+          title: Editar el grupo de procesos
           update: Actualizar
         new:
           create: Crear
@@ -185,7 +185,7 @@ es:
         new:
           import: Importar
           select: Selecciona qué datos quieres importar
-          title: Importar proceso participativo
+          title: Importar un proceso participativo
       participatory_process_publications:
         create:
           error: Se ha producido un error al publicar este proceso participativo.
@@ -215,7 +215,7 @@ es:
               Lo hemos dejado aquí para que migres las CTAs que necesites. Los campos <i>Ruta del botón de acción</i> y
               <i>Texto del botón de acción</i> se eliminaran en la próxima versión.
             title: CTA obsoleto
-          title: Editar fase del proceso participativo
+          title: Editar la fase del proceso participativo
           update: Actualizar
         index:
           steps_title: Fases del proceso
@@ -234,7 +234,7 @@ es:
         destroy:
           success: La administradora ha sido eliminada correctamente de este proceso participativo.
         edit:
-          title: Actualitzar administradora del proceso particiaptivo
+          title: Actualizar la administradora del proceso participativo
           update: Actualizar
         index:
           process_admins_title: Administradoras del proceso participativo

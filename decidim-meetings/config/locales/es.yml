@@ -230,7 +230,7 @@ es:
           notification_title: Tu inscripción al encuentro <a href="%{resource_url}">%{resource_title}</a> ha sido confirmada. Tu código de registro es %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: Las inscripciones para el encuentro "%{resource_title}" superan el %{percentage}%.
-          email_outro: Has recibido esta notificación porque administras el espacio participativo del encuentro.
+          email_outro: Has recibido esta notificación porque administras el espacio de participación del encuentro.
           email_subject: Las inscripciones para el encuentro "%{resource_title}" superan el %{percentage}%
           notification_title: Las inscripciones para el encuentro <a href="%{resource_path}">%{resource_title}</a> superan el %{percentage}%.
         meeting_updated:
@@ -354,7 +354,7 @@ es:
             non_user: Participante no existente
             select_user: Seleccionar participante
           index:
-            invite_attendee: Invitar asistente
+            invite_attendee: Invitar a una asistente
             invites: Invitaciones
             registrations_disabled: No puedes invitar a nadie porque las inscripciones están deshabilitadas.
         meeting_closes:
@@ -459,7 +459,7 @@ es:
               other: Ha habido %{count} inscripciones.
             reserved_slots_help: Déjalo a 0 si no tienes espacios reservados.
             reserved_slots_less_than: Debe ser inferior o igual que %{count}
-            title: Registros
+            title: Inscripciones
           update:
             invalid: Se ha producido un error al guardar la configuración de la inscripción.
             success: La configuración de las inscripciones del encuentro se ha guardado correctamente.
@@ -521,7 +521,7 @@ es:
         meetings:
           index:
             meetings: Encuentros
-            space_type: Espacio participativo
+            space_type: Espacio de participación
       iframe_access_level:
         all: Todos los visitantes
         registered: Participantes inscritas en este encuentro

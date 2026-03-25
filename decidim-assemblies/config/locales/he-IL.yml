@@ -97,11 +97,8 @@ he:
           update: עדכון
         index:
           private: פרטי
-          public: ציבורי
           published: מפורסם
           unpublished: לא מפורסם
-        manage_trash:
-          title: אסיפות מחוקות
         new:
           create: יצירה
           title: אסיפה חדשה
@@ -115,7 +112,6 @@ he:
         new:
           import: ייבוא
           select: בחירת הנתונים לייבוא
-          title: ייבוא אסיפה
       assembly_publications:
         create:
           error: הייתה בעיה בפרסום ​​אסיפה זו.
@@ -127,7 +123,6 @@ he:
         create:
           error: הייתה בעיה בהוספת מנהל.ת עבור אסיפה זו.
         edit:
-          title: עדכון מנהל אסיפה
           update: עדכון
         index:
           assembly_admins_title: מנהלי אסיפה
@@ -182,7 +177,6 @@ he:
             moderator: פקח
       titles:
         assemblies: אסיפות
-        assemblies_deleted: אסיפות מחוקות
         assemblies_types: סוגי אסיפות
     assemblies:
       admin:

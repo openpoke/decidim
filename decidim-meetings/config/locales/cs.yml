@@ -152,7 +152,7 @@ cs:
           success: Duplicitní schůzka úspěšně.
         new:
           copy: Kopírovat
-          title: Duplicitní schůzka
+          title: Duplikovat schůzku
       tooltips:
         cannot_close_meetings: Tuto schůzku nelze zavřít, protože ji vytvořil účastník
         cannot_duplicate_meetings: Tuto schůzku nelze duplikovat, protože byla vytvořena účastníkem
@@ -264,6 +264,8 @@ cs:
           email_outro: Toto upozornění jste obdrželi, protože postupujete po schůzce "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
           email_subject: Schůzka "%{resource_title}" povolila registrace.
           notification_title: Schůzka <a href="%{resource_path}">%{resource_title}</a> povolila registrace.
+        upcoming_meeting:
+          default_body: Schůzka "{{meeting_title}}" začne za méně než {{before_hours}}h.
     forms:
       meetings:
         attendees_count_help_text: Nezapomeňte uvést celkový počet účastníků na vaší schůzce, ať už osobní, online nebo smíšené.

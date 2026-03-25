@@ -121,10 +121,10 @@ ca:
         destroy:
           success: Ponent de la jornada eliminada correctament.
         edit:
-          title: Actualitzar la ponent de la jornada
+          title: Actualitzar ponent de la jornada
           update: Actualitzar
         index:
-          conference_speakers_title: Ponents de les conferències
+          conference_speakers_title: Ponents de la jornada
         new:
           create: Crear
           title: Nova ponent de la jornada
@@ -147,10 +147,10 @@ ca:
           title: Actualitzar administradora de la jornada
           update: Actualitzar
         index:
-          conference_admins_title: Administradores de la jornada
+          conference_admins_title: Administradors de conferències
         new:
           create: Crear
-          title: Nova administradora de jornada
+          title: Afegir administradora
         update:
           error: S'ha produït un error en actualitzar l'administradora per a aquesta jornada.
           success: Administradora de la jornada actualitzada correctament.
@@ -177,7 +177,7 @@ ca:
           title: Jornades eliminades
         new:
           create: Crear
-          title: Nova jornada
+          title: Afegir jornada
         update:
           error: S'ha produït un error en actualitzar aquesta jornada.
           success: Jornada actualitzada correctament.
@@ -285,7 +285,7 @@ ca:
           update: Actualitzar
         new:
           create: Crear
-          title: Nova col·laboradora
+          title: Afegir col·laboradora
         update:
           error: S'ha produït un error en actualitzar un col·laborador per a aquesta jornada.
           success: Col·laboradora de la jornada actualtizada correctament.
@@ -307,7 +307,7 @@ ca:
           update: Actualitzar
         new:
           create: Crear
-          title: Nou tipus de registre
+          title: Afegir tipus de registre
         update:
           error: S'ha produït un error en actualitzar un tipus d'inscripció per a aquesta jornada.
           success: El tipus d'inscripció s'ha actualitzat correctament per a aquesta jornada.
@@ -322,6 +322,7 @@ ca:
     admin_log:
       conference:
         create: "%{user_name} ha creat la jornada %{resource_name}"
+        duplicate: "%{user_name} ha duplicat la jornada \"%{resource_name}\""
         publish: "%{user_name} ha publicat la jornada %{resource_name}"
         restore: "%{user_name} ha restaurat la jornada %{resource_name}"
         send_conference_diplomas: "%{user_name} ha enviat certificats d'assistència a les assistents de la jornada %{resource_name}"
@@ -581,7 +582,7 @@ ca:
           notification_title: La teva inscripció a jornada <a href="%{resource_url}">%{resource_title}</a> està pendent de confirmació.
         conference_registrations_over_percentage:
           email_intro: Les places ocupades per a la jornada "%{resource_title}" superen el %{percentage}%.
-          email_outro: Has rebut aquesta notificació perquè administres l'espai participatiu de la jornada.
+          email_outro: Has rebut aquesta notificació perquè administres l'espai de participació de la jornada.
           email_subject: Les places ocupades per a la jornada "%{resource_title}" superen el %{percentage}%
           notification_title: Les places ocupades per a la jornada <a href="%{resource_path}">%{resource_title}</a> superen el %{percentage}%.
         conference_updated:

@@ -354,7 +354,7 @@ es-PY:
             non_user: Usuario no existente
             select_user: Selecciona un usuario
           index:
-            invite_attendee: Invitar asistente
+            invite_attendee: Invitar a una asistente
             invites: Invitaciones
             registrations_disabled: No puedes invitar a nadie porque las inscripciones están deshabilitadas.
         meeting_closes:
@@ -459,7 +459,7 @@ es-PY:
               other: Ha habido %{count} registros.
             reserved_slots_help: Déjalo a 0 si no tienes espacios reservados.
             reserved_slots_less_than: Debe ser menor que o igual a %{count}
-            title: Registros
+            title: Inscripciones
           update:
             invalid: Se ha producido un problema al guardar la configuración de la inscripción.
             success: Se han guardado correctamente las configuraciones de inscripciones de encuentros.

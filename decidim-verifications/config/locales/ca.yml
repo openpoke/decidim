@@ -223,8 +223,8 @@ ca:
             no_authorized: Usuària no actualitzada
             title: Dades censals actuals
           instructions:
-            body: Per fer-ho, has d'entrar al panell d'administració i afegir les autoritzacions de csv_census a l'organització
-            title: Necessites activar el cens csv d'aquesta organització
+            body: Per fer-ho, has d'entrar al panell d'administració i afegir les autoritzacions de "csv_census" a l'organització
+            title: Necessites activar el "csv_census" d'aquesta organització
         authorizations:
           new:
             error: No hem pogut verificar el teu compte o no estàs al cens de l'organització.
@@ -255,7 +255,7 @@ ca:
               error: La verificació no coincideix. Si us plau, torna-ho a provar o rebutja la verificació perquè la participant pugui modificar-la.
               success: Participant convidada correctament.
             new:
-              introduce_user_data: Introdueix les dades de la imatge
+              introduce_user_data: Introdueix les dades que apareixen a la imatge
               reject: Rebutjar
               verify: Verificar
           offline_confirmations:

@@ -110,7 +110,6 @@ ro:
         new:
           import: Importă
           select: Selectați ce date doriți să importați
-          title: Importă grupul de lucru
       assembly_publications:
         create:
           error: A apărut o problemă la publicarea acestui grup de lucru.
@@ -127,7 +126,7 @@ ro:
         edit:
           update: Actualizează
         index:
-          assembly_admins_title: Administratori ai grupului de lucru
+          assembly_admins_title: Administratorii grupului de lucru
         new:
           create: Creează
         update:
@@ -216,7 +215,7 @@ ro:
             title: Informaţii generale
         assembly_imports:
           form:
-            document_legend: Adaugă un document
+            document_legend: Adaugați un document
         assembly_members:
           form:
             explanation: 'Îndrumare pentru imagine:'
@@ -244,7 +243,7 @@ ro:
           title: Despre această adunare
         filters:
           names:
-            all: Toți
+            all: Toate
         show:
           title: Despre această adunare
       assembly_members:

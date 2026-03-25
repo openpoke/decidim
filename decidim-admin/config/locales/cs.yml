@@ -266,7 +266,7 @@ cs:
           title: Upravit složku
           update: Aktualizace
         index:
-          attachment_collections_title: Složky přílohy
+          attachment_collections_title: Složky příloh
         new:
           create: Vytvořit
           title: Nová složka
@@ -360,7 +360,6 @@ cs:
           text: Hledat podle aktuálního uživatelského e-mailu, jména nebo přezdívky
         managed_user_name: Spravovaný uživatel
         solved: Vyřešeno
-        title: Konflikty ověření
         transfer:
           email: E-mail
           error: Při převodu aktuálního účastníka na spravovaného účastníka došlo k chybě.
@@ -586,7 +585,6 @@ cs:
         promotions:
           new:
             explanation: Spravovaní uživatelé mohou být povýšeni na standardní uživatele. Znamená to, že budou pozváni do aplikace a nebudete je moci znovu předstírat. Pozvaný uživatel obdrží e-mail, ve kterém přijme vaši pozvánku.
-            new_managed_user_promotion: Nová spravovaná podpora pro uživatele
             promote: Podporovat
       menu:
         admin_log: Protokol aktivity správce
@@ -769,7 +767,6 @@ cs:
           title: Šablony zpravodaje
           use_template: Použít tuto šablonu
         show:
-          preview: 'Náhled šablony: %{template_name}'
           use_template: Použít tuto šablonu
       newsletters:
         confirm_recipients:
@@ -1238,20 +1235,18 @@ cs:
           none: Žádné
           title: Nová položka v %{taxonomy}
       titles:
-        admin_log: Správce protokolu
         area_types: Typy oblastí
         areas: Oblasti
         authorization_workflows: Metody ověření
         dashboard: Ovládací panel
         edit_external_domains: Seznam povolených externích domén
-        impersonatable_users: Spravovatelní účastníci
         impersonations: Správa účastníků
         menu: Nabídka
         page_topics: Témata
         pages: Stránky
         panel: Admin
-        participants: Uživatelé
-        scope_types: Typy oblastí působnosti
+        participants: Účastníci
+        scope_types: Typ oblasti působnosti
         scopes: Oblasti působnosti
         statistics: Statistiky
         taxonomies: Taxonomie
@@ -1291,6 +1286,10 @@ cs:
           last_week: Minulý týden
           no_users_count_statistics_yet: Zatím nejsou žádné statistiky počtu účastníků.
           participants: Účastníci
+    components:
+      settings:
+        global:
+          taxonomy_filters_unavailable: Výběr taxonomických filtrů bude možný po vytvoření komponenty.
     forms:
       errors:
         impersonate_user:

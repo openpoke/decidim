@@ -307,7 +307,7 @@ cs:
         delete: "%{user_name} odstranila %{resource_name} aplikaci OAuth"
         update: "%{user_name} aktualizovala %{resource_name} aplikaci OAuth"
       organization:
-        update: "%{user_name} aktualizovala nastavení organizace"
+        update: "%{user_name} aktualizoval nastavení organizace"
         update_external_domain: "%{user_name} aktualizoval externí domény organizace"
       participatory_space_private_user:
         create: "%{user_name} pozval %{resource_name} aby se stal soukromým uživatelem"
@@ -625,7 +625,7 @@ cs:
       global_menu:
         name: Globální menu
       hero:
-        name: Obrázek hrdiny a CTA
+        name: Obrázek hrdiny a výzva k akci
       hero_settings_form:
         background_image: Obrázek pozadí
         cta_button_path: URL tlačítka Výzvy k akci
@@ -1142,7 +1142,7 @@ cs:
       description: Odznaky jsou uznání akcí účastníků a pokrok v platformě. Jakmile začnete objevovat, účastnit se a spolupracovat v platformě, získáte různé odznaky.
       level: Úroveň %{level}
       reached_top: Dosáhli jste nejvyšší úrovně tohoto odznaku.
-      title: Jaké jsou odznaky?
+      title: Co jsou odznaky?
     groups:
       roles:
         admin: Správce
@@ -1575,7 +1575,7 @@ cs:
       user:
         actions:
           disabled_message: Zpráva
-          edit_profile: Editovat profil
+          edit_profile: Upravit profil
           message: Zpráva
           resend_email_confirmation_instructions: Znovu odeslat pokyny pro potvrzení e-mailu
     qr:
@@ -1847,8 +1847,6 @@ cs:
         submit_button: Odeslat pozvánku
       no_invitations_remaining: Žádné zbývající pozvánky
       send_instructions: Pozvánka byla odeslána na %{email}.
-      updated: Vaše heslo bylo úspěšně nastaveno. Nyní jste přihlášeni.
-      updated_not_active: Vaše heslo bylo úspěšně nastaveno.
     mailer:
       confirmation_instructions:
         action: Potvrďte svůj účet
@@ -1908,8 +1906,6 @@ cs:
         confirm_new_password: Potvrďte nové heslo
         new_password: Nové heslo
         old_password_help: Chcete-li potvrdit změny vašeho účtu, zadejte prosím své aktuální heslo.
-        password_help: "minimální počet znaků je %{minimum_characters}, nesmí být příliš obvyklý (např. 123456) a musí se lišit od vašeho uživatelského jména a e-mailu."
-        password_help_admin: "minimální počet znaků je %{minimum_characters}, nesmí být příliš časté (např. 123456), musí se lišit od vaší přezdívky a e-mailu a musí se lišit od vašich starých hesel."
         title: Změna hesla
       new:
         forgot_your_password: Zapomněli jste heslo?
@@ -2159,6 +2155,7 @@ cs:
         confirm_title_close_ephemeral_session: Před opuštěním této stránky…
         log_in: Přihlásit
         main_menu: Hlavní menu
+        mobile_account_greeting: Dobrý den %{user_name}
         user_menu: Uživatelské Menu
       impersonation_warning:
         close_session: Zavřít sezení

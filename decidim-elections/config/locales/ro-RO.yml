@@ -54,9 +54,6 @@ ro:
           edit_questions:
             new_question: Întrebare nouă
             title: Întrebări
-      censuses:
-        token_csv_form:
-          email: E-mail
       elections:
         count:
           elections_count:
@@ -83,6 +80,7 @@ ro:
         active: Activ
         finished: Terminat
         not_started: Nu a început
+        unpublished: Nepublicate
       votes:
         confirm:
           title: Confirmă votul tău
@@ -90,7 +88,3 @@ ro:
           next: Următoarea
     statistics:
       elections_count: Alegeri
-  layouts:
-    decidim:
-      election_votes_header:
-        exit: Inchide

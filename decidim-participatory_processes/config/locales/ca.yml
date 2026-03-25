@@ -170,7 +170,7 @@ ca:
           error: Hi ha hagut un error en eliminar el grup de processos participatius.
           success: El grup de processos participatius s'ha eliminat correctament.
         edit:
-          title: Edita grup de procés
+          title: Editar el grup de procés
           update: Actualitza
         new:
           create: Crea
@@ -185,7 +185,7 @@ ca:
         new:
           import: Importar
           select: Selecciona quines dades vols importar.
-          title: Importar el procés participatiu
+          title: Importar un procés participatiu
       participatory_process_publications:
         create:
           error: S'ha produït un error en publicar aquest procés participatiu.
@@ -214,13 +214,13 @@ ca:
               Ara això es fa a la <b>Página d'inici</b>, fent servir el bloc de contingut <b>Imatges principal i botó d'acció</b>.
               L'hem deixar aquí per a que migris els CTAs que necessitis. Els camps <i>Ruta del botó d'acció</i> i <i>Text del botó d'acció</i> s'eliminaran a la propera versió.
             title: CTA obsolet
-          title: Edita fase de procés participatiu
+          title: Editar la fase de procés participatiu
           update: Actualitza
         index:
           steps_title: Fases del procés
         new:
           create: Crea
-          title: Nova fase de procés participatiu
+          title: Nova fase del procés participatiu
         ordering:
           error: S'ha produït un error en la reordenació de les fases d'aquest procés participatiu.
         update:
@@ -233,7 +233,7 @@ ca:
         destroy:
           success: L'administradora s'ha eliminat correctament d'aquest procés participatiu.
         edit:
-          title: Actualitzar administradora de procés participatiu
+          title: Actualitzar l'administradora del procés participatiu
           update: Actualitza
         index:
           process_admins_title: Administradores del procés participatiu

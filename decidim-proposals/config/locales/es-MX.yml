@@ -191,7 +191,7 @@ es-MX:
               random: Aleatorio
               recent: Recientes
               with_more_authors: Con más autoras
-            define_taxonomy_filters: Por favor, define algunos filtros para este espacio participativo antes de utilizar esta configuración.
+            define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             edit_time: Las autoras pueden editar las propuestas antes de que pase este tiempo
             edit_time_units:
               days: Días
@@ -762,20 +762,20 @@ es-MX:
           success: Borrador colaborativo creado con éxito.
         edit:
           attachment_legend: Añadir un documento o una imagen
-          back: Volver
+          back: Atrás
           send: Enviar
           title: Editar borrador colaborativo
         empty: Todavía no hay borradores colaborativos
         empty_filters: No hay ningún borrador colaborativo con este criterio
         filters:
-          all: Todas
+          all: Todos
           amendment: Enmiendas
           open: Abierto
-          published: Publicado
-          related_to: Relacionado con
+          published: Publicadas
+          related_to: Relacionadas con
           search: Buscar
           state: Estado
-          withdrawn: Retirado
+          withdrawn: Retirada
         filters_small_view:
           close_modal: Cerrar modal
           filter: Filtrar
@@ -827,10 +827,10 @@ es-MX:
           withdraw: retirar el borrador
         states:
           open: Abierto
-          published: Publicado
-          withdrawn: Retirado
+          published: Publicadas
+          withdrawn: Retirada
         update:
-          error: Ha habido errores al guardar el borrador colaborativo.
+          error: Ha habido errores al guardar el borrador de la propuesta.
           success: Borrador colaborativo actualizado con éxito.
         wizard_aside:
           back_from_collaborative_draft: Volver al borrador colaborativo

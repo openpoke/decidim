@@ -108,7 +108,7 @@ de:
   date:
     buttons:
       close: Schliessen
-      select: Wählen
+      select: Auswählen
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_dashed: "%d-%m-%Y"
@@ -1523,7 +1523,7 @@ de:
         error: Es gab ein Problem bei der Aktualisierung des Passwortes.
         success: Passwort erfolgreich aktualisiert.
     profile:
-      deleted: Gelöschter Benutzer
+      deleted: Gelöschter Teilnehmer
       inaccessible_message: Dieses Profil ist wegen Verletzung der Nutzungsbedingungen nicht zugänglich!
     profiles:
       default_officialization_text_for_users: Dieser Teilnehmer ist öffentlich verifiziert, sein/ihr Name oder seine/ihre Rolle wurde auf Übereinstimmung mit dem wirklichen Namen und der wirklichen Rolle überprüft.
@@ -1540,7 +1540,7 @@ de:
           disabled_message: Nachricht
           edit_profile: Profil bearbeiten
           message: Nachricht
-          resend_email_confirmation_instructions: Senden Sie die E-Mail-Bestätigungsanweisungen erneut
+          resend_email_confirmation_instructions: E-Mail-Bestätigungsanweisungen erneut versenden
     qr:
       show:
         scan: QR-Code scannen
@@ -1799,8 +1799,6 @@ de:
         submit_button: Eine Einladung schicken
       no_invitations_remaining: Keine Einladungen übrig
       send_instructions: Eine Einladungs-E-Mail wurde an %{email}gesendet.
-      updated: Ihr Passwort wurde erfolgreich vergeben. Sie sind jetzt angemeldet.
-      updated_not_active: Ihr Passwort wurde erfolgreich vergeben.
     mailer:
       confirmation_instructions:
         action: Konto bestätigen
@@ -1858,8 +1856,6 @@ de:
         confirm_new_password: Bestätige neues Passwort
         new_password: Neues Passwort
         old_password_help: Um die Änderungen an Ihrem Konto zu bestätigen, geben Sie bitte Ihr aktuelles Passwort ein.
-        password_help: "Das Passwort muss aus mindestens %{minimum_characters} Zeichen bestehen, darf nicht zu gewöhnlich sein (z. B. 123456) oder Ihren Kontonamen bzw. Ihre E-Mail-Adresse enthalten."
-        password_help_admin: "Das Passwort muss aus mindestens %{minimum_characters} Zeichen bestehen, darf nicht zu gewöhnlich sein (z. B. 123456) oder Ihren Kontonamen oder Ihre E-Mail-Adresse enthalten und muss sich von Ihren alten Passwörtern unterscheiden."
         title: Passwort ändern
       new:
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
@@ -2202,7 +2198,7 @@ de:
     buttons:
       close: Schliessen
       reset: Zurücksetzen
-      select: Wählen
+      select: Auswählen
     formats:
       day_of_month: "%d. %b"
       day_of_week: "%a"
