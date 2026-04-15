@@ -42,12 +42,13 @@ module Decidim
           on(:ok) do
             proposal.reload
 
-            proposals = ProposalVote.where(
-              author: current_user,
-              proposal: Proposal.where(component: current_component)
-            ).map(&:proposal)
+            # proposals = ProposalVote.where(
+            #   author: current_user,
+            #   proposal: Proposal.where(component: current_component)
+            # ).map(&:proposal)
+            proposals = Proposal.where(component: current_component).published.not_hidden.with_availability(params[:filter].try(:[], :with_availability))
 
-            expose(proposals: proposals + [proposal])
+            expose(proposals:)
             render :update_buttons_and_counters
           end
         end
