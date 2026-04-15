@@ -16,7 +16,12 @@ module Decidim
 
       before_validation :generate_code, on: :create
 
+      enum status: { registered: "registered", waiting_list: "waiting_list" }
+
+      scope :on_waiting_list, -> { waiting_list.order(:created_at) }
       scope :public_participant, -> { where(decidim_user_group_id: nil, public_participation: true) }
+
+      delegate :component, :organization, to: :meeting
 
       def self.user_collection(user)
         where(decidim_user_id: user.id)

@@ -68,14 +68,18 @@
     <% end %>
   <% end %>
 
-  <% if registration.present? && registration.meeting.component.settings.registration_code_enabled %>
-    <%= render layout: "decidim/meetings/layouts/aside_block", locals: { emoji: "coupon-line" } do %>
-      <h3 class="meeting__aside-block__title"><%= registration_code_help_text %></h3>
-      <div class="meeting__aside-block__large"><%= registration.code %></div>
-      <% if registration.validated? %>
-        <div class="label success"><%= t("validated", scope: "decidim.meetings.meetings.show.registration_state") %></div>
-        <% else %>
-        <div class="label warning"><%= t("validation_pending", scope: "decidim.meetings.meetings.show.registration_state") %></div>
+  <% if registration.present? %>
+    <%= waitlist_status_block(registration) %>
+
+    <% if registration.meeting.component.settings.registration_code_enabled %>
+      <%= render layout: "decidim/meetings/layouts/aside_block", locals: { emoji: "coupon-line" } do %>
+        <h3 class="meeting__aside-block__title"><%= registration_code_help_text %></h3>
+        <div class="meeting__aside-block__large"><%= registration.code %></div>
+        <% if registration.validated? %>
+          <div class="label success"><%= t("validated", scope: "decidim.meetings.meetings.show.registration_state") %></div>
+          <% else %>
+          <div class="label warning"><%= t("validation_pending", scope: "decidim.meetings.meetings.show.registration_state") %></div>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>

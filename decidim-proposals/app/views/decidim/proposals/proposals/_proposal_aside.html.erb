@@ -1,10 +1,10 @@
 <% if current_settings.votes_enabled? && (show_endorsements_card? || current_user) %>
-<section class="layout-aside__section">
-  <div class="proposal__aside-vote layout-aside__ctas-buttons" data-sticky-buttons>
-    <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } unless @proposal.withdrawn? %>
-    <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
-  </div>
-</section>
+  <section class="layout-aside__section">
+    <div class="proposal__aside-vote layout-aside__ctas-buttons" data-sticky-buttons>
+      <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } unless @proposal.withdrawn? %>
+      <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
+    </div>
+  </section>
 <% end %>
 
 <% if (@proposal.amendable? && allowed_to?(:edit, :proposal, proposal: @proposal)) || (amendments_enabled? && @proposal.amendable? && current_component.current_settings.amendment_creation_enabled && can_participate_in_private_space?) || amendments_enabled? && can_react_to_emendation?(@proposal) || @proposal.withdrawable_by?(current_user) %>

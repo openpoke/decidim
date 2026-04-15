@@ -53,6 +53,7 @@ cs:
         customize_welcome_notification: Přizpůsobit uvítací oznámení
         default_locale: Výchozí jazyk
         description: Popis
+        enable_machine_translations: Povolit strojové překlady
         enable_omnipresent_banner: Zobrazit všudypřítomný banner
         enable_participatory_space_filters: Povolit filtry participačního prostoru
         facebook_handler: Facebook handler
@@ -813,7 +814,7 @@ cs:
         index:
           actions: Akce
           badge: Odznak
-          block: Zablokovat uživatele
+          block: Blokovat uživatele
           created_at: Vytvořeno na
           name: Název
           nickname: Přezdívka

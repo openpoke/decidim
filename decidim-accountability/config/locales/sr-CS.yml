@@ -43,6 +43,9 @@ sr:
       admin:
         exports:
           results: Rezultati
+        import_results:
+          new:
+            title: Uvezi rezultate iz CSV datoteke
         models:
           result:
             name: Rezultat
@@ -113,6 +116,8 @@ sr:
             other: "%{count} rezultata"
         filters:
           all: Sve
+        home:
+          subcategories_label: Pod kategorije
         home_header:
           global_status: Sveopšte stanje izvršenja
         nav_breadcrumb:

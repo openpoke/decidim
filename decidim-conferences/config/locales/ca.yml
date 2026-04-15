@@ -103,7 +103,7 @@ ca:
         new:
           copy: Copiar
           select: Selecciona quines dades vols duplicar
-          title: Jornada duplicada
+          title: Duplicar la jornada
       conference_publications:
         create:
           error: S'ha produït un error en publicar aquesta jornada.
@@ -420,6 +420,8 @@ ca:
           no_slots_available: No hi ha places disponibles
           registration: Inscripció
       conference_program:
+        program_item:
+          other_category: Altre
         show:
           program: Programa
       conference_registration_mailer:

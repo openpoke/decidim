@@ -209,10 +209,11 @@ ja:
           email_subject: '"%{resource_title}" ミーティングは登録を有効にしました．'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> のミーティングは登録を有効にしました。
         upcoming_meeting:
-          email_intro: '"%{resource_title}" のミーティングは48時間以内に開始されます．'
-          email_outro: '「%{resource_title}」ミーティングをフォローしているため、この通知を受け取りました．前のリンクからフォローを解除することができます．'
-          email_subject: '"%{resource_title}" のミーティングは48時間以内に開始されます．'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> のミーティングは48時間以内に開始されます．
+          default_body: '"{{meeting_title}}"ミーティングは、あと{{before_hours}}時間以内に開始されます。'
+          email_intro: '"%{resource_title}" ミーティングは、あと%{reminders_before_hours}時間以内に開始されます。'
+          email_outro: '"%{resource_title}"ミーティングをフォローしているため、この通知を受け取りました。フォローを解除するには、前のリンクから行ってください。'
+          email_subject: '"%{resource_title}"ミーティングは、%{reminders_before_hours}時間以内に開始されます。'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> ミーティングは、%{reminders_before_hours}時間以内に開始されます。
     forms:
       meetings:
         attendees_count_help_text: 対面、オンライン、ハイブリッドのどの形態でも、ミーティングの参加者の総数を含めることを忘れないでください。

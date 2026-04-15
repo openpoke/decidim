@@ -176,8 +176,8 @@ fi:
           success: Konferenssin päivitys onnistui.
       conferences_copies:
         create:
-          error: Konferenssin kopiointi epäonnistui.
-          success: Konferenssin kopiointi onnistui.
+          error: Konferenssin kopioiminen epäonnistui.
+          success: Konferenssin kopioiminen onnistui.
       media_links:
         create:
           error: Uuden medialinkin luonti epäonnistui.
@@ -420,6 +420,8 @@ fi:
           no_slots_available: Ei paikkoja vapaana
           registration: Ilmoittautuminen
       conference_program:
+        program_item:
+          other_category: Muut
         show:
           program: Ohjelma
       conference_registration_mailer:

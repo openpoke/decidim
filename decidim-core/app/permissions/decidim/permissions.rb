@@ -56,7 +56,6 @@ module Decidim
 
       return allow! if component.published?
       return allow! if user_can_preview_component?
-      return allow! if user_can_admin_component?
       return allow! if user_can_admin_component_via_space?
 
       disallow!
@@ -106,7 +105,19 @@ module Decidim
         return allow! if component.current_settings.amendment_creation_enabled
       when :accept,
           :reject
-        return allow! if component.current_settings.amendment_reaction_enabled
+        return disallow! unless component.current_settings.amendment_reaction_enabled
+
+        amendable = context.fetch(:amendable, nil)
+
+        if amendable.respond_to?(:official?) && amendable.official?
+          return allow! if user.admin?
+
+          return disallow!
+        end
+
+        return disallow! unless amendable.authored_by?(user)
+
+        return allow!
       when :promote
         return allow! if component.current_settings.amendment_promotion_enabled
       end
@@ -163,7 +174,7 @@ module Decidim
     end
 
     def user_can_preview_component?
-      return allow! if context[:share_token].present? && Decidim::ShareToken.use!(token_for: component, token: context[:share_token])
+      context[:share_token].present? && Decidim::ShareToken.use!(token_for: component, token: context[:share_token], user:)
     rescue ActiveRecord::RecordNotFound, StandardError
       nil
     end

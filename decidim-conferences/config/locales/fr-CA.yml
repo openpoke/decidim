@@ -176,7 +176,7 @@ fr-CA:
           success: Conférence mise à jour avec succès.
       conferences_copies:
         create:
-          error: Une erreur s'est produite lors de la duplication de cette conférence.
+          error: Un problème est survenu lors de la duplication de cette conférence.
           success: Conférence dupliquée avec succès.
       media_links:
         create:
@@ -420,6 +420,8 @@ fr-CA:
           no_slots_available: Il ne reste plus de place
           registration: Inscription
       conference_program:
+        program_item:
+          other_category: Autre
         show:
           program: Programme
       conference_registration_mailer:

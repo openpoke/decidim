@@ -7,6 +7,7 @@ sv:
         area_id: Område
         copy_categories: Kopiera kategorier
         copy_components: Kopiera komponenter
+        copy_landing_page_blocks: Kopiera elementen från landningssidan
         copy_steps: Kopiera steg
         decidim_area_id: Område
         description: Beskrivning
@@ -172,8 +173,8 @@ sv:
       participatory_process_copies:
         new:
           copy: Kopiera
-          select: Välj vilka data som du vill duplicera
-          title: Duplicera process
+          select: Välj vilken data du vill duplicera
+          title: Duplicera deltagarprocess
       participatory_process_groups:
         destroy:
           error: Det gick inte att radera dialoggruppen.
@@ -286,8 +287,8 @@ sv:
           success: Processen har uppdaterats.
       participatory_processes_copies:
         create:
-          error: Det gick inte att duplicera processen.
-          success: Processen har duplicerats.
+          error: Det gick inte att duplicera deltagarprocessen.
+          success: Deltagandeprocessen har duplicerats.
       participatory_processes_group:
         create:
           error: Det gick inte att skapa en ny grupp för processer.

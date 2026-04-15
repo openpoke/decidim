@@ -47,6 +47,9 @@ module Decidim::Meetings
     let(:scope_id) { scope.id }
     let(:category) { create(:category, participatory_space: participatory_process) }
     let(:category_id) { category.id }
+    let(:reminder_enabled) { true }
+    let(:send_reminders_before_hours) { 48 }
+    let(:reminder_message_custom_content) { { en: "Custom reminder message" } }
     let(:private_meeting) { false }
     let(:transparent) { true }
     let(:type_of_meeting) { "in_person" }
@@ -68,6 +71,9 @@ module Decidim::Meetings
         address:,
         start_time:,
         end_time:,
+        reminder_enabled:,
+        send_reminders_before_hours:,
+        reminder_message_custom_content:,
         private_meeting:,
         transparent:,
         services: services_attributes,
@@ -101,17 +107,31 @@ module Decidim::Meetings
       it { is_expected.not_to be_valid }
     end
 
-    describe "when location is missing and type of meeting is in_person" do
+    describe "address and location" do
       let(:type_of_meeting) { "in_person" }
-      let(:location) { { en: nil } }
 
-      it { is_expected.not_to be_valid }
-    end
+      context "when both location and address are blank" do
+        let(:address) { nil }
+        let(:location) { { "en" => "" } }
 
-    describe "when address is missing" do
-      let(:address) { nil }
+        it { is_expected.to be_valid }
+      end
 
-      it { is_expected.not_to be_valid }
+      context "when both location and address are present" do
+        it { is_expected.to be_valid }
+      end
+
+      context "when location is present but address is blank" do
+        let(:address) { nil }
+
+        it { is_expected.not_to be_valid }
+      end
+
+      context "when address is present but location is blank" do
+        let(:location) { { "en" => "" } }
+
+        it { is_expected.not_to be_valid }
+      end
     end
 
     describe "when start_time is missing" do
@@ -168,6 +188,38 @@ module Decidim::Meetings
       meeting = create(:meeting, component: current_component, category:)
 
       expect(described_class.from_model(meeting).decidim_category_id).to eq(category_id)
+    end
+
+    describe "when reminder_enabled is false" do
+      let(:reminder_enabled) { false }
+
+      it { is_expected.to be_valid }
+    end
+
+    describe "when reminder_enabled is true" do
+      context "and send_reminders_before_hours is missing" do
+        let(:send_reminders_before_hours) { nil }
+
+        it { is_expected.not_to be_valid }
+      end
+
+      context "and send_reminders_before_hours is present" do
+        let(:send_reminders_before_hours) { 50 }
+
+        it { is_expected.to be_valid }
+      end
+
+      context "and send_reminders_before_hours is not valid" do
+        let(:send_reminders_before_hours) { -1 }
+
+        it { is_expected.not_to be_valid }
+      end
+
+      context "and reminder_message_custom_content is missing" do
+        let(:reminder_message_custom_content) { nil }
+
+        it { is_expected.to be_valid }
+      end
     end
 
     describe "services_to_persist" do

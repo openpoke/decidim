@@ -7,6 +7,7 @@ ca-IT:
         area_id: Àrea
         copy_categories: Copiar les categories
         copy_components: Copiar els components
+        copy_landing_page_blocks: Duplicar els blocs de contingut de la pàgina d'inici
         copy_steps: Copiar les fases
         decidim_area_id: Àrea
         description: Descripció
@@ -173,7 +174,7 @@ ca-IT:
         new:
           copy: Còpia
           select: Selecciona quines dades vols duplicar
-          title: Duplica procés participatiu
+          title: Duplicar el procés participatiu
       participatory_process_groups:
         destroy:
           error: Hi ha hagut un error eliminant aquest grup de processos participatius.
@@ -286,7 +287,7 @@ ca-IT:
           success: El procés participatiu s'ha actualitzat correctament.
       participatory_processes_copies:
         create:
-          error: S'ha produït un error en duplicar el procés participatiu.
+          error: S'ha produït un error en duplicar aquest procés participatiu.
           success: El procés participatiu ha estat duplicat correctament.
       participatory_processes_group:
         create:

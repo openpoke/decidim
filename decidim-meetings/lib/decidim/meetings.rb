@@ -32,6 +32,10 @@ module Decidim
     config_accessor :embeddable_services do
       %w(www.youtube.com www.twitch.tv meet.jit.si)
     end
+
+    config_accessor :waiting_list_enabled do
+      Decidim::Env.new("MEETINGS_WAITING_LIST_ENABLED", true).present?
+    end
   end
 
   module ContentParsers

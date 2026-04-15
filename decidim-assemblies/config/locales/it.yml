@@ -68,7 +68,7 @@ it:
         gender: Genere
         non_user_avatar: Avatar
         position: Posizione
-        user_id: Utente
+        user_id: Utente o gruppo
         weight: Posizione nell'elenco
       assembly_user_role:
         email: E-mail
@@ -96,6 +96,7 @@ it:
       actions:
         import_assembly: Importa
         new_assembly: Nuova assemblea
+        new_assembly_member: Nuovo membro dell'assemblea
         new_assembly_type: Nuovo tipo di assemblea
         new_assembly_user_role: Nuovo amministratore dello spazio
       assemblies:
@@ -115,10 +116,6 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa assemblea.
           success: L'assemblea è stata aggiornata correttamente.
-      assemblies_copies:
-        create:
-          error: Si è verificato un errore durante la duplicazione di questa assemblea.
-          success: L'assemblea è stata duplicata con successo.
       assemblies_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di assemblea.
@@ -134,8 +131,6 @@ it:
       assembly_copies:
         new:
           copy: Copia
-          select: Scegli quale dato vuoi duplicare
-          title: Duplica l'assemblea
       assembly_imports:
         create:
           error: Si è verificato un errore durante l'aggiornamento di questa assemblea.
@@ -151,11 +146,13 @@ it:
         destroy:
           success: Membro cancellato con successo per questa assemblea.
         edit:
+          title: Aggiorna membro dell'assemblea
           update: Aggiorna
         index:
           assembly_members_title: Membri dell'Assemblea
         new:
           create: Crea
+          title: Nuovo membro dell'assemblea
         update:
           error: Si è verificato un errore durante l'aggiornamento del membro per questa assemblea.
           success: Membro aggiornato correttamente per questa assemblea.
@@ -165,7 +162,7 @@ it:
           success: L'Assemblea è stata pubblicata con successo.
         destroy:
           error: Si è verificato un errore durante la pubblicazione di questo assembly.
-          success: Assemblea cancellata con successo.
+          success: Assemblea non pubblicata con successo.
       assembly_user_roles:
         create:
           error: Si è verificato un errore durante l'aggiunta di un utente per questa assemblea.
@@ -173,7 +170,7 @@ it:
         destroy:
           success: Utente rimosso con successo da questa assemblea.
         edit:
-          title: Aggiorna gli amministratori dello spazio
+          title: Aggiorna gli amministratori dell'assemblea
           update: Aggiorna
         index:
           assembly_admins_title: Amministratori dell'assemblea
@@ -185,7 +182,9 @@ it:
           success: Admin aggiornato correttamente per questa assemblea.
       filters:
         ceased_date_not_null:
+          label: Concluso
           values:
+            'false': Non concluso
             'true': Conclusq
         decidim_assemblies_type_id_eq:
           label: Tipo di assemblea
@@ -202,7 +201,7 @@ it:
           categories: Categorie
           components: Componenti
           info: Info su questo spazio
-          landing_page: Pagina iniziale
+          landing_page: Pagina di atterraggio
           moderations: Moderazione
           private_users: Partecipanti privati
           see_assembly: Guarda l'assemblea
@@ -230,7 +229,7 @@ it:
           name: Membro
           positions:
             other: Altro
-            president: Presidentessa/Presidente
+            president: Presidente
             secretary: Segretario
             vice_president: Vicepresidente
         assembly_user_role:
@@ -306,7 +305,7 @@ it:
             existing_user: Utente esistente
             explanation: 'Guida per l''immagine:'
             image_guide: È preferibile un'immagine verticale priva di testo.
-            non_user: Non utente
+            non_user: Non partecipante
             non_user_avatar_help: Si dovrebbe ottenere il consenso delle persone prima di renderle pubbliche come membri dell'assemblea.
             select_a_position: Seleziona una posizione
             select_user: Seleziona un utente
@@ -402,6 +401,7 @@ it:
       assemblies:
         create_assembly_member:
           email_intro: Un amministratore dell'assemblea <a href="%{resource_url}">%{resource_name}</a> ti ha aggiunto come membro.
+          email_outro: Hai ricevuto questa notifica perché sei stato invitato in un assemblea. Controlla la pagina <a href="%{resource_url}">assembly</a> per contribuire!
           email_subject: Hai ricevuto un invito a far parte dell'Assemblea %{resource_name}!
           notification_title: Sei stato registrato come membro dell'Assemblea <a href="%{resource_path}">%{resource_name}</a>. Controlla la <a href="%{resource_path}">pagina dell'assemblea</a> per contribuire!
       assembly:
@@ -442,6 +442,10 @@ it:
           take_part: Partecipa
         index:
           promoted_assemblies: Assemblee in evidenza
+        metadata:
+          children_item:
+            one: "%{count} assemblee"
+            other: "%{count} assemblee"
         order_by_assemblies:
           assemblies:
             one: "%{count} assemblee"
