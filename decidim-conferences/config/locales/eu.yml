@@ -102,7 +102,7 @@ eu:
         new:
           duplicate: Bikoiztu
           select: Hautatu zein datu bikoiztu nahi dituzun
-          title: Bikoiztu jardunaldia
+          title: Jardunaldia bikoiztu
       conference_publications:
         create:
           error: Arazo bat egon da jardunaldi hau argitaratzean.
@@ -121,7 +121,7 @@ eu:
         destroy:
           success: Hizlaria behar bezala ezabatua.
         edit:
-          title: Eguneratu jardunaldiaren hizlaria
+          title: Jardunaldiaren hizlaria eguneratu
           update: Eguneratu
         index:
           conference_speakers_title: Jardunaldiaren hizlariak
@@ -144,7 +144,7 @@ eu:
         destroy:
           success: Jardunaldiren administratzailea behar bezala ezabatua.
         edit:
-          title: Eguneratu jardunaldiaren hizlaria
+          title: Jardunaldiaren administratzailea eguneartu
           update: Eguneratu
         index:
           conference_admins_title: Jardunaldi-administratzaileak
@@ -192,7 +192,7 @@ eu:
         destroy:
           success: Multimediaren esteka behar bezala ezabatua.
         edit:
-          title: Eguneratu hedabideen lotura
+          title: Eguneratu hedabideen esteka
           update: Eguneratu
         index:
           media_links_title: Hedabideen loturak
@@ -281,7 +281,7 @@ eu:
         destroy:
           success: Kidea behar bezala kenduta.
         edit:
-          title: Eguneratu kidea
+          title: Kidea eguneratu
           update: Eguneratu
         new:
           create: Sortu
@@ -303,7 +303,7 @@ eu:
         destroy:
           success: Izen-emate mota jardunaldi honetatik atera da.
         edit:
-          title: Eguneratu erregistro mota
+          title: Erregistro mota eguneratu
           update: Eguneratu
         new:
           create: Sortu
@@ -450,13 +450,13 @@ eu:
           program: Egitaraua
       conference_registration_mailer:
         confirmation:
-          confirmed_html: Zure jardunaldirako izena emateko <a href="%{url}">%{title}</a> baieztatu da.
+          confirmed_html: Zure jardunaldirako izena ematea <a href="%{url}">%{title}</a> baieztatu da.
           details_1: '%{registration_type} motako jardunaldian erregistratuta zaude. %{price} kostua dauka eta ondorengo ekitaldietara jo dezakezu:'
           details_2: Jardunaldiaren xehetasunak eranskinean aurkituko dituzu.
         pending_validation:
           confirmation_pending: Berrespena jasoko duzu laster
           details: '%{registration_type} motako %{price} tasan erregistratu zara, eta gertaera hauei erantzun diezaiekezu:'
-          pending_html: <a href="%{url}">%{title}</a> jardunaldirako zure izen-ematea zain dago berresteko.
+          pending_html: <a href="%{url}">%{title}</a> jardunaldirako zure izen-ematea berresteko zain dago.
       conference_registrations:
         create:
           invalid: Arazo bat egon da jardunaldi honetara lotzean.
@@ -509,7 +509,7 @@ eu:
           confirmation:
             subject: Zure erregistroa jardunaldian baieztatu da.
           pending_validation:
-            subject: Zure erregistroa jardunaldian baieztatzearen zain dago.
+            subject: Jardunaldirako izen-ematea ez dago baieztatuta.
         invite_join_conference_mailer:
           invite:
             subject: Jardunaldi baterako gonbidapena
