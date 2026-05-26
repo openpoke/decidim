@@ -134,6 +134,7 @@ coauthorabledummy
 cobertura
 codecov
 codefor
+codespace
 CODEOWNERS
 codeql
 coditramuntana
@@ -218,6 +219,7 @@ doesnot
 doggotrainer
 Dokku
 Dota
+dotfiles
 douban
 downvoted
 downvotes
@@ -529,6 +531,7 @@ minuscat
 misogi
 mlat
 mlon
+moby
 Mobi
 modals
 modernizrrc
@@ -655,6 +658,7 @@ pgp
 PGVERSION
 Phargo
 phoe
+pids
 pinterest
 Placeholdit
 plantuml
