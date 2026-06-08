@@ -64,7 +64,9 @@ module Decidim
       end
 
       def set_current_locale(&)
-        I18n.with_locale(session[:user_locale], &)
+        locale = detect_locale
+        locale = default_locale unless available_locales.include?(locale)
+        I18n.with_locale(locale, &)
       end
     end
   end

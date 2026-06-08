@@ -95,6 +95,7 @@ breadcrumb
 browserstack
 bugfixing
 busques
+Butlletins
 byebug
 bytesize
 cacatua
