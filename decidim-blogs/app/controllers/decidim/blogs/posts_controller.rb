@@ -6,7 +6,9 @@ module Decidim
     class PostsController < Decidim::Blogs::ApplicationController
       include Flaggable
       include Paginable
+      include FilterResource
       include Decidim::IconHelper
+      include Decidim::Blogs::Orderable
 
       helper Decidim::Blogs::PostsSelectHelper
       include Decidim::FormFactory
@@ -78,10 +80,6 @@ module Decidim
 
       private
 
-      def paginate_posts
-        @paginate_posts ||= paginate(posts.created_at_desc)
-      end
-
       def post
         @post ||= posts.find(params[:id])
       end
@@ -92,9 +90,9 @@ module Decidim
 
       def posts
         @posts ||= if current_user&.admin?
-                     Post.where(component: current_component).published_at_desc
+                     Post.where(component: current_component)
                    else
-                     Post.published.where(component: current_component).published_at_desc
+                     Post.published.where(component: current_component)
                    end
       end
 
