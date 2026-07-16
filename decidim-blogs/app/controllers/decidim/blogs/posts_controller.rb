@@ -89,11 +89,7 @@ module Decidim
       end
 
       def posts
-        @posts ||= if current_user&.admin?
-                     Post.where(component: current_component)
-                   else
-                     Post.published.where(component: current_component)
-                   end
+        @posts ||= search.result
       end
 
       # PROVISIONAL if we implement counter cache
@@ -101,6 +97,18 @@ module Decidim
         @posts_most_commented ||= posts.joins(:comments).group(:id)
                                        .select("count(decidim_comments_comments.id) as counter")
                                        .select("decidim_blogs_posts.*").order("counter DESC").published_at_desc.limit(7)
+      end
+
+      def search_collection
+        if current_user&.admin?
+          Post.where(component: current_component)
+        else
+          Post.published.where(component: current_component)
+        end
+      end
+
+      def default_filter_params
+        { search_text_cont: "", with_any_taxonomies: nil }
       end
     end
   end
