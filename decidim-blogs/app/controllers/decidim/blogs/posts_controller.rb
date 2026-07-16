@@ -6,7 +6,9 @@ module Decidim
     class PostsController < Decidim::Blogs::ApplicationController
       include Flaggable
       include Paginable
+      include FilterResource
       include Decidim::IconHelper
+      include Decidim::Blogs::Orderable
 
       helper Decidim::Blogs::PostsSelectHelper
       include Decidim::FormFactory
@@ -78,10 +80,6 @@ module Decidim
 
       private
 
-      def paginate_posts
-        @paginate_posts ||= paginate(posts.created_at_desc)
-      end
-
       def post
         @post ||= posts.find(params[:id])
       end
@@ -91,11 +89,7 @@ module Decidim
       end
 
       def posts
-        @posts ||= if current_user&.admin?
-                     Post.where(component: current_component).published_at_desc
-                   else
-                     Post.published.where(component: current_component).published_at_desc
-                   end
+        @posts ||= search.result
       end
 
       # PROVISIONAL if we implement counter cache
@@ -103,6 +97,18 @@ module Decidim
         @posts_most_commented ||= posts.joins(:comments).group(:id)
                                        .select("count(decidim_comments_comments.id) as counter")
                                        .select("decidim_blogs_posts.*").order("counter DESC").published_at_desc.limit(7)
+      end
+
+      def search_collection
+        if current_user&.admin?
+          Post.where(component: current_component)
+        else
+          Post.published.where(component: current_component)
+        end
+      end
+
+      def default_filter_params
+        { search_text_cont: "", with_any_taxonomies: nil }
       end
     end
   end
