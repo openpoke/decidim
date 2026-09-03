@@ -164,7 +164,7 @@ eu:
             save_and_invite: Sortu antolatzailea eta gonbidatu administratzailea
           fields:
             content_security_policy: Edukien segurtasun-politika
-            created_at: Tan sortua
+            created_at: Noiz sortua
             file_upload_settings: Fitxategiak igotzearen doikuntzak
             name: Izena
             omniauth_settings: Omniauth doikuntzak
@@ -241,7 +241,6 @@ eu:
           default_src_hint: |
             Default-src kanpoko eduki osorako konbentzio lehenetsia da, hala nola, JavaScript, irudiak, CSS, iturriak, dei asinkronikoak, markoak eta multimedia fitxategiak HTML5.
             Plataformak "'self' 'unsafe-inline'" erantsiko du, baina gehiago gehitzeko aukera duzu. Utzi zuriz, ziur ez bazaude.
-
           font_src: Font src
           font_src_hint: |
             font-src ereduko direktibak using @font-face erabiliz kargatu daitezkeen URLak murrizten ditu.

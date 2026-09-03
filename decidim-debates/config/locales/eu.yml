@@ -9,7 +9,7 @@ eu:
         end_time: Bukaera-data
         information_updates: Informazioaren eguneratzeak
         instructions: Parte hartzeko argibideak
-        start_time: Hasi da
+        start_time: Hasiera-data
         title: Izenburua
     models:
       decidim/debates/close_debate_event: Eztabaida itxita
@@ -41,7 +41,7 @@ eu:
             attachments_allowed: Baimendu eranskinak
             clear_all: Garbitu dena
             comments_enabled: Iruzkinak gaituta
-            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako konfigurazioari eutsi nahi badiozu)
+            comments_max_length: Iruzkin bakoitzeko gehieneko karaktereak (utzi 0 aurrez zehaztutako baliorako)
             define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu partaidetza-espazioa honetarako iragazki batzuk.
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             taxonomy_filters: Hautatu iragazkiak osagairako
@@ -76,12 +76,13 @@ eu:
           form:
             add_attachments: Gehitu eranskinak
             attachment_legend: Gehitu dokumentu bat edo irudi bat
+            comments_layout_locked_warning: Iruzkinen formatoa ezin da aldatu iruzkinak argitaratu direlako.
             comments_visualization: Iruzkinak bistaratzea
             comments_warning: Lehen iruzkina argitaratu ondoren, ezin da aldatu aukeratutako bistaratze-aukera.
             debate_type: Eztabaida mota
             edit_attachments: Eranskinak editatu
             errors:
-              comments_layout_locked: Iruzkinen planoa ezin da aldatu iruzkinak argitaratu ondoren.
+              comments_layout_locked: Iruzkinen formatoa ezin da aldatu iruzkin batzuk argitaratu direlako.
             finite: Amaiera (hasiera- eta amaiera-ordua)
             open: Zabalik (ez dago hasiera- edo amaiera-ordurik)
             single_column: 'Zutabe bakarra: iruzkinak hurrenkera kronologikoan agertzen dira eta erantzunak izan ditzakete.'
@@ -95,7 +96,7 @@ eu:
             title: Beste eztabaida bat
           update:
             invalid: Arazo bat egon da eztabaida hau eguneratzean.
-            success: Debate arrakastaz eguneratu da.
+            success: Eztabaida zuzen eguneratu da.
         exports:
           debate_comments: Iruzkinak
           debates: Eztabaidak
@@ -126,7 +127,7 @@ eu:
             other: "%{count} eztabaida"
         create:
           invalid: Arazo bat egon da eztabaida sortzean.
-          success: Debate sortu da behar bezala.
+          success: Eztabaida zuzen eguneratu da.
         debates:
           empty: Oraindik ez dago eztabaidarik.
           empty_filters: Ez dago irizpide hau duen eztabaidarik.
@@ -138,7 +139,7 @@ eu:
           activity: Nire jarduera
           all: Guztiak
           category: Kategoria
-          category_prompt: Kategoria bat aukeratu
+          category_prompt: Hautatu kategoria bat
           commented: Iruzkina eginda
           my_debates: Nire eztabaidak
           official: Ofiziala
@@ -176,15 +177,15 @@ eu:
           success: Eztabaida zuzen eguneratu da.
       last_activity:
         debate_updated: 'Eztabaida eguneratu da:'
-        new_debate: 'Eztabaida berria:'
+        new_debate: 'Beste eztabaida bat:'
       models:
         debate:
           fields:
             end: Amaiera
-            end_time: Amaiera data
-            official_debate: Ofizial eztabaida
+            end_time: Amaiera-data
+            official_debate: Eztabaida ofiziala
             start: Hasi
-            start_time: Hasiera data
+            start_time: Hasiera-data
             taxonomies: Taxonomiak
             title: Izenburua
     download_your_data:
@@ -205,8 +206,8 @@ eu:
             email_intro: |-
               Kaixo,
               Jarraitzen ari zaren %{author_name} %{author_nickname} parte-hartzaileak "%{resource_title}" beste eztabaida bat sortu du. Sartu eztabaidan eta zure ekarpena egin:
-            email_outro: Jakinarazpena jaso duzu %{author_nickname} jarraitzen ari zarelako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
-            email_subject: '%{author_nickname} parte-hartzaileak beste eztabaida bat sortu du hemen: "%{resource_title}"'
+            email_outro: Jakinarazpen hau jaso duzu %{author_name} jarraitzen ari zarelako. Aurreko estekan jarraitzeari utzi ahal diozu.
+            email_subject: '%{author_name} parte-hartzaileak beste eztabaida bat sortu du hemen: "%{resource_title}"'
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> parte-hartzaileak <a href="%{resource_path}">%{resource_title}</a> eztabaida sortu du.
         creation_disabled:
           email_intro: 'Eztabaida sortzea dagoeneko ez dago aktibo %{participatory_space_title}. Oraindik irekita dauden eztabaidetan parte har dezakezu orri honetatik:'

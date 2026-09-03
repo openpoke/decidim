@@ -126,7 +126,7 @@ describe "Respond a survey" do
   context "when the survey requires permissions to be responded" do
     before do
       permissions = {
-        response: {
+        respond: {
           authorization_handlers: {
             "dummy_authorization_handler" => { "options" => {} }
           }
@@ -143,6 +143,42 @@ describe "Respond a survey" do
 
     it "shows a page" do
       expect(page).to have_content("Authorization required")
+    end
+  end
+
+  context "when the survey requires an ephemeral authorization to be responded" do
+    let!(:organization) do
+      create(:organization, available_authorizations: %w(ephemeral_dummy_authorization_handler dummy_authorization_handler))
+    end
+
+    before do
+      permissions = {
+        respond: {
+          authorization_handlers: {
+            "ephemeral_dummy_authorization_handler" => { "options" => { "allowed_postal_codes" => "1234, 4567" } }
+          }
+        }
+      }
+
+      component.update!(permissions:)
+      survey.update!(allow_responses: true, starts_at: 1.week.ago, ends_at: 1.day.from_now)
+      visit_component
+      choose "All"
+      click_on translated_attribute(questionnaire.title)
+    end
+
+    it "renders the inline authorization page with a verification call to action" do
+      expect(page).to have_text("Authorization required")
+      expect(page).to have_link(text: /Authorize with/)
+    end
+
+    it "lets an unregistered user verify their identity without signing in" do
+      expect do
+        click_on "Authorize with \"Ephemeral example authorization\""
+      end.to change { Decidim::User.ephemeral.count }.by(1)
+
+      expect(page).to have_css("h1", text: "Verify with Ephemeral example authorization")
+      expect(page).to have_no_css("#loginModal", visible: :visible)
     end
   end
 
@@ -196,6 +232,42 @@ describe "Respond a survey" do
 
       context "when displaying question description" do
         it_behaves_like "has embedded video in description", :question_description
+      end
+    end
+
+    context "when the survey allows to edit responses, and question has display conditions" do
+      let!(:question_two) do
+        create(:questionnaire_question,
+               questionnaire:,
+               question_type: "short_response",
+               position: 1,
+               options: [])
+      end
+      let!(:display_condition) do
+        create(:display_condition,
+               condition_type: "not_responded",
+               question: question_two,
+               condition_question: question)
+      end
+
+      before do
+        survey.update!(
+          allow_responses: true,
+          allow_editing_responses: true
+        )
+        login_as user, scope: :user
+        visit_component
+        click_on translated_attribute(questionnaire.title)
+        fill_in "questionnaire_responses_0", with: "test"
+        check "questionnaire_tos_agreement"
+        click_on "Submit"
+        expect(page).to have_css(".flash", text: "Survey successfully responded.")
+      end
+
+      it "allows to edit the responses" do
+        click_on "Edit your responses"
+        expect(page).to have_content(translated_attribute(survey.title))
+        expect(page).to have_content(translated_attribute(question.body))
       end
     end
   end

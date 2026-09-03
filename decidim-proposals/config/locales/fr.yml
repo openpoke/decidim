@@ -63,10 +63,8 @@ fr:
               allowed_file_content_types: 'Type de document invalide. Seuls les fichiers avec les extensions suivantes sont autorisés : %{types}'
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Doit être téléchargé de nouveau
-            add_photos:
-              needs_to_be_reattached: Doit être téléchargé de nouveau
+            add_attachments:
+              needs_to_be_reattached: Doit être ré-attachée
             body:
               cant_be_equal_to_template: ne peut pas être égal au modèle
               identical: ET le titre ne peut pas être identique
@@ -125,9 +123,9 @@ fr:
               'false': Propositions
               'true': Amendements
           proposal_state_id_eq:
-            label: État
+            label: État 
           state_eq:
-            label: État
+            label: État 
             values:
               accepted: Acceptée
               evaluating: En cours d'évaluation
@@ -176,7 +174,7 @@ fr:
             collaborative_drafts_enabled: Brouillons collaboratifs activés
             collaborative_drafts_enabled_help: La fonctionnalité « Brouillons collaboratifs » sera supprimée dans Decidim v0.32. Les organisations qui l’utilisent peuvent passer à la nouvelle fonctionnalité de co-auteur de proposition.
             comments_enabled: Activer le module de commentaire
-            comments_max_length: Longueur maximum (en caractères) des commentaires (laisser 0 pour la valeur par défaut)
+            comments_max_length: Nombre maximum de caractères par commentaire (Laisser 0 pour la valeur par défaut)
             default_sort_order: Tri des propositions par défaut
             default_sort_order_help: Automatique signifie que si les votes sont activés, les propositions seront affichées par ordre aléatoire, et si les votes sont bloqués, elles seront triées par ordre décroissant des votes.
             default_sort_order_options:
@@ -275,17 +273,13 @@ fr:
             email_intro: '%{author_name} a créé une note privée dans %{resource_title}. Consultez-la sur <a href="%{admin_proposal_info_url}">le panneau d''administration</a>.'
             email_outro: Vous avez reçu cette notification parce que vous pouvez évaluer la proposition.
             email_subject: Quelqu'un a laissé une note sur la proposition %{resource_title}.
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a créé une note privée dans <a href="%{resource_path}">%{resource_title}</a>. Consultez-la sur <a href="%{admin_proposal_info_path}">le panneau d'administration</a>.
           proposal_note_mentioned:
-            email_intro: Vous avez été mentionné(e) dans une note privée dans «%{resource_title}» par «%{author_name}» «%{author_nickname}». Jetez-y un coup d'œil dans <a href="%{admin_proposal_info_url}">le panneau d'administration</a>.
             email_outro: Vous avez reçu cette notification parce que vous avez été mentionné(e) dans une note privée.
             email_subject: Quelqu'un vous a mentionné(e) dans une note sur la proposition %{resource_title}.
-            notification_title: Vous avez été mentionné(e) dans une note privée dans <a href="%{resource_path}">%{resource_title}</a> par <a href="%{author_path}">%{author_name} %{author_nickname}</a>. Jetez-y un coup d'œil dans <a href="%{admin_proposal_info_path}">le panneau d'administration</a>.
           proposal_note_replied:
             email_intro: '%{author_name} a répondu à votre note privée dans %{resource_title}. Consultez-la sur <a href="%{admin_proposal_info_url}">le panneau d''administration</a>.'
             email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur/autrice de la note.
             email_subject: "%{author_name} a répondu à votre note privée dans %{resource_title}."
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a répondu à votre note privée dans <a href="%{resource_path}">%{resource_title}</a>. Consultez-la sur <a href="%{admin_proposal_info_path}">le panneau d'administration</a>.
         coauthor_accepted_invite:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> a accepté votre invitation à devenir co-auteur de la proposition <a href="%{resource_path}">%{resource_title}</a>.
         coauthor_invited:
@@ -302,17 +296,14 @@ fr:
           email_intro: '%{requester_name} a été accepté en tant que contributeur du brouillon collaboratif <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_url}">%{resource_title}</a>. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: "%{requester_name} a été accepté pour accéder en tant que contributeur du %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a été <strong>admis à l' accès en tant que contributeur</strong> du <a href="%{resource_path}">%{resource_title}</a> projet de collaboration.
         collaborative_draft_access_rejected:
           email_intro: '%{requester_name} a été refusé d''accès en tant que contributeur du brouillpn collaboratif <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_url}">%{resource_title}</a>. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: "%{requester_name} a été rejetée pour accéder en tant que contributeur du %{resource_title} projet de collaboration."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a été <strong>rejeté pour accéder en tant que contributeur</strong> du <a href="%{resource_path}">%{resource_title}</a> projet de collaboration.
         collaborative_draft_access_requested:
           email_intro: '%{requester_name} a demandé à contribuer au brouillon. Vous pouvez <strong>accepter ou rejeter la demande</strong> depuis la page du brouillon collaboratif <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_url}">%{resource_title}</a>. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: "%{requester_name} demandé un accès pour contribuer à %{resource_title}."
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> demandé un accès pour contribuer au projet de collaboration <a href="%{resource_path}">%{resource_title}</a> . S'il vous plaît <strong>accepter ou rejeter la demande</strong>.
         collaborative_draft_access_requester_accepted:
           email_intro: Vous avez été accepté pour accéder en tant que contributeur du brouillon collaboratif <a href="%{resource_url}">%{resource_title}</a>.
           email_outro: Vous avez reçu cette notification car vous avez demandé à devenir contributeur de <a href="%{resource_url}">%{resource_title}</a>. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
@@ -324,10 +315,7 @@ fr:
           email_subject: Vous avez été rejeté en tant que contributeur de %{resource_title}.
           notification_title: Vous avez été <strong>rejeté pour accéder en tant que contributeur</strong> du <a href="%{resource_path}">%{resource_title}</a> projet de collaboration.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> a retiré le brouillon collaboratif <a href="%{resource_url}">%{resource_title}</a>.
           email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_url}">%{resource_title}</a>. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
-          email_subject: "%{author_name} %{author_nickname} retiré le %{resource_title} projet de collaboration."
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>retiré</strong> le <a href="%{resource_path}">%{resource_title}</a> projet de collaboration.
         creation_enabled:
           email_intro: 'Vous pouvez maintenant créer de nouvelles propositions dans %{participatory_space_title} ! Commencez à participer sur cette page :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
@@ -347,10 +335,7 @@ fr:
           email_subject: La proposition %{resource_title} a été fusionnée
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été fusionnée par un administrateur.
         proposal_published:
-          email_intro: '%{author_name} %{author_nickname}, que vous suivez, a publié une nouvelle proposition appelée "%{resource_title}". Découvrez-le et contribuez:'
-          email_outro: Vous avez reçu cette notification car vous suivez %{author_nickname}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
-          email_subject: Nouvelle proposition "%{resource_title}" par %{author_nickname}
-          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été publiée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          email_subject: Nouvelle proposition "%{resource_title}" par %{author_name}
         proposal_published_for_space:
           email_intro: La proposition "%{resource_title}" a été publiée dans "%{participatory_space_title}" que vous suivez.
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
@@ -412,14 +397,21 @@ fr:
           unearned_own: Vous n'avez créé aucune proposition pour le moment.
     open_data:
       help:
+        proposal_comments:
+          id: L'identifiant de ce commentaire
+          locale: Les paramètres régionaux (langue) du participant au moment où il a laissé ce commentaire
+          root_commentable_url: L'URL de la ressource associée à ce commentaire
         proposals:
+          answered_at: Date à laquelle cette proposition a reçu une réponse
           coauthorships_count: Le nombre de coauteurs que la proposition représente
+          comments: Le nombre de commentaires sur cette proposition
           cost: Le coût total de la proposition en question
           cost_report: Un rapport sur les coûts de la proposition
           created_at: La date de création de la proposition
           created_in_meeting: Si la proposition a été créée dans une réunion
           execution_period: La période à laquelle la proposition s'est déroulée du début à la fin
           follows_count: Le nombre de personnes qui suivent cette proposition
+          id: L'identifiant unique de la proposition
           state_published_at: Un horodatage de l'état de la proposition lorsqu'elle est publiée
           updated_at: La date de la dernière mise à jour de la proposition
     participatory_spaces:
@@ -591,6 +583,7 @@ fr:
             number_of_proposals: Les réponses de %{number} propositions seront publiées ?
             select_a_proposal: Veuillez sélectionner une proposition.
           show:
+            address: Adresse
             amendments_count: Nombre d'amendements
             assigned_evaluators: Évaluateurs assignés
             body: Corps
@@ -772,6 +765,7 @@ fr:
         errors:
           device_not_supported: Votre appareil ne prend pas en charge les services de localisation. Veuillez entrer l'adresse manuellement.
           no_device_location: Désolé, nous n'avons pas pu détecter votre position. Veuillez entrer l'adresse manuellement.
+        locating: Localisation en cours...
         use_my_location: Utiliser ma position actuelle
       invite_coauthors:
         cancel:
@@ -801,6 +795,7 @@ fr:
             published_answer: Réponse publiée
             published_at: Publiée à
             state: État
+            taxonomies: Taxonomies
             title: Titre
             votes: Votes
         proposal_state:
@@ -915,6 +910,7 @@ fr:
           maximum_votes_reached: Nombre maximum de votes atteint
           no_votes_remaining: Aucun vote restant
           vote: Soutenir
+          votes_blocked: Voter
         votes_count:
           count:
             one: Vote

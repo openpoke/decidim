@@ -421,10 +421,6 @@ pt-BR:
       withdraw:
         error: Houve um problema ao retirar a emenda.
         success: A emenda foi retirada com sucesso.
-      wizard_step_form:
-        steps:
-          '1': Crie sua emenda
-          '2': Publique sua emenda
     anonymous_user: Anônimo
     application:
       document:
@@ -557,7 +553,6 @@ pt-BR:
           global:
             amendments_enabled: Alterações ativadas
             comments_enabled: Comentários ativados
-            comments_max_length: Comprimento máximo de comentários
             define_taxonomy_filters: Por favor, defina alguns filtros para este espaço participativo antes de usar esta configuração.
             dummy_global_attribute1: Dummy Atributo 1
             dummy_global_attribute2: Dummy Attribute 2
@@ -880,13 +875,9 @@ pt-BR:
           affected_user:
             email_intro: 'Uma emendação foi aceita para %{amendable_title}. Você pode ver a partir desta página:'
             email_outro: Você recebeu esta notificação porque é um autor de %{amendable_title}.
-            email_subject: Uma emenda aceita para %{amendable_title} partir de %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">alteração</a> criado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> tem sido aceite para <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Uma emendação foi aceita para %{amendable_title}. Você pode ver a partir desta página:'
             email_outro: Você recebeu esta notificação porque está seguindo %{amendable_title}. Você pode parar de receber notificações após o link anterior.
-            email_subject: Uma emenda aceita para %{amendable_title} partir de %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">alteração</a> criado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> tem sido aceite para <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Uma nova emendação foi criada para %{amendable_title}. Você pode ver a partir desta página:'
@@ -902,29 +893,20 @@ pt-BR:
           affected_user:
             email_intro: 'Uma emenda rejeitada por %{amendable_title} foi promovida a um independente %{amendable_type}. Você pode ver a partir desta página:'
             email_outro: Você recebeu esta notificação porque é um autor de %{amendable_title}.
-            email_subject: Uma emenda de %{emendation_author_nickname} foi publicada como um novo %{amendable_type}
-            notification_title: Um <a href="%{emendation_path}">rejeitado alteração</a> para <a href="%{amendable_path}">%{amendable_title}</a> foi publicado como uma nova %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Uma emenda rejeitada por %{amendable_title} foi promovida a um independente %{amendable_type}. Você pode ver a partir desta página:'
             email_outro: Você recebeu esta notificação porque está seguindo %{amendable_title}. Você pode parar de receber notificações após o link anterior.
-            email_subject: Uma emenda de %{emendation_author_nickname} foi publicada como um novo %{amendable_type}
-            notification_title: Um <a href="%{emendation_path}">rejeitado alteração</a> para <a href="%{amendable_path}">%{amendable_title}</a> foi publicado como uma nova %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Uma emenda foi rejeitada por %{amendable_title}. Você pode ver a partir desta página:'
             email_outro: Você recebeu esta notificação porque é um autor de %{amendable_title}.
-            email_subject: Uma alteração rejeitada por %{amendable_title} %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">alteração</a> criado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi rejeitado por <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Uma emenda foi rejeitada por %{amendable_title}. Você pode ver a partir desta página:'
             email_outro: Você recebeu esta notificação porque está seguindo %{amendable_title}. Você pode parar de receber notificações após o link anterior.
-            email_subject: Uma alteração rejeitada por %{amendable_title} %{emendation_author_nickname}
-            notification_title: A <a href="%{emendation_path}">alteração</a> criado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> foi rejeitado por <a href="%{amendable_path}">%{amendable_title}</a>.
         emendation_promoted:
           follower:
             email_intro: 'Uma emenda foi publicada para %{amendable_title}. Você pode ver a partir desta página:'
             email_outro: Você recebeu essa notificação porque você é autor de %{amendable_title}.
-            email_subject: Uma emenda de %{emendation_author_nickname} foi publicada como um novo %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'Um novo documento foi adicionado a %{resource_title}. Você pode vê-lo a partir desta página:'
@@ -964,8 +946,8 @@ pt-BR:
           email_outro: Você recebeu está notificação porque você é autor do %{resource_type} afetado.
           email_subject: Seu %{resource_type} não está mais visível
           notification_title: |-
-            Seu %{resource_type} não está mais visível. <br> 
-             Isso aconteceu porque a proposta, reunião, debate ou comentário que você respondeu foi moderado. Se voltar a ficar disponível, o seu comentário será restaurado automaticamente.<i>%{resource_content}</i>
+            Seu %{resource_type} não está mais visível. <br>
+            Isso aconteceu porque a proposta, reunião, debate ou comentário que você respondeu foi moderado. Se voltar a ficar disponível, o seu comentário será restaurado automaticamente.<i>%{resource_content}</i>
         resource_hidden:
           email_intro: Um administrador removeu seu %{resource_type} porque ele foi reportado como %{report_reasons}.
           email_outro: Você recebeu esta notificação porque você é um autor do conteúdo removido.
@@ -973,25 +955,13 @@ pt-BR:
           notification_title: |-
             Um administrador removeu seu %{resource_type} porque ele foi reportado como %{report_reasons}.</br>
             <i>%{resource_content}</i>
-      resource_liked:
-        email_intro: '%{liker_name} %{liker_nickname}, que você está seguindo, acabou de curtir "%{resource_title}" e pensamos que pode interessar você. Confira e contribua:'
-        email_outro: Você recebeu está notificação porque está seguindo %{liker_nickname}. Você pode parar de receber notificações após o link anterior.
-        email_subject: "%{liker_nickname} Realizou uma nova curtida"
-        notification_title: O <a href="%{resource_path}">%{resource_title}</a> %{resource_type} foi curtido por <a href="%{liker_path}">%{liker_name} %{liker_nickname}</a>.
       resources:
         soft_deleted:
           notification_title: Um administrador excluiu seu "%{resource_type}" "%{resource_title}".
       users:
-        profile_updated:
-          email_intro: O <a href="%{resource_url}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
-          email_outro: Você recebeu esta notificação porque está seguindo %{nickname}. Você pode parar de receber notificações após o link anterior.
-          email_subject: "%{nickname} atualizaram seu perfil"
-          notification_title: O <a href="%{resource_path}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
         user_officialized:
-          email_intro: O participante %{name} (%{nickname}) foi oficializado.
           email_outro: Você recebeu esta notificação porque é um administrador da organização.
           email_subject: "%{name} foi oficializada"
-          notification_title: O participante %{name} (%{nickname}) foi oficializado.
     export_mailer:
       download_your_data_export:
         click_button_html: Clique no link a seguir para baixar seus dados.<br/>O arquivo estará disponível para baixar até %{date}.
@@ -1213,7 +1183,6 @@ pt-BR:
         create:
           error: Conversa não iniciada. Tente mais tarde.
         error_modal:
-          close: Fechar modal
           correct_errors: Por favor, corrija os itens citados e tente novamente.
           intro: 'Sua mensagem contém os seguintes erros:'
           ok: OK
@@ -1524,13 +1493,6 @@ pt-BR:
         log_in: iniciar sessão
         never_logged_in: nunca iniciou sessão
         subject: Aviso de conta inativa
-      removal_notification:
-        body: Sua conta %{organization_name} foi excluída devido a inatividade.
-        greetings_html: |
-          Atenciosamente,<br>
-          %{organization_name}
-        hello: Prezado %{username},
-        subject: Conta inativa excluída
     passwords:
       update:
         error: Houve um problema ao atualizar a senha.

@@ -320,10 +320,6 @@ pl:
         success: Szkic poprawki został pomyślnie zaktualizowany.
       withdraw:
         success: Poprawka została pomyślnie wycofana.
-      wizard_step_form:
-        steps:
-          '1': Utwórz poprawkę
-          '2': Opublikuj poprawkę
     anonymous_user: Anonim
     application:
       document:
@@ -449,7 +445,6 @@ pl:
           global:
             amendments_enabled: Poprawki dozwolone
             comments_enabled: Komentarze włączone
-            comments_max_length: Maksymalna długość komentarzy
             dummy_global_attribute1: Przykładowy atrybut 1
             dummy_global_attribute2: Przykładowy atrybut 2
             dummy_global_translatable_text: Przykładowy tekst do tłumaczenia
@@ -576,7 +571,7 @@ pl:
           notice: |-
             <p>Hej, czy jesteś pewien, że nie chcesz otrzymywać newslettera?
             Prosimy o ponowne zaznaczenie pola wyboru newslettera poniżej. To dla nas bardzo ważne, abyś mógł otrzymywać sporadyczne e-maile z ważnymi informacjami. Zawsze możesz zmienić to na stronie ustawień o powiadomieniach.</p>
-            <p>Jeśli nie zaznaczysz tego pola, mogą cię ominąć istotne informacje na temat możliwości 
+            <p>Jeśli nie zaznaczysz tego pola, mogą cię ominąć istotne informacje na temat możliwości
             uczestnictwa w procesach na platformie.<br>Jeśli mimo wszystko nie chcesz otrzymywać newsletterów, doskonale rozumiemy twoją decyzję.</p>
             <p>Dziękujemy za uwagę!</p>
           title: Powiadomienia newslettera
@@ -646,13 +641,9 @@ pl:
           affected_user:
             email_intro: 'Poprawka została zaakceptowana dla %{amendable_title}. Możesz ją zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem %{amendable_title}.
-            email_subject: Poprawka przyjęta dla %{amendable_title} z %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">Poprawka</a> utworzona przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została przyjęta w <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Poprawka została zaakceptowana dla %{amendable_title}. Możesz ją zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{amendable_title}. Możesz przestać otrzymywać powiadomienia klikając poprzedni link.
-            email_subject: Poprawka przyjęta w %{amendable_title} od %{emendation_author_nickname}
-            notification_title: <a href="%{emendation_path}">Poprawka</a> utworzona przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została przyjęta w <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Nowa poprawka została utworzona do %{amendable_title}. Możesz ją zobaczyć na tej stronie:'
@@ -668,24 +659,16 @@ pl:
           affected_user:
             email_intro: 'Odrzucona poprawka do %{amendable_title} została opublikowana jako %{amendable_type}. Możesz ją zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem %{amendable_title}.
-            email_subject: Poprawka od %{emendation_author_nickname} została opublikowana jako %{amendable_type}
-            notification_title: <a href="%{emendation_path}">Odrzucona poprawka</a> do <a href="%{amendable_path}">%{amendable_title}</a> została opublikowana jako %{amendable_type} przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Odrzucona poprawka do %{amendable_title} została opublikowana jako %{amendable_type}. Możesz ją zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{amendable_title}. Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
-            email_subject: Poprawka od %{emendation_author_nickname} została opublikowana jako %{amendable_type}
-            notification_title: <a href="%{emendation_path}">Odrzucona poprawka</a> do <a href="%{amendable_path}">%{amendable_title}</a> została opublikowana jako %{amendable_type} przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Poprawka do %{amendable_title} została odrzucona. Możesz ją zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem %{amendable_title}.
-            email_subject: Poprawka użytkownika %{emendation_author_nickname} do %{amendable_title} została odrzucona
-            notification_title: <a href="%{emendation_path}">Poprawka</a> utworzona przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została odrzucona w <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Poprawka do %{amendable_title} została odrzucona. Możesz ją zobaczyć na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{amendable_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
-            email_subject: Poprawka użytkownika %{emendation_author_nickname} do %{amendable_title} została odrzucona
-            notification_title: <a href="%{emendation_path}">Poprawka</a> do <a href="%{amendable_path}">%{amendable_title}</a> utworzona przez <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> została odrzucona.
       attachments:
         attachment_created:
           email_intro: 'Nowy dokument został dodany do %{resource_title}. Możesz go zobaczyć na tej stronie:'
@@ -727,16 +710,9 @@ pl:
             Administrator usunął %{resource_type}, ponieważ treść została zgłoszona jako %{report_reasons}.</br>
             <i>%{resource_content}</i>
       users:
-        profile_updated:
-          email_intro: Zaktualizowano <a href="%{resource_url}">stronę profilową</a> użytkownika %{name} (%{nickname}), którego obserwujesz.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{nickname}. Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
-          email_subject: "%{nickname} zaktualizował(a) swój profil"
-          notification_title: Zaktualizowano <a href="%{resource_path}">stronę profilową</a> użytkownika %{name} (%{nickname}), którego obserwujesz.
         user_officialized:
-          email_intro: Uczestnik %{name} (%{nickname}) został oficjalnie zarejestrowany.
           email_outro: Otrzymujesz to powiadomienie, ponieważ jesteś administratorem platformy.
           email_subject: "%{name} zostało oficjalnie zarejestrowane"
-          notification_title: Uczestnik %{name} (%{nickname}) został oficjalnie zarejestrowany.
     export_mailer:
       download_your_data_export:
         download: Pobieranie
@@ -904,6 +880,8 @@ pl:
       dynamic:
         screen_reader_explanation: Poniższy element to mapa, która przedstawia elementy na tej stronie jako punkty mapy. Element może być użyty z czytnikiem ekranu, ale może być trudny do zrozumienia.
         skip_button: Pomiń mapę
+        zoom_in: Przybliż
+        zoom_out: Oddal
       static:
         latlng_text: 'szerokość geograficzna: %{latitude}, długość geograficzna: %{longitude}'
         map_service_brand: OpenStreetMap
@@ -932,7 +910,6 @@ pl:
         create:
           error: Rozmowa nie została rozpoczęta. Spróbuj ponownie później.
         error_modal:
-          close: Zamknij okno
           correct_errors: Popraw daty i spróbuj ponownie.
           intro: 'W wiadomości wystąpiły błędy:'
           ok: ok
@@ -1333,7 +1310,7 @@ pl:
         hello: Witaj %{email},
         ignore: |-
           Jeżeli nie chcesz zaakceptować zaproszenia, zignoruj ten e-mail.<br />
-           Twoje konto nie zostanie utworzone, dopóki nie skorzystasz z linku powyżej i nie ustawisz pseudonimu i hasła.
+          Twoje konto nie zostanie utworzone, dopóki nie skorzystasz z linku powyżej i nie ustawisz pseudonimu i hasła.
         invited_you_as_admin: "%{invited_by} zaprasza Cię jako administratora %{application}. Możesz zaakceptować zaproszenie za pomocą poniższego linku."
         invited_you_as_private_user: "%{invited_by} zaprasza Cię jako prywatnego użytkownika %{application}. Możesz zaakceptować to zaproszenie za pomocą poniższego linku."
         someone_invited_you: Ktoś zaprosił Cię do %{application}. Możesz zaakceptować zaproszenie za pomocą poniższego linku.

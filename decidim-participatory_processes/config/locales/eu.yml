@@ -13,13 +13,11 @@ eu:
         duplicate_categories: Kategoriak bikoiztu
         duplicate_components: Bikoiztu osagaiak
         duplicate_landing_page_blocks: Bikoiztu lurreratze-orrien blokeak
-        duplicate_steps: Bikoiztu urratsak
         end_date: Bukaera-data
         hero_image: Orri nagusiko irudia
         import_attachments: Inportatu eranskinak
         import_categories: Inportatu kategoriak
         import_components: Inportatu osagaiak
-        import_steps: Inportatu faseak
         local_area: Antolakuntza arloa
         meta_scope: 'Metadatuak: eremua'
         participatory_process_group_id: Prozesu-multzoa
@@ -33,7 +31,7 @@ eu:
         slug: URL laburra
         start_date: Hasiera-data
         subtitle: Azpititulua
-        target: Nork parte hartzen duen
+        target: Nork hartzen du parte
         title: Izenburua
         weight: Ordena
       participatory_process_group:
@@ -80,7 +78,7 @@ eu:
         one: Partaidetza-prozesuaren taldea
         other: Partaidetza-prozesuen taldeak
       decidim/participatory_process_step:
-        one: Step
+        one: Urratsa
         other: Faseak
   decidim:
     admin:
@@ -88,7 +86,7 @@ eu:
         activate: Aktibatu
         confirm_delete_process: Ziur zaude prozesu hau ezabatu nahi duzula? Iritziz aldatzen baduzu, geroago berreskuratu ahal izango duzu.
         confirm_destroy: Berretsi ezabatu
-        destroy: ezabatu
+        destroy: Ezabatu
         duplicate: Bikoiztu
         edit: Editatu
         import_process: Inportatu
@@ -99,9 +97,9 @@ eu:
         preview: Aurreikusi
         publish: Argitaratu
         resend_invitation: Birbidali gonbita
-        see_process: Ikusi prozesuak
+        see_process: Prozesua ikusi
         unpublish: Despublikatu
-        view_deleted_processes: Ikusi ezabatutako prozesuak
+        view_deleted_processes: Ezabatutako prozesuak ikusi
       filters:
         decidim_participatory_process_group_id_eq:
           label: Prozesu-taldeen arabera
@@ -121,7 +119,7 @@ eu:
           moderations: Moderazioak
           private_users: Kideak
           process_admins: Prozesuaren parte-hartzaileak
-          steps: Prozesuaren faseak
+          steps: Urratsak
       models:
         participatory_process:
           fields:
@@ -218,7 +216,7 @@ eu:
           title: Editatu prozesu parte-hartzailearen fasea
           update: Eguneratu
         index:
-          steps_title: Prozesuaren faseak
+          steps_title: Urratsak
         new:
           create: Sortu
           title: Prozesu parte-hartzailearen beste fase bat
@@ -383,8 +381,8 @@ eu:
         extra_data:
           developer_group: Honek sustatuta
           name: Metadatuak
-          participatory_scope: Erabakitzen dena
-          participatory_structure: Erabakitzeko era
+          participatory_scope: Zer erabakitzen den
+          participatory_structure: Nola erabakitzen den
           target: Nork hartzen du parte
         html:
           name: HTML blokea
@@ -400,7 +398,7 @@ eu:
           active: Partaidetza-prozesu aktiboak
           name: Partaidetza-prozesuak
         stats:
-          name: Jarduera
+          name: Estatistikak
         title:
           meta_scope: Eremua
           participatory_processes:
@@ -561,7 +559,7 @@ eu:
               citizen_influence: Herritarren eragina
               citizen_influence_tooltip: Parte-hartzaileen eragina erabakiak hartzean neurtzen du.
               inclusiveness: Inklusibotasuna
-              inclusiveness_tooltip: Interesatu desberdinek bidezko ordezkaritza duten ebaluatzen du.
+              inclusiveness_tooltip: Hainbat alderdi interesatuk ordezkaritza nahikoa duten ebaluatzen du.
               informativeness: Informatiboa
               informativeness_tooltip: Prozesuaren barruan emandako argitasun- eta informazio-maila neurtzen du.
             name: Autoebaluazioaren metrikak

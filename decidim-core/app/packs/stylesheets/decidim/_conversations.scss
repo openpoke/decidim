@@ -88,6 +88,12 @@
   }
 
   &__modal {
+    &-error {
+      [data-dialog-closable] {
+        @apply top-6 right-6;
+      }
+    }
+
     &-results {
       @apply mb-20 flex flex-wrap gap-x-8 gap-y-4;
     }

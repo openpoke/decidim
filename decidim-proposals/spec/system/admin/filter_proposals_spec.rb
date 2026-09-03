@@ -59,7 +59,7 @@ describe "Admin filters proposals" do
       i18n_state = I18n.t(state, scope: "decidim.admin.filters.proposals.state_eq.values")
 
       context "when filtering proposals by state: #{i18n_state}" do
-        it_behaves_like "a filtered collection", options: "State", filter: i18n_state do
+        it_behaves_like "a filtered collection", options: "Status", filter: i18n_state do
           let(:in_filter) { translated(proposal_with_state(state).title) }
           let(:not_in_filter) { translated(proposal_without_state(state).title) }
         end
@@ -67,7 +67,7 @@ describe "Admin filters proposals" do
     end
 
     context "when filtering proposals by state: Withdrawn" do
-      it_behaves_like "a filtered collection", options: "State", filter: "Withdrawn" do
+      it_behaves_like "a filtered collection", options: "Status", filter: "Withdrawn" do
         let(:in_filter) { translated(withdrawn_proposal.title) }
         let(:not_in_filter) { translated(proposals.sample.title) }
       end
@@ -230,6 +230,35 @@ describe "Admin filters proposals" do
       search_by_text(proposal2_title)
 
       expect(page).to have_content(proposal2_title)
+    end
+  end
+
+  context "when sorting by title" do
+    let!(:beta_proposal) { create(:proposal, component:, title: { en: "Beta proposal" }) }
+    let!(:alpha_proposal) { create(:proposal, component:, title: { en: "Alpha proposal" }) }
+    let!(:gamma_proposal) { create(:proposal, component:, title: { en: "Gamma proposal" }) }
+
+    before { visit_component_admin }
+
+    it "sorts by title ascending when 'Title' is clicked" do
+      within "table thead" do
+        click_on "Title"
+      end
+
+      titles = page.all("table tbody tr td:nth-child(2)").map(&:text)
+      expect(titles.find_index { |t| t.include?("Alpha proposal") }).to be < titles.find_index { |t| t.include?("Beta proposal") }
+      expect(titles.find_index { |t| t.include?("Beta proposal") }).to be < titles.find_index { |t| t.include?("Gamma proposal") }
+    end
+
+    it "sorts by title descending when 'Title' is clicked twice" do
+      within "table thead" do
+        click_on "Title"
+        click_on "Title"
+      end
+
+      titles = page.all("table tbody tr td:nth-child(2)").map(&:text)
+      expect(titles.find_index { |t| t.include?("Gamma proposal") }).to be < titles.find_index { |t| t.include?("Beta proposal") }
+      expect(titles.find_index { |t| t.include?("Beta proposal") }).to be < titles.find_index { |t| t.include?("Alpha proposal") }
     end
   end
 
