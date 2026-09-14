@@ -21,7 +21,8 @@ module Decidim
       def call
         return broadcast(:invalid) if invalid?
 
-        codes = transaction do
+        # The row lock serialises two enrollments, so the one-per-type validation holds.
+        codes = user.with_lock do
           enroll
           generate_recovery_codes
         end

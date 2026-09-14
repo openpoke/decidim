@@ -29,6 +29,12 @@ module Decidim
 
           expect(described_class.available_methods(organization).map(&:name)).to eq(%w(totp email))
         end
+
+        it "offers nothing when the saved methods are no longer installed" do
+          allow(Decidim).to receive(:two_factor_methods).and_return([:totp])
+
+          expect(described_class.available_methods(organization)).to be_empty
+        end
       end
     end
   end
