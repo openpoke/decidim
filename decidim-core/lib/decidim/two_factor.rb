@@ -12,8 +12,8 @@ module Decidim
 
     def self.available_methods(organization = nil)
       names = Array(Decidim.two_factor_methods).map(&:to_s)
-      allowed = names & Array(organization&.available_two_factor_methods)
-      names = allowed if allowed.any?
+      saved = Array(organization&.available_two_factor_methods)
+      names &= saved if saved.any?
 
       names.filter_map { |name| find_workflow_manifest(name) }
     end

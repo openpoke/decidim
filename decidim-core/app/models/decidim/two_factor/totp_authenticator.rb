@@ -12,11 +12,13 @@ module Decidim
 
       # Starts the enrollment with a fresh secret; nil once the app is confirmed.
       def self.issue_for(user)
-        authenticator = find_or_initialize_by(user:)
-        return if authenticator.confirmed?
+        user.with_lock do
+          authenticator = find_or_initialize_by(user:)
+          next if authenticator.confirmed?
 
-        authenticator.update!(secret: ROTP::Base32.random)
-        authenticator
+          authenticator.update!(secret: ROTP::Base32.random)
+          authenticator
+        end
       end
 
       def verify(form, _challenge = nil)
