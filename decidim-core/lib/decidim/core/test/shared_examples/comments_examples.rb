@@ -147,6 +147,16 @@ shared_examples "comments" do
       expect(page).to have_css(".comment-thread")
     end
 
+    it "opens the login modal when clicking the comment button" do
+      visit resource_path
+
+      expect(page).to have_no_css("#loginModal-content", visible: :visible)
+
+      find(".add-comment-mobile").click
+
+      expect(page).to have_css("#loginModal-content", visible: :visible)
+    end
+
     context "when user visit a mobile browser" do
       before do
         driven_by(:iphone)
@@ -174,6 +184,22 @@ shared_examples "comments" do
 
     it "shows form to add comments to user" do
       expect(page).to have_css(".add-comment form")
+    end
+
+    it "does not show login modal when clicking the comment button" do
+      visit resource_path
+
+      find("a.add-comment-mobile").click
+
+      expect(page).to have_no_css("#loginModal-content", visible: :visible)
+    end
+
+    it "guides the user to the comment form when clicking the comment button" do
+      visit resource_path
+
+      find("a.add-comment-mobile").click
+
+      expect(page).to have_css("#add-comment-anchor")
     end
 
     context "when user visit a computer browser" do
@@ -1000,16 +1026,16 @@ shared_examples "comments" do
         let(:content) { "A valid user mention: @#{mentioned_user.nickname}" }
 
         context "when text finish with a mention" do
-          it "shows the tribute container" do
-            expect(page).to have_css(".tribute-container", text: mentioned_user.name, wait: 10)
+          it "shows the suggestions menu" do
+            expect(page).to have_css(".editor-suggestions-item", text: "@#{mentioned_user.nickname} (#{mentioned_user.name})", wait: 10)
           end
         end
 
         context "when text contains a mention" do
           let(:content) { "A valid user mention: @#{mentioned_user.nickname}." }
 
-          it "shows the tribute container" do
-            expect(page).to have_no_css(".tribute-container", text: mentioned_user.name)
+          it "hides the suggestions menu" do
+            expect(page).to have_no_css(".editor-suggestions-item", text: "@#{mentioned_user.nickname} (#{mentioned_user.name})")
           end
         end
       end
@@ -1018,8 +1044,8 @@ shared_examples "comments" do
         let!(:mentioned_user) { create(:user, organization:) }
         let(:content) { "A unconfirmed user mention: @#{mentioned_user.nickname}" }
 
-        it "do not show the tribute container" do
-          expect(page).to have_no_css(".tribute-container", text: mentioned_user.name)
+        it "does not show the suggestions menu" do
+          expect(page).to have_no_css(".editor-suggestions-item", text: "@#{mentioned_user.nickname} (#{mentioned_user.name})")
         end
       end
     end
