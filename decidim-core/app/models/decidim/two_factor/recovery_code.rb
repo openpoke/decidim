@@ -20,8 +20,9 @@ module Decidim
         code = unused.where(user:).find { |record| CodeDigest.match?(record.code_digest, normalized) }
         return false unless code
 
-        # rubocop:disable-next Rails/SkipsModelValidations
+        # rubocop:disable Rails/SkipsModelValidations
         unused.where(id: code.id).update_all(used_at: Time.current, updated_at: Time.current) == 1
+        # rubocop:enable Rails/SkipsModelValidations
       end
     end
   end

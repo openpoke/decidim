@@ -33,8 +33,9 @@ module Decidim
         return false unless matched_timestep
 
         # Conditional on the timestep read above: two concurrent submissions cannot both spend the code.
-        # rubocop:disable-next Rails/SkipsModelValidations
+        # rubocop:disable Rails/SkipsModelValidations
         used = self.class.where(id:, last_used_timestep:).update_all(last_used_timestep: matched_timestep) == 1
+        # rubocop:enable Rails/SkipsModelValidations
         reload if used
 
         used
