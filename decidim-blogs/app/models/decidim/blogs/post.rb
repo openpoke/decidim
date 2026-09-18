@@ -21,7 +21,6 @@ module Decidim
       include Traceable
       include Loggable
       include Decidim::SoftDeletable
-      include Decidim::HasReference
       include Decidim::FilterableResource
       include Decidim::Randomable
 
