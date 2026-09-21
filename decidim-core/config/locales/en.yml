@@ -731,6 +731,12 @@ en:
           show_password: Show password
           shown_password: Your password is shown
         placeholder_email: hi@example.org
+      two_factor_challenges:
+        show:
+          back_to_login: Back to log in
+          exhausted: Too many wrong codes. Log in again to get a fresh try.
+          expired: The code request expired. Log in again.
+          title: Enter the code
     documents:
       one: "%{count} document"
       other: "%{count} documents"
@@ -1775,6 +1781,26 @@ en:
           saved: I have saved the codes
           store_them: Store these codes like a password.
           title: Recovery codes
+      challenge:
+        code_sent: A new code was sent to your email.
+        code_throttled: A code was just sent. Wait a minute before asking for another one.
+        confirm: Confirm
+        email:
+          alternative: Email me a code instead
+          code_label: Enter the code from the email
+          intro: A one-time code was sent to %{email}.
+          resend: Send a new code
+          wrong: The code is not correct. Try again.
+        recovery:
+          alternative: Use a recovery code
+          code_label: Enter one of your recovery codes
+          intro: Each recovery code works once. You got them when you set up the second factor.
+          wrong: The code is not correct. Try again.
+        totp:
+          alternative: Use the authenticator app instead
+          code_label: Enter the 6-digit code the app shows
+          intro: Open the authenticator app on your phone and type the code it shows.
+          wrong: The code is not correct. Try again.
       email_authenticators:
         create:
           error: The email code could not be enabled.
@@ -1822,7 +1848,40 @@ en:
         unused_codes:
           one: "%{count} unused code"
           other: "%{count} unused codes"
+    two_factor_confirmations:
+      show:
+        actions:
+          authenticators:
+            destroy: Confirm removing a second-factor method
+          email_authenticators:
+            create: Confirm enabling the email code
+          recovery_codes:
+            create: Confirm regenerating the recovery codes
+          totp_authenticators:
+            create: Confirm adding an authenticator app
+            new: Confirm adding an authenticator app
+        back: Back to two-factor authentication
+        confirmed: Access confirmed. You can change your two-factor settings now.
+        exhausted: Too many wrong codes. Try again.
+        expired: The code request expired. Try again.
+        intro: To change your two-factor authentication settings, first confirm access to your account.
+        or_use_code: Or use a code
+        password_button: Confirm with the password
+        title: Confirm access
+        wrong_password: The password is not correct. Try again.
     two_factor_mailer:
+      attempts_exhausted:
+        action: Change your password
+        advice: The password was entered correctly, so someone may know it. We recommend changing your password.
+        instruction: Someone entered too many wrong verification codes while logging in to your account, so we blocked the attempt.
+        subject: A login attempt to your account was blocked
+      challenge_code:
+        expiry:
+          one: The code expires in %{count} minute.
+          other: The code expires in %{count} minutes.
+        ignore: If you did not try to log in, you can ignore this email. We recommend changing your password.
+        instruction: 'Use this code to finish logging in:'
+        subject: Your login verification code
       factors_reset:
         action: Set up a new second factor
         advice: If you did not ask for this, contact the platform administrators right away and change your password.

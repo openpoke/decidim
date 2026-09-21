@@ -2,16 +2,14 @@
 
 module Decidim
   module TwoFactor
-    # A six-digit one-time code typed to confirm an enrollment.
-    class OtpCodeForm < Decidim::Form
+    # A six-digit one-time code typed to answer a challenge or to confirm an enrollment.
+    class OtpCodeForm < ChallengeForm
       mimic :challenge
-
-      attribute :code, String
 
       validates :code, presence: true, format: { with: /\A\d{6}\z/, allow_blank: true }
 
       def code
-        super.to_s.gsub(/\s+/, "")
+        super.gsub(/\s+/, "")
       end
     end
   end

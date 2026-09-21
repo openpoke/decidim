@@ -16,5 +16,12 @@ namespace :decidim do
         on(:invalid) { abort("The account has no second factor to remove") }
       end
     end
+
+    # cmd: $ RAILS_ENV=<environment> bundle exec rails decidim:two_factor:cleanup
+    desc "Delete the consumed or expired second-factor challenges"
+    task cleanup: :environment do
+      deleted = Decidim::TwoFactor::Challenge.stale.delete_all
+      puts "Deleted #{deleted} second-factor challenges"
+    end
   end
 end

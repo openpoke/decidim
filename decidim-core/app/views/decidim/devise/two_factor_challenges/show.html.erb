@@ -1,0 +1,13 @@
+<% add_decidim_page_title(t("title", scope: "decidim.devise.two_factor_challenges.show")) %>
+
+<%= render(layout: "layouts/decidim/shared/layout_center") do %>
+  <div class="flex justify-center">
+    <h1 class="title-decorator my-12"><%= t("title", scope: "decidim.devise.two_factor_challenges.show") %></h1>
+  </div>
+
+  <%= render layout: "decidim/two_factor/challenge/methods" do %>
+    <li>
+      <%= link_to t("back_to_login", scope: "decidim.devise.two_factor_challenges.show"), new_user_session_path %>
+    </li>
+  <% end %>
+<% end %>

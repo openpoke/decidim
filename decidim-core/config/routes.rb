@@ -49,6 +49,10 @@ Decidim::Core::Engine.routes.draw do
         resource :email_authenticator, only: [:show, :create], controller: "two_factor/email_authenticators"
         resource :recovery_codes, only: [:show, :create], controller: "two_factor/recovery_codes"
 
+        resource :confirmation, only: [:show, :create], controller: "two_factor_confirmations" do
+          post :send_code, on: :member
+        end
+
         resources :authenticators, only: [:destroy], controller: "two_factor/authenticators"
 
         Decidim::TwoFactor.workflows.select(&:engine).each do |manifest|
@@ -150,6 +154,12 @@ Decidim::Core::Engine.routes.draw do
 
     devise_scope :user do
       post "omniauth_registrations" => "devise/omniauth_registrations#create"
+    end
+
+    devise_scope :user do
+      get "two_factor_challenge", to: "devise/two_factor_challenges#show", as: :user_two_factor_challenge
+      post "two_factor_challenge", to: "devise/two_factor_challenges#create"
+      post "two_factor_challenge/send_code", to: "devise/two_factor_challenges#send_code", as: :send_code_user_two_factor_challenge
     end
 
     resources :pages, only: [:index, :show], format: false

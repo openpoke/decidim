@@ -1,0 +1,9 @@
+<p class="email-greeting"><%= t("greeting", scope: "decidim.two_factor_mailer", name: @user.name) %></p>
+
+<p class="email-instructions"><%= t(".instruction") %></p>
+
+<p class="email-instructions"><strong><%= @code %></strong></p>
+
+<p class="email-instructions"><%= t(".expiry", count: Decidim.two_factor_code_expiry_time.in_minutes.to_i) %></p>
+
+<p class="email-instructions email-small"><%= t(".ignore") %></p>

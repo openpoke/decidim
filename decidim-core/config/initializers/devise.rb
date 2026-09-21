@@ -305,7 +305,9 @@ Devise.setup do |config|
   # change the failure app, you can configure them inside the config.warden block.
   #
   config.warden do |manager|
-    manager.failure_app = RandomStalling
+    # The class is defined in the two_factor.rb initializer; this block runs
+    # after every initializer, when the Warden middleware is built.
+    manager.failure_app = Decidim::TwoFactor::FailureApp
   end
 
   # To be compatible with Turbo, from Devise v.4.9.0 on,

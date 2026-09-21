@@ -19,5 +19,14 @@ module Decidim
         expect(user.two_factor_enabled?).to be(true)
       end
     end
+
+    describe "#two_factor_attached_methods" do
+      it "lists the methods attached to a user in the registry order" do
+        create(:email_authenticator, user:)
+        create(:totp_authenticator, :confirmed, user:)
+
+        expect(user.two_factor_attached_methods.map(&:name)).to eq(%w(totp email))
+      end
+    end
   end
 end

@@ -100,6 +100,7 @@ module Decidim
     def destroy_user_two_factor_records
       current_user.two_factor_authenticators.find_each(&:destroy)
       current_user.two_factor_recovery_codes.find_each(&:destroy)
+      current_user.two_factor_challenges.find_each(&:destroy)
     end
 
     def destroy_follows

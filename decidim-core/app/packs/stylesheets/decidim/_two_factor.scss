@@ -81,4 +81,16 @@
       @apply text-black break-all;
     }
   }
+
+  &__alternatives {
+    @apply mt-8 text-sm space-y-2;
+
+    a {
+      @apply text-secondary underline;
+    }
+  }
+
+  &__resend {
+    @apply mt-4 text-sm text-secondary underline;
+  }
 }
