@@ -13,6 +13,7 @@
   <% else %>
     <%= button_to t("decidim.two_factor.setup.email.add"),
                   two_factor_authentication_email_authenticator_path,
-                  class: "button button__sm button__transparent-secondary" %>
+                  class: "button button__sm button__transparent-secondary",
+                  data: { disable: true } %>
   <% end %>
 <% end %>

@@ -6,5 +6,5 @@
   <%= button_to t("decidim.two_factor_authentications.show.regenerate"),
                 two_factor_authentication_recovery_codes_path,
                 class: "button button__xs button__transparent-secondary",
-                data: { confirm: t("decidim.two_factor_authentications.show.regenerate_confirm") } %>
+                data: { confirm: t("decidim.two_factor_authentications.show.regenerate_confirm"), disable: true } %>
 <% end %>
