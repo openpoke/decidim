@@ -1,0 +1,3 @@
+<p class="help-text"><%= t("decidim.two_factor.challenge.recovery.intro") %></p>
+
+<%= render partial: "decidim/two_factor/challenge/form", locals: local_assigns.merge(method_name: "recovery", placeholder: nil, autocomplete: "off", inputmode: "text") %>

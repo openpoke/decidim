@@ -6,12 +6,13 @@ module Decidim
     # the controller of every method inherits its checks.
     class AuthenticatorsController < Decidim::ApplicationController
       include Decidim::UserProfile
+      include NeedsConfirmation
 
       helper SetupHelper
       helper_method :after_setup_path
 
-      before_action :ensure_two_factor_authentication_enabled
       before_action :ensure_method_available
+      before_action :require_two_factor_confirmation, except: :show
 
       def show
         redirect_to two_factor_authentication_path
@@ -29,10 +30,6 @@ module Decidim
       end
 
       private
-
-      def ensure_two_factor_authentication_enabled
-        redirect_to account_path if !current_organization.two_factor_authentication_enabled? || current_user_impersonated?
-      end
 
       def ensure_method_available
         return if two_factor_method.blank?
@@ -52,6 +49,8 @@ module Decidim
       end
 
       def show_recovery_codes_or_redirect(recovery_codes, success_message)
+        open_two_factor_confirmation_window
+
         @recovery_codes = recovery_codes
 
         return render("decidim/two_factor/authenticators/recovery_codes") if @recovery_codes.present?

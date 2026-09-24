@@ -327,7 +327,7 @@ module Decidim
       end
 
       initializer "decidim_core.param_filtering" do |app|
-        app.config.filter_parameters += [:document_number, :postal_code, :mobile_phone_number]
+        app.config.filter_parameters += [:document_number, :postal_code, :mobile_phone_number, :code]
       end
 
       initializer "decidim_core.default_form_builder" do |_app|

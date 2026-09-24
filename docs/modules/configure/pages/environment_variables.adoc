@@ -733,6 +733,31 @@ Read more about this at xref:services:pdf.adoc[PDF signing] service page.
 |10
 |No
 
+|DECIDIM_TWO_FACTOR_CODE_EXPIRY_TIME
+|In minutes, how long a second-factor login code stays valid.
+|10
+|No
+
+|DECIDIM_TWO_FACTOR_MAX_ATTEMPTS
+|How many wrong codes a second-factor login attempt allows.
+|5
+|No
+
+|DECIDIM_TWO_FACTOR_RESEND_INTERVAL
+|In seconds, how long a user must wait before another email with a second-factor code is sent.
+|60
+|No
+
+|DECIDIM_TWO_FACTOR_ALERT_INTERVAL
+|In seconds, how long the "attempts exhausted" alert email stays muted for an account after one is sent.
+|3600
+|No
+
+|DECIDIM_TWO_FACTOR_CONFIRMATION_WINDOW
+|In minutes, how long a confirmed identity lasts before sensitive two-factor changes ask again.
+|15
+|No
+
 |===
 
 .Optional Env Vars fine tuning some Decidim modules (such the API or Proposal behaviors)

@@ -67,7 +67,7 @@ describe "Two-factor authentication" do
     let!(:authenticator) { create(:totp_authenticator, :confirmed, user:) }
 
     before do
-      login_as user, scope: :user
+      login_past_second_factor(user, confirmed: true)
       visit decidim.two_factor_authentication_path
     end
 

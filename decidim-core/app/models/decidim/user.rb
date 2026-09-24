@@ -270,6 +270,14 @@ module Decidim
       password_updated_at < Decidim.config.admin_password_expiration_days.days.ago
     end
 
+    # Someone promoted to admin after registering with a strong password is not asked to change it.
+    def expire_weak_password!(password)
+      return unless admin? && password.present?
+
+      validator = PasswordValidator.new({ attributes: :password })
+      update!(password_updated_at: nil) unless validator.validate_each(self, :password, password)
+    end
+
     def moderator?
       Decidim.participatory_space_manifests.map do |manifest|
         participatory_space_type = manifest.model_class_name.constantize

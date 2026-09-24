@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Two-factor authentication" do
   include_context "with a two-factor request session"
 
-  before { sign_in_with_password }
+  before { login_past_second_factor(user, confirmed: true) }
 
   describe "DELETE destroy" do
     it "leaves the factors of other participants alone" do

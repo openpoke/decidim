@@ -23,6 +23,16 @@ shared_context "with a two-factor request session" do
   def sign_in_with_password
     post(routes.user_session_path(locale: "en"), params: { user: { email: user.email, password: } }, headers:)
   end
+
+  def account_status
+    get(routes.account_path(locale: "en"), headers:)
+    response.status
+  end
+end
+
+shared_context "with a user holding an authenticator app" do
+  let(:secret) { ROTP::Base32.random }
+  let!(:authenticator) { create(:totp_authenticator, :confirmed, user:, secret:) }
 end
 
 shared_examples "a two-factor page hidden without two-factor authentication" do

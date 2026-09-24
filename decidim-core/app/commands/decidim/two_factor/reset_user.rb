@@ -24,6 +24,7 @@ module Decidim
         transaction do
           user.two_factor_authenticators.destroy_all
           user.two_factor_recovery_codes.destroy_all
+          user.two_factor_challenges.destroy_all
         end
 
         TwoFactorMailer.factors_reset(user).deliver_later

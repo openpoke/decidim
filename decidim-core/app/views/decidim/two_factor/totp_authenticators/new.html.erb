@@ -26,7 +26,7 @@
 
           <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
             <%= link_to t("cancel", scope: "decidim.two_factor.totp_authenticators.new"), two_factor_authentication_path, class: "button button__sm md:button__lg button__transparent-secondary" %>
-            <%= f.submit t("confirm", scope: "decidim.two_factor.totp_authenticators.new"), class: "button button__sm md:button__lg button__secondary" %>
+            <%= f.submit t("confirm", scope: "decidim.two_factor.totp_authenticators.new"), class: "button button__sm md:button__lg button__secondary", data: { disable: true } %>
           </div>
         </div>
       <% end %>

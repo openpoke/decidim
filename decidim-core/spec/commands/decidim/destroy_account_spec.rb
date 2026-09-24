@@ -116,10 +116,12 @@ module Decidim
         it "deletes user's two factor records" do
           create(:totp_authenticator, :confirmed, user:)
           Decidim::TwoFactor::RegenerateRecoveryCodes.new(user).call
+          create(:two_factor_challenge, user:)
 
           expect { command.call }
             .to change(Decidim::TwoFactor::Authenticator, :count).by(-1)
             .and change(Decidim::TwoFactor::RecoveryCode, :count).by(-Decidim.two_factor_recovery_codes_count)
+            .and change(Decidim::TwoFactor::Challenge, :count).by(-1)
         end
 
         it "deletes user's private exports" do

@@ -944,6 +944,21 @@ module Decidim
   # How many recovery codes a user gets
   mattr_accessor :two_factor_recovery_codes_count, default: Decidim::Env.new("DECIDIM_TWO_FACTOR_RECOVERY_CODES_COUNT", "10").to_i
 
+  # How long a second-factor login code stays valid
+  mattr_accessor :two_factor_code_expiry_time, default: Decidim::Env.new("DECIDIM_TWO_FACTOR_CODE_EXPIRY_TIME", "10").to_i.minutes
+
+  # How many wrong codes a second-factor login attempt allows
+  mattr_accessor :two_factor_max_attempts, default: Decidim::Env.new("DECIDIM_TWO_FACTOR_MAX_ATTEMPTS", "5").to_i
+
+  # How long a user must wait before another email with a second-factor code is sent
+  mattr_accessor :two_factor_resend_interval, default: Decidim::Env.new("DECIDIM_TWO_FACTOR_RESEND_INTERVAL", "60").to_i.seconds
+
+  # How long the "attempts exhausted" alert email stays muted for an account after one is sent
+  mattr_accessor :two_factor_alert_interval, default: Decidim::Env.new("DECIDIM_TWO_FACTOR_ALERT_INTERVAL", "3600").to_i.seconds
+
+  # How long a confirmed identity lasts before sensitive two-factor changes ask again
+  mattr_accessor :two_factor_confirmation_window, default: Decidim::Env.new("DECIDIM_TWO_FACTOR_CONFIRMATION_WINDOW", "15").to_i.minutes
+
   def self.machine_translation_service_klass
     return unless Decidim.enable_machine_translations
 

@@ -1139,4 +1139,13 @@ FactoryBot.define do
 
     user { create(:user, :confirmed) }
   end
+
+  factory :two_factor_challenge, class: "Decidim::TwoFactor::Challenge" do
+    transient do
+      skip_injection { false }
+    end
+
+    user { create(:user, :confirmed) }
+    method_type { "totp" }
+  end
 end

@@ -6,6 +6,31 @@ module Decidim
   describe TwoFactorMailer do
     let(:user) { create(:user, :confirmed) }
 
+    describe "challenge_code" do
+      let(:mail) { described_class.challenge_code(user, "123456", 3.minutes.from_now) }
+
+      it "delivers the code to the account email" do
+        expect(mail.to).to eq([user.email])
+        expect(mail.subject).to eq("Your verification code")
+        expect(email_body(mail)).to include("123456")
+      end
+
+      it "tells the time left on the challenge" do
+        expect(email_body(mail)).to include("The code expires in 3 minutes.")
+      end
+    end
+
+    describe "attempts_exhausted" do
+      let(:mail) { described_class.attempts_exhausted(user) }
+
+      it "alerts the account email" do
+        expect(mail.to).to eq([user.email])
+        expect(mail.subject).to eq("A login attempt to your account was blocked")
+        expect(email_body(mail)).to include("too many wrong verification codes")
+        expect(email_body(mail)).to include("Change your password")
+      end
+    end
+
     describe "factors_reset" do
       let(:mail) { described_class.factors_reset(user) }
 
