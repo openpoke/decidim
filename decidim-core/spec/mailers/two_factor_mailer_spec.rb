@@ -7,12 +7,16 @@ module Decidim
     let(:user) { create(:user, :confirmed) }
 
     describe "challenge_code" do
-      let(:mail) { described_class.challenge_code(user, "123456") }
+      let(:mail) { described_class.challenge_code(user, "123456", 3.minutes.from_now) }
 
       it "delivers the code to the account email" do
         expect(mail.to).to eq([user.email])
-        expect(mail.subject).to eq("Your login verification code")
+        expect(mail.subject).to eq("Your verification code")
         expect(email_body(mail)).to include("123456")
+      end
+
+      it "tells the time left on the challenge" do
+        expect(email_body(mail)).to include("The code expires in 3 minutes.")
       end
     end
 

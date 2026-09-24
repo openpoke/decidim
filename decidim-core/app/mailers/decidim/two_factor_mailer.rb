@@ -3,8 +3,10 @@
 module Decidim
   # Mails the second-factor login codes and the related security alerts.
   class TwoFactorMailer < ApplicationMailer
-    def challenge_code(user, code)
+    # The code lives as long as its challenge, which may already be running.
+    def challenge_code(user, code, expires_at)
       @code = code
+      @minutes_left = [((expires_at - Time.current) / 1.minute).ceil, 1].max
       deliver(user, "challenge_code")
     end
 

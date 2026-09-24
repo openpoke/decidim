@@ -734,7 +734,6 @@ en:
       two_factor_challenges:
         show:
           back_to_login: Back to log in
-          exhausted: Too many wrong codes. Log in again to get a fresh try.
           expired: The code request expired. Log in again.
           title: Enter the code
     documents:
@@ -1879,9 +1878,9 @@ en:
         expiry:
           one: The code expires in %{count} minute.
           other: The code expires in %{count} minutes.
-        ignore: If you did not try to log in, you can ignore this email. We recommend changing your password.
-        instruction: 'Use this code to finish logging in:'
-        subject: Your login verification code
+        ignore: If you did not ask for this code, someone may know your password. We recommend changing it.
+        instruction: 'Use this code to confirm it is you:'
+        subject: Your verification code
       factors_reset:
         action: Set up a new second factor
         advice: If you did not ask for this, contact the platform administrators right away and change your password.
@@ -1982,6 +1981,7 @@ en:
       locked: Your account is locked.
       not_found_in_database: Invalid %{authentication_keys} or password.
       timeout: Your session expired. Please log in again to continue.
+      two_factor_exhausted: Too many wrong codes. Wait a few minutes and log in again.
       unauthenticated: You need to log in or create an account before continuing.
     invitations:
       edit:

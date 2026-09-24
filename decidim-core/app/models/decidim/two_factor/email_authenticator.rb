@@ -14,7 +14,7 @@ module Decidim
       def send_code(challenge)
         code = format("%06d", SecureRandom.random_number(10**6))
         challenge.update!(method_type: "email", code:)
-        TwoFactorMailer.challenge_code(user, code).deliver_now
+        TwoFactorMailer.challenge_code(user, code, challenge.expires_at).deliver_now
       end
 
       def verify(form, challenge)

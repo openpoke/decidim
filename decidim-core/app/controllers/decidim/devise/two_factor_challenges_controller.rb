@@ -23,7 +23,7 @@ module Decidim
             render :show, status: :unprocessable_content
           end
 
-          on(:exhausted) { restart_login(t("exhausted", scope: "decidim.devise.two_factor_challenges.show")) }
+          on(:exhausted) { restart_login(t("devise.failure.two_factor_exhausted")) }
           on(:expired) { handle_expired_challenge }
         end
       end

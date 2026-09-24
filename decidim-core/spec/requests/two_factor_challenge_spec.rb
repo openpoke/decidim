@@ -74,6 +74,20 @@ describe "Two-factor challenge" do
     expect(response).to redirect_to(routes.new_user_session_path(locale: "en"))
   end
 
+  it "refuses the password login while the exhausted codes have not expired" do
+    sign_in_with_password
+    Decidim.two_factor_max_attempts.times { answer_challenge("000000") }
+
+    expect { sign_in_with_password }.not_to change(Decidim::TwoFactor::Challenge, :count)
+    expect(response).to redirect_to(routes.new_user_session_path(locale: "en"))
+    expect(flash[:alert]).to eq(I18n.t("devise.failure.two_factor_exhausted"))
+
+    travel Decidim.two_factor_code_expiry_time
+    sign_in_with_password
+
+    expect(response).to redirect_to(routes.user_two_factor_challenge_path(locale: "en"))
+  end
+
   it "returns to the home page instead of the consumed confirmation link once the code is entered" do
     user.update!(email: "changed@example.org")
     get(routes.user_confirmation_path(locale: "en", confirmation_token: user.reload.confirmation_token), headers:)

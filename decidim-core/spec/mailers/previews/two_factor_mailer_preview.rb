@@ -3,7 +3,7 @@
 module Decidim
   class TwoFactorMailerPreview < ActionMailer::Preview
     def challenge_code
-      TwoFactorMailer.challenge_code(User.first, "123456")
+      TwoFactorMailer.challenge_code(User.first, "123456", Decidim.two_factor_code_expiry_time.from_now)
     end
 
     def attempts_exhausted
