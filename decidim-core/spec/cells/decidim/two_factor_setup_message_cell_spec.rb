@@ -35,6 +35,14 @@ module Decidim
       end
     end
 
+    context "when rendered outside the setup wall, as on the Devise pages" do
+      controller Decidim::Devise::PasswordsController
+
+      it "invites the user" do
+        expect(subject).to have_css("#two-factor-setup-message-container")
+      end
+    end
+
     context "when the bypass belongs to another account" do
       before { controller.session["decidim_two_factor_bypassed"] = user.id + 1 }
 

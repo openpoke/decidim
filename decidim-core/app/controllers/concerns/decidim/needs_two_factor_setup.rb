@@ -8,13 +8,6 @@ module Decidim
 
     included do
       before_action :check_two_factor_setup_required
-
-      helper_method :two_factor_setup_bypassed?
-    end
-
-    # The session came through a provider trusted as a second factor.
-    def two_factor_setup_bypassed?
-      current_user && session["decidim_two_factor_bypassed"] == current_user.id
     end
 
     private
@@ -22,7 +15,8 @@ module Decidim
     def check_two_factor_setup_required
       return unless current_user
       return if respond_to?(:current_user_impersonated?, true) && current_user_impersonated?
-      return if two_factor_setup_bypassed?
+      # The session came through a provider trusted as a second factor.
+      return if session["decidim_two_factor_bypassed"] == current_user.id
       return unless current_user.two_factor_setup_required?
       return if two_factor_setup_permitted_path?(request.path)
 
