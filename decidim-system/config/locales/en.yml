@@ -349,7 +349,7 @@ en:
           two_factor_authentication_enabled_help: When disabled, participants can neither be required nor allowed to set up a second factor.
           two_factor_enforced_for:
             options:
-              admins: Only organization administrators have to set up a second factor to log in.
+              admins: Everyone with access to the administration panel (administrators, space admins, collaborators, moderators, valuators) has to set up a second factor to log in.
               all: Every participant has to set up a second factor to log in.
               none: The second factor stays optional for everyone.
           two_factor_grace_period_days_help:

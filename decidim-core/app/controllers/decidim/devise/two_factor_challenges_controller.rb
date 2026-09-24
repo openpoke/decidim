@@ -15,7 +15,7 @@ module Decidim
       end
 
       def create
-        verify_challenge do
+        TwoFactor::VerifyChallenge.call(challenge, challenge_form) do
           on(:ok) { |user| finish_login(user) }
 
           on(:invalid) do

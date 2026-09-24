@@ -104,15 +104,4 @@ describe("PasskeyController", () => {
     expect(form.querySelector("[data-passkey-target='error']").hidden).toBe(false);
     expect(submitButton.disabled).toBe(false);
   });
-
-  it("lets the form through once the credential is filled in", async () => {
-    render("registration");
-    await nextTick();
-    credentialField.value = "{}";
-
-    const event = await submit();
-
-    expect(event.defaultPrevented).toBe(false);
-    expect(navigator.credentials.create).not.toHaveBeenCalled();
-  });
 });

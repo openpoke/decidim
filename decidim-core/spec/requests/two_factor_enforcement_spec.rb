@@ -16,10 +16,10 @@ describe "Two-factor enforcement" do
       expect(response).to redirect_to(routes.two_factor_authentication_path(locale: "en"))
     end
 
-    it "refuses non-HTML requests instead of letting them through" do
-      get(routes.account_path(locale: "en", format: :json), headers:)
+    it "lets background requests through, as the other walls do" do
+      get(routes.seconds_until_timeout_path(format: :json), headers:)
 
-      expect(response).to have_http_status(:forbidden)
+      expect(response).to have_http_status(:ok)
     end
 
     it "still serves the allowed paths" do

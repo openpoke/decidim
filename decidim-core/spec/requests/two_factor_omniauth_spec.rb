@@ -39,13 +39,13 @@ describe "Two-factor with omniauth sign in" do
   context "when facebook is configured to bypass the second factor" do
     let(:omniauth_secrets) { { facebook: { enabled: true, app_id: "fake-facebook-app-id", app_secret: "fake-facebook-app-secret", icon: "phone", bypass_two_factor: true } } }
 
-    context "with an authenticator app attached" do
+    context "with an authenticator app the user added" do
       include_context "with a user holding an authenticator app"
 
-      it "lets the user in without a challenge" do
+      it "still asks for the code" do
         sign_in_with_facebook
 
-        expect(account_status).to eq(200)
+        expect(response).to redirect_to(routes.user_two_factor_challenge_path(locale: "en"))
       end
     end
 
@@ -73,12 +73,11 @@ describe "Two-factor with omniauth sign in" do
   end
 
   context "when the organization itself marks facebook as bypassing the second factor" do
-    let(:organization) { create(:organization, :with_two_factor_authentication_enabled, omniauth_settings:) }
+    let(:organization) { create(:organization, :with_two_factor_enforced_for_all, two_factor_enforced_at: 20.days.ago, omniauth_settings:) }
     let(:omniauth_settings) { { "omniauth_settings_facebook_enabled" => true, "omniauth_settings_facebook_bypass_two_factor" => true } }
+    let(:user) { create(:user, :confirmed, organization:, email: "user@from-facebook.com", created_at: 30.days.ago) }
 
-    include_context "with a user holding an authenticator app"
-
-    it "lets the user in without a challenge" do
+    it "does not send the session to the setup" do
       sign_in_with_facebook
 
       expect(account_status).to eq(200)

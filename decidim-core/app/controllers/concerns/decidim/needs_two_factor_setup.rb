@@ -20,12 +20,13 @@ module Decidim
       return unless current_user.two_factor_setup_required?
       return if two_factor_setup_permitted_path?(request.path)
 
-      return head(:forbidden) unless request.format.html?
-
       redirect_to_two_factor_setup
     end
 
+    # Background requests (e.g. the session timeout checks) pass, as in NeedsPasswordChange.
     def redirect_to_two_factor_setup
+      return unless request.format.html?
+
       session["decidim_two_factor_return_to"] = request.path if request.get?
       flash[:notice] = flash[:notice] if flash[:notice]
       flash[:secondary] = t("decidim.two_factor_authentications.setup_required.alert")

@@ -6,7 +6,6 @@ module Decidim
     include Decidim::HasWorkflows
 
     autoload :MethodManifest, "decidim/two_factor/method_manifest"
-    autoload :CodeDigest, "decidim/two_factor/code_digest"
 
     def self.workflow_manifest_class = MethodManifest
 

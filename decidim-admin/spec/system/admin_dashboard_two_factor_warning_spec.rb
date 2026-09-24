@@ -3,8 +3,6 @@
 require "spec_helper"
 
 describe "Admin dashboard two-factor warning" do
-  include_context "with a two-factor organization"
-
   let(:organization) { create(:organization, :with_two_factor_enforced_for_admins, two_factor_grace_period_days: 7) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
 

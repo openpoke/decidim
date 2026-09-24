@@ -28,6 +28,9 @@ module Decidim
 
       private
 
+      # The API has no page to send the user to, so the session is refused until the second factor is set up.
+      def redirect_to_two_factor_setup = head(:forbidden)
+
       def ensure_api_authenticated!
         return unless Decidim::Api.force_api_authentication
         return if user_signed_in?

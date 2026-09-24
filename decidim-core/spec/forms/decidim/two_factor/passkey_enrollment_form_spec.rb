@@ -8,12 +8,12 @@ module Decidim
       subject { described_class.from_params(name:, credential:) }
 
       let(:name) { "My laptop" }
-      let(:response) { { "clientDataJSON" => "data", "attestationObject" => "attestation" } }
-      let(:credential) { { "type" => "public-key", "id" => "abc", "rawId" => "abc", "response" => response }.to_json }
+      let(:credential_response) { { "clientDataJSON" => "data", "attestationObject" => "attestation" } }
+      let(:credential) { { "type" => "public-key", "id" => "abc", "rawId" => "abc", "response" => credential_response }.to_json }
 
       it "is valid and parses the credential" do
         expect(subject).to be_valid
-        expect(subject.credential).to eq({ "type" => "public-key", "id" => "abc", "rawId" => "abc", "response" => response })
+        expect(subject.credential).to eq({ "type" => "public-key", "id" => "abc", "rawId" => "abc", "response" => credential_response })
       end
 
       context "when the name carries spaces" do
@@ -53,19 +53,19 @@ module Decidim
       end
 
       context "when the credential is not a public key" do
-        let(:credential) { { "type" => "password", "id" => "abc", "rawId" => "abc", "response" => response }.to_json }
+        let(:credential) { { "type" => "password", "id" => "abc", "rawId" => "abc", "response" => credential_response }.to_json }
 
         it { is_expected.not_to be_valid }
       end
 
       context "when the credential has no raw id" do
-        let(:credential) { { "type" => "public-key", "id" => "abc", "response" => response }.to_json }
+        let(:credential) { { "type" => "public-key", "id" => "abc", "response" => credential_response }.to_json }
 
         it { is_expected.not_to be_valid }
       end
 
       context "when the response lacks the attestation" do
-        let(:response) { { "clientDataJSON" => "data" } }
+        let(:credential_response) { { "clientDataJSON" => "data" } }
 
         it { is_expected.not_to be_valid }
       end

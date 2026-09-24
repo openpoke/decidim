@@ -85,10 +85,6 @@ export default class extends Controller {
   }
 
   submit(event) {
-    if (this.credentialTarget.value) {
-      return;
-    }
-
     event.preventDefault();
     this.hideMessages();
     this.submitTarget.disabled = true;

@@ -9,7 +9,7 @@
 
   <div class="form__wrapper">
     <%= hidden_field_tag :method_name, "passkey", id: nil %>
-    <%= f.hidden_field :credential, id: nil, data: { passkey_target: "credential" } %>
+    <%= f.hidden_field :credential, id: nil, value: nil, data: { passkey_target: "credential" } %>
     <%= f.submit t("decidim.two_factor.challenge.passkey.button"), class: "button button__sm md:button__lg button__secondary", data: { passkey_target: "submit" } %>
   </div>
 <% end %>

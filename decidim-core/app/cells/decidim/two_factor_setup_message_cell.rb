@@ -15,16 +15,10 @@ module Decidim
     def show
       return if session["decidim_two_factor_banner_dismissed"].present?
       return if session["decidim_two_factor_bypassed"] == user.id
-      return if is_active_link?(setup_path)
+      return if is_active_link?(decidim.two_factor_authentication_path)
       return unless user.two_factor_setup_pending?
 
       render :show
-    end
-
-    private
-
-    def setup_path
-      decidim.two_factor_authentication_path
     end
   end
 end

@@ -34,6 +34,10 @@ module Decidim
           expect(subject.setup_required?).to be(false)
         end
 
+        it "asks anyone with an admin panel role, such as a user manager" do
+          expect(described_class.new(create(:user, :user_manager, :confirmed, organization:)).setup_pending?).to be(true)
+        end
+
         it "leaves participants alone" do
           participant = described_class.new(create(:user, :confirmed, organization:))
 
@@ -49,9 +53,9 @@ module Decidim
         end
 
         it "turns the pending setup into a required one once the window closes" do
-          expect(subject.grace_ends_at).to be_within(1.minute).of(1.day.from_now)
+          expect(subject.grace_ends_at).to be_within(1.minute).of(Decidim.two_factor_grace_period.from_now)
 
-          travel 2.days do
+          travel Decidim.two_factor_grace_period + 1.day do
             expect(subject.setup_pending?).to be(false)
             expect(subject.setup_required?).to be(true)
           end
@@ -73,7 +77,7 @@ module Decidim
         it "grants users who signed up after the switch the full window from their sign-up" do
           organization.update!(two_factor_enforced_at: 30.days.ago)
 
-          expect(subject.grace_ends_at).to be_within(1.minute).of(1.day.from_now)
+          expect(subject.grace_ends_at).to be_within(1.minute).of(Decidim.two_factor_grace_period.from_now)
         end
       end
 

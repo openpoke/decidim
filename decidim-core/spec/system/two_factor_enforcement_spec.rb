@@ -3,8 +3,6 @@
 require "spec_helper"
 
 describe "Two-factor enforcement" do
-  include_context "with a two-factor organization"
-
   let(:organization) { create(:organization, :with_two_factor_enforced_for_admins, two_factor_enforced_at:) }
   let(:user) { create(:user, :admin, :confirmed, organization:, created_at: 30.days.ago) }
   let(:two_factor_enforced_at) { 20.days.ago }

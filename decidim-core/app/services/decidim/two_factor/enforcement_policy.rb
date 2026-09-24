@@ -5,6 +5,8 @@ module Decidim
     # Answers whether a user must set up a second factor; replaceable via
     # Decidim.two_factor_enforcement_policy.
     class EnforcementPolicy
+      include Decidim::UserRoleChecker
+
       def initialize(user)
         @user = user
       end
@@ -39,7 +41,7 @@ module Decidim
         return false if user.ephemeral? || user.managed?
         return false if user.two_factor_enabled?
 
-        organization.two_factor_enforced_for_all? || (organization.two_factor_enforced_for_admins? && user.admin?)
+        organization.two_factor_enforced_for_all? || (organization.two_factor_enforced_for_admins? && user_has_any_role?(user, broad_check: true))
       end
 
       def grace_active?
