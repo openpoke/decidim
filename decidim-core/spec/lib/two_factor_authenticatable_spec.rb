@@ -4,7 +4,8 @@ require "spec_helper"
 
 module Decidim
   describe TwoFactorAuthenticatable do
-    let(:user) { create(:user, :confirmed) }
+    let(:organization) { create(:organization, :with_two_factor_enforced_for_all) }
+    let(:user) { create(:user, :confirmed, organization:) }
 
     describe "#two_factor_enabled?" do
       it "is not enabled while the factor is unconfirmed" do
@@ -26,6 +27,12 @@ module Decidim
         create(:totp_authenticator, :confirmed, user:)
 
         expect(user.two_factor_attached_methods.map(&:name)).to eq(%w(totp email))
+      end
+    end
+
+    describe "#two_factor_setup_pending?" do
+      it "delegates to the enforcement policy" do
+        expect(user.two_factor_setup_pending?).to be(true)
       end
     end
   end

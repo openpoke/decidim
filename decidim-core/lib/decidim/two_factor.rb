@@ -17,5 +17,9 @@ module Decidim
 
       names.filter_map { |name| find_workflow_manifest(name) }
     end
+
+    def self.enforcement_policy
+      Decidim.two_factor_enforcement_policy.to_s.constantize
+    end
   end
 end

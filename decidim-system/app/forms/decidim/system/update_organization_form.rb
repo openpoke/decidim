@@ -11,19 +11,26 @@ module Decidim
       translatable_attribute :short_name, String
 
       attribute :two_factor_authentication_enabled, Boolean, default: false
+      attribute :two_factor_enforced_for, String
       attribute :available_two_factor_methods, Array[String]
+      attribute :two_factor_grace_period_days, Integer
 
       validate :validate_organization_name_presence
       validate :validate_organization_short_name_presence
       validate :validate_short_name_format
 
+      validates :two_factor_enforced_for, inclusion: { in: Decidim::Organization.two_factor_enforced_fors.keys }
       validates :available_two_factor_methods, presence: true, if: :two_factor_authentication_enabled
       validate :available_two_factor_methods_offered
+      validates :two_factor_grace_period_days,
+                numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: ->(_form) { Decidim.two_factor_grace_period_max_days } },
+                allow_nil: true
 
       def map_model(model)
         super
 
         self.available_two_factor_methods = Decidim::TwoFactor.available_methods(model).map(&:name)
+        self.two_factor_grace_period_days = model.two_factor_grace_period_days || Decidim.two_factor_grace_period.in_days
       end
 
       def available_two_factor_methods

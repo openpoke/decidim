@@ -9,7 +9,8 @@ module Decidim
 
       included do
         helper_method :challenge, :challenge_form, :challenge_method_name, :challenge_method, :alternative_methods,
-                      :challenge_submit_path, :challenge_send_code_path, :challenge_partial_locals
+                      :passkey_assertion_options, :challenge_submit_path, :challenge_send_code_path,
+                      :challenge_partial_locals
       end
 
       def send_code
@@ -38,6 +39,10 @@ module Decidim
 
       def challenge_partial_locals
         { submit_path: challenge_submit_path(challenge_method_name), resend_path: challenge_send_code_path }
+      end
+
+      def passkey_assertion_options
+        @passkey_assertion_options ||= TwoFactor::PasskeyAuthenticator.assertion_options(challenge, request.base_url)
       end
 
       def challenge_form

@@ -47,9 +47,9 @@ module Decidim
       attribute :file_upload_settings, FileUploadSettingsForm
 
       OMNIATH_PROVIDERS_ATTRIBUTES = Decidim::OmniauthProvider.available.keys.map do |provider|
-        Decidim.omniauth_providers[provider].keys.map do |setting|
-          if setting == :enabled
-            [:"omniauth_settings_#{provider}_enabled", Boolean]
+        (Decidim.omniauth_providers[provider].keys | [:bypass_two_factor]).map do |setting|
+          if [:enabled, :bypass_two_factor].include?(setting)
+            [:"omniauth_settings_#{provider}_#{setting}", Boolean]
           else
             [:"omniauth_settings_#{provider}_#{setting}", String]
           end

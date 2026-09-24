@@ -720,7 +720,17 @@ Read more about this at xref:services:pdf.adoc[PDF signing] service page.
 
 |DECIDIM_TWO_FACTOR_METHODS
 |Second-factor methods available on this installation, out of the registered ones (comma separated).
-|totp,email
+|totp,email,passkey
+|No
+
+|DECIDIM_TWO_FACTOR_GRACE_PERIOD
+|In days, how long a user can keep postponing the second-factor setup after the organization starts enforcing it, when the organization sets no grace period of its own.
+|1
+|No
+
+|DECIDIM_TWO_FACTOR_GRACE_PERIOD_MAX_DAYS
+|The most grace days an organization admin can configure.
+|14
 |No
 
 |DECIDIM_TWO_FACTOR_TOTP_DRIFT
@@ -756,6 +766,11 @@ Read more about this at xref:services:pdf.adoc[PDF signing] service page.
 |DECIDIM_TWO_FACTOR_CONFIRMATION_WINDOW
 |In minutes, how long a confirmed identity lasts before sensitive two-factor changes ask again.
 |15
+|No
+
+|DECIDIM_TWO_FACTOR_ENFORCEMENT_POLICY
+|The name of the class answering whether a user must set up a second factor.
+|Decidim::TwoFactor::EnforcementPolicy
 |No
 
 |===

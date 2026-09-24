@@ -12,6 +12,7 @@ module Decidim
       include NeedsPermission
       include ImpersonateUsers
       include ForceAuthentication
+      include NeedsTwoFactorSetup
       include DisableRedirectionToExternalHost
 
       register_permissions(::Decidim::Api::ApplicationController,

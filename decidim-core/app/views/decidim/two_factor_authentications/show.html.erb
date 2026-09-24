@@ -2,6 +2,12 @@
 <% content_for(:subtitle) { t("two_factor_authentication", scope: "layouts.decidim.user_profile") } %>
 
 <%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
+  <% if current_user.two_factor_setup_pending? %>
+    <%= cell("decidim/announcement", t("required_by", scope: "decidim.two_factor_authentications.show", date: l(current_user.two_factor_grace_ends_at.to_date, format: :decidim_short)), callout_class: "warning") %>
+  <% elsif current_user.two_factor_setup_required? %>
+    <%= cell("decidim/announcement", t("required_now", scope: "decidim.two_factor_authentications.show"), callout_class: "alert") %>
+  <% end %>
+
   <p class="help-text"><%= t("intro", scope: "decidim.two_factor_authentications.show") %></p>
 
   <h2 class="h5 mt-6 mb-2"><%= t("methods", scope: "decidim.two_factor_authentications.show") %></h2>

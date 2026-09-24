@@ -60,6 +60,17 @@ module Decidim
         taken
       end
 
+      # The WebAuthn ceremony lives on the challenge between the options and the assertion.
+      def store_webauthn!(ceremony_challenge, origin)
+        update!(metadata: metadata.merge("webauthn" => { "challenge" => ceremony_challenge, "origin" => origin }))
+      end
+
+      def take_webauthn!
+        ceremony = metadata["webauthn"] || {}
+        update!(metadata: metadata.except("webauthn"))
+        ceremony
+      end
+
       # Consumes the challenge atomically: only one of two concurrent right codes wins.
       def consume!
         # rubocop:disable Rails/SkipsModelValidations

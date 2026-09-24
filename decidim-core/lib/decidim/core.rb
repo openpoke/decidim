@@ -936,7 +936,13 @@ module Decidim
   mattr_accessor :enable_etiquette_validator, default: true
 
   # Second-factor methods available on this installation, out of the registered ones
-  mattr_accessor :two_factor_methods, default: Decidim::Env.new("DECIDIM_TWO_FACTOR_METHODS", "totp,email").to_array.map(&:to_sym)
+  mattr_accessor :two_factor_methods, default: Decidim::Env.new("DECIDIM_TWO_FACTOR_METHODS", "totp,email,passkey").to_array.map(&:to_sym)
+
+  # How long a user can keep postponing the second-factor setup after the organization starts enforcing it
+  mattr_accessor :two_factor_grace_period, default: Decidim::Env.new("DECIDIM_TWO_FACTOR_GRACE_PERIOD", "1").to_i.days
+
+  # The most grace days an organization admin can configure
+  mattr_accessor :two_factor_grace_period_max_days, default: Decidim::Env.new("DECIDIM_TWO_FACTOR_GRACE_PERIOD_MAX_DAYS", "14").to_i
 
   # Allowed clock drift (seconds) when verifying authenticator app codes
   mattr_accessor :two_factor_totp_drift, default: Decidim::Env.new("DECIDIM_TWO_FACTOR_TOTP_DRIFT", "30").to_i
@@ -958,6 +964,9 @@ module Decidim
 
   # How long a confirmed identity lasts before sensitive two-factor changes ask again
   mattr_accessor :two_factor_confirmation_window, default: Decidim::Env.new("DECIDIM_TWO_FACTOR_CONFIRMATION_WINDOW", "15").to_i.minutes
+
+  # Class name answering whether a user must set up a second factor
+  mattr_accessor :two_factor_enforcement_policy, default: Decidim::Env.new("DECIDIM_TWO_FACTOR_ENFORCEMENT_POLICY", "Decidim::TwoFactor::EnforcementPolicy").to_s
 
   def self.machine_translation_service_klass
     return unless Decidim.enable_machine_translations

@@ -45,8 +45,11 @@ Decidim::Core::Engine.routes.draw do
       end
 
       resource :two_factor_authentication, only: [:show], controller: "two_factor_authentications" do
+        post :dismiss_banner, on: :member
+
         resource :totp_authenticator, only: [:show, :new, :create], controller: "two_factor/totp_authenticators"
         resource :email_authenticator, only: [:show, :create], controller: "two_factor/email_authenticators"
+        resource :passkey_authenticator, only: [:show, :new, :create], controller: "two_factor/passkey_authenticators"
         resource :recovery_codes, only: [:show, :create], controller: "two_factor/recovery_codes"
 
         resource :confirmation, only: [:show, :create], controller: "two_factor_confirmations" do

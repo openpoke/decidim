@@ -24,6 +24,7 @@ module Decidim
     include UserBlockedChecker
     include DisableRedirectionToExternalHost
     include NeedsPasswordChange
+    include NeedsTwoFactorSetup
     include LinkedResourceReference
     include ActiveStorage::SetCurrent
     include OnboardingActionMethods

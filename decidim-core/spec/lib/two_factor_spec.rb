@@ -6,7 +6,7 @@ module Decidim
   describe TwoFactor do
     describe ".available_methods" do
       it "has the built-in methods registered in order" do
-        expect(described_class.available_methods.map(&:name)).to eq(%w(totp email))
+        expect(described_class.available_methods.map(&:name)).to eq(%w(totp email passkey))
       end
 
       context "when the operator narrows the allowlist" do
@@ -27,7 +27,7 @@ module Decidim
         it "falls back to the installation methods when the organization has no list" do
           organization.update!(available_two_factor_methods: [])
 
-          expect(described_class.available_methods(organization).map(&:name)).to eq(%w(totp email))
+          expect(described_class.available_methods(organization).map(&:name)).to eq(%w(totp email passkey))
         end
 
         it "offers nothing when the saved methods are no longer installed" do

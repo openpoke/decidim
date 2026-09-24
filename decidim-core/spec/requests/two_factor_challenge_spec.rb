@@ -189,4 +189,21 @@ describe "Two-factor challenge" do
       expect(user.reload.remember_created_at).to be_present
     end
   end
+
+  describe "logging in with a passkey" do
+    include_context "with a fake passkey client"
+
+    let!(:authenticator) { enroll_fake_passkey(user, fake_client, relying_party) }
+
+    it "lets the user in with the passkey" do
+      sign_in_with_password
+      get(routes.user_two_factor_challenge_path(locale: "en"), headers:)
+      options = passkey_options_from_response
+
+      post(routes.user_two_factor_challenge_path(locale: "en"), params: { method_name: "passkey", credential: fake_client.get(challenge: options["challenge"]).to_json }, headers:)
+
+      expect(response).to have_http_status(:redirect)
+      expect(account_status).to eq(200)
+    end
+  end
 end

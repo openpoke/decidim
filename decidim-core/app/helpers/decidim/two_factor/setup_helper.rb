@@ -4,8 +4,17 @@ require "rqrcode"
 
 module Decidim
   module TwoFactor
-    # Helpers for the second-factor setup pages.
+    # Helpers for the second-factor setup pages and the invitation banner.
     module SetupHelper
+      def two_factor_setup_message(user)
+        t(
+          "cta_html",
+          scope: "decidim.two_factor_setup_message",
+          deadline: l(user.two_factor_grace_ends_at.to_date, format: :decidim_short),
+          path: decidim.two_factor_authentication_path
+        )
+      end
+
       def two_factor_usage(authenticator, description = nil)
         added = description || t("decidim.two_factor.setup.added_on", date: l(authenticator.confirmed_at.to_date, format: :decidim_short))
         return added if authenticator.last_used_at.blank?
