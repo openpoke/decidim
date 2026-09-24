@@ -40,6 +40,8 @@ module Decidim
     #  existing: Users cannot be registered in the system. Only existing users can sign in.
     #  disable: Users cannot register or sign in.
     enum :users_registration_mode, [:enabled, :existing, :disabled], prefix: true
+
+    attribute :two_factor_enforced_for, :string, default: "none"
     enum :two_factor_enforced_for, { none: "none", admins: "admins", all: "all" }, prefix: true
 
     validates :host, uniqueness: true

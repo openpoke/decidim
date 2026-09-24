@@ -27,7 +27,7 @@ module Decidim
     def redirect_to_two_factor_setup
       return unless request.format.html?
 
-      session["decidim_two_factor_return_to"] = request.path if request.get?
+      session["decidim_two_factor_return_to"] = request.path if request.get? || request.head?
       flash[:notice] = flash[:notice] if flash[:notice]
       flash[:secondary] = t("decidim.two_factor_authentications.setup_required.alert")
       redirect_to decidim.two_factor_authentication_path
