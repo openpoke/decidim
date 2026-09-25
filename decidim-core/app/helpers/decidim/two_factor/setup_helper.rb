@@ -6,6 +6,11 @@ module Decidim
   module TwoFactor
     # Helpers for the second-factor setup pages and the invitation banner.
     module SetupHelper
+      # The session came through a provider trusted as a second factor, so the setup is not asked for.
+      def two_factor_setup_bypassed?(user)
+        session["decidim_two_factor_bypassed"] == user.id
+      end
+
       def two_factor_setup_message(user)
         t(
           "cta_html",

@@ -635,19 +635,22 @@ module Decidim
       enabled: Decidim::Env.new("OMNIAUTH_FACEBOOK_APP_ID").present?,
       app_id: Decidim::Env.new("OMNIAUTH_FACEBOOK_APP_ID", nil).value,
       app_secret: Decidim::Env.new("OMNIAUTH_FACEBOOK_APP_SECRET", nil).value,
-      icon_path: "media/images/facebook.svg"
+      icon_path: "media/images/facebook.svg",
+      bypass_two_factor: Decidim::Env.new("OMNIAUTH_FACEBOOK_BYPASS_TWO_FACTOR").present?
     },
     twitter: {
       enabled: Decidim::Env.new("OMNIAUTH_TWITTER_API_KEY").present?,
       api_key: Decidim::Env.new("OMNIAUTH_TWITTER_API_KEY", nil).value,
       api_secret: Decidim::Env.new("OMNIAUTH_TWITTER_API_SECRET", nil).value,
-      icon_path: "media/images/twitter-x.svg"
+      icon_path: "media/images/twitter-x.svg",
+      bypass_two_factor: Decidim::Env.new("OMNIAUTH_TWITTER_BYPASS_TWO_FACTOR").present?
     },
     google_oauth2: {
       enabled: Decidim::Env.new("OMNIAUTH_GOOGLE_CLIENT_ID").present?,
       icon_path: "media/images/google.svg",
       client_id: Decidim::Env.new("OMNIAUTH_GOOGLE_CLIENT_ID", nil).value,
-      client_secret: Decidim::Env.new("OMNIAUTH_GOOGLE_CLIENT_SECRET", nil).value
+      client_secret: Decidim::Env.new("OMNIAUTH_GOOGLE_CLIENT_SECRET", nil).value,
+      bypass_two_factor: Decidim::Env.new("OMNIAUTH_GOOGLE_BYPASS_TWO_FACTOR").present?
     }
   }
 

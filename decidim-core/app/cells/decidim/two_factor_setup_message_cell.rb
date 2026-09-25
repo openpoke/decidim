@@ -14,7 +14,7 @@ module Decidim
 
     def show
       return if session["decidim_two_factor_banner_dismissed"].present?
-      return if session["decidim_two_factor_bypassed"] == user.id
+      return if two_factor_setup_bypassed?(user)
       return if is_active_link?(decidim.two_factor_authentication_path)
       return unless user.two_factor_setup_pending?
 

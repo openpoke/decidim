@@ -11,7 +11,7 @@
     <%= cell("decidim/announcement", announcement_body, callout_class: current_user.admin_terms_accepted? ? "success" : "warning" ) %>
   <% end %>
 
-  <% if current_user.two_factor_setup_pending? %>
+  <% if current_user.two_factor_setup_pending? && !two_factor_setup_bypassed?(current_user) %>
     <%= cell("decidim/announcement", two_factor_setup_message(current_user), callout_class: "warning") %>
   <% end %>
 
