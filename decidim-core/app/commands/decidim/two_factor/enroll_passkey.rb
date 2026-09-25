@@ -44,7 +44,7 @@ module Decidim
       def verify_registration
         return if ceremony[:challenge].blank?
 
-        ceremony[:relying_party].verify_registration(form.credential, ceremony[:challenge])
+        ceremony[:relying_party].verify_registration(form.credential, ceremony[:challenge], user_verification: true)
       rescue ::WebAuthn::Error, ArgumentError
         nil
       end

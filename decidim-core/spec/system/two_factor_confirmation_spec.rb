@@ -15,14 +15,14 @@ describe "Two-factor confirmation" do
   end
 
   it "asks for confirmation before enabling a second factor and resumes the action" do
-    click_on "Enable email code"
+    click_on "Email code"
 
     expect(page).to have_text("Confirm enabling the email code")
 
     fill_in "Password", with: password
     click_on "Confirm with the password"
 
-    expect(page).to have_text("Enabled")
+    expect(page).to have_text("The email code was enabled for your account.")
     expect(Decidim::TwoFactor::EmailAuthenticator.where(user:)).to be_present
   end
 end

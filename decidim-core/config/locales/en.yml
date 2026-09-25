@@ -683,6 +683,9 @@ en:
         new_tos_fields:
           sign_up: Create an account
           sign_up_title: Finish creating your account
+      passkey_sessions:
+        create:
+          invalid: The passkey could not be used to log in. Try again or log in with your email and password.
       registrations:
         create:
           error: There was a problem creating your account.
@@ -1831,25 +1834,20 @@ en:
       setup:
         added_on: Added on %{date}
         email:
-          add: Enable email code
           codes_sent_to: Codes are sent to %{email}
-          description: A one-time code sent to your account email.
-          disable: Disable
           disable_confirm: Are you sure you want to disable the email code?
           title: Email code
-        enabled: Enabled
         last_used_on: Last used on %{date}
         passkey:
-          add: Add a passkey
-          description: A fingerprint, Face ID or a security key.
+          empty_text: Log in with your fingerprint, face or screen lock – no password to type. The passkey stays on your device and also works as the second step.
+          empty_title: With passkeys, you do not need to remember complex passwords.
           remove_confirm: Are you sure you want to remove this passkey?
           title: Passkey
         remove: Remove
         totp:
-          add: Add authenticator app
-          description: A one-time code from an app on your phone.
           remove_confirm: Are you sure you want to remove the authenticator app?
           title: Authenticator app
+        turn_off: Turn off
       totp_authenticators:
         create:
           error: The code is not correct. Check the app and try again.
@@ -1868,8 +1866,9 @@ en:
       setup_required:
         alert: You need to set up two-factor authentication in order to proceed further.
       show:
-        intro: Two-factor authentication protects your account by requiring more than just the password to log in.
-        methods: Two-factor methods
+        add: Add a method
+        add_another: Add another method
+        methods: Your sign-in methods
         regenerate: Regenerate
         regenerate_confirm: Are you sure? The codes you have now will stop working.
         required_by: Your organization requires two-factor authentication for your account. You can postpone the setup until %{date}.
@@ -2385,7 +2384,7 @@ en:
         notifications_settings: Notifications settings
         profile: Profile
         title: Participant settings
-        two_factor_authentication: Two-factor authentication
+        two_factor_authentication: Sign-in and security
   locale:
     name: English
     name_with_error: English (error!)

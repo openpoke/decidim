@@ -23,7 +23,7 @@ module Decidim
         relying_party(user.organization, origin).options_for_registration(
           user: { id: user_handle_for(user), name: user.email, display_name: user.name },
           exclude_credentials: where(user:).map(&:credential_descriptor),
-          authenticator_selection: { resident_key: "discouraged", user_verification: "preferred" }
+          authenticator_selection: { resident_key: "required", user_verification: "required" }
         )
       end
 
@@ -36,14 +36,32 @@ module Decidim
         options
       end
 
+      # Passkeys sign in on their own where the organization offers them as a second factor.
+      def self.sign_in_available?(organization)
+        organization.sign_in_enabled? && TwoFactor.available_methods(organization).any? { |manifest| manifest.name == "passkey" }
+      end
+
+      # No list of keys: the device offers the ones it holds for this site.
+      def self.sign_in_options(organization, origin)
+        relying_party(organization, origin).options_for_authentication(user_verification: "required")
+      end
+
+      # A passkey used without a password must belong to this organization and
+      # to the user it names, and the device must have verified the person.
+      def self.authenticate(organization, credential, ceremony)
+        authenticator = confirmed.joins(:user).find_by(external_id: credential["id"], decidim_users: { decidim_organization_id: organization.id })
+        return unless authenticator && credential.dig("response", "userHandle") == authenticator.metadata["user_handle"]
+
+        authenticator if authenticator.verify_assertion(credential, ceremony, user_verification: true)
+      end
+
       def self.find_for(user, form)
         confirmed.find_by(user:, external_id: form.credential&.dig("id"))
       end
 
+      # Opaque and stable, so a new passkey replaces the one the device already holds for this account.
       def self.user_handle_for(user)
-        stored = user.two_factor_authenticators.find_by(type: name)&.metadata&.dig("user_handle")
-
-        stored || ::WebAuthn.generate_user_id
+        Base64.urlsafe_encode64(OpenSSL::HMAC.digest("SHA256", Rails.application.secret_key_base, "passkey-#{user.id}"), padding: false)
       end
 
       def credential_descriptor
@@ -51,14 +69,18 @@ module Decidim
       end
 
       def verify(form, challenge)
-        ceremony = challenge.take_webauthn!
+        verify_assertion(form.credential, challenge.take_webauthn!)
+      end
+
+      def verify_assertion(credential, ceremony, user_verification: false)
         return false if ceremony["challenge"].blank?
 
         webauthn_credential = self.class.relying_party(user.organization, ceremony["origin"]).verify_authentication(
-          form.credential,
+          credential,
           ceremony["challenge"],
           public_key:,
-          sign_count:
+          sign_count:,
+          user_verification:
         )
 
         update!(sign_count: webauthn_credential.sign_count)

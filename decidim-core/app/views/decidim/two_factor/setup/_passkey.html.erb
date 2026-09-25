@@ -1,29 +1,21 @@
-<div>
-  <%= render layout: "decidim/two_factor/setup/row", locals: {
-        icon_name: two_factor_method.icon,
-        title: t("decidim.two_factor.setup.passkey.title"),
-        description: t("decidim.two_factor.setup.passkey.description")
-      } do %>
-    <%= link_to t("decidim.two_factor.setup.passkey.add"), new_two_factor_authentication_passkey_authenticator_path, class: "button button__sm button__secondary" %>
+<% if add %>
+  <% accepted = { rpId: current_organization.host, userId: Decidim::TwoFactor::PasskeyAuthenticator.user_handle_for(current_user), allAcceptedCredentialIds: authenticators.map(&:external_id) } %>
+  <%= link_to new_two_factor_authentication_passkey_authenticator_path, class: "button button__xs button__transparent-secondary", data: { controller: "passkey", passkey_accepted_value: accepted } do %>
+    <%= icon two_factor_method.icon, class: "fill-current" %>
+    <span><%= t("decidim.two_factor.setup.passkey.title") %></span>
   <% end %>
-
-  <% if authenticators.any? %>
-    <ul class="two-factor__devices">
-      <% authenticators.each do |passkey| %>
-        <li class="two-factor__row">
-          <div class="two-factor__row-text">
-            <h4 class="h6"><%= passkey.name.presence || t("decidim.two_factor.setup.passkey.title") %></h4>
-            <span><%= two_factor_usage(passkey) %></span>
-          </div>
-          <div class="two-factor__row-actions">
-            <%= button_to t("decidim.two_factor.setup.remove"),
-                          two_factor_authentication_authenticator_path(passkey),
-                          method: :delete,
-                          class: "button button__xs button__transparent-secondary",
-                          data: { confirm: t("decidim.two_factor.setup.passkey.remove_confirm") } %>
-          </div>
-        </li>
-      <% end %>
-    </ul>
+<% else %>
+  <% authenticators.each do |passkey| %>
+    <%= render layout: "decidim/two_factor/setup/row", locals: {
+          icon_name: two_factor_method.icon,
+          title: passkey.name.presence || t("decidim.two_factor.setup.passkey.title"),
+          description: two_factor_usage(passkey)
+        } do %>
+      <%= button_to t("decidim.two_factor.setup.remove"),
+                    two_factor_authentication_authenticator_path(passkey),
+                    method: :delete,
+                    class: "button button__xs button__transparent-secondary",
+                    data: { confirm: t("decidim.two_factor.setup.passkey.remove_confirm") } %>
+    <% end %>
   <% end %>
-</div>
+<% end %>

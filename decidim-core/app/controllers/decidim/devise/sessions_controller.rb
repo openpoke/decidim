@@ -9,6 +9,8 @@ module Decidim
 
       before_action :check_sign_in_enabled, only: :create
 
+      helper_method :passkey_sign_in_options
+
       rescue_from ActionController::InvalidAuthenticityToken, with: :redirect_to_referer_or_path
 
       def create
@@ -31,6 +33,17 @@ module Decidim
       end
 
       private
+
+      # Issued with the page, so no other request of the page can overwrite the session holding the challenge.
+      def passkey_sign_in_options
+        options = TwoFactor::PasskeyAuthenticator.sign_in_options(current_organization, request.base_url)
+        session["decidim_passkey_sign_in"] = {
+          "challenge" => options.challenge,
+          "origin" => request.base_url,
+          "expires_at" => Decidim.two_factor_code_expiry_time.from_now.iso8601
+        }
+        options
+      end
 
       def redirect_to_referer_or_path
         set_flash_message(:alert, "csrf_token", scope: "devise.failure")

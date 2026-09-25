@@ -50,10 +50,6 @@
     }
   }
 
-  &__devices {
-    @apply mt-4 space-y-2 pl-9;
-  }
-
   &__enrollment {
     @apply flex flex-col md:flex-row gap-6 mt-6;
 

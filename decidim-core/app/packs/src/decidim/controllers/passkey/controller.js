@@ -36,7 +36,8 @@ const credentialPayload = (credential, response) => ({
 
 const registrationPayload = (credential) => credentialPayload(credential, {
   attestationObject: bufferToBase64Url(credential.response.attestationObject),
-  clientDataJSON: bufferToBase64Url(credential.response.clientDataJSON)
+  clientDataJSON: bufferToBase64Url(credential.response.clientDataJSON),
+  transports: credential.response.getTransports?.() || []
 });
 
 const assertionPayload = (credential) => credentialPayload(credential, {
@@ -50,8 +51,12 @@ const assertionPayload = (credential) => credentialPayload(credential, {
 
 /**
  * Runs the WebAuthn ceremony of a passkey form: the options come from the
- * options value and the credential the browser returns goes back in the
- * credential target before the form is submitted.
+ * options value and the credential the browser returns goes back in the credential target before the form is
+ * submitted. With autofill, the form has no button: the browser offers the
+ * passkeys it holds for the site in the suggestions of the email field
+ * (`autocomplete="username webauthn"`), and none when it holds none.
+ * With the accepted value alone, it only tells the password manager which
+ * passkeys the site still accepts.
  *
  * Example:
  *
@@ -71,17 +76,46 @@ export default class extends Controller {
   static get values() {
     return {
       ceremony: String,
-      options: Object
+      options: Object,
+      autofill: Boolean,
+      accepted: Object
     };
   }
 
   connect() {
-    if (window.PublicKeyCredential) {
+    if (this.hasAcceptedValue) {
+      // Lets the password manager drop the passkeys removed from this site.
+      window.PublicKeyCredential?.signalAllAcceptedCredentials?.(this.acceptedValue)?.catch(() => {});
       return;
     }
 
-    this.unsupportedTarget.hidden = false;
-    this.submitTarget.disabled = true;
+    if (this.autofillValue) {
+      this.offerInAutofill();
+      return;
+    }
+
+    if (!window.PublicKeyCredential) {
+      this.unsupportedTarget.hidden = false;
+      this.submitTarget.disabled = true;
+    }
+  }
+
+  disconnect() {
+    this.autofill?.abort();
+  }
+
+  async offerInAutofill() {
+    if (!await window.PublicKeyCredential?.isConditionalMediationAvailable?.()) {
+      return;
+    }
+
+    this.autofill = new AbortController();
+    const publicKey = decodedRequestOptions(this.optionsValue);
+
+    // Rejected when the button takes over or the suggestion is dismissed: nothing to show.
+    navigator.credentials.get({ mediation: "conditional", signal: this.autofill.signal, publicKey }).
+      then((credential) => this.send(assertionPayload(credential))).
+      catch(() => {});
   }
 
   submit(event) {
@@ -89,10 +123,7 @@ export default class extends Controller {
     this.hideMessages();
     this.submitTarget.disabled = true;
 
-    this.runCeremony().then((payload) => {
-      this.credentialTarget.value = JSON.stringify(payload);
-      this.element.submit();
-    }).catch((error) => {
+    this.runCeremony().then((payload) => this.send(payload)).catch((error) => {
       this.submitTarget.disabled = false;
       this.showMessage(error);
     });
@@ -108,6 +139,11 @@ export default class extends Controller {
     const credential = await navigator.credentials.get({ publicKey: decodedRequestOptions(this.optionsValue) });
 
     return assertionPayload(credential);
+  }
+
+  send(payload) {
+    this.credentialTarget.value = JSON.stringify(payload);
+    this.element.submit();
   }
 
   hideMessages() {

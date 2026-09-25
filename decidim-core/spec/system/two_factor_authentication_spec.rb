@@ -14,15 +14,15 @@ describe "Two-factor authentication" do
     end
 
     it "lists the available methods" do
-      expect(page).to have_link("Two-factor authentication", href: decidim.two_factor_authentication_path)
-      expect(page).to have_text("Two-factor methods")
+      expect(page).to have_link("Sign-in and security", href: decidim.two_factor_authentication_path)
+      expect(page).to have_text("Your sign-in methods")
       expect(page).to have_text("Authenticator app")
       expect(page).to have_text("Email code")
       expect(page).to have_no_text("unused codes")
     end
 
     it "adds the authenticator app and shows the recovery codes once" do
-      click_on "Add authenticator app"
+      click_on "Authenticator app"
 
       expect(page).to have_text("Scan this QR code with the app")
       expect(page).to have_css("img[src^='data:image/svg+xml;base64,']")
@@ -42,7 +42,7 @@ describe "Two-factor authentication" do
     end
 
     it "rejects a wrong code" do
-      click_on "Add authenticator app"
+      click_on "Authenticator app"
       fill_in "Enter the 6-digit code the app shows", with: "000000"
       click_on "Confirm"
 
@@ -51,7 +51,7 @@ describe "Two-factor authentication" do
     end
 
     it "enables the email code" do
-      click_on "Enable email code"
+      click_on "Email code"
 
       expect(page).to have_text("Recovery codes")
 
@@ -102,7 +102,7 @@ describe "Two-factor authentication" do
 
     it "hides the page and its menu entry" do
       expect(page).to have_current_path(decidim.account_path)
-      expect(page).to have_no_link("Two-factor authentication")
+      expect(page).to have_no_link("Sign-in and security")
     end
   end
 end

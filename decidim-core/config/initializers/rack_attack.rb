@@ -41,6 +41,12 @@ if Rails.env.production? || Rails.env.test?
         request.ip if request.post? && request.path.include?("/two_factor_challenge")
       end
 
+      # Throttle passkey sign ins to 10 reqs/minute
+      # Return the IP as a discriminator on POST passkey_session requests
+      Rack::Attack.throttle("limit passkey sign in attempts per ip", limit: 10, period: 60.seconds) do |request|
+        request.ip if request.post? && request.path.include?("/passkey_session")
+      end
+
       # Throttle two-factor settings changes to 10 reqs/minute
       # Return the IP as a discriminator on POST and DELETE two_factor_authentication requests
       Rack::Attack.throttle("limit two-factor settings attempts per ip", limit: 10, period: 60.seconds) do |request|

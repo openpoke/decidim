@@ -32,12 +32,9 @@ module Decidim
       end
 
       describe ".user_handle_for" do
-        it "reuses the handle of an existing passkey and generates one otherwise" do
-          expect(described_class.user_handle_for(user)).to be_present
-
-          passkey.update!(metadata: { "user_handle" => "stored-handle" })
-
-          expect(described_class.user_handle_for(user)).to eq("stored-handle")
+        it "keeps the same handle for a user and a different one for each user" do
+          expect(described_class.user_handle_for(user)).to eq(described_class.user_handle_for(user.reload))
+          expect(described_class.user_handle_for(user)).not_to eq(described_class.user_handle_for(create(:user)))
         end
       end
 

@@ -41,7 +41,7 @@ module Decidim
     def authenticator_for(manifest) = authenticators_for(manifest).first
 
     def authenticators
-      @authenticators ||= current_user.two_factor_authenticators.to_a
+      @authenticators ||= current_user.two_factor_authenticators.confirmed.to_a
     end
   end
 end

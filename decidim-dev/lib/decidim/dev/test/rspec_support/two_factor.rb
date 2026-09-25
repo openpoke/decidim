@@ -17,7 +17,7 @@ module Decidim
 
     def enroll_fake_passkey(user, fake_client, relying_party, user_handle: WebAuthn.generate_user_id)
       options = relying_party.options_for_registration(user: { id: user_handle, name: user.email })
-      credential = fake_client.create(challenge: options.challenge).to_json
+      credential = fake_client.create(challenge: options.challenge, user_verified: true).to_json
       form = Decidim::TwoFactor::PasskeyEnrollmentForm.from_params(name: "Key", credential:)
 
       Decidim::TwoFactor::EnrollPasskey.call(user, form, { relying_party:, challenge: options.challenge, user_handle: })

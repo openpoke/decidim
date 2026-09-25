@@ -163,6 +163,7 @@ Decidim::Core::Engine.routes.draw do
       get "two_factor_challenge", to: "devise/two_factor_challenges#show", as: :user_two_factor_challenge
       post "two_factor_challenge", to: "devise/two_factor_challenges#create"
       post "two_factor_challenge/send_code", to: "devise/two_factor_challenges#send_code", as: :send_code_user_two_factor_challenge
+      post "passkey_session", to: "devise/passkey_sessions#create", as: :user_passkey_session
     end
 
     resources :pages, only: [:index, :show], format: false

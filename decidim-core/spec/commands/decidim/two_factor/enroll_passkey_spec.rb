@@ -14,7 +14,8 @@ module Decidim
       let(:name) { "My laptop" }
       let(:user_handle) { WebAuthn.generate_user_id }
       let(:options) { relying_party.options_for_registration(user: { id: user_handle, name: user.email }) }
-      let(:credential) { fake_client.create(challenge: options.challenge).to_json }
+      let(:user_verified) { true }
+      let(:credential) { fake_client.create(challenge: options.challenge, user_verified:).to_json }
       let(:ceremony) { { relying_party:, challenge: options.challenge, user_handle: } }
       let(:form) { PasskeyEnrollmentForm.from_params(name:, credential:) }
 
@@ -29,6 +30,14 @@ module Decidim
           expect(passkey.name).to eq("My laptop")
           expect(passkey.metadata["user_handle"]).to eq(user_handle)
           expect(passkey.metadata["transports"]).to eq(["internal"])
+        end
+      end
+
+      context "when the device did not verify the user" do
+        let(:user_verified) { false }
+
+        it "broadcasts invalid" do
+          expect { subject.call }.to broadcast(:invalid)
         end
       end
 

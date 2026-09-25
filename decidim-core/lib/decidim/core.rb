@@ -938,8 +938,8 @@ module Decidim
   # and Debates for both regular and admin users.
   mattr_accessor :enable_etiquette_validator, default: true
 
-  # Second-factor methods available on this installation, out of the registered ones
-  mattr_accessor :two_factor_methods, default: Decidim::Env.new("DECIDIM_TWO_FACTOR_METHODS", "totp,email,passkey").to_array.map(&:to_sym)
+  # Second-factor methods available on this installation, out of the registered ones, in order of preference
+  mattr_accessor :two_factor_methods, default: Decidim::Env.new("DECIDIM_TWO_FACTOR_METHODS", "passkey,totp,email").to_array.map(&:to_sym)
 
   # How long a user can keep postponing the second-factor setup after the organization starts enforcing it
   mattr_accessor :two_factor_grace_period, default: Decidim::Env.new("DECIDIM_TWO_FACTOR_GRACE_PERIOD", "1").to_i.days

@@ -25,7 +25,7 @@ describe "Two-factor enforcement" do
       expect(page).to have_current_path(decidim.two_factor_authentication_path)
       expect(page).to have_text("Set it up to continue")
 
-      click_on "Add authenticator app"
+      click_on "Authenticator app"
       secret = Decidim::TwoFactor::TotpAuthenticator.find_by(user:).secret
       fill_in "Enter the 6-digit code the app shows", with: totp_code_for(secret)
       click_on "Confirm"

@@ -2,7 +2,7 @@
 
 module Decidim
   module TwoFactor
-    # The WebAuthn assertion the browser returned to answer a challenge.
+    # The WebAuthn assertion the browser returned, to answer a challenge or to sign in.
     class PasskeyChallengeForm < ChallengeForm
       mimic :challenge
 

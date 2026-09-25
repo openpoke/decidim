@@ -901,7 +901,7 @@ module Decidim::System
 
       it "maps the organization attributes correctly" do
         expect(subject.secondary_hosts).to eq(organization.secondary_hosts.join("\n"))
-        expect(subject.available_two_factor_methods).to eq(%w(totp email passkey))
+        expect(subject.available_two_factor_methods).to eq(%w(passkey totp email))
         expect(subject.two_factor_grace_period_days).to eq(Decidim.two_factor_grace_period.in_days)
         expect(subject.omniauth_settings).to eq(
           {
