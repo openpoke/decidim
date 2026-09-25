@@ -32,7 +32,7 @@ module Decidim
 
       def create_code
         plain = SecureRandom.hex(16)
-        user.two_factor_recovery_codes.create!(code_digest: CodeDigest.create(plain))
+        user.two_factor_recovery_codes.create!(code_digest: RecoveryCode.digest(plain))
         plain
       end
     end

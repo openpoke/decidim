@@ -683,6 +683,9 @@ en:
         new_tos_fields:
           sign_up: Create an account
           sign_up_title: Finish creating your account
+      passkey_sessions:
+        create:
+          invalid: The passkey could not be used to log in. Try again or log in with your email and password.
       registrations:
         create:
           error: There was a problem creating your account.
@@ -1790,6 +1793,13 @@ en:
           intro: A one-time code was sent to %{email}.
           resend: Send a new code
           wrong: The code is not correct. Try again.
+        passkey:
+          alternative: Use a passkey instead
+          button: Use passkey
+          failed: The passkey could not be used. Try again.
+          intro: Confirm with a passkey stored on this device.
+          unsupported: This browser does not support passkeys.
+          wrong: The passkey could not be verified. Try again.
         recovery:
           alternative: Use a recovery code
           code_label: Enter one of your recovery codes
@@ -1804,26 +1814,40 @@ en:
         create:
           error: The email code could not be enabled.
           success: The email code was enabled for your account.
+      passkey_authenticators:
+        create:
+          error: The passkey could not be added. Try again.
+          success: The passkey was added to your account.
+        new:
+          cancel: Cancel
+          create: Create a passkey
+          duplicate: This device already holds a passkey for this account.
+          failed: The passkey could not be created. Try again.
+          intro: Your device will ask for a fingerprint, your face or a security key.
+          name_label: Passkey name
+          name_placeholder: My laptop
+          title: Add a passkey
+          unsupported: This browser does not support passkeys.
       recovery_codes:
         create:
           success: The recovery codes were regenerated.
       setup:
         added_on: Added on %{date}
         email:
-          add: Enable email code
           codes_sent_to: Codes are sent to %{email}
-          description: A one-time code sent to your account email.
-          disable: Disable
           disable_confirm: Are you sure you want to disable the email code?
           title: Email code
-        enabled: Enabled
         last_used_on: Last used on %{date}
+        passkey:
+          empty_text: Log in with your fingerprint, face or screen lock – no password to type. The passkey stays on your device and also works as the second step.
+          empty_title: With passkeys, you do not need to remember complex passwords.
+          remove_confirm: Are you sure you want to remove this passkey?
+          title: Passkey
         remove: Remove
         totp:
-          add: Add authenticator app
-          description: A one-time code from an app on your phone.
           remove_confirm: Are you sure you want to remove the authenticator app?
           title: Authenticator app
+        turn_off: Turn off
       totp_authenticators:
         create:
           error: The code is not correct. Check the app and try again.
@@ -1839,11 +1863,16 @@ en:
           title: Add authenticator app
           works_with: Works with Google Authenticator, Microsoft Authenticator, FreeOTP and similar apps.
     two_factor_authentications:
+      setup_required:
+        alert: You need to set up two-factor authentication in order to proceed further.
       show:
-        intro: Two-factor authentication protects your account by requiring more than just the password to log in.
-        methods: Two-factor methods
+        add: Add a method
+        add_another: Add another method
+        methods: Your sign-in methods
         regenerate: Regenerate
         regenerate_confirm: Are you sure? The codes you have now will stop working.
+        required_by: Your organization requires two-factor authentication for your account. You can postpone the setup until %{date}.
+        required_now: Your organization requires two-factor authentication for your account. Set it up to continue.
         unused_codes:
           one: "%{count} unused code"
           other: "%{count} unused codes"
@@ -1854,6 +1883,9 @@ en:
             destroy: Confirm removing a second-factor method
           email_authenticators:
             create: Confirm enabling the email code
+          passkey_authenticators:
+            create: Confirm adding a passkey
+            new: Confirm adding a passkey
           recovery_codes:
             create: Confirm regenerating the recovery codes
           totp_authenticators:
@@ -1887,6 +1919,9 @@ en:
         instruction: An administrator removed all the second factors and recovery codes from your account. Your password alone signs you in now.
         subject: Two-factor authentication was reset on your account
       greeting: Hello %{name}!
+    two_factor_setup_message:
+      cta_html: Your organization requires two-factor authentication. <a href="%{path}">Set it up</a> before %{deadline}.
+      dismiss: Remind me later
     user_activity:
       index:
         no_activities_warning: This participant does not have any activity yet.
@@ -2349,7 +2384,7 @@ en:
         notifications_settings: Notifications settings
         profile: Profile
         title: Participant settings
-        two_factor_authentication: Two-factor authentication
+        two_factor_authentication: Sign-in and security
   locale:
     name: English
     name_with_error: English (error!)

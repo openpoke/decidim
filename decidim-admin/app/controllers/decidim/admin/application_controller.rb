@@ -7,6 +7,7 @@ module Decidim
       include NeedsOrganization
       include NeedsPermission
       include NeedsPasswordChange
+      include NeedsTwoFactorSetup
       include NeedsSnippets
       include NeedsAdminTosAccepted
       include NeedsRtlDirection

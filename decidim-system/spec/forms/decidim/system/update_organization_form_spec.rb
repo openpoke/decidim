@@ -18,7 +18,9 @@ module Decidim::System
         users_registration_mode: "enabled",
         force_users_to_authenticate_before_access_organization: "false",
         two_factor_authentication_enabled: true,
+        two_factor_enforced_for: "none",
         available_two_factor_methods: %w(totp email),
+        two_factor_grace_period_days: nil,
         **smtp_settings,
         **omniauth_settings
       )
@@ -26,6 +28,7 @@ module Decidim::System
     let(:omniauth_settings) do
       {
         "omniauth_settings_facebook_enabled" => true,
+        "omniauth_settings_facebook_bypass_two_factor" => "1",
         "omniauth_settings_facebook_app_id" => facebook_app_id,
         "omniauth_settings_facebook_app_secret" => facebook_app_secret
       }
@@ -51,6 +54,7 @@ module Decidim::System
       describe "omniauth_settings" do
         it "contains attributes as plain text" do
           expect(subject.omniauth_settings_facebook_enabled).to be(true)
+          expect(subject.omniauth_settings_facebook_bypass_two_factor).to be(true)
           expect(subject.omniauth_settings_facebook_app_id).to eq(facebook_app_id)
           expect(subject.omniauth_settings_facebook_app_secret).to eq(facebook_app_secret)
         end
@@ -129,6 +133,12 @@ module Decidim::System
 
     describe "validations" do
       describe "two-factor settings" do
+        context "when two_factor_enforced_for is a weird value" do
+          before { subject.two_factor_enforced_for = "foobar" }
+
+          it { is_expected.not_to be_valid }
+        end
+
         context "when all the two-factor methods are unchecked" do
           before { subject.available_two_factor_methods = [""] }
 
@@ -148,6 +158,24 @@ module Decidim::System
           before { subject.available_two_factor_methods = %w(totp bogus) }
 
           it { is_expected.not_to be_valid }
+        end
+
+        context "when the two-factor grace period is over the maximum" do
+          before { subject.two_factor_grace_period_days = Decidim.two_factor_grace_period_max_days + 1 }
+
+          it { is_expected.not_to be_valid }
+        end
+
+        context "when the two-factor grace period is blank" do
+          before { subject.two_factor_grace_period_days = nil }
+
+          it { is_expected.to be_valid }
+        end
+
+        context "when the two-factor grace period is zero" do
+          before { subject.two_factor_grace_period_days = 0 }
+
+          it { is_expected.to be_valid }
         end
       end
 
@@ -873,7 +901,8 @@ module Decidim::System
 
       it "maps the organization attributes correctly" do
         expect(subject.secondary_hosts).to eq(organization.secondary_hosts.join("\n"))
-        expect(subject.available_two_factor_methods).to eq(%w(totp email))
+        expect(subject.available_two_factor_methods).to eq(%w(passkey totp email))
+        expect(subject.two_factor_grace_period_days).to eq(Decidim.two_factor_grace_period.in_days)
         expect(subject.omniauth_settings).to eq(
           {
             "omniauth_settings_facebook_app_id" => "foo",

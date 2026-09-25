@@ -57,9 +57,22 @@ module Decidim
         organization.content_security_policy = form.content_security_policy
         organization.header_snippets = form.header_snippets if Decidim.enable_html_header_snippets
         organization.two_factor_authentication_enabled = form.two_factor_authentication_enabled
+        organization.two_factor_enforced_at = two_factor_enforced_at
+        organization.two_factor_enforced_for = form.two_factor_enforced_for
         organization.available_two_factor_methods = form.available_two_factor_methods
+        organization.two_factor_grace_period_days = form.two_factor_grace_period_days
 
         organization.save!
+      end
+
+      def two_factor_enforced_at
+        scopes = Decidim::Organization.two_factor_enforced_fors.keys
+        return unless form.two_factor_authentication_enabled
+        return if form.two_factor_enforced_for == "none"
+        return Time.current if organization.two_factor_enforced_at.blank?
+        return Time.current if scopes.index(form.two_factor_enforced_for) > scopes.index(organization.two_factor_enforced_for)
+
+        organization.two_factor_enforced_at
       end
     end
   end

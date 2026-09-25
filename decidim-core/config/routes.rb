@@ -45,8 +45,11 @@ Decidim::Core::Engine.routes.draw do
       end
 
       resource :two_factor_authentication, only: [:show], controller: "two_factor_authentications" do
+        post :dismiss_banner, on: :member
+
         resource :totp_authenticator, only: [:show, :new, :create], controller: "two_factor/totp_authenticators"
         resource :email_authenticator, only: [:show, :create], controller: "two_factor/email_authenticators"
+        resource :passkey_authenticator, only: [:show, :new, :create], controller: "two_factor/passkey_authenticators"
         resource :recovery_codes, only: [:show, :create], controller: "two_factor/recovery_codes"
 
         resource :confirmation, only: [:show, :create], controller: "two_factor_confirmations" do
@@ -160,6 +163,7 @@ Decidim::Core::Engine.routes.draw do
       get "two_factor_challenge", to: "devise/two_factor_challenges#show", as: :user_two_factor_challenge
       post "two_factor_challenge", to: "devise/two_factor_challenges#create"
       post "two_factor_challenge/send_code", to: "devise/two_factor_challenges#send_code", as: :send_code_user_two_factor_challenge
+      post "passkey_session", to: "devise/passkey_sessions#create", as: :user_passkey_session
     end
 
     resources :pages, only: [:index, :show], format: false

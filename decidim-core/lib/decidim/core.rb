@@ -635,19 +635,22 @@ module Decidim
       enabled: Decidim::Env.new("OMNIAUTH_FACEBOOK_APP_ID").present?,
       app_id: Decidim::Env.new("OMNIAUTH_FACEBOOK_APP_ID", nil).value,
       app_secret: Decidim::Env.new("OMNIAUTH_FACEBOOK_APP_SECRET", nil).value,
-      icon_path: "media/images/facebook.svg"
+      icon_path: "media/images/facebook.svg",
+      bypass_two_factor: Decidim::Env.new("OMNIAUTH_FACEBOOK_BYPASS_TWO_FACTOR").present?
     },
     twitter: {
       enabled: Decidim::Env.new("OMNIAUTH_TWITTER_API_KEY").present?,
       api_key: Decidim::Env.new("OMNIAUTH_TWITTER_API_KEY", nil).value,
       api_secret: Decidim::Env.new("OMNIAUTH_TWITTER_API_SECRET", nil).value,
-      icon_path: "media/images/twitter-x.svg"
+      icon_path: "media/images/twitter-x.svg",
+      bypass_two_factor: Decidim::Env.new("OMNIAUTH_TWITTER_BYPASS_TWO_FACTOR").present?
     },
     google_oauth2: {
       enabled: Decidim::Env.new("OMNIAUTH_GOOGLE_CLIENT_ID").present?,
       icon_path: "media/images/google.svg",
       client_id: Decidim::Env.new("OMNIAUTH_GOOGLE_CLIENT_ID", nil).value,
-      client_secret: Decidim::Env.new("OMNIAUTH_GOOGLE_CLIENT_SECRET", nil).value
+      client_secret: Decidim::Env.new("OMNIAUTH_GOOGLE_CLIENT_SECRET", nil).value,
+      bypass_two_factor: Decidim::Env.new("OMNIAUTH_GOOGLE_BYPASS_TWO_FACTOR").present?
     }
   }
 
@@ -935,8 +938,14 @@ module Decidim
   # and Debates for both regular and admin users.
   mattr_accessor :enable_etiquette_validator, default: true
 
-  # Second-factor methods available on this installation, out of the registered ones
-  mattr_accessor :two_factor_methods, default: Decidim::Env.new("DECIDIM_TWO_FACTOR_METHODS", "totp,email").to_array.map(&:to_sym)
+  # Second-factor methods available on this installation, out of the registered ones, in order of preference
+  mattr_accessor :two_factor_methods, default: Decidim::Env.new("DECIDIM_TWO_FACTOR_METHODS", "passkey,totp,email").to_array.map(&:to_sym)
+
+  # How long a user can keep postponing the second-factor setup after the organization starts enforcing it
+  mattr_accessor :two_factor_grace_period, default: Decidim::Env.new("DECIDIM_TWO_FACTOR_GRACE_PERIOD", "1").to_i.days
+
+  # The most grace days an organization admin can configure
+  mattr_accessor :two_factor_grace_period_max_days, default: Decidim::Env.new("DECIDIM_TWO_FACTOR_GRACE_PERIOD_MAX_DAYS", "14").to_i
 
   # Allowed clock drift (seconds) when verifying authenticator app codes
   mattr_accessor :two_factor_totp_drift, default: Decidim::Env.new("DECIDIM_TWO_FACTOR_TOTP_DRIFT", "30").to_i
@@ -958,6 +967,9 @@ module Decidim
 
   # How long a confirmed identity lasts before sensitive two-factor changes ask again
   mattr_accessor :two_factor_confirmation_window, default: Decidim::Env.new("DECIDIM_TWO_FACTOR_CONFIRMATION_WINDOW", "15").to_i.minutes
+
+  # Class name answering whether a user must set up a second factor
+  mattr_accessor :two_factor_enforcement_policy, default: Decidim::Env.new("DECIDIM_TWO_FACTOR_ENFORCEMENT_POLICY", "Decidim::TwoFactor::EnforcementPolicy").to_s
 
   def self.machine_translation_service_klass
     return unless Decidim.enable_machine_translations

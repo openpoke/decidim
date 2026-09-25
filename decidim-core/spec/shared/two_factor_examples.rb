@@ -14,6 +14,12 @@ shared_examples "an enrollment issuing recovery codes" do
   end
 end
 
+shared_context "with a fake passkey client" do
+  let(:origin) { "http://#{organization.host}" }
+  let(:relying_party) { Decidim::TwoFactor::PasskeyAuthenticator.relying_party(organization, origin) }
+  let(:fake_client) { WebAuthn::FakeClient.new(origin) }
+end
+
 shared_context "with a two-factor request session" do
   include_context "with a two-factor organization"
 

@@ -61,6 +61,34 @@ describe "Two-factor authentication" do
     end
   end
 
+  describe "passkey enrollment" do
+    include_context "with a fake passkey client"
+
+    it "attaches the passkey the browser created" do
+      get(routes.new_two_factor_authentication_passkey_authenticator_path(locale: "en"), headers:)
+
+      options = passkey_options_from_response
+      credential = fake_client.create(challenge: options["challenge"], user_verified: true)
+
+      post(routes.two_factor_authentication_passkey_authenticator_path(locale: "en"), params: { name: "My laptop", credential: credential.to_json }, headers:)
+
+      expect(response.body).to include("Recovery codes")
+      expect(Decidim::TwoFactor::PasskeyAuthenticator.find_by(user:).name).to eq("My laptop")
+    end
+
+    it "rejects a garbage credential" do
+      get(routes.new_two_factor_authentication_passkey_authenticator_path(locale: "en"), headers:)
+      post(routes.two_factor_authentication_passkey_authenticator_path(locale: "en"), params: { credential: "bogus" }, headers:)
+
+      expect(response).to redirect_to(routes.new_two_factor_authentication_passkey_authenticator_path(locale: "en"))
+      expect(Decidim::TwoFactor::PasskeyAuthenticator.where(user:)).to be_empty
+    end
+
+    it_behaves_like "a two-factor page hidden without two-factor authentication" do
+      let(:path) { routes.new_two_factor_authentication_passkey_authenticator_path(locale: "en") }
+    end
+  end
+
   describe "GET on the pages rendered in response to a POST" do
     before { create(:totp_authenticator, :confirmed, user:) }
 
@@ -78,8 +106,8 @@ describe "Two-factor authentication" do
       it "offers only the allowed methods" do
         get(routes.two_factor_authentication_path(locale: "en"), headers:)
 
-        expect(response.body).to include("Add authenticator app")
-        expect(response.body).not_to include("Enable email code")
+        expect(response.body).to include("Authenticator app")
+        expect(response.body).not_to include("Email code")
       end
     end
 

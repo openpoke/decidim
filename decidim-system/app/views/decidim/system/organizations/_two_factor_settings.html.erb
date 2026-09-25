@@ -9,6 +9,18 @@
 
   <div id="two_factor_settings_details" <%= f.object.two_factor_authentication_enabled ? nil : "hidden" %>>
     <div class="flex flex-col gap-5">
+      <%= field_set_tag f.label(:two_factor_enforced_for, nil, for: nil) do %>
+        <%= f.collection_radio_buttons :two_factor_enforced_for,
+                                       Decidim::Organization.two_factor_enforced_fors.keys,
+                                       :itself,
+                                       ->(option) { t("activemodel.attributes.organization.two_factor_enforced_for_#{option}") } do |builder| %>
+          <div>
+            <%= builder.label(for: nil, class: "form__wrapper-checkbox-label") { builder.radio_button(id: nil) + builder.text } %>
+            <span class="help-text"><%= t(builder.value, scope: "decidim.system.organizations.two_factor_settings.two_factor_enforced_for.options") %></span>
+          </div>
+        <% end %>
+      <% end %>
+
       <%= field_set_tag f.label(:available_two_factor_methods, nil, for: nil) do %>
         <%= f.collection_check_boxes :available_two_factor_methods,
                                      Decidim::TwoFactor.available_methods,
@@ -18,6 +30,17 @@
             <%= builder.label(for: nil, class: "form__wrapper-checkbox-label") { builder.check_box(id: nil) + builder.text } %>
           </div>
         <% end %>
+      <% end %>
+
+      <%= field_set_tag f.label(:two_factor_grace_period, nil, for: nil) do %>
+        <div>
+          <%= f.number_field :two_factor_grace_period_days,
+                             min: 0,
+                             max: Decidim.two_factor_grace_period_max_days,
+                             help_text: t(".two_factor_grace_period_days_help",
+                                          count: Decidim.two_factor_grace_period.in_days.to_i,
+                                          max: Decidim.two_factor_grace_period_max_days) %>
+        </div>
       <% end %>
     </div>
   </div>

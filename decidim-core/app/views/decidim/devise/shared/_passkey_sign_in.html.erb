@@ -1,0 +1,11 @@
+<% if Decidim::TwoFactor::PasskeyAuthenticator.sign_in_available?(current_organization) %>
+  <%= form_with url: decidim.user_passkey_session_path,
+                data: {
+                  controller: "passkey",
+                  passkey_ceremony_value: "authentication",
+                  passkey_options_value: passkey_sign_in_options.as_json.to_json,
+                  passkey_autofill_value: true
+                } do %>
+    <%= hidden_field_tag :credential, nil, id: nil, data: { passkey_target: "credential" } %>
+  <% end %>
+<% end %>

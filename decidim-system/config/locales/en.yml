@@ -19,6 +19,12 @@ en:
         password: Password
         port: Port
         two_factor_authentication_enabled: Enable two-factor authentication
+        two_factor_enforced_for: Who must use two-factor authentication
+        two_factor_enforced_for_admins: Administrators
+        two_factor_enforced_for_all: All participants
+        two_factor_enforced_for_none: No one
+        two_factor_grace_period: Grace period
+        two_factor_grace_period_days: Days
         user_name: Username
       organization_file_uploads:
         allowed_content_types:
@@ -309,6 +315,7 @@ en:
           short_name_hint: Short name used for the Progressive Web Application. It must have 12 characters maximum.
           title: New organization
         omniauth_settings:
+          bypass_two_factor: Trust as a second factor (skip the two-factor challenge)
           decidim:
             client_id: Client ID
             client_secret: Client secret
@@ -340,6 +347,14 @@ en:
         two_factor_settings:
           title: Two-factor authentication
           two_factor_authentication_enabled_help: When disabled, participants can neither be required nor allowed to set up a second factor.
+          two_factor_enforced_for:
+            options:
+              admins: Everyone with access to the administration panel (administrators, space admins, collaborators, moderators, valuators) has to set up a second factor to log in.
+              all: Every participant has to set up a second factor to log in.
+              none: The second factor stays optional for everyone.
+          two_factor_grace_period_days_help:
+            one: How many days a user can keep postponing the setup after the requirement starts, at most %{max}. Use 0 for no grace period; leave empty for the default (%{count} day).
+            other: How many days a user can keep postponing the setup after the requirement starts, at most %{max}. Use 0 for no grace period; leave empty for the default (%{count} days).
         update:
           error: There was a problem updating this organization.
           success: Organization successfully updated.

@@ -6,7 +6,6 @@ module Decidim
     include Decidim::HasWorkflows
 
     autoload :MethodManifest, "decidim/two_factor/method_manifest"
-    autoload :CodeDigest, "decidim/two_factor/code_digest"
 
     def self.workflow_manifest_class = MethodManifest
 
@@ -16,6 +15,10 @@ module Decidim
       names &= saved if saved.any?
 
       names.filter_map { |name| find_workflow_manifest(name) }
+    end
+
+    def self.enforcement_policy
+      Decidim.two_factor_enforcement_policy.to_s.constantize
     end
   end
 end

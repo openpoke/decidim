@@ -203,14 +203,18 @@ describe "Organizations" do
 
       it "updates the two-factor settings" do
         within "#two_factor_settings" do
-          uncheck "Email code"
+          choose "Administrators"
+          uncheck "Passkey"
+          fill_in "Days", with: 10
         end
 
         click_on "Save"
         expect(page).to have_css("div.flash.success")
 
         organization.reload
-        expect(organization.available_two_factor_methods).to eq(%w(totp))
+        expect(organization.two_factor_enforced_for).to eq("admins")
+        expect(organization.available_two_factor_methods).to eq(%w(totp email))
+        expect(organization.two_factor_grace_period_days).to eq(10)
       end
 
       context "without the secret key defined" do

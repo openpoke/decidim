@@ -140,6 +140,7 @@ ignore_unused:
   - decidim.admin.forms.file_help.import_csv.*
   - decidim.authorization_handlers.{direct,multistep}
   - decidim.admin.models.assembly_member.positions.*
+  - decidim.system.organizations.two_factor_settings.two_factor_enforced_for.options.{none,admins,all}
   - decidim.two_factor_confirmations.show.actions.*
   - decidim.application.documents.component_documents.*
   - decidim.statistics.*
