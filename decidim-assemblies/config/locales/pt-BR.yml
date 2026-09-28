@@ -3,10 +3,10 @@ pt-BR:
   activemodel:
     attributes:
       assembly:
-        announcement: Avisos
+        announcement: Anúncios
         area_id: Área
         assembly_type: Tipo de assembleia
-        assembly_type_other: Outro tipo de assambleia
+        assembly_type_other: Outro tipo de assembleia
         banner_image: Imagem da bandeira
         closing_date: Data de finalização
         closing_date_reason: Razão da data de finalização
@@ -166,7 +166,7 @@ pt-BR:
           attachment_files: arquivos
           attachments: Anexos
           components: Componentes
-          info: Sobre essa assambleia
+          info: Sobre essa assembleia
           landing_page: Layout página principal
           moderations: Moderação
           private_users: Membros
@@ -246,7 +246,7 @@ pt-BR:
             duration: Duração
             duration_help: Se a duração dessa assembleia for limitada, selecione a data final. Caso contrário, aparecerá como indefinido.
             images: Imagens
-            included_at_help: Selecione a data em que a assambleia foi adicionada à plataforma. Não precisa necessariamente ser o mesmo que a data de criação.
+            included_at_help: Selecione a data em que a assembleia foi adicionada à plataforma. Não precisa necessariamente ser o mesmo que a data de criação.
             metadata: Metadados
             no_taxonomy_filters_found: Nenhum filtro de taxonomia encontrado.
             other: De outros
@@ -335,7 +335,7 @@ pt-BR:
         home:
           highlighted_assemblies:
             active_spaces: Assembleias ativas
-            see_all_spaces: Ver todas as assembleias 
+            see_all_spaces: Ver todas as assembleias
         user_profile:
           member_of:
             member_of: Membro de

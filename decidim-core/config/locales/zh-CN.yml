@@ -176,9 +176,6 @@ zh-CN:
       update_draft:
         error: 更新修正草案时遇到问题。
         success: 修正草稿已成功更新。
-      wizard_step_form:
-        steps:
-          '1': 创建您的修改
     anonymous_user: 匿名的
     application:
       document:
@@ -266,7 +263,6 @@ zh-CN:
           global:
             amendments_enabled: 修改已启用
             comments_enabled: 评论已启用
-            comments_max_length: 评论最大长度
             dummy_global_attribute1: 虚拟属性 1
             dummy_global_attribute2: 虚拟属性 2
             dummy_global_translatable_text: 虚拟可翻译文本
@@ -355,13 +351,9 @@ zh-CN:
           affected_user:
             email_intro: '%{amendable_title}的修改已被接受。您可以从这个页面查看：'
             email_outro: 您收到此通知是因为您是 %{amendable_title} 的作者。
-            email_subject: 接受来自 %{amendable_title} 的 %{emendation_author_nickname} 修正案
-            notification_title: 由 <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> 创建的 <a href="%{emendation_path}">修正</a> 已被接受 <a href="%{amendable_path}">%{amendable_title}</a>。
           follower:
             email_intro: '%{amendable_title}的修改已被接受。您可以从这个页面查看：'
             email_outro: 您收到此通知是因为您正在关注 %{amendable_title}。您可以停止收到跟随上一个链接的通知。
-            email_subject: 接受来自 %{amendable_title} 的 %{emendation_author_nickname} 修正案
-            notification_title: 由 <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> 创建的 <a href="%{emendation_path}">修正</a> 已被接受 <a href="%{amendable_path}">%{amendable_title}</a>。
         amendment_created:
           affected_user:
             email_intro: '已经为 %{amendable_title}创建了一个新的版本。您可以从这个页面查看它：'
@@ -377,22 +369,16 @@ zh-CN:
           affected_user:
             email_intro: '%{amendable_title} 的被拒绝的修订已经发布为新的 %{amendable_type}。您可以从这个页面查看：'
             email_outro: 您收到此通知是因为您是 %{amendable_title} 的作者。
-            email_subject: 来自 %{emendation_author_nickname} 的修订已经发布为新的 %{amendable_type}
           follower:
             email_intro: '%{amendable_title} 的被拒绝的修订已经发布为新的 %{amendable_type}。您可以从这个页面查看：'
             email_outro: 您收到此通知是因为您正在关注 %{amendable_title}。您可以停止收到跟随上一个链接的通知。
-            email_subject: 来自 %{emendation_author_nickname} 的修订已经发布为新的 %{amendable_type}
         amendment_rejected:
           affected_user:
             email_intro: '%{amendable_title}的修订已被拒绝。您可以从这个页面查看：'
             email_outro: 您收到此通知是因为您是 %{amendable_title} 的作者。
-            email_subject: '%{amendable_title} 的 %{emendation_author_nickname} 修正案被拒绝'
-            notification_title: 由 <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> 创建的 <a href="%{emendation_path}">项修正</a> 已被 <a href="%{amendable_path}">%{amendable_title}</a> 拒绝。
           follower:
             email_intro: '%{amendable_title}的修订已被拒绝。您可以从这个页面查看：'
             email_outro: 您收到此通知是因为您正在关注 %{amendable_title}。您可以停止收到跟随上一个链接的通知。
-            email_subject: '%{amendable_title} 的 %{emendation_author_nickname} 修正案被拒绝'
-            notification_title: 由 <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> 创建的 <a href="%{emendation_path}">项修正</a> 已被 <a href="%{amendable_path}">%{amendable_title}</a> 拒绝。
       attachments:
         attachment_created:
           email_intro: '一个新文档已添加到 %{resource_title}。您可以从这个页面查看：'
@@ -415,12 +401,6 @@ zh-CN:
           email_outro: 您收到此通知是因为您在我们的网站上进行了活动。
         level_up:
           email_outro: 您收到此通知是因为您在我们的网站上进行了活动。
-      users:
-        profile_updated:
-          email_intro: 您关注的 %{name} (%{nickname}) 的 <a href="%{resource_url}">个人资料页面</a> 已经更新。
-          email_outro: 您收到此通知是因为您正在关注 %{nickname}。您可以停止收到跟随上一个链接的通知。
-          email_subject: "%{nickname} 更新了他们的个人资料"
-          notification_title: 您关注的 %{name} (%{nickname}) 的 <a href="%{resource_path}">个人资料页面</a> 已经更新。
     export_mailer:
       download_your_data_export:
         download: 下载
@@ -546,7 +526,6 @@ zh-CN:
           modal_title: 新建对话
           no_results: 没有结果
         error_modal:
-          close: 关闭模式
           correct_errors: 请更正错误，然后重试。
           intro: '您的消息有以下错误：'
           ok: 好的

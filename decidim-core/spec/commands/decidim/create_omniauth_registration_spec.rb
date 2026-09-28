@@ -107,6 +107,38 @@ module Decidim
           end
         end
 
+        context "when tos agreement is missing for a new user" do
+          let(:tos_agreement) { nil }
+
+          it "broadcasts add_tos_errors" do
+            expect { command.call }.to broadcast(:add_tos_errors)
+          end
+
+          it "does not create a new user" do
+            expect do
+              command.call
+            end.not_to change(User, :count)
+          end
+        end
+
+        context "when tos agreement is missing for an existing verified user" do
+          let(:tos_agreement) { nil }
+
+          before do
+            create(:user, email:, organization:)
+          end
+
+          it "broadcasts ok" do
+            expect { command.call }.to broadcast(:ok)
+          end
+
+          it "does not create a new user" do
+            expect do
+              command.call
+            end.not_to change(User, :count)
+          end
+        end
+
         context "when the form is valid" do
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
@@ -269,6 +301,28 @@ module Decidim
             expect_any_instance_of(User).to receive(:skip_confirmation!)
             # rubocop:enable RSpec/AnyInstance
             command.call
+          end
+
+          context "with concurrent calls" do
+            include_context "with concurrency"
+
+            it "does not raise error" do
+              expect do
+                threads = 10.times.map do
+                  Thread.new do
+                    local_form = OmniauthRegistrationForm.from_params(form_params).with_context(
+                      current_organization: organization
+                    )
+                    described_class.new(local_form, verified_email).call
+                  end
+                end
+                # Wait for each thread to finish
+                threads.map(&:value)
+              end.not_to raise_error
+
+              expect(User.count).to eq(1)
+              expect(Identity.count).to eq(1)
+            end
           end
         end
 

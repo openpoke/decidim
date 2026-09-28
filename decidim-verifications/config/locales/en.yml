@@ -49,7 +49,7 @@ en:
             confirm: Revoke before date authorizations cannot be undone. Are you sure you want to continue?
             confirm_all: Revoke all the authorizations cannot be undone. Are you sure you want to continue?
           destroy_nok: There was a problem while revoking authorizations.
-          destroy_ok: All matched authorizations have been revocated successfully.
+          destroy_ok: Revocation of authorizations is in progress. This may take a few minutes to complete.
           info: There are a total of %{count} verified participants.
           no_data: No verified participants.
           title: Authorizations revocation
@@ -228,6 +228,7 @@ en:
         authorizations:
           new:
             error: We could not verify your account or you are not in the organization's census.
+            locked: Too many failed attempts. Please try again later.
             success: Your account has been successfully verified.
       dummy_authorization:
         extra_explanation:
@@ -253,6 +254,7 @@ en:
           confirmations:
             create:
               error: Verification does not match. Please try again or reject the verification so the participant can amend it.
+              locked: Too many failed attempts. Please try again later.
               success: Participant successfully verified.
             new:
               introduce_user_data: Introduce the data in the picture
@@ -329,6 +331,7 @@ en:
             title: Request your verification code
           update:
             error: Your verification code does not match ours. Please double-check the letter we sent to you.
+            locked: Too many failed attempts. Please try again later.
             success: Congratulations. You have been successfully verified.
       sms:
         authorizations:
@@ -348,6 +351,8 @@ en:
             title: Request your verification code
           update:
             error: Your verification code does not match ours. Please double-check the SMS we sent you.
+            expired: The verification code has expired. Please request a new one.
+            locked: Too many failed attempts. Please try again later or request a new code.
             success: Congratulations. You have been successfully verified.
   errors:
     messages:
