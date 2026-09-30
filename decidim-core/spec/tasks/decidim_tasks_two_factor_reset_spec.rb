@@ -40,16 +40,16 @@ describe "rake decidim:two_factor:reset", type: :task do
   context "when the host matches no organization" do
     before { ENV["HOST"] = "unknown.example.org" }
 
-    it "aborts" do
-      expect { task.execute }.to raise_error(SystemExit)
+    it "aborts showing how to call the task" do
+      expect { task.execute }.to raise_error(SystemExit, %r{No organization found.*Usage:\n  bin/rails decidim:two_factor:reset EMAIL=}m)
     end
   end
 
   context "when the email matches no account of the organization" do
     before { ENV["EMAIL"] = "nobody@example.org" }
 
-    it "aborts" do
-      expect { task.execute }.to raise_error(SystemExit)
+    it "aborts showing how to call the task" do
+      expect { task.execute }.to raise_error(SystemExit, %r{No account found.*Usage:\n  bin/rails decidim:two_factor:reset EMAIL=}m)
     end
   end
 

@@ -45,7 +45,8 @@ module Decidim
         return if ceremony[:challenge].blank?
 
         ceremony[:relying_party].verify_registration(form.credential, ceremony[:challenge], user_verification: true)
-      rescue ::WebAuthn::Error, ArgumentError
+      rescue ::WebAuthn::Error, ArgumentError => e
+        Rails.logger.warn("Passkey registration rejected for user #{user.id}: #{e.message}")
         nil
       end
     end

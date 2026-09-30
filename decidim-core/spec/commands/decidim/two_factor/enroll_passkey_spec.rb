@@ -39,6 +39,14 @@ module Decidim
         it "broadcasts invalid" do
           expect { subject.call }.to broadcast(:invalid)
         end
+
+        it "logs the reason" do
+          allow(Rails.logger).to receive(:warn)
+
+          subject.call
+
+          expect(Rails.logger).to have_received(:warn).with("Passkey registration rejected for user #{user.id}: WebAuthn::UserVerifiedVerificationError")
+        end
       end
 
       context "when the stored challenge does not match" do
