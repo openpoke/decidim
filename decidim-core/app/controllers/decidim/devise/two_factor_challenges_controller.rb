@@ -9,7 +9,7 @@ module Decidim
       include Decidim::TwoFactor::ChallengeMethods
       include Decidim::TwoFactor::FinishesLogin
 
-      before_action :ensure_challenge
+      before_action :ensure_challenge, except: :destroy
 
       def show
         prepare_challenge
@@ -27,6 +27,14 @@ module Decidim
           on(:exhausted) { restart_login(t("devise.failure.two_factor_exhausted")) }
           on(:expired) { handle_expired_challenge }
         end
+      end
+
+      # Gives the login up, so another account can log in from this browser.
+      def destroy
+        TwoFactor.forget_remembered_login(cookies)
+        session.delete("decidim_two_factor_challenge_id")
+        session.delete("decidim_two_factor_remember_me")
+        redirect_to new_user_session_path
       end
 
       private

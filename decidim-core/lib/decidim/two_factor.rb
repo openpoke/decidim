@@ -20,5 +20,13 @@ module Decidim
     def self.enforcement_policy
       Decidim.two_factor_enforcement_policy.to_s.constantize
     end
+
+    # Deletes the remember-me cookie of this browser alone: the other devices stay remembered.
+    def self.forget_remembered_login(cookies)
+      return unless Decidim::User.respond_to?(:rememberable_options)
+
+      options = Decidim::User.rememberable_options
+      cookies.delete(options.fetch(:key, "remember_user_token"), ::Devise::Controllers::Rememberable.cookie_values.merge(options))
+    end
   end
 end

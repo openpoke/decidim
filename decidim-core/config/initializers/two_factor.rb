@@ -42,8 +42,12 @@ Warden::Manager.after_set_user except: :fetch do |user, warden, options|
   warden.session_serializer.delete(scope, user)
 
   # The codes that ran out keep the login closed until they expire, so the
-  # password alone does not buy a new set of attempts.
-  throw :warden, scope:, message: :two_factor_exhausted if user.two_factor_challenges.exhausted.exists?(purpose: "login")
+  # password alone does not buy a new set of attempts. The remember-me cookie
+  # goes away: it would sign the user in again on every redirect to the login.
+  if user.two_factor_challenges.exhausted.exists?(purpose: "login")
+    Decidim::TwoFactor.forget_remembered_login(warden.cookies)
+    throw :warden, scope:, message: :two_factor_exhausted
+  end
 
   challenge = Decidim::TwoFactor::Challenge.issue_for(user, purpose: "login")
   session["decidim_two_factor_challenge_id"] = challenge.id

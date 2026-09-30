@@ -50,10 +50,10 @@ self.addEventListener("notificationclick", (event) => {
   );
 });
 
-// avoid caching admin or users paths
+// avoid caching admin, users or two-factor paths
 registerRoute(
   ({ url }) =>
-    ["admin", "users"].some((pathSegment) => url.pathname.split("/").includes(pathSegment)),
+    ["admin", "users", "two_factor_authentication", "two_factor_challenge"].some((pathSegment) => url.pathname.split("/").includes(pathSegment)),
   new NetworkOnly()
 );
 

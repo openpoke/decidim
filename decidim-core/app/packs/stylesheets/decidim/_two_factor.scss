@@ -81,7 +81,8 @@
   &__alternatives {
     @apply mt-8 text-sm space-y-2;
 
-    a {
+    a,
+    button {
       @apply text-secondary underline;
     }
   }
