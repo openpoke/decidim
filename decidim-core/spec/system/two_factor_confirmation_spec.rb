@@ -15,6 +15,8 @@ describe "Two-factor confirmation" do
   end
 
   it "asks for confirmation before enabling a second factor and resumes the action" do
+    wait_pending_requests
+
     click_on "Email code"
 
     expect(page).to have_text("Confirm enabling the email code")
