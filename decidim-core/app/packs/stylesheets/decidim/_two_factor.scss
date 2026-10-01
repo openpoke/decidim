@@ -24,10 +24,10 @@
   }
 
   &__row {
-    @apply flex flex-wrap items-center justify-between gap-4;
+    @apply flex items-center justify-between gap-4;
 
     &-summary {
-      @apply flex items-center gap-3;
+      @apply flex items-center gap-3 min-w-0;
     }
 
     &-icon {
@@ -35,6 +35,8 @@
     }
 
     &-text {
+      @apply min-w-0;
+
       h3,
       h4 {
         @apply m-0;

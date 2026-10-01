@@ -1796,7 +1796,7 @@ en:
         passkey:
           alternative: Use a passkey instead
           button: Use passkey
-          failed: The passkey could not be used. Try again.
+          failed: The passkey could not be used. Try again. If the passkey is on another device, log in with a recovery code or another method and add a passkey on this device.
           intro: Confirm with a passkey stored on this device.
           unsupported: This browser does not support passkeys.
           wrong: The passkey could not be verified. Try again.
@@ -1823,7 +1823,7 @@ en:
           create: Create a passkey
           duplicate: This device already holds a passkey for this account.
           failed: The passkey could not be created. Try again.
-          intro: Your device will ask for a fingerprint, your face or a security key.
+          intro: Your device will ask for a fingerprint, your face or a security key. Add a passkey on every device you log in from.
           name_label: Passkey name
           name_placeholder: My laptop
           title: Add a passkey
@@ -2374,6 +2374,7 @@ en:
         profile: My account
         public_profile: My public profile
         title: Profile links
+        two_factor_authentication: Sign-in and security
         unread_conversations: You have unread conversations
         unread_notifications: You have unread notifications
       user_profile:

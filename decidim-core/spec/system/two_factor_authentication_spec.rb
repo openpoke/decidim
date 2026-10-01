@@ -21,6 +21,14 @@ describe "Two-factor authentication" do
       expect(page).to have_no_text("unused codes")
     end
 
+    it "links the page from the header user menu" do
+      find_by_id("trigger-dropdown-account").click
+
+      within "#dropdown-menu-account" do
+        expect(page).to have_link("Sign-in and security", href: decidim.two_factor_authentication_path)
+      end
+    end
+
     it "adds the authenticator app and shows the recovery codes once" do
       click_on "Authenticator app"
 
@@ -100,8 +108,11 @@ describe "Two-factor authentication" do
       visit decidim.two_factor_authentication_path
     end
 
-    it "hides the page and its menu entry" do
+    it "hides the page and its menu entries" do
       expect(page).to have_current_path(decidim.account_path)
+
+      find_by_id("trigger-dropdown-account").click
+
       expect(page).to have_no_link("Sign-in and security")
     end
   end
