@@ -4,6 +4,8 @@ module Decidim
   module Admin
     # This module includes helpers to be used in the admin dashboard, including helper methods to show the admin terms of service.
     module DashboardHelper
+      include Decidim::TwoFactor::SetupHelper
+
       def admin_terms_announcement_args
         {
           callout_class: "warning",

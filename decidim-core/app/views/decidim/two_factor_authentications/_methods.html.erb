@@ -1,0 +1,3 @@
+<% manifests.each do |two_factor_method| %>
+  <%= render partial: two_factor_method.setup_partial, locals: { two_factor_method:, authenticator: authenticator_for(two_factor_method), authenticators: authenticators_for(two_factor_method), add: local_assigns[:add] } %>
+<% end %>

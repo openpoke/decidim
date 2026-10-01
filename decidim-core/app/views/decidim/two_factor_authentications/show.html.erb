@@ -2,17 +2,29 @@
 <% content_for(:subtitle) { t("two_factor_authentication", scope: "layouts.decidim.user_profile") } %>
 
 <%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
-  <p class="help-text"><%= t("intro", scope: "decidim.two_factor_authentications.show") %></p>
-
-  <h2 class="h5 mt-6 mb-2"><%= t("methods", scope: "decidim.two_factor_authentications.show") %></h2>
-
-  <div class="two-factor__list">
-    <% two_factor_methods.each do |two_factor_method| %>
-      <%= render partial: two_factor_method.setup_partial, locals: { two_factor_method:, authenticator: authenticator_for(two_factor_method), authenticators: authenticators_for(two_factor_method) } %>
+  <% unless two_factor_setup_bypassed?(current_user) %>
+    <% if current_user.two_factor_setup_pending? %>
+      <%= cell("decidim/announcement", t("required_by", scope: "decidim.two_factor_authentications.show", date: l(current_user.two_factor_grace_ends_at.to_date, format: :decidim_short)), callout_class: "warning") %>
+    <% elsif current_user.two_factor_setup_required? %>
+      <%= cell("decidim/announcement", t("required_now", scope: "decidim.two_factor_authentications.show"), callout_class: "alert") %>
     <% end %>
+  <% end %>
 
-    <% if current_user.two_factor_enabled? %>
+  <% attached = two_factor_methods.select { |two_factor_method| authenticators_for(two_factor_method).any? } %>
+
+  <h2 class="h5 mt-6 mb-4"><%= t("methods", scope: "decidim.two_factor_authentications.show") %></h2>
+
+  <% if attached.any? %>
+    <div class="two-factor__list">
+      <%= render partial: "methods", locals: { manifests: attached } %>
       <%= render partial: "recovery_codes_row" %>
-    <% end %>
+    </div>
+  <% elsif two_factor_methods.any? { |two_factor_method| two_factor_method.name == "passkey" } %>
+    <%= cell("decidim/announcement", { title: t("decidim.two_factor.setup.passkey.empty_title"), body: t("decidim.two_factor.setup.passkey.empty_text") }, callout_class: "secondary") %>
+  <% end %>
+
+  <p class="help-text mt-6 mb-2"><%= attached.any? ? t("add_another", scope: "decidim.two_factor_authentications.show") : t("add", scope: "decidim.two_factor_authentications.show") %></p>
+  <div class="flex flex-wrap gap-2">
+    <%= render partial: "methods", locals: { manifests: two_factor_methods.select { |two_factor_method| two_factor_method.name == "passkey" || attached.exclude?(two_factor_method) }, add: true } %>
   </div>
 <% end %>

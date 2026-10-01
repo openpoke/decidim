@@ -7,16 +7,17 @@ module Decidim
       include Decidim::DeviseControllers
       include Decidim::DeviseAuthenticationMethods
       include Decidim::TwoFactor::ChallengeMethods
+      include Decidim::TwoFactor::FinishesLogin
 
-      before_action :ensure_challenge
+      before_action :ensure_challenge, except: :destroy
 
       def show
         prepare_challenge
       end
 
       def create
-        verify_challenge do
-          on(:ok) { |user| finish_login(user) }
+        TwoFactor::VerifyChallenge.call(challenge, challenge_form) do
+          on(:ok) { |user| finish_login(user, remember_me: session.delete("decidim_two_factor_remember_me")) }
 
           on(:invalid) do
             flash.now[:alert] = wrong_attempt_message
@@ -26,6 +27,14 @@ module Decidim
           on(:exhausted) { restart_login(t("devise.failure.two_factor_exhausted")) }
           on(:expired) { handle_expired_challenge }
         end
+      end
+
+      # Gives the login up, so another account can log in from this browser.
+      def destroy
+        TwoFactor.forget_remembered_login(cookies)
+        session.delete("decidim_two_factor_challenge_id")
+        session.delete("decidim_two_factor_remember_me")
+        redirect_to new_user_session_path
       end
 
       private
@@ -57,19 +66,6 @@ module Decidim
 
       def challenge_send_code_path
         send_code_user_two_factor_challenge_path
-      end
-
-      def finish_login(user)
-        return_to = stored_location_for(:user)
-        remember_me = session.delete("decidim_two_factor_remember_me")
-        reset_session
-        user.remember_me = true if remember_me
-        sign_in(user, scope: :user, two_factor: :verified)
-        store_location_for(:user, return_to)
-        store_onboarding_cookie_data!(user)
-
-        flash[:notice] = t("devise.sessions.signed_in")
-        redirect_to after_sign_in_path_for(user)
       end
 
       def restart_login(message)

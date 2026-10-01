@@ -22,6 +22,8 @@ module Decidim
                dependent: :destroy
     end
 
+    delegate :challenge_required?, :setup_required?, :setup_pending?, :grace_ends_at, to: :two_factor_enforcement_policy, prefix: :two_factor
+
     def two_factor_enabled?
       two_factor_authenticators.confirmed.exists?
     end
@@ -34,6 +36,12 @@ module Decidim
       Decidim::TwoFactor.workflows
                         .select { |manifest| types.include?(manifest.authenticator_class_name) }
                         .sort_by { |manifest| order.index(manifest.name) || order.size }
+    end
+
+    private
+
+    def two_factor_enforcement_policy
+      Decidim::TwoFactor.enforcement_policy.new(self)
     end
   end
 end

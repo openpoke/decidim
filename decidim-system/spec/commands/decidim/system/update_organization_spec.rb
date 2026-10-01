@@ -16,6 +16,8 @@ module Decidim
         context "when the form is valid" do
           let(:from_label) { "Decide Gotham" }
           let(:two_factor_authentication_enabled) { true }
+          let(:two_factor_enforced_for) { "admins" }
+          let(:two_factor_grace_period_days) { 10 }
           let(:params) do
             {
               name: { en: "Gotham City" },
@@ -25,7 +27,9 @@ module Decidim
               force_users_to_authenticate_before_access_organization: false,
               users_registration_mode: "existing",
               two_factor_authentication_enabled:,
+              two_factor_enforced_for:,
               available_two_factor_methods: %w(totp email),
+              two_factor_grace_period_days:,
               **smtp_settings,
               **omniauth_settings,
               file_upload_settings: params_for_uploads(upload_settings)
@@ -81,7 +85,61 @@ module Decidim
             command.call
             organization.reload
 
+            expect(organization.two_factor_enforced_for).to eq("admins")
             expect(organization.available_two_factor_methods).to eq(%w(totp email))
+            expect(organization.two_factor_grace_period_days).to eq(10)
+          end
+
+          it "stamps the enforcement date when the enforcement starts" do
+            expect { command.call }.to change { organization.reload.two_factor_enforced_at }.from(nil)
+          end
+
+          context "when the enforcement was already on" do
+            let(:enforced_at) { 10.days.ago }
+
+            before { organization.update!(two_factor_enforced_for: "all", two_factor_enforced_at: enforced_at) }
+
+            it "keeps the original enforcement date" do
+              command.call
+
+              expect(organization.reload.two_factor_enforced_at).to be_within(1.second).of(enforced_at)
+            end
+          end
+
+          context "when the enforcement scope widens" do
+            let(:two_factor_enforced_for) { "all" }
+
+            before { organization.update!(two_factor_enforced_for: "admins", two_factor_enforced_at: 10.days.ago) }
+
+            it "restamps the enforcement date" do
+              command.call
+
+              expect(organization.reload.two_factor_enforced_at).to be_within(1.minute).of(Time.current)
+            end
+          end
+
+          context "when the enforcement is switched off" do
+            let(:two_factor_enforced_for) { "none" }
+
+            before { organization.update!(two_factor_enforced_for: "admins", two_factor_enforced_at: Time.current) }
+
+            it "clears the enforcement date" do
+              command.call
+
+              expect(organization.reload.two_factor_enforced_at).to be_nil
+            end
+          end
+
+          context "when two-factor authentication is switched off with the scope untouched" do
+            let(:two_factor_authentication_enabled) { false }
+
+            before { organization.update!(two_factor_authentication_enabled: true, two_factor_enforced_for: "admins", two_factor_enforced_at: Time.current) }
+
+            it "clears the enforcement date" do
+              command.call
+
+              expect(organization.reload.two_factor_enforced_at).to be_nil
+            end
           end
 
           describe "encrypted smtp settings" do
@@ -145,6 +203,7 @@ module Decidim
               short_name: { en: "GothamCity" },
               host: "decide.example.org",
               users_registration_mode: "existing",
+              two_factor_enforced_for: "none",
               available_two_factor_methods: %w(totp email),
               file_upload_settings: params_for_uploads(upload_settings),
               header_snippets: "<script>alert('Hello world')</script>"
