@@ -35,6 +35,16 @@ if Rails.env.production? || Rails.env.test?
         request.params["user"]["email"] if request.path == "/users/password" && request.post?
       end
 
+      # Throttle SMS verification confirmation attempts per IP to 10 reqs/minute
+      Rack::Attack.throttle("limit sms verification attempts per ip", limit: 10, period: 60.seconds) do |request|
+        request.ip if request.path.match?(%r{^/[^/]+/sms/authorizations(?:\.[^/]+)?$}) && request.put?
+      end
+
+      # Throttle postal letter verification confirmation attempts per IP to 10 reqs/minute
+      Rack::Attack.throttle("limit postal letter verification attempts per ip", limit: 10, period: 60.seconds) do |request|
+        request.ip if request.path.match?(%r{^/[^/]+/postal_letter/authorizations(?:\.[^/]+)?$}) && request.put?
+      end
+
       # Throttle second-factor code submissions to 10 reqs/minute
       # Return the IP as a discriminator on POST two_factor_challenge requests
       Rack::Attack.throttle("limit two-factor challenge attempts per ip", limit: 10, period: 60.seconds) do |request|
