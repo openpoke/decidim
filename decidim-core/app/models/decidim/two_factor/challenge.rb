@@ -14,17 +14,18 @@ module Decidim
 
       validates :method_type, presence: true
 
+      # The row lock makes concurrent sign-ins share one challenge and its attempts.
       def self.issue_for(user, purpose:)
-        pending = user.two_factor_challenges.active.find_by(purpose:)
-        return pending if pending && !pending.credentials_changed?
+        user.with_lock do
+          pending = user.two_factor_challenges.active.find_by(purpose:)
+          next pending if pending && !pending.credentials_changed?
 
-        manifest = user.two_factor_attached_methods.first
-
-        user.two_factor_challenges.create!(
-          method_type: manifest&.name || "recovery",
-          purpose:,
-          metadata: { "authenticatable_salt" => user.authenticatable_salt }
-        )
+          user.two_factor_challenges.create!(
+            method_type: user.two_factor_attached_methods.first&.name || "recovery",
+            purpose:,
+            metadata: { "authenticatable_salt" => user.authenticatable_salt }
+          )
+        end
       end
 
       scope :active, -> { where(consumed_at: nil, expires_at: Time.current.., attempts_count: ...Decidim.two_factor_max_attempts) }
@@ -60,6 +61,17 @@ module Decidim
         taken
       end
 
+      # The WebAuthn ceremony lives on the challenge between the options and the assertion.
+      def store_webauthn!(ceremony_challenge, origin)
+        update!(metadata: metadata.merge("webauthn" => { "challenge" => ceremony_challenge, "origin" => origin }))
+      end
+
+      def take_webauthn!
+        ceremony = metadata["webauthn"] || {}
+        update!(metadata: metadata.except("webauthn"))
+        ceremony
+      end
+
       # Consumes the challenge atomically: only one of two concurrent right codes wins.
       def consume!
         # rubocop:disable Rails/SkipsModelValidations
@@ -71,11 +83,12 @@ module Decidim
       end
 
       def valid_code?(plain_code)
-        CodeDigest.match?(code_digest, plain_code.to_s.strip)
+        plain = plain_code.to_s.strip
+        code_digest.present? && plain.present? && ::Devise::Encryptor.compare(Decidim::User, code_digest, plain)
       end
 
       def code=(plain_code)
-        self.code_digest = CodeDigest.create(plain_code)
+        self.code_digest = ::Devise::Encryptor.digest(Decidim::User, plain_code)
       end
     end
   end

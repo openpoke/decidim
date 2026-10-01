@@ -355,6 +355,11 @@ Also some more refined configurations:
 |
 |*Yes*
 
+|OMNIAUTH_FACEBOOK_BYPASS_TWO_FACTOR
+|Trust the Facebook.com sign in as a second factor: users without a factor of their own are not asked to set one up.
+|false
+|*Yes*
+
 |OMNIAUTH_GOOGLE_CLIENT_ID
 |Client ID for enabling access through Google.com accounts. See xref:services:social_providers.adoc[Social Providers].
 |
@@ -365,6 +370,11 @@ Also some more refined configurations:
 |
 |*Yes*
 
+|OMNIAUTH_GOOGLE_BYPASS_TWO_FACTOR
+|Trust the Google.com sign in as a second factor: users without a factor of their own are not asked to set one up.
+|false
+|*Yes*
+
 |OMNIAUTH_TWITTER_API_KEY
 |API Key for enabling access through Twitter.com accounts. See xref:services:social_providers.adoc[Social Providers].
 |
@@ -373,6 +383,11 @@ Also some more refined configurations:
 |OMNIAUTH_TWITTER_API_SECRET
 |API Secret for enabling access through Twitter.com accounts. See xref:services:social_providers.adoc[Social Providers].
 |
+|*Yes*
+
+|OMNIAUTH_TWITTER_BYPASS_TWO_FACTOR
+|Trust the Twitter.com sign in as a second factor: users without a factor of their own are not asked to set one up.
+|false
 |*Yes*
 
 |VAPID_PUBLIC_KEY
@@ -719,8 +734,18 @@ Read more about this at xref:services:pdf.adoc[PDF signing] service page.
 
 
 |DECIDIM_TWO_FACTOR_METHODS
-|Second-factor methods available on this installation, out of the registered ones (comma separated).
-|totp,email
+|Second-factor methods available on this installation, out of the registered ones (comma separated), in order of preference: the challenge offers the first one the user has.
+|passkey,totp,email
+|No
+
+|DECIDIM_TWO_FACTOR_GRACE_PERIOD
+|In days, how long a user can keep postponing the second-factor setup after the organization starts enforcing it, when the organization sets no grace period of its own.
+|1
+|No
+
+|DECIDIM_TWO_FACTOR_GRACE_PERIOD_MAX_DAYS
+|The most grace days an organization admin can configure.
+|14
 |No
 
 |DECIDIM_TWO_FACTOR_TOTP_DRIFT
@@ -756,6 +781,11 @@ Read more about this at xref:services:pdf.adoc[PDF signing] service page.
 |DECIDIM_TWO_FACTOR_CONFIRMATION_WINDOW
 |In minutes, how long a confirmed identity lasts before sensitive two-factor changes ask again.
 |15
+|No
+
+|DECIDIM_TWO_FACTOR_ENFORCEMENT_POLICY
+|The name of the class answering whether a user must set up a second factor.
+|Decidim::TwoFactor::EnforcementPolicy
 |No
 
 |===

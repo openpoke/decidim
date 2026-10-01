@@ -16,6 +16,14 @@ module Decidim
       session.delete("decidim_two_factor_return_to") if current_user.two_factor_enabled?
     end
 
+    def dismiss_banner
+      enforce_permission_to(:read, :user, current_user:)
+
+      session["decidim_two_factor_banner_dismissed"] = true
+
+      redirect_back_or_to(root_path)
+    end
+
     private
 
     def ensure_two_factor_authentication_enabled
@@ -33,7 +41,7 @@ module Decidim
     def authenticator_for(manifest) = authenticators_for(manifest).first
 
     def authenticators
-      @authenticators ||= current_user.two_factor_authenticators.to_a
+      @authenticators ||= current_user.two_factor_authenticators.confirmed.to_a
     end
   end
 end

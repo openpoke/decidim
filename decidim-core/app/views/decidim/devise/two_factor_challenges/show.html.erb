@@ -7,7 +7,7 @@
 
   <%= render layout: "decidim/two_factor/challenge/methods" do %>
     <li>
-      <%= link_to t("back_to_login", scope: "decidim.devise.two_factor_challenges.show"), new_user_session_path %>
+      <%= button_to t("back_to_login", scope: "decidim.devise.two_factor_challenges.show"), user_two_factor_challenge_path, method: :delete %>
     </li>
   <% end %>
 <% end %>

@@ -14,14 +14,16 @@ module Decidim
 
       scope :unused, -> { where(used_at: nil) }
 
+      # The codes are 128 random bits, so a keyed hash protects them as well as
+      # a slow one and lets a code be looked up directly.
+      def self.digest(plain_code)
+        OpenSSL::HMAC.hexdigest("SHA256", Rails.application.secret_key_base, plain_code.to_s.strip.downcase)
+      end
+
       # Consumes the code at most once even when it is redeemed concurrently.
       def self.redeem!(user, plain_code)
-        normalized = plain_code.to_s.strip.downcase
-        code = unused.where(user:).find { |record| CodeDigest.match?(record.code_digest, normalized) }
-        return false unless code
-
         # rubocop:disable Rails/SkipsModelValidations
-        unused.where(id: code.id).update_all(used_at: Time.current, updated_at: Time.current) == 1
+        unused.where(user:, code_digest: digest(plain_code)).update_all(used_at: Time.current, updated_at: Time.current) == 1
         # rubocop:enable Rails/SkipsModelValidations
       end
     end

@@ -19,6 +19,15 @@ module Decidim
         end
       end
 
+      describe "#two_factor_setup_bypassed?" do
+        it "holds only for the account the trusted provider signed in" do
+          helper.session["decidim_two_factor_bypassed"] = authenticator.user.id
+
+          expect(helper.two_factor_setup_bypassed?(authenticator.user)).to be(true)
+          expect(helper.two_factor_setup_bypassed?(create(:user))).to be(false)
+        end
+      end
+
       describe "#two_factor_usage" do
         it "describes when the factor was added and last used" do
           expect(helper.two_factor_usage(authenticator)).to eq("Added on #{I18n.l(authenticator.confirmed_at.to_date, format: :decidim_short)}")

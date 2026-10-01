@@ -24,10 +24,10 @@
   }
 
   &__row {
-    @apply flex flex-wrap items-center justify-between gap-4;
+    @apply flex items-center justify-between gap-4;
 
     &-summary {
-      @apply flex items-center gap-3;
+      @apply flex items-center gap-3 min-w-0;
     }
 
     &-icon {
@@ -35,6 +35,8 @@
     }
 
     &-text {
+      @apply min-w-0;
+
       h3,
       h4 {
         @apply m-0;
@@ -48,10 +50,6 @@
     &-actions {
       @apply flex items-center gap-3 flex-none;
     }
-  }
-
-  &__devices {
-    @apply mt-4 space-y-2 pl-9;
   }
 
   &__enrollment {
@@ -85,7 +83,8 @@
   &__alternatives {
     @apply mt-8 text-sm space-y-2;
 
-    a {
+    a,
+    button {
       @apply text-secondary underline;
     }
   }

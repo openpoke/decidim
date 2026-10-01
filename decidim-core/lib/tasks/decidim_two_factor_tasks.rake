@@ -5,11 +5,13 @@ namespace :decidim do
     # cmd: $ RAILS_ENV=<environment> bundle exec rails decidim:two_factor:reset EMAIL=<account email> HOST=<organization host>
     desc "Remove all the second factors from the account given by EMAIL and HOST"
     task reset: :environment do
+      usage = "\n\nUsage:\n  bin/rails decidim:two_factor:reset EMAIL=admin@example.org HOST=localhost"
+
       organization = Decidim::Organization.find_by(host: ENV.fetch("HOST", nil))
-      abort("No organization found for the given HOST") if organization.blank?
+      abort("No organization found for the given HOST#{usage}") if organization.blank?
 
       user = organization.users.find_by(email: ENV.fetch("EMAIL", nil)&.downcase)
-      abort("No account found for the given EMAIL") if user.blank?
+      abort("No account found for the given EMAIL#{usage}") if user.blank?
 
       Decidim::TwoFactor::ResetUser.call(user) do
         on(:ok) { puts "Second factors removed; #{user.email} signs in with the password alone now." }

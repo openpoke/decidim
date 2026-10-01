@@ -67,17 +67,11 @@ describe "Two-factor challenge" do
     expect(flash[:alert]).to eq(I18n.t("decidim.two_factor.challenge.code_throttled"))
   end
 
-  it "restarts the login once the attempts run out" do
+  it "restarts the login once the attempts run out and refuses it until the codes expire" do
     sign_in_with_password
     Decidim.two_factor_max_attempts.times { answer_challenge("000000") }
 
     expect(response).to redirect_to(routes.new_user_session_path(locale: "en"))
-  end
-
-  it "refuses the password login while the exhausted codes have not expired" do
-    sign_in_with_password
-    Decidim.two_factor_max_attempts.times { answer_challenge("000000") }
-
     expect { sign_in_with_password }.not_to change(Decidim::TwoFactor::Challenge, :count)
     expect(response).to redirect_to(routes.new_user_session_path(locale: "en"))
     expect(flash[:alert]).to eq(I18n.t("devise.failure.two_factor_exhausted"))
@@ -98,6 +92,13 @@ describe "Two-factor challenge" do
 
     expect(response).to redirect_to(routes.root_path(locale: "en"))
     expect(account_status).to eq(200)
+  end
+
+  it "ignores a user param that is not a form" do
+    user.update!(email: "changed@example.org")
+    get(routes.user_confirmation_path(locale: "en", confirmation_token: user.reload.confirmation_token, user: "x"), headers:)
+
+    expect(response).to redirect_to(routes.user_two_factor_challenge_path(locale: "en"))
   end
 
   it "returns to the page requested before the login once the code is entered" do
@@ -187,6 +188,70 @@ describe "Two-factor challenge" do
       sign_in_with_password
 
       expect(user.reload.remember_created_at).to be_present
+    end
+
+    context "when the browser is remembered and the session is gone" do
+      before do
+        post(routes.user_session_path(locale: "en"), params: { user: { email: user.email, password:, remember_me: "1" } }, headers:)
+        answer_challenge
+        remember_token = response.cookies["remember_user_token"]
+        reset!
+        cookies["remember_user_token"] = remember_token
+        get(routes.new_user_session_path(locale: "en"), headers:)
+      end
+
+      it "sends the login page to the challenge" do
+        expect(response).to redirect_to(routes.user_two_factor_challenge_path(locale: "en"))
+      end
+
+      it "gives the login up on this browser alone when going back to the login" do
+        delete(routes.user_two_factor_challenge_path(locale: "en"), headers:)
+
+        expect(response).to redirect_to(routes.new_user_session_path(locale: "en"))
+        expect(user.reload.remember_created_at).to be_present
+
+        get(routes.new_user_session_path(locale: "en"), headers:)
+
+        expect(response).to have_http_status(:ok)
+        expect(account_status).to eq(302)
+      end
+
+      it "shows the login page once the attempts run out" do
+        Decidim.two_factor_max_attempts.times { answer_challenge("000000") }
+        get(routes.new_user_session_path(locale: "en"), headers:)
+
+        expect(response).to redirect_to(routes.new_user_session_path(locale: "en"))
+        expect(flash[:alert]).to eq(I18n.t("devise.failure.two_factor_exhausted"))
+
+        get(routes.new_user_session_path(locale: "en"), headers:)
+
+        expect(response).to have_http_status(:ok)
+      end
+    end
+  end
+
+  describe "logging in with a passkey" do
+    include_context "with a fake passkey client"
+
+    let!(:authenticator) { enroll_fake_passkey(user, fake_client, relying_party) }
+
+    it "lets the user in with the passkey" do
+      sign_in_with_password
+      get(routes.user_two_factor_challenge_path(locale: "en"), headers:)
+      options = passkey_options_from_response
+
+      post(routes.user_two_factor_challenge_path(locale: "en"), params: { method_name: "passkey", credential: fake_client.get(challenge: options["challenge"]).to_json }, headers:)
+
+      expect(response).to have_http_status(:redirect)
+      expect(account_status).to eq(200)
+    end
+
+    it "does not echo a rejected credential back into the form" do
+      sign_in_with_password
+      post(routes.user_two_factor_challenge_path(locale: "en"), params: { method_name: "passkey", credential: { type: "public-key" }.to_json }, headers:)
+
+      expect(response).to have_http_status(:unprocessable_content)
+      expect(response.parsed_body.at_css("[data-passkey-target='credential']")["value"]).to be_nil
     end
   end
 end
