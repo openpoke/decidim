@@ -683,6 +683,9 @@ en:
         new_tos_fields:
           sign_up: Create an account
           sign_up_title: Finish creating your account
+      passkey_sessions:
+        create:
+          invalid: The passkey could not be used to log in. Try again or log in with your email and password.
       registrations:
         create:
           error: There was a problem creating your account.
@@ -731,6 +734,11 @@ en:
           show_password: Show password
           shown_password: Your password is shown
         placeholder_email: hi@example.org
+      two_factor_challenges:
+        show:
+          back_to_login: Back to log in
+          expired: The code request expired. Log in again.
+          title: Enter the code
     documents:
       one: "%{count} document"
       other: "%{count} documents"
@@ -1761,6 +1769,159 @@ en:
       help_text: "<strong>Warning:</strong> Content might be automatically translated and not be 100% accurate."
       show_original: Show original text
       show_translated: Show automatically-translated text
+    two_factor:
+      authenticators:
+        destroy:
+          error: The second factor could not be removed.
+          success: The second factor was removed from your account.
+        recovery_codes:
+          copied: Copied!
+          copied_message: The recovery codes were copied to the clipboard.
+          copy: Copy codes
+          download: Download .txt
+          explanation: Each code works once. If you lose the authenticator app, a recovery code lets you log in.
+          saved: I have saved the codes
+          store_them: Store these codes like a password.
+          title: Recovery codes
+      challenge:
+        code_sent: A new code was sent to your email.
+        code_throttled: A code was just sent. Wait a minute before asking for another one.
+        confirm: Confirm
+        email:
+          alternative: Email me a code instead
+          code_label: Enter the code from the email
+          intro: A one-time code was sent to %{email}.
+          resend: Send a new code
+          wrong: The code is not correct. Try again.
+        passkey:
+          alternative: Use a passkey instead
+          button: Use passkey
+          failed: The passkey could not be used. Try again. If the passkey is on another device, log in with a recovery code or another method and add a passkey on this device.
+          intro: Confirm with a passkey stored on this device.
+          unsupported: This browser does not support passkeys.
+          wrong: The passkey could not be verified. Try again.
+        recovery:
+          alternative: Use a recovery code
+          code_label: Enter one of your recovery codes
+          intro: Each recovery code works once. You got them when you set up the second factor.
+          wrong: The code is not correct. Try again.
+        totp:
+          alternative: Use the authenticator app instead
+          code_label: Enter the 6-digit code the app shows
+          intro: Open the authenticator app on your phone and type the code it shows.
+          wrong: The code is not correct. Try again.
+      email_authenticators:
+        create:
+          error: The email code could not be enabled.
+          success: The email code was enabled for your account.
+      passkey_authenticators:
+        create:
+          error: The passkey could not be added. Try again.
+          success: The passkey was added to your account.
+        new:
+          cancel: Cancel
+          create: Create a passkey
+          duplicate: This device already holds a passkey for this account.
+          failed: The passkey could not be created. Try again.
+          intro: Your device will ask for a fingerprint, your face or a security key. Add a passkey on every device you log in from.
+          name_label: Passkey name
+          name_placeholder: My laptop
+          title: Add a passkey
+          unsupported: This browser does not support passkeys.
+      recovery_codes:
+        create:
+          success: The recovery codes were regenerated.
+      setup:
+        added_on: Added on %{date}
+        email:
+          codes_sent_to: Codes are sent to %{email}
+          disable_confirm: Are you sure you want to disable the email code?
+          title: Email code
+        last_used_on: Last used on %{date}
+        passkey:
+          empty_text: Log in with your fingerprint, face or screen lock – no password to type. The passkey stays on your device and also works as the second step.
+          empty_title: With passkeys, you do not need to remember complex passwords.
+          remove_confirm: Are you sure you want to remove this passkey?
+          title: Passkey
+        remove: Remove
+        totp:
+          remove_confirm: Are you sure you want to remove the authenticator app?
+          title: Authenticator app
+        turn_off: Turn off
+      totp_authenticators:
+        create:
+          error: The code is not correct. Check the app and try again.
+          success: The authenticator app was added to your account.
+        new:
+          cancel: Cancel
+          code_step: Enter the 6-digit code the app shows
+          confirm: Confirm
+          error: The authenticator app is already set up.
+          manual_key: 'Can''t scan? Enter the key manually:'
+          qr_code_alt: QR code to add this account to an authenticator app
+          scan_step: Scan this QR code with the app
+          title: Add authenticator app
+          works_with: Works with Google Authenticator, Microsoft Authenticator, FreeOTP and similar apps.
+    two_factor_authentications:
+      setup_required:
+        alert: You need to set up two-factor authentication in order to proceed further.
+      show:
+        add: Add a method
+        add_another: Add another method
+        methods: Your sign-in methods
+        regenerate: Regenerate
+        regenerate_confirm: Are you sure? The codes you have now will stop working.
+        required_by: Your organization requires two-factor authentication for your account. You can postpone the setup until %{date}.
+        required_now: Your organization requires two-factor authentication for your account. Set it up to continue.
+        unused_codes:
+          one: "%{count} unused code"
+          other: "%{count} unused codes"
+    two_factor_confirmations:
+      show:
+        actions:
+          authenticators:
+            destroy: Confirm removing a second-factor method
+          email_authenticators:
+            create: Confirm enabling the email code
+          passkey_authenticators:
+            create: Confirm adding a passkey
+            new: Confirm adding a passkey
+          recovery_codes:
+            create: Confirm regenerating the recovery codes
+          totp_authenticators:
+            create: Confirm adding an authenticator app
+            new: Confirm adding an authenticator app
+        back: Back to two-factor authentication
+        confirmed: Access confirmed. You can change your two-factor settings now.
+        exhausted: Too many wrong codes. Try again.
+        expired: The code request expired. Try again.
+        intro: To change your two-factor authentication settings, first confirm access to your account.
+        or_use_code: Or use a code
+        password_button: Confirm with the password
+        title: Confirm access
+        wrong_password: The password is not correct. Try again.
+    two_factor_mailer:
+      attempts_exhausted:
+        action: Change your password
+        advice: The password was entered correctly, so someone may know it. We recommend changing your password.
+        instruction: Someone entered too many wrong verification codes while logging in to your account, so we blocked the attempt.
+        subject: A login attempt to your account was blocked
+      challenge_code:
+        expiry:
+          one: The code expires in %{count} minute.
+          other: The code expires in %{count} minutes.
+        ignore: If you did not ask for this code, someone may know your password. We recommend changing it.
+        instruction: 'Use this code to confirm it is you:'
+        subject: Your verification code
+      factors_reset:
+        action: Set up a new second factor
+        advice: If you did not ask for this, contact the platform administrators right away and change your password.
+        instruction: An administrator removed all the second factors and recovery codes from your account. Your password alone signs you in now.
+        subject: Two-factor authentication was reset on your account
+      greeting: Hello %{name}!
+    two_factor_setup_message:
+      cta_html: Your organization requires two-factor authentication. <a href="%{path}">Set it up</a> before %{deadline}.
+      dismiss: Remind me later
     user_activity:
       index:
         no_activities_warning: This participant does not have any activity yet.
@@ -1855,6 +2016,7 @@ en:
       locked: Your account is locked.
       not_found_in_database: Invalid %{authentication_keys} or password.
       timeout: Your session expired. Please log in again to continue.
+      two_factor_exhausted: Too many wrong codes. Wait a few minutes and log in again.
       unauthenticated: You need to log in or create an account before continuing.
     invitations:
       edit:
@@ -2212,6 +2374,7 @@ en:
         profile: My account
         public_profile: My public profile
         title: Profile links
+        two_factor_authentication: Sign-in and security
         unread_conversations: You have unread conversations
         unread_notifications: You have unread notifications
       user_profile:
@@ -2222,6 +2385,7 @@ en:
         notifications_settings: Notifications settings
         profile: Profile
         title: Participant settings
+        two_factor_authentication: Sign-in and security
   locale:
     name: English
     name_with_error: English (error!)

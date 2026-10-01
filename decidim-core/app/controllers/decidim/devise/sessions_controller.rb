@@ -9,24 +9,12 @@ module Decidim
 
       before_action :check_sign_in_enabled, only: :create
 
+      helper_method :passkey_sign_in_options
+
       rescue_from ActionController::InvalidAuthenticityToken, with: :redirect_to_referer_or_path
 
       def create
         super do |user|
-          if user.admin?
-            # Check that the admin password passes the validation and clear the
-            # `password_updated_at` field when the password is weak to force a
-            # password update on the user.
-            #
-            # Handles a case when the user registers through the registration
-            # form and they are promoted to an admin after that. In this case,
-            # the newly promoted admin user would otherwise have to change their
-            # password straight away even if they originally registered with a
-            # strong password.
-            validator = PasswordValidator.new({ attributes: :password })
-            user.update!(password_updated_at: nil) unless validator.validate_each(user, :password, sign_in_params[:password])
-          end
-
           store_onboarding_cookie_data!(user)
         end
       end
@@ -45,6 +33,17 @@ module Decidim
       end
 
       private
+
+      # Issued with the page, so no other request of the page can overwrite the session holding the challenge.
+      def passkey_sign_in_options
+        options = TwoFactor::PasskeyAuthenticator.sign_in_options(current_organization, request.base_url)
+        session["decidim_passkey_sign_in"] = {
+          "challenge" => options.challenge,
+          "origin" => request.base_url,
+          "expires_at" => Decidim.two_factor_code_expiry_time.from_now.iso8601
+        }
+        options
+      end
 
       def redirect_to_referer_or_path
         set_flash_message(:alert, "csrf_token", scope: "devise.failure")

@@ -5,6 +5,14 @@
     <span><%= t("layouts.decidim.user_menu.profile") %></span>
   <% end %>
 </li>
+<% if current_organization.two_factor_authentication_enabled? %>
+  <li class="dropdown__item">
+    <%= link_to decidim.two_factor_authentication_path, class: "dropdown__button" do %>
+      <%= icon "key-2-line" %>
+      <span><%= t("layouts.decidim.user_menu.two_factor_authentication") %></span>
+    <% end %>
+  </li>
+<% end %>
 <li class="dropdown__item">
   <%= link_to decidim.profile_path(current_user.nickname), class: "dropdown__button" do %>
     <%= icon "account-circle-line" %>

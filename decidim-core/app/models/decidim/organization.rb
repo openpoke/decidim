@@ -41,6 +41,9 @@ module Decidim
     #  disable: Users cannot register or sign in.
     enum :users_registration_mode, [:enabled, :existing, :disabled], prefix: true
 
+    attribute :two_factor_enforced_for, :string, default: "none"
+    enum :two_factor_enforced_for, { none: "none", admins: "admins", all: "all" }, prefix: true
+
     validates :host, uniqueness: true
     validates :reference_prefix, presence: true
     validates :time_zone, presence: true, time_zone: true

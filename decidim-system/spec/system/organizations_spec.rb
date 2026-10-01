@@ -156,7 +156,7 @@ describe "Organizations" do
     end
 
     describe "editing an organization" do
-      let!(:organization) { create(:organization, name: { ca: "", en: "Citizen Corp", es: "" }) }
+      let!(:organization) { create(:organization, :with_two_factor_authentication_enabled, name: { ca: "", en: "Citizen Corp", es: "" }) }
 
       before do
         click_on "Organizations"
@@ -199,6 +199,22 @@ describe "Organizations" do
 
         expect(page).to have_css("div.flash.success")
         expect(page).to have_content("Citizens Rule!")
+      end
+
+      it "updates the two-factor settings" do
+        within "#two_factor_settings" do
+          choose "Administrators"
+          uncheck "Passkey"
+          fill_in "Days", with: 10
+        end
+
+        click_on "Save"
+        expect(page).to have_css("div.flash.success")
+
+        organization.reload
+        expect(organization.two_factor_enforced_for).to eq("admins")
+        expect(organization.available_two_factor_methods).to eq(%w(totp email))
+        expect(organization.two_factor_grace_period_days).to eq(10)
       end
 
       context "without the secret key defined" do

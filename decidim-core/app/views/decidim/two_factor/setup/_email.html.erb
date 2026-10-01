@@ -1,0 +1,18 @@
+<% if add %>
+  <%= button_to two_factor_authentication_email_authenticator_path, class: "button button__xs button__transparent-secondary", data: { disable: true } do %>
+    <%= icon two_factor_method.icon, class: "fill-current" %>
+    <span><%= t("decidim.two_factor.setup.email.title") %></span>
+  <% end %>
+<% else %>
+  <%= render layout: "decidim/two_factor/setup/row", locals: {
+        icon_name: two_factor_method.icon,
+        title: t("decidim.two_factor.setup.email.title"),
+        description: two_factor_usage(authenticator, t("decidim.two_factor.setup.email.codes_sent_to", email: current_user.email))
+      } do %>
+    <%= button_to t("decidim.two_factor.setup.turn_off"),
+                  two_factor_authentication_authenticator_path(authenticator),
+                  method: :delete,
+                  class: "button button__xs button__transparent-secondary",
+                  data: { confirm: t("decidim.two_factor.setup.email.disable_confirm") } %>
+  <% end %>
+<% end %>

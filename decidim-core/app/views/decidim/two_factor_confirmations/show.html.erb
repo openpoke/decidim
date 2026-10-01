@@ -1,0 +1,28 @@
+<% title = confirmation_action ? t("actions.#{confirmation_action}", scope: "decidim.two_factor_confirmations.show") : t("title", scope: "decidim.two_factor_confirmations.show") %>
+<% add_decidim_page_title(title) %>
+<% content_for(:subtitle) { t("two_factor_authentication", scope: "layouts.decidim.user_profile") } %>
+
+<%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
+  <h2 class="h5"><%= title %></h2>
+
+  <p class="help-text"><%= t("intro", scope: "decidim.two_factor_confirmations.show") %></p>
+
+  <% if password_available? %>
+    <%= decidim_form_for(password_form, url: confirmation_submit_path, method: confirmation_submit_method, html: { class: "two-factor__form" }) do |f| %>
+      <div class="form__wrapper">
+        <%= hidden_field_tag :username, current_user.email, autocomplete: "username" %>
+        <%= render partial: "decidim/account/password_fields", locals: { form: f } %>
+
+        <%= f.submit t("password_button", scope: "decidim.two_factor_confirmations.show"), class: "button button__sm md:button__lg button__secondary" %>
+      </div>
+    <% end %>
+
+    <h2 class="h5 mt-6 mb-2"><%= t("or_use_code", scope: "decidim.two_factor_confirmations.show") %></h2>
+  <% end %>
+
+  <%= render layout: "decidim/two_factor/challenge/methods" do %>
+    <li>
+      <%= link_to t("back", scope: "decidim.two_factor_confirmations.show"), two_factor_authentication_path %>
+    </li>
+  <% end %>
+<% end %>

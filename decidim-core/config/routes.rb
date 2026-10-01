@@ -43,6 +43,25 @@ Decidim::Core::Engine.routes.draw do
           post :cancel_email_change
         end
       end
+
+      resource :two_factor_authentication, only: [:show], controller: "two_factor_authentications" do
+        post :dismiss_banner, on: :member
+
+        resource :totp_authenticator, only: [:show, :new, :create], controller: "two_factor/totp_authenticators"
+        resource :email_authenticator, only: [:show, :create], controller: "two_factor/email_authenticators"
+        resource :passkey_authenticator, only: [:show, :new, :create], controller: "two_factor/passkey_authenticators"
+        resource :recovery_codes, only: [:show, :create], controller: "two_factor/recovery_codes"
+
+        resource :confirmation, only: [:show, :create], controller: "two_factor_confirmations" do
+          post :send_code, on: :member
+        end
+
+        resources :authenticators, only: [:destroy], controller: "two_factor/authenticators"
+
+        Decidim::TwoFactor.workflows.select(&:engine).each do |manifest|
+          mount manifest.engine, at: "/#{manifest.name}", as: "decidim_two_factor_#{manifest.name}"
+        end
+      end
     end
 
     scope "/:locale", **locale_scope_options do
@@ -138,6 +157,14 @@ Decidim::Core::Engine.routes.draw do
 
     devise_scope :user do
       post "omniauth_registrations" => "devise/omniauth_registrations#create"
+    end
+
+    devise_scope :user do
+      get "two_factor_challenge", to: "devise/two_factor_challenges#show", as: :user_two_factor_challenge
+      post "two_factor_challenge", to: "devise/two_factor_challenges#create"
+      delete "two_factor_challenge", to: "devise/two_factor_challenges#destroy"
+      post "two_factor_challenge/send_code", to: "devise/two_factor_challenges#send_code", as: :send_code_user_two_factor_challenge
+      post "passkey_session", to: "devise/passkey_sessions#create", as: :user_passkey_session
     end
 
     resources :pages, only: [:index, :show], format: false
