@@ -12,6 +12,7 @@ fi-pl:
         plural: Monikko
       attachment:
         attachment_collection_id: Kansio
+        attachments: Liitteet
         description: Kuvaus
         file: Tiedosto
         title: Liitetiedoston tai kuvan nimi
@@ -834,6 +835,7 @@ fi-pl:
       officializations:
         block:
           error: Osallistujan estäminen epäonnistui.
+          no_user: Käyttäjää ei löytynyt
           success: Osallistujan estäminen onnistui.
         bulk_action:
           block:
@@ -843,6 +845,7 @@ fi-pl:
             invalid: Osallistujien eston peruminen epäonnistui.
             success: Osallistujien eston peruminen onnistui.
         create:
+          no_user_found: Osallistujaa ei löytynyt.
           success: Osallistujan virallistaminen onnistui.
         destroy:
           success: Osallistujan virallistamisen peruuttaminen onnistui.
@@ -867,6 +870,8 @@ fi-pl:
           badge: Virallistamismerkki
           officialize: Virallista
           title: Virallista käyttäjä "%{name}"
+        show_email:
+          no_user: Käyttäjää ei löytynyt
         show_email_modal:
           description: Jos haluat ottaa suoraan yhteyttä osallistujaan, voit klikata Näytä-painiketta nähdäksesi hänen sähköpostiosoitteensa. Tästä toiminnosta jää jälki lokiin.
           email_address: Sähköpostiosoite
@@ -900,6 +905,10 @@ fi-pl:
           logos:
             organization_logos: Organisaation logot
             preview: Esikatsele
+          machine_translation_display_priority:
+            options:
+              original: Järjestelmä näyttää tiedot samalla kielellä kuin millä sisältö on laadittu. Hallintapaneelista luotu sisältö, joka on käännetty hallintakäyttäjän toimesta, näytetään niin kuin hallintakäyttäjä sisällön on määrittänyt.
+              translation: Järjestelmä näyttää käännöksen, jos se on saatavilla. Muussa tapauksessa sisältö näytetään alkuperäisellä kielellään.
           rich_text_editor_in_public_views_help: Joissain tekstikentissä osallistujat voivat syöttää tiettyjä HTML-elementtejä rikkaan tekstieditorin kautta.
           social_handlers: Sosiaalinen media
           twitter: X
@@ -1067,10 +1076,10 @@ fi-pl:
           next_title: Seuraava kohde
           previous: Edellinen
           previous_title: Edellinen kohde
-        gallery:
-          add_images: Lisää kuvia
-          edit_images: Muokkaa kuvia
-          gallery_legend: Lisää kuvagalleria (valinnainen)
+        attachments:
+          add_attachments: Lisää liitteitä
+          attachment_legend: Lisää liitegalleria (valinnainen)
+          edit_attachments: Muokkaa liitteitä
       static_page_topics:
         create:
           error: Uuden aiheen luomisessa tapahtui virhe.
@@ -1285,6 +1294,11 @@ fi-pl:
       errors:
         impersonate_user:
           reason: Sinun on annettava syy, kun hallitset osallistujaa, joka ei ole hallittu osallistuja.
+      file_help:
+        attachment:
+          explanation: 'Tiedoston ohjeistus:'
+          message_1: CSV-, JSON- ja Excel-tiedostoja (.xlsx) tuetaan
+          message_2: CSV-tiedostoissa sarake-erottimen on oltava puolipiste (";")
     moderations:
       actions:
         expand: Avaa
