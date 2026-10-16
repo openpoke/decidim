@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Meetings::MeetingsController do
+  include Decidim::Core::Engine.routes.url_helpers
+
   let(:organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:meeting_component) { create(:meeting_component, :with_creation_enabled, participatory_space: participatory_process) }
@@ -49,15 +51,15 @@ describe Decidim::Meetings::MeetingsController do
         component_id: meeting_component.id
       }
     end
-    let(:params) { { meeting: meeting_params } }
-
-    before { sign_in user }
+    let(:params) { { meeting: meeting_params, id: meeting.id } }
 
     context "when an authorized user is withdrawing a meeting" do
       let(:meeting) { create(:meeting, component: meeting_component, author: user) }
 
+      before { sign_in user }
+
       it "withdraws the meeting" do
-        put :withdraw, params: params.merge(id: meeting.id)
+        put(:withdraw, params:)
 
         expect(flash[:notice]).to eq("The meeting has been withdrawn successfully.")
         expect(response).to have_http_status(:found)
@@ -70,11 +72,25 @@ describe Decidim::Meetings::MeetingsController do
       let(:current_user) { create(:user, organization: meeting_component.organization) }
       let(:meeting) { create(:meeting, component: meeting_component, author: current_user) }
 
+      before { sign_in user }
+
       it "is not able to withdraw the meeting" do
-        put :withdraw, params: params.merge(id: meeting.id)
+        put(:withdraw, params:)
 
         expect(flash[:alert]).to eq("You are not authorized to perform this action.")
         expect(response).to have_http_status(:found)
+        meeting.reload
+        expect(meeting.withdrawn?).to be false
+      end
+    end
+
+    context "when user is not authenticated" do
+      let(:user) { nil }
+
+      it "redirects to login page" do
+        put(:withdraw, params:)
+        expect(flash[:alert]).to eq("You need to log in or create an account before continuing.")
+        expect(response).to redirect_to(new_user_session_path)
         meeting.reload
         expect(meeting.withdrawn?).to be false
       end
@@ -105,6 +121,58 @@ describe Decidim::Meetings::MeetingsController do
         get :show, params: { id: meeting.id }
 
         expect(flash[:alert]).to include("You are not authorized to perform this action.")
+      end
+    end
+
+    context "with previous_space parameter" do
+      let(:other_process) { create(:participatory_process, organization:) }
+
+      it "accepts valid participatory space class names" do
+        get :show, params: { id: meeting.id, previous_space: "Decidim::ParticipatoryProcess##{other_process.id}" }
+
+        expect(subject).to render_template(:show)
+        expect(flash[:alert]).to be_blank
+        expect(flash[:notice]).to eq(
+          I18n.t(
+            "meetings.show.redirect_notice",
+            scope: "decidim.meetings",
+            previous_space_url: request.referer,
+            previous_space_name: decidim_escape_translated(other_process.title),
+            current_space_name: decidim_escape_translated(participatory_process.title)
+          )
+        )
+      end
+
+      it "rejects non-participatory space class names" do
+        get :show, params: { id: meeting.id, previous_space: "Decidim::User#1" }
+
+        expect(subject).to render_template(:show)
+        expect(flash[:alert]).to be_blank
+        expect(flash[:notice]).to be_blank
+      end
+
+      it "rejects arbitrary class names" do
+        get :show, params: { id: meeting.id, previous_space: "Decidim::System::Admin#1" }
+
+        expect(subject).to render_template(:show)
+        expect(flash[:alert]).to be_blank
+        expect(flash[:notice]).to be_blank
+      end
+
+      it "rejects non-existent class names" do
+        get :show, params: { id: meeting.id, previous_space: "NonExistent::Class#1" }
+
+        expect(subject).to render_template(:show)
+        expect(flash[:alert]).to be_blank
+        expect(flash[:notice]).to be_blank
+      end
+
+      it "rejects blank class names" do
+        get :show, params: { id: meeting.id, previous_space: "#1" }
+
+        expect(subject).to render_template(:show)
+        expect(flash[:alert]).to be_blank
+        expect(flash[:notice]).to be_blank
       end
     end
 
@@ -157,6 +225,57 @@ describe Decidim::Meetings::MeetingsController do
         get(:new)
         expect(response).to have_http_status(:found)
         expect(response).to redirect_to("/users/sign_in")
+      end
+    end
+  end
+
+  describe "#create" do
+    let(:meeting_params) do
+      {
+        component_id: meeting_component.id
+      }
+    end
+    let(:params) { { meeting: meeting_params } }
+
+    context "when user is not authenticated" do
+      it "redirects to login page" do
+        post(:create, params:)
+        expect(flash[:alert]).to eq("You need to log in or create an account before continuing.")
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+  end
+
+  describe "#edit" do
+    let(:meeting_params) do
+      {
+        component_id: meeting_component.id
+      }
+    end
+    let(:params) { { meeting: meeting_params, id: meeting.id } }
+
+    context "when user is not authenticated" do
+      it "redirects to login page" do
+        get(:edit, params:)
+        expect(flash[:alert]).to eq("You need to log in or create an account before continuing.")
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+  end
+
+  describe "#update" do
+    let(:meeting_params) do
+      {
+        component_id: meeting_component.id
+      }
+    end
+    let(:params) { { meeting: meeting_params, id: meeting.id } }
+
+    context "when user is not authenticated" do
+      it "redirects to login page" do
+        put(:update, params:)
+        expect(flash[:alert]).to eq("You need to log in or create an account before continuing.")
+        expect(response).to redirect_to(new_user_session_path)
       end
     end
   end

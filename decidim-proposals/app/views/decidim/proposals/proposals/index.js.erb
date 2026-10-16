@@ -10,7 +10,7 @@ $orderFilterInput.val('<%= order %>');
   if (controller) {
     var markerData = JSON.parse('<%= escape_javascript cell("decidim/map", @proposals, metadata_card: "decidim/proposals/proposal_metadata").geocoded_data.to_json.html_safe %>');
     controller.clearMarkers();
-    if (markerData.length > 0 ) {
+    if (markerData.length) {
       controller.addMarkers(markerData);
     }
   }

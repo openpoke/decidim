@@ -63,6 +63,27 @@ module Decidim::Proposals
           expect(html).to have_content("It was discussed in this meeting:")
         end
       end
+
+      context "when a proposal has been linked in a meeting from another space" do
+        let(:other_space) { create(:participatory_process, organization:) }
+        let(:meeting_component) { create(:component, manifest_name: :meetings, participatory_space: other_space) }
+        let(:meeting) { create(:meeting, :published, component: meeting_component) }
+        let(:html) { cell("decidim/proposals/proposal_history", proposal).call }
+
+        before { meeting.link_resources([proposal], "proposals_from_meeting") }
+
+        it "shows related meetings" do
+          expect(html).to have_content("It was discussed in this meeting:")
+        end
+
+        context "when the other space is private" do
+          let(:other_space) { create(:participatory_process, :private, organization:) }
+
+          it "does not show them" do
+            expect(html).to have_no_content("It was discussed in this meeting:")
+          end
+        end
+      end
     end
   end
 end

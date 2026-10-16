@@ -93,7 +93,7 @@ describe "Admin edits proposals" do
       end
     end
 
-    context "when the proposal has attachment" do
+    context "when the proposal has an attachment" do
       let!(:component) do
         create(:proposal_component,
                :with_creation_enabled,
@@ -112,7 +112,7 @@ describe "Admin edits proposals" do
 
       let!(:document) { create(:attachment, :with_pdf, attached_to: proposal) }
 
-      it "can remove attachment" do
+      it "can remove an attachment" do
         visit_component_admin
         within "tr", text: translated_attribute(proposal.title) do
           find("button[data-controller='dropdown']").click
@@ -132,10 +132,12 @@ describe "Admin edits proposals" do
         expect(page).to have_content("Proposal successfully updated.")
 
         visit_component_admin
+
         within "tr", text: translated_attribute(proposal.title) do
           find("button[data-controller='dropdown']").click
           click_on "Edit proposal"
         end
+
         expect(page).to have_no_content(document.file.blob.filename)
       end
 
@@ -145,22 +147,32 @@ describe "Admin edits proposals" do
           find("button[data-controller='dropdown']").click
           click_on "Edit proposal"
         end
-        dynamically_attach_file(:proposal_documents, image_path)
 
         click_on("Edit attachments")
-        within "li[data-filename='#{image_filename}']" do
-          click_on("Remove")
+
+        filename = "Exampledocument.pdf"
+        within ".upload-modal" do
+          find("input[type='file']", visible: :all).attach_file(Decidim::Dev.asset(filename))
+          within "li[data-filename='#{filename}']:not([data-attachment-id])" do
+            expect(page).to have_css("progress[value='100']")
+          end
+          expect(page).to have_css("button[data-dropzone-save]:not([disabled])")
+          click_on("Save")
         end
-        click_on("Save")
+
+        expect(page).to have_no_css(".upload-modal")
 
         click_on("Update")
+
+        expect(page).to have_text("Proposal successfully updated.")
 
         within "tr", text: translated_attribute(proposal.title) do
           find("button[data-controller='dropdown']").click
           click_on "Edit proposal"
         end
 
-        expect(page).to have_no_content("city.jpeg")
+        click_on "Edit attachments"
+        expect(page).to have_content(filename)
       end
 
       it "can edit a proposal with an attachment" do

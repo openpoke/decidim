@@ -57,6 +57,10 @@ shared_examples "manage impersonations examples" do
 
     it_behaves_like "impersonating a user" do
       let(:impersonated_user) { Decidim::User.managed.last }
+
+      before do
+        expect(page).to have_content("The managed participant has been successfully created.")
+      end
     end
   end
 
@@ -264,9 +268,11 @@ shared_examples "manage impersonations examples" do
         fill_in :managed_user_promotion_email, with: "foo@example.org"
       end
 
-      perform_enqueued_jobs { click_on "Promote" }
+      perform_enqueued_jobs do
+        click_on "Promote"
+        expect(page).to have_content("The managed participant has been successfully promoted.")
+      end
 
-      expect(page).to have_content("successfully")
       expect(page).to have_content(managed_user.name)
 
       logout :user
@@ -357,6 +363,7 @@ shared_examples "manage impersonations examples" do
     end
 
     fill_in_the_impersonation_form("123456789X", reason:)
+    expect(page).to have_content("You are managing the participant") if reason && reason.length.positive?
   end
 
   def simulate_session_expiration

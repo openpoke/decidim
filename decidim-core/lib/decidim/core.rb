@@ -295,7 +295,7 @@ module Decidim
 
   # Users that have not logged in for this period of time will be deleted
   config_accessor :delete_inactive_users_after_days do
-    Decidim::Env.new("DELETE_INACTIVE_USERS_AFTER_DAYS", 365).to_i
+    Decidim::Env.new("DECIDIM_DELETE_INACTIVE_USERS_AFTER_DAYS", 365).to_i
   end
 
   # The minimum allowed inactivity period for deleting participants.
@@ -485,6 +485,15 @@ module Decidim
   config_accessor :throttling_period do
     Decidim::Env.new("DECIDIM_THROTTLING_PERIOD", "1").to_i.minutes
   end
+
+  # Max failed attempts for verification code confirmation before lockout.
+  mattr_accessor :verification_max_failed_attempts, default: Decidim::Env.new("DECIDIM_VERIFICATION_MAX_FAILED_ATTEMPTS", "5").to_i
+
+  # Time window after which a locked verification is automatically unlocked.
+  mattr_accessor :verification_unlock_in, default: Decidim::Env.new("DECIDIM_VERIFICATION_UNLOCK_IN", "30").to_i.minutes
+
+  # Time window (in minutes) after which a verification code expires (SMS only).
+  mattr_accessor :verification_code_expiry_minutes, default: Decidim::Env.new("DECIDIM_VERIFICATION_CODE_EXPIRY_MINUTES", "10").to_i
 
   # Time window were users can access the website even if their email is not confirmed.
   config_accessor :unconfirmed_access_for do

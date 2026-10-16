@@ -2,6 +2,8 @@
 ca:
   activemodel:
     attributes:
+      elections_question:
+        max_choices: Nombre màxim d'opcions
       token_csv:
         file: Arxiu
         remove_all: Eliminar totes les dades del cens actual
@@ -101,6 +103,7 @@ ca:
             start_question_button: Activar la votació
             title: Resultats
           status:
+            allow_census_check_before_start: Permetre que les usuàries comprovin si poden votar abans que comenci l'elecció
             census: 'Cens:'
             results_availability:
               after_end: Resultats disponibles després de la finalització de les eleccions
@@ -179,14 +182,19 @@ ca:
           unknown: Estat desconegut
       admin_log:
         election:
-          create: "%{user_name} ha creat l'elecció \"%{resource_name}\" a %{space_name}"
-          publish: "%{user_name} ha publicat l'elecció \"%{resource_name}\" a %{space_name}"
-          restore: "%{user_name} ha restaurat l'elecció \"%{resource_name}\" a %{space_name}"
-          soft_delete: "%{user_name} ha mogut l'elecció \"%{resource_name}\" de %{space_name} a la paperera"
-          unpublish: "%{user_name} ha despublicat l'elecció \"%{resource_name}\" a %{space_name}"
-          update: "%{user_name} ha actualitzat l'elecció \"%{resource_name}\" a %{space_name}"
+          create: '%{user_name} ha creat l''elecció "%{resource_name}" a %{space_name}'
+          publish: '%{user_name} ha publicat l''elecció "%{resource_name}" a %{space_name}'
+          restore: '%{user_name} ha restaurat l''elecció "%{resource_name}" a %{space_name}'
+          soft_delete: '%{user_name} ha mogut l''elecció "%{resource_name}" de %{space_name} a la paperera'
+          unpublish: '%{user_name} ha despublicat l''elecció "%{resource_name}" a %{space_name}'
+          update: '%{user_name} ha actualitzat l''elecció "%{resource_name}" a %{space_name}'
         question:
-          update: "%{user_name} va actualitzar les preguntes de l'elecció \"%{resource_name}\""
+          update: '%{user_name} va actualitzar les preguntes de l''elecció "%{resource_name}"'
+      census_checks:
+        show:
+          description: Això vol dir que, un cop comenci l'elecció, hi podràs votar.
+          exit_button: Sortir de la comprovació del cens
+          title: T'has verificat correctament
       censuses:
         census_ready_html: S'han carregat les dades censals i estan a punt per utilitzar-les a l'elecció "<b>%{election_title}</b>".
         census_size_html:
@@ -195,8 +203,9 @@ ca:
         internal_users:
           already_have_an_account?: Ja tens un compte?
           are_you_new?: Encara no ets participant?
-          info_html: |
-            Pots restringir la participació en l'elecció a les participants que tinguin una autorització. <br>Tingues en compte que les participants obtenir l'autorització seleccionada per poder votar. Si deixes totes les caselles de verificació buides, qualsevol persona registrada podrà votar.
+          info_html: 'Pots restringir la participació en l''elecció a les participants que tinguin una autorització. <br>Tingues en compte que les participants obtenir l''autorització seleccionada per poder votar. Si deixes totes les caselles de verificació buides, qualsevol persona registrada podrà votar.
+
+            '
           internal_type_title: Autoritzacions addicionals necessàries per votar (opcional)
           label: Participants registrades (dinàmic)
           sign_in_description: Inicia la teva sessió per a votar en aquestes eleccions
@@ -212,8 +221,9 @@ ca:
             email;token
             user@example.org;123456
             user2@example.org;ABCXYZ
-          info_html: |
-            Ha de ser un arxiu en format CSV amb només dues columnes, una amb l'adreça de correu electrònic i una altra amb el valor de l'autenticador (token). Els camps han d'estar separats amb punt i coma (;).
+          info_html: 'Ha de ser un arxiu en format CSV amb només dues columnes, una amb l''adreça de correu electrònic i una altra amb el valor de l''autenticador (token). Els camps han d''estar separats amb punt i coma (;).
+
+            '
           label: Participants no registrats amb autentificador/token (fixat)
           remove_before_upload: Si vols pujar un nou cens, primer has d'eliminar el que ja existeix.
           upload_file: Puja arxiu
@@ -249,13 +259,15 @@ ca:
           title: Preguntes de l'elecció
         show:
           active_voting_until: 'Votació activa fins: %{end_date}'
+          check_census_button: Comprovar si puc votar
+          check_census_explanation: Aquesta elecció encara no ha començat, però pots comprovar si estàs inclosa al cens.
           edit_vote_button: Edita el vot
           vote_button: Votar
           voted: Ja has votat. Pots tornar a votar, això esborrarà el teu vot anterior i, només es comptabilitzarà la teva última votació.
           votes_count:
             one: 1 vot
             other: "%{count} vots"
-          voting_began: 'La votació es va iniciar el %{start_date}'
+          voting_began: La votació es va iniciar el %{start_date}
         vote_results:
           subtitle:
             after_end: Les eleccions han finalitzat. Ara pot veure'n els resultats.
@@ -308,6 +320,9 @@ ca:
         question:
           back: Tornar
           cast_vote: Enviar el vot
+          max_choices: 'Màxim d''opcions: %{count}'
+          max_choices_alert: Has seleccionat massa opcions. Si us plau, desselecciona'n algunes per continuar.
+          max_choices_exceeded: No pots seleccionar més de %{max} opcions. Torna enrere i ajusta la selecció.
           next: Següent
         receipt:
           description: Pots tornar a votar en qualsevol moment mentre el període de votació estigui obert. El teu vot anterior serà substituït pel nou.

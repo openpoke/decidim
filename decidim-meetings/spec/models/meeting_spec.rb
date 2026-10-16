@@ -508,5 +508,51 @@ module Decidim::Meetings
         expect(update_jobs).to be <= Decidim::FindAndUpdateDescendantsJob::MAX_DEPTH
       end
     end
+
+    describe ".ransackable_attributes" do
+      let(:admin) { build(:user, :admin, :confirmed) }
+
+      it "allows admins to sort by start_time" do
+        expect(described_class.ransackable_attributes(admin)).to include("start_time")
+      end
+
+      it "allows admins to sort by end_time" do
+        expect(described_class.ransackable_attributes(admin)).to include("end_time")
+      end
+
+      it "allows admins to sort by closed" do
+        expect(described_class.ransackable_attributes(admin)).to include("closed")
+      end
+
+      it "allows admins to sort by translated_title" do
+        expect(described_class.ransackable_attributes(admin)).to include("translated_title")
+      end
+    end
+
+    describe ".authored_by" do
+      subject { described_class.authored_by(provided_author) }
+
+      let(:organization) { create(:organization, id: 1) }
+      let(:component) { create(:meeting_component, organization:) }
+      let(:user_author) { create(:user, :confirmed, id: 1, organization:) }
+      let!(:meeting_by_user) { create(:meeting, component:, author: user_author) }
+      let!(:meeting_by_organization) { create(:meeting, component:, author: organization) }
+
+      context "with user author" do
+        let(:provided_author) { user_author }
+
+        it "returns the correct meeting" do
+          expect(subject).to contain_exactly(meeting_by_user)
+        end
+      end
+
+      context "with organization author" do
+        let(:provided_author) { organization }
+
+        it "returns the correct meeting" do
+          expect(subject).to contain_exactly(meeting_by_organization)
+        end
+      end
+    end
   end
 end
