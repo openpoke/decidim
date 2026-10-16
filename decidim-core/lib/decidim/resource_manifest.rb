@@ -90,8 +90,7 @@ module Decidim
     def organization_resource_scope(organization)
       return model_class.none unless component_manifest
 
-      component_ids = Decidim::Component.where(participatory_space: organization.participatory_spaces, manifest_name: component_manifest.name).pluck(:id)
-      return model_class.none if component_ids.empty?
+      component_ids = Decidim::Component.where(participatory_space: organization.participatory_spaces, manifest_name: component_manifest.name).select(:id)
 
       model_class.joins(:component).where(decidim_components: { id: component_ids })
     end
