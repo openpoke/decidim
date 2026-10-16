@@ -79,6 +79,22 @@ module Decidim
       model_class.joins(:component).where(decidim_components: { id: component_ids })
     end
 
+    # Finds an ActiveRecord::Relation of the resource `model_class`, scoped to all
+    # the components of the given organization, regardless of their participatory
+    # space. If no `component_manifest` is set for this manifest, it returns an
+    # empty collection.
+    #
+    # organization - a Decidim::Organization
+    #
+    # Returns an ActiveRecord::Relation.
+    def organization_resource_scope(organization)
+      return model_class.none unless component_manifest
+
+      component_ids = Decidim::Component.where(participatory_space: organization.participatory_spaces, manifest_name: component_manifest.name).select(:id)
+
+      model_class.joins(:component).where(decidim_components: { id: component_ids })
+    end
+
     # Finds the current class with the given `model_class_name`
     # in order to avoid problems with Rails' autoloading.
     #
