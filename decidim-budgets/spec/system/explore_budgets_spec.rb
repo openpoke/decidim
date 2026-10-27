@@ -107,9 +107,8 @@ describe "Explore Budgets", :slow do
         end
 
         context "and the voting is open" do
-          it "links to the authorization modal" do
-            expect(item).to have_link(translated(budget.title), href: budget_path(budget))
-            expect(item).to have_css("a[data-dialog-open='loginModal']")
+          it "links the vote CTA to the budget projects" do
+            expect(item).to have_css(".budget__card__highlight-vote[href='#{budget_projects_path(budget)}']")
           end
         end
 
@@ -203,8 +202,9 @@ describe "Explore Budgets", :slow do
           expect(item).to have_content("Delete your vote")
           within item do
             accept_confirm { click_on "Delete your vote" }
-            expect(Decidim::Budgets::Order.where(budget:)).to be_blank
           end
+          expect(page).to have_content("Your vote has been successfully canceled.")
+          expect(Decidim::Budgets::Order.where(budget:)).to be_blank
         end
 
         context "and the voting is disabled" do

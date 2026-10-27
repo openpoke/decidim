@@ -35,7 +35,14 @@ module Decidim
     private
 
     def linked_resources
-      @linked_resources ||= resource.linked_resources(type, link_name).group_by { |linked_resource| linked_resource.class.name }
+      @linked_resources ||= resource.linked_resources(type, link_name, cross_space: true)
+                                    .select { |linked_resource| visible_resource?(linked_resource) }
+                                    .group_by { |linked_resource| linked_resource.class.name }
+    end
+
+    # Resources from other participatory spaces are only shown when their space is visible
+    def visible_resource?(linked_resource)
+      linked_resource.try(:participatory_space) == resource.try(:participatory_space) || linked_resource.visible?
     end
 
     def type

@@ -34,10 +34,12 @@ module Decidim
       #
       # resource_name - The String name of the resource manifest exposed by a component.
       # link_name     - The String name of the link between this model and the target resource.
+      # cross_space   - When true, also finds resources from other participatory spaces
+      #                 of the same organization. Defaults to false.
       #
       # Returns an ActiveRecord::Relation.
-      def linked_resources(resource_name, link_name, component_published: true)
-        scope = sibling_scope(resource_name, component_published:)
+      def linked_resources(resource_name, link_name, component_published: true, cross_space: false)
+        scope = linked_resources_scope(resource_name, component_published:, cross_space:)
 
         from = scope
                .joins(:resource_links_from)
@@ -50,16 +52,16 @@ module Decidim
         scope.where(id: from).or(scope.where(id: to))
       end
 
-      def linked_resources_from(resource_name, link_name, component_published: true)
-        scope = sibling_scope(resource_name, component_published:)
+      def linked_resources_from(resource_name, link_name, component_published: true, cross_space: false)
+        scope = linked_resources_scope(resource_name, component_published:, cross_space:)
 
         scope
           .joins(:resource_links_from)
           .where(decidim_resource_links: { name: link_name, to_id: id, to_type: self.class.name })
       end
 
-      def linked_resources_to(resource_name, link_name, component_published: true)
-        scope = sibling_scope(resource_name, component_published:)
+      def linked_resources_to(resource_name, link_name, component_published: true, cross_space: false)
+        scope = linked_resources_scope(resource_name, component_published:, cross_space:)
 
         scope
           .joins(:resource_links_to)
@@ -76,11 +78,21 @@ module Decidim
         manifest = Decidim.find_resource_manifest(resource_name)
         return self.class.none unless manifest
 
-        scope = manifest.resource_scope(component)
-        scope = scope.where("#{self.class.table_name}.id != ?", id) if manifest.model_class == self.class
-        scope = scope.not_hidden if manifest.model_class.respond_to?(:not_hidden)
-        scope = scope.includes(:component).where.not(decidim_components: { published_at: nil }) if component_published
-        scope
+        filter_sibling_scope(manifest.resource_scope(component), manifest, component_published:)
+      end
+
+      # Builds an ActiveRecord::Relation in order to load all the resources
+      # that are in the same organization as this model, regardless of their
+      # participatory space.
+      #
+      # resource_name - The String name of the resource manifest exposed by a component.
+      #
+      # Returns an ActiveRecord::Relation.
+      def organization_sibling_scope(resource_name, component_published: true)
+        manifest = Decidim.find_resource_manifest(resource_name)
+        return self.class.none unless manifest
+
+        filter_sibling_scope(manifest.organization_resource_scope(component.organization), manifest, component_published:)
       end
 
       # Links the given resources to this model, replaces any previous links with the same name.
@@ -159,6 +171,21 @@ module Decidim
       # or search results.
       def resource_description
         try(:description) || try(:body) || try(:content)
+      end
+
+      private
+
+      def linked_resources_scope(resource_name, component_published:, cross_space:)
+        return organization_sibling_scope(resource_name, component_published:) if cross_space
+
+        sibling_scope(resource_name, component_published:)
+      end
+
+      def filter_sibling_scope(scope, manifest, component_published:)
+        scope = scope.where("#{self.class.table_name}.id != ?", id) if manifest.model_class == self.class
+        scope = scope.not_hidden if manifest.model_class.respond_to?(:not_hidden)
+        scope = scope.includes(:component).where.not(decidim_components: { published_at: nil }) if component_published
+        scope
       end
     end
 

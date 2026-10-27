@@ -73,11 +73,23 @@ describe "Locales" do
 
         # Prevent flaky spec, where sometimes the language is not changed before the visit
         sleep 2
-        visit decidim.root_path
       end
 
       it "uses the user's locale" do
+        visit decidim.root_path
         expect(page).to have_content("Inici")
+      end
+
+      it "displays not found messages with the right locale" do
+        visit decidim_admin.root_path
+
+        expect(page).to have_content("No s'ha trobat la pàgina que busques")
+      end
+
+      it "displays devise messages with the right locale" do
+        visit decidim.new_user_session_path(locale: "ca")
+
+        expect(page).to have_content("Ja has iniciat la sessió.")
       end
     end
   end
