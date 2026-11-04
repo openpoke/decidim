@@ -47,6 +47,29 @@ module Decidim
           expect(resource.linked_resources(:dummy, "link-name")).to include(target_resource)
         end
       end
+
+      context "when linking to a resource in another participatory space" do
+        let(:other_component) { create(:component, manifest_name: :dummy, organization: participatory_process.organization) }
+        let(:other_resource) { create(:dummy_resource, component: other_component) }
+
+        before { resource.link_resources(other_resource, "link-name") }
+
+        it "only includes it with cross_space" do
+          expect(resource.linked_resources(:dummy, "link-name")).not_to include(other_resource)
+          expect(resource.linked_resources(:dummy, "link-name", cross_space: true)).to include(other_resource)
+        end
+      end
+    end
+
+    describe "organization_sibling_scope" do
+      let(:resource) { create(:dummy_resource) }
+      let!(:other_space_resource) { create(:dummy_resource, component: create(:component, manifest_name: :dummy, organization: resource.organization)) }
+      let!(:other_organization_resource) { create(:dummy_resource) }
+
+      it "returns the resources of the same organization" do
+        expect(resource.organization_sibling_scope(:dummy)).to include(other_space_resource)
+        expect(resource.organization_sibling_scope(:dummy)).not_to include(resource, other_organization_resource)
+      end
     end
 
     describe "sibling_scope" do

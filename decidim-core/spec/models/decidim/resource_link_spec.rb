@@ -61,7 +61,7 @@ module Decidim
           link.from = create(:dummy_resource, component: from_component)
         end
 
-        it { is_expected.to be_invalid }
+        it { is_expected.to be_valid }
       end
     end
   end
