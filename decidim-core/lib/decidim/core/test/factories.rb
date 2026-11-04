@@ -181,6 +181,22 @@ FactoryBot.define do
       host { "localhost" }
     end
 
+    trait :with_two_factor_authentication_enabled do
+      two_factor_authentication_enabled { true }
+    end
+
+    trait :with_two_factor_enforced_for_admins do
+      two_factor_authentication_enabled { true }
+      two_factor_enforced_for { "admins" }
+      two_factor_enforced_at { Time.current }
+    end
+
+    trait :with_two_factor_enforced_for_all do
+      two_factor_authentication_enabled { true }
+      two_factor_enforced_for { "all" }
+      two_factor_enforced_at { Time.current }
+    end
+
     after(:create) do |organization, evaluator|
       if evaluator.create_static_pages
         tos_page = Decidim::StaticPage.find_by(slug: "terms-of-service", organization:)
@@ -275,6 +291,10 @@ FactoryBot.define do
     trait :officialized do
       officialized_at { Time.current }
       officialized_as { generate_localized_title(:officialized_as, skip_injection:) }
+    end
+
+    trait :with_recovery_codes do
+      after(:create) { |user| Decidim::TwoFactor::RegenerateRecoveryCodes.call(user) }
     end
 
     after(:build) do |user, evaluator|
@@ -1109,5 +1129,48 @@ FactoryBot.define do
     trait :document do
       filepath { Decidim::Dev.asset("Exampledocument.pdf") }
     end
+  end
+
+  factory :totp_authenticator, class: "Decidim::TwoFactor::TotpAuthenticator" do
+    transient do
+      skip_injection { false }
+    end
+
+    user { create(:user, :confirmed) }
+    secret { ROTP::Base32.random }
+
+    trait :confirmed do
+      confirmed_at { Time.current }
+    end
+  end
+
+  factory :email_authenticator, class: "Decidim::TwoFactor::EmailAuthenticator" do
+    transient do
+      skip_injection { false }
+    end
+
+    user { create(:user, :confirmed) }
+  end
+
+  factory :passkey_authenticator, class: "Decidim::TwoFactor::PasskeyAuthenticator" do
+    transient do
+      skip_injection { false }
+    end
+
+    user { create(:user, :confirmed) }
+    sequence(:external_id) { |n| Base64.urlsafe_encode64("credential-#{n}", padding: false) }
+    public_key { Base64.urlsafe_encode64("public-key", padding: false) }
+    sign_count { 0 }
+    name { "Passkey" }
+    confirmed_at { Time.current }
+  end
+
+  factory :two_factor_challenge, class: "Decidim::TwoFactor::Challenge" do
+    transient do
+      skip_injection { false }
+    end
+
+    user { create(:user, :confirmed) }
+    method_type { "totp" }
   end
 end

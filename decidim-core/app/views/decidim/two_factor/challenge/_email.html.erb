@@ -1,0 +1,7 @@
+<p class="help-text"><%= t("decidim.two_factor.challenge.email.intro", email: challenge.user.email) %></p>
+
+<%= render partial: "decidim/two_factor/challenge/form", locals: local_assigns.merge(method_name: "email") %>
+
+<%= button_to t("decidim.two_factor.challenge.email.resend"),
+              resend_path,
+              class: "two-factor__resend" %>

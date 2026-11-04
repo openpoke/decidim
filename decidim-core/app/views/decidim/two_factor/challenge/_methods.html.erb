@@ -1,0 +1,21 @@
+<% if challenge_method_name == "recovery" %>
+  <%= render partial: "decidim/two_factor/challenge/recovery", locals: challenge_partial_locals %>
+<% else %>
+  <%= render partial: challenge_method.challenge_partial, locals: challenge_partial_locals %>
+<% end %>
+
+<ul class="two-factor__alternatives">
+  <% alternative_methods.each do |manifest| %>
+    <li>
+      <%= link_to t("decidim.two_factor.challenge.#{manifest.name}.alternative"), challenge_submit_path(manifest.name) %>
+    </li>
+  <% end %>
+
+  <% unless challenge_method_name == "recovery" %>
+    <li>
+      <%= link_to t("decidim.two_factor.challenge.recovery.alternative"), challenge_submit_path("recovery") %>
+    </li>
+  <% end %>
+
+  <%= yield %>
+</ul>

@@ -14,6 +14,20 @@ module Decidim
 
       login_as user, scope:
     end
+
+    #
+    # Utility method to log in past the second-factor challenge; +confirmed: true+
+    # also opens the identity confirmation window.
+    #
+    def login_past_second_factor(user, scope: :user, confirmed: false)
+      if confirmed
+        Warden.on_next_request do |proxy|
+          proxy.request.session["decidim_two_factor_confirmed"] = { "user_id" => user.id, "at" => Time.current.to_i }
+        end
+      end
+
+      login_as user, scope:, two_factor: :verified
+    end
   end
 end
 

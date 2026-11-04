@@ -1,0 +1,15 @@
+<p class="help-text"><%= t("decidim.two_factor.challenge.passkey.intro") %></p>
+
+<%= decidim_form_for(challenge_form,
+                     url: submit_path,
+                     method: local_assigns[:submit_method] || :post,
+                     html: { class: "two-factor__form", data: { controller: "passkey", passkey_ceremony_value: "authentication", passkey_options_value: passkey_assertion_options.as_json.to_json, action: "submit->passkey#submit" } }) do |f| %>
+  <p class="two-factor__error" role="alert" data-passkey-target="unsupported" hidden><%= t("decidim.two_factor.challenge.passkey.unsupported") %></p>
+  <p class="two-factor__error" role="alert" data-passkey-target="error" hidden><%= t("decidim.two_factor.challenge.passkey.failed") %></p>
+
+  <div class="form__wrapper">
+    <%= hidden_field_tag :method_name, "passkey", id: nil %>
+    <%= f.hidden_field :credential, id: nil, value: nil, data: { passkey_target: "credential" } %>
+    <%= f.submit t("decidim.two_factor.challenge.passkey.button"), class: "button button__sm md:button__lg button__secondary", data: { passkey_target: "submit" } %>
+  </div>
+<% end %>

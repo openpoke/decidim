@@ -24,7 +24,7 @@ module Decidim
             clear_pending_oauth_data!
 
             if user.active_for_authentication?
-              sign_in_and_redirect user, event: :authentication
+              sign_in_and_redirect user, event: :authentication, two_factor: (:bypassed if bypass_two_factor?)
               set_flash_message :notice, :success, kind: @form.provider.capitalize
             else
               expire_data_after_sign_in!
@@ -98,6 +98,10 @@ module Decidim
 
       def verified_email
         @verified_email ||= pending_oauth_data&.dig(:verified_email)
+      end
+
+      def bypass_two_factor?
+        ActiveModel::Type::Boolean.new.cast(current_organization.enabled_omniauth_providers.dig(@form.provider.to_sym, :bypass_two_factor))
       end
 
       def pending_oauth_data

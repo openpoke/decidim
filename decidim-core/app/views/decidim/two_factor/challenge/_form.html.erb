@@ -1,0 +1,13 @@
+<%= decidim_form_for(challenge_form, url: submit_path, method: local_assigns[:submit_method] || :post, html: { class: "two-factor__form" }) do |f| %>
+  <div class="form__wrapper">
+    <%= f.text_field :code,
+                     label: t("decidim.two_factor.challenge.#{method_name}.code_label"),
+                     value: nil,
+                     placeholder: local_assigns.fetch(:placeholder, "123456"),
+                     autocomplete: local_assigns.fetch(:autocomplete, "one-time-code"),
+                     inputmode: local_assigns.fetch(:inputmode, "numeric") %>
+
+    <%= hidden_field_tag :method_name, method_name, id: nil %>
+    <%= f.submit t("decidim.two_factor.challenge.confirm"), class: "button button__sm md:button__lg button__secondary" %>
+  </div>
+<% end %>

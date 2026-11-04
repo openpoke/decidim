@@ -32,6 +32,7 @@ end
     </div>
   <% end %>
   <%= display_onboarding_action_message(current_user) %>
+  <%= cell("decidim/two_factor_setup_message", current_user) if current_user && !current_user_impersonated? %>
 
   <div id="content" data-content>
     <%= yield %>

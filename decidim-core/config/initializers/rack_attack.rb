@@ -44,6 +44,24 @@ if Rails.env.production? || Rails.env.test?
       Rack::Attack.throttle("limit postal letter verification attempts per ip", limit: 10, period: 60.seconds) do |request|
         request.ip if request.path.match?(%r{^/[^/]+/postal_letter/authorizations(?:\.[^/]+)?$}) && request.put?
       end
+
+      # Throttle second-factor code submissions to 10 reqs/minute
+      # Return the IP as a discriminator on POST two_factor_challenge requests
+      Rack::Attack.throttle("limit two-factor challenge attempts per ip", limit: 10, period: 60.seconds) do |request|
+        request.ip if request.post? && request.path.include?("/two_factor_challenge")
+      end
+
+      # Throttle passkey sign ins to 10 reqs/minute
+      # Return the IP as a discriminator on POST passkey_session requests
+      Rack::Attack.throttle("limit passkey sign in attempts per ip", limit: 10, period: 60.seconds) do |request|
+        request.ip if request.post? && request.path.include?("/passkey_session")
+      end
+
+      # Throttle two-factor settings changes to 10 reqs/minute
+      # Return the IP as a discriminator on POST and DELETE two_factor_authentication requests
+      Rack::Attack.throttle("limit two-factor settings attempts per ip", limit: 10, period: 60.seconds) do |request|
+        request.ip if %w(POST DELETE).include?(request.request_method) && request.path.include?("/two_factor_authentication")
+      end
     end
   end
 end

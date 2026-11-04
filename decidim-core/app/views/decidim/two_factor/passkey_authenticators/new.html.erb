@@ -1,0 +1,30 @@
+<% add_decidim_page_title(t("title", scope: "decidim.two_factor.passkey_authenticators.new")) %>
+<% content_for(:subtitle) { t("two_factor_authentication", scope: "layouts.decidim.user_profile") } %>
+
+<%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
+  <h2 class="h5"><%= t("title", scope: "decidim.two_factor.passkey_authenticators.new") %></h2>
+  <p class="help-text"><%= t("intro", scope: "decidim.two_factor.passkey_authenticators.new") %></p>
+
+  <%= decidim_form_for(@form,
+                       url: two_factor_authentication_passkey_authenticator_path,
+                       method: :post,
+                       html: { class: "two-factor__form", data: { controller: "passkey", passkey_ceremony_value: "registration", passkey_options_value: @registration_options.as_json.to_json, action: "submit->passkey#submit" } }) do |f| %>
+    <p class="two-factor__error" role="alert" data-passkey-target="unsupported" hidden><%= t("unsupported", scope: "decidim.two_factor.passkey_authenticators.new") %></p>
+    <p class="two-factor__error" role="alert" data-passkey-target="duplicate" hidden><%= t("duplicate", scope: "decidim.two_factor.passkey_authenticators.new") %></p>
+    <p class="two-factor__error" role="alert" data-passkey-target="error" hidden><%= t("failed", scope: "decidim.two_factor.passkey_authenticators.new") %></p>
+
+    <div class="form__wrapper">
+      <%= f.text_field :name,
+                       label: t("name_label", scope: "decidim.two_factor.passkey_authenticators.new"),
+                       placeholder: t("name_placeholder", scope: "decidim.two_factor.passkey_authenticators.new"),
+                       data: { controller: "character-counter" } %>
+
+      <%= f.hidden_field :credential, id: nil, value: nil, data: { passkey_target: "credential" } %>
+
+      <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+        <%= link_to t("cancel", scope: "decidim.two_factor.passkey_authenticators.new"), two_factor_authentication_path, class: "button button__sm md:button__lg button__transparent-secondary" %>
+        <%= f.submit t("create", scope: "decidim.two_factor.passkey_authenticators.new"), class: "button button__sm md:button__lg button__secondary", data: { passkey_target: "submit" } %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

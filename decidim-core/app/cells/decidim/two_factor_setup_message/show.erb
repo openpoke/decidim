@@ -1,0 +1,16 @@
+<div id="two-factor-setup-message-container" class="container">
+  <div class="flash warning">
+    <div class="flash__icon">
+      <%= icon("information-line") %>
+    </div>
+
+    <div class="flash__message">
+      <%= two_factor_setup_message(user) %>
+    </div>
+
+    <%= button_to decidim.dismiss_banner_two_factor_authentication_path, form_class: "close-button", role: :button, method: :post do %>
+      <span class="sr-only"><%= t("dismiss", scope: "decidim.two_factor_setup_message") %></span>
+      <%= icon("close-line") %>
+    <% end %>
+  </div>
+</div>
