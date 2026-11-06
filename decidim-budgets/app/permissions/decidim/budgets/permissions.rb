@@ -4,6 +4,7 @@ module Decidim
   module Budgets
     class Permissions < Decidim::DefaultPermissions
       def permissions
+        return permission_action if permission_action.scope == :public && public_action_allowed?
         return permission_action unless user
 
         # Delegate the admin permission checks to the admin permissions class
@@ -15,12 +16,14 @@ module Decidim
           can_vote?(false) if can_vote_project?(project || order&.projects&.first)
         when [:report, :project]
           permission_action.allow!
-        when [:read, :project]
-          toggle_allow(project.visible?)
         when [:create, :order]
           can_vote?(true)
         when [:export_pdf, :order]
           can_export_pdf?
+        when [:destroy, :order]
+          can_destroy_order?
+        when [:read, :order]
+          can_read_order?
         end
 
         permission_action
@@ -44,6 +47,17 @@ module Decidim
         @workflow ||= context.fetch(:workflow, nil)
       end
 
+      def public_action_allowed?
+        return unless permission_action.action == :read
+
+        case permission_action.subject
+        when :project
+          toggle_allow(project.nil? || (project.visible? && !project.deleted? && !project.budget.deleted?))
+        when :budget
+          toggle_allow(budget.nil? || !budget.deleted?)
+        end
+      end
+
       def can_vote?(active_allow)
         is_allowed = workflow.vote_allowed?(budget)
 
@@ -64,6 +78,18 @@ module Decidim
         is_allowed = order.user == user
 
         toggle_allow(is_allowed)
+      end
+
+      def can_destroy_order?
+        is_allowed = user.present? &&
+                     order&.user == user &&
+                     current_settings&.votes == "enabled"
+
+        toggle_allow(is_allowed)
+      end
+
+      def can_read_order?
+        toggle_allow(user.present? && order&.user == user)
       end
     end
   end

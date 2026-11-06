@@ -103,6 +103,19 @@ module Decidim::Assemblies
         end
       end
 
+      context "when there is a trashed space with the same slug" do
+        let!(:trashed_space) { create(:assembly, :trashed, slug: "slug", organization:) }
+
+        let(:form) do
+          Admin::AssemblyForm.from_params(params.deep_merge(assembly: { slug: "slug" })).with_context(context)
+        end
+
+        it "broadcasts invalid" do
+          expect { command.call }.to broadcast(:invalid)
+          expect(form.errors[:slug]).not_to be_empty
+        end
+      end
+
       context "when the uploaded hero image has too large dimensions" do
         let(:attachment_params) do
           {
@@ -232,6 +245,20 @@ module Decidim::Assemblies
 
             expect(my_assembly.parent).to be_nil
             expect(parent_assembly.children_count).to eq(parent_assembly.children.count)
+          end
+        end
+
+        context "when updating the parent to an assembly from another organization" do
+          let(:other_organization) { create(:organization) }
+          let!(:other_assembly) { create(:assembly, organization: other_organization) }
+
+          it "does not set the parent" do
+            form.parent_id = other_assembly.id
+
+            command.call
+            my_assembly.reload
+
+            expect(my_assembly.parent).to be_nil
           end
         end
       end

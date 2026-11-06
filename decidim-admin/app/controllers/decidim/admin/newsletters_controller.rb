@@ -55,6 +55,7 @@ module Decidim
 
           on(:invalid) do |newsletter|
             @newsletter = newsletter
+            @form.images = content_block.images_container
             flash.now[:error] = I18n.t("newsletters.create.error", scope: "decidim.admin")
             render action: :new, status: :unprocessable_entity
           end
@@ -112,6 +113,7 @@ module Decidim
       end
 
       def recipients_count
+        enforce_permission_to :read, :newsletter, newsletter:
         @form = form(SelectiveNewsletterForm).from_params(newsletter_params)
         render plain: recipients_count_query
       end
@@ -180,6 +182,8 @@ module Decidim
           (newsletter_params[key] || {}).transform_values { |space| space["ids"] || [] }
         end
       end
+
+      protected
 
       def collection
         @collection ||= Newsletter.where(organization: current_organization)

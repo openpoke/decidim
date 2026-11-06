@@ -115,8 +115,7 @@ describe("CommentsComponent", () => {
             data-input-emoji="true"
             name="comment[body]"
             aria-describedby="add-comment-${modelName}-${modelId}-remaining-characters_sr"
-            data-input-emoji-initialized="true"
-            data-tribute="true">
+            data-input-emoji-initialized="true">
           </textarea>
           <span class="emoji__trigger">
             <button class="emoji__button" type="button" aria-label="Add emoji">
@@ -374,6 +373,12 @@ describe("CommentsComponent", () => {
 
   it("exists", () => {
     expect(CommentsComponent).toBeDefined();
+  });
+
+  it("generates an ID if not defined", () => {
+    const dummyElement = document.createElement("div");
+    const component = new CommentsComponent($(dummyElement), {});
+    expect(component.id).toMatch(/^comments-\d{1,3}-\d+$/);
   });
 
   it("initializes unmounted", () => {

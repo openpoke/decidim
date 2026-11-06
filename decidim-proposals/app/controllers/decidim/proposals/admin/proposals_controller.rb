@@ -18,9 +18,12 @@ module Decidim
 
         before_action :check_admin_session_filters, only: [:index]
 
-        def index; end
+        def index
+          enforce_permission_to :read, :proposal
+        end
 
         def show
+          enforce_permission_to(:read, :proposal, proposal:)
           @notes_form = form(ProposalNoteForm).instance
           @answer_form = form(Admin::ProposalAnswerForm).from_model(proposal)
         end
@@ -52,7 +55,7 @@ module Decidim
         def update_taxonomies
           enforce_permission_to :update, :proposal_taxonomy
 
-          Admin::UpdateProposalTaxonomies.call(params[:taxonomies], proposal_ids, current_organization) do
+          Admin::UpdateProposalTaxonomies.call(params[:taxonomies], proposal_ids, current_component) do
             on(:invalid_taxonomies) do
               flash[:error] = I18n.t(
                 "proposals.update_taxonomies.select_a_taxonomy",
@@ -157,7 +160,7 @@ module Decidim
         end
 
         def proposal
-          @proposal ||= collection.find(params[:id])
+          @proposal ||= accessible_proposals_collection.find(params.require(:id))
         end
 
         def proposal_ids

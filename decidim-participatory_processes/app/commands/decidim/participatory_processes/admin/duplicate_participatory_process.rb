@@ -29,9 +29,9 @@ module Decidim
             ParticipatoryProcess.transaction do
               duplicate_participatory_process
               duplicate_participatory_process_attachments
+              duplicate_landing_page_blocks
               duplicate_participatory_process_steps if @form.duplicate_steps?
               duplicate_participatory_process_components if @form.duplicate_components?
-              duplicate_landing_page_blocks if @form.duplicate_landing_page_blocks?
             end
           end
 
@@ -110,8 +110,10 @@ module Decidim
         end
 
         def duplicate_landing_page_blocks
+          # rubocop:disable Decidim/OrganizationScopedFinder -- scoped to the duplicated process's organization
           blocks = Decidim::ContentBlock.where(scoped_resource_id: @participatory_process.id, scope_name: "participatory_process_homepage",
                                                organization: @participatory_process.organization)
+          # rubocop:enable Decidim/OrganizationScopedFinder
           return if blocks.blank?
 
           blocks.each do |block|

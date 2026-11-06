@@ -119,7 +119,7 @@ describe "Decidim::Api::QueryType" do
         ]
       },
       "url" => Decidim::EngineRouter.main_proxy(current_component).root_url,
-      "weight" => 0
+      "weight" => current_component.weight
     }
   end
 
@@ -276,7 +276,7 @@ describe "Decidim::Api::QueryType" do
           let!(:current_user) { nil }
 
           it "should be visible" do
-            expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result.merge("projects" => [nil, nil]))
+            expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
           end
         end
 
@@ -426,7 +426,7 @@ describe "Decidim::Api::QueryType" do
           let!(:current_user) { nil }
 
           it "is visible" do
-            expect(response["assembly"]["components"].first[lookout_key]).to eq(query_result.merge("projects" => [nil, nil]))
+            expect(response["assembly"]["components"].first[lookout_key]).to eq(query_result)
           end
         end
 

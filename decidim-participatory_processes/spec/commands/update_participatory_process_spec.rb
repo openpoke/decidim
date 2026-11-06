@@ -72,6 +72,19 @@ module Decidim::ParticipatoryProcesses
         end
       end
 
+      context "when there is a trashed space with the same slug" do
+        let!(:trashed_space) { create(:participatory_process, :trashed, slug: "slug", organization:) }
+
+        let(:form) do
+          Admin::ParticipatoryProcessForm.from_params(params.deep_merge(participatory_process: { slug: "slug" })).with_context(context)
+        end
+
+        it "broadcasts invalid" do
+          expect { command.call }.to broadcast(:invalid)
+          expect(form.errors[:slug]).not_to be_empty
+        end
+      end
+
       describe "when the participatory process is not valid" do
         before do
           allow(form).to receive(:invalid?).and_return(false)
@@ -129,6 +142,19 @@ module Decidim::ParticipatoryProcesses
 
             linked_processes = my_process.linked_participatory_space_resources(:participatory_process, "related_processes")
             expect(linked_processes).to contain_exactly(another_process)
+          end
+
+          context "when a related process belongs to another organization" do
+            let(:other_organization) { create(:organization) }
+            let!(:foreign_process) { create(:participatory_process, organization: other_organization) }
+
+            it "does not link the other process" do
+              allow(form).to receive(:related_process_ids).and_return([another_process.id, foreign_process.id])
+              command.call
+
+              linked_processes = my_process.linked_participatory_space_resources(:participatory_process, "related_processes")
+              expect(linked_processes).to contain_exactly(another_process)
+            end
           end
         end
       end

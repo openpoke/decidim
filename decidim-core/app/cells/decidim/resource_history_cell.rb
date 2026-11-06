@@ -35,15 +35,20 @@ module Decidim
     end
 
     def render?
-      linked_resources_items.any? { |item| item[:resources].present? }
+      linked_resources_items.any? { |item| visible_resources(item[:resources]).present? }
     end
 
     private
 
-    def add_linked_resources_items(resources, options)
-      return if resources.blank?
+    # Resources from other participatory spaces are only shown when their space is visible
+    def visible_resources(resources)
+      return [] if resources.blank?
 
-      resources.each do |resource|
+      resources.select { |resource| resource.try(:participatory_space) == @model.try(:participatory_space) || resource.visible? }
+    end
+
+    def add_linked_resources_items(resources, options)
+      visible_resources(resources).each do |resource|
         title = decidim_sanitize_translated(resource.title)
         url = resource_locator(resource).path
         link = link_to(title, url, class: "underline decoration-current text-secondary font-semibold")

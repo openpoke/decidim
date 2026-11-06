@@ -34,6 +34,7 @@ shared_examples "manage landing page examples" do
             find("a", text: "Hero image and CTA", exact_text: true).click
           end
         end
+        expect(page).to have_content("Content block successfully created.")
       end.to change(active_content_blocks, :count).by(1)
     end
 
@@ -47,6 +48,7 @@ shared_examples "manage landing page examples" do
             find("a", text: "Hero image and CTA", exact_text: true).click
           end
         end
+        expect(page).to have_content("Content block successfully created.")
 
         first("ul.js-list-available li").drag_to(find("ul.js-list-actives"))
         sleep(2)
@@ -72,6 +74,7 @@ shared_examples "manage landing page examples" do
 
     it "updates the settings of the content block" do
       visit edit_content_block_path(resource, content_block)
+      expect(page).to have_css("form.edit_content_block")
 
       fill_in(
         :content_block_settings_button_text_en,
@@ -79,12 +82,25 @@ shared_examples "manage landing page examples" do
       )
 
       click_on "Update"
+      expect(page).to have_no_css("form.edit_content_block")
+
       visit edit_content_block_path(resource, content_block)
       expect(page).to have_css("input[value='Custom button text!']")
 
       content_block.reload
 
       expect(content_block.settings.to_json).to match(/Custom button text!/)
+    end
+
+    it "displays the 'Resolution is too large' error message when image is invalid" do
+      visit edit_content_block_path(resource, content_block)
+
+      dynamically_attach_file(:content_block_images_background_image, Decidim::Dev.asset("8001x4000.png"))
+
+      click_on "Update"
+      sleep 1
+
+      expect(page).to have_text("File resolution is too large")
     end
   end
 end

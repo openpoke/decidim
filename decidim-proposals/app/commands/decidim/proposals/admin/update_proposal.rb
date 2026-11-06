@@ -36,7 +36,7 @@ module Decidim
           transaction do
             update_proposal
             update_proposal_author
-            document_cleanup!(include_all_attachments: true)
+            attachment_cleanup!(include_all_attachments: true)
             create_attachments(first_weight: first_attachment_weight) if process_attachments?
           end
 
@@ -48,7 +48,7 @@ module Decidim
         attr_reader :form, :proposal, :attachment, :gallery
 
         def delete_attachment(attachment)
-          Attachment.find(attachment.id).delete if attachment.id.to_i == proposal.documents.first.id
+          proposal.attachments.find(attachment.id).delete if attachment.id.to_i == proposal.documents.first.id
         end
 
         def update_proposal

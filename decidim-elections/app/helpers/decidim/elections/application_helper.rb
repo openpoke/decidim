@@ -39,7 +39,11 @@ module Decidim
 
       def question_title(question, tag = :h3, **options)
         content_tag(tag, **options) do
-          translated_attribute(question.body)
+          title = translated_attribute(question.body)
+          if question.max_choices.present? && question.question_type == "multiple_option"
+            title += " (#{t("decidim.elections.votes.question.max_choices", count: question.max_choices)})"
+          end
+          title.html_safe
         end
       end
 
@@ -53,6 +57,13 @@ module Decidim
         else
           Decidim::ContentProcessor.render(sanitized, "div")
         end
+      end
+
+      def render_question_description(question)
+        description = translated_attribute(question.description)
+        return if description.blank?
+
+        decidim_sanitize_editor_admin(description)
       end
 
       def selected_response_option_id(question)
