@@ -13,7 +13,7 @@ module Decidim
       before_action :set_commentable, except: [:destroy, :update]
       before_action :ensure_commentable!, except: [:destroy, :update]
 
-      helper_method :root_depth, :commentable, :order, :reply?, :reload?, :root_comment, :load_more?, :comments_offset, :alignment
+      helper_method :root_depth, :commentable, :order, :reply?, :reload?, :root_comment, :load_more?, :comments_offset, :alignment, :current_component
 
       def index
         enforce_permission_to(:read, :comment, commentable:)
@@ -144,14 +144,18 @@ module Decidim
 
       def set_commentable
         @commentable ||= if commentable_gid
-                           GlobalID::Locator.locate_signed(commentable_gid)
+                           resource = GlobalID::Locator.locate_signed(commentable_gid)
+                           ensure_in_organization!(resource)
+                           resource
                          elsif comment
                            comment.root_commentable
                          end
       end
 
       def set_comment
-        @comment = Decidim::Comments::Comment.find_by(id: params[:id])
+        @comment = Decidim::Comments::Comment
+                   .for_organization(organization: current_organization)
+                   .find(params.expect(:id))
       end
 
       def ensure_commentable!

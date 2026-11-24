@@ -439,7 +439,7 @@ ca:
             success: Enquesta actualitzada correctament.
         poll:
           edit:
-            title: Edita l'enquesta
+            title: Editar l'enquesta
           form:
             announcement_html:
             - Quan una pregunta rep respostes o està publicada/tancada, ja no es pot seguir editant.
@@ -448,7 +448,7 @@ ca:
             - Visita la <a href='%{admin_link}'>pàgina d'administració d'enquestes</a> per enviar preguntes i publicar resultats.
         registration_form:
           edit_questions:
-            title: Edita les preguntes
+            title: Editar les preguntes
         registrations:
           edit:
             save: Desa
@@ -753,9 +753,11 @@ ca:
         create:
           invalid: S'ha produït un error en inscriure's a aquesta trobada.
           success: T'has inscrit a la trobada amb èxit. Per estar inscrita, rebràs notificacions si s'hi produeixen actualitzacions.
+          unauthorized: Cal que iniciïs la teva sessió abans d'inscriure't a la trobada.
         decline_invitation:
           invalid: S'ha produït un error en declinar la invitació.
           success: Has declinat la invitació amb èxit.
+          unauthorized: Cal que iniciïs la teva sessió abans de rebutjar la invitació.
         destroy:
           invalid: S'ha produït un error en abandonar aquesta trobada.
           success: Has abandonat la trobada amb èxit.

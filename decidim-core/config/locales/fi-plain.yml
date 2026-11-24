@@ -118,8 +118,6 @@ fi-pl:
       decidim_with_month_name_short: "%d. %b"
       help:
         date_format: 'Muoto: pp.kk.vvvv'
-      order: d-m-y
-      separator: "."
   datetime:
     distance_in_words:
       about_x_hours:
@@ -252,6 +250,7 @@ fi-pl:
         create: "%{user_name} lisäsi %{resource_name} -komponentin %{space_name} -tilaan"
         delete: "%{user_name} poisti %{resource_name} -komponentin %{space_name} -tilasta"
         export_component: "%{user_name} vei komponentin %{component_name} %{resource_name} tilassa %{space_name} tiedostomuodossa %{format_name}"
+        menu_hidden: "%{user_name} piilotti komponentin %{resource_name} osallistumistilan %{space_name} valikosta"
         publish: "%{user_name} julkaisi %{resource_name} -komponentin %{space_name} -tilassa"
         restore: "%{user_name} palautti komponentin %{resource_name} tilassa %{space_name}"
         soft_delete: "%{user_name} siirsi komponentin %{resource_name} roskakoriin tilassa %{space_name}"
@@ -858,6 +857,8 @@ fi-pl:
     errors:
       files:
         file_cannot_be_processed: Tiedostoa ei voida käsitellä
+        file_contains_unsafe_content: Tiedosto sisältää vaarallista sisältöä
+        file_is_not_a_valid_image: Kuvatiedosto ei ole kelvollinen
         file_resolution_too_large: Tiedoston resoluutio on liian suuri
         not_inside_organization: Tiedostoa ei ole liitetty mihinkään organisaatioon.
       internal_server_error:
@@ -1712,6 +1713,8 @@ fi-pl:
       login_modal:
         please_log_in: Kirjaudu sisään
         sign_up: Luo tili
+      mentions:
+        search_prompt: Kirjoita etsiäksesi osallistujia
       mentions_modal:
         remove_recipient: Poista vastaanottaja %{name}
       progress: Edistyminen
@@ -2092,7 +2095,6 @@ fi-pl:
   layouts:
     decidim:
       announcements:
-        view_less: Näytä vähemmän
         view_more: Lisätietoa
       data_consent:
         details:
