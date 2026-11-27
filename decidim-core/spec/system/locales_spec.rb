@@ -69,14 +69,6 @@ describe "Locales" do
       let(:user) { create(:user, :confirmed, locale: "ca", organization:) }
 
       before do
-        allow(Rails.application).to \
-          receive(:env_config).with(no_args).and_wrap_original do |m, *|
-          m.call.merge(
-            "action_dispatch.show_exceptions" => true,
-            "action_dispatch.show_detailed_exceptions" => false
-          )
-        end
-
         login_as user, scope: :user
 
         # Prevent flaky spec, where sometimes the language is not changed before the visit

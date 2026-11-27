@@ -17,13 +17,13 @@ module Decidim
       def linked_resources_items
         [
           {
-            resources: @model.linked_resources(:proposals, "included_proposals"),
+            resources: @model.linked_resources(:proposals, "included_proposals", cross_space: true),
             link_name: "included_proposals",
             text_key: "decidim.proposals.proposal.budget_text",
             icon_key: "Decidim::Proposals::Proposal"
           },
           {
-            resources: @model.linked_resources(:results, "included_projects"),
+            resources: @model.linked_resources(:results, "included_projects", cross_space: true),
             link_name: "included_projects",
             text_key: "decidim.accountability.result.budget_text",
             icon_key: "Decidim::Accountability::Result"
